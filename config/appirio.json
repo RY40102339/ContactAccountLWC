@@ -1,0 +1,10 @@
+{
+  "cmc": {
+    "enabled": true,
+    "products": ["Yokogawa Phase 1"]
+  },
+  "productionOrgId": "00D2w000003LqFbEAK",
+  "projectType": "sfdx-org",
+  "sourceBranchToClone": "master",
+  "sourceControlType": "git"
+}

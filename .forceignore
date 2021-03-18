@@ -1,0 +1,103 @@
+# List files or directories below to ignore them when running force:source:push, force:source:pull, and force:source:status
+# More information: https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_exclude_source.htm
+#
+
+package.xml
+
+# LWC configuration files
+**/jsconfig.json
+**/.eslintrc.json
+
+# LWC Jest
+**/__tests__/**
+
+######################################
+# Section to define metadata exclusions for adx metadata:list command and Org Capture functionality in Appirio DX desktop app.
+# Please add/remove items to include/exclude appropriate metadata in your export.
+#
+# Format:
+#  MetadataType/ComponentName
+# Examples:
+#  ApexPage/yahoo_map
+#  CustomField/Account.SLA__c
+#  **/WorkBadge*
+#  CustomObjectTranslation/*
+#  Workflow*/*
+######################################
+
+# Metadata types excluded by default.
+#**/report/*
+#**/dashboards/*
+#**/emailTemplate/*
+#**/documents/*
+#**/CustomObjectTranslation/*
+
+# Only valid in production
+**/applications/standard__LightningInstrumentation*
+
+# By default, these two services are missing any cleanRules and are invalid
+**/cleanDataServices/DataCloudCompanyMatch*
+**/cleanDataServices/DataCloudLeadAppend*
+
+# By default, these valuesets are missing their standardValue and are invalid
+**/standardValueSets/IdeaMultiCategory*
+**/standardValueSets/IdeaStatus*
+**/standardValueSets/OpportunityCompetitor*
+**/standardValueSets/OrderType*
+**/standardValueSets/SocialPostReviewedStatus*
+
+# Ignore both the standard AppSwitcher and default SF1 app menus
+**/appMenus/AppSwitcher*
+**/appMenus/Salesforce1*
+
+# DevHub-related metadata that are only valid in production orgs
+**/objects/ActiveScratchOrg*
+**/objects/ScratchOrgInfo*
+**/objects/NamespaceRegistry*
+**/settings/DevHub*
+
+# Default case layout includes an invalid field:SOLUTION.ISSUE in RelatedSolutionList
+# Remove the relatedlist for RelatedSolutionList from the case page layout before enabling this
+**/layouts/Case-Case Layout*
+
+# This default list view has a name that is too long
+**/objects/CommSubscriptionChannelType/listViews/All_CommSubscriptionChannelTypes*
+
+# canShareAppsWithCommunities is invalid by default
+**/settings/Analytics*
+
+# You can't customize this model until you enable Einstein Attribution.
+**/settings/Campaign*
+
+# Default error with enableRelaxPartnerAccountFieldPref
+**/settings/Communities*
+
+# Default error with useLanguageFallback
+**/settings/Language*
+
+# Only valid if Pardot is enabled
+**/settings/Pardot*
+
+# Only valid if Platform Encryption is enabled
+**/settings/PlatformEncryption*
+
+# Default error with enableSendViaExchangePref in sandboxes
+**/settings/EmailAdministration*
+
+# Onlu valid if Territory Management 2.0 is enabled
+**/settings/Territory2*
+
+# Invalid in sandboxes
+**/settings/Search*
+
+# ManagedContentType is not supported by the api
+**/ManagedContentType/*
+
+# Profiles are ignored by default until QuickText tab issue is resolved.
+**/profiles/*
+
+# SAML configuration are a special case and should be handled uniquely.
+**/samlssoconfigs/*
+
+# Only valid if Send Email and activities are enabled across the pipeline.
+**/quickActions/SendEmail*
