@@ -3,8 +3,11 @@
     "enabled": true,
     "products": ["Yokogawa Phase 1"]
   },
+  "continuousIntegrationType": "gitlab",
+  "continuousIntegrationURL": "https://gitlab.appirio.com",
   "productionOrgId": "00D2w000003LqFbEAK",
   "projectType": "sfdx-org",
   "sourceBranchToClone": "master",
-  "sourceControlType": "git"
+  "sourceControlType": "git",
+  "workManagementTool": "cmc"
 }
