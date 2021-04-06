@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>aecm__No_Value_for_Roll_Up_Parent</fullName>
+    <active>true</active>
+    <errorConditionFormula>(aecm__Is_Rollup_Parent__c &amp;&amp; NOT(ISNULL( aecm__Dollar_Value__c )) &amp;&amp; NOT(ISNULL(  aecm__Quantified_Value__c  )))</errorConditionFormula>
+    <errorMessage>This record is flagged as a Roll Up Parent and there are entries in either\or the Dollar Values and/or Quantified Value fields which are not allowed when Is Rollup Parent is checked.</errorMessage>
+</ValidationRule>

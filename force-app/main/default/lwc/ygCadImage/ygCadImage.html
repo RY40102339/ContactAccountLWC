@@ -1,0 +1,117 @@
+<!--
+*******************************************************************************************************
+* (C) Copyright 2020 Yokogawa. All rights reserved.
+* This code is property of Yokogawa. Use, duplication and
+* disclosure in any form without permission of copyright holder is prohibited.
+* 
+******************************************************************************************************* 
+* @author Vinod Anandhan
+* @version 1.0
+* @created 05/14/2020
+* @description 
+* This component is used for the displaying the product CAD image in UI.
+*
+* *
+*  Change History:
+*  MM/DD/YYYY			Developer Name			Comments
+*  
+*  
+*
+*-->
+
+<template>
+    <div class="row mb-lg-5 mt-lg-5 pt-lg-5 mb-72">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-10 mb-4 mt-lg-5 m-l-r-12">
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <i class="fas float-right mr-lg-3 cursor-pointer" onclick={openModal}>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M0 0V24H24V0H0ZM9.99998 18C10.553 18 11 18.448 11 19C11 19.552 10.553 20 9.99998 20H5.00002C4.87003 20 4.74 19.973 4.61803 19.923C4.37302 19.8219 4.17802 19.6269 4.07705 19.382C4.02703 19.26 4.00003 19.13 4.00003 19V14C4.00003 13.448 4.44703 13 5.00002 13C5.553 13 6 13.448 6 14V16.586L9.29302 13.293C9.684 12.902 10.316 12.902 10.707 13.293C11.098 13.684 11.098 14.316 10.707 14.707L7.41398 18H9.99998ZM20 9.99998C20 10.552 19.553 11 19 11C18.447 11 18 10.552 18 9.99998V7.41398L14.707 10.707C14.512 10.902 14.256 11 14 11C13.744 11 13.488 10.902 13.293 10.707C12.902 10.316 12.902 9.684 13.293 9.29302L16.586 6H14C13.447 6 13 5.55202 13 5.00002C13 4.44802 13.447 4.00003 14 4.00003H19C19.13 4.00003 19.26 4.02703 19.382 4.07705C19.627 4.17806 19.822 4.37306 19.923 4.61803C19.974 4.74005 20 4.87003 20 5.00002V9.99998Z"
+                                        fill="#004F9B"></path>
+                                </svg>
+                            </i>
+                            <!--
+                                <i class="fas float-right mr-3 cursor-pointer">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <rect width="24" height="24" fill="#004F9B"></rect>
+                                        <path
+                                            d="M10.3114 10.328C10.3114 10.728 10.2274 11.072 10.0594 11.36C9.89142 11.648 9.66342 11.888 9.37542 12.08C9.09542 12.264 8.78342 12.4 8.43942 12.488V12.524C9.11942 12.612 9.64342 12.824 10.0114 13.16C10.3794 13.488 10.5634 13.944 10.5634 14.528C10.5634 15.008 10.4394 15.444 10.1914 15.836C9.94342 16.228 9.55942 16.54 9.03942 16.772C8.52742 17.004 7.86342 17.12 7.04742 17.12C6.53542 17.12 6.07942 17.08 5.67942 17C5.28742 16.92 4.90742 16.804 4.53942 16.652V14.936C4.90742 15.128 5.29142 15.272 5.69142 15.368C6.09142 15.456 6.45942 15.5 6.79542 15.5C7.40342 15.5 7.82342 15.404 8.05542 15.212C8.29542 15.012 8.41542 14.74 8.41542 14.396C8.41542 14.18 8.35942 13.996 8.24742 13.844C8.13542 13.692 7.93542 13.576 7.64742 13.496C7.36742 13.416 6.97142 13.376 6.45942 13.376H5.87142V11.828H6.47142C6.95942 11.828 7.33542 11.784 7.59942 11.696C7.86342 11.608 8.04742 11.488 8.15142 11.336C8.26342 11.176 8.31942 10.996 8.31942 10.796C8.31942 10.236 7.95142 9.956 7.21542 9.956C6.82342 9.956 6.47142 10.028 6.15942 10.172C5.85542 10.316 5.61942 10.44 5.45142 10.544L4.55142 9.164C4.89542 8.924 5.29542 8.724 5.75142 8.564C6.20742 8.396 6.77542 8.312 7.45542 8.312C8.33542 8.312 9.03142 8.488 9.54342 8.84C10.0554 9.192 10.3114 9.688 10.3114 10.328ZM19.2289 12.584C19.2289 14.056 18.8209 15.16 18.0049 15.896C17.1889 16.632 16.0649 17 14.6329 17H12.0529V8.432H14.8729C16.2249 8.432 17.2889 8.788 18.0649 9.5C18.8409 10.204 19.2289 11.232 19.2289 12.584ZM17.1169 12.656C17.1169 11.784 16.9289 11.14 16.5529 10.724C16.1849 10.308 15.6449 10.1 14.9329 10.1H14.0929V15.32H14.7529C15.5609 15.32 16.1569 15.1 16.5409 14.66C16.9249 14.212 17.1169 13.544 17.1169 12.656Z"
+                                            fill="white"></path>
+                                    </svg>
+                                </i>
+                                -->
+                        </div>
+                    </div>
+                    <div class="large-img item active text-center">
+                        <img class={className} src={firstImg} alt="yokogawa" />
+                        <div class="carousel-caption">
+                            <h3 class="notification f14 fbold">{imgName}</h3>
+                        </div>
+                    </div>
+                </div>
+                <ol class="carousel-indicators page-carousel-ind mt-2">
+                    <template for:each={imgURLs} for:item="imgURL">
+                        <li key={imgURL.key} data-img={imgURL.value} class={imgURL.className} onclick={swapImage}>
+                            <img src={imgURL.value} alt="yokogawa" />
+                        </li>
+                    </template>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <!--Use template if:true to display/hide popup based on isModalOpen value-->
+    <template if:true={isModalOpen}>
+        <!-- Modal/Popup Box LWC starts here -->
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+            aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <!-- Modal/Popup Box LWC header here -->
+                <header class="slds-modal__header h-60 border-0 rounded-0">
+                    <button
+                        class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse border-0 shadow-none"
+                        title="Close" onclick={closeModal}>
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 8L24 24M40 40L24 24M24 24L40 8L8 40" stroke="#004F9B" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                </header>
+                <!-- Modal/Popup Box LWC body starts here -->
+                <div class="slds-modal__content slds-p-around_medium radius-0" id="modal-content-id-1">
+                    <div class="row mt-5">
+                        <div class="col-lg-12 mb-4">
+                            <div class="carousel slide" data-ride="carousel">
+                                <!-- Wrapper for slides -->
+                                <div class="carousel-inner d-flex">
+                                    <div class="large-img-model item active m-auto">
+                                        <img class="actual-img" src={firstImg} alt="yokogawa" />
+                                        <div class="carousel-caption">
+                                            <h3 class="notification f14 fbold">{imgName}</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <ol class="carousel-indicators page-carousel-modal mt-2">
+                                    <template for:each={imgURLs} for:item="imgURL">
+                                        <li key={imgURL.key} data-img={imgURL.value} class={imgURL.className}
+                                            onclick={swapImageModel}>
+                                            <img src={imgURL.value} alt="yokogawa" />
+                                        </li>
+                                    </template>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+</template>

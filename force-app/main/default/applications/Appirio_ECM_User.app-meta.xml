@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <brand>
+        <headerColor>#00CF74</headerColor>
+        <logo>Purvue_Color_128x1282</logo>
+        <logoVersion>1</logoVersion>
+        <shouldOverrideOrgTheme>true</shouldOverrideOrgTheme>
+    </brand>
+    <description>Salesforce Portfolio, Capabilities, and Operations support</description>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <label>Appirio PURVUE User</label>
+    <navType>Standard</navType>
+    <tabs>standard-home</tabs>
+    <tabs>standard-Feed</tabs>
+    <tabs>aecm__Capability_Score_Card_v2</tabs>
+    <tabs>aecm__Capability_Processes_Overview</tabs>
+    <tabs>aecm__Program_Portfolio_Overview</tabs>
+    <tabs>aecm__Maturity_Progress_Overview</tabs>
+    <tabs>aecm__Capability_Pain_Point__c</tabs>
+    <tabs>aecm__Solution_Design__c</tabs>
+    <tabs>aecm__Process__c</tabs>
+    <tabs>aecm__Capability__c</tabs>
+    <tabs>aecm__Program__c</tabs>
+    <tabs>aecm__Program_Project__c</tabs>
+    <tabs>standard-report</tabs>
+    <tabs>standard-Dashboard</tabs>
+    <tabs>standard-File</tabs>
+    <tabs>aecm__Architecture_Domain__c</tabs>
+    <tabs>aecm__Process_Taxonomy__c</tabs>
+    <tabs>aecm__Resource__c</tabs>
+    <tabs>aecm__Pain_Point_Solutions__c</tabs>
+    <uiType>Lightning</uiType>
+    <utilityBar>Appirio_PURVUE_User_UtilityBar</utilityBar>
+</CustomApplication>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>aecm__Forecasted_Improvement_Priority__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <label>Forecasted Improvement Priority</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Not Acknowledged</fullName>
+                <default>false</default>
+                <label>Not Acknowledged</label>
+            </value>
+            <value>
+                <fullName>Acknowledged Low</fullName>
+                <default>false</default>
+                <label>Acknowledged Low</label>
+            </value>
+            <value>
+                <fullName>Moderate Importance</fullName>
+                <default>false</default>
+                <label>Moderate Importance</label>
+            </value>
+            <value>
+                <fullName>High Importance</fullName>
+                <default>false</default>
+                <label>High Importance</label>
+            </value>
+            <value>
+                <fullName>Critical for Success</fullName>
+                <default>false</default>
+                <label>Critical for Success</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

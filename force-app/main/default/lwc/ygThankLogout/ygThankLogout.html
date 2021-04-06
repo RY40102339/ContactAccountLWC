@@ -1,0 +1,44 @@
+<template>
+    <div class="row">
+        <div class="col-lg-6 mt-3">
+            <div class="section">
+                <div class="col-lg-12">
+                    <div class="col-lg-12 section-head">
+                        <img src={yoklogo} />
+                        <p class="f14 fbold float-right d-sm-none"><a href="mailto:icp-adm@cs.jp.yokogawa.com"
+                                class="blue-primary">Contact</a></p>
+                    </div>
+                    <div class="col-lg-12 section-head mt-4 bread-crumb">
+                        <h1 tabindex="0" role="heading" aria-level="1" class="noto-font f32 ft-weight-900 pr-5">
+                            {label.successfullyLoggedLbl}
+                        </h1>
+                    </div>
+                    <div class="col-lg-12 f14 noto-font grey-darkest p-0 mt-4">
+                        {label.thankLogoutLbl}
+                    </div>
+                    <div class="col-lg-12 pl-0 mt-4 pt-2">
+                        <span class="f14 noto-font grey-darkest">
+                            <a href="/login" class="text-right blue-primary f14">
+                                <ins>{label.signInLbl}</ins>
+                            </a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-sm-12 blue-primary-bg d-none d-sm-block">
+            <div class="row">
+                <div class="col-lg-12 mt-4 pr-5">
+                    <p class="f14 fbold noto-font contact-login  text-right mb-sm-0">
+                        <a class="white" href="mailto:icp-adm@cs.jp.yokogawa.com">Contact</a></p>
+                </div>
+                <div class="mac-book-section mt-4">
+                    <img src={macbook} />
+                </div>
+                <div class="i-phone-section position-absolute">
+                    <img src={iphone} />
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

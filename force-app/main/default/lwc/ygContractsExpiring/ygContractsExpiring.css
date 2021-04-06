@@ -1,0 +1,38 @@
+table.contractsExpiring-dtTable td:nth-child(1) {
+  width: 40%;
+  word-break: break-word;
+  padding: 1.5rem 0.75rem 1.5rem 0;
+}
+
+table.contractsExpiring-dtTable td:nth-child(2) {
+  width: 30%;
+  padding: 1.5rem 0.75rem 1.5rem 0;
+  word-break: break-word;
+}
+
+table.contractsExpiring-dtTable td:nth-child(3) {
+  width: 30%;
+  padding: 1.5rem 0.75rem 1.5rem 0;
+  word-break: break-word;
+}
+
+@media (min-width: 320px) and (max-width: 1149px) {
+  table.contractsExpiring-dtTable td:nth-child(1) {
+    width: 50%;
+    max-width: 50%;
+    word-break: break-word;
+    padding: 1.5rem 0.75rem 1.5rem 0;
+  }
+
+  table.contractsExpiring-dtTable td:nth-child(2),
+  table.contractsExpiring-dtTable th:nth-child(2) {
+    display: none;
+  }
+
+  table.contractsExpiring-dtTable td:nth-child(3) {
+    width: 50%;
+    max-width: 50%;
+    padding: 1.5rem 0.25rem 1.5rem 0;
+    word-break: break-word;
+  }
+}

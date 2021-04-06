@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>aecm__Maturity__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <inlineHelpText>Degree of overall maturity for a given capability or sub capability.</inlineHelpText>
+    <label>Maturity</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Undefined</fullName>
+                <default>true</default>
+                <label>Undefined</label>
+            </value>
+            <value>
+                <fullName>Defined</fullName>
+                <default>false</default>
+                <label>Defined</label>
+            </value>
+            <value>
+                <fullName>Optimizing</fullName>
+                <default>false</default>
+                <label>Optimizing</label>
+            </value>
+            <value>
+                <fullName>Leading</fullName>
+                <default>false</default>
+                <label>Leading</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

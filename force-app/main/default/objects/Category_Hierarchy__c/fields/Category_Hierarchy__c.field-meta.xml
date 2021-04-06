@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Category_Hierarchy__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>This fields lookup the same object&apos;s parent record.</description>
+    <externalId>false</externalId>
+    <label>Category Hierarchy</label>
+    <referenceTo>Category_Hierarchy__c</referenceTo>
+    <relationshipLabel>Category Hierarchy</relationshipLabel>
+    <relationshipName>CategoryHierarchies</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

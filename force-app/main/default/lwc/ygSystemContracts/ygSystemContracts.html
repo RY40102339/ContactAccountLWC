@@ -1,0 +1,112 @@
+<!--
+*******************************************************************************************************
+* (C) Copyright 2020 Yokogawa. All rights reserved.
+* This code is property of Yokogawa. Use, duplication and
+* disclosure in any form without permission of copyright holder is prohibited.
+* 
+******************************************************************************************************* 
+* @author Selvaraj Thangaraj
+* @version 1.0
+* @created 09/23/2020
+* @description 
+* This component is used for displaying contracts in systems page.
+*
+* 
+*  Change History:
+*  MM/DD/YYYY			Developer Name			Comments
+*  
+
+*-->
+
+<template>
+    <div class="row mt-2">
+        <div class="section">
+            <div class="col-lg-12 mb-2">
+                <div class="row sys-contract">
+                    <div class="col-lg-6 f12 m-f14 grey-darkest p-0">
+                        {label.lastSysInfo}
+                    </div>
+                    <div class="col-lg-6 f12 grey-dark-1 p-0 text-lg-right mt-3 mt-lg-0">
+                        {label.lastUpdData} <span class="grey-darkest fbold">{lastSysUpdateDate}</span>
+                    </div>
+                </div>
+            </div>
+            <template if:true={isProjDet}>
+                <div class="col-lg-12 mb-1">
+                    <template for:each={systemDetails} for:item="system">
+                        <div key={system} class="row pt-3 submit-data sys-contract">
+                            <div class="col-lg-3 mb-3">
+                                <div class="f12 grey-dark-1">
+                                    {label.system}
+                                </div>
+                                <div class="f14 grey-darkest">
+                                    <span class="fbold d-block">{system.projectName}</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 mb-3">
+                                <div class="f12 grey-dark-1">
+                                    {label.revision}
+                                </div>
+                                <div class="f14 grey-darkest">
+                                    <span class="fbold">{system.sysRevNo}</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 mb-3">
+                                <div class="f12 grey-dark-1">
+                                    {label.mtnPhase}
+                                </div>
+                                <div class="f14 grey-darkest fbold">
+                                    <span class={system.sysColorClassName}></span>{system.sysMtnPhase}
+                                </div>
+                            </div>
+                            <div class="col-lg-3 mb-3"></div>
+                        </div>
+                    </template>
+                </div>
+            </template>
+            <template for:each={contractList} for:item="contract">
+                <div key={contract} class="col-lg-12 mb-1">
+                    <div class="row pt-3 submit-data sys-contract">
+                        <div class="col-lg-3 mb-3">
+                            <div class="f12 grey-dark-1">
+                                {label.contNo}
+                            </div>
+                            <div class="f14">
+                                <span class="fbold d-block"><a class="grey-darkest text-hover-color"
+                                        href={contract.contractDetURL}><ins>{contract.contractNo}</ins></a></span>
+                                <span class="f12">{contract.contractName}</span>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 mb-3">
+                            <div class="f12 grey-dark-1">
+                                {label.startDate}
+                            </div>
+                            <div class="f14 grey-darkest">
+                                <span class="fbold">{contract.contractStartDt}</span>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 mb-3">
+                            <div class="f12 grey-dark-1">
+                                {label.endDate}
+                            </div>
+                            <div class="f14 grey-darkest">
+                                <span class="fbold d-block">{contract.contractEndDt}</span>
+                                <span class="f12 alert-orange">{contract.contractExpsIn}</span>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 mb-3">
+                            <div class="f12 grey-dark-1">
+                                {label.action}
+                            </div>
+                            <div class="f14 grey-darkest">
+                                <span class="fbold"><a class="grey-darkest text-hover-color"
+                                        href={contract.serviceReqURL}><ins>{contract.contractAction}</ins></a></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </div>
+    <div class="row pt-56"></div>
+</template>

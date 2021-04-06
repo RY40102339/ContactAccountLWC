@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>aecm__Domain_Header</fullName>
+    <fields>Name</fields>
+    <fields>aecm__Capability_Area_Count__c</fields>
+    <fields>aecm__Function__c</fields>
+    <fields>aecm__Overall_Score__c</fields>
+    <fields>aecm__Rollup_Process_Costs__c</fields>
+    <label>Domain Header</label>
+</CompactLayout>

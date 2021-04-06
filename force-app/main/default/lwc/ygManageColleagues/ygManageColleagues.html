@@ -1,0 +1,483 @@
+<!--
+*******************************************************************************************************
+* (C) Copyright 2020 Yokogawa. All rights reserved.
+* This code is property of Yokogawa. Use, duplication and
+* disclosure in any form without permission of copyright holder is prohibited.
+* 
+******************************************************************************************************* 
+* @author Satish
+* @version 1.0
+* @created 09/04/2020
+* @description 
+* This component is used for displaying the Manage Colleagues in UI.
+*
+* *
+*  Change History:
+*  MM/DD/YYYY			Developer Name			Comments
+*  
+*  
+*
+*-->
+<template>
+    <template if:true={isLoading}>
+        <div class="loading">
+            <div class="loading-txt">
+                <div class="row text-center">
+                    <div class="col-lg-12">
+                        <svg width="51" height="52" viewBox="0 0 51 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M0.410156 25.1209C11.2022 31.0632 20.0171 40.1454 25.6268 51.1329L25.6109 51.1349C31.2146 40.1493 40.0255 31.0692 50.8116 25.1249L50.7937 25.1407L25.6208 0L0.434001 25.1407L0.410156 25.1209Z"
+                                fill="#FFEE00"></path>
+                        </svg>
+                    </div>
+                    <div class="col-lg-12 mt-3" style="margin-top: 1rem !important;">
+                        <div class="spinner-border text-dark"></div>
+                        <div class="txt-load">Loading..</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+    <!--Use template if:true to display/hide based on user role is admin-->
+    <template if:true={roleFlag}>
+        <div class="row">
+            <div class="section">
+                <div class="col-lg-12">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="row pt-4">
+                                <div class="col-lg-12">
+                                    <div class="table-responsive mb-5 pb-2">
+                                        <div class="d-none">
+                                            <a class="triggerClick" onclick={triggetSelect}>trigger</a>
+                                            <input type="text" name="hiddenSelect" onselect={triggetSelect}>
+                                        </div>
+                                        <table lwc:dom="manual"
+                                            class="table table-borderless f14 manageColleagues-dtTable"></table>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="row pt-4 d-none d-sm-block">
+                                <div class="col-lg-12">
+                                <div class="grey-darkest col-lg-12 f20 mb-2 p-0">
+                                    <h2 class="noto-font f20">
+                                        <span class="ft-weight-800">Invite your colleagues</span>
+                                    </h2>
+                                </div>
+                                <div class="grey-darkest col-lg-12 f14 mb-3 p-0">
+                                    <h3 class="noto-font f14">
+                                        <span class="font-weight-normal">You may invite your colleagues via email with the link below.</span>
+                                    </h3>
+                                </div>
+                                <div class="col-lg-8 service-request p-0">
+                                    <div class="form-group mb-3">
+                                        <input type="text" name="inviteUrl" id="" placeholder="" class="form-control f14 fbold grey-darkest filterInput">
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="button" style="width:100%" class="btn btn-primary text-uppercase f14 ft-weight-800">
+                                            Copy invitation link
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Use template if:true to display/hide popup based on isModalOpen value-->
+        <template if:true={isModalOpen}>
+            <!-- Modal/Popup Box LWC starts here -->
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open request-detail">
+                <div class="slds-modal__container">
+                    <!-- Modal/Popup Box LWC header here -->
+                    <header class="slds-modal__header h-60 border-0 rounded-0">
+                        <button
+                            class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse border-0 shadow-none"
+                            title="Close" onclick={closeModal}>
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 8L24 24M40 40L24 24M24 24L40 8L8 40" stroke="#004F9B" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                    </header>
+                    <!-- Modal/Popup Box LWC body starts here -->
+                    <div class="slds-modal__content slds-p-around_medium radius-0" id="modal-content-id-1">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-12 manage-md-pd">
+                                    <div class="col-md-12 text-center mb-1">
+                                        <i class="fas">
+                                            <img src={profUserImgUrl} class="rounded-circle img72" width="72"
+                                                height="72" alt="user-image" />
+                                        </i>
+                                    </div>
+                                    <div class="col-md-12 align-items-center mc-sec">
+                                        <div class="row mb-lg-5 text-center d-sm-block">
+                                            <div class="col-lg-12 text-center mb-2">
+                                                <template if:true={isAdmin}>
+                                                    <span
+                                                        class="blue-primary f10 fbold is-admin-bg">{label.admin}</span>
+                                                </template>
+                                            </div>
+                                            <div class="col-lg-12 text-center">
+                                                <h2 role="heading" class="noto-font f20 grey-darkest mb-0">
+                                                    <span class="f20 font-weight-normal">
+                                                        <span>{userName}</span>
+                                                    </span>
+                                                </h2>
+                                            </div>
+                                            <div class="col-lg-12 text-center">
+                                                <label class="noto-font f14 grey-darkest">
+                                                    <span class="f14 font-weight-normal">
+                                                        <span>{userEmail}</span>
+                                                    </span>
+                                                </label>
+                                            </div>
+                                            <div class="col-lg-12 text-center mb-3">
+                                                <label class="noto-font f14 grey-darkest">
+                                                    <span class="f14 font-weight-normal">
+                                                        <span>{userPhone}</span>
+                                                    </span>
+                                                </label>
+                                            </div>
+
+                                            <template if:true={superadminflag}>
+                                                <div class="col-lg-12 mc-mb-32">
+                                                    <div class="row">
+                                                        <div class="col-lg-12 text-center ad-links">
+                                                            <div class="row">
+                                                                <template if:true={isLogUser}>
+
+                                                                    <div class="col-lg-2"></div>
+                                                                </template>
+                                                                <div class="col-lg-4 mb-3 text-lg-right">
+                                                                    <a href="javascript:void(0)"
+                                                                        class="text-right blue-primary text-hover-underline f14"
+                                                                        name="editSiteAccess"
+                                                                        onclick={handleEditSiteAccess}>
+                                                                        <i class="fas pr-1">
+                                                                            <svg width="16" height="16"
+                                                                                viewBox="0 0 16 16" fill="none"
+                                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                                <path d="M7 11.5L10.5 8L7 4.5"
+                                                                                    stroke="#004F9B" stroke-width="2"
+                                                                                    stroke-linecap="square"></path>
+                                                                            </svg>
+                                                                        </i>
+                                                                        Edit site access
+                                                                    </a>
+                                                                </div>
+                                                                <template if:false={isLogUser}>
+                                                                    <template if:false={isAdmin}>
+                                                                        <div class="col-lg-4 mb-3">
+                                                                            <a href="javascript:void(0)"
+                                                                                data-id="Set as admin"
+                                                                                onclick={setasAdmin}
+                                                                                class="text-right blue-primary text-hover-underline f14">
+                                                                                <i class="fas pr-1">
+                                                                                    <svg width="16" height="16"
+                                                                                        viewBox="0 0 16 16" fill="none"
+                                                                                        xmlns="http://www.w3.org/2000/svg">
+                                                                                        <path d="M7 11.5L10.5 8L7 4.5"
+                                                                                            stroke="#004F9B"
+                                                                                            stroke-width="2"
+                                                                                            stroke-linecap="square">
+                                                                                        </path>
+                                                                                    </svg>
+                                                                                </i>
+                                                                                {label.msg1}
+                                                                            </a>
+                                                                        </div>
+                                                                    </template>
+                                                                    <template if:true={isAdmin}>
+                                                                        <div class="col-lg-4 mb-3">
+                                                                            <a href="javascript:void(0)"
+                                                                                data-id="Revoke admin"
+                                                                                onclick={setasAdmin}
+                                                                                class="text-right blue-primary text-hover-underline f14">
+                                                                                <i class="fas pr-1">
+                                                                                    <svg width="16" height="16"
+                                                                                        viewBox="0 0 16 16" fill="none"
+                                                                                        xmlns="http://www.w3.org/2000/svg">
+                                                                                        <path d="M7 11.5L10.5 8L7 4.5"
+                                                                                            stroke="#004F9B"
+                                                                                            stroke-width="2"
+                                                                                            stroke-linecap="square">
+                                                                                        </path>
+                                                                                    </svg>
+                                                                                </i>
+                                                                                {label.msg2}
+                                                                            </a>
+                                                                        </div>
+                                                                    </template>
+                                                                </template>
+                                                                <div class="col-lg-4 mb-3 text-lg-left">
+                                                                    <a href="javascript:void(0)"
+                                                                        class="text-right blue-primary text-hover-underline f14"
+                                                                        name="deactive" onclick={confirmDeactive}>
+                                                                        <i class="fas pr-1">
+                                                                            <svg width="16" height="16"
+                                                                                viewBox="0 0 16 16" fill="none"
+                                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                                <path d="M7 11.5L10.5 8L7 4.5"
+                                                                                    stroke="#004F9B" stroke-width="2"
+                                                                                    stroke-linecap="square"></path>
+                                                                            </svg>
+                                                                        </i>
+                                                                        {label.msg3}
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </template>
+
+                                            <div class="col-lg-12 text-center submit-data p-2 mb-3 mc-with-no-site"
+                                                style="display:none">
+                                                <div class="text-center">
+                                                    <label class="noto-font f14 grey-darkest">
+                                                        <span class="f14 font-weight-normal">
+                                                            <span>{userName} {label.popupmsg}</span>
+                                                        </span>
+                                                    </label>
+                                                </div>
+                                                <div class="text-center">
+                                                    <label class="noto-font f14 grey-darkest site-plant-list">
+
+                                                    </label>
+                                                </div>
+                                                <div class="mc-approve" style="display:none">
+                                                    <div class="text-center mt-4 mb-4">
+                                                        <button type="button" data-id="approve" onclick={handleApprove}
+                                                            class="btn btn-primary text-uppercase f14 ft-weight-800 mc-mr-48">Approve</button>
+                                                        <button type="button" data-id="decline"
+                                                            onclick={handleDeclineUpdate}
+                                                            class="btn bg-white blue-primary btn-primary text-uppercase f14 ft-weight-800">Decline</button>
+                                                    </div>
+                                                </div>
+                                                <div class="mc-approved" style="display:none">
+                                                    <div class="text-center">
+                                                        <svg width="56" height="56" viewBox="0 0 56 56" fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M14 28L24.5 35L38.5 14" stroke="#00A04C"
+                                                                stroke-width="4"></path>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="text-center">
+                                                        <label class="noto-font f14 grey-darkest">
+                                                            <span class="f14 fbold">Approved.</span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="text-center">
+                                                        <label class="noto-font f14 grey-darkest">
+                                                            <span class="f14 font-weight-normal">
+                                                                <span>{userName} has been informed via email.</span>
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="mc-declined" style="display:none">
+                                                    <div class="text-center">
+                                                        <svg width="56" height="56" viewBox="0 0 56 56" fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <path
+                                                                d="M17.5 17.5L28 28M38.5 38.5L28 28M28 28L38.5 17.5L17.5 38.5"
+                                                                stroke="#CE4E0E" stroke-width="4" stroke-linecap="round"
+                                                                stroke-linejoin="round"></path>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="text-center">
+                                                        <label class="noto-font f14 grey-darkest">
+                                                            <span class="f14 fbold">Declined.</span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="text-center">
+                                                        <label class="noto-font f14 grey-darkest">
+                                                            <span class="f14 font-weight-normal">
+                                                                <span>{userName} has been informed via email.</span>
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="accessible-sites service-request" style="display:none">
+                                                <div class="col-lg-12">
+                                                    <div class="row">
+                                                        <div class="col-lg-12 text-center">
+                                                            <label class="noto-font f14 grey-darkest">
+                                                                <span class="f14 fbold text-wrap">
+                                                                    <span>Site(s) the user has access to:</span>
+                                                                </span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12 submit-data mb-3 approve-site-list">
+
+                                                </div>
+                                            </div>
+                                            <div class="no-accessible-sites service-request" style="display:none">
+                                                <div class="col-lg-12">
+                                                    <div class="row">
+                                                        <div class="col-lg-12 text-center">
+                                                            <label class="noto-font f14 grey-darkest">
+                                                                <span class="f14 fbold text-wrap">
+                                                                    <span>{userName} has no access to any sites.</span>
+                                                                </span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-12 submit-data mb-3">
+                                                    <div class="row">
+                                                        <div class="col-lg-12 text-center mt-3">
+                                                            <svg width="56" height="56" viewBox="0 0 56 56" fill="none"
+                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                <g clip-path="url(#clip0)">
+                                                                    <path d="M28 3.5L52.2487 45.5H3.75129L28 3.5Z"
+                                                                        fill="#F1BC1A"></path>
+                                                                    <path d="M28 37.334V42.0006" stroke="white"
+                                                                        stroke-width="2"></path>
+                                                                    <path d="M28 15.167V33.8337" stroke="white"
+                                                                        stroke-width="2"></path>
+                                                                </g>
+                                                                <defs>
+                                                                    <clipPath id="clip0">
+                                                                        <rect width="56" height="56" fill="white">
+                                                                        </rect>
+                                                                    </clipPath>
+                                                                </defs>
+                                                            </svg>
+                                                        </div>
+                                                        <div class="col-lg-12 text-center mb-3">
+                                                            <label class="noto-font f14 grey-darkest">
+                                                                <span class="f14 font-weight-normal">
+                                                                    <span>No site assigned</span>
+                                                                </span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+                                            <div class="col-lg-12 deactive-confirm" style="display:none">
+                                                <div class="row mb-lg-5 text-center">
+                                                    <div class="col-lg-12 mb-3">
+                                                        <div class="row">
+                                                            <div class="col-lg-12 p-0">
+                                                                <h2 role="heading"
+                                                                    class="noto-font blue-primary f20 mb-0">
+                                                                    <span class="f20 ft-weight-800">
+                                                                        <span>{label.deactivateUserConfirmationLbl}</span>
+                                                                    </span>
+                                                                </h2>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-12 mb-5">
+                                                        <div class="row">
+                                                            <div class="col-lg-12 mb-3">
+                                                                <span class="f14 font-weight-normal grey-darkest">
+                                                                    {label.deactivateUserConfirmationMsgLbl}
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-12 pt-2 mb-4">
+                                                        <div class="text-center">
+                                                            <button type="button" onclick={setasDeactive}
+                                                                class="btn bg-white blue-primary btn-primary text-uppercase f12 noto-font ft-weight-900 w-100">Confirm</button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-12 pt-2 mb-4">
+                                                        <div class="text-center">
+                                                            <a href="javascript:void(0)" onclick={closeModal}
+                                                                class="text-right blue-primary f14 text-hover-underline">{label.cancelbl}</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-12 deactive-msg mb-3" style="display:none">
+                                                <div class="row submit-data">
+                                                    <div class="col-lg-12 text-center mt-3">
+                                                        <svg width="56" height="56" viewBox="0 0 56 56" fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <g clip-path="url(#clip1)">
+                                                                <path d="M28 3.5L52.2487 45.5H3.75129L28 3.5Z"
+                                                                    fill="#F1BC1A"></path>
+                                                                <path d="M28 37.334V42.0006" stroke="white"
+                                                                    stroke-width="2"></path>
+                                                                <path d="M28 15.167V33.8337" stroke="white"
+                                                                    stroke-width="2"></path>
+                                                            </g>
+                                                            <defs>
+                                                                <clipPath id="clip1">
+                                                                    <rect width="56" height="56" fill="white">
+                                                                    </rect>
+                                                                </clipPath>
+                                                            </defs>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="col-lg-12 text-center mb-3">
+                                                        <label class="noto-font f14 grey-darkest">
+                                                            <span class="f14 font-weight-normal">
+                                                                <span>{userName} account has been successfully
+                                                                    deactivated.</span>
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12 pt-2 mb-4">
+                                                    <div class="text-center">
+                                                        <a href="javascript:void(0)" onclick={closeModal}
+                                                            class="text-right blue-primary f14 text-hover-underline">
+                                                            <i class="fas pr-1 ml-lg-3">
+                                                                <svg width="16" height="16" viewBox="0 0 16 16"
+                                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                    <path d="M5 5L8 8M11 11L8 8M8 8L11 5L5 11"
+                                                                        stroke="#004F9B" stroke-width="2"
+                                                                        stroke-linecap="round" stroke-linejoin="round">
+                                                                    </path>
+                                                                </svg>
+                                                            </i>{label.closeLbl}
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="mc-plant" style="display:none">
+                                                <div class="col-lg-12 mb-4">
+                                                    <form class="plant-list-form">
+                                                    </form>
+                                                </div>
+                                                <div class="col-lg-12 pt-1">
+                                                    <div class="form-group row">
+                                                        <button type="button" style="width:100%" onclick={saveSiteInfo}
+                                                            class="btn btn-primary text-uppercase f14 ft-weight-800">
+                                                            {label.save}
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </template>
+    </template>
+</template>

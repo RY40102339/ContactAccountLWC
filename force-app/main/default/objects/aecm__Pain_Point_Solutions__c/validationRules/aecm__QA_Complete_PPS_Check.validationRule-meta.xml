@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>aecm__QA_Complete_PPS_Check</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+ISCHANGED(aecm__QA_Complete__c),
+ISPICKVAL( aecm__Status__c,&apos;Project Completed&apos;),
+NOT( aecm__QA_Complete__c )
+)</errorConditionFormula>
+    <errorMessage>This Pain Point Solution is associated with a completed Program Project. You must change this association if you wish to change the status in order to uncheck QA complete check box.</errorMessage>
+</ValidationRule>

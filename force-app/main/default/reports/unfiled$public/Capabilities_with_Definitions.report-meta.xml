@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>aecm__Capability_Area__c.aecm__Capabilities__r$Name</field>
+    </columns>
+    <columns>
+        <field>aecm__Capability_Area__c.aecm__Capabilities__r$aecm__Short_Description__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>aecm__Capability_Area__c.aecm__Capabilities__r$Name</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>notEqual</operator>
+            <value>**placeholder**</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>aecm__Capability_Area__c$Name</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Capabilities with Definitions</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>aecm__Capability_Areas_with_Capabilities__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>aecm__Capability_Area__c.aecm__Capabilities__r$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

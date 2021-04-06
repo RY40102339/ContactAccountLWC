@@ -1,0 +1,67 @@
+<apex:page id="saml_register" cache="false" showHeader="false" sidebar="false" standardStylesheets="false" applyHtmlTag="false" applyBodyTag="false" docType="html-5.0">
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+    <meta content="initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0, minimal-ui" name="viewport"/>
+    <apex:stylesheet value="{!URLFOR($Resource.YG_CustomerPortal, 'YG_CSS/common.css')}"/>    
+    <apex:stylesheet value="{!URLFOR($Resource.YG_CustomerPortal, 'YG_CSS/style.css')}"/>
+    <script type="text/javascript" src="{!$Label.YG_CDC_Script}"></script>
+    <style>
+    body{
+        padding-top:0 !important;
+    }
+    h1.gigya-screen-caption{
+        border-bottom: 0 !important;
+        padding-top: 35px !important;
+    }
+    </style>
+    </head>
+    <body>
+        <div class="cb-section_column slds-size_12-of-12 slds-max-medium-size_12-of-12 slds-large-size_8-of-12">
+            <div class="row">
+                <div class="col-lg-6 mt-3">
+                  <div class="section">
+                     <div class="col-lg-12">
+                         <div class="col-lg-12 section-head">
+                            <apex:image url="{!URLFOR($Resource.YG_CustomerPortal, 'YG_Images/yok-logo.svg')}" alt="Yokogawa"/>
+                            <p class="f14 fbold float-right d-sm-none"><a href="mailto:icp-adm@cs.jp.yokogawa.com"
+                                class="blue-primary">Contact</a></p>
+                         </div>                     
+                         <div id="container" class="col-lg-10 p-0 mt-1 mb-3 form-section">
+                         </div>
+                     </div>
+                </div>
+               </div>           
+               <div class="col-lg-6 col-sm-12 blue-primary-bg d-none d-sm-block">
+                  <div class="row position-relative">
+                     <div class="col-lg-12 mt-4 pr-5">
+                        <p class="f14 fbold noto-font contact-login  text-right mb-sm-0">
+                        <a class="white" href="mailto:icp-adm@cs.jp.yokogawa.com">{!$Label.YG_Contact_RegisterPage}</a></p>
+                     </div>
+                     <div class="mac-book-section mt-4">
+                        <apex:image url="{!URLFOR($Resource.YG_CustomerPortal, 'YG_Images/macbook.svg')}" alt="Macbook"/>
+                        <div class="i-phone-section position-absolute">
+                            <apex:image url="{!URLFOR($Resource.YG_CustomerPortal, 'YG_Images/iphone.svg')}" alt="Iphone"/>
+                         </div>
+                     </div>
+                     
+                  </div>
+               </div>
+            </div>
+        </div>
+        <script>
+            gigya.socialize.addEventHandlers({
+                onLogin: function() {
+                    gigya.fidm.saml.continueSSO();
+                }
+            });
+        
+            gigya.accounts.showScreenSet({
+                    screenSet: 'Default-RegistrationLogin',
+                    startScreen:'gigya-register-screen',
+                    containerID: "container",
+                    sessionExpiration: '20000'
+            });
+        </script>
+    </body>
+    </html>        
+</apex:page>

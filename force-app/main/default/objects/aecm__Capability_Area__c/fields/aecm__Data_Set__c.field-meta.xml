@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>aecm__Data_Set__c</fullName>
+    <deprecated>false</deprecated>
+    <description>this field is used to ensure the system data set aligns to the Industry</description>
+    <externalId>false</externalId>
+    <label>Data Set</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>BFSI-Banking</fullName>
+                <default>false</default>
+                <label>BFSI-Banking</label>
+            </value>
+            <value>
+                <fullName>BFSI-Finance</fullName>
+                <default>false</default>
+                <label>BFSI-Finance</label>
+            </value>
+            <value>
+                <fullName>BFSI-Insurance</fullName>
+                <default>false</default>
+                <label>BFSI-Insurance</label>
+            </value>
+            <value>
+                <fullName>Contact Center</fullName>
+                <default>false</default>
+                <label>Contact Center</label>
+            </value>
+            <value>
+                <fullName>Default (Lead to Cash)</fullName>
+                <default>false</default>
+                <label>Default (Lead to Cash)</label>
+            </value>
+            <value>
+                <fullName>FSL</fullName>
+                <default>false</default>
+                <label>FSL</label>
+            </value>
+            <value>
+                <fullName>Higher Ed</fullName>
+                <default>false</default>
+                <label>Higher Ed</label>
+            </value>
+            <value>
+                <fullName>HLS-Healthcare</fullName>
+                <default>false</default>
+                <label>HLS-Healthcare</label>
+            </value>
+            <value>
+                <fullName>HLS-Pharma</fullName>
+                <default>false</default>
+                <label>HLS-Pharma</label>
+            </value>
+            <value>
+                <fullName>RTW</fullName>
+                <default>false</default>
+                <label>RTW</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

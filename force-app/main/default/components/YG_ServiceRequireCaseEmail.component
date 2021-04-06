@@ -1,0 +1,5 @@
+<apex:component controller="YG_ServiceRequestAndInquiries" access="global">   
+    <apex:repeat value="{!serviceRequire}" var="p">
+        <apex:outputText value=" {!p.Service_you_require__c}"/>
+    </apex:repeat>    
+</apex:component>

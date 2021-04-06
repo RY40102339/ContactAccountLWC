@@ -1,0 +1,163 @@
+<!--
+*******************************************************************************************************
+* (C) Copyright 2020 Yokogawa. All rights reserved.
+* This code is property of Yokogawa. Use, duplication and
+* disclosure in any form without permission of copyright holder is prohibited.
+* 
+******************************************************************************************************* 
+* @author Vinod Anandhan
+* @version 1.0
+* @created 05/19/2020
+* @description 
+* This component is used for displaying the product details in UI.
+*
+* *
+*  Change History:
+*  MM/DD/YYYY			Developer Name			Comments
+*  
+*  
+*
+*-->
+
+<template>
+    <div class="row pt-56">
+        <div class="section">
+            <div class="col-lg-12">
+                <h2 tabindex="0" role="heading" aria-level="2" class="noto-font f20 mb-3">
+                    <span class="notification f20 fbold">
+                        <span>{label.prodInformationLbl}</span>
+                    </span>
+                </h2>
+                <template if:true={prodInfoData}>
+                    <div class="col-lg-12 mb-1">
+                        <div class="row pt-3 submit-data">
+                            <div class="col-lg-6 mb-3">
+                                <div class="f12 grey-dark-1">
+                                    {label.prodNameLbl}
+                                </div>
+                                <div class="f14 grey-darkest">
+                                    <span class="fbold d-block">{prodInfoData.prodName}</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 mb-3">
+                                <div class="f12 grey-dark-1">
+                                    {label.serialNoCodeLbl}
+                                </div>
+                                <div class="f14 grey-darkest">
+                                    <span class="fbold d-block">{prodInfoData.serialNoCode}</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 mb-3">
+                                <div class="f12 grey-dark-1">
+                                    {label.msCodeLbl}
+                                </div>
+                                <div class="f14 grey-darkest">
+                                    <span class="fbold">{prodInfoData.msCode}</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 mb-3">
+                                <div class="f12 grey-dark-1">
+                                    {label.productCarrierLbl}
+                                </div>
+                                <div class="f14 grey-darkest">
+                                    <span class="fbold">{prodInfoData.prodCarrier}</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 mb-3">
+                                <div class="f12 grey-dark-1">
+                                    {label.tokuchuNoLbl}
+                                </div>
+                                <div class="f14 grey-darkest">
+                                    <span class="fbold">{prodInfoData.tokuchuNo}</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 mb-3">
+                                <div class="f12 grey-dark-1">
+                                    {label.xjNoLbl}
+                                </div>
+                                <div class="f14 grey-darkest">
+                                    <span class="fbold">{prodInfoData.xjNo}</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 mb-3">
+                                <div class="f12 grey-dark-1">
+                                    {label.productionDateLbl}
+                                </div>
+                                <div class="f14 grey-darkest">
+                                    <span class="fbold">{prodInfoData.productionDate}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                    <!--
+                <table key={prodInfoData.modelCode} class="table table-borderless prod-info mt-3">
+                    <tbody>
+                        <tr class="f14">
+                            <th class="gray">{label.productionDateLbl}</th>   
+                            <td class="notification">{prodInfoData.productionDate}</td>
+                        </tr>
+                        <tr class="f14">
+                            <th class="gray">{label.purchasedDateLbl}</th>    
+                            <td class="notification">{prodInfoData.purchasedDate}</td>
+                        </tr>
+                        <tr class="f14">
+                            <th class="gray">{label.warrentyLbl}</th>  
+                            <td class="notification">{prodInfoData.WarrStartDate} - {prodInfoData.WarrEndDate}</td>
+                        </tr>
+                        <tr class="f14">
+                            <th class="gray">{label.lcaLbl}</th>   
+                            <td class="notification">
+                                <a class="blue-primary disabled" href="javascript:void(0);">
+                                    <i class="fas fa-chevron-right pr-1"></i> {label.coveredLbl}   
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="m-pr-0" colspan="2" aria-hidden="true">
+                                <div class="divider"></div>
+                            </td>
+                        </tr>
+                        <tr class="f14">
+                            <th class="gray">{label.serialNoCodeLbl}</th>   
+                            <td class="notification">{prodInfoData.serialNoCode}</td>
+                        </tr>
+                        <tr class="f14">
+                            <th class="gray">{label.typeLbl}</th>
+                            <td class="notification">{prodInfoData.prodType}</td>
+                        </tr>
+                        <tr class="f14">
+                            <th class="gray">{label.modelCodeLbl}</th>    
+                            <td class="notification">{prodInfoData.modelCode}</td>
+                        </tr>
+                        <tr class="f14">
+                            <th class="gray">{label.msCodeLbl}</th>   
+                            <td class="notification">{prodInfoData.msCode}</td>
+                        </tr>
+                        <tr class="f14">
+                            <th class="gray">{label.prodNameLbl}</th>   
+                            <td class="notification">{prodInfoData.prodName}</td>
+                        </tr>
+                        <tr class="f14">
+                            <th class="gray">{label.productCarrierLbl}</th>   
+                            <td class="notification">{prodInfoData.prodCarrier}</td>
+                        </tr>
+                        <tr class="f14">
+                            <th class="gray">{label.tokuchuNoLbl}</th>      
+                            <td class="notification">{prodInfoData.tokuchuNo}</td>
+                        </tr>
+                        <tr class="f14">
+                            <th class="gray">{label.xjNoLbl}</th>   
+                            <td class="notification">{prodInfoData.xjNo}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                -->
+                </template>
+            </div>
+        </div>
+    </div>
+</template>

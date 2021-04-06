@@ -1,0 +1,288 @@
+<!--
+*******************************************************************************************************
+* (C) Copyright 2020 Yokogawa. All rights reserved.
+* This code is property of Yokogawa. Use, duplication and
+* disclosure in any form without permission of copyright holder is prohibited.
+* 
+******************************************************************************************************* 
+* @author Selvaraj Thangaraj
+* @version 1.0
+* @created 05/08/2020
+* @description 
+* This component is used for the displaying the header details in UI.
+*
+* *
+*  Change History:
+*  MM/DD/YYYY			Developer Name			Comments
+*  07/22/2020           Selvaraj T              updated the default profile logo
+*  10/21/2020           Selvaraj T              removed the hardware,software and maintenance phase related codes   
+*
+*-->
+
+<template>
+    <!--
+     <a class="scroll-to-top blue-primary d-flex flex-column justify-content-center" href="javascript:void(0);">
+        <span>
+            <svg width="19" height="21" viewBox="0 0 19 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17.9697 12.4614L9.48438 3.97607L0.999093 12.4614" stroke="#004F9B" stroke-width="2"></path>
+            </svg>
+        </span>
+        <span class="d-none d-sm-inline f12 ft-weight-800">TOP</span>
+    </a>
+    -->
+    <a class="scroll-to-top blue-primary" href="javascript:void(0);">
+        <span>
+            <svg width="25" height="36" viewBox="0 0 25 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20.9697 12.4609L12.4844 3.97559L3.99909 12.4609" stroke="#004F9B" stroke-width="2"></path>
+                <path
+                    d="M4.57673 33H2.53673V26.124H0.316734V24.432H6.79673V26.124H4.57673V33ZM16.2299 28.704C16.2299 29.592 16.0859 30.368 15.7979 31.032C15.5099 31.688 15.0619 32.2 14.4539 32.568C13.8539 32.936 13.0739 33.12 12.1139 33.12C11.1699 33.12 10.3939 32.936 9.78589 32.568C9.17789 32.2 8.72589 31.684 8.42989 31.02C8.14189 30.356 7.99789 29.58 7.99789 28.692C7.99789 27.804 8.14189 27.032 8.42989 26.376C8.72589 25.72 9.17789 25.212 9.78589 24.852C10.3939 24.484 11.1739 24.3 12.1259 24.3C13.0779 24.3 13.8539 24.484 14.4539 24.852C15.0619 25.212 15.5099 25.724 15.7979 26.388C16.0859 27.044 16.2299 27.816 16.2299 28.704ZM10.1459 28.704C10.1459 29.544 10.2979 30.204 10.6019 30.684C10.9139 31.164 11.4179 31.404 12.1139 31.404C12.8179 31.404 13.3219 31.164 13.6259 30.684C13.9299 30.204 14.0819 29.544 14.0819 28.704C14.0819 27.864 13.9299 27.204 13.6259 26.724C13.3299 26.236 12.8299 25.992 12.1259 25.992C11.4219 25.992 10.9139 26.236 10.6019 26.724C10.2979 27.204 10.1459 27.864 10.1459 28.704ZM21.2407 24.432C22.3367 24.432 23.1447 24.668 23.6647 25.14C24.1927 25.612 24.4567 26.276 24.4567 27.132C24.4567 27.636 24.3527 28.112 24.1447 28.56C23.9367 29 23.5927 29.36 23.1127 29.64C22.6327 29.912 21.9807 30.048 21.1567 30.048H20.4367V33H18.3967V24.432H21.2407ZM21.1687 26.1H20.4367V28.38H20.9767C21.3927 28.38 21.7327 28.288 21.9967 28.104C22.2607 27.92 22.3927 27.616 22.3927 27.192C22.3927 26.464 21.9847 26.1 21.1687 26.1Z"
+                    fill="#004F9B"></path>
+            </svg>
+        </span>
+    </a>
+    <div class="row">
+        <!-- Topbar -->
+        <div class="col-lg-12 pl-0">
+            <nav class="navbar navbar-expand navbar-light bg-dark-blue bg-m-blue topbar mb-lg-4 static-top">
+                <template if:true={backLink}>
+                    <ul class="top-ul d-none d-sm-block mb-0">
+                        <li class="col-lg-12 bg-slight-lt-blue white">
+                            <a onclick={removeclass} class="white pr-3 f14" href={backButtonUrl}>
+                                <i class="fas pr-3">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M10 2.00098L2 10.001L10 18.001" stroke="white" stroke-width="2.5"
+                                            stroke-linecap="square"></path>
+                                    </svg>
+                                </i> {label.viewAllLbl} <strong>{backButtonName}</strong> ({productSize})
+                            </a>
+                        </li>
+                    </ul>
+                </template>
+                <template if:true={prodHisPage}>
+                    <ul class="top-ul d-none d-sm-block mb-0">
+                        <li class="col-lg-12 bg-slight-lt-blue white">
+                            <a class="white pr-3 f14" href={backButtonUrlProdHis}>
+                                <i class="fas pr-3">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M10 2.00098L2 10.001L10 18.001" stroke="white" stroke-width="2.5"
+                                            stroke-linecap="square"></path>
+                                    </svg>
+                                </i> <strong>{prodHisBackButton}</strong> ({productSize})
+                            </a>
+                        </li>
+                    </ul>
+                </template>
+                <template if:true={allcontracts}>
+                    <ul class="top-ul d-none d-sm-block mb-0">
+                        <li class="col-lg-12 bg-slight-lt-blue white">
+                            <a class="white pr-3 f14" href={allcontractsURL}>
+                                <i class="fas pr-3">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M10 2.00098L2 10.001L10 18.001" stroke="white" stroke-width="2.5"
+                                            stroke-linecap="square"></path>
+                                    </svg>
+                                </i><strong>Overview</strong>
+                            </a>
+                        </li>
+                    </ul>
+                </template>
+
+                <template if:true={contractdetails}>
+                    <ul class="top-ul d-none d-sm-block mb-0">
+                        <li class="col-lg-12 bg-slight-lt-blue white">
+                            <a class="white pr-3 f14" href={contractURL}>
+                                <i class="fas pr-3">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M10 2.00098L2 10.001L10 18.001" stroke="white" stroke-width="2.5"
+                                            stroke-linecap="square"></path>
+                                    </svg>
+                                </i> {label.viewAllLbl} <strong>Contracts</strong> ({contractTotalSize})
+                            </a>
+                        </li>
+                    </ul>
+                </template>
+
+                <template if:true={stationDetails}>
+                    <ul class="top-ul d-none d-sm-block mb-0">
+                        <li class="col-lg-12 bg-slight-lt-blue white">
+                            <a class="white pr-3 f14" href={prevLink}>
+                                <i class="fas pr-3">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M10 2.00098L2 10.001L10 18.001" stroke="white" stroke-width="2.5"
+                                            stroke-linecap="square"></path>
+                                    </svg>
+                                </i> {label.viewAllStationsLbl} ({size})
+                            </a>
+                        </li>
+                    </ul>
+                </template>
+                <a class="nav-link disabled ml-auto mlogo d-md-none" href="#">
+                    <img src={mLogo} alt="yokogawa" width="100" />
+                </a>
+
+                <ul class="navbar-nav ml-auto">
+                    <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                    <template if:false={hideSearch}>
+                        <li class="nav-item dropdown no-arrow d-sm-none">
+                            <a class="nav-link dropdown-toggle" onclick={toggleSearch} href="javascript:void(0);"
+                                id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
+                                <img alt="close" src={searchIcon} />
+                                <!-- <i class="fas fa-search fa-fw"></img> -->
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in radius-0 searchDropdown"
+                                aria-labelledby="searchDropdown">
+                                <form class="form-inline ml-0 w-100">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control bg-light border-0 small blue-primary"
+                                            placeholder="Search by keyword or serial number" aria-label="Search" />
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button">
+                                                <img alt="close" src={searchIcon} />
+                                                <!-- <i class="fas fa-search fa-sm"></i> -->
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
+                    </template>
+                    <li class="nav-item active hideArrow border-0 d-md-none">
+                        <a class="sidebar-brand d-flex align-items-center justify-content-end p-0"
+                            href="javascript:void(0);" onclick={hideMenu}>
+                            <div class="sidebar-brand-text bg-dark-blue">
+                                <svg width="30" height="30" viewBox="0 0 34 34" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M8.48468 8.48608L25.4552 25.4566" stroke="white" stroke-width="2"
+                                        stroke-linecap="square"></path>
+                                    <path d="M25.4565 8.48608L8.48592 25.4566" stroke="white" stroke-width="2"
+                                        stroke-linecap="square"></path>
+                                </svg>
+                            </div>
+                        </a>
+                    </li>
+                    <template if:false={hideSearch}>
+                        <li class="nav-item no-arrow">
+                            <!-- Topbar Search -->
+                            <form class="d-none d-sm-inline-block form-inline my-3 mr-4 navbar-search">
+                                <div class="input-group">
+                                    <input type="text"
+                                        class="form-control bg-light border-0 small bg-dark-blue ml-n1 white"
+                                        placeholder="Search by keyword or serial number" aria-label="Search" />
+                                    <div class="input-group-append">
+                                        <button class="btn" type="button" role="button" aria-label="Search Icon">
+                                            <img alt="Search" aria-hidden="true" src={searchIcon} />
+                                            <!-- <i class="fas fa-search fa-md text-white f20"></i> -->
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </li>
+                    </template>
+
+                    <li class="profile-info nav-item no-arrow">
+                        <a class="nav-link pr-0 logo-img" href="javascript:void(0);" onclick={showDropdown}>
+                            <div class="portal-logo">
+                                <img src={profileLogo} alt="Profile" width="50" />
+                            </div>
+                        </a>
+                        <!-- Dropdown - User Information -->
+                        <ul
+                            class="dropdown-menu dd-userinfo dropdown-menu-right white rounded-0 border-0 shadow-none m-0 pb-0">
+                            <li class="pl-4 pr-4 pt-4">
+                                <div class="row">
+                                    <div class="col-12 d-flex">
+                                        <div class="col-11 p-0">
+                                            <p class="text-left f20 mb-0">{name}</p>
+                                        </div>
+                                        <div class="col-1 p-0">
+                                            <a href="javascript:void(0);" onclick={showDropdown}>
+                                                <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M10 10L16 16M22 22L16 16M16 16L22 10L10 22"
+                                                        stroke="#CCDCE8" stroke-width="2" stroke-linecap="round"
+                                                        stroke-linejoin="round"></path>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <p class="text-left f14 fbold">{email}</p>
+                                    </div>
+                                    <div class="col-12">
+                                        <p class="text-left f12 mb-0">Phone no.</p>
+                                        <p class="text-left f12 fbold">{contact}</p>
+                                    </div>
+                                    <div class="col-12">
+                                        <p class="text-left f12 mb-0">Company</p>
+                                        <p class="text-left f12 fbold mb-4">{company}</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="mt-2 h-60 list-link">
+                                <a href={productregURL} class="white f14 pl-4">
+                                    <span class="pr-2">
+                                        <svg width="10" height="10" viewBox="0 0 10 10" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M5 8.5L8.5 5L5 1.5" stroke="white" stroke-width="2"
+                                                stroke-linecap="square"></path>
+                                        </svg>
+                                    </span>
+                                    <ins>Register your products</ins>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li class="h-60 list-link">
+                                <a href={profileUrl} class="white f14 pl-4">
+                                    <span class="pr-2">
+                                        <svg width="10" height="10" viewBox="0 0 10 10" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M5 8.5L8.5 5L5 1.5" stroke="white" stroke-width="2"
+                                                stroke-linecap="square"></path>
+                                        </svg>
+                                    </span>
+                                    <ins>{label.updProfileLbl}</ins>
+                                </a>
+                            </li>
+                            <template if:true={roleFlag}>
+                                <li class="divider"></li>
+                                <li class="h-60 list-link">
+                                    <a href={managecolleaguesURL} class="white f14 pl-4">
+                                        <span class="pr-2">
+                                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M5 8.5L8.5 5L5 1.5" stroke="white" stroke-width="2"
+                                                    stroke-linecap="square"></path>
+                                            </svg>
+                                        </span>
+                                        <ins>{label.manageColleaguesLbl}</ins>
+                                    </a>
+                                </li>
+                            </template>
+                            <li class="divider"></li>
+                            <li class="h-60 list-link">
+                                <!--<a href="/YG_CDC_Logout" onclick={logout} class="white f14 pl-4">-->
+                                <a href="/YG_CDC_Logout" class="white f14 pl-4">
+                                    <span class="pr-2">
+                                        <svg width="10" height="10" viewBox="0 0 10 10" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M5 8.5L8.5 5L5 1.5" stroke="white" stroke-width="2"
+                                                stroke-linecap="square"></path>
+                                        </svg>
+                                    </span>
+                                    <ins>Sign out</ins>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</template>

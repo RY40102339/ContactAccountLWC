@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>aecm__Cost_Value__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <inlineHelpText>This provides a measure of the cost of ownership to functional value for a Pain Point. It is assumed that a solution design or designs will be needed for this Pain Point.</inlineHelpText>
+    <label>Cost Value</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Low Cost - Low Value</fullName>
+                <default>false</default>
+                <label>Low Cost - Low Value</label>
+            </value>
+            <value>
+                <fullName>Low Cost - Moderate Value</fullName>
+                <default>false</default>
+                <label>Low Cost - Moderate Value</label>
+            </value>
+            <value>
+                <fullName>Low Cost - High Value</fullName>
+                <default>false</default>
+                <label>Low Cost - High Value</label>
+            </value>
+            <value>
+                <fullName>Moderate Cost - Low Value</fullName>
+                <default>false</default>
+                <label>Moderate Cost - Low Value</label>
+            </value>
+            <value>
+                <fullName>Moderate Cost - Moderate Value</fullName>
+                <default>false</default>
+                <label>Moderate Cost - Moderate Value</label>
+            </value>
+            <value>
+                <fullName>Moderate Cost - High Value</fullName>
+                <default>false</default>
+                <label>Moderate Cost - High Value</label>
+            </value>
+            <value>
+                <fullName>High Cost - Low Value</fullName>
+                <default>false</default>
+                <label>High Cost - Low Value</label>
+            </value>
+            <value>
+                <fullName>High Cost - Moderate Value</fullName>
+                <default>false</default>
+                <label>High Cost - Moderate Value</label>
+            </value>
+            <value>
+                <fullName>High Cost - High Value</fullName>
+                <default>false</default>
+                <label>High Cost - High Value</label>
+            </value>
+            <value>
+                <fullName>Cost - Unknown Value</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Cost - Unknown Value</label>
+            </value>
+            <value>
+                <fullName>Marginal Cost - High Value</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Marginal Cost - High Value</label>
+            </value>
+            <value>
+                <fullName>Median Cost - Median Value</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Median Cost - Median Value</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

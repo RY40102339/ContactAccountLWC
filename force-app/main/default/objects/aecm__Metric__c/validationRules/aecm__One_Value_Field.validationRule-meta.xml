@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>aecm__One_Value_Field</fullName>
+    <active>true</active>
+    <errorConditionFormula>((Not(ISNULL(aecm__Quantified_Value__c))  &amp;&amp; ISPICKVAL(aecm__Value_Type__c, &apos;Currency&apos;))  &amp;&amp;  Not(ISNULL(aecm__Dollar_Value__c)))</errorConditionFormula>
+    <errorMessage>The Value Type is set to Number and you have entered a Dollar Value. Only one value and type is allowed.</errorMessage>
+</ValidationRule>

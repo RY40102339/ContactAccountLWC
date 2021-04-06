@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>aecm__Prioritization_Value__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <formula>/* Weighted average as prioritization value */
+((aecm__Cost_Value_Score__c * 1) + (aecm__Impact_Score__c * 2) + (aecm__Severity_Score__c * 1.5)+ ( aecm__Alignment_Strategy_Score__c  * 1.5)+ ( aecm__Operational_Contribution_Score__c  * 1.5))/5</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>weighted calculation based on Strategic alignment, Operational contribution, Impact, Severity and Cost value scores</inlineHelpText>
+    <label>Prioritization Value</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,120 @@
+<!--
+*******************************************************************************************************
+* (C) Copyright 2020 Yokogawa. All rights reserved.
+* This code is property of Yokogawa. Use, duplication and
+* disclosure in any form without permission of copyright holder is prohibited.
+* 
+******************************************************************************************************* 
+* @author Anand Selvarasu
+* @version 1.0
+* @created 08/19/2020
+* @description 
+* This component is used for creating thank component for request or inquiries.
+*
+* *
+*  Change History:
+*  MM/DD/YYYY			Developer Name			Comments
+*  
+*  
+*
+*-->
+
+<template>
+    <div class="row">
+        <div class="section">
+            <div class="col-lg-12 mb-5">
+                <p class="grey-darkest f14">{label.tyMsgLbl}</p>
+                
+                <template if:true={submitInquiry}>
+                    <div class="col-lg-12 mb-1 pl-0">
+                        <div class="row pt-3 submit-data sys-contract">
+                            <div class="col-lg-12 mb-3">
+                                <div class="f12 grey-dark-1">
+                                    {label.inqTypeLbl}
+                                </div>
+                                <div class="f14 grey-darkest">
+                                    <span class="fbold d-block">{type}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row pt-3 submit-data sys-contract">
+                            <div class="col-lg-12 mb-3">
+                                <div class="f12 grey-dark-1">
+                                    {label.inqaboutLbl}
+                                </div>
+                                <div class="f14 grey-darkest">
+                                    <span class="fbold d-block">{productName}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row pt-3 submit-data sys-contract">
+                            <div class="col-lg-12 mb-3">
+                                <div class="f12 grey-dark-1">
+                                    {label.tellUsLbl}
+                                </div>
+                                <div class="f14 grey-darkest">
+                                    <span class="fbold d-block">{description}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+
+
+                <template if:true={requestForService}>
+                    <div class="col-lg-12 mb-1 pl-0">
+                        <div class="row pt-3 submit-data sys-contract">
+                            <div class="col-lg-12 mb-3">
+                                <div class="f12 grey-dark-1">
+                                    {label.prodServLbl}
+                                </div>
+                                <div class="f14 grey-darkest">
+                                    <span class="fbold d-block">{productName}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row pt-3 submit-data sys-contract">
+                            <div class="col-lg-12 mb-3">
+                                <div class="f12 grey-dark-1">
+                                    {label.servReqLbl}
+                                </div>
+                                <div class="f14 grey-darkest">
+                                    <span class="fbold d-block">{serviceYouRequire}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row pt-3 submit-data sys-contract">
+                            <div class="col-lg-12 mb-3">
+                                <div class="f12 grey-dark-1">
+                                    {label.descriptionLbl} {label.optionLbl}
+                                </div>
+                                <div class="f14 grey-darkest">
+                                    <span class="fbold d-block">{description}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+
+                <a href={submitServReqLink} class="text-right blue-primary text-hover-underline f12 row pb-3 pt-56">
+                    <i class="fas pr-1 ml-2">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="5" y="5" width="6" height="7" stroke="#004F9B" stroke-width="2"></rect>
+                            <line x1="8" y1="7" x2="11" y2="7" stroke="#004F9B" stroke-width="2"></line>
+                        </svg>
+                    </i>
+                    {label.subReqLbl}
+                </a>
+                <a href={viewServReqHisLink} class="text-right blue-primary text-hover-underline f12 row">
+                    <i class="fas pr-1 ml-2">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7 11.5L10.5 8L7 4.5" stroke="#004F9B" stroke-width="2" stroke-linecap="square">
+                            </path>
+                        </svg>
+                    </i>
+                    {label.viewAllReqLbl}
+                </a>
+            </div>
+        </div>
+    </div>
+</template>

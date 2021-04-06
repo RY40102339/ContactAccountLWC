@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Salesforce Administration Basic</fullName>
+        <default>false</default>
+        <label>Salesforce Administration Basic</label>
+    </customValue>
+    <customValue>
+        <fullName>Salesforce Administration Advance</fullName>
+        <default>false</default>
+        <label>Salesforce Administration Advance</label>
+    </customValue>
+    <customValue>
+        <fullName>Salesforce Business Architecture</fullName>
+        <default>false</default>
+        <label>Salesforce Business Architecture</label>
+    </customValue>
+    <customValue>
+        <fullName>Salesforce Development</fullName>
+        <default>false</default>
+        <label>Salesforce Development</label>
+    </customValue>
+    <customValue>
+        <fullName>Salesforce Data Architecture</fullName>
+        <default>false</default>
+        <label>Salesforce Data Architecture</label>
+    </customValue>
+    <customValue>
+        <fullName>Salesforce Data Management</fullName>
+        <default>false</default>
+        <label>Salesforce Data Management</label>
+    </customValue>
+    <customValue>
+        <fullName>Salesforce Quality Assurance</fullName>
+        <default>false</default>
+        <label>Salesforce Quality Assurance</label>
+    </customValue>
+    <customValue>
+        <fullName>Salesforce Sales Cloud Architecture</fullName>
+        <default>false</default>
+        <label>Salesforce Sales Cloud Architecture</label>
+    </customValue>
+    <customValue>
+        <fullName>Salesforce Service Cloud Architecture</fullName>
+        <default>false</default>
+        <label>Salesforce Service Cloud Architecture</label>
+    </customValue>
+    <customValue>
+        <fullName>Salesforce Field Services Service Lightning Architecture</fullName>
+        <default>false</default>
+        <label>Salesforce Field Services Service Lightning Architecture</label>
+    </customValue>
+    <customValue>
+        <fullName>Salesforce Marketing Cloud Architecture</fullName>
+        <default>false</default>
+        <label>Salesforce Marketing Cloud Architecture</label>
+    </customValue>
+    <customValue>
+        <fullName>Salesforce CPQ Architecture</fullName>
+        <default>false</default>
+        <label>Salesforce CPQ Architecture</label>
+    </customValue>
+    <customValue>
+        <fullName>Salesforce Pardot Architecture</fullName>
+        <default>false</default>
+        <label>Salesforce Pardot Architecture</label>
+    </customValue>
+    <customValue>
+        <fullName>Sales Processes Optimization</fullName>
+        <default>false</default>
+        <label>Sales Processes Optimization</label>
+    </customValue>
+    <customValue>
+        <fullName>Support Processes Optimization</fullName>
+        <default>false</default>
+        <label>Support Processes Optimization</label>
+    </customValue>
+    <customValue>
+        <fullName>Marketing Processes Optimization</fullName>
+        <default>false</default>
+        <label>Marketing Processes Optimization</label>
+    </customValue>
+    <masterLabel>Resource Skills</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

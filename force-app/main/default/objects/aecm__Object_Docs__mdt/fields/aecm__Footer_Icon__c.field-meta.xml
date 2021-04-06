@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>aecm__Footer_Icon__c</fullName>
+    <defaultValue>&quot;standard:solution&quot;</defaultValue>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <fieldManageability>SubscriberControlled</fieldManageability>
+    <inlineHelpText>A Lightning Design System Icon. e.g. utility:add, standard: account, custom: custom1
+https://www.lightningdesignsystem.com/icons/</inlineHelpText>
+    <label>Footer Icon</label>
+    <length>100</length>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

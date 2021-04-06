@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>aecm__Impact__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <inlineHelpText>Number of end stakeholders/users tht will benefit and/or use the enhancement or customization</inlineHelpText>
+    <label>Impact</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Significant Use</fullName>
+                <default>false</default>
+                <label>Significant Use</label>
+            </value>
+            <value>
+                <fullName>Moderate Use</fullName>
+                <default>false</default>
+                <label>Moderate Use</label>
+            </value>
+            <value>
+                <fullName>Dispersed Use</fullName>
+                <default>false</default>
+                <label>Dispersed Use</label>
+            </value>
+            <value>
+                <fullName>Limited Dispersed Use</fullName>
+                <default>false</default>
+                <label>Limited Dispersed Use</label>
+            </value>
+            <value>
+                <fullName>Isolated Use</fullName>
+                <default>false</default>
+                <label>Isolated Use</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

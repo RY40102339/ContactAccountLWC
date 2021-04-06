@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Not Leveraged</fullName>
+        <default>false</default>
+        <label>Not Leveraged</label>
+    </customValue>
+    <customValue>
+        <fullName>Planned</fullName>
+        <default>false</default>
+        <label>Planned</label>
+    </customValue>
+    <customValue>
+        <fullName>Early Development</fullName>
+        <default>false</default>
+        <label>Early Development</label>
+    </customValue>
+    <customValue>
+        <fullName>Evolving</fullName>
+        <default>false</default>
+        <label>Evolving</label>
+    </customValue>
+    <customValue>
+        <fullName>Optimizing</fullName>
+        <default>false</default>
+        <label>Optimizing</label>
+    </customValue>
+    <customValue>
+        <fullName>Mature</fullName>
+        <default>false</default>
+        <label>Mature</label>
+    </customValue>
+    <masterLabel>Maturity Progression Status</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

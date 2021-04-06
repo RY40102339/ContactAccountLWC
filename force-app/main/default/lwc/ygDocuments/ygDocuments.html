@@ -1,0 +1,107 @@
+<!--
+*******************************************************************************************************
+* (C) Copyright 2020 Yokogawa. All rights reserved.
+* This code is property of Yokogawa. Use, duplication and
+* disclosure in any form without permission of copyright holder is prohibited.
+* 
+******************************************************************************************************* 
+* @author Vinod Anandhan
+* @version 1.0
+* @created 05/15/2020
+* @description 
+* This component is used for the displaying the documents details in UI.
+*
+* *
+*  Change History:
+*  MM/DD/YYYY			Developer Name			Comments
+*  07/29/2020           Selvaraj T              Updated document logic for staion details page
+*  10/21/2020           Selvaraj T              removed the hardware,software and maintenance phase related codes  
+*
+*-->
+
+
+<template>
+    <div class="row mb-lg-4 mb-72 m-mt-64">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-10 pr-lg-5">
+            <!--
+            <template if:true={statDetails}>
+                <div class="col-lg-12 pl-0 m-pr-0">
+                    <h2 tabindex="0" role="heading" aria-level="2" class="noto-font f20">
+                        <span class="notification f20 fbold sysRep">{label.documentsLbl}</span>
+                    </h2>
+                    <div class="mb-3"></div>
+                    <template for:each={sysRep} for:item="main" for:index="pKey">
+                        <template for:each={main.sObj} for:item="list" for:index="key">
+                            <div key={list} class="pdf-doc">
+                                <a class="blue-primary fbold" href={list.Link__c} target="_blank">{list.Name}<span
+                                        class="text-uppercase">{list.File_Extension__c} <i class="fas fa-circle"></i>
+                                        {list.File_Size__c}</span> <i class="pdf-icon icon"></i> </a>
+                            </div>
+                        </template>
+                    </template>
+                </div>
+                <div class="col-lg-12 pl-0 mt-5 m-pr-0">
+                    <template for:each={docData} for:item="main" for:index="pKey">
+                        <span key={main.moduleName} class="notification f20 fbold">{main.moduleName}</span>
+                        <div key={main.moduleName} class="accordion mt-2 mb-3">
+                            <template for:each={main.subWrap} for:item="child" for:index="key">
+                                <div key={child.catName}>
+                                    <lightning-accordion allow-multiple-sections-open
+                                        active-section-name={activeSections}>
+                                        <lightning-accordion-section name="A" label={child.catName}
+                                            class="blue-primary f14 fbold">
+                                            <template for:each={child.sObj} for:item="list" for:index="innerkey">
+                                                <div key={list} class="pdf-doc">
+                                                    <a class="blue-primary fbold" href={list.Link__c}
+                                                        target="_blank">{list.Name}<span
+                                                            class="text-uppercase">{list.File_Extension__c} <i
+                                                                class="fas fa-circle"></i> {list.File_Size__c}</span> <i
+                                                            class="pdf-icon icon"></i> </a>
+                                                </div>
+                                            </template>
+                                        </lightning-accordion-section>
+                                    </lightning-accordion>
+                                </div>
+                            </template>
+                        </div>
+                    </template>
+                </div>
+            </template>
+        -->
+            <template if:false={statDetails}>
+                <template if:true={docShow}>
+                    <!--<template for:each={docData} for:item="main" for:index="pKey"> -->
+                    <template if:false={softwareDetails}>
+                        <h2 tabindex="0" role="heading" aria-level="2" class="noto-font f20">
+                            <span class="notification f20 fbold">{label.documentsLbl} &amp;
+                                {label.downloadsLbl}</span>
+                        </h2>                        
+                    </template>
+                    <div class="accordion mt-3 mb-lg-3">
+                        <template for:each={docData.subWrap} for:item="child" for:index="key">
+                            <div key={child.catName}>
+                                <lightning-accordion allow-multiple-sections-open active-section-name={activeSections}>
+                                    <!--label2 = {child.catName} ({child.catCount}) -->
+                                    <lightning-accordion-section name="A" label={child.catName}
+                                        class="blue-primary f14 fbold">
+                                        <template for:each={child.sObj} for:item="list" for:index="innerkey">
+                                            <div key={list} class="pdf-doc">
+                                                <a class="blue-primary fbold" href={list.Link__c}
+                                                    target="_blank">{list.Document_Name__c}<span
+                                                        class="text-uppercase">{list.File_Extension__c} <i
+                                                            class="fas fa-circle"></i> {list.File_Size__c}</span> <i
+                                                        class="pdf-icon icon"></i> </a>
+                                            </div>
+                                        </template>
+                                    </lightning-accordion-section>
+                                </lightning-accordion>
+                            </div>
+                        </template>
+                    </div>
+                    <!-- </template>-->
+                </template>
+            </template>
+        </div>
+    </div>
+</template>

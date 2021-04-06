@@ -1,0 +1,382 @@
+<!--
+*******************************************************************************************************
+* (C) Copyright 2020 Yokogawa. All rights reserved.
+* This code is property of Yokogawa. Use, duplication and
+* disclosure in any form without permission of copyright holder is prohibited.
+* 
+******************************************************************************************************* 
+* @author Selvaraj Thangaraj
+* @version 1.0
+* @created 05/08/2020
+* @description 
+* This component is used for displaying the notification details in UI.
+*
+* *
+*  Change History:
+*  MM/DD/YYYY			Developer Name			Comments
+*  06/16/2020           Selvaraj T              updated the code to remove the notifications in total count 
+*                                               and replace it with dynamic text value 
+*  07/23/2020           Selvaraj T              update the all stations criteria to all systems
+*  10/21/2020           Selvaraj T              removed the hardware,software and maintenance phase related codes     
+*  10/23/2020           Jayaprasath             removed the productDetail and warrenty related codes
+*
+*-->
+
+<template>
+    <div class="row d-none d-sm-block">
+        <div class="section">
+            <div class="col-lg-12">
+                <div class="row section-buttons">
+                    <template if:true={products}>
+                        <div class="col-lg-12 pr-lg-0">
+                            <button value="" data-count=0 class="noti active" onclick={filterGrid} aria-pressed="true">
+                                <i class="fas pr-1 prod-icon">
+                                    <!--
+                                    <svg width="21" height="27" viewBox="0 0 21 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M7.75305 23.3623C7.75305 25.3682 9.22498 27.0002 11.0343 27.0002C12.8436 27.0002 14.3156 25.3682 14.3156 23.3623H7.75305Z" fill="#004F9B"></path>
+                                        <path d="M18.9 19.4887V12.083C18.9 7.24389 15.6006 3.2631 11.3703 2.77816C11.6926 2.4923 11.9 2.05248 11.9 1.55909C11.9 0.699412 11.272 0 10.5 0C9.72807 0 9.10003 0.699412 9.10003 1.55909C9.10003 2.05248 9.30752 2.4923 9.62973 2.77816C5.39946 3.2631 2.10001 7.24389 2.10001 12.083V19.4887H0L0 21.8274H21V19.4887H18.9Z" fill="#004F9B"></path>
+                                    </svg>  
+                                    -->
+                                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0)">
+                                            <path
+                                                d="M5.95117 7.07483L15.3742 2L23.8998 6.61348L14.4768 11.919L5.95117 7.07483Z"
+                                                stroke="#004F9B" stroke-width="3" stroke-linecap="square"></path>
+                                            <path
+                                                d="M3.88378 11.1832L12.0001 15.7499L12 26.65L3.88376 21.5981L3.88378 11.1832Z"
+                                                stroke="#004F9B" stroke-width="3" stroke-linecap="square"></path>
+                                            <path
+                                                d="M25.9998 10.6L25.9999 20.8999L16.9953 26.5575L16.9953 15.6466L25.9998 10.6Z"
+                                                stroke="#004F9B" stroke-width="3" stroke-linecap="square"></path>
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0">
+                                                <rect width="26" height="30" fill="white" transform="translate(2)">
+                                                </rect>
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+
+                                </i>
+                                <span class="pl-0"> </span>
+                                <!--{totalCount} <span>{label.notiInTotalLbl}</span>-->
+                            </button>
+                            <button value="Contracts" data-count={contractCount} class="contract" onclick={filterGrid}>
+                                <i class="fas pr-1">
+                                    <svg width="22" height="31" viewBox="0 0 22 31" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M11.1206 3.99975V-0.000244141L6.00062 5.33309L11.1206 10.6664V6.66642C15.3446 6.66642 18.8006 10.2664 18.8006 14.6664C18.8006 15.9997 18.4166 17.3331 17.9046 18.3997L19.8246 20.3997C20.7206 18.6664 21.3606 16.7997 21.3606 14.6664C21.3606 8.79975 16.7526 3.99975 11.1206 3.99975ZM11.1206 22.6664C6.89662 22.6664 3.44062 19.0664 3.44062 14.6664C3.44062 13.3331 3.82462 11.9997 4.33662 10.9331L2.41662 8.93308C1.52062 10.6664 0.880615 12.5331 0.880615 14.6664C0.880615 20.5331 5.48862 25.3331 11.1206 25.3331V29.3331L16.2406 23.9997L11.1206 18.6664V22.6664Z"
+                                            fill="#004F9B" stroke="#004F9B" stroke-width="0.916667"></path>
+                                    </svg>
+                                </i>
+                                {contractCount}<span>Contracts expired / expiring soon </span></button>
+                            <!---->
+                            <button value="Firmware" data-count={firmwareCount} class="firm" onclick={filterGrid}>
+                                <i class="fas pr-1">
+                                    <svg width="22" height="31" viewBox="0 0 22 31" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M11.1206 3.99975V-0.000244141L6.00062 5.33309L11.1206 10.6664V6.66642C15.3446 6.66642 18.8006 10.2664 18.8006 14.6664C18.8006 15.9997 18.4166 17.3331 17.9046 18.3997L19.8246 20.3997C20.7206 18.6664 21.3606 16.7997 21.3606 14.6664C21.3606 8.79975 16.7526 3.99975 11.1206 3.99975ZM11.1206 22.6664C6.89662 22.6664 3.44062 19.0664 3.44062 14.6664C3.44062 13.3331 3.82462 11.9997 4.33662 10.9331L2.41662 8.93308C1.52062 10.6664 0.880615 12.5331 0.880615 14.6664C0.880615 20.5331 5.48862 25.3331 11.1206 25.3331V29.3331L16.2406 23.9997L11.1206 18.6664V22.6664Z"
+                                            fill="#004F9B" stroke="#004F9B" stroke-width="0.916667"></path>
+                                    </svg>
+                                </i>
+                                {firmwareCount}<span>{label.firmUptLbl} </span></button>
+                            <button value="Calibration" data-count={calibCount} class="calib" onclick={filterGrid}>
+                                <i class="fas pr-1">
+                                    <svg width="27" height="28" viewBox="0 0 27 28" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M13.5 14.3274V16.3389H14.13V14.3274M13.5 14.3274H11.5898V13.6723H13.5M13.5 14.3274H14.13M13.5 14.3274V13.6723M13.5 13.6723V11.7107H14.13V13.6723M13.5 13.6723H14.13M14.13 13.6723H16.0402V14.3274H14.13M14.13 13.6723V14.3274M24.1346 13.6977C23.9816 8.02041 19.5507 3.43884 14.0814 3.3234V1H13.5V3.3277C8.10437 3.528 3.75808 8.07561 3.6066 13.6977H1V14.3023H3.6066C3.75808 19.9243 8.10432 24.4722 13.5 24.6723V27H14.0814V24.6764C19.5507 24.5613 23.9816 19.9798 24.1346 14.3023H26V13.6977H24.1346ZM13.5 3.93234V7.01817C10.0456 7.20169 7.28111 10.0973 7.13376 13.6977H4.18803C4.33894 8.40877 8.425 4.13179 13.5 3.93234ZM13.5 24.0677C8.425 23.8681 4.33894 19.5913 4.18803 14.3023H7.13376C7.28111 17.9028 10.0455 20.7982 13.5 20.9819V24.0677ZM14.0814 24.0719V20.9854C17.5891 20.8608 20.4149 17.9429 20.5637 14.3023H23.5532C23.4008 19.6465 19.2302 23.9567 14.0814 24.0719ZM20.5636 13.6977C20.4145 10.0571 17.589 7.13935 14.0814 7.01508V3.92834C19.2302 4.04323 23.4007 8.35358 23.5532 13.6977H20.5636Z"
+                                            stroke="#004F9B" stroke-width="1.625"></path>
+                                    </svg>
+                                </i> {calibCount}<span>{label.calibrationRecomLbl}</span></button>
+                            <button value="Discontinued" data-count={discontinuedCount} class="discon"
+                                onclick={filterGrid}>
+                                <i class="fas pr-1">
+                                    <svg width="26" height="26" viewBox="0 0 26 26" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M13 25C19.6165 25 25 19.6169 25 13C25 9.79199 23.7524 6.77808 21.4871 4.51294C19.2214 2.24756 16.208 1 13 1C6.38306 1 1 6.38306 1 13C1 16.208 2.24756 19.2219 4.51294 21.4871C6.77808 23.7524 9.79199 25 13 25ZM13 23C10.6631 23 8.44995 22.2056 6.66895 20.7451L20.7451 6.66895C22.2056 8.44995 23 10.6631 23 13C23 18.5139 18.5139 23 13 23ZM13 3C15.3364 3 17.55 3.79443 19.3306 5.25488L5.25488 19.3311C3.79443 17.55 3 15.3369 3 13C3 7.48608 7.48608 3 13 3Z"
+                                            fill="#004F9B" stroke="#004F9B" stroke-width="2"></path>
+                                    </svg>
+                                </i>
+                                {discontinuedCount}<span>{label.discontinueProdLbl}</span>
+                            </button>
+                            <button value="Recalled" data-count={recallCount} class="reCall" onclick={filterGrid}>
+                                <i class="fas pr-1">
+                                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M9.24949 17.9283H9.05197V18.1259V21.6146L1.03161 15.8454L9.05197 10.0761V13.5649V13.7624H9.24949H17.2466H17.4441V13.5649V4.56098V4.36345H17.2466H10.9806V0.197521H21.4958V17.9283H9.24949Z"
+                                            fill="#004F9B" stroke="#F2F5F6" stroke-width="0.395042"></path>
+                                    </svg>
+                                </i> {recallCount}<span>{label.recalledProdLbl}</span></button>
+                            <!--
+                                <button value="Warranty" data-count={warrantyCount} class="warrty" onclick={filterGrid}>
+                                <i class="fas pr-1">
+                                    <svg width="22" height="27" viewBox="0 0 22 27" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M21.91 6.94978C21.8788 6.23946 21.8788 5.56144 21.8788 4.88341C21.8788 4.33453 21.4736 3.9148 20.9437 3.9148C17.0474 3.9148 14.0863 2.75247 11.6238 0.266368C11.2498 -0.0887892 10.6887 -0.0887892 10.3147 0.266368C7.85224 2.75247 4.89107 3.9148 0.994795 3.9148C0.464902 3.9148 0.0596896 4.33453 0.0596896 4.88341C0.0596896 5.56144 0.0596895 6.23946 0.0285193 6.94978C-0.0961614 13.73 -0.283183 23.0287 10.6576 26.9354L10.9693 27L11.281 26.9354C22.1905 23.0287 22.0347 13.7623 21.91 6.94978ZM10.2212 16.3453C10.0341 16.5067 9.81596 16.6036 9.5666 16.6036H9.53543C9.28606 16.6036 9.0367 16.4744 8.88085 16.2807L5.98203 12.9552L7.38468 11.6637L9.66011 14.2789L14.7097 9.30673L15.9877 10.7274L10.2212 16.3453Z"
+                                            fill="#004F9B"></path>
+                                    </svg>
+                                </i> {warrantyCount}<span> {label.warrentyExpsoonLbl} </span></button>
+                            -->
+                            <button value="Regulation" data-count={regulationCount} class="regulation"
+                                onclick={filterGrid}>
+                                <i class="fas pr-1 position-relative">
+                                    <svg width="29" height="25" viewBox="0 0 29 25" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M27.7201 14.285L14.8131 10.8266L15.7354 7.38478L16.5958 7.61534C17.0708 7.74261 17.5596 7.46041 17.6869 6.98544L18.148 5.26451C18.2753 4.78954 17.9931 4.30076 17.5181 4.17349L5.47161 0.945648C4.99663 0.818379 4.50785 1.10058 4.38058 1.57555L3.91946 3.29648C3.7922 3.77145 4.07439 4.26023 4.54937 4.3875L5.40983 4.61806L2.64311 14.9436L1.78264 14.713C1.30767 14.5858 0.818891 14.868 0.691622 15.3429L0.230501 17.0639C0.103232 17.5388 0.385428 18.0276 0.860403 18.1549L12.9069 21.3827C13.3819 21.51 13.8706 21.2278 13.9979 20.7528L14.459 19.0319C14.5863 18.5569 14.3041 18.0682 13.8291 17.9409L12.9687 17.7103L13.8909 14.2685L26.7978 17.7269C27.2728 17.8542 27.727 17.701 27.8118 17.3844L28.427 15.0887C28.5118 14.772 28.195 14.4123 27.7201 14.285Z"
+                                            fill="#004F9B"></path>
+                                    </svg>
+                                    <svg width="16" height="4" viewBox="0 0 16 4" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        style="position: absolute;top: 24px;right: 18px;">
+                                        <path
+                                            d="M14.6359 0.375H0.770312C0.3451 0.375 0 0.645667 0 0.979167V3.39583C0 3.72933 0.3451 4 0.770312 4H14.6359C15.0611 4 15.4062 3.72933 15.4062 3.39583V0.979167C15.4062 0.645667 15.0611 0.375 14.6359 0.375Z"
+                                            fill="#004F9B"></path>
+                                    </svg>
+                                </i> {regulationCount}<span>{label.regulationChangeLbl}</span></button>
+                                
+                        </div>
+                    </template>
+
+                    <template if:true={systems}>
+                        <div class="radio-btn mt-1rem m-pt-1rem">
+                            <template if:true={isViewSystems}>
+                                <div class="col-lg-12 m-mb-56">
+                                    <fieldset class="form-group mb-0">
+                                        <div class="row ml-0 mr-0">
+                                            <legend class="col-lg-12 grey-darkest f14 p-0">{label.viewSystem}
+                                            </legend>
+                                            <div class="col-lg-12 p-0">
+                                                <template for:each={projCodeList} for:item="projCode">
+                                                    <div key={projCode} class="newradio--inline h-auto">
+                                                        <input id={projCode.id} type="radio" name="projCode"
+                                                            value={projCode.systemId} onchange={handleChange}>
+                                                        <label for={projCode.id}
+                                                            class="cursor-pointer"><span><span></span></span>{projCode.systemId}</label>
+                                                    </div>
+                                                </template>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </template>
+                            <div class="col-lg-12 pt-56">
+                                <span
+                                    class="f20 blue-primary m-p-0 mt-1rem pl-0 pr-0 float-none font-weight-normal">{label.systemId}
+                                    <span class="pl-1 systemId f20 font-weight-normal m-pt-1rem">
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                    </template>
+
+                    <!--
+                    <template if:true={productDetail}>
+                        <div class="col-lg-12 pr-lg-0">
+                            <button value="" class="noti active" onclick={filterGrid} aria-pressed="true">
+                                <i class="fas pr-1">
+                                    <svg width="21" height="27" viewBox="0 0 21 27" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M7.75305 23.3623C7.75305 25.3682 9.22498 27.0002 11.0343 27.0002C12.8436 27.0002 14.3156 25.3682 14.3156 23.3623H7.75305Z"
+                                            fill="#004F9B"></path>
+                                        <path
+                                            d="M18.9 19.4887V12.083C18.9 7.24389 15.6006 3.2631 11.3703 2.77816C11.6926 2.4923 11.9 2.05248 11.9 1.55909C11.9 0.699412 11.272 0 10.5 0C9.72807 0 9.10003 0.699412 9.10003 1.55909C9.10003 2.05248 9.30752 2.4923 9.62973 2.77816C5.39946 3.2631 2.10001 7.24389 2.10001 12.083V19.4887H0L0 21.8274H21V19.4887H18.9Z"
+                                            fill="#004F9B"></path>
+                                    </svg>
+                                </i>
+                                {totalCount} <span>{label.notiInTotalLbl}</span>
+                            </button>
+                            <button value="Calibration" class="calib" onclick={filterGrid}>
+                                <i class="fas pr-1">
+                                    <svg width="27" height="28" viewBox="0 0 27 28" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M13.5 14.3274V16.3389H14.13V14.3274M13.5 14.3274H11.5898V13.6723H13.5M13.5 14.3274H14.13M13.5 14.3274V13.6723M13.5 13.6723V11.7107H14.13V13.6723M13.5 13.6723H14.13M14.13 13.6723H16.0402V14.3274H14.13M14.13 13.6723V14.3274M24.1346 13.6977C23.9816 8.02041 19.5507 3.43884 14.0814 3.3234V1H13.5V3.3277C8.10437 3.528 3.75808 8.07561 3.6066 13.6977H1V14.3023H3.6066C3.75808 19.9243 8.10432 24.4722 13.5 24.6723V27H14.0814V24.6764C19.5507 24.5613 23.9816 19.9798 24.1346 14.3023H26V13.6977H24.1346ZM13.5 3.93234V7.01817C10.0456 7.20169 7.28111 10.0973 7.13376 13.6977H4.18803C4.33894 8.40877 8.425 4.13179 13.5 3.93234ZM13.5 24.0677C8.425 23.8681 4.33894 19.5913 4.18803 14.3023H7.13376C7.28111 17.9028 10.0455 20.7982 13.5 20.9819V24.0677ZM14.0814 24.0719V20.9854C17.5891 20.8608 20.4149 17.9429 20.5637 14.3023H23.5532C23.4008 19.6465 19.2302 23.9567 14.0814 24.0719ZM20.5636 13.6977C20.4145 10.0571 17.589 7.13935 14.0814 7.01508V3.92834C19.2302 4.04323 23.4007 8.35358 23.5532 13.6977H20.5636Z"
+                                            stroke="#004F9B" stroke-width="1.625"></path>
+                                    </svg>
+                                </i>
+                                {calibCount}<span>{label.calibrationRecomLbl}</span>
+                            </button>
+                            <button value="Warranty" class="warrty" onclick={filterGrid}>
+                                <i class="fas pr-1">
+                                    <svg width="22" height="31" viewBox="0 0 22 31" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M11.1206 3.99975V-0.000244141L6.00062 5.33309L11.1206 10.6664V6.66642C15.3446 6.66642 18.8006 10.2664 18.8006 14.6664C18.8006 15.9997 18.4166 17.3331 17.9046 18.3997L19.8246 20.3997C20.7206 18.6664 21.3606 16.7997 21.3606 14.6664C21.3606 8.79975 16.7526 3.99975 11.1206 3.99975ZM11.1206 22.6664C6.89662 22.6664 3.44062 19.0664 3.44062 14.6664C3.44062 13.3331 3.82462 11.9997 4.33662 10.9331L2.41662 8.93308C1.52062 10.6664 0.880615 12.5331 0.880615 14.6664C0.880615 20.5331 5.48862 25.3331 11.1206 25.3331V29.3331L16.2406 23.9997L11.1206 18.6664V22.6664Z"
+                                            fill="#004F9B" stroke="#004F9B" stroke-width="0.916667"></path>
+                                    </svg>
+                                </i>
+                                {sftExpCount}<span> {label.warrentyExpsoonLbl} </span>
+                            </button>
+                        </div>
+                    </template>
+                -->
+                    <template if:true={allServiceRequest}>
+                        <div class="col-lg-12 pr-lg-0 all-service">
+                            <button value="" data-count=0 class="noti active" onclick={filterGrid} aria-pressed="true">
+                                <i class="fas pr-1">
+                                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M3.71106 22.8154C2.76298 23.7726 2.76298 25.3247 3.71106 26.282C4.65914 27.2392 6.19629 27.2392 7.14437 26.282L17.6786 15.6456L14.2453 12.179L3.71106 22.8154ZM5.75427 25.4913C6.43774 25.4913 6.9918 24.9319 6.9918 24.2418C6.9918 23.5517 6.43774 22.9922 5.75427 22.9922C5.0708 22.9922 4.51674 23.5517 4.51674 24.2418C4.51674 24.9319 5.0708 25.4913 5.75427 25.4913Z"
+                                            fill="#004F9B"></path>
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M15.1208 9.64326C14.7322 10.0357 14.7322 10.6719 15.1208 11.0643L18.5466 14.5233C18.9352 14.9157 19.5653 14.9157 19.954 14.5233L25.9892 8.42954C26.092 8.32575 26.1869 8.21699 26.2738 8.10403C26.7406 9.1664 26.9999 10.3423 26.9999 11.5794C26.9999 16.3177 23.1956 20.1588 18.5029 20.1588C13.8101 20.1588 10.0059 16.3177 10.0059 11.5794C10.0059 6.84113 13.8101 3 18.5029 3C19.4642 3 20.3882 3.16119 21.2499 3.45825C21.2182 3.48795 21.1869 3.51838 21.156 3.54952L15.1208 9.64326Z"
+                                            fill="#004F9B"></path>
+                                    </svg>
+                                </i>
+                                <span>All Service Requests </span></button>
+                            <button value="System" data-count=0 class="systemAndSoftware"
+                                onclick={filterGrid}>
+                                <i class="fas pr-1">
+                                    <svg width="24" height="26" viewBox="0 0 24 26" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M0 21H2L2 16V14H4H13L13.0756 10H9V6H4.98906V8H0L0 2H4.98906V4H9V0L19 0V4H23H24V5V22V24H23H18L18.022 26H13V20H18V22H22V6H19V10H15.0257L15 14V16H13H4V21H6V26H0L0 21Z"
+                                            fill="#004F9B"></path>
+                                    </svg>
+                                </i>
+                                {sysAndSoftCnt}<span>Systems / software</span></button>
+                            <button value="Product" data-count=0 class="product" onclick={filterGrid}>
+                                <i class="fas pr-1 prod-icon">
+                                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip1)">
+                                            <path
+                                                d="M5.95117 7.07483L15.3742 2L23.8998 6.61348L14.4768 11.919L5.95117 7.07483Z"
+                                                stroke="#004F9B" stroke-width="3" stroke-linecap="square"></path>
+                                            <path
+                                                d="M3.88378 11.1832L12.0001 15.7499L12 26.65L3.88376 21.5981L3.88378 11.1832Z"
+                                                stroke="#004F9B" stroke-width="3" stroke-linecap="square"></path>
+                                            <path
+                                                d="M25.9998 10.6L25.9999 20.8999L16.9953 26.5575L16.9953 15.6466L25.9998 10.6Z"
+                                                stroke="#004F9B" stroke-width="3" stroke-linecap="square"></path>
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip1">
+                                                <rect width="26" height="30" fill="white" transform="translate(2)">
+                                                </rect>
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                </i>
+                                {productRelatedServCnt}<span>Products </span></button>
+
+                            <button value="Inquiry" data-count=0 class="inquires" onclick={filterGrid}>
+                                <i class="fas pr-1">
+                                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip2)">
+                                            <path
+                                                d="M9.9376 23.1576L4.5 27.072V3.5H25.5V22.875H20.3023H10.814H10.3302L9.9376 23.1576Z"
+                                                stroke="#004F9B" stroke-width="3"></path>
+                                            <path d="M10 9H16" stroke="#004F9B" stroke-width="2"
+                                                stroke-linecap="square"></path>
+                                            <path d="M10 13H21" stroke="#004F9B" stroke-width="2"
+                                                stroke-linecap="square"></path>
+                                            <path d="M10 17H21" stroke="#004F9B" stroke-width="2"
+                                                stroke-linecap="square"></path>
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip2">
+                                                <rect width="30" height="30" fill="white"></rect>
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                </i>
+                                {inquiryCnt}<span>Inquires </span></button>
+                        </div>
+                    </template>
+
+                    <template if:true={allContracts}>
+                        <div class="col-lg-12 pr-lg-0 all-contract">
+                            <button value="All" class="noti active" onclick={filterGrid} aria-pressed="true">
+                                <i class="fas pr-1">
+                                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M20 9.5H23.5V27.5H7.5V4.5H18.5V8V9.5H20Z" stroke="#004F9B"
+                                            stroke-width="3"></path>
+                                        <rect x="12" y="12" width="5" height="2" fill="#004F9B"></rect>
+                                        <rect x="12" y="16" width="7" height="2" fill="#004F9B"></rect>
+                                        <rect x="12" y="20" width="7" height="2" fill="#004F9B"></rect>
+                                        <path d="M25 8L20 3V8H25Z" fill="#004F9B"></path>
+                                    </svg>
+                                </i>
+                                <span>View all <br>contracts</span>
+                            </button>
+                            <button value="Expires" class="expiresSixMon" onclick={filterGrid}>
+                                <i class="fas pr-1">
+                                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M20 9.5H23.5V27.5H7.5V4.5H18.5V8V9.5H20Z" stroke="#004F9B"
+                                            stroke-width="3"></path>
+                                        <rect x="12" y="12" width="5" height="2" fill="#004F9B"></rect>
+                                        <rect x="12" y="16" width="7" height="2" fill="#004F9B"></rect>
+                                        <rect x="12" y="20" width="7" height="2" fill="#004F9B"></rect>
+                                        <path d="M25 8L20 3V8H25Z" fill="#004F9B"></path>
+                                    </svg>
+
+                                </i>
+                                {expiryinsixMon}<span>Expiring in less
+                                    than 6 months </span>
+                            </button>
+                            <button value="Active" class="activeCon" onclick={filterGrid}>
+                                <i class="fas pr-1">
+                                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M20 9.5H23.5V27.5H7.5V4.5H18.5V8V9.5H20Z" stroke="#004F9B"
+                                            stroke-width="3"></path>
+                                        <rect x="12" y="12" width="5" height="2" fill="#004F9B"></rect>
+                                        <rect x="12" y="16" width="7" height="2" fill="#004F9B"></rect>
+                                        <rect x="12" y="20" width="7" height="2" fill="#004F9B"></rect>
+                                        <path d="M25 8L20 3V8H25Z" fill="#004F9B"></path>
+                                    </svg>
+
+                                </i> {activeContract}<span>Active
+                                    <br>contracts</span>
+                            </button>
+                            <button value="Inactive" class="futureCon" onclick={filterGrid}>
+                                <i class="fas pr-1">
+                                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M20 9.5H23.5V27.5H7.5V4.5H18.5V8V9.5H20Z" stroke="#004F9B"
+                                            stroke-width="3"></path>
+                                        <rect x="12" y="12" width="5" height="2" fill="#004F9B"></rect>
+                                        <rect x="12" y="16" width="7" height="2" fill="#004F9B"></rect>
+                                        <rect x="12" y="20" width="7" height="2" fill="#004F9B"></rect>
+                                        <path d="M25 8L20 3V8H25Z" fill="#004F9B"></path>
+                                    </svg>
+
+                                </i> {futureContract}<span>Future
+                                    <br>contracts</span>
+                            </button>
+                            <button value="Expired" class="expiredCon" onclick={filterGrid}>
+                                <i class="fas pr-1">
+                                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M20 9.5H23.5V27.5H7.5V4.5H18.5V8V9.5H20Z" stroke="#004F9B"
+                                            stroke-width="3"></path>
+                                        <rect x="12" y="12" width="5" height="2" fill="#004F9B"></rect>
+                                        <rect x="12" y="16" width="7" height="2" fill="#004F9B"></rect>
+                                        <rect x="12" y="20" width="7" height="2" fill="#004F9B"></rect>
+                                        <path d="M25 8L20 3V8H25Z" fill="#004F9B"></path>
+                                    </svg>
+
+                                </i> {expiredContract}<span>Expired
+                                    <br>contracts</span>
+                            </button>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

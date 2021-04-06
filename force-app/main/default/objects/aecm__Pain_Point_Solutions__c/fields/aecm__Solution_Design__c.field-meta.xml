@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>aecm__Solution_Design__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <inlineHelpText>Link to create a many-to-many relationship between this Pain Points and a Solution Design. Create another record to associate this Pain Point with multiple solutions.</inlineHelpText>
+    <label>Solution Design</label>
+    <referenceTo>aecm__Solution_Design__c</referenceTo>
+    <relationshipLabel>Pain Point Solutions</relationshipLabel>
+    <relationshipName>Pain_Points_Solutions</relationshipName>
+    <relationshipOrder>1</relationshipOrder>
+    <reparentableMasterDetail>true</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

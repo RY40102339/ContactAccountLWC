@@ -1,0 +1,198 @@
+<!--
+*******************************************************************************************************
+* (C) Copyright 2020 Yokogawa. All rights reserved.
+* This code is property of Yokogawa. Use, duplication and
+* disclosure in any form without permission of copyright holder is prohibited.
+* 
+******************************************************************************************************* 
+* @author Selvaraj Thangaraj
+* @version 1.0
+* @created 22/07/2020
+* @description 
+* This component is used for displaying the notification details in UI.
+*
+* *
+*  Change History:
+*  MM/DD/YYYY			Developer Name			Comments
+*  
+*      
+*
+*-->
+
+<template>
+    <template if:true={isLoading}>
+        <div class="loading">
+            <div class="loading-txt">
+                <div class="row text-center">
+                    <div class="col-lg-12">
+                        <svg width="51" height="52" viewBox="0 0 51 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M0.410156 25.1209C11.2022 31.0632 20.0171 40.1454 25.6268 51.1329L25.6109 51.1349C31.2146 40.1493 40.0255 31.0692 50.8116 25.1249L50.7937 25.1407L25.6208 0L0.434001 25.1407L0.410156 25.1209Z"
+                                fill="#FFEE00"></path>
+                        </svg>
+                    </div>
+                    <div class="col-lg-12 mt-3" style="margin-top: 1rem !important;">
+                        <div class="spinner-border text-dark"></div>
+                        <div class="txt-load">{label.loading}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+    <div class="row pt-3 pt-lg-0 mb-5">
+        <template if:false={isStatWrap}>
+            <div class="col-lg-12 text-center mt-3 mb-1 loading-icon">
+                <div class="spinner-border text-dark"></div>
+                <div class="txt-load">Loading..</div>
+            </div>
+        </template>
+
+        <template if:true={isStatWrap}>
+            <div class="section proj-main">
+                <div class="col-lg-12">
+                    <div class="row">
+                        <template if:true={jumpProj}>
+                            <div class="col-12 pt-2 mb-5 proj-list">
+                                <span class="black f14">{label.jumptoDomain}</span>
+                                <div class="d-none d-sm-block">
+                                    <template for:each={domainList} for:item="domain">
+                                        <div key={domain} class="f14 d-inline-block ml-3">
+                                            <a href="javascript:void(0)" onclick={scrollProject} data-dom={domain}
+                                                class="blue-primary fbold text-hover-underline">{domain}</a>
+                                        </div>
+                                        <span key={domain} class="ml-3 w-8px gray-lignt-color">|</span>
+                                    </template>
+                                </div>
+                                <div key={domain} class="form-group service-menu d-sm-none mt-2">
+                                    <select class="form-control selectpicker" name="domainDD" id="domainDD">
+                                        <option value="0" selected>{label.selectDomain}</option>
+                                        <template for:each={domainList} for:item="domain">
+                                            <option key={domain} value={domain}>{domain}</option>
+                                        </template>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12 row pt-2 mb-12 m-mb-24 m-pr-0 download-csv">
+                                <div class="f12 col-md-9 pr-0 m-pr-0 m-mb-14 mt-0 text-right d-none">
+                                    <a href="javascript:void(0)" class="blue-primary text-hover-underline">
+                                        <i class="fas mr-2">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <rect x="5" y="5" width="6" height="7" stroke="#004F9B"
+                                                    stroke-width="2">
+                                                </rect>
+                                                <line x1="8" y1="7" x2="11" y2="7" stroke="#004F9B" stroke-width="2">
+                                                </line>
+                                            </svg>
+                                        </i>
+                                        {label.relatedDoc}
+                                    </a>
+                                </div>
+                                <div class="f12 col-md-12 pr-4 m-pr-0 text-right">
+                                    <a onclick={downloadCSVFile} href="javascript:void(0)"
+                                        class="blue-primary text-hover-underline">
+                                        {downloadLink}
+                                        <img src={csvIcon} alt="CSV icon" class="ml-2" />
+                                    </a>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+                <div class="col-lg-12 mb-5">
+                    <table class="table c_dataTable station-table">
+                        <thead class="station-head">
+                            <tr class="f12 grey-dark-1">
+                                <th class="font-weight-normal">{label.domain}</th>
+                                <th class="font-weight-normal">{label.station}</th>
+                                <th class="font-weight-normal">{label.modelCode}</th>
+                                <th class="font-weight-normal">{label.revisionNo}</th>
+                                <th class="font-weight-normal">{label.mtnPhase}</th>
+                                <th class="font-weight-normal">{label.notification}</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <template for:each={statWrap} for:item="station">
+                                <tr key={station} data-domain={station.domainNo} data-id={station.stationRecId}
+                                    data-stationtype={station.statProdSubType}
+                                    class="f14 grey-darkest text-center h-60 station-row">
+                                    <td data-title="Domain" class="pl-3">{station.domainNo}</td>
+                                    <td data-title="Station">{station.stationName}</td>
+                                    <td data-title="Model code">{station.stationModelCode}</td>
+                                    <td data-title="Revision no.">{station.stationRevisionNo}</td>
+                                    <td data-title="Maintenance Phase">
+                                        <span class="d-flex">
+                                            <span class={station.colorClassName}></span>
+                                            <span
+                                                class="f14 grey-darkest font-weight-normal">{station.prodMtnPhase}</span>
+                                        </span>
+                                    </td>
+                                    <td data-title="Notifications">
+                                        <template for:each={station.tempnotiArr} for:item="noti">
+                                            <span key={noti.notiClass} class="d-flex">
+                                                <i class={noti.notiClass}></i>
+                                                <span class="f14 grey-darkest font-weight-normal">{noti.notiTxt}</span>
+                                            </span>
+                                        </template>
+                                    </td>
+                                    <td data-title="" class="text-center expand-icon">
+                                        <img src={plusIcon} data-statname={station.stationName} data-key={station.key}
+                                            data-id={station.stationRecId} data-name={station.statProdSubType}
+                                            data-dnsn={station.dnsn} class="plus cursor-pointer d-none d-sm-block"
+                                            onclick={showGrid} alt="Plus icon" />
+                                        <img src={plusIcon} data-statname={station.stationName} data-key={station.key}
+                                            data-id={station.stationRecId} data-name={station.statProdSubType}
+                                            data-dnsn={station.dnsn} class="plus cursor-pointer d-sm-none"
+                                            onclick={showMobileGrid} alt="Plus icon" />
+                                        <img src={minusIcon} data-statname={station.stationName} data-key={station.key}
+                                            data-id={station.stationRecId} data-name={station.statProdSubType}
+                                            class="minus cursor-pointer" onclick={hideGrid} alt="Minus icon" />
+                                    </td>
+                                </tr>
+                                <tr key={station} data-id={station.stationRecId} class="border-bottom-0 station-grid">
+                                    <td colspan="7" class="gridSection p-0">
+                                        <div class={station.key} style="display: none;">
+                                            <div class="col-lg-12 mb-1 pl-0 text-right d-none">
+                                                <a href={statLink}
+                                                    class="f12 blue-primary font-weight-normal text-hover-underline">
+                                                    <i class="fas pr-1">
+                                                        <svg width="7" height="10" viewBox="0 0 7 10" fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M1 1L5 5L1 9" stroke="#004F9B" stroke-width="2">
+                                                            </path>
+                                                        </svg>
+                                                    </i>{label.viewStationDetLbl}</a>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <div class="table-responsive p-0 m-0 bg-white">
+                                                        <template if:true={isgridLoading}>
+                                                            <div class="col-lg-12 text-center mt-3">
+                                                                <div class="spinner-border text-dark"></div>
+                                                                <div class="txt-load">Loading..</div>
+                                                            </div>
+                                                        </template>
+                                                        <div
+                                                            class="f14 grey-darkest fbold md-m-l-16 m-l-r-8 h-60 d-flex align-items-center">
+                                                            {statModCode} {osName}
+                                                        </div>
+                                                        <template if:false={isgridLoading}>
+                                                            <table lwc:dom="manual"
+                                                                class="table table-borderless f14 stat-dtTable">
+                                                            </table>
+                                                        </template>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </template>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </template>
+    </div>
+</template>

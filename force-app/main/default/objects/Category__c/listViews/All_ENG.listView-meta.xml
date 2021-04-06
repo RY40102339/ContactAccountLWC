@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_ENG</fullName>
+    <columns>NAME</columns>
+    <columns>Category__c</columns>
+    <columns>Category_Type__c</columns>
+    <columns>Language_Code__c</columns>
+    <columns>Service_Org__c</columns>
+    <columns>Category_Hierarchy__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Language_Code__c</field>
+        <operation>equals</operation>
+        <value>EN</value>
+    </filters>
+    <label>All - ENG</label>
+</ListView>

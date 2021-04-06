@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Intern</fullName>
+        <default>false</default>
+        <label>Intern</label>
+    </customValue>
+    <customValue>
+        <fullName>Entry</fullName>
+        <default>false</default>
+        <label>Entry</label>
+    </customValue>
+    <customValue>
+        <fullName>Mid Career</fullName>
+        <default>false</default>
+        <label>Mid Career</label>
+    </customValue>
+    <customValue>
+        <fullName>Senior</fullName>
+        <default>false</default>
+        <label>Senior</label>
+    </customValue>
+    <customValue>
+        <fullName>Expert</fullName>
+        <default>false</default>
+        <label>Expert</label>
+    </customValue>
+    <masterLabel>Resource Level</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

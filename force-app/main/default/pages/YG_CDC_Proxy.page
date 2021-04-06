@@ -1,0 +1,18 @@
+<apex:page id="saml_proxy" showHeader="false">
+    <html>
+    <head>
+        <title>{!$Label.YG_ProxyPage_Title}</title>
+        <script>
+            localStorage.removeItem("plantCode");
+        </script>
+        <script src="{!$Label.YG_CDC_Proxy_Script}">
+            {
+            loginURL:"/YG_CDC_Login",
+            logoutURL:"/YG_CDC_Logout"
+            }
+        </script>
+    </head>
+    <body>
+    </body>
+    </html>
+</apex:page>

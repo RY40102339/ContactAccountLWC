@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Category_Hierarchy__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <description>This field stores the lookup value with category hierarchy.</description>
+    <externalId>false</externalId>
+    <label>Category Hierarchy</label>
+    <referenceTo>Category_Hierarchy__c</referenceTo>
+    <relationshipLabel>Category</relationshipLabel>
+    <relationshipName>Category</relationshipName>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

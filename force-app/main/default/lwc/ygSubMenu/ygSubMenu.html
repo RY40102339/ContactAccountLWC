@@ -1,0 +1,388 @@
+<!--
+*******************************************************************************************************
+* (C) Copyright 2020 Yokogawa. All rights reserved.
+* This code is property of Yokogawa. Use, duplication and
+* disclosure in any form without permission of copyright holder is prohibited.
+* 
+******************************************************************************************************* 
+* @author Selvaraj Thangaraj
+* @version 1.0
+* @created 05/08/2020
+* @description 
+* This component is used for displaying the sub menu details in UI.
+*
+* *
+*  Change History:
+*  MM/DD/YYYY			Developer Name			Comments
+*  06/16/2020           Selvaraj T              updated the code to fire an event to ygButtonNotification component
+*  07/22/2020           Selvaraj T              updated all stations to all systems in js & html     
+*  07/29/2020           Selvaraj T              updated all systems count for mobile view   
+*  09/17/2020           Jayaprasath             updated role condition for manage colleagues page
+*  09/21/2020           Selvaraj T              updated the submenu to be displayed on clicking systems
+*  09/23/2020           Jayaprasath             updated getManageColleaguesDetails() to get count 
+*  10/21/2020           Selvaraj T              removed the hardware,software and maintenance phase related codes 
+*-->
+
+<template>
+
+    <div class="dropdown_menu d-sm-none">
+        <template if:true={products}>
+            <a class="dropdown_toggle" onclick={toggleSubmenu}>
+                {selectedTxt} <span>({productCount})</span>
+            </a>
+            <ul class="dropdown_list">
+                <li class="first-item active">
+                    <a href={allProdURL}>{label.allProductsLbl} <span>({allproductCount})</span></a>
+                </li>
+                <template for:each={subMenuList} for:item="item">
+                    <li key={item} class={item.class}>
+                        <a href={item.pgeURL}>{item.label} <span>({item.totalCnt})</span></a>
+                    </li>
+                </template>
+            </ul>
+        </template>
+        <template if:true={systems}>
+            <div class="col-lg-12 section-head sub-menu-plant plant-switch d-sm-none">
+                <template if:true={isMobile}>
+                    <c-yg-plant-switch></c-yg-plant-switch>
+                </template>
+            </div>
+            <a class="dropdown_toggle" onclick={toggleSubmenu}>
+                {label.systemOverview}
+            </a>
+            <ul class="dropdown_list">
+                <li class="active">
+                    <a href={systemURL}>{label.systemOverview} </a>
+                </li>
+                <li class="">
+                    <a href={softwareLicensesURL}>{label.softwareLicense} </a>
+                </li>
+            </ul>
+        </template>
+        <template if:true={roleFlag}>
+            <template if:true={managecolleagues}>
+                <a class="dropdown_toggle" onclick={toggleSubmenu}>
+                    {label.manageColleaguesLbl} <span>({manageColleaguesCount})</span>
+                </a>
+                <ul class="dropdown_list">
+                    <li>
+                        <a href={updateProfileURL}>{label.updProfileLbl}</a>
+                    </li>
+                    <li>
+                        <a href={updatePasswordURL}>{label.updPasswordLbl}</a>
+                    </li>
+                    <li class="first-item active">
+                        <a href={managecolleaguesURL}>{label.manageColleaguesLbl}
+                            <span>({manageColleaguesCount})</span></a>
+                    </li>
+                </ul>
+            </template>
+        </template>
+        <template if:true={softwareLicenses}>
+            <div class="col-lg-12 section-head sub-menu-plant plant-switch d-sm-none">
+                <template if:true={isMobile}>
+                    <c-yg-plant-switch></c-yg-plant-switch>
+                </template>
+            </div>
+            <a class="dropdown_toggle" onclick={toggleSubmenu}>
+                {label.softwareLicense} <span>({softwareLicenseCount})</span>
+            </a>
+            <ul class="dropdown_list">
+                <li>
+                    <a href={systemURL}>{label.systemOverview}</a>
+                </li>
+                <li class="first-item active">
+                    <a href={softwareLicensesURL}>{label.softwareLicense} <span>({softwareLicenseCount})</span></a>
+                </li>
+            </ul>
+        </template>
+        <template if:true={docSearch}>
+            <a class="dropdown_toggle" onclick={toggleSubmenu}>
+                Documents
+            </a>
+            <ul class="dropdown_list">
+                <li class="active">
+                    <a href={docURL}>Documents</a>
+                </li>
+                <li>
+                    <a href={certURL}>Certificates</a>
+                </li>
+            </ul>
+        </template>
+        <template if:true={certSearch}>
+            <a class="dropdown_toggle" onclick={toggleSubmenu}>
+                Certificates
+            </a>
+            <ul class="dropdown_list">
+                <li>
+                    <a href={docURL}>Documents</a>
+                </li>
+                <li class="active">
+                    <a href={certURL}>Certificates</a>
+                </li>
+            </ul>
+        </template>
+        <template if:true={updatePassword}>
+            <a class="dropdown_toggle" onclick={toggleSubmenu}>
+                {label.updPasswordLbl}
+            </a>
+            <ul class="dropdown_list">
+                <li>
+                    <a href={updateProfileURL}>{label.updProfileLbl}</a>
+                </li>
+                <li class="active">
+                    <a href={updatePasswordURL}>{label.updPasswordLbl}</a>
+                </li>
+                <template if:true={roleFlag}>
+                    <li>
+                        <a href={managecolleaguesURL}>{label.manageColleaguesLbl}
+                            <span>({manageColleaguesCount})</span></a>
+                    </li>
+                </template>
+            </ul>
+        </template>
+        <template if:true={updateProfile}>
+            <a class="dropdown_toggle" onclick={toggleSubmenu}>
+                {label.updProfileLbl}
+            </a>
+            <ul class="dropdown_list">
+                <li class="active">
+                    <a href={updateProfileURL}>{label.updProfileLbl}</a>
+                </li>
+                <li>
+                    <a href={updatePasswordURL}>{label.updPasswordLbl}</a>
+                </li>
+                <template if:true={roleFlag}>
+                    <li>
+                        <a href={managecolleaguesURL}>{label.manageColleaguesLbl}
+                            <span>({manageColleaguesCount})</span></a>
+                    </li>
+                </template>
+            </ul>
+        </template>
+        <!--dropdown_list-->
+    </div>
+    <!--dropdown_menu-->
+    <template if:false={disableFilter}>
+        <div class="filter_main d-sm-none">
+            <a class="filter_toggle"></a>
+            <div class="filter_box">
+                <c-yg-filter></c-yg-filter>
+                <c-yg-button-notification></c-yg-button-notification>
+            </div>
+            <!--filter_box-->
+        </div>
+    </template>
+    <!--filter_main-->
+    <div class="">
+        <div class="bg-slight-lt-blue pr-0 pl-0 d-none d-sm-block">
+            <nav aria-label="Sub menu">
+                <template if:true={systems}>
+                    <div class="sub-menu">
+                        <ul id="accordionSidebar">
+                            <li class="active">
+                                <a class="sidebar-brand d-flex align-items-center font-weight-bold"
+                                    href={systemURL}>System Overview</a>
+                            </li>
+                            <li class="">
+                                <a class="sidebar-brand d-flex align-items-center font-weight-bold"
+                                    href={softwareLicensesURL}>Software Licenses</a>
+                            </li>
+                        </ul>
+                    </div>
+                </template>
+                <template if:true={softwareLicenses}>
+                    <div class="sub-menu">
+                        <ul id="accordionSidebars">
+                            <li class="">
+                                <a class="sidebar-brand d-flex align-items-center font-weight-bold"
+                                    href={systemURL}>System Overview</a>
+                            </li>
+                            <li class="active">
+                                <a class="sidebar-brand d-flex align-items-center font-weight-bold"
+                                    href={softwareLicensesURL}>Software Licenses</a>
+                            </li>
+                        </ul>
+                    </div>
+                </template>
+                <template if:true={docSearch}>
+                    <div class="sub-menu">
+                        <ul>
+                            <li class="active">
+                                <a class="sidebar-brand d-flex align-items-center font-weight-bold"
+                                    href={docURL}>Documents</a>
+                            </li>
+                            <li>
+                                <a class="sidebar-brand d-flex align-items-center font-weight-bold"
+                                    href={certURL}>Certificates</a>
+                            </li>
+                        </ul>
+                    </div>
+                </template>
+                <template if:true={certSearch}>
+                    <div class="sub-menu">
+                        <ul>
+                            <li>
+                                <a class="sidebar-brand d-flex align-items-center font-weight-bold"
+                                    href={docURL}>Documents</a>
+                            </li>
+                            <li class="active">
+                                <a class="sidebar-brand d-flex align-items-center font-weight-bold"
+                                    href={certURL}>Certificates</a>
+                            </li>
+                        </ul>
+                    </div>
+                </template>
+                <template if:true={products}>
+                    <div class="sub-menu">
+                        <ul>
+                            <li class="first-item active">
+                                <a href={allProdURL}>{label.allProductsLbl}</a>
+                                <small>
+                                    <i class="fas">
+                                        <svg width="8" height="11" viewBox="0 0 8 11" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <g>
+                                                <path
+                                                    d="M2.95332 9.59937C2.95332 10.3696 3.51406 10.9963 4.20332 10.9963C4.89259 10.9963 5.45332 10.3696 5.45332 9.59937H2.95332Z"
+                                                    fill="white"></path>
+                                                <path
+                                                    d="M7.20001 7.48357V4.63981C7.20001 2.78162 5.94308 1.25301 4.33155 1.0668C4.45433 0.957031 4.53334 0.788143 4.53334 0.598681C4.53334 0.268571 4.29409 0 4.00001 0C3.70593 0 3.46668 0.268571 3.46668 0.598681C3.46668 0.788143 3.54572 0.957031 3.66847 1.0668C2.05694 1.25301 0.800005 2.78162 0.800005 4.63981L0.800005 7.48357H0L0 8.3816H8V7.48357H7.20001Z"
+                                                    fill="white"></path>
+                                            </g>
+                                        </svg>
+                                    </i>
+                                    {allProdNotiCount} {label.notificationsLbl}
+                                </small>
+                            </li>
+
+                            <template for:each={subMenuList} for:item="item">
+                                <li key={item} class={item.class}>
+                                    <a href={item.pgeURL} aria-current={item.activePage}>{item.label}</a>
+                                    <small><i class="fas">
+                                            <svg width="8" height="11" viewBox="0 0 8 11" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <g>
+                                                    <path
+                                                        d="M2.95332 9.59937C2.95332 10.3696 3.51406 10.9963 4.20332 10.9963C4.89259 10.9963 5.45332 10.3696 5.45332 9.59937H2.95332Z"
+                                                        fill="white"></path>
+                                                    <path
+                                                        d="M7.20001 7.48357V4.63981C7.20001 2.78162 5.94308 1.25301 4.33155 1.0668C4.45433 0.957031 4.53334 0.788143 4.53334 0.598681C4.53334 0.268571 4.29409 0 4.00001 0C3.70593 0 3.46668 0.268571 3.46668 0.598681C3.46668 0.788143 3.54572 0.957031 3.66847 1.0668C2.05694 1.25301 0.800005 2.78162 0.800005 4.63981L0.800005 7.48357H0L0 8.3816H8V7.48357H7.20001Z"
+                                                        fill="white"></path>
+                                                </g>
+                                            </svg>
+                                        </i>{item.noficationCount} {label.notificationsLbl}</small>
+                                </li>
+                            </template>
+                        </ul>
+                    </div>
+                </template>
+                <template if:true={managecolleagues}>
+                    <div class="sub-menu">
+                        <ul id="accordionSidebar4">
+                            <li class="">
+                                <a class="sidebar-brand d-flex align-items-center font-weight-bold pr-1"
+                                    href={updateProfileURL}>{label.updProfileLbl}</a>
+                            </li>
+                            <li class="">
+                                <a class="sidebar-brand d-flex align-items-center font-weight-bold"
+                                    href={updatePasswordURL}>{label.updPasswordLbl}</a>
+                            </li>
+                            <template if:true={roleFlag}>
+                                <li class="active">
+                                    <a class="sidebar-brand d-flex align-items-center font-weight-bold"
+                                        href={managecolleaguesURL}>{label.manageColleaguesLbl}</a>
+                                    <template if:true={manageColleaguesNotiFlag}>
+                                        <small><i class="fas">
+                                                <svg width="8" height="11" viewBox="0 0 8 11" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <g>
+                                                        <path
+                                                            d="M2.95332 9.59937C2.95332 10.3696 3.51406 10.9963 4.20332 10.9963C4.89259 10.9963 5.45332 10.3696 5.45332 9.59937H2.95332Z"
+                                                            fill="white"></path>
+                                                        <path
+                                                            d="M7.20001 7.48357V4.63981C7.20001 2.78162 5.94308 1.25301 4.33155 1.0668C4.45433 0.957031 4.53334 0.788143 4.53334 0.598681C4.53334 0.268571 4.29409 0 4.00001 0C3.70593 0 3.46668 0.268571 3.46668 0.598681C3.46668 0.788143 3.54572 0.957031 3.66847 1.0668C2.05694 1.25301 0.800005 2.78162 0.800005 4.63981L0.800005 7.48357H0L0 8.3816H8V7.48357H7.20001Z"
+                                                            fill="white"></path>
+                                                    </g>
+                                                </svg>
+                                            </i>{manageColleaguesPlantCount} {label.notificationsLbl}</small>
+                                    </template>
+                                </li>
+                            </template>
+                        </ul>
+                    </div>
+                </template>
+                <template if:true={updateProfile}>
+                    <div class="sub-menu">
+                        <ul id="accordionSidebar5">
+                            <li class="active">
+                                <a class="sidebar-brand d-flex align-items-center font-weight-bold"
+                                    href={updateProfileURL}>{label.updProfileLbl}</a>
+                            </li>
+                            <li class="">
+                                <a class="sidebar-brand d-flex align-items-center font-weight-bold"
+                                    href={updatePasswordURL}>{label.updPasswordLbl}</a>
+                            </li>
+                            <template if:true={roleFlag}>
+                                <li class="">
+                                    <a class="sidebar-brand d-flex align-items-center font-weight-bold"
+                                        href={managecolleaguesURL}>{label.manageColleaguesLbl}</a>
+                                    <template if:true={manageColleaguesNotiFlag}>
+                                        <small><i class="fas">
+                                                <svg width="8" height="11" viewBox="0 0 8 11" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <g>
+                                                        <path
+                                                            d="M2.95332 9.59937C2.95332 10.3696 3.51406 10.9963 4.20332 10.9963C4.89259 10.9963 5.45332 10.3696 5.45332 9.59937H2.95332Z"
+                                                            fill="white"></path>
+                                                        <path
+                                                            d="M7.20001 7.48357V4.63981C7.20001 2.78162 5.94308 1.25301 4.33155 1.0668C4.45433 0.957031 4.53334 0.788143 4.53334 0.598681C4.53334 0.268571 4.29409 0 4.00001 0C3.70593 0 3.46668 0.268571 3.46668 0.598681C3.46668 0.788143 3.54572 0.957031 3.66847 1.0668C2.05694 1.25301 0.800005 2.78162 0.800005 4.63981L0.800005 7.48357H0L0 8.3816H8V7.48357H7.20001Z"
+                                                            fill="white"></path>
+                                                    </g>
+                                                </svg>
+                                            </i>{manageColleaguesPlantCount} {label.notificationsLbl}</small>
+                                    </template>
+                                </li>
+                            </template>
+                        </ul>
+                    </div>
+                </template>
+                <template if:true={updatePassword}>
+                    <div class="sub-menu">
+                        <ul id="accordionSidebar6">
+                            <li>
+                                <a class="sidebar-brand d-flex align-items-center font-weight-bold pr-1"
+                                    href={updateProfileURL}>{label.updProfileLbl}</a>
+                            </li>
+                            <li class="active">
+                                <a class="sidebar-brand d-flex align-items-center font-weight-bold"
+                                    href={updatePasswordURL}>{label.updPasswordLbl}</a>
+                            </li>
+                            <template if:true={roleFlag}>
+                                <li class="">
+                                    <a class="sidebar-brand d-flex align-items-center font-weight-bold"
+                                        href={managecolleaguesURL}>{label.manageColleaguesLbl}</a>
+                                    <template if:true={manageColleaguesNotiFlag}>
+                                        <small><i class="fas">
+                                                <svg width="8" height="11" viewBox="0 0 8 11" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <g>
+                                                        <path
+                                                            d="M2.95332 9.59937C2.95332 10.3696 3.51406 10.9963 4.20332 10.9963C4.89259 10.9963 5.45332 10.3696 5.45332 9.59937H2.95332Z"
+                                                            fill="white"></path>
+                                                        <path
+                                                            d="M7.20001 7.48357V4.63981C7.20001 2.78162 5.94308 1.25301 4.33155 1.0668C4.45433 0.957031 4.53334 0.788143 4.53334 0.598681C4.53334 0.268571 4.29409 0 4.00001 0C3.70593 0 3.46668 0.268571 3.46668 0.598681C3.46668 0.788143 3.54572 0.957031 3.66847 1.0668C2.05694 1.25301 0.800005 2.78162 0.800005 4.63981L0.800005 7.48357H0L0 8.3816H8V7.48357H7.20001Z"
+                                                            fill="white"></path>
+                                                    </g>
+                                                </svg>
+                                            </i>{manageColleaguesPlantCount} {label.notificationsLbl}</small>
+                                    </template>
+                                </li>
+                            </template>
+                        </ul>
+                    </div>
+                </template>
+            </nav>
+        </div>
+    </div>
+</template>

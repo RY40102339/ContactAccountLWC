@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>YG_Cost_Value_Score__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE( aecm__Cost_Value__c , &quot;Low Cost - High Value&quot;,9,&quot;Moderate Cost - High Value&quot;,8,&quot;Low Cost - Moderate Value&quot;,7,&quot;High Cost - High Value&quot;,6,&quot;Moderate Cost - Moderate Value&quot;,5,&quot;High Cost - Moderate Value&quot;,4,&quot;Low Cost - Low Value&quot;,3,&quot;Moderate Cost - Low Value&quot;,2,&quot;High Cost - Low Value&quot;,1, 0)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Cost Value Score</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>1</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

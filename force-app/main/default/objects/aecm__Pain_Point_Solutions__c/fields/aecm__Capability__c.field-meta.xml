@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>aecm__Capability__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <inlineHelpText>Link to create a many-to-many relationship between this Pain Point and an additional Capability. Create Pain Point from a capability to automatically create an association.</inlineHelpText>
+    <label>Capability</label>
+    <referenceTo>aecm__Capability__c</referenceTo>
+    <relationshipLabel>Pain Point Solutions</relationshipLabel>
+    <relationshipName>Pain_Points_Solutions</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

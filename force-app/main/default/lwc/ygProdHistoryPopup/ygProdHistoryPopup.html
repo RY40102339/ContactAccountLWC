@@ -1,0 +1,93 @@
+<template>
+    <!-- Modal/Popup Box LWC starts here -->
+    <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+        aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open request-detail">
+        <template if:true={prevBtn}>
+            <button onclick={prevItem} class="slds-button border-0 shadow-none mHidden"
+                style="position: fixed;left: 0%;top: 50%;transform: translate(200%, -50%);">
+                <svg width="40" height="74" viewBox="0 0 40 74" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M36.9411 70.9411L3 37L36.9411 3.05888" stroke="#004F9B" stroke-width="4"
+                        stroke-linecap="square"></path>
+                </svg>
+            </button>
+        </template>
+        <template if:true={nextBtn}>
+            <button onclick={nextItem} class="slds-button border-0 shadow-none mHidden"
+                style="position: fixed;right: 0%;top: 50%;transform: translate(-200%, -50%);">
+                <svg width="41" height="74" viewBox="0 0 41 74" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3.55888 70.9411L37.5 37L3.55888 3.05888" stroke="#004F9B" stroke-width="4"
+                        stroke-linecap="square"></path>
+                </svg>
+            </button>
+        </template>
+
+        <div class="slds-modal__container prod-his-popup">
+            <!-- Modal/Popup Box LWC header here -->
+            <header class="slds-modal__header h-60 border-0 rounded-0">
+                <template if:true={prevBtn}>
+                    <button class="slds-button border-0 shadow-none d-md-none d-lg-none float-left" style="position: absolute;left: 0.725rem; top: 1.1rem;" onclick={prevItem}>
+                        <svg width="27" height="26" viewBox="0 0 27 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13.3137 24.3137L2 13L13.3137 1.6863" stroke="#004F9B" stroke-width="2" stroke-linecap="square"></path>
+                        </svg>
+                    </button>
+                </template>
+                <template if:true={nextBtn}>
+                    <button class="slds-button border-0 shadow-none d-md-none d-lg-none float-left" style="position: absolute;left: 3rem; top: 1.1rem;" onclick={nextItem}>
+                        <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12.9412 24.3137L24.2549 13L12.9412 1.6863" stroke="#004F9B" stroke-width="2" stroke-linecap="square"></path>
+                        </svg>
+                    </button>
+                </template>
+                <button
+                    class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse border-0 shadow-none"
+                    title="Close" onclick={closeModal}>
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 8L24 24M40 40L24 24M24 24L40 8L8 40" stroke="#004F9B" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                    <span class="slds-assistive-text">Close</span>
+                </button>
+            </header>
+            <!-- Modal/Popup Box LWC body starts here -->
+            <div class="slds-modal__content slds-p-around_medium radius-0" id="modal-content-id-1">
+                <div class="row">
+                    <div class="col-lg-12 pl-0 mt-lg-n4 mb-1 m-l-r-8">
+                        <span class="noto-font f14 ft-weight-normal blue-primary">{prodHisCat}</span>
+                    </div>
+                    <div class="col-lg-12 section-head pl-0 mHidden">
+                        <h1 tabindex="0" role="heading" aria-level="1" class="noto-font f32 ft-weight-900 mb-0">
+                            S/N:&nbsp;{serialnum}<br />
+                            <!--<span class="f20">20CX2005ST</span>-->
+                        </h1>
+                    </div>
+                    <div class="col-lg-12 section-head pl-0 bread-crumb d-md-none d-lg-none m-l-r-8">
+                        <h1 class="noto-font ft-weight-800">S/N:&nbsp;{serialnum}</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <c-yg-prod-history-info serial-number={serialNumber}></c-yg-prod-history-info>
+                                <c-yg-combination-product serial-number={serialNumber}></c-yg-combination-product>
+                                <c-yg-ordering-instructions serial-number={serialNumber}></c-yg-ordering-instructions>
+                                <c-yg-product-history serial-number={serialNumber}></c-yg-product-history>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <c-yg-notification-bar serial-number={serialNumber}></c-yg-notification-bar>
+                                <c-yg-documents serial-number={serialNumber}></c-yg-documents>
+                                <c-yg-need-help></c-yg-need-help>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-5"></div>
+            </div>
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+</template>

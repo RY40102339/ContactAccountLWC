@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label></label>
+    <name>aecm__Class__c</name>
+    <picklistValues>
+        <masterLabel>Financial Success</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Operational Success</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>User Success</masterLabel>
+        <translation></translation>
+    </picklistValues>
+</CustomFieldTranslation>

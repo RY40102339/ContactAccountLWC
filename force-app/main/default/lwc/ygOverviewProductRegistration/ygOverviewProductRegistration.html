@@ -1,0 +1,65 @@
+<!--
+*******************************************************************************************************
+* (C) Copyright 2020 Yokogawa. All rights reserved.
+* This code is property of Yokogawa. Use, duplication and
+* disclosure in any form without permission of copyright holder is prohibited.
+* 
+******************************************************************************************************* 
+* @author Satish
+* @version 1.0
+* @created 09/28/2020
+* @description 
+* This component is used for displaying the Manage Colleagues in UI.
+*
+* *
+*  Change History:
+*  MM/DD/YYYY			Developer Name			Comments
+*  
+*  
+*
+*-->
+<template>
+    <div class="row">
+        <div class="section">
+            <div class="col-lg-12 mt-5 mb-4">
+                <div class="notification col-lg-12 f20 p-0"><span class="fbold">{label.productRegLbl}</span></div>
+            </div>
+            <div class="col-lg-11 mb-2">
+                <label class="noto-font f14 grey-darkest">
+                    <span class="f14 font-weight-normal">
+                        <span>{label.productRegMsgLbl}</span>
+                    </span>
+                </label>
+            </div>
+            <div class="col-lg-12 mb-4">
+                <div class="noto-font f14 grey-darkest mb-1">
+                    <i class="fas pr-1">
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="6" cy="6" r="3" fill="#313538"></circle>
+                        </svg>
+                    </i>
+                    <span class="f14 font-weight-normal">{label.productRegMsg2Lbl}</span>
+                </div>
+                <div class="noto-font f14 grey-darkest mb-1">
+                    <i class="fas pr-1">
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="6" cy="6" r="3" fill="#313538"></circle>
+                        </svg>
+                    </i>
+                    <span class="f14 font-weight-normal">{label.productAlertLbl}</span>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <a href={productRegURL} class="text-right blue-primary f12 text-hover-underline">
+                    <i class="fas pr-2">
+                        <svg width="16" height="13" viewBox="0 0 16 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7 11.5L10.5 8L7 4.5" stroke="#004F9B" stroke-width="2" stroke-linecap="square">
+                            </path>
+                        </svg>
+                    </i>
+                    {label.regProductLbl}
+                </a>
+            </div>
+        </div>
+    </div>
+</template>

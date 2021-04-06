@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>aecm__Completion_Time__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <inlineHelpText>Provide the time it takes to complete this process step in minutes  i.e. [15 min = 15, 1 hour = 60, 3 Hours = 180] This should be cumulative total hours not individual resource hours.</inlineHelpText>
+    <label>Completion Time</label>
+    <precision>18</precision>
+    <required>true</required>
+    <scale>0</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

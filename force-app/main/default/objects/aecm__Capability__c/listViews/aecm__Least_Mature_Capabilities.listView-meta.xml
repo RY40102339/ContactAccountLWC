@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>aecm__Least_Mature_Capabilities</fullName>
+    <columns>NAME</columns>
+    <columns>aecm__Capability_Area__c</columns>
+    <columns>aecm__Overall_Score__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>aecm__Active__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <filters>
+        <field>aecm__Overall_Score__c</field>
+        <operation>lessOrEqual</operation>
+        <value>4</value>
+    </filters>
+    <label>Least Mature Capabilities</label>
+</ListView>

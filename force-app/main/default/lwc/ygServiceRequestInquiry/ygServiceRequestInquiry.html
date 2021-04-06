@@ -1,0 +1,352 @@
+<!--
+*******************************************************************************************************
+* (C) Copyright 2020 Yokogawa. All rights reserved.
+* This code is property of Yokogawa. Use, duplication and
+* disclosure in any form without permission of copyright holder is prohibited.
+* 
+******************************************************************************************************* 
+* @author Anand Selvarasu
+* @version 1.0
+* @created 08/13/2020
+* @description 
+* This component is used for creating service request or inquiries.
+*
+* *
+*  Change History:
+*  MM/DD/YYYY			Developer Name			Comments
+*  10/14/2020           Selvaraj T              Worked on prepopulating inquiry fields from software license page
+*  10/23/2020           Selvaraj T              Worked on prepopulating inquiry fields from suffix code popup
+*
+*-->
+
+<template>
+    <template if:true={isLoading}>
+        <div class="loading">
+            <div class="loading-txt">
+                <div class="row text-center">
+                    <div class="col-lg-12">
+                        <svg width="51" height="52" viewBox="0 0 51 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M0.410156 25.1209C11.2022 31.0632 20.0171 40.1454 25.6268 51.1329L25.6109 51.1349C31.2146 40.1493 40.0255 31.0692 50.8116 25.1249L50.7937 25.1407L25.6208 0L0.434001 25.1407L0.410156 25.1209Z"
+                                fill="#FFEE00"></path>
+                        </svg>
+                    </div>
+                    <div class="col-lg-12 mt-3" style="margin-top: 1rem !important;">
+                        <div class="spinner-border text-dark"></div>
+                        <div class="txt-load">{label.loadingLbl}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+    <div class="row mt-38 mr-0">
+        <div class="section all-form">
+            <div class="col-lg-12 service-request">
+                <div class="form-group pb-4">
+                    <div class="btn-group btn-group-toggle">
+                        <label class="btn-radio f12 fbold cursor-pointer active">
+                            <div class="radio-img">
+                                <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="15" cy="15" r="12.5" stroke-width="3"></circle>
+                                    <circle cx="15" cy="15" r="5"></circle>
+                                </svg>
+                            </div>
+                            <div class="radio-label pr-3">
+                                <input type="radio" name="request-type" id="maintenance" value="Request For Service"
+                                    autocomplete="off" class="position-absolute" onchange={showRequest}>
+                                {label.reqMainServLbl}
+                            </div>
+                        </label>
+                    </div>
+                    <div class="btn-group btn-group-toggle ml-4">
+                        <label class="btn-radio f12 fbold cursor-pointer">
+                            <div class="radio-img">
+                                <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <g>
+                                        <circle cx="15" cy="15" r="12.5" stroke-width="3"></circle>
+                                        <circle cx="15" cy="15" r="5"></circle>
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="radio-label">
+                                <input type="radio" name="request-type" id="inquiry" autocomplete="off"
+                                    value="Submit An Inquiry" class="position-absolute" onchange={showRequest}>
+                                {label.subInqLbl}
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                <form name="maintenanceRequest" id="maintenanceRequest">
+                    <div class="maintenance-form pt-2">
+                        <div class="form-group">
+                            <label for="productService" class="f20 ft-weight-900 grey-darkest mb-2">{label.sevProdLbl}
+                                <span class="pl-1 font-weight-normal"></span>
+                                <div class="font-weight-normal d-inline-block"></div>:
+                            </label>
+                            <div class="service-search">
+                                <template for:each={selectedRecordList} for:item="selRec">
+                                    <lightning-pill key={selRec} class="slds-m-around_xx-small" label={selRec.Name}
+                                        onremove={handleRemove}>
+                                    </lightning-pill>
+                                </template>
+                                <input type="text" class="form-control border-0 f14 grey-darkest filterInput"
+                                    name="productService" id="productService" placeholder={label.etrProdNameLbl}
+                                    value={searchKey} onkeyup={handleChange} onkeydown={searchKeyDown}>
+                            </div>
+                            <div class="col-lg-12">
+                                <ul class="slds-listbox slds-listbox_vertical slds-dropdown slds-dropdown_fluid slds slds-hide searchRes"
+                                    role="listbox">
+                                    <template if:true={recordsExist}>
+                                        <template for:each={records} for:item="singleRec">
+                                            <li key={singleRec} role="presentation" data-lable={singleRec.Name}
+                                                data-id={singleRec.Id} class="slds-listbox__item filterLi"
+                                                onclick={handleSelect}>
+                                                <span
+                                                    class="slds-media slds-listbox__option slds-listbox__option_entity slds-listbox__option_has-meta"
+                                                    role="option">
+                                                    <span class="slds-media__body">
+                                                        <span
+                                                            class="slds-listbox__option-text slds-listbox__option-text_entity">
+                                                            {singleRec.Name}
+                                                        </span>
+                                                    </span>
+                                                </span>
+                                            </li>
+                                        </template>
+                                    </template>
+                                    <template if:false={recordsExist}>
+                                        <li role="presentation" class="slds-listbox__item">
+                                            <span
+                                                class="slds-media slds-listbox__option slds-listbox__option_entity slds-listbox__option_has-meta"
+                                                role="option">
+                                                <span class="slds-media__body">
+                                                    <span
+                                                        class="slds-listbox__option-text slds-listbox__option-text_entity">{records}</span>
+                                                </span>
+                                            </span>
+                                        </li>
+
+                                        <li role="presentation" class="slds-listbox__item" onclick={handleSelect}
+                                            data-id="0" data-lable="Others">
+                                            <span
+                                                class="slds-media slds-listbox__option slds-listbox__option_entity slds-listbox__option_has-meta"
+                                                role="option">
+                                                <span class="slds-media__body">
+                                                    <span
+                                                        class="slds-listbox__option-text slds-listbox__option-text_entity">{label.otrLbl}</span>
+                                                </span>
+                                            </span>
+                                        </li>
+
+                                    </template>
+                                </ul>
+                            </div>
+                            <div class="prodService-err f14 mt-2 alert-orange"></div>
+                        </div>
+
+                        <!--service you require dropdown-->
+                        <div class="form-group">
+                            <label for="serviceRequire" class="f14 fbold grey-darkest">{label.servReqLbl}</label>
+                            <select class="form-control selectpicker" disabled name="serviceRequire" id="serviceRequire"
+                                data-placeholder={label.sltMtnServLbl}>
+                                <option value=""></option>
+                            </select>
+                            <div class="serviceRequire-err f14 mt-2 alert-orange"></div>
+                        </div>
+
+                        <!--Condition of the product or any other notes-->
+                        <div class="form-group">
+                            <label for="notes" class="f14 fbold grey-darkest">{label.prodCondLbl}
+                                <div class="font-weight-normal d-inline-block pl-1">{label.optionalLbl}</div>:
+                            </label>
+
+                            <textarea class="form-control char-main-textarea grey-darkest" id="notes" name="notes"
+                                aria-required="true" rows="3" placeholder={label.shortDescLbl}></textarea>
+                        </div>
+                        <div class="form-group row pt-4 pb-4">
+                            <div class="col-lg-5 text-center text-lg-left">
+                                <button type="button" data-id="attachment" onclick={submitMaintenance}
+                                    class="btn bg-white blue-primary btn-primary text-uppercase f14 ft-weight-900">{label.attachLbl}</button>
+                            </div>
+                            <div class="col-lg-7 text-center text-lg-right mt-1rem">
+                                <button type="button" data-id="skip" onclick={submitMaintenance}
+                                    class="btn btn-primary text-uppercase f14 ft-weight-900">{label.submitServReqLbl}</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <form name="submitInquiry" id="submitInquiry">
+                    <div class="inquiry-form pt-2" style="display: none;">
+
+                        <fieldset class="form-group">
+                            <div class="row">
+                                <legend class="col-lg-12 grey-darkest f20 ft-weight-900">{label.inqTypeLbl}</legend>
+                                <div class="col-lg-12">
+                                    <div class="newradio--inline">
+                                        <input id="id_option1" type="radio" name="inquiry_about" value="Sales and Quote"
+                                            onchange={hideError}>
+                                        <label for="id_option1"
+                                            class="cursor-pointer"><span><span></span></span>{label.salesQtoLbl}</label>
+                                    </div>
+                                    <div class="newradio--inline">
+                                        <input id="id_option2" type="radio" name="inquiry_about"
+                                            value="Technical Support" onchange={hideError}>
+                                        <label for="id_option2"
+                                            class="cursor-pointer"><span><span></span></span>{label.techSupLbl}</label>
+                                    </div>
+                                    <div class="newradio--inline">
+                                        <input id="id_option3" type="radio" name="inquiry_about" value="Others"
+                                            onchange={hideError}>
+                                        <label for="id_option3"
+                                            class="cursor-pointer"><span><span></span></span>{label.otherLbl}</label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="inquiry_about-err f14 mt-2 alert-orange"></div>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <div class="form-group">
+                            <label for="inquiryService" class="f14 fbold grey-darkest">{label.inqAboutLbl} <span
+                                    class="pl-1 font-weight-normal"></span>
+                                <div class="font-weight-normal d-inline-block"></div>
+                            </label>
+
+                            <div class="service-search">
+
+                                <template for:each={selectedRecordList} for:item="selRec">
+                                    <lightning-pill key={selRec} class="slds-m-around_xx-small" label={selRec.Name}
+                                        onremove={handleRemove}>
+                                    </lightning-pill>
+                                </template>
+
+                                <input type="text" class="form-control border-0 f14 grey-darkest filterInput"
+                                    name="inquiryService" id="inquiryService" placeholder={label.inqPlaceHolderLbl}
+                                    value={searchKey} onkeyup={handleChange} onkeydown={searchInqKeyDown}>
+
+                                <template if:true={customSearchbox}>
+                                    <span class="close-all d-flex align-items-center cursor-pointer float-right"
+                                        onclick={clearAll}>
+                                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M10 10L16 16M22 22L16 16M16 16L22 10L10 22" stroke="#004F9B"
+                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        </svg>
+                                    </span>
+                                </template>
+
+                            </div>
+                            <div class="col-lg-12">
+                                <ul class="slds-listbox slds-listbox_vertical slds-dropdown slds-dropdown_fluid slds slds-hide inquiryRes"
+                                    role="listbox">
+                                    <template if:true={recordsExist}>
+                                        <template for:each={records} for:item="singleRec">
+                                            <li key={singleRec} role="presentation" data-lable={singleRec.Name}
+                                                data-id={singleRec.Id} class="slds-listbox__item filterInqLi"
+                                                onclick={handleSelect}>
+                                                <span
+                                                    class="slds-media slds-listbox__option slds-listbox__option_entity slds-listbox__option_has-meta"
+                                                    role="option">
+                                                    <span class="slds-media__body">
+                                                        <span
+                                                            class="slds-listbox__option-text slds-listbox__option-text_entity">
+                                                            {singleRec.Name}
+                                                        </span>
+                                                    </span>
+                                                </span>
+                                            </li>
+                                        </template>
+                                    </template>
+                                    <template if:false={recordsExist}>
+                                        <li role="presentation" class="slds-listbox__item">
+                                            <span
+                                                class="slds-media slds-listbox__option slds-listbox__option_entity slds-listbox__option_has-meta"
+                                                role="option">
+                                                <span class="slds-media__body">
+                                                    <span
+                                                        class="slds-listbox__option-text slds-listbox__option-text_entity">{records}</span>
+                                                </span>
+                                            </span>
+                                        </li>
+
+                                        <li role="presentation" class="slds-listbox__item" onclick={handleSelect}
+                                            data-id="0" data-lable="Others">
+                                            <span
+                                                class="slds-media slds-listbox__option slds-listbox__option_entity slds-listbox__option_has-meta"
+                                                role="option">
+                                                <span class="slds-media__body">
+                                                    <span
+                                                        class="slds-listbox__option-text slds-listbox__option-text_entity">{label.otrLbl}</span>
+                                                </span>
+                                            </span>
+                                        </li>
+
+                                    </template>
+                                </ul>
+                            </div>
+                            <div class="inquiryService-err f14 mt-2 alert-orange"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="tellUS" class="f14 fbold grey-darkest">{label.tellInqLbl}:</label>
+                            <textarea onkeyup={hideError} class="form-control char-textarea grey-darkest" name="tellUS"
+                                id="tellUS" aria-required="true" rows="3" placeholder={label.descLbl}></textarea>
+                            <div class="tellUS-err f14 mt-2 alert-orange"></div>
+                        </div>
+                        <div class="form-group row pt-4 pb-4">
+                            <div class="col-lg-5 text-center text-lg-left">
+                                <button type="button" data-id="attachment" onclick={submitAnInquiry}
+                                    class="btn bg-white blue-primary btn-primary text-uppercase f14 ft-weight-900">{label.attachLbl}</button>
+                            </div>
+                            <div class="col-lg-7 text-center text-lg-right mt-1rem">
+                                <button type="button" data-id="skip" onclick={submitAnInquiry}
+                                    class="btn btn-primary text-uppercase f14 ft-weight-900">{label.submitInqLbl}</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="maintenance-upload-file" style="display:none">
+                <div class="form-group pt-5 mt-1 m-l-r-12">
+                    <lightning-file-upload label={label.fileplaceholderLbl} name="fileUploader" accept={acceptedFormats}
+                        record-id={recordId} onuploadfinished={handleUploadFinished} multiple></lightning-file-upload>
+                </div>
+
+                <div class="col-lg-12 mt-4 pb-5 pr-0">
+                    <a href={thankyouURL} class="float-right blue-primary text-hover-underline f12 pb-3">
+                        <i class="fas pr-1 ml-3">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 5L8 8M11 11L8 8M8 8L11 5L5 11" stroke="#004F9B" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                        </i>
+                        {label.fileUploadLbl}
+                    </a>
+                </div>
+            </div>
+            <div class="upload-file" style="display:none">
+                <div class="form-group pt-5 mt-1 m-l-r-12">
+                    <lightning-file-upload label={label.fileplaceholderLbl} name="fileUploader" accept={acceptedFormats}
+                        record-id={recordId} onuploadfinished={handleUploadFinished} multiple></lightning-file-upload>
+                </div>
+                <div class="col-lg-12">
+                    <div class="fileUpload-msg f14 mt-2 alert-orange"></div>
+                </div>
+                <div class="col-lg-12 mt-4 pb-5 pr-0">
+                    <a href={thankyouURL} class="float-right blue-primary text-hover-underline f12 pb-3">
+                        <i class="fas pr-1 ml-3">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 5L8 8M11 11L8 8M8 8L11 5L5 11" stroke="#004F9B" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                        </i>
+                        {label.fileUploadLbl}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

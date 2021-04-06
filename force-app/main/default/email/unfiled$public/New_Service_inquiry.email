@@ -1,0 +1,30 @@
+<messaging:emailTemplate subject="New Service inquiry" recipientType="Contact" relatedToType="Case">
+<messaging:htmlEmailBody >
+{!$Label.YG_Email_Salutations_Team}<br/><br/> 
+{!$Label.YG_You_have_a_new_inquiry_for} {!RelatedTo.Reason}
+{!$Label.YG_from_the_Yokogawa_iCP_from} {!RelatedTo.Account.Name},{!RelatedTo.Contact.Name},
+{!RelatedTo.Contact.MailingCountry} 
+{!$Label.YG_that_was_submitted_on} {!RelatedTo.CreatedDate}. 
+{!$Label.YG_Details_of_the} {!RelatedTo.Reason} {!$Label.YG_Are}<br/> 
+{!$Label.YG_iCP_Case_Number} {!RelatedTo.CaseNumber}<br/>
+{!$Label.YG_Inquiry_Type}: {!RelatedTo.Reason}<br/>
+
+<!--Section will be displayed if product name is submitted-->
+<apex:outputPanel layout="none" rendered="{!AND(RelatedTo.Product.Name != null)}">
+{!$Label.YG_Product_inquiring_about}: {!RelatedTo.Product.Name}<br/>
+</apex:outputPanel>
+
+<!--Section will be displayed if Asset name is submitted-->
+<apex:outputPanel layout="none" rendered="{!AND(RelatedTo.Asset.Name != null)}">
+{!$Label.YG_Product_inquiring_about}: {!RelatedTo.Asset.Name}<br/>
+</apex:outputPanel>
+ 
+{!$Label.YG_Tell_us_about_your_inquiry}: {!RelatedTo.Description}<br/>
+{!$Label.YG_Attachments_included}  <c:YG_ServiceRequestAttachment /><br/>
+<br/>
+{!$Label.YG_View_the_details_of_the_case_here} 
+<apex:outputlink value="{!$Label.YG_SFDCBaseURL}{!RelatedTo.Id}"> {!$Label.YG_SFDCBaseURL}{!RelatedTo.Id}</apex:outputlink>
+<br/><br/>
+<apex:outputText value="{!$Label.YG_iCP_Email_Signature}" escape="false" />
+</messaging:htmlEmailBody>
+</messaging:emailTemplate>

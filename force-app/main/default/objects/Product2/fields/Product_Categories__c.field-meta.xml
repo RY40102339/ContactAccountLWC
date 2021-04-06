@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Product_Categories__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE( Category__r.Category_Hierarchy__r.Category_Level__c,
+
+4, if(Category__r.Category__r.Category__r.Name != null, Category__r.Category__r.Category__r.Name, &quot;&quot;) +
+
+if(Category__r.Category__r.Name != null, &apos; / &apos;+Category__r.Category__r.Name +&apos; / &apos;+Category__r.Name, Category__r.Name),
+
+&quot; &quot;)+CASE( Category__r.Category_Hierarchy__r.Category_Level__c,
+
+3, if(Category__r.Category__r.Name != null, Category__r.Category__r.Name +&apos; / &apos;+Category__r.Name, Category__r.Name),
+
+&quot; &quot;)+CASE( Category__r.Category_Hierarchy__r.Category_Level__c,
+
+2, Category__r.Name,
+
+&quot; &quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Product Categories</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,141 @@
+<!--
+*******************************************************************************************************
+* (C) Copyright 2020 Yokogawa. All rights reserved.
+* This code is property of Yokogawa. Use, duplication and
+* disclosure in any form without permission of copyright holder is prohibited.
+* 
+******************************************************************************************************* 
+* @author Satish Vadlamudi
+* @version 1.0
+* @created 10/16/2020
+* @description 
+* This component is used for displaying the serial number details in grid in UI.
+*
+* *
+*  Change History:
+*  MM/DD/YYYY			Developer Name			Comments
+*  
+*  
+*
+*-->
+<template>
+    <template if:true={isLoading}>
+        <div class="loading">
+            <div class="loading-txt">
+                <div class="row text-center">
+                    <div class="col-lg-12">
+                        <svg width="51" height="52" viewBox="0 0 51 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M0.410156 25.1209C11.2022 31.0632 20.0171 40.1454 25.6268 51.1329L25.6109 51.1349C31.2146 40.1493 40.0255 31.0692 50.8116 25.1249L50.7937 25.1407L25.6208 0L0.434001 25.1407L0.410156 25.1209Z"
+                                fill="#FFEE00"></path>
+                        </svg>
+                    </div>
+                    <div class="col-lg-12 mt-3" style="margin-top: 1rem !important;">
+                        <div class="spinner-border text-dark"></div>
+                        <div class="txt-load">Loading..</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+    <div class="row pt-3 pt-lg-0">
+        <div class="section proj-main">
+            <div class="col-lg-12 mb-12 m-mb-24">
+                <div class="row">
+                    <div class="col-12 mt-34 download-csv text-right">
+                        <div class="f12 d-inline-block">
+                            <a onclick={downloadCSVFile} href="javascript:void(0)" style="padding-right: 2.5rem;"
+                                class="blue-primary text-hover-underline">
+                                {downloadLink}
+                                <img src={csvIcon} alt="CSV icon" class="ml-2" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-12 mb-5 mscode-dt">
+                <div class="d-none">
+                    <a class="triggerEvent" onclick={triggerEvent}>trigger</a>
+                    <input type="text" name="hiddenInput">
+                    <input type="text" name="hiddenIndex">
+                </div>
+                <table class="table c_dataTable station-table">
+                    <thead class="station-head">
+                        <tr class="f12 grey-dark-1">
+                            <th class={isMSCodeClass} style="width: 40%; cursor:pointer; user-select:none;"
+                                onclick={sortMSCode}><span class="font-weight-normal">MS code</span></th>
+                            <th class={isQtyClass} style="width: 10%; cursor:pointer; user-select:none;"
+                                onclick={sortQty}><span class="font-weight-normal">Qty</span></th>
+                            <th class="sorting_disabled" style="width: 40%;"><span
+                                    class="font-weight-normal">Notifications</span></th>
+                            <th class="sorting_disabled" style="width: 10%;"><span class="font-weight-normal"></span>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template if:true={productMscode}>
+                            <template for:each={prodWrap} for:item="product">
+                                <tr key={product} data-domain={product.msCode}
+                                    class="f14 grey-darkest text-center h-60 station-row">
+                                    <td data-title="MS code" class="pl-2 pr-3">
+                                        <a href="javascript:void(0)" data-mscode={product.msCode}
+                                            data-index={product.ind} onclick={showMSCodePopup}
+                                            class="f14 noto-font grey-darkest text-hover-color"><ins>{product.msCode}</ins></a>
+                                    </td>
+                                    <td data-title="Qty">{product.qty}</td>
+                                    <td data-title="Notifications">{product.msCodeNotification}</td>
+                                    <td data-title="" class="text-center expand-icon">
+                                        <img src={plusIcon} class="plus cursor-pointer d-icon-none"
+                                            data-key={product.key} data-mscode={product.msCode} onclick={showGrid}
+                                            alt="Plus icon" />
+                                        <img src={minusIcon} class="minus cursor-pointer" data-key={product.key}
+                                            onclick={hideGrid} alt="Minus icon" />
+                                    </td>
+                                </tr>
+                                <tr key={product} data-id={product.msCode} class="border-bottom-0 station-grid">
+                                    <td colspan="7" class="gridSection p-0">
+                                        <div class={product.key} style="display: none;">
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <div class="table-responsive p-0 m-0 bg-white">
+                                                        <template if:true={isgridLoading}>
+                                                            <div class="col-lg-12 text-center mt-3">
+                                                                <div class="spinner-border text-dark"></div>
+                                                                <div class="txt-load">Loading..</div>
+                                                            </div>
+                                                        </template>
+                                                        <template if:false={isgridLoading}>
+                                                            <table lwc:dom="manual"
+                                                                class="table table-borderless f14 mscode-dtTable mx-auto">
+                                                            </table>
+                                                        </template>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </template>
+                        </template>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!--Use template if:true to display/hide popup based on isModalOpen value-->
+    <template if:true={isModalOpen}>
+
+        <c-yg-prod-history-popup serial-index={serialIndx} serial-no={serialNo} serial-list={stationGridData}>
+        </c-yg-prod-history-popup>
+
+        <!--
+        <c-yg-prod-history-popup serial-no={serialNo}></c-yg-prod-history-popup>
+        -->
+    </template>
+    <!--Use template if:true to display/hide popup based on isMSCodeModalOpen value-->
+    <template if:true={isMSCodeModalOpen}>
+        <c-yg-popup ms-code={msCode} product-name={productName} product-index={msCodeIndex}></c-yg-popup>
+    </template>
+</template>

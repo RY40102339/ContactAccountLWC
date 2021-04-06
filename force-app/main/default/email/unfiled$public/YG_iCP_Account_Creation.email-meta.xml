@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>50.0</apiVersion>
+    <available>true</available>
+    <description>Send email to user after Successful iCP Account Creation</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>YG iCP Account Creation</name>
+    <style>none</style>
+    <subject>Successful iCP Account Creation</subject>
+    <type>visualforce</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

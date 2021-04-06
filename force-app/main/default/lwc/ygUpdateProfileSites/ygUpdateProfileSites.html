@@ -1,0 +1,330 @@
+<!--
+*******************************************************************************************************
+* (C) Copyright 2020 Yokogawa. All rights reserved.
+* This code is property of Yokogawa. Use, duplication and
+* disclosure in any form without permission of copyright holder is prohibited.
+* 
+******************************************************************************************************* 
+* @author Satish
+* @version 1.0
+* @created 09/29/2020
+* @description 
+* This component is used for displaying the Manage Colleagues in UI.
+*
+* *
+*  Change History:
+*  MM/DD/YYYY			Developer Name			Comments
+*  
+*  
+*
+*-->
+<template>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="notification f20 mb-3 p-0">
+                <div class="row">
+                    <div class="col-lg-11 pr-0 pd-rt">
+                        <span class="fbold">
+                            <template if:false={selfAcc}>
+                                {label.companyandsitesLbl}
+                            </template>
+                            <template if:true={selfAcc}>
+                                {label.company_infoLbl}
+                            </template>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-11 submit-data sm-93vw mb-1">
+        <div class="row pt-3">
+            <div class="col-lg-12 mb-3">
+                <div class="f12 grey-dark-1 mb-2">
+                    <span class="f12 noto-font font-weight-normal">{label.companyLbl}</span>
+                </div>
+                <div class="f14 stat-name">
+                    <span class="f14 noto-font fbold">{userAccountName}</span>
+                </div>
+            </div>
+            <template if:false={selfAcc}>
+                <div class="col-lg-12 mb-3">
+                    <div class="f12 grey-dark-1 mb-2">
+                        <span class="f12 noto-font font-weight-normal">{label.sitesLbl}</span>
+                    </div>
+                    <template for:each={approvedSitesList} for:item="item">
+                        <div key={item} class="f14 stat-name mb-2" style="display: flex">
+                            <i class="fas mt-1">
+                                <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4.19482 8L7.19482 10L11.1948 4" stroke="#00A04C" stroke-width="2"></path>
+                                </svg>
+                            </i>
+                            <span class="f14 noto-font fbold">{item.Sites} </span>
+                        </div>
+                    </template>
+                </div>
+            </template>
+        </div>
+    </div>
+    <template if:true={roleFlagCust}>
+        <div class="row">
+            <div class="col-lg-11 service-request">
+                <div class="f14 grey-dark-1 mb-2">
+                    <span class="f14 noto-font font-weight-normal">
+                        {label.updateProfileMsg1Lbl}
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row pt-4 mb-80">
+            <div class="col-lg-11 text-center text-lg-left service-request">
+                <button type="button" onclick={requestSite} style="width:100%"
+                    class="btn bg-white blue-primary btn-primary text-uppercase f12 noto-font ft-weight-900">{label.requestAccessLbl}</button>
+            </div>
+        </div>
+    </template>
+
+    <template if:true={roleFlagCA}>
+        <div class="row">
+            <div class="col-lg-11 mt-4">
+                <div class="chart-divider m-l-r-12 ml-0">
+                </div>
+            </div>
+        </div>
+        <div class="form-group row pt-4">
+            <div class="col-lg-11 text-center text-lg-left service-request">
+                <button type="button" onclick={openDeactivatePopup} style="width:100%"
+                    class={deactiveBtnClass}>{label.deactivateLbl}</button>
+            </div>
+        </div>
+    </template>
+    <template if:true={roleFlagCACount}>
+        <div class="row">
+            <div class="col-lg-11 mb-80">
+                <label class="noto-font f14 grey-darkest">
+                    <span class="f14 font-weight-normal">
+                        <span>{label.you_have_toLbl} <a href={managecolleaguesURL}
+                                class="fbold grey-darkest text-hover-color"><ins>{label.assign_admin_rightsLbl}</ins></a>
+                            {label.another_user_before_you_can_deactivate_your_accLbl}</span>
+                    </span>
+                </label>
+            </div>
+        </div>
+    </template>
+    <template if:true={roleFlagSA}>
+        <div class="row">
+            <div class="col-lg-11 mt-4">
+                <div class="chart-divider m-l-r-12 ml-0">
+                </div>
+            </div>
+        </div>
+        <div class="form-group row pt-4">
+            <div class="col-lg-11 text-center text-lg-left service-request">
+                <button type="button" onclick={transferAccount} style="width:100%"
+                    class="btn bg-white blue-primary btn-primary text-uppercase f12 noto-font ft-weight-900 disabled pointer-events-visible">{label.request_YOK_to_transer_accLbl}</button>
+            </div>
+        </div>
+    </template>
+    <!--Use template if:true to display/hide popup based on isModalOpen value-->
+    <template if:true={isModalOpen}>
+        <!-- Modal/Popup Box LWC starts here -->
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+            aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open request-detail">
+            <div class="slds-modal__container">
+                <!-- Modal/Popup Box LWC header here -->
+                <header class="slds-modal__header h-60 border-0 rounded-0">
+                    <button
+                        class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse border-0 shadow-none"
+                        title="Close" onclick={closeModal}>
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 8L24 24M40 40L24 24M24 24L40 8L8 40" stroke="#004F9B" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                        <span class="slds-assistive-text">{label.closeLbl}</span>
+                    </button>
+                </header>
+                <!-- Modal/Popup Box LWC body starts here -->
+                <div class="slds-modal__content slds-var-p-around_medium radius-0" id="modal-content-id-1">
+                    <template if:true={isReqToSitesModalOpen}>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-12 update-profile-md-pd">
+                                    <div class="col-md-12 align-items-center">
+                                        <div class="row mb-lg-5 text-center d-sm-block">
+                                            <div class="col-lg-12 mb-3">
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <h2 role="heading" class="noto-font blue-primary f20 mb-0">
+                                                            <span class="f20 ft-weight-800">
+                                                                <span>{label.requestAccessLbl}</span>
+                                                            </span>
+                                                        </h2>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg- mb-4">
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <label class="noto-font f14 grey-darkest">
+                                                            <span class="f14 font-weight-normal">
+                                                                <span>{label.updateProfileMsg2Lbl}</span>
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 mb-4">
+                                                <form class="plant-list-form">
+                                                </form>
+                                            </div>
+                                            <div class="col-lg-12 pt-1">
+                                                <div class="form-group row">
+                                                    <button type="button" style="width:100%" disabled
+                                                        onclick={submitRequest}
+                                                        class="btn btn-primary text-uppercase f14 ft-weight-800 submit-request">
+                                                        {label.submitRequestLbl}
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                    <template if:true={reqAddSiteModalOpen}>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-12 update-profile-md-pd">
+                                    <div class="col-md-12 align-items-center">
+                                        <div class="row mb-lg-5 text-center d-sm-block">
+                                            <div class="col-lg-12 mb-5">
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <h2 role="heading" class="noto-font blue-primary f20 mb-0">
+                                                            <span class="f20 ft-weight-800">
+                                                                <span>{label.updateProfileMsg3Lbl}</span>
+                                                            </span>
+                                                        </h2>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 text-center submit-data p-2 mb-5">
+                                                <div class="text-center">
+                                                    <label class="noto-font f14 grey-darkest">
+                                                        <span class="f14 font-weight-normal">
+                                                            <span>{label.updateProfileMsg4Lbl}</span>
+                                                        </span>
+                                                    </label>
+                                                </div>
+                                                <div class="text-center">
+                                                    <label class="noto-font f14 grey-darkest site-plant-list">
+                                                        <span class="f14 fbold">
+                                                            <span>{requestPlantResult}</span>
+                                                        </span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 mb-5 mb-update-Profile-close">
+                                                <div class="row">
+                                                    <div class="col-lg-12 text-center">
+                                                        <a href="javascript:void(0)" onclick={closeModal}
+                                                            class="text-right blue-primary f14 pr-5">
+                                                            <i class="fas pr-1">
+                                                                <svg width="16" height="16" viewBox="0 0 16 16"
+                                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                    <path d="M5 5L8 8M11 11L8 8M8 8L11 5L5 11"
+                                                                        stroke="#004F9B" stroke-width="2"
+                                                                        stroke-linecap="round" stroke-linejoin="round">
+                                                                    </path>
+                                                                </svg>
+                                                            </i>
+                                                            <ins>{label.closeLbl}</ins>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+    <!-- </template> -->
+    <!--Use template if:true to display/hide popup based on isDeactivateModalOpen value-->
+    <template if:true={isDeactivateModalOpen}>
+        <!-- Modal/Popup Box LWC starts here -->
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+            aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open request-detail">
+            <div class="slds-modal__container">
+                <!-- Modal/Popup Box LWC header here -->
+                <header class="slds-modal__header h-60 border-0 rounded-0">
+                    <button
+                        class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse border-0 shadow-none"
+                        title="Close" onclick={closeDeactivateModal}>
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 8L24 24M40 40L24 24M24 24L40 8L8 40" stroke="#004F9B" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                        <span class="slds-assistive-text">{label.closeLbl}</span>
+                    </button>
+                </header>
+                <!-- Modal/Popup Box LWC body starts here -->
+                <div class="slds-modal__content slds-var-p-around_medium radius-0" id="modal-content-id-2">
+                    <div class="row">
+                        <div class="col-md-6 offset-md-3 p-0">
+                            <div class="col-md-12 update-profile-md-pd">
+                                <div class="col-md-12 align-items-center">
+                                    <div class="row mb-lg-5 text-center d-sm-block">
+                                        <div class="col-lg-12 mb-3">
+                                            <div class="row">
+                                                <div class="col-lg-12 p-0">
+                                                    <h2 role="heading" class="noto-font blue-primary f20 mb-0">
+                                                        <span class="f20 ft-weight-800">
+                                                            <span>{label.are_you_sure_to_deactivateLbl}</span>
+                                                        </span>
+                                                    </h2>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 mb-5">
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <label class="noto-font f14 grey-darkest">
+                                                        <span class="f14 font-weight-normal">
+                                                            <span>{label.account_is_deactivated_immediatelyLbl}</span>
+                                                        </span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 pt-2 mb-4">
+                                            <div class="text-center text-lg-left">
+                                                <button type="button" onclick={deactivateAccount} style="width:100%"
+                                                    class="btn bg-white blue-primary btn-primary text-uppercase f12 noto-font ft-weight-900">{label.confirmLbl}</button>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 pt-2 mb-4">
+                                            <div class="text-center">
+                                                <a href="javascript:void(0)" onclick={closeDeactivateModal}
+                                                    class="text-right blue-primary f14 text-hover-underline">{label.cancelbl}</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+    <!-- </template> -->
+</template>

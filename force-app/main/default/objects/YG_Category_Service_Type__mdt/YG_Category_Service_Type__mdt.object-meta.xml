@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>This metadata is used to store the top category services type of a product.</description>
+    <label>YG Category Service Type</label>
+    <visibility>Public</visibility>
+</CustomObject>

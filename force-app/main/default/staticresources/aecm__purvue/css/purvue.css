@@ -1,0 +1,665 @@
+body {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  color: #080707;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tree-grid_container .accordionContainer .slds-progress-bar {
+  width: 90px;
+  height: 10px;
+  margin-left: auto;
+  border-radius: 20px;
+  background: #ffffff;
+  border: 1px solid #e1e9f0;
+  overflow: hidden;
+}
+
+.tree-grid_container
+  .accordionContainer
+  .slds-progress-bar
+  .slds-progress-bar__value {
+  background: #15d58c;
+}
+
+.tree-grid_container
+  .accordionContainer
+  .progressBar_red
+  .slds-progress-bar
+  .slds-progress-bar__value {
+  background: #f37437;
+}
+
+.tree-grid_container
+  .accordionContainer
+  .progressBar_green
+  .slds-progress-bar
+  .slds-progress-bar__value {
+  background: #15d58c;
+}
+.tree-grid_container
+  .inactiveRow
+  .slds-progress-bar
+  .slds-progress-bar__value {
+    background : #c9c7c5 !important;
+    font-style: italic;
+}
+.inactiveRow, 
+.inactiveRow .currentScoreCol, 
+.inactiveRow .forcastScoreCol,
+.inactiveRow .processCostCol,
+.inactiveRow .stepCostCol,
+.inactiveRow .score{
+    color: #c9c7c5 !important;
+    font-style: italic !important;
+}
+
+.expandCollapse .slds-button {
+  font-weight: normal;
+  font-size: 12px;
+  color: #080707;
+}
+
+.expandCollapse .slds-button:focus {
+  box-shadow: none;
+}
+
+.expandCollapse .slds-button .slds-button__icon {
+  width: 12px;
+  margin-right: 4px;
+  color: #6d728e;
+}
+
+.treeGrid_helptext .slds-form-element__icon {
+  padding-top: 2px;
+  padding-left: 5px;
+}
+
+.treeGrid_helptext .slds-form-element__icon .slds-button_icon {
+  color: #f37437;
+}
+
+.slds-nubbin_bottom-left:after,
+.slds-nubbin--bottom-left:after,
+.slds-nubbin_bottom-left-corner:after {
+  box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.16);
+  z-index: -1;
+}
+
+.slds-popover_tooltip,
+.slds-popover--tooltip {
+  background: #fafdff;
+  border: 1px solid #c9c7c5;
+  font-weight: normal;
+  font-size: 11px;
+  line-height: 13px;
+  color: #514f4d;
+  border-radius: 0;
+}
+
+.slds-popover_tooltip .slds-popover__body,
+.slds-popover--tooltip .slds-popover__body {
+  font-weight: normal;
+  font-size: 11px;
+  line-height: 13px;
+  color: #514f4d;
+}
+
+.tableView .slds-table {
+  background-color: #e9eef3;
+}
+
+.tableView .slds-table thead th {
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 18px;
+  color: #706e6b;
+}
+
+.tableView .slds-table th .slds-cell-fixed {
+  background-color: #e9eef3;
+}
+
+.tableView .slds-th__action-button {
+  display: none;
+}
+
+.tableView .slds-th__action:focus,
+.tableView .slds-th__action:hover {
+  background-color: #e9eef3;
+}
+
+.tableView
+  .slds-table_bordered:not(.slds-no-row-hover)
+  tbody
+  tr:hover
+  > td:not(.slds-has-focus),
+.tableView
+  .slds-table_bordered:not(.slds-no-row-hover)
+  tbody
+  tr:hover
+  > th:not(.slds-has-focus),
+.tableView
+  .slds-table_bordered:not(.slds-no-row-hover)
+  tbody
+  tr:focus
+  > td:not(.slds-has-focus),
+.tableView
+  .slds-table_bordered:not(.slds-no-row-hover)
+  tbody
+  tr:focus
+  > th:not(.slds-has-focus),
+.tableView
+  .slds-table--bordered:not(.slds-no-row-hover)
+  tbody
+  tr:hover
+  > td:not(.slds-has-focus),
+.tableView
+  .slds-table--bordered:not(.slds-no-row-hover)
+  tbody
+  tr:hover
+  > th:not(.slds-has-focus),
+.tableView
+  .slds-table--bordered:not(.slds-no-row-hover)
+  tbody
+  tr:focus
+  > td:not(.slds-has-focus),
+.tableView
+  .slds-table--bordered:not(.slds-no-row-hover)
+  tbody
+  tr:focus
+  > th:not(.slds-has-focus) {
+  box-shadow: none;
+}
+
+.tableView .slds-table:not(.slds-no-row-hover) tbody tr:hover > td,
+.tableView .slds-table:not(.slds-no-row-hover) tbody tr:hover > th,
+.tableView .slds-table:not(.slds-no-row-hover) tbody tr:focus > td,
+.tableView .slds-table:not(.slds-no-row-hover) tbody tr:focus > th {
+  background-color: transparent;
+}
+
+.tableView .slds-table_header-fixed_container:before,
+.tableView .slds-table--header-fixed_container:before {
+  border-bottom-color: #e1e9f0;
+}
+
+.tableView .slds-table_bordered,
+.tableView .slds-table--bordered {
+  border-bottom: 0;
+}
+
+.tableView .slds-table tbody td,
+.tableView .slds-table tbody th {
+  padding: 0.25rem 0.5rem !important;
+}
+
+.tableView .slds-table_header-fixed_container,
+.tableView .slds-table--header-fixed_container {
+  background-color: #e9eef3;
+}
+
+.processCard .slds-card__header {
+  padding: 0;
+  margin: 0;
+}
+
+.processCard .slds-card__header h2 span {
+  display: block;
+  padding: 0.75rem 1rem 0;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 20px;
+  color: #080707;
+}
+
+.processCard .slds-card__header h2 span > slot {
+  margin-top: -0.75rem;
+  display: block;
+}
+
+.progressCard .slds-card__body,
+.processCard .slds-card__body {
+  margin: 0;
+  min-height: 280px;
+}
+
+.processCard .header-helptext .slds-form-element__icon {
+  padding-top: 1px;
+  padding-left: 3px;
+}
+
+.processCard .header-helptext .slds-form-element__icon .slds-button_icon {
+  color: #c4c4c4;
+}
+
+.processCard .processHeaderCol,
+.processCard .processDataCol {
+  text-align: right;
+  padding: 0.25rem 0.2rem;
+}
+
+.processCard .processCostCol {
+  color: #514f4d;
+}
+
+.processCard .stepCostCol {
+  color: #706e6b;
+}
+
+.processCard .scoreHeaderCol,
+.processCard .scoreCol {
+  text-align: center;
+}
+
+.region-main .processCard .processDetailHeaderCol,
+.region-main .processCard .processDetailDataCol {
+  /*width: auto;*/
+  flex: 1 1 auto;
+}
+
+.region-main .processCard .processCostHeaderCol,
+.region-main .processCard .processCostCol {
+  min-width: 130px;
+}
+
+.region-main .processCard .stepCostHeaderCol,
+.region-main .processCard .stepCostCol {
+  min-width: 115px;
+}
+
+.region-main .processCard .scoreHeaderCol,
+.region-main .processCard .scoreCol {
+  min-width: 70px;
+  /* max-width: 70px; */
+}
+
+.headerColumns .slds-slot {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+}
+
+/* .processCard .accordionRow h3 {
+  max-width: calc(100% - 95px) !important;
+} */
+
+.progressCard .headerColumns .slds-slot,
+.progressCard .accordionRow {
+  justify-content: flex-end;
+}
+
+.progressCard .slds-card__body {
+  margin: 0;
+}
+
+.progressCard:not(.compactProgressCard) .slds-card__header {
+  padding: 0;
+  margin: 0;
+}
+
+.progressCard:not(.compactProgressCard) .slds-card__header h2 span {
+  display: block;
+  padding: 0.75rem 1rem 0;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 20px;
+  color: #080707;
+}
+
+.progressCard:not(.compactProgressCard) .slds-card__header h2 span > slot {
+  margin-top: -0.75rem;
+  display: block;
+}
+
+.progressCard .header-helptext .slds-form-element__icon {
+  padding-top: 1px;
+  padding-left: 3px;
+}
+
+.progressCard .header-helptext .slds-form-element__icon .slds-button_icon {
+  color: #c4c4c4;
+}
+
+.compactProgressCard .slds-card__header {
+  display: flex;
+  font-weight: bold;
+}
+
+.compactProgressCard .tableView {
+  padding-right: 12px !important;
+}
+
+.compactProgressCard .tree-grid_container {
+  margin-bottom: 5px !important;
+  border-radius: 0px !important;
+  border-right: 0px !important;
+  border-left: 0px !important;
+  border-bottom: 0px !important;
+}
+
+.compactProgressCard .slds-card__footer {
+  margin-top: 0;
+}
+
+.progressCard .slds-card__header h2 span > slot {
+  margin-top: -0.75rem;
+  display: block;
+}
+
+.compactProgressCard .slds-card__header {
+  display: flex;
+}
+
+.compactProgressCard .tableView {
+  padding-right: 12px !important;
+}
+
+.compactProgressCard .tree-grid_container {
+  margin-bottom: 5px !important;
+  border-radius: 0px !important;
+  border-right: 0px !important;
+  border-left: 0px !important;
+  border-bottom: 0px !important;
+}
+
+.compactProgressCard .slds-card__footer {
+  margin-top: 0;
+}
+
+.progressCard .m_ProgressHeaderCol,
+.progressCard .m_ProgressDataCol {
+  text-align: right;
+  padding: 0.25rem 0.2rem;
+}
+
+.progressCard .m_ProgressDetailHeaderCol,
+.progressCard .m_ProgressDetailDataCol {
+  padding: 0.25rem 0.2rem;
+  margin-right: auto;
+  flex: 1 1 auto;
+}
+
+.compactProgressCard .m_ProgressDetailHeaderCol,
+.compactProgressCard .m_ProgressDetailDataCol {
+  width: calc(100% - 195px);
+}
+
+.maturityProgressCard .m_ProgressDetailHeaderCol,
+.maturityProgressCard .m_ProgressDetailDataCol {
+  width: calc(100% - 510px);
+}
+
+.programPortCard .programPortDetailHeaderCol, 
+.programPortCard .programPortDetailDataCol {
+  width: calc(100% - 490px);
+}
+
+.progressBarContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.progressBarContainer .progressBar {
+  width: 90px;
+}
+
+.progressBarContainer .progressBarValue {
+  width: 35px;
+  margin-left: 9px;
+  color: #514f4d;
+  text-align: left;
+}
+
+.progressCard .currentScoreHeaderCol,
+.progressCard .currentScoreCol {
+  width: 140px;
+}
+
+.progressCard .finScForecastHeaderCol,
+.progressCard .forcastScoreCol {
+  width: 175px;
+}
+
+.progressCard .progressHeaderCol,
+.progressCard .progressCol {
+  width: 195px;
+  text-align: left;
+  padding-left: 45px;
+}
+
+.progressCard .progressCol .progressBarContainer {
+  justify-content: flex-start;
+}
+
+.capability-overview > .slds-card {
+  height: auto;
+  background-color: #f7f8fb;
+  border-radius: 4px;
+  border-top: 6px solid #15d58c;
+  margin-bottom: 15px;
+}
+
+.capability-overview .progressCard .slds-card,
+.capability-overview .processCard .slds-card,
+.capability-overview .programPortCard .slds-card {
+  border: 1px solid #e1e9f0;
+  background-color: #fff;
+  border-radius: 4px;
+  border-top: 5px solid #fac33d;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
+}
+
+/* .capability-overview .slds-grid:not(.slds-wrap) .slds-slot {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: stretch;
+} */
+
+.cardFiltersHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cardFiltersHeader h4 {
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: 1px;
+  color: #706e6b;
+  font-weight: normal;
+}
+
+.cardFiltersHeader a {
+  font-size: 12px;
+  line-height: 20px;
+  text-align: right;
+}
+
+.filtersList {
+  padding-top: 15px;
+}
+
+.filtersList .slds-accordion__summary-heading {
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 15px;
+  color: #514f4d;
+}
+
+.filtersList .slds-accordion__summary-action-icon {
+  fill: #6d728e;
+  width: 12px;
+}
+
+.filtersList .slds-accordion__summary-action:hover,
+.filtersList .slds-accordion__summary-action:focus {
+  text-decoration: none;
+}
+
+.filtersList .slds-accordion__section {
+  padding: 0 0 18px 0;
+}
+
+.filtersList .slds-accordion__list-item {
+  border-top: 0;
+}
+
+.filtersList .slds-form-element__control .slds-checkbox {
+  margin-bottom: 2px;
+}
+
+.filtersList .slds-accordion__content .slds-form-element__label {
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 20px;
+  color: #3e3e3c;
+}
+
+.filterButton.slds-is-selected .slds-button {
+  background-color: #005fb2;
+  border-color: #005fb2;
+  color: #fff;
+}
+
+.filtersList .slds-is-open > .slds-accordion__summary {
+  margin-bottom: 5px;
+}
+
+.p_mediumScore {
+  color: #fac33d;
+}
+
+.p_highScore {
+  color: #15d58c;
+}
+
+.p_lowScore {
+  color: #f37437;
+}
+
+/* Quick Links */
+.quickLinks .slds-card {
+  padding-top: 0.5rem;
+}
+
+.quickLinks .slds-card__header h2 {
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 20px;
+  color: #000;
+}
+
+.quickLinks .slds-card__body {
+  padding: 0.5rem 1rem 0.3rem;
+}
+
+/* Program Portfolio Overview */
+.programPortCard .headerColumns .slds-slot,
+.programPortCard .accordionRow {
+  justify-content: flex-end;
+}
+
+.programPortCard .slds-card__header {
+  padding: 0;
+  margin: 0;
+}
+
+.programPortCard .slds-card__header h2 span {
+  display: block;
+  padding: 0.75rem 1rem 0;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 20px;
+  color: #080707;
+}
+
+.programPortCard .slds-card__header h2 span > slot {
+  margin-top: -0.75rem;
+  display: block;
+}
+
+.programPortCard .slds-card__body {
+  margin: 0;
+  min-height: 280px;
+}
+
+.programPortCard .header-helptext .slds-form-element__icon {
+  padding-top: 1px;
+  padding-left: 3px;
+}
+
+.programPortCard .header-helptext .slds-form-element__icon .slds-button_icon {
+  color: #c4c4c4;
+}
+
+.programPortCard .programPortHeaderCol,
+.programPortCard .programPortDataCol {
+  text-align: right;
+  padding: 0.25rem 0.2rem;
+}
+
+.programPortCard .programPortDetailHeaderCol,
+.programPortCard .programPortDetailDataCol {
+  padding: 0.25rem 0.2rem;
+  margin-right: auto;
+  flex: 1 1 auto;
+}
+
+.programPortCard .budgetTotalHeaderCol,
+.programPortCard .budgetTotalCol {
+  width: 140px;
+}
+
+.programPortCard .resourceCountHeaderCol,
+.programPortCard .resourceCountCol {
+  width: 155px;
+}
+
+.programPortCard .progressHeaderCol,
+.programPortCard .progressCol {
+  width: 195px;
+  text-align: left;
+  padding-left: 45px;
+}
+
+.programPortCard .progressCol .progressBarContainer {
+  justify-content: flex-start;
+}
+
+.emptyChild .expandCollapse {
+  visibility: hidden !important;
+}
+
+.emptyChild .dot {
+  position: relative;
+  left: 20px;
+}
+
+.emptyChild .parentDot + .expandCollapse {
+  margin-left: 0;
+}
+.slds-spinner_container{
+  position: fixed;
+}
+.filtersCard .slds-accordion__content fieldset span.slds-checkbox label {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  margin-bottom: 3px;
+}
+
+.filtersCard .slds-accordion__content fieldset span.slds-checkbox label span.slds-form-element__label {
+  display: inline-block;
+  max-width: calc(100% - 28px);
+  overflow: hidden;
+  padding-top: 0px;
+  margin-top: -2px;
+}

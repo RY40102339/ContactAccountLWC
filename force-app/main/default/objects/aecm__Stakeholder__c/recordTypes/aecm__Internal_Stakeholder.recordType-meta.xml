@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>aecm__Internal_Stakeholder</fullName>
+    <active>true</active>
+    <compactLayoutAssignment>aecm__Header_Internal</compactLayoutAssignment>
+    <description>Used for internal stakeholders of the company, i.e. employees.</description>
+    <label>Internal Stakeholder</label>
+</RecordType>

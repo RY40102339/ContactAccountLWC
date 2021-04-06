@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Created by Lightning App Builder</description>
+    <flexiPage>aecm__Capability_Score_Card</flexiPage>
+    <label>DEPRECATED Capability Score Card</label>
+    <motif>Custom40: Credit card</motif>
+</CustomTab>

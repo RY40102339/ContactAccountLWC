@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ext_Maintenance_End_Date__c</fullName>
+    <description>This field is used to store the extended maintenance phase end date.</description>
+    <externalId>false</externalId>
+    <label>Ext Maintenance End Date</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

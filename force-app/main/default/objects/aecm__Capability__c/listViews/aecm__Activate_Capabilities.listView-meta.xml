@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>aecm__Activate_Capabilities</fullName>
+    <columns>aecm__Active__c</columns>
+    <columns>NAME</columns>
+    <columns>aecm__Capability_Area__c</columns>
+    <columns>aecm__Maturity__c</columns>
+    <columns>aecm__Improvement_Priority__c</columns>
+    <columns>aecm__Proactivity_Index__c</columns>
+    <columns>aecm__Strategic_Index__c</columns>
+    <columns>aecm__Overall_Score__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>aecm__Function__c</field>
+        <operation>equals</operation>
+        <value>Pilot Sales Operations</value>
+    </filters>
+    <label>Activate Capabilities</label>
+</ListView>

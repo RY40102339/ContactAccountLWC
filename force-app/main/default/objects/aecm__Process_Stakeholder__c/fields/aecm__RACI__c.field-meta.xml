@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>aecm__RACI__c</fullName>
+    <deprecated>false</deprecated>
+    <description>RACI for the Stakeholder listed on the process stakeholder junction record.</description>
+    <externalId>false</externalId>
+    <label>RACI</label>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>aecm__Stakeholder_RACI</valueSetName>
+    </valueSet>
+</CustomField>

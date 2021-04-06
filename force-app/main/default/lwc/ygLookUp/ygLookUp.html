@@ -1,0 +1,104 @@
+<!--
+*******************************************************************************************************
+* (C) Copyright 2020 Yokogawa. All rights reserved.
+* This code is property of Yokogawa. Use, duplication and
+* disclosure in any form without permission of copyright holder is prohibited.
+* 
+******************************************************************************************************* 
+* @author Selvaraj Thangaraj
+* @version 1.0
+* @created 05/14/2020
+* @description 
+* This component is used for the search functionality in UI.
+*
+* *
+*  Change History:
+*  MM/DD/YYYY			Developer Name			Comments
+*  07/29/2020           Selvaraj T              Updated filter logic for station details page
+*  
+*
+*-->
+
+<template>
+    <div class="slds-form-element slds-lookup slds-is-close">
+        <div class="slds-form-element__control">
+            <div class="slds-input-has-icon slds-input-has-icon--right">
+                <div class="slds-pill-container">                    
+                    <!--Selected Records Pills Section-->
+                    <template if:true={isTrue}>
+                        <template for:each={selectedRecordList} for:item="selRec">
+                            <lightning-pill key={selRec} class="slds-m-around_xx-small" label={selRec.Name} onremove={handleRemove}>
+                            </lightning-pill>
+                        </template>
+                    </template>
+                    <template if:false={isTrue}>
+                        <template for:each={selectedRecordList} for:item="selRec">
+                            <lightning-pill key={selRec} class="slds-m-around_xx-small" label={selRec.Name} onremove={handleRemove}>
+                            </lightning-pill>
+                        </template>
+                    </template>
+                    <template if:false={customSearchbox}>
+                        <div class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right"  style="width: 100%;">
+                            <i class="fas filter">
+                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path opacity="0.15" d="M10.583 9.57209L10.574 16.3721L7.41704 18V9.58139C7.41704 9.42325 0 1.78605 0 1.78605V0H18V1.85116C18 1.85116 10.583 9.41395 10.583 9.57209Z" fill="#004F9B"></path>
+                                </svg>                        
+                            </i>
+                            <lightning-input variant="label-hidden" label="Search Record" class="filterInput" value={searchKey} type="search" onchange={handleChange} placeholder={placeHolder}>
+                            </lightning-input>
+                        </div> 
+                    </template>
+                    <template if:true={customSearchbox}>
+                        <div class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right"  style="width: 100%;">
+                           
+                            <lightning-input variant="label-hidden" label="Search Record" class="customTxtbox filterInput" value={searchKey} type="search" onchange={handleChange}>
+                            </lightning-input>
+                        </div> 
+                        <span class="d-flex align-items-center cursor-pointer float-right" style="margin-top: 2px;width: 32px;height: 40px;line-height: 40px;" onclick={clearAll}>
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10 10L16 16M22 22L16 16M16 16L22 10L10 22" stroke="#004F9B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                        </span>
+                    </template>
+                    
+                </div>
+            </div>
+        </div> 
+        <!--This part is for Display typehead lookup result List-->  
+        <ul class="slds-listbox slds-listbox_vertical slds-dropdown slds-dropdown_fluid slds slds-hide searchRes" role="listbox">
+            <template if:true={recordsExist}>
+                <template for:each={records} for:item="singleRec">
+                    
+                    <li key={singleRec} role="presentation" data-lable={singleRec.Name} data-id={singleRec.Id} class="slds-listbox__item filterLi" onclick={handleSelect}>
+                        <span class="slds-media slds-listbox__option slds-listbox__option_entity slds-listbox__option_has-meta" role="option">
+                            <span class="slds-media__body">  
+                                <span class="slds-listbox__option-text slds-listbox__option-text_entity">
+                                    {singleRec.Name}
+                                </span>
+                            </span>
+                        </span>
+                    </li>
+                    
+                    
+                    <!--
+                    <li key={singleRec} role="presentation" data-lable="trtrrtrt" class="slds-listbox__item filterLi" onclick={handleSelect}>
+                        <c-yg-look-up-result page-name={pageName} onselect={handleSelectedRecord} key={singleRec} record={singleRec}></c-yg-look-up-result>
+                    </li> 
+                    -->
+                    
+                    
+                                       
+                </template>
+            </template>
+            <template if:false={recordsExist}>
+                <li role="presentation" class="slds-listbox__item">
+                    <span class="slds-media slds-listbox__option slds-listbox__option_entity slds-listbox__option_has-meta" role="option">
+                        <span class="slds-media__body">  
+                            <span class="slds-listbox__option-text slds-listbox__option-text_entity">{records}</span>
+                        </span>
+                    </span>
+                </li>
+            </template>
+        </ul>
+    </div>
+</template>

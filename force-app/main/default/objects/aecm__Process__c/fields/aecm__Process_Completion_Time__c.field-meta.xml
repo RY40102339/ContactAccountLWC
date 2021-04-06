@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>aecm__Process_Completion_Time__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <inlineHelpText>Cumulative total time in minutes of all underlying process steps.</inlineHelpText>
+    <label>Process Completion Time</label>
+    <summarizedField>aecm__Process_Step__c.aecm__Completion_Time__c</summarizedField>
+    <summaryForeignKey>aecm__Process_Step__c.aecm__Process__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

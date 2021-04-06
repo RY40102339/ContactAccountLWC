@@ -1,0 +1,42 @@
+<apex:page id="saml_logout" cache="false" showHeader="false" sidebar="false" standardStylesheets="false" applyHtmlTag="false" applyBodyTag="false" docType="html-5.0" controller="YG_LogoutCDCAPI" action="{!checkSession}">
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta content="initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0, minimal-ui" name="viewport"/>       
+        <apex:stylesheet value="{!URLFOR($Resource.YG_CustomerPortal, 'YG_CSS/common.css')}"/>    
+        <apex:stylesheet value="{!URLFOR($Resource.YG_CustomerPortal, 'YG_CSS/style.css')}"/>
+        
+    </head>
+    <body>
+        <apex:form >
+            <apex:iframe src="{!$Site.Prefix}/secur/logout.jsp" height="1" width="1" />
+  <script>
+            function redirectToLogin(){
+                window.location.href = "/s/thank-logout";
+            }   
+            setTimeout("redirectToLogin()", 900);
+  </script>
+       <div id="container"></div>    
+        <div class="loading">
+            <div class="loading-txt">
+                <div class="row text-center">
+                    <div class="col-lg-12">
+                        <svg width="51" height="52" viewBox="0 0 51 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                               d="M0.410156 25.1209C11.2022 31.0632 20.0171 40.1454 25.6268 51.1329L25.6109 51.1349C31.2146 40.1493 40.0255 31.0692 50.8116 25.1249L50.7937 25.1407L25.6208 0L0.434001 25.1407L0.410156 25.1209Z"
+                                fill="#FFEE00"></path>
+                        </svg>
+                    </div>
+                    <div class="col-lg-12 mt-3" style="margin-top: 1rem !important;">
+                        <div class="spinner-border text-dark"></div>
+                        <div class="txt-load">{!$Label.YG_Loading}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            
+</apex:form>  
+       
+    </body>
+            
+    </html>
+</apex:page>

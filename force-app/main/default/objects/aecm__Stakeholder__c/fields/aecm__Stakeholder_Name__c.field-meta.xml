@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>aecm__Stakeholder_Name__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <formula>/* Determine if we are in an internal stakeholder record based on the presence of a User object. Set the full name of the stakeholder in this field. This is used in lookup lists to show the full name of the person.*/
+
+
+
+IF(RecordType.Name == &quot;External Stakeholder&quot;, aecm__First_Name__c + &quot; &quot; + aecm__Last_Name__c   ,  aecm__First_Name_Internal__c + &quot; &quot; +  aecm__Last_Name_Internal__c  )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Stakeholder Name</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

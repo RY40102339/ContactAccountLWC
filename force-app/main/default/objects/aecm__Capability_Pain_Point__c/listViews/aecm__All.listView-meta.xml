@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>aecm__All</fullName>
+    <columns>NAME</columns>
+    <columns>aecm__Capability__c</columns>
+    <columns>aecm__Prioritization_Value__c</columns>
+    <columns>aecm__Status__c</columns>
+    <columns>aecm__Business_Owner__c</columns>
+    <columns>aecm__Entity__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>All</label>
+</ListView>

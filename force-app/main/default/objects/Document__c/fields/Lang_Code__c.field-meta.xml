@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lang_Code__c</fullName>
+    <defaultValue>&quot;EN&quot;</defaultValue>
+    <description>This is used to store the language code of a record to differentiate the translations based on logged in user.</description>
+    <externalId>false</externalId>
+    <label>Lang Code</label>
+    <length>10</length>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

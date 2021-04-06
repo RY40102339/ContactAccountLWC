@@ -1,0 +1,395 @@
+<!--
+*******************************************************************************************************
+* (C) Copyright 2020 Yokogawa. All rights reserved.
+* This code is property of Yokogawa. Use, duplication and
+* disclosure in any form without permission of copyright holder is prohibited.
+* 
+******************************************************************************************************* 
+* @author Selvaraj Thangaraj
+* @version 1.0
+* @created 05/08/2020
+* @description 
+* This component is used for the navigating the pages in the form of bread crumb in UI.
+*
+* *
+*  Change History:
+*  MM/DD/YYYY			Developer Name			Comments
+*  07/22/2020           Selvaraj T              Updated the all stations criteria to all systems 
+*  08/19/2020           Selvaraj                Updated submit service request and thank you label
+*  09/17/2020           Jayaprasath             updated manage colleagues lables
+*  10/21/2020           Selvaraj T              removed the hardware,software and maintenance phase related codes 
+*  10/22/2020           Jayaprasath             removed the getProductInfo() and added getproductCount 
+*-->
+
+
+<template>
+    <!--<template if:true={isError}>
+        <c-yg-error></c-yg-error>
+    </template>
+    <template if:false={isError}>   -->
+    <div class="row ml-0 d-none d-sm-block bread-crumb" role="main" id="main">
+        <div class="section">
+            <div class="col-lg-12">
+                <div class="row pt-lg-5">
+                    <template if:true={systems}>
+                        <div class="col-lg-12 section-head d-flex">
+                            <div class="col-6 pl-0">
+                                <h1 tabindex="0" role="heading" aria-level="1" class="noto-font f32 ft-weight-900">
+                                    System Overview<br>
+                                </h1>
+                            </div>
+                            <div class="col-6">
+                                <div class="row">
+                                    <div class="col-12 pr-5">
+                                        <c-yg-plant-switch></c-yg-plant-switch>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                    <template if:true={stationDetails}>
+                        <div class="col-lg-12 f14 pl-0 mt-md-5 mt-lg-5 pt-lg-5">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item">
+                                        <a href={statLink}
+                                            class="blue-primary text-hover-underline">{label.systemsLbl}</a>
+                                    </li>
+                                </ol>
+                            </nav>
+                        </div>
+                        <div class="col-lg-12 section-head">
+                            <h1 tabindex="0" role="heading" aria-level="1" class="noto-font f32 ft-weight-900">
+                                {statName}
+                            </h1>
+                        </div>
+                    </template>
+                    <template if:true={products}>
+                        <div class="col-lg-12 section-head pb-5">
+                            <h1 tabindex="0" role="heading" aria-level="1" class="noto-font f32 ft-weight-900">
+                                {label.allProductsLbl} <span>({productCount})</span></h1>
+                        </div>
+                    </template>
+                    <template if:true={prodCategories}>
+                        <div class="col-lg-12 f14 pl-0">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item">
+                                        <a href={allProdURL}
+                                            class="blue-primary text-hover-underline">{label.productsLbl}</a>
+                                    </li>
+                                </ol>
+                            </nav>
+                        </div>
+                        <div class="col-lg-12 section-head ">
+                            <h1 tabindex="0" role="heading" aria-level="1" class="noto-font f32 ft-weight-900">
+                                {catName} <span>({productCount})</span>
+                            </h1>
+                        </div>
+                    </template>
+                    <template if:true={productDetails}>
+                        <div class="col-lg-12 f14 blue-primary pl-0 mt-md-5 mt-lg-5 pt-lg-5">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item">
+                                        <a href={level1}
+                                            class="blue-primary text-hover-underline">{label.productsLbl}</a>
+                                    </li>
+                                    <li class="breadcrumb-item">
+                                        <a href={leve2URL} class="blue-primary text-hover-underline"> {level2}</a>
+                                    </li>
+                                </ol>
+                            </nav>
+                        </div>
+                        <div class="col-lg-12 section-head pb-5 pl-0">
+                            <h1 tabindex="0" role="heading" aria-level="1" class="noto-font f32 ft-weight-900">
+                                {prodDetailName} <span>({prodDetailsCount})</span>
+                            </h1>
+                            <div class="m-divider mt-1rem d-sm-none"></div>
+                        </div>
+                    </template>
+
+                    <template if:true={productHistory}>
+                        <div class="col-lg-12 f14 blue-primary pl-0 mt-md-5 mt-lg-5 pt-lg-5">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item">
+                                        <a href={prodHisLevel1URL}
+                                            class="blue-primary text-hover-underline">{label.productsLbl}</a>
+                                    </li>
+                                    <li class="breadcrumb-item">
+                                        <a href={prodHisLevel2URL} class="blue-primary text-hover-underline">
+                                            {topCategoryName}</a>
+                                    </li>
+                                    <li class="breadcrumb-item">
+                                        <a href={prodHisLevel3URL} class="blue-primary text-hover-underline">
+                                            {prodHisCat}</a>
+                                    </li>
+                                </ol>
+                            </nav>
+                        </div>
+                        <div class="col-lg-12 section-head pl-0">
+                            <h1 tabindex="0" role="heading" aria-level="1" class="noto-font f32 ft-weight-900">
+                                {prodHisName}<br />
+                                <span class="f18">S/N:&nbsp;{serialnum}</span>
+                            </h1>
+                        </div>
+                    </template>
+
+                    <template if:true={overview}>
+                        <div class="col-lg-12 section-head plant-switch d-sm-none">
+                            <template if:true={isMobile}>
+                                <c-yg-plant-switch></c-yg-plant-switch>
+                            </template>
+                        </div>
+                        <div class="col-lg-12 section-head bread-title mt-lg-4 pl-0 mt-md-5 mt-lg-5 pt-lg-5 d-flex">
+                            <div class="col-12 pl-0">
+                                <h1 tabindex="0" role="heading" aria-level="1"
+                                    class="noto-font f32 ft-weight-900 m-mb-0">
+                                    {label.overviewLbl}
+                                </h1>
+                                <div class="m-divider d-sm-none mb-5"></div>
+                            </div>
+                            <div class="col-12 d-none d-sm-block"></div>
+                            <div class="col-12 d-none d-sm-block">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <template if:false={isMobile}>
+                                            <c-yg-plant-switch></c-yg-plant-switch>
+                                        </template>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+
+                    <template if:true={serviceRequest}>
+                        <div class="col-lg-12 section-head bread-title mt-lg-4 pl-0 mt-md-5 mt-lg-5 pt-lg-5">
+                            <h1 tabindex="0" role="heading" aria-level="1"
+                                class="noto-font f32 ft-weight-900 serviceRequest m-mb-0">
+                                {label.submitservReqInqLbl}
+                            </h1>
+                            <div class="m-divider d-sm-none"></div>
+                        </div>
+                    </template>
+
+                    <template if:true={thankYou}>
+                        <div class="col-lg-12 section-head mt-4 pl-0 mt-md-5 mt-lg-5 pt-lg-5">
+                            <h1 tabindex="0" role="heading" aria-level="1" class="noto-font f32 ft-weight-900">
+                                {label.thkyouLbl}
+                            </h1>
+                        </div>
+                    </template>
+
+                    <template if:true={productRegister}>
+                        <div class="col-lg-12 section-head mt-4 pl-0 mt-md-5 mt-lg-5 pt-lg-5">
+                            <h1 tabindex="0" role="heading" aria-level="1" class="noto-font f32 ft-weight-900">
+                                Product Registration
+                            </h1>
+                        </div>
+                    </template>
+
+                    <template if:true={allContracts}>
+                        <div class="col-lg-12 section-head plant-switch d-sm-none">
+                            <template if:true={isMobile}>
+                                <c-yg-plant-switch></c-yg-plant-switch>
+                            </template>
+                        </div>
+                        <div class="col-lg-12 section-head bread-title mt-lg-4 pl-0 mt-md-5 mt-lg-5 pt-lg-5 d-flex">
+                            <div class="col-6 pl-0">
+                                <h1 tabindex="0" role="heading" aria-level="1"
+                                    class="noto-font f32 ft-weight-900 m-mb-0 text-nowrap">
+                                    All Contracts <span class="pl-2">({allContractsCnt})</span>
+                                </h1>
+                                <div class="m-divider d-sm-none"></div>
+                            </div>
+                            <div class="col-6 d-none d-sm-block">
+                                <div class="row">
+                                    <div class="col-12 pr-5">
+                                        <template if:false={isMobile}>
+                                            <c-yg-plant-switch></c-yg-plant-switch>
+                                        </template>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+
+                    <template if:true={docSearch}>
+                        <div class="col-lg-12 section-head">
+                            <h1 tabindex="0" role="heading" aria-level="1" class="noto-font f32 ft-weight-900">
+                                Documents
+                            </h1>
+                        </div>
+                    </template>
+                    <template if:true={certSearch}>
+                        <div class="col-lg-12 section-head">
+                            <h1 tabindex="0" role="heading" aria-level="1" class="noto-font f32 ft-weight-900">
+                                Certificates
+                            </h1>
+                        </div>
+                    </template>
+
+                    <template if:true={updateProfile}>
+                        <div class="col-lg-12 section-head pb-5">
+                            <h1 tabindex="0" role="heading" aria-level="1" class="noto-font f32 ft-weight-900">
+                                {label.updProfileLbl} </h1>
+                        </div>
+                    </template>
+                    <template if:true={updatePassword}>
+                        <div class="col-lg-12 section-head pb-5">
+                            <h1 tabindex="0" role="heading" aria-level="1" class="noto-font f32 ft-weight-900">
+                                {label.updPasswordLbl}
+                            </h1>
+                        </div>
+                    </template>
+                    <template if:true={softwareLicenses}>
+                        <div class="col-lg-12 section-head d-flex">
+                            <div class="col-6 pl-0">
+                                <h1 tabindex="0" role="heading" aria-level="1"
+                                    class="noto-font f32 ft-weight-900 m-mb-0 text-nowrap">
+                                    Software Licenses <span class="pl-2">({softwareLicenseCount})</span>
+                                </h1>
+                            </div>
+                            <div class="col-6">
+                                <div class="row">
+                                    <div class="col-12 pr-5">
+                                        <template if:false={isMobile}>
+                                            <c-yg-plant-switch></c-yg-plant-switch>
+                                        </template>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+
+                    <template if:true={roleFlag}>
+                        <template if:true={manageColleagues}>
+                            <div class="col-lg-12 section-head pb-5">
+                                <h1 tabindex="0" role="heading" aria-level="1" class="noto-font f32 ft-weight-900">
+                                    {label.manageColleaguesLbl} <span>({manageColleaguesCount})</span></h1>
+                            </div>
+                        </template>
+                    </template>
+                    <template if:true={contractDetails}>
+                        <div class="col-lg-12 f14 blue-primary pl-0 mt-md-5 mt-lg-5 pt-lg-5">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item">
+                                        <a href={contractLink} class="blue-primary text-hover-underline">Contracts</a>
+                                    </li>
+                                    <li class="breadcrumb-item">
+                                        <a href={contractLink} class="blue-primary text-hover-underline"></a>
+                                    </li>
+                                </ol>
+                            </nav>
+                        </div>
+                        <div class="col-lg-12 section-head">
+                            <h1 tabindex="0" role="heading" aria-level="1" class="noto-font f32 ft-weight-900">
+                                {contractHead} <br>
+                                <span class="f18">Contract ID: {contractNum}</span>
+                            </h1>
+                        </div>
+                    </template>
+
+                    <template if:true={allServiceRequest}>
+                        <div class="col-lg-12 f14 bread-title pl-0 mt-md-5 mt-lg-5 pt-lg-5">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item">
+                                        <a href={overviewURL}
+                                            class="blue-primary text-hover-underline">{label.overviewLbl} /</a>
+                                    </li>
+                                </ol>
+                            </nav>
+                        </div>
+                        <div class="col-lg-12 section-head bread-title d-flex">
+                            <div class="col-12 pl-0">
+                                <h1 tabindex="0" role="heading" aria-level="1"
+                                    class="noto-font f32 ft-weight-900 m-mb-0">
+                                    All Service Requests <span class="pl-2">({allServiceReqCnt})</span>
+                                </h1>
+                                <div class="m-divider d-sm-none"></div>
+                            </div>
+                        </div>
+                    </template>
+
+                    <template if:true={overviewRequest}>
+                        <div class="col-lg-12 bread-title section-head pb-60">
+                            <h1 tabindex="0" role="heading" aria-level="1" class="noto-font f32 ft-weight-900 m-mb-0">
+                                {label.overviewLbl}
+                            </h1>
+                            <div class="m-divider d-sm-none mb-5"></div>
+                        </div>
+
+                    </template>
+                </div>
+            </div>
+        </div>
+    </div>
+    <template if:true={allServiceRequest}>
+        <div class="filter_main d-sm-none mb-4 ml-n3">
+            <a class="filter_toggle"></a>
+            <div class="filter_box">
+                <c-yg-filter></c-yg-filter>
+                <c-yg-button-notification></c-yg-button-notification>
+            </div>
+            <!--filter_box-->
+        </div>
+        <!--filter_main-->
+    </template>
+    <template if:true={allContracts}>
+        <div class="filter_main d-sm-none mb-4 ml-n3">
+            <a class="filter_toggle"></a>
+            <div class="filter_box">
+                <c-yg-filter></c-yg-filter>
+                <c-yg-button-notification></c-yg-button-notification>
+            </div>
+            <!--filter_box-->
+        </div>
+        <!--filter_main-->
+    </template>
+
+    <!--Use template if:true to display/hide popup based on isModalOpen value-->
+    <template if:true={isModalOpen}>
+        <!-- Modal/Popup Box LWC starts here -->
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+            aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <!-- Modal/Popup Box LWC body starts here -->
+                <div class="slds-modal__content slds-p-around_medium radius-0" id="modal-content-id-1">
+                    <div class="row mt-5">
+                        <div class="col-lg-12 mb-4">
+                            <!-- <button
+                                class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse mr-4 mt-n3 modal-pop"
+                                title="Close" onclick={closeModal}>
+                                <lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse"
+                                    size="small"></lightning-icon>
+                                <span class="slds-assistive-text">Close</span>
+                            </button>-->
+                            <div class="carousel slide" data-ride="carousel">
+                                <center>
+                                    <div class="sidebar-brand-text mx-3"><img src={logo} alt="yokogawa" width="100" />
+                                    </div>
+
+                                    <h1> {label.oopsLbl}</h1>
+                                </center>
+                                <h1> {label.internalServerErrorLbl} </h1>
+                                <div class="error-actions">
+                                    <center><a href={errorUrl} class="">
+                                            {label.homeLbl}</a></center>
+                                </div>
+                                <div class="carousel-inner d-flex">
+                                    <div class="item active m-auto">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+    <!--</template>-->
+</template>

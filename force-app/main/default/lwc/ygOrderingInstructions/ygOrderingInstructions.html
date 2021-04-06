@@ -1,0 +1,41 @@
+<!--
+*******************************************************************************************************
+* (C) Copyright 2020 Yokogawa. All rights reserved.
+* This code is property of Yokogawa. Use, duplication and
+* disclosure in any form without permission of copyright holder is prohibited.
+* 
+******************************************************************************************************* 
+* @author Selvaraj T
+* @version 1.0
+* @created 09/25/2020
+* @description 
+* This component is used for displaying the ordering instructions.
+*
+* *
+*  Change History:
+*  MM/DD/YYYY			Developer Name			Comments
+*  
+*  
+*
+*-->
+<template>
+    <template if:true={showIns}>
+        <div class="row pt-56 m-mt-64">
+            <div class="section">
+                <div class="col-lg-12">
+                    <h2 tabindex="0" role="heading" aria-level="2" class="noto-font f20 mb-3">
+                        <span class="notification f20 fbold">
+                            <span>Ordering Instructions</span>
+                        </span>
+                    </h2>
+                </div>
+                <div class="col-lg-12">
+                    <div class="table-responsive p-0 m-0 m-m-0 bg-white">
+                        <table lwc:dom="manual" class="table table-borderless f14 ordIns-dtTable">
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+</template>

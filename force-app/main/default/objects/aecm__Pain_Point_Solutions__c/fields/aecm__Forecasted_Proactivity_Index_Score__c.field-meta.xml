@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>aecm__Forecasted_Proactivity_Index_Score__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <formula>CASE( aecm__Forecasted_Proactivity_Index__c , &quot;Not Acknowledged&quot;, 1, &quot;Reactive&quot;, 2,&quot;Occasionally Proactive&quot;,3,&quot;Situationally Proactive&quot;,4,&quot;Intentionally Proactive&quot;,5,0)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Forecasted Proactivity Index Score</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

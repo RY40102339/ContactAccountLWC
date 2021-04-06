@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>aecm__Capability__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <deprecated>false</deprecated>
+    <description>Used to forma 1 to many relationship with a capability, where multiple processes can be related to the same capability.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Select a capability to establish a one to many relationship, where this process can be one of many to the capability. To form a many to many relationship, use the Capability Processes related list.</inlineHelpText>
+    <label>DEPRECATED Capability</label>
+    <referenceTo>aecm__Capability__c</referenceTo>
+    <relationshipLabel>Processes</relationshipLabel>
+    <relationshipName>Processes</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

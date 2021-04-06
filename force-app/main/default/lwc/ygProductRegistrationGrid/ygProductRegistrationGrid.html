@@ -1,0 +1,163 @@
+<!--
+*******************************************************************************************************
+* (C) Copyright 2020 Yokogawa. All rights reserved.
+* This code is property of Yokogawa. Use, duplication and
+* disclosure in any form without permission of copyright holder is prohibited.
+* 
+******************************************************************************************************* 
+* @author Jayaprasath
+* @version 1.0
+* @created 08/24/2020
+* @description 
+* This component is used for displaying the Product Registration in UI.
+*
+* *
+*  Change History:
+*  MM/DD/YYYY			Developer Name			Comments
+*  
+*  
+*
+*-->
+
+<template>
+    <div class="row pt-4">
+        <div class="section">
+            <div class="col-lg-11">
+                <label for="serialNo" class="f14 fbold grey-darkest">
+                    {label.regProductLbl}
+                </label>
+            </div>
+            <div class="form-group row col-lg-11 mb-5 service-request">
+                <div class="col-lg-7 text-center text-lg-left">
+                    <input type="text" class="form-control serial-no" name="serialNo" id="serialNo"
+                        placeholder="Search Serial Number" maxlength="11" oninput={showIcon} onkeyup={showIcon}>
+                    <span class="close-icon cursor-pointer" onclick={clearTxtbox} style="display: none;">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10 10L16 16M22 22L16 16M16 16L22 10L10 22" stroke="#004F9B" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </span>
+                    <span class="d-sm-none position-absolute qr-code">
+                        <a href="javascript:void(0)" class="qrcode-reader" data-qrr-audio-feedback="false"
+                            onclick={showQR}>
+                            <img src={qrCode} alt="Click and scan QR code" />
+                        </a>
+                        <iframe class="iframe-QR" width="100%" scrolling="no"
+                            style="display:none; border: 0px none;position: fixed;top: 0;left: 0;right: 0;bottom: 0;z-index: 99999;height: 100%;width: 100%;">
+                        </iframe>
+                    </span>
+                    <div class="mt-2 d-block f14 alert-orange text-left">
+                        {errorMsg}
+                    </div>
+                </div>
+                <div class="col-lg-5 text-center text-lg-right mt-1rem">
+                    <button type="button" class="btn btn-primary text-uppercase f14 ft-weight-900"
+                        onclick={submitSerial}>Search</button>
+                </div>
+            </div>
+            <div class="col-lg-11 row clear-result d-none">
+                <div class="col-lg-5">
+                    <label for="register-product-serial-number" class="f14 fbold grey-darkest">
+                        <span class="changeLabel">{label.resultLbl}</span>
+                    </label>
+                </div>
+                <!--
+                <div class="col-lg-7 text-lg-right">
+                    <label for="register-product-serial-number" class="f14 noto-font grey-darkest">
+                        <span class="changeLabel pr-1">Next:</span>
+                        <a href="javascript:void(0)" class="text-right blue-primary fbold f14"> 
+                            <ins>Select a site and register products</ins>
+                        </a>
+                    </label>
+                </div>
+                -->
+            </div>
+
+            <div class="col-lg-11 clear-result d-none">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="row pt-3">
+                            <div class="col-lg-12">
+                                <div class="table-responsive productreg-table-responsive mb-3 pb-2">
+                                    <table lwc:dom="manual" class="table table-borderless f14 productreg-dtTable">
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-11 mb-5 clear-result d-none">
+                <div class="col-lg-12 text-lg-right text-right">
+                    <a onclick={clear} class="text-right blue-primary text-hover-underline f12">
+                        <i class="fas pr-1">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 5L8 8M11 11L8 8M8 8L11 5L5 11" stroke="#004F9B" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                        </i>
+                        {label.clearResultLbl}
+                    </a>
+                </div>
+            </div>
+            <div class="form-group col-lg-11 service-request clear-result d-none">
+                <div class="col-lg-12 m-pr-0 m-pl-0 text-center text-lg-right mt-1rem">
+                    <button type="button" onclick={submitRegister}
+                        class="btn btn-primary text-uppercase f14 ft-weight-900">{label.registerLbl} <span
+                            class="selectedCnt"></span> {label.selProductLbl}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Use template if:true to display/hide popup based on isModalOpen value-->
+    <template if:true={isModalOpen}>
+        <!-- Modal/Popup Box LWC starts here -->
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+            aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <!-- Modal/Popup Box LWC header here -->
+                <header class="slds-modal__header h-60 border-0 rounded-0">
+                    <button
+                        class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse border-0 shadow-none"
+                        title="Close" onclick={closeModal}>
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 8L24 24M40 40L24 24M24 24L40 8L8 40" stroke="#004F9B" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                </header>
+                <!-- Modal/Popup Box LWC body starts here -->
+                <div class="slds-modal__content slds-p-around_medium radius-0" id="modal-content-id-1">
+                    <div class="row mb-3">
+                        <div class="col-lg-12 text-center">
+                            <h2 id="modal-heading-01-16"
+                                class="slds-text-heading_medium slds-hyphenate mx-sm-3 blue-primary noto-font f20 fbold">
+                                {label.productRegLbl}</h2>
+                        </div>
+                        <div class="col-lg-12 mb-2 text-center">
+                            <div class="form-group mx-sm-3 mb-2">
+                                <label class="noto-font grey-darkest f12">{registerCount}
+                                    {label.productRegMsgLbl}</label>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 mb-5 text-center">
+                            <a href={allproductURL} class="text-right blue-primary text-hover-underline f12">
+                                <i class="fas pr-1">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 8L9 11M12 8L9 5M12 8L4 8" stroke="#004F9B" stroke-width="2"
+                                            stroke-linecap="square"></path>
+                                    </svg>
+                                </i>
+                                {label.viewAllProductLbl}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+</template>

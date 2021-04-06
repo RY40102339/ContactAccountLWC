@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>aecm__Maturity_Status__c</fullName>
+    <deprecated>false</deprecated>
+    <description>Sets the maturity status for the architecture domain.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Indicates the maturity status of the domain.</inlineHelpText>
+    <label>Maturity Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>New</fullName>
+                <default>false</default>
+                <label>New</label>
+            </value>
+            <value>
+                <fullName>Evolving</fullName>
+                <default>false</default>
+                <label>Evolving</label>
+            </value>
+            <value>
+                <fullName>Optimizing</fullName>
+                <default>false</default>
+                <label>Optimizing</label>
+            </value>
+            <value>
+                <fullName>Stable</fullName>
+                <default>false</default>
+                <label>Stable</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>aecm__Header_Default</fullName>
+    <fields>Name</fields>
+    <fields>aecm__TCO__c</fields>
+    <fields>aecm__Strategies__c</fields>
+    <fields>aecm__Related_Capabilities__c</fields>
+    <fields>aecm__Enterprise_Architect__c</fields>
+    <fields>aecm__Primary_Business_Stakeholder__c</fields>
+    <fields>aecm__Maturity_Status__c</fields>
+    <label>Header Default</label>
+</CompactLayout>

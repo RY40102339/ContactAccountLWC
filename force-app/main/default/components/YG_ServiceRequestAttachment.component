@@ -1,0 +1,4 @@
+<apex:component controller="YG_ServiceRequestAndInquiries" access="global">   
+    <apex:attribute name="case" assignTo="{!caseAttach}" type="String" description="Contact ID" />
+	{!caseAttach} 
+</apex:component>

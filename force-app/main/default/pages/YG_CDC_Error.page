@@ -1,0 +1,79 @@
+<apex:page id="saml_error" showHeader="false">
+    <html>
+    <head>
+    <title>{!$Label.YG_Error_Page_Title}</title>
+    <apex:stylesheet value="{!URLFOR($Resource.YG_CustomerPortal, 'YG_CSS/common.css')}"/>    
+    <apex:stylesheet value="{!URLFOR($Resource.YG_CustomerPortal, 'YG_CSS/style.css')}"/>
+    <style>
+    body{
+    padding-top:0 !important;
+    }
+    </style>
+    <script>
+    function getError() {   
+        var url_params = window.location.search.substring(1);
+        var error = url_params.split('=');
+        var obj = error[1].replace(/%22/g,'"');
+        //console.log(obj);
+        obj = obj.replace(/%20/g," ");
+        var obj_json = decodeURIComponent(obj);
+        //console.log(obj_json);
+        //obj_json = JSON.stringify(obj_json)
+        obj_json = JSON.parse(obj_json);
+        
+        //console.log("obj.errorCode" + obj_json.errorCode);
+            
+        document.getElementById("errorCode").innerHTML = "Error " + obj_json.errorCode;
+        document.getElementById("errorMessage").innerHTML = obj_json.errorMessage.replace(/\+/g, ' ');
+        //document.getElementById("errorRequest").innerHTML = "Error Request ID = " + obj_json.requestId;
+    }
+    </script>   
+    </head>
+    <body onload="getError();">
+        <div class="cb-section_column slds-size_12-of-12 slds-max-medium-size_12-of-12 slds-large-size_8-of-12">
+            <div class="row">
+               <div class="col-lg-6 mt-3">
+                  <div class="section">
+                     <div class="col-lg-12">
+                         <div class="col-lg-12 section-head">
+                            <apex:image url="{!URLFOR($Resource.YG_CustomerPortal, 'YG_Images/yok-logo.svg')}" alt="Yokogawa"/>
+                            <p class="f14 fbold float-right d-sm-none"><a href="mailto:icp-adm@cs.jp.yokogawa.com"
+                                class="blue-primary">Contact</a></p>
+                         </div>
+                         <div id="errorCode" class="col-lg-12 section-head mt-4 orange-red f20">
+                         </div>
+                         <div id="errorMessage" class="col-lg-12 section-head orange-red">
+                         </div>
+                         <!--
+                         <div id="errorRequest" class="col-lg-12 section-head orange-red"> 
+                         </div>
+                         -->
+                     </div>
+                     <div class="col-lg-12 mt-4 pt-2">
+                        <span class="f14 noto-font grey-darkest">
+                            <a href="login" class="text-right blue-primary f14"> 
+                                <ins>{!$Label.YG_Return_to_login}.</ins>
+                            </a>
+                        </span>
+                    </div>
+                </div>
+               </div>
+               <div class="col-lg-6 col-sm-12 blue-primary-bg d-none d-sm-block">
+                  <div class="row">
+                     <div class="col-lg-12 mt-4 pr-5">
+                        <p class="f14 fbold noto-font contact-login  text-right mb-sm-0">
+                        <a class="white" href="mailto:icp-adm@cs.jp.yokogawa.com">{!$Label.YG_Contact_RegisterPage}</a></p>
+                     </div>
+                     <div class="mac-book-section mt-4">
+                        <apex:image url="{!URLFOR($Resource.YG_CustomerPortal, 'YG_Images/macbook.svg')}" alt="Macbook"/>
+                     </div>
+                     <div class="i-phone-section position-absolute">
+                        <apex:image url="{!URLFOR($Resource.YG_CustomerPortal, 'YG_Images/iphone.svg')}" alt="Iphone"/>
+                     </div>
+                  </div>
+               </div>
+            </div>
+        </div>   
+    </body>
+    </html>
+</apex:page>

@@ -1,0 +1,263 @@
+<template>
+    <template if:true={isLoading}>
+        <div class="loading">
+            <div class="loading-txt">
+                <div class="row text-center">
+                    <div class="col-lg-12">
+                        <svg width="51" height="52" viewBox="0 0 51 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M0.410156 25.1209C11.2022 31.0632 20.0171 40.1454 25.6268 51.1329L25.6109 51.1349C31.2146 40.1493 40.0255 31.0692 50.8116 25.1249L50.7937 25.1407L25.6208 0L0.434001 25.1407L0.410156 25.1209Z"
+                                fill="#FFEE00"></path>
+                        </svg>
+                    </div>
+                    <div class="col-lg-12 mt-3" style="margin-top: 1rem !important;">
+                        <div class="spinner-border text-dark"></div>
+                        <div class="txt-load">Loading..</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <div class="row radio-btn">
+        <div class="section">
+            <div class="col-lg-12">
+                <fieldset class="form-group">
+                    <div class="row">
+                        <legend class="col-lg-12 black f14 ft-weight-900">Show Contract Category:</legend>
+                        <div class="col-lg-9">
+                            <div class="newradio--inline">
+                                <input id="id_option1" type="radio" name="status" value="All" class="firstRadio"
+                                    onchange={handleStatus}>
+                                <label for="id_option1" class="cursor-pointer"><span><span></span></span>All</label>
+                            </div>
+                            <div class="newradio--inline">
+                                <input id="id_option2" type="radio" name="status" value="Industrial Automation"
+                                    onchange={handleStatus}>
+                                <label for="id_option2" class="cursor-pointer"><span><span></span></span>Industrial
+                                    Automation</label>
+                            </div>
+                            <div class="newradio--inline">
+                                <input id="id_option3" type="radio" name="status" value="Test & Measurement"
+                                    onchange={handleStatus}>
+                                <label for="id_option3" class="cursor-pointer"><span><span></span></span>Test &
+                                    Measurement </label>
+                            </div>
+                            <div class="newradio--inline">
+                                <input id="id_option4" type="radio" name="status" value="Life Innovation"
+                                    onchange={handleStatus}>
+                                <label for="id_option4" class="cursor-pointer"><span><span></span></span>Life Innovation
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="row">
+                                <div class="col-lg-12 pt-2 download-csv">
+                                    <div class="f12 d-inline-block float-right">
+                                        <a href="javascript:void(0)" style="padding-right: 2.5rem;"
+                                            class="text-right blue-primary text-hover-underline"
+                                            onclick={downloadCSVFile}>
+                                            Download contract list
+                                            <img src={csvIcon} alt="CSV icon" class="ml-2" />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="inquiry_about-err f14 mt-2 alert-orange"></div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="section">
+            <div class="col-lg-12">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="row pt-4">
+                            <div class="col-lg-12">
+                                <div class="table-responsive mb-5 pb-2">
+                                    <div class="col-lg-12 text-center mt-3 mb-1 loading-grid">
+                                        <div class="spinner-border text-dark"></div>
+                                        <div class="txt-load">Loading..</div>
+                                    </div>
+                                    <div class="d-none">
+                                        <input type="text" name="hiddenSelect" onselect={triggetSelect}>
+                                    </div>
+                                    <table lwc:dom="manual" class="table table-borderless f14 allContracts-dtTable">
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pt-3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <template if:true={showLoadMore}>
+        <div class="row">
+            <div class="col-lg-12 text-center mt-3 mb-1 loading-icon d-none">
+                <div class="spinner-border text-dark"></div>
+                <div class="txt-load">Loading..</div>
+            </div>
+            <div class="col-lg-12 load-more pl-0 mb-4 mb-lg-5 d-flex justify-content-center">
+                <button onclick={loadmore} class="f14 fbold blue-primary">
+                    <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2 10L6 6L2 2" stroke="#004F9B" stroke-width="2" stroke-linecap="square"></path>
+                    </svg>
+                    {label.showLbl} {remainRecords} {label.moreProductsLbl}
+                </button>
+            </div>
+        </div>
+    </template>
+
+    <!--Use template if:true to display/hide popup based on isModalOpen value-->
+    <template if:true={isModalOpen}>
+        <!-- Modal/Popup Box LWC starts here -->
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+            aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open request-detail">
+            <div class="slds-modal__container">
+                <!-- Modal/Popup Box LWC header here -->
+                <header class="slds-modal__header h-60 border-0 rounded-0">
+                    <button
+                        class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse border-0 shadow-none"
+                        title="Close" onclick={closeModal}>
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 8L24 24M40 40L24 24M24 24L40 8L8 40" stroke="#004F9B" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                </header>
+                <!-- Modal/Popup Box LWC body starts here -->
+                <div class="slds-modal__content slds-p-around_medium radius-0" id="modal-content-id-1">
+                    <div class="row">
+                        <div class="col-md-5 pl-lg-5">
+                            <div class="col-md-12 p-0 white blue-primary-bg h-40 d-flex align-items-center">
+                                <div class="col-md-12 f16 ft-weight-800 text-center">
+                                    Yokogawa Sales Manager
+                                </div>
+                            </div>
+                            <div class="col-md-12 p-0  mt-4 ">
+                                <div class="col-md-12 text-center">
+                                    <i class="fas pr-1 ">
+                                        <svg width="100" height="100" viewBox="0 0 100 100" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="50" cy="50" r="50" fill="#9BACB5"></circle>
+                                            <mask id="path-2-outside-1" maskUnits="userSpaceOnUse" x="51" y="25.9062"
+                                                width="37" height="42" fill="black">
+                                                <rect fill="white" x="51" y="25.9062" width="37" height="42"></rect>
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M68.75 41.4062C72.4779 41.4062 75.5 38.3842 75.5 34.6562C75.5 30.9283 72.4779 27.9062 68.75 27.9062C65.0221 27.9062 62 30.9283 62 34.6562C62 38.3842 65.0221 41.4062 68.75 41.4062ZM53 57.8736C53 50.8409 56.7105 44.7519 62.116 41.8014C63.8562 43.4178 66.1876 44.4062 68.75 44.4062C71.5671 44.4062 74.1052 43.2115 75.8851 41.301C81.8271 44.0189 86 50.4156 86 57.8736C86 65.9275 81.1336 65.6421 74.4279 65.2489C72.8717 65.1576 71.2165 65.0605 69.5 65.0605C67.7835 65.0605 66.1283 65.1576 64.5721 65.2489C57.8664 65.6421 53 65.9275 53 57.8736Z">
+                                                </path>
+                                            </mask>
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M68.75 41.4062C72.4779 41.4062 75.5 38.3842 75.5 34.6562C75.5 30.9283 72.4779 27.9062 68.75 27.9062C65.0221 27.9062 62 30.9283 62 34.6562C62 38.3842 65.0221 41.4062 68.75 41.4062ZM53 57.8736C53 50.8409 56.7105 44.7519 62.116 41.8014C63.8562 43.4178 66.1876 44.4062 68.75 44.4062C71.5671 44.4062 74.1052 43.2115 75.8851 41.301C81.8271 44.0189 86 50.4156 86 57.8736C86 65.9275 81.1336 65.6421 74.4279 65.2489C72.8717 65.1576 71.2165 65.0605 69.5 65.0605C67.7835 65.0605 66.1283 65.1576 64.5721 65.2489C57.8664 65.6421 53 65.9275 53 57.8736Z"
+                                                fill="white"></path>
+                                            <path
+                                                d="M62.116 41.8014L63.4772 40.336L62.4219 39.3559L61.1578 40.0459L62.116 41.8014ZM75.8851 41.301L76.717 39.4822L75.4052 38.8822L74.4218 39.9377L75.8851 41.301ZM74.4279 65.2489L74.3108 67.2454H74.3108L74.4279 65.2489ZM64.5721 65.2489L64.6892 67.2454H64.6892L64.5721 65.2489ZM73.5 34.6562C73.5 37.2796 71.3734 39.4062 68.75 39.4062V43.4062C73.5825 43.4062 77.5 39.4887 77.5 34.6562H73.5ZM68.75 29.9062C71.3734 29.9062 73.5 32.0329 73.5 34.6562H77.5C77.5 29.8238 73.5825 25.9062 68.75 25.9062V29.9062ZM64 34.6562C64 32.0329 66.1266 29.9062 68.75 29.9062V25.9062C63.9175 25.9062 60 29.8238 60 34.6562H64ZM68.75 39.4062C66.1266 39.4062 64 37.2796 64 34.6562H60C60 39.4887 63.9175 43.4062 68.75 43.4062V39.4062ZM61.1578 40.0459C55.0806 43.363 51 50.1433 51 57.8736H55C55 51.5384 58.3404 46.1408 63.0742 43.5569L61.1578 40.0459ZM68.75 42.4062C66.7122 42.4062 64.862 41.6224 63.4772 40.336L60.7549 43.2667C62.8503 45.2132 65.6631 46.4062 68.75 46.4062V42.4062ZM74.4218 39.9377C73.0043 41.4591 70.9893 42.4062 68.75 42.4062V46.4062C72.1449 46.4062 75.206 44.9639 77.3484 42.6644L74.4218 39.9377ZM88 57.8736C88 49.6793 83.4118 42.5445 76.717 39.4822L75.0532 43.1198C80.2424 45.4933 84 51.1519 84 57.8736H88ZM74.3108 67.2454C75.9633 67.3423 77.6207 67.4411 79.1276 67.394C80.6299 67.347 82.1571 67.1535 83.5206 66.5654C84.947 65.9502 86.1298 64.9298 86.9164 63.3879C87.6732 61.9044 88 60.0635 88 57.8736H84C84 59.7106 83.7185 60.8543 83.3533 61.5702C83.0178 62.2277 82.565 62.6214 81.9365 62.8925C81.2452 63.1906 80.2986 63.3554 79.0025 63.396C77.7109 63.4364 76.2454 63.352 74.545 63.2523L74.3108 67.2454ZM69.5 67.0605C71.1489 67.0605 72.7473 67.1537 74.3108 67.2454L74.545 63.2523C72.9962 63.1614 71.284 63.0605 69.5 63.0605V67.0605ZM64.6892 67.2454C66.2527 67.1537 67.8511 67.0605 69.5 67.0605V63.0605C67.716 63.0605 66.0038 63.1614 64.455 63.2523L64.6892 67.2454ZM51 57.8736C51 60.0635 51.3268 61.9044 52.0836 63.3879C52.8702 64.9298 54.053 65.9502 55.4794 66.5654C56.8429 67.1535 58.3701 67.347 59.8724 67.394C61.3793 67.4411 63.0367 67.3423 64.6892 67.2454L64.455 63.2523C62.7546 63.352 61.2891 63.4364 59.9975 63.396C58.7014 63.3554 57.7548 63.1906 57.0635 62.8925C56.435 62.6214 55.9822 62.2277 55.6467 61.5702C55.2815 60.8543 55 59.7106 55 57.8736H51Z"
+                                                fill="#9BACB5" mask="url(#path-2-outside-1)"></path>
+                                            <mask id="path-4-outside-2" maskUnits="userSpaceOnUse" x="11" y="25.9062"
+                                                width="37" height="42" fill="black">
+                                                <rect fill="white" x="11" y="25.9062" width="37" height="42"></rect>
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M28.75 41.4062C32.4779 41.4062 35.5 38.3842 35.5 34.6562C35.5 30.9283 32.4779 27.9062 28.75 27.9062C25.0221 27.9062 22 30.9283 22 34.6562C22 38.3842 25.0221 41.4062 28.75 41.4062ZM13 57.8736C13 50.8409 16.7105 44.7519 22.116 41.8014C23.8562 43.4178 26.1876 44.4062 28.75 44.4062C31.5671 44.4062 34.1052 43.2115 35.8851 41.301C41.8271 44.0189 46 50.4156 46 57.8736C46 65.9275 41.1336 65.6421 34.4279 65.2489L34.4277 65.2488C32.8716 65.1576 31.2164 65.0605 29.5 65.0605C27.7836 65.0605 26.1284 65.1576 24.5723 65.2488L24.5721 65.2489C17.8664 65.6421 13 65.9275 13 57.8736Z">
+                                                </path>
+                                            </mask>
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M28.75 41.4062C32.4779 41.4062 35.5 38.3842 35.5 34.6562C35.5 30.9283 32.4779 27.9062 28.75 27.9062C25.0221 27.9062 22 30.9283 22 34.6562C22 38.3842 25.0221 41.4062 28.75 41.4062ZM13 57.8736C13 50.8409 16.7105 44.7519 22.116 41.8014C23.8562 43.4178 26.1876 44.4062 28.75 44.4062C31.5671 44.4062 34.1052 43.2115 35.8851 41.301C41.8271 44.0189 46 50.4156 46 57.8736C46 65.9275 41.1336 65.6421 34.4279 65.2489L34.4277 65.2488C32.8716 65.1576 31.2164 65.0605 29.5 65.0605C27.7836 65.0605 26.1284 65.1576 24.5723 65.2488L24.5721 65.2489C17.8664 65.6421 13 65.9275 13 57.8736Z"
+                                                fill="white"></path>
+                                            <path
+                                                d="M22.116 41.8014L23.4772 40.336L22.4219 39.3559L21.1578 40.0459L22.116 41.8014ZM35.8851 41.301L36.717 39.4822L35.4052 38.8822L34.4218 39.9377L35.8851 41.301ZM34.4279 65.2489L34.3105 67.2454L34.3108 67.2454L34.4279 65.2489ZM34.4277 65.2488L34.5452 63.2523L34.5448 63.2523L34.4277 65.2488ZM24.5723 65.2488L24.6864 67.2456L24.6894 67.2454L24.5723 65.2488ZM24.5721 65.2489L24.458 63.2521L24.455 63.2523L24.5721 65.2489ZM33.5 34.6562C33.5 37.2796 31.3734 39.4062 28.75 39.4062V43.4062C33.5825 43.4062 37.5 39.4887 37.5 34.6562H33.5ZM28.75 29.9062C31.3734 29.9062 33.5 32.0329 33.5 34.6562H37.5C37.5 29.8238 33.5825 25.9062 28.75 25.9062V29.9062ZM24 34.6562C24 32.0329 26.1266 29.9062 28.75 29.9062V25.9062C23.9175 25.9062 20 29.8238 20 34.6562H24ZM28.75 39.4062C26.1266 39.4062 24 37.2796 24 34.6562H20C20 39.4887 23.9175 43.4062 28.75 43.4062V39.4062ZM21.1578 40.0459C15.0806 43.363 11 50.1433 11 57.8736H15C15 51.5384 18.3404 46.1408 23.0742 43.5569L21.1578 40.0459ZM28.75 42.4062C26.7122 42.4062 24.862 41.6224 23.4772 40.336L20.7549 43.2667C22.8503 45.2132 25.6631 46.4062 28.75 46.4062V42.4062ZM34.4218 39.9377C33.0043 41.4591 30.9893 42.4062 28.75 42.4062V46.4062C32.1449 46.4062 35.206 44.9639 37.3484 42.6644L34.4218 39.9377ZM48 57.8736C48 49.6793 43.4118 42.5445 36.717 39.4822L35.0532 43.1198C40.2424 45.4933 44 51.1519 44 57.8736H48ZM34.3108 67.2454C35.9633 67.3423 37.6207 67.4411 39.1276 67.394C40.6299 67.347 42.1571 67.1535 43.5206 66.5654C44.947 65.9502 46.1298 64.9298 46.9164 63.3879C47.6732 61.9044 48 60.0635 48 57.8736H44C44 59.7106 43.7185 60.8543 43.3533 61.5702C43.0178 62.2277 42.565 62.6214 41.9365 62.8925C41.2452 63.1906 40.2986 63.3554 39.0025 63.396C37.7109 63.4364 36.2454 63.352 34.545 63.2523L34.3108 67.2454ZM34.3103 67.2454L34.3105 67.2454L34.5454 63.2523L34.5452 63.2523L34.3103 67.2454ZM29.5 67.0605C31.1489 67.0605 32.7471 67.1537 34.3107 67.2454L34.5448 63.2523C32.996 63.1614 31.2839 63.0605 29.5 63.0605V67.0605ZM24.6894 67.2454C26.2529 67.1537 27.8511 67.0605 29.5 67.0605V63.0605C27.7161 63.0605 26.004 63.1614 24.4552 63.2523L24.6894 67.2454ZM24.6862 67.2456L24.6864 67.2456L24.4582 63.2521L24.458 63.2521L24.6862 67.2456ZM11 57.8736C11 60.0635 11.3268 61.9044 12.0836 63.3879C12.8702 64.9298 14.053 65.9502 15.4794 66.5654C16.8429 67.1535 18.3701 67.347 19.8724 67.394C21.3793 67.4411 23.0367 67.3423 24.6892 67.2454L24.455 63.2523C22.7546 63.352 21.2891 63.4364 19.9975 63.396C18.7014 63.3554 17.7548 63.1906 17.0635 62.8925C16.435 62.6214 15.9822 62.2277 15.6467 61.5702C15.2815 60.8543 15 59.7106 15 57.8736H11Z"
+                                                fill="#9BACB5" mask="url(#path-4-outside-2)"></path>
+                                            <mask id="path-6-outside-3" maskUnits="userSpaceOnUse" x="30" y="37"
+                                                width="41" height="46" fill="black">
+                                                <rect fill="white" x="30" y="37" width="41" height="46"></rect>
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M49.3906 53.9062C53.5069 53.9062 56.8438 50.5694 56.8438 46.4531C56.8438 42.3369 53.5069 39 49.3906 39C45.2744 39 41.9375 42.3369 41.9375 46.4531C41.9375 50.5694 45.2744 53.9062 49.3906 53.9062ZM32 72.089C32 64.3237 36.097 57.6005 42.0656 54.3426C43.987 56.1273 46.5614 57.2188 49.3906 57.2188C52.5012 57.2188 55.3036 55.8995 57.269 53.7901C63.83 56.7911 68.4375 63.8541 68.4375 72.089C68.4375 80.9819 63.0641 80.6667 55.66 80.2325C53.9417 80.1317 52.114 80.0245 50.2188 80.0245C48.3235 80.0245 46.4958 80.1317 44.7775 80.2325C37.3734 80.6667 32 80.9819 32 72.089Z">
+                                                </path>
+                                            </mask>
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M49.3906 53.9062C53.5069 53.9062 56.8438 50.5694 56.8438 46.4531C56.8438 42.3369 53.5069 39 49.3906 39C45.2744 39 41.9375 42.3369 41.9375 46.4531C41.9375 50.5694 45.2744 53.9062 49.3906 53.9062ZM32 72.089C32 64.3237 36.097 57.6005 42.0656 54.3426C43.987 56.1273 46.5614 57.2188 49.3906 57.2188C52.5012 57.2188 55.3036 55.8995 57.269 53.7901C63.83 56.7911 68.4375 63.8541 68.4375 72.089C68.4375 80.9819 63.0641 80.6667 55.66 80.2325C53.9417 80.1317 52.114 80.0245 50.2188 80.0245C48.3235 80.0245 46.4958 80.1317 44.7775 80.2325C37.3734 80.6667 32 80.9819 32 72.089Z"
+                                                fill="white"></path>
+                                            <path
+                                                d="M42.0656 54.3426L43.4267 52.8772L42.3715 51.8971L41.1074 52.5871L42.0656 54.3426ZM57.269 53.7901L58.1009 51.9713L56.7891 51.3713L55.8057 52.4267L57.269 53.7901ZM55.66 80.2325L55.7771 78.2359L55.66 80.2325ZM44.7775 80.2325L44.8946 82.2291L44.7775 80.2325ZM54.8438 46.4531C54.8438 49.4648 52.4023 51.9062 49.3906 51.9062V55.9062C54.6114 55.9062 58.8438 51.6739 58.8438 46.4531H54.8438ZM49.3906 41C52.4023 41 54.8438 43.4414 54.8438 46.4531H58.8438C58.8438 41.2323 54.6114 37 49.3906 37V41ZM43.9375 46.4531C43.9375 43.4414 46.3789 41 49.3906 41V37C44.1698 37 39.9375 41.2323 39.9375 46.4531H43.9375ZM49.3906 51.9062C46.3789 51.9062 43.9375 49.4648 43.9375 46.4531H39.9375C39.9375 51.6739 44.1698 55.9062 49.3906 55.9062V51.9062ZM41.1074 52.5871C34.4672 56.2116 30 63.6261 30 72.089H34C34 65.0213 37.7269 58.9894 43.0238 56.0981L41.1074 52.5871ZM49.3906 55.2188C47.0859 55.2188 44.9928 54.3319 43.4267 52.8772L40.7045 55.8079C42.9812 57.9228 46.0368 59.2188 49.3906 59.2188V55.2188ZM55.8057 52.4267C54.2028 54.1471 51.9234 55.2188 49.3906 55.2188V59.2188C53.079 59.2188 56.4045 57.6519 58.7323 55.1534L55.8057 52.4267ZM70.4375 72.089C70.4375 63.1178 65.4147 55.3166 58.1009 51.9713L56.4371 55.6089C62.2453 58.2655 66.4375 64.5904 66.4375 72.089H70.4375ZM55.5429 82.2291C57.37 82.3362 59.1901 82.4446 60.8427 82.3929C62.4907 82.3413 64.1468 82.1291 65.6174 81.4949C67.1508 80.8335 68.4188 79.7394 69.2638 78.083C70.079 76.4849 70.4375 74.4886 70.4375 72.089H66.4375C66.4375 74.1357 66.1243 75.4349 65.7007 76.2653C65.3068 77.0374 64.7687 77.5047 64.0332 77.8219C63.2349 78.1663 62.1594 78.3497 60.7176 78.3948C59.2803 78.4398 57.6521 78.3459 55.7771 78.2359L55.5429 82.2291ZM50.2188 82.0245C52.0465 82.0245 53.8173 82.1279 55.5429 82.2291L55.7771 78.2359C54.0662 78.1356 52.1816 78.0245 50.2188 78.0245V82.0245ZM44.8946 82.2291C46.6202 82.1279 48.391 82.0245 50.2188 82.0245V78.0245C48.2559 78.0245 46.3713 78.1356 44.6604 78.2359L44.8946 82.2291ZM30 72.089C30 74.4886 30.3585 76.4849 31.1737 78.083C32.0187 79.7394 33.2867 80.8335 34.8201 81.4949C36.2907 82.1291 37.9468 82.3413 39.5948 82.3929C41.2474 82.4446 43.0675 82.3362 44.8946 82.2291L44.6604 78.2359C42.7854 78.3459 41.1572 78.4398 39.7199 78.3948C38.2781 78.3497 37.2026 78.1663 36.4043 77.8219C35.6688 77.5047 35.1307 77.0374 34.7368 76.2653C34.3132 75.4349 34 74.1357 34 72.089H30Z"
+                                                fill="#9BACB5" mask="url(#path-6-outside-3)"></path>
+                                        </svg>
+                                    </i>
+                                </div>
+                                <div class="col-md-12 align-items-center">
+                                    <div class="row mb-lg-5 pt-lg-5 mb-72 text-center d-sm-block ">
+                                        <div class="col-lg-12 text-center">
+                                            <h2 tabindex="0" role="heading" aria-level="2" class="noto-font f20">
+                                                <span class="notification f20 fbold">
+                                                    <span>Rob Bush</span>
+                                                </span>
+                                            </h2>
+                                            <table class="table table-borderless prod-info mt-3">
+                                                <tbody>
+                                                    <tr class="f12">
+                                                        <th class="grey-dark-color font-weight-normal">Email
+                                                        </th>
+                                                    </tr>
+                                                    <tr class="f14 fbold ">
+                                                        <td class="grey-darkest text-center">rob.bush@yokogawa.com</td>
+                                                    </tr>
+                                                    <tr class="f12">
+                                                        <th class="grey-dark-color font-weight-normal">Contact No.
+                                                        </th>
+                                                    </tr>
+                                                    <tr class="f14 fbold text-center">
+                                                        <td class="grey-darkest text-center">(012)-345-6789</td>
+                                                    </tr>
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-1 pl-lg-0"></div>
+                        <div class="col-md-6 pr-lg-5">
+                            <div class="col-md-12 p-0 white blue-primary-bg h-40 d-flex align-items-center ">
+                                <div class="col-md-8 f16 ft-weight-900 ">
+                                    Get In Touch
+                                </div>
+                            </div>
+                            <div class=" col-md-12 pl-lg-0 p-0 mt-4 form-group">
+                                <div class="form-group mt-4">
+                                    <label for="subject" class="f14 fbold grey-darkest">Subject</label>
+                                    <input type="text" class="form-control" id="subject" name="subject" value="" />
+                                    <div class="subject-err f14 mt-2 alert-orange"></div>
+                                </div>
+                                <div class="form-group mt-4">
+                                    <label for="notes" class="f14 fbold grey-darkest">Inquiry : </label>
+                                    <textarea class="form-control char-main-textarea" id="notes" name="notes"
+                                        aria-required="true" rows="3" maxlength="500"
+                                        placeholder="A short description could help us "></textarea>
+                                    <span class="float-right f12 gray"><span
+                                            class="char-main-count">500</span>characters left</span>
+                                </div>
+                                <div class="row mt-4 mb-4">
+                                    <div class="col-md-12 text-center text-lg-right">
+                                        <div class="col-md-12 text-center text-lg-right mt-4 mt-1rem">
+                                            <button type="button" data-id="skip"
+                                                class="btn btn-primary text-uppercase f14 ft-weight-900">Submit</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+</template>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>aecm__Solutions_in_Progress</fullName>
+    <columns>NAME</columns>
+    <columns>aecm__Status__c</columns>
+    <columns>aecm__Related_Pain_Points__c</columns>
+    <columns>aecm__Approximate_Solution_Value__c</columns>
+    <columns>aecm__Forecasted_IRR__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>aecm__Status__c</field>
+        <operation>notEqual</operation>
+        <value>Completed-Update Scores</value>
+    </filters>
+    <label>Solutions in Progress</label>
+</ListView>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>aecm__Taxonomy_Root__c</fullName>
+    <defaultValue>false</defaultValue>
+    <deprecated>false</deprecated>
+    <description>Flag a process record as a level root, i.e. an L1 process with no other levels.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>When selected excludes process from hierarchy reports. Used for root level processes, i.e. an L1 process with no other levels.</inlineHelpText>
+    <label>Taxonomy Root</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

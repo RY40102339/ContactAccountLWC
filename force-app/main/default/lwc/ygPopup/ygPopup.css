@@ -1,0 +1,65 @@
+@media only screen and (max-width: 800px) {
+    /* Force table to not be like tables anymore */
+    .suffixCode-dtTable table,
+    .suffixCode-dtTable thead,
+    .suffixCode-dtTable tbody,
+    .suffixCode-dtTable th,
+    .suffixCode-dtTable td,
+    .suffixCode-dtTable tr {
+      display: block;
+    }
+  
+    /* Hide table headers (but not display: none;, for accessibility) */
+    .suffixCode-dtTable thead tr {
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+    }
+  
+    .suffixCode-dtTable td {
+      /* Behave  like a "row" */
+      border: none;
+      position: relative;
+      padding: 1rem 0.75rem 1rem 8.5rem;
+      white-space: normal;
+      text-align: left;
+      font-family: Noto Sans;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      color: #313538;
+    }
+    .suffixCode-dtTable td:before {
+      /* Now like a table header */
+      position: absolute;
+      left: 0;
+      width: 25%;
+      white-space: pre-wrap;
+      text-align: left;
+      font-family: Noto Sans;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 12px;
+      color: #6a747b;
+    }
+    .suffixCode-dtTable tbody tr:nth-child(1){
+      border-top: 1px solid #CCDCE8 !important;
+    }
+    .suffixCode-dtTable tbody tr {
+      padding: 0 !important;
+    }
+    .suffixCode-dtTable tr.odd:hover,
+    .suffixCode-dtTable tr.even:hover {
+      background: #fff;
+      cursor: default;
+    }
+    /*
+      Label the data
+      */
+    .suffixCode-dtTable td:before {
+      content: attr(data-title) !important;
+      position: absolute;
+      left: 0;
+      top: 20px !important;
+    }
+  }

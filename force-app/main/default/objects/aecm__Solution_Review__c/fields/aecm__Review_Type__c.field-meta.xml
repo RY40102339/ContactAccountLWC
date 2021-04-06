@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>aecm__Review_Type__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <label>Review Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Initial Concept Business Review</fullName>
+                <default>false</default>
+                <label>Initial Concept Business Review</label>
+            </value>
+            <value>
+                <fullName>Initial Concept Technical Review</fullName>
+                <default>false</default>
+                <label>Initial Concept Technical Review</label>
+            </value>
+            <value>
+                <fullName>Early Solution Business Review</fullName>
+                <default>false</default>
+                <label>Early Solution Business Review</label>
+            </value>
+            <value>
+                <fullName>Early Solution Technical Review</fullName>
+                <default>false</default>
+                <label>Early Solution Technical Review</label>
+            </value>
+            <value>
+                <fullName>Cross Functional Stakeholder Review</fullName>
+                <default>false</default>
+                <label>Cross Functional Stakeholder Review</label>
+            </value>
+            <value>
+                <fullName>Followup Review</fullName>
+                <default>false</default>
+                <label>Followup Review</label>
+            </value>
+            <value>
+                <fullName>Final Solution Business Review</fullName>
+                <default>false</default>
+                <label>Final Solution Business Review</label>
+            </value>
+            <value>
+                <fullName>Final Solution Technical Review</fullName>
+                <default>false</default>
+                <label>Final Solution Technical Review</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

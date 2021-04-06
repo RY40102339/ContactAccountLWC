@@ -1,0 +1,14 @@
+<messaging:emailTemplate subject="Successful iCP Account Creation" recipientType="Contact" relatedToType="User" renderUsingSystemContextWithoutSharing="True">
+<messaging:htmlEmailBody >
+
+{!$Label.YG_Email_Salutations_Dear}  {!RelatedTo.Name}
+<br/><br/>
+<apex:outputText value="{!$Label.YG_iCP_Email_body}" escape="false" />
+<br/>
+{!$Label.YG_Login_now} : 
+<a href="{!$Label.YG_Community_CDC_Login_URL}">{!$Label.YG_Community_CDC_Login_URL}</a>
+<br/><br/>
+<apex:outputText value="{!$Label.YG_iCP_Email_Signature}" escape="false" />
+
+</messaging:htmlEmailBody>
+</messaging:emailTemplate>

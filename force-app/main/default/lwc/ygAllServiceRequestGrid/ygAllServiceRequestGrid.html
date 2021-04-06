@@ -1,0 +1,311 @@
+<!--
+*******************************************************************************************************
+* (C) Copyright 2020 Yokogawa. All rights reserved.
+* This code is property of Yokogawa. Use, duplication and
+* disclosure in any form without permission of copyright holder is prohibited.
+* 
+******************************************************************************************************* 
+* @author Vinod Anandhan
+* @version 1.0
+* @created 20/08/2020
+* @description 
+* This component is used for displaying the notification details in UI.
+*
+* *
+*  Change History:
+*  MM/DD/YYYY			Developer Name			Comments
+*  23/11/2020           Selvaraj T              updated the code based on new service types 
+*   
+*
+*-->
+
+<template>
+
+    <template if:true={isLoading}>
+        <div class="loading">
+            <div class="loading-txt">
+                <div class="row text-center">
+                    <div class="col-lg-12">
+                        <svg width="51" height="52" viewBox="0 0 51 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M0.410156 25.1209C11.2022 31.0632 20.0171 40.1454 25.6268 51.1329L25.6109 51.1349C31.2146 40.1493 40.0255 31.0692 50.8116 25.1249L50.7937 25.1407L25.6208 0L0.434001 25.1407L0.410156 25.1209Z"
+                                fill="#FFEE00"></path>
+                        </svg>
+                    </div>
+                    <div class="col-lg-12 mt-3" style="margin-top: 1rem !important;">
+                        <div class="spinner-border text-dark"></div>
+                        <div class="txt-load">{label.loadingLbl}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <div class="row">
+        <div class="section">
+            <div class="col-lg-12">
+                <fieldset class="form-group">
+                    <div class="row status-radio">
+                        <legend class="col-lg-12 black f14 ft-weight-900">{label.showStatusLbl}</legend>
+                        <div class="col-lg-12">
+                            <div class="newradio--inline">
+                                <input id="id_option1" type="radio" name="status" value="Active"
+                                    onchange={handleStatus}>
+                                <label for="id_option1"
+                                    class="cursor-pointer"><span><span></span></span>{label.activeLbl}</label>
+                            </div>
+                            <div class="newradio--inline">
+                                <input id="id_option2" type="radio" name="status" value="Closed"
+                                    onchange={handleStatus}>
+                                <label for="id_option2"
+                                    class="cursor-pointer"><span><span></span></span>{label.closedLbl}</label>
+                            </div>
+                            <div class="newradio--inline">
+                                <input id="id_option3" type="radio" name="status" value="" onchange={handleStatus}>
+                                <label for="id_option3"
+                                    class="cursor-pointer"><span><span></span></span>{label.allLbl}</label>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="inquiry_about-err f14 mt-2 alert-orange"></div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="col-lg-12">
+                <div class="row">
+                    <div class="col-lg-12 pt-2 download-csv">
+                        <div class="f12 d-inline-block float-right">
+                            <a href="javascript:void(0)" style="padding-right: 2.5rem;"
+                                class="text-right blue-primary text-hover-underline" onclick={downloadCSVFile}>
+                                {label.dwncsvLbl}
+                                <img src={csvIcon} alt="CSV icon" class="ml-2" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="section">
+            <div class="col-lg-12">
+                <div class="row pt-4">
+                    <div class="col-lg-12">
+                        <div class="table-responsive mb-5 pb-2">
+                            <div class="d-none">
+                                <a class="triggerClick" onclick={triggetSelect}>trigger</a>
+                                <input type="text" name="hiddenSelect" onselect={triggetSelect}>
+                            </div>
+                            <table lwc:dom="manual" class="table table-borderless f14 allServiceRequests-dtTable">
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <template if:true={showLoadMore}>
+        <div class="row">
+            <div class="col-lg-12 text-center mt-3 mb-1 loading-icon d-none">
+                <div class="spinner-border text-dark"></div>
+                <div class="txt-load">{label.loadingLbl}</div>
+            </div>
+            <div class="col-lg-12 load-more pl-0 mb-4 mb-lg-5 d-flex justify-content-center">
+                <button onclick={loadmore} class="f14 fbold blue-primary">
+                    <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2 10L6 6L2 2" stroke="#004F9B" stroke-width="2" stroke-linecap="square"></path>
+                    </svg>
+                    {label.showLbl} {remainRecords} {label.moreLbl}
+                </button>
+            </div>
+        </div>
+    </template>
+
+    <!--Use template if:true to display/hide popup based on isModalOpen value-->
+    <template if:true={isModalOpen}>
+        <!-- Modal/Popup Box LWC starts here -->
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+            aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open request-detail">
+            <div class="slds-modal__container">
+                <!-- Modal/Popup Box LWC header here -->
+                <header class="slds-modal__header h-60 border-0 rounded-0">
+                    <button
+                        class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse border-0 shadow-none"
+                        title="Close" onclick={closeModal}>
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 8L24 24M40 40L24 24M24 24L40 8L8 40" stroke="#004F9B" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                </header>
+                <!-- Modal/Popup Box LWC body starts here -->
+                <div class="slds-modal__content slds-p-around_medium radius-0" id="modal-content-id-1">
+                    <div class="row">
+                        <div class="col-md-12 d-sm-none">
+                            <div class="col-md-12 p-0 white blue-primary-bg h-40 d-lg-flex align-items-center">
+                                <div class="col-md-8 f16 ft-weight-900" style="line-height: 40px;">
+                                    {label.inProgLbl}
+                                </div>
+                            </div>
+                            <div class="col-md-12 p-0 mt-4 status-timeline">
+                                <ol class="timeline">
+                                    <template for:each={caseHisData} for:item="main">
+                                        <li key={main.description}>
+                                            <div class="tl-heading">
+                                                <span>{main.description}</span>
+                                                <p><small class="text-muted">{main.hisDate}</small></p>
+                                            </div>
+                                        </li>
+                                    </template>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <div class="col-md-7">
+                            <div class="col-md-12 mb-2 p-0 f12 black">
+                                {label.prodModLbl}
+                            </div>
+                            <div class="col-md-12 p-0 white blue-primary-bg h-40 d-flex align-items-center">
+                                <div class="col-12 col-md-8 f16 ft-weight-900">
+                                    {caseDetails.productName}
+                                </div>
+                                <div class="col-12 col-md-4 f12 text-right">
+                                    <template if:true={hideLink}>
+                                        <i class="fas pr-1">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M7 11.5L10.5 8L7 4.5" stroke="white" stroke-width="2"
+                                                    stroke-linecap="square"></path>
+                                            </svg>
+                                        </i>
+                                        <a href={viewDetURL} class="white">
+                                            {label.viewDetLbl}
+                                        </a>
+                                    </template>
+                                </div>
+                            </div>
+                            <div class="col-md-12 p-0">
+                                <div class="row mt-4 mb-4">
+                                    <div class="col-6 col-md-6">
+                                        <span class="row pl-3 f12 pb-1 grey-dark-1">{label.caseNumLbl}</span>
+                                        <span class="row pl-3 grey-darkest f14 fbold">{caseDetails.caseNum}</span>
+                                    </div>
+                                </div>
+                                <div class="row mt-4 mb-4">
+                                    <div class="col-6 col-md-6">
+                                        <span class="row pl-3 f12 pb-1 grey-dark-1">{label.serialNoLbl}</span>
+                                        <span class="row pl-3 grey-darkest f14 fbold">{caseDetails.serialNumber}</span>
+                                    </div>
+                                    <div class="col-6 col-md-6">
+                                        <span class="row pl-3 f12 pb-1 grey-dark-1">{label.servTypeLbl}</span>
+                                        <span class="row pl-3 grey-darkest f14 fbold">{caseDetails.serviceType}</span>
+                                    </div>
+                                </div>
+                                <div class="row mt-4 mb-4">
+                                    <div class="col-6 col-md-6">
+                                        <span class="row pl-3 f12 pb-1 grey-dark-1">{label.contractLbl}</span>
+                                        <template if:true={showContractType}>
+                                            <template for:each={caseDetails.contractType} for:item="contType">
+                                                <span key={contType}
+                                                    class="row pl-3 grey-darkest f14 fbold">{contType}</span>
+                                            </template>
+                                        </template>
+                                        <template if:false={showContractType}>
+                                            <span class="row pl-3 grey-darkest f14 fbold">-</span>
+                                        </template>
+                                    </div>
+                                    <div class="col-6 col-md-6">
+                                        <span class="row pl-3 f12 pb-1 grey-dark-1">{label.dateSubmittedLbl}</span>
+                                        <span class="row pl-3 grey-darkest f14 fbold">{caseDetails.submittedDate}</span>
+                                    </div>
+                                </div>
+                                <div class="row mt-4 mb-4">
+                                    <div class="col-6 col-md-6">
+                                        <span class="row pl-3 f12 pb-1 grey-dark-1">{label.subByLbl}</span>
+                                        <span class="row pl-3 grey-darkest f14 fbold">{caseDetails.caseCreatedBy}</span>
+                                    </div>
+                                    <div class="col-6 col-md-6">
+                                        <span class="row pl-3 f12 pb-1 grey-dark-1">{label.assignToLbl}</span>
+                                        <span
+                                            class="row pl-3 grey-darkest f14 fbold">{caseDetails.caseAssignedTo}</span>
+                                    </div>
+                                </div>
+                                <div class="row mt-4 mb-4">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="notes" class="row pl-3 f12 grey-dark-1">{label.notesLbl}</label>
+                                            <span class="desc fbold grey-darkest f14 pre">
+                                                {caseDetails.description}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-1"></div>
+                        <div class="col-md-4 pl-lg-0">
+                            <div class="col-md-12 mb-2 p-0 f12 black invisible">
+                                {label.statusLbl}
+                            </div>
+                            <div
+                                class="col-md-12 p-0 white d-none d-sm-block  blue-primary-bg h-40 d-lg-flex align-items-center">
+                                <div class="col-md-8 f16 ft-weight-900">
+                                    {label.inProgLbl}
+                                </div>
+                            </div>
+                            <div class="col-md-12 p-0 mt-4 status-timeline">
+                                <ol class="timeline d-none d-sm-block">
+                                    <template for:each={caseHisData} for:item="main">
+                                        <li key={main.description}>
+                                            <div class="tl-heading">
+                                                <span>{main.description}</span>
+                                                <p><small class="text-muted">{main.hisDate}</small></p>
+                                            </div>
+                                        </li>
+                                    </template>
+                                </ol>
+
+                                <div class="embeded-details">
+                                    <div class="row mb-lg-5 mt-lg-5 pt-lg-5 mb-72 d-none d-sm-block">
+                                        <div class="col-lg-2"></div>
+                                        <div class="col-lg-10 mb-4 mt-lg-5">
+                                            <h2 tabindex="0" role="heading" aria-level="2" class="noto-font f20">
+                                                <span class="notification f20 fbold">
+                                                    <span>{label.yourDetailsLbl}</span>
+                                                </span>
+                                            </h2>
+                                            <table class="table table-borderless prod-info mt-3">
+                                                <tbody>
+                                                    <tr class="f12">
+                                                        <th class="grey-dark-color font-weight-normal">{label.nameLbl}
+                                                        </th>
+                                                    </tr>
+                                                    <tr class="f14 fbold">
+                                                        <td class="grey-darkest">{yourData.Name}</td>
+                                                    </tr>
+                                                    <tr class="f12">
+                                                        <th class="grey-dark-color font-weight-normal">{label.titleLbl}
+                                                        </th>
+                                                    </tr>
+                                                    <tr class="f14 fbold">
+                                                        <td class="grey-darkest">{yourData.Title}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+
+
+</template>

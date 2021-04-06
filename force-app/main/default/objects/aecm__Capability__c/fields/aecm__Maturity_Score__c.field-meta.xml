@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>aecm__Maturity_Score__c</fullName>
+    <deprecated>false</deprecated>
+    <description>CASE( Maturity__c, &quot;Undefined&quot;, 0, &quot;Defined&quot;, 1,&quot;Optimizing&quot;,1.5,&quot;Leading&quot;,2,0)</description>
+    <externalId>false</externalId>
+    <formula>IF
+(
+ AND(aecm__Active__c = True, ISPICKVAL(aecm__Maturity__c, &quot;Undefined&quot;)), 0.5,
+IF
+(
+ AND(aecm__Active__c = True, ISPICKVAL(aecm__Maturity__c, &quot;Defined&quot;)), 1,
+IF
+(
+ AND(aecm__Active__c = True, ISPICKVAL(aecm__Maturity__c, &quot;Optimizing&quot;)), 1.5,
+IF
+(
+ AND(aecm__Active__c = True, ISPICKVAL(aecm__Maturity__c, &quot;Leading&quot;)), 2, 
+0
+))))
+
+
+
+
+
+
+/*original formula: CASE( Maturity__c, &quot;Undefined&quot;, 0.5, &quot;Defined&quot;, 1,&quot;Optimizing&quot;,1.5,&quot;Leading&quot;,2,0)*/</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>based on the value selected in the picklist field &quot;Maturity&quot;.  If undefined = .5, Defined = 1, Optimizing = 1.5, Leading = 2 and the default is 0</inlineHelpText>
+    <label>Maturity Score</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

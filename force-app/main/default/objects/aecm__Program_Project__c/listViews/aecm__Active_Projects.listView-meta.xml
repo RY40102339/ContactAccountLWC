@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>aecm__Active_Projects</fullName>
+    <columns>NAME</columns>
+    <columns>aecm__Budget_Total__c</columns>
+    <columns>aecm__Start_Date__c</columns>
+    <columns>aecm__Status__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>aecm__Active__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <filters>
+        <field>aecm__Status__c</field>
+        <operation>notEqual</operation>
+        <value>Complete</value>
+    </filters>
+    <label>Active Projects</label>
+</ListView>

@@ -1,0 +1,68 @@
+<!--
+*******************************************************************************************************
+* (C) Copyright 2020 Yokogawa. All rights reserved.
+* This code is property of Yokogawa. Use, duplication and
+* disclosure in any form without permission of copyright holder is prohibited.
+* 
+******************************************************************************************************* 
+* @author Satish
+* @version 1.0
+* @created 10/06/2020
+* @description 
+* This component is used for displaying the Site Overview in UI.
+*
+* *
+*  Change History:
+*  MM/DD/YYYY			Developer Name			Comments
+*  
+*  
+*
+*-->
+<template>
+
+    <div class="col-lg-12 text-center mt-3 mb-1 loading-grid">
+        <div class="spinner-border text-dark"></div>
+        <div class="txt-load">Loading..</div>
+    </div>
+
+    <template if:true={displayGrid}>
+        <div class="row">
+            <div class="section">
+                <div class="col-lg-12">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="row pt-3">
+                                <div class="col-lg-12">
+                                    <div class="table-responsive mb-5 pb-2">
+                                        <table lwc:dom="manual"
+                                            class="table table-borderless f14 softwareLicenses-dtTable">
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <template if:true={showLoadMore}>
+                                <div class="row">
+                                    <div class="col-lg-12 text-center mb-3 loading-icon d-none">
+                                        <div class="spinner-border text-dark"></div>
+                                        <div class="txt-load">{label.loading}</div>
+                                    </div>
+                                    <div class="col-lg-12 load-more pl-0 mt-lg-3 mb-5 d-flex justify-content-center">
+                                        <button onclick={loadmore} class="f14 fbold blue-primary">
+                                            <svg width="8" height="12" viewBox="0 0 8 12" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M2 10L6 6L2 2" stroke="#004F9B" stroke-width="2"
+                                                    stroke-linecap="square">
+                                                </path>
+                                            </svg>
+                                            {label.show} {remainingRecords} {label.moreRecords}
+                                        </button>
+                                    </div>
+                                </div>
+                            </template>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+</template>

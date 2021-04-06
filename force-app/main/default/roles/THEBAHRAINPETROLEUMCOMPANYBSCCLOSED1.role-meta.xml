@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Role xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseAccessLevel>Edit</caseAccessLevel>
+    <contactAccessLevel>Edit</contactAccessLevel>
+    <description>THE BAHRAIN PETROLEUM COMPANY B.S.C.(CLOSED) 顧客 ユーザ</description>
+    <mayForecastManagerShare>false</mayForecastManagerShare>
+    <name>THE BAHRAIN PETROLEUM COMPANY B.S.C.(CLOSED) 顧客 ユーザ</name>
+    <opportunityAccessLevel>None</opportunityAccessLevel>
+    <parentRole>THEBAHRAINPETROLEUMCOMPANYBSCCLOSED</parentRole>
+</Role>

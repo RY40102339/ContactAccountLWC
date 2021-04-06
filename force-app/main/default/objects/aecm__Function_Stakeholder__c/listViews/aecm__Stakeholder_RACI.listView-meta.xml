@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>aecm__Stakeholder_RACI</fullName>
+    <columns>NAME</columns>
+    <columns>aecm__Function__c</columns>
+    <columns>aecm__Stakeholder_Name__c</columns>
+    <columns>aecm__Relationship_Type__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>aecm__Function__c</field>
+        <operation>startsWith</operation>
+        <value>Salesforce</value>
+    </filters>
+    <label>Stakeholder RACI</label>
+</ListView>

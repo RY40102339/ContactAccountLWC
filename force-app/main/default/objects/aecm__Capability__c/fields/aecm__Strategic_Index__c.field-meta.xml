@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>aecm__Strategic_Index__c</fullName>
+    <deprecated>false</deprecated>
+    <description>Degree of strategic tendencies, behaviors, and patterns for a capability or sub capability.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Is the organization thinking ahead? This index measures the degree of strategic vs tactical thinking, activities, and behaviors. Greater value is given to increasingly strategic patterns, activities, and behaviors.</inlineHelpText>
+    <label>Strategic Index</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Not Acknowledged</fullName>
+                <default>true</default>
+                <label>Not Acknowledged</label>
+            </value>
+            <value>
+                <fullName>Tactical</fullName>
+                <default>false</default>
+                <label>Tactical</label>
+            </value>
+            <value>
+                <fullName>Occasionally Strategic</fullName>
+                <default>false</default>
+                <label>Occasionally Strategic</label>
+            </value>
+            <value>
+                <fullName>Situationally Strategic</fullName>
+                <default>false</default>
+                <label>Situationally Strategic</label>
+            </value>
+            <value>
+                <fullName>Intentionally Strategic</fullName>
+                <default>false</default>
+                <label>Intentionally Strategic</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

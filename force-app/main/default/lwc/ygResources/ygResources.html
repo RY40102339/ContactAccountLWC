@@ -1,0 +1,82 @@
+<!--
+*******************************************************************************************************
+* (C) Copyright 2020 Yokogawa. All rights reserved.
+* This code is property of Yokogawa. Use, duplication and
+* disclosure in any form without permission of copyright holder is prohibited.
+* 
+******************************************************************************************************* 
+* @author Vinod Anandhan
+* @version 1.0
+* @created 05/15/2020
+* @description 
+* This component is used for displaying the resources details in UI.
+*
+* *
+*  Change History:
+*  MM/DD/YYYY			Developer Name			Comments
+*  
+*  
+*
+*-->
+
+<template>
+    <div class="row mb-lg-4 mb-72">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-10 pr-lg-5">
+            <!--<template for:each={resData} for:item="main" for:index="pKey">-->
+            <template if:true={showResource}>
+                <h2 tabindex="0" role="heading" aria-level="2" class="noto-font f20">
+                    <span class="notification f20 fbold">{label.resourceLbl}</span>
+                </h2>                
+                <div class="accordion mt-2">
+                    <template for:each={resData} for:item="child" for:index="key">
+                        <div key={child.catName}>
+                            <lightning-accordion allow-multiple-sections-open active-section-name={activeSections}>
+                                <lightning-accordion-section name="A" label={child.catName}
+                                    class="blue-primary f14 fbold">
+                                    <template for:each={child.sObj} for:item="list" for:index="innerkey">
+                                        <div key={list} class="pdf-doc">
+                                            <a class="blue-primary fbold" href={list.Link__c}
+                                                target="_blank">{list.Name}<span
+                                                    class="text-uppercase">{list.File_Extension__c} <i
+                                                        class="fas fa-circle"></i> {list.File_Size__c}</span> <i
+                                                    class="pdf-icon icon"></i> </a>
+                                        </div>
+                                    </template>
+                                </lightning-accordion-section>
+                            </lightning-accordion>
+                        </div>
+                    </template>
+                </div>
+                <div class="accordion">
+                    <template for:each={sepcData} for:item="childinner" for:index="key">
+                        <template if:true={childinner.specificationAndFunctionLink}>
+                            <div key={childinner.specificationAndFunctionLink} class="mt-2">
+                                <div class="card-header">
+                                    <div class="mb-0 blue-primary f14 fbold" data-toggle="collapse">
+                                        <div class="accord--wind-icon"> <a class="blue-primary "
+                                                href={childinner.specificationAndFunctionLink}
+                                                target="_blank">{label.funcSpecifiLbl}</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
+                        <template if:true={childinner.technicalInfoLink}>
+                            <div key={childinner.technicalInfoLink} class="mt-2">
+                                <div class="card-header">
+                                    <div class="mb-0 blue-primary f14 fbold" data-toggle="collapse">
+                                        <div class="accord--wind-icon"> <a class="blue-primary "
+                                                href={childinner.technicalInfoLink}
+                                                target="_blank">{label.techInfoLbl}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
+                    </template>
+                </div>
+            </template>
+            <!--</template>-->
+        </div>
+    </div>
+</template>

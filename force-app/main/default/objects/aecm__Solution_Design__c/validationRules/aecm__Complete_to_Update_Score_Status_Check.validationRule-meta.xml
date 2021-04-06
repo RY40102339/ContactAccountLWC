@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>aecm__Complete_to_Update_Score_Status_Check</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+aecm__Related_Pain_Points__c &gt; 0,
+ISCHANGED(aecm__Status__c),
+ISPICKVAL(PRIORVALUE(aecm__Status__c),&apos;Complete&apos;), NOT(ISPICKVAL(aecm__Status__c,&apos;Completed-Update Scores&apos;))
+)</errorConditionFormula>
+    <errorMessage>Solution design in complete state can be moved to completed update score status only.</errorMessage>
+</ValidationRule>

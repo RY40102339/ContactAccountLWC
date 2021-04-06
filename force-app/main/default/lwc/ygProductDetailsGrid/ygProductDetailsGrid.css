@@ -1,0 +1,273 @@
+@media only screen and (max-width: 800px) {
+
+  .h-60.station-row {
+    height: auto !important
+  }
+
+  /* Force table to not be like tables anymore */
+  .station-table,
+  .station-table thead,
+  .station-table tbody,
+  .station-table th,
+  .station-table td,
+  .station-table tr,
+
+  .mscode-dtTable,
+  .mscode-dtTable thead,
+  .mscode-dtTable tbody,
+  .mscode-dtTable th,
+  .mscode-dtTable td,
+  .mscode-dtTable tr {
+    display: block;
+  }
+
+  /* Hide table headers (but not display: none;, for accessibility) */
+  thead.station-head tr,
+  .mscode-dtTable thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  tr.station-row td,
+  .mscode-dtTable td {
+    /* Behave  like a "row" */
+    border: none;
+    position: relative;
+    padding: 1rem 0.75rem 2rem 9rem !important;
+    white-space: normal;
+    text-align: left;
+    font-family: Noto Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    color: #313538;
+  }
+
+  tr.station-row td:before,
+  .mscode-dtTable td:before {
+    /* Now like a table header */
+    position: absolute;
+    left: 0;
+    width: 25%;
+    white-space: pre-wrap;
+    text-align: left;
+    font-family: Noto Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    color: #6a747b;
+  }
+
+  .station-table tbody tr:nth-child(1),
+  .mscode-dtTable tbody tr:nth-child(1) {
+    border-top: 1px solid #CCDCE8 !important;
+  }
+
+  .station-table tbody tr,
+  .mscode-dtTable tbody tr {
+    padding: 0 0 .75rem 0 !important;
+  }
+
+  .mscode-dtTable tr.odd:hover,
+  .mscode-dtTable tr.even:hover {
+    background: #fff;
+    cursor: default;
+  }
+
+  /*
+        Label the data
+        */
+  .station-table td:before,
+  .mscode-dtTable td:before {
+    content: attr(data-title) !important;
+    position: absolute;
+    left: 0;
+    top: 20px !important;
+  }
+
+  .expand-icon {
+    border: 1px solid #004F9B !important;
+    height: 40px;
+    display: inline-table !important;
+    width: 94% !important;
+    line-height: 40px !important;
+  }
+
+  .proj-main .station-table .station-row .expand-icon .minus,
+  .proj-main .station-table .station-row .expand-icon .plus {
+    margin-top: 0 !important
+  }
+
+  .proj-main .station-table .expand-icon img {
+    padding: 0px !important
+  }
+
+  .proj-main .station-table .station-row .expand-icon .minus {
+    padding-top: 19px !important;
+    padding-bottom: 19px !important;
+    padding-left: 19px !important;
+    padding-right: 19px !important;
+  }
+
+  .d-icon-none {
+    /*display: none !important;*/
+  }
+
+  .c_dataTable tr.station-row:not(.selected):hover td:first-child::before {
+    width: auto !important;
+    background: none !important;
+    border-left: 0 !important;
+    left: 0 !important;
+  }
+
+  .c_dataTable tr.station-row:not(.selected):hover {
+    background: rgba(204, 220, 232, 0.3);
+    cursor: default;
+  }
+
+  .suffixCode-dtTable tbody tr td:nth-child(1),
+  .suffixCode-dtTable tbody tr td:nth-child(2),
+  .suffixCode-dtTable tbody tr td:nth-child(3),
+  .suffixCode-dtTable tbody tr td:nth-child(4) {
+    width: auto
+  }
+
+}
+
+table.c_dataTable thead th:before,
+table.c_dataTable thead th:after {
+  content: none !important;
+}
+
+
+table.c_dataTable thead>tr>th.sorting_asc span,
+table.c_dataTable thead>tr>th.sorting_desc span,
+table.c_dataTable thead>tr>th.sorting span,
+table.c_dataTable thead>tr>td.sorting_asc span,
+table.c_dataTable thead>tr>td.sorting_desc span,
+table.c_dataTable thead>tr>td.sorting span {
+  /*padding-right:20px*/
+  padding-right: 12px;
+}
+
+table.c_dataTable thead .sorting span,
+table.c_dataTable thead .sorting_asc span,
+table.c_dataTable thead .sorting_desc span,
+table.c_dataTable thead .sorting_asc_disabled span,
+table.c_dataTable thead .sorting_desc_disabled span {
+  cursor: pointer;
+  position: relative
+}
+
+table.c_dataTable thead .sorting span:before,
+table.c_dataTable thead .sorting span:after,
+table.c_dataTable thead .sorting_asc span:before,
+table.c_dataTable thead .sorting_asc span:after,
+table.c_dataTable thead .sorting_desc span:before,
+table.c_dataTable thead .sorting_desc span:after,
+table.c_dataTable thead .sorting_asc_disabled span:before,
+table.c_dataTable thead .sorting_asc_disabled span:after,
+table.c_dataTable thead .sorting_desc_disabled span:before,
+table.c_dataTable thead .sorting_desc_disabled span:after {
+  position: absolute;
+  bottom: 0.9em;
+  display: block;
+  /*opacity:0.3;*/
+  color: #CCDCE8;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+}
+
+table.c_dataTable thead .sorting span:before,
+table.c_dataTable thead .sorting_asc span:before,
+table.c_dataTable thead .sorting_desc span:before,
+table.c_dataTable thead .sorting_asc_disabled span:before,
+table.c_dataTable thead .sorting_desc_disabled span:before {
+  right: 0em;
+  content: "\f0de";
+  top: 0;
+  bottom: 0;
+}
+
+table.c_dataTable thead .sorting span:after,
+table.c_dataTable thead .sorting_asc span:after,
+table.c_dataTable thead .sorting_desc span:after,
+table.c_dataTable thead .sorting_asc_disabled span:after,
+table.c_dataTable thead .sorting_desc_disabled span:after {
+  right: 0em;
+  content: "\f0dd";
+  top: 0;
+  bottom: 6px;
+}
+
+table.c_dataTable thead .sorting_asc span:before,
+table.c_dataTable thead .sorting_desc span:after {
+  opacity: 0.6;
+  color: #004F9B;
+}
+
+table.c_dataTable thead .sorting_asc_disabled span:before,
+table.c_dataTable thead .sorting_desc_disabled span:after {
+  opacity: 0
+}
+
+table.c_dataTable.table-sm .sorting span:before,
+table.c_dataTable.table-sm .sorting_asc span:before,
+table.c_dataTable.table-sm .sorting_desc span:before {
+  top: 5px;
+  right: 0.85em
+}
+
+table.c_dataTable.table-sm .sorting span:after,
+table.c_dataTable.table-sm .sorting_asc span:after,
+table.c_dataTable.table-sm .sorting_desc span:after {
+  top: 5px
+}
+
+table.c_dataTable thead tr {
+  border-bottom: 2px solid #CCDCE8 !important;
+}
+
+@media (min-width: 801px) and (max-width: 1480px) {
+  .c_dataTable tr.station-row:not(.selected):hover td {
+    position: relative;
+    z-index: 1;
+  }
+
+  .c_dataTable tr.station-row:not(.selected):hover td:first-child::before {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 100%;
+    background: rgba(204, 220, 232, 0.3);
+    border-left: 4px solid #FFEE00 !important;
+    left: -20px;
+    top: 0;
+    z-index: 2;
+  }
+
+  .c_dataTable tr.station-row:not(.selected):hover td:last-child::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 100%;
+    background: rgba(204, 220, 232, 0.3);
+    right: -20px;
+    top: 0;
+    z-index: 2;
+  }
+
+  .c_dataTable tr.station-row:not(.selected):hover {
+    background: rgba(204, 220, 232, 0.3);
+    cursor: default;
+  }
+
+  .c_dataTable tr.station-row:not(.selected) td:first-child {
+    padding-left: 0;
+  }
+}
+
+.mscode-dtTable.dataTable td {
+  padding: 1.5rem .75rem 1.5rem 0;
+}

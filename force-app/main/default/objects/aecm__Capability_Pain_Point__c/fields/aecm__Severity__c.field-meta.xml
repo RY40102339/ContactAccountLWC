@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>aecm__Severity__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <inlineHelpText>Identifies the degree of disruptiveness. 1) Inconvenience - an annoyance. 2) Manageable - a workable ineffectiveness. 3) Disruptive - causing confusions. 4) Forcing Manual Processes - a non-workable ineffectiveness causing complexity and cost.</inlineHelpText>
+    <label>Severity</label>
+    <required>true</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Inconvenience</fullName>
+                <default>false</default>
+                <label>Inconvenience</label>
+            </value>
+            <value>
+                <fullName>Manageable</fullName>
+                <default>false</default>
+                <label>Manageable</label>
+            </value>
+            <value>
+                <fullName>Disruptive</fullName>
+                <default>false</default>
+                <label>Disruptive</label>
+            </value>
+            <value>
+                <fullName>Forcing Manual Processes</fullName>
+                <default>false</default>
+                <label>Forcing Manual Processes</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

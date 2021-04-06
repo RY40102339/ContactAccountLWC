@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>aecm__Capability_Pain_Point__c.aecm__Pain_Points_Solutions__r$Name</field>
+    </columns>
+    <columns>
+        <field>aecm__Capability_Pain_Point__c$Name</field>
+    </columns>
+    <columns>
+        <field>aecm__Capability_Pain_Point__c$YG_Capability_Name__c</field>
+    </columns>
+    <columns>
+        <field>aecm__Capability_Pain_Point__c.aecm__Pain_Points_Solutions__r$aecm__Pain_Point_Solution_Title__c</field>
+    </columns>
+    <description>Pain Points without Solutions - Appirio 
+mpb</description>
+    <filter>
+        <criteriaItems>
+            <column>aecm__Capability_Pain_Point__c.aecm__Pain_Points_Solutions__r$Id</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value></value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Pain Points without Solutions Report</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Pain_Points_without_Solutions__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>aecm__Capability_Pain_Point__c$aecm__Create_Date__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

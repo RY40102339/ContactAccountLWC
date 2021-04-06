@@ -1,0 +1,473 @@
+<!--
+*******************************************************************************************************
+* (C) Copyright 2020 Yokogawa. All rights reserved.
+* This code is property of Yokogawa. Use, duplication and
+* disclosure in any form without permission of copyright holder is prohibited.
+* 
+******************************************************************************************************* 
+* @author Vinod Anandhan
+* @version 1.0
+* @created 05/14/2020
+* @description 
+* This component is used for displaying the notification details in blockwise in UI.
+*
+* *
+*  Change History:
+*  MM/DD/YYYY			Developer Name			Comments
+*  07/29/2020           Selvaraj T              Updated notification logic update for station details
+*  10/21/2020           Selvaraj T              removed the hardware,software and maintenance phase related codes   
+*
+*-->
+
+<template>
+    <div class="row">
+        <div class="section mb-72px">
+            <template if:true={prodHistory}>
+                <template if:true={prodHisNotiBar}>
+                    <div class="col-lg-12 alert-section mt-3 mb-lg-4 m-pl-0">
+                        <template if:true={prodHisNotiBar.isActiveSerial}>
+                            <div class="notification col-lg-12 f20 mb-10 p-0 m-l-r-12">
+                                <h2 tabindex="0" role="heading" aria-level="2" class="noto-font f20">
+                                    <span class="fbold">{label.notificationLbl} </span><span>
+                                        ({prodHisNotiBar.notificationCnt})</span>
+                                </h2>
+                            </div>
+                        </template>
+                        <template if:true={prodHisNotiBar.iscalibration}>
+                            <div class="alert-recall">
+                                <div class="alert m-l-r-12" role="alert">
+                                    <div class="column">
+                                        <i class="fas pr-1">
+                                            <svg width="8" height="11" viewBox="0 0 8 11" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M2.95312 9.60254C2.95312 10.3731 3.51386 11 4.20313 11C4.89239 11 5.45312 10.3731 5.45312 9.60254H2.95312Z"
+                                                    fill="#F1BC1A"></path>
+                                                <path
+                                                    d="M7.20001 7.48616V4.64141C7.20001 2.78258 5.94308 1.25345 4.33155 1.06717C4.45433 0.957362 4.53334 0.788416 4.53334 0.598889C4.53334 0.268664 4.29409 0 4.00001 0C3.70593 0 3.46668 0.268664 3.46668 0.598889C3.46668 0.788416 3.54572 0.957362 3.66847 1.06717C2.05694 1.25345 0.800005 2.78258 0.800005 4.64141L0.800005 7.48616H0L0 8.3845H8V7.48616H7.20001Z"
+                                                    fill="#F1BC1A"></path>
+                                            </svg>
+                                        </i>{label.calibrationRecLbl} for 1 unit
+                                    </div>
+                                    <div class="column">
+                                        <span class="float-lg-right mr-5">
+                                            <a href={learnMoreLink} target="_blank"
+                                                class="d-inline pr-3 blue-primary text-hover-underline">
+                                                <i class="fas pr-1">
+                                                    <svg width="8" height="10" viewBox="0 0 8 10" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <rect x="1" y="1.5" width="6" height="7" stroke="#004F9B"
+                                                            stroke-width="2"></rect>
+                                                        <line x1="4" y1="3.5" x2="7" y2="3.5" stroke="#004F9B"
+                                                            stroke-width="2">
+                                                        </line>
+                                                    </svg>
+                                                </i> {label.requestForCalibrationLbl}</a>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
+                        <template if:true={prodHisNotiBar.isfirmware}>
+                            <div class="alert-white">
+                                <div class="alert m-l-r-12" role="alert">
+                                    <div class="column">
+                                        <i class="fas pr-1">
+                                            <svg width="8" height="11" viewBox="0 0 8 11" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M2.95312 9.60254C2.95312 10.3731 3.51386 11 4.20313 11C4.89239 11 5.45312 10.3731 5.45312 9.60254H2.95312Z"
+                                                    fill="#9BACB5"></path>
+                                                <path
+                                                    d="M7.20001 7.48616V4.64141C7.20001 2.78258 5.94308 1.25345 4.33155 1.06717C4.45433 0.957362 4.53334 0.788416 4.53334 0.598889C4.53334 0.268664 4.29409 0 4.00001 0C3.70593 0 3.46668 0.268664 3.46668 0.598889C3.46668 0.788416 3.54572 0.957362 3.66847 1.06717C2.05694 1.25345 0.800005 2.78258 0.800005 4.64141L0.800005 7.48616H0L0 8.3845H8V7.48616H7.20001Z"
+                                                    fill="#9BACB5"></path>
+                                            </svg>
+                                        </i> {label.firmwareUptAvailLbl}
+                                    </div>
+                                    <div class="column">
+                                        <template if:true={prodHisNotiBar.isfirmwareDownload}>
+                                            <span class="float-lg-right mr-5">
+                                                <a href="https://www.yokogawa.com/library/" target="_blank"
+                                                    class="d-inline blue-primary text-hover-underline">
+                                                    <i class="fas pr-1">
+                                                        <svg width="16" height="17" viewBox="0 0 16 17" fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M6 11.5L3 8.5M6 11.5L9 8.5M6 11.5L6 5.5"
+                                                                stroke="#004F9B" stroke-width="2"
+                                                                stroke-linecap="square"></path>
+                                                        </svg>
+                                                    </i> {label.downloadsLbl} </a>
+                                            </span>
+                                        </template>
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                </template>
+            </template>
+            <template if:true={prodDetails}>
+                <template if:true={prodDetailsNotiBar}>
+                    <div class="col-lg-12 alert-section mt-3 mb-4 m-pl-0">
+                        <template if:true={prodDetailsNotiBar.isActiveModel}>
+                            <div class="notification col-lg-12 f20 mb-10 p-0 m-l-r-12">
+                                <h2 tabindex="0" role="heading" aria-level="2" class="noto-font f20">
+                                    <span class="fbold">{label.notificationLbl} </span><span>
+                                        ({prodDetailsNotiBar.notificationCnt})</span>
+                                </h2>
+                            </div>
+                        </template>
+                        <template if:true={prodDetailsNotiBar.isRecalled}>
+                            <div class="alert-recall">
+                                <div class="alert m-l-r-12" role="alert">
+                                    <div class="column">
+                                        <i class="fas pr-1">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M8 0L14.9282 12H1.0718L8 0Z" fill="#F1BC1A"></path>
+                                                <path d="M8 9.6665V10.9998" stroke="white" stroke-width="2"></path>
+                                                <path d="M8 3.33325V8.66659" stroke="white" stroke-width="2"></path>
+                                            </svg>
+                                        </i>This model has been <b>recalled</b>
+                                    </div>
+                                    <div class="column">
+                                        <span class="float-lg-right mr-5">
+                                            <a href={learnMoreLink} target="_blank"
+                                                class="d-inline pr-3 blue-primary text-hover-underline">
+                                                <i class="fas pr-1">
+                                                    <svg width="8" height="10" viewBox="0 0 8 10" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <rect x="1" y="1.5" width="6" height="7" stroke="#004F9B"
+                                                            stroke-width="2"></rect>
+                                                        <line x1="4" y1="3.5" x2="7" y2="3.5" stroke="#004F9B"
+                                                            stroke-width="2">
+                                                        </line>
+                                                    </svg>
+                                                </i> {label.learnMoreLbl}</a>
+                                            <a href={supportLink} target="_blank"
+                                                class="d-inline blue-primary text-hover-underline">
+                                                <i class="fas pr-1">
+                                                    <svg width="8" height="10" viewBox="0 0 8 10" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M4 9.5L7 6.5H4V9.5Z" fill="#004F9B"></path>
+                                                        <rect x="1" y="1.5" width="6" height="4" stroke="#004F9B"
+                                                            stroke-width="2"></rect>
+                                                    </svg>
+                                                </i>
+                                                {label.contactSupportLbl}</a>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
+                        <template if:true={prodDetailsNotiBar.iscalibration}>
+                            <div class="alert-recall">
+                                <div class="alert m-l-r-12" role="alert">
+                                    <div class="column">
+                                        <i class="fas pr-1">
+                                            <svg width="8" height="11" viewBox="0 0 8 11" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M2.95312 9.60254C2.95312 10.3731 3.51386 11 4.20313 11C4.89239 11 5.45312 10.3731 5.45312 9.60254H2.95312Z"
+                                                    fill="#F1BC1A"></path>
+                                                <path
+                                                    d="M7.20001 7.48616V4.64141C7.20001 2.78258 5.94308 1.25345 4.33155 1.06717C4.45433 0.957362 4.53334 0.788416 4.53334 0.598889C4.53334 0.268664 4.29409 0 4.00001 0C3.70593 0 3.46668 0.268664 3.46668 0.598889C3.46668 0.788416 3.54572 0.957362 3.66847 1.06717C2.05694 1.25345 0.800005 2.78258 0.800005 4.64141L0.800005 7.48616H0L0 8.3845H8V7.48616H7.20001Z"
+                                                    fill="#F1BC1A"></path>
+                                            </svg>
+                                        </i>{label.calibrationRecLbl} for {prodDetailsNotiBar.calibrationCnt} units
+                                    </div>
+                                    <div class="column">
+                                        <span class="float-lg-right mr-5">
+                                            <a href={learnMoreLink} target="_blank"
+                                                class="d-inline pr-3 blue-primary text-hover-underline">
+                                                <i class="fas pr-1">
+                                                    <svg width="8" height="10" viewBox="0 0 8 10" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <rect x="1" y="1.5" width="6" height="7" stroke="#004F9B"
+                                                            stroke-width="2"></rect>
+                                                        <line x1="4" y1="3.5" x2="7" y2="3.5" stroke="#004F9B"
+                                                            stroke-width="2">
+                                                        </line>
+                                                    </svg>
+                                                </i> {label.requestForCalibrationLbl}</a>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
+                        <template if:true={prodDetailsNotiBar.isDiscontinue}>
+                            <div class="alert-white">
+                                <div class="alert m-l-r-12" role="alert">
+                                    <div class="column">
+                                        <i class="fas pr-1">
+                                            <svg width="8" height="11" viewBox="0 0 8 11" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M2.95312 9.60254C2.95312 10.3731 3.51386 11 4.20313 11C4.89239 11 5.45312 10.3731 5.45312 9.60254H2.95312Z"
+                                                    fill="#9BACB5"></path>
+                                                <path
+                                                    d="M7.20001 7.48616V4.64141C7.20001 2.78258 5.94308 1.25345 4.33155 1.06717C4.45433 0.957362 4.53334 0.788416 4.53334 0.598889C4.53334 0.268664 4.29409 0 4.00001 0C3.70593 0 3.46668 0.268664 3.46668 0.598889C3.46668 0.788416 3.54572 0.957362 3.66847 1.06717C2.05694 1.25345 0.800005 2.78258 0.800005 4.64141L0.800005 7.48616H0L0 8.3845H8V7.48616H7.20001Z"
+                                                    fill="#9BACB5"></path>
+                                            </svg>
+                                        </i> This model has been <b>discontinued</b>
+                                    </div>
+                                    <template if:true={prodDetailsNotiBar.isDiscontinueDownload}>
+                                        <div class="column">
+                                            <span class="float-lg-right mr-5">
+                                                <a href="https://www.yokogawa.com/solutions/discontinued/"
+                                                    target="_blank" class="d-inline blue-primary text-hover-underline">
+                                                    <i class="fas pr-1">
+                                                        <svg width="10" height="11" viewBox="0 0 10 11" fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M8.9939 4.57539L8.9939 2.02441L6.44304 2"
+                                                                stroke="#004F9B" stroke-width="2"
+                                                                stroke-linecap="square"></path>
+                                                            <path d="M8.00226 3L5.14531 5.95625" stroke="#004F9B"
+                                                                stroke-width="2" stroke-linecap="square"></path>
+                                                            <path d="M3.34815 3.30371H1V10H7.6963V7.65186"
+                                                                stroke="#004F9B" stroke-width="2"
+                                                                stroke-linecap="square"></path>
+                                                        </svg>
+                                                    </i>
+                                                    {label.viewGenerationModelLbl}</a>
+                                            </span>
+                                        </div>
+                                    </template>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                </template>
+            </template>
+            <template if:true={showNotiBarContDet}>
+                <div class="col-lg-12 alert-section mt-5 mb-lg-4 m-pl-0">
+                    <div class="notification col-lg-12 f18 mb-10 p-0 m-l-r-12">
+                        <h2 tabindex="0" role="heading" aria-level="2" class="noto-font f20">
+                            <span class="fbold">Notification</span><span> ({contractNotiCnt})</span>
+                        </h2>
+                    </div>
+                    <template if:true={showContractExpiryDate}>
+                        <div class="alert-recall">
+                            <div class="alert m-l-r-12" role="alert">
+                                <div class="column">
+                                    <i class="fas pr-1">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M6.95337 11.5991C6.95337 12.3694 7.5141 12.9961 8.20337 12.9961C8.89264 12.9961 9.45337 12.3694 9.45337 11.5991H6.95337Z"
+                                                fill="#B75309"></path>
+                                            <path
+                                                d="M11.2 9.48357V6.63981C11.2 4.78162 9.94308 3.25301 8.33155 3.0668C8.45433 2.95703 8.53334 2.78814 8.53334 2.59868C8.53334 2.26857 8.29409 2 8.00001 2C7.70593 2 7.46668 2.26857 7.46668 2.59868C7.46668 2.78814 7.54572 2.95703 7.66847 3.0668C6.05694 3.25301 4.80001 4.78162 4.80001 6.63981V9.48357H4V10.3816H12V9.48357H11.2Z"
+                                                fill="#B75309"></path>
+                                        </svg>
+                                    </i>{contractLabelNotiBar}<span class="fbold">{contractExpDate}</span>
+                                </div>
+                                <div class="column">
+                                    <span class="float-lg-right mr-5">
+                                        <a href={renewURL} class="d-inline blue-primary text-hover-underline">
+                                            <i class="fas pr-1">
+                                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M8 13L11 10H8V13Z" fill="#004F9B"></path>
+                                                    <rect x="5" y="5" width="6" height="4" stroke="#004F9B"
+                                                        stroke-width="2">
+                                                    </rect>
+                                                </svg>
+
+                                            </i>
+                                            {label.renewcontractLbl}</a>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                    <template if:true={showSheduleDtNoti}>
+                        <div class="alert-white">
+                            <div class="alert m-l-r-12" role="alert">
+                                <div class="column w-100 text-wrap">
+                                    <i class="fas pr-1">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M2.95312 9.60254C2.95312 10.3731 3.51386 11 4.20313 11C4.89239 11 5.45312 10.3731 5.45312 9.60254H2.95312Z"
+                                                fill="#9BACB5"></path>
+                                            <path
+                                                d="M7.20001 7.48616V4.64141C7.20001 2.78258 5.94308 1.25345 4.33155 1.06717C4.45433 0.957362 4.53334 0.788416 4.53334 0.598889C4.53334 0.268664 4.29409 0 4.00001 0C3.70593 0 3.46668 0.268664 3.46668 0.598889C3.46668 0.788416 3.54572 0.957362 3.66847 1.06717C2.05694 1.25345 0.800005 2.78258 0.800005 4.64141L0.800005 7.48616H0L0 8.3845H8V7.48616H7.20001Z"
+                                                fill="#9BACB5"></path>
+                                        </svg>
+                                    </i>{label.partrolInspectschedulteLbl} <span class="fbold">
+                                        {scheduleDtate}</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </template>
+<!--
+            <template if:true={statDetails}>
+                <div class="col-lg-12 alert-section mt-3 mb-lg-4 m-pl-0">
+                    <div class="notification col-lg-12 f20 mb-10 p-0 m-l-r-12">
+                        <h2 tabindex="0" role="heading" aria-level="2" class="noto-font f20">
+                            <span class="fbold">{label.notificationLbl}</span><span> ({statDetNotiSize})</span>
+                        </h2>
+                    </div>
+                    <template for:each={statDetNotiBar} for:item="statNoti">
+                        <div class="alert-white" key={statNoti.modelCode}>
+                            <div class="alert m-l-r-12" role="alert">
+                                <div class="column">
+                                    <i class="fas pr-1">
+                                        <svg width="8" height="11" viewBox="0 0 8 11" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M2.95312 9.60254C2.95312 10.3731 3.51386 11 4.20313 11C4.89239 11 5.45312 10.3731 5.45312 9.60254H2.95312Z"
+                                                fill="#9BACB5"></path>
+                                            <path
+                                                d="M7.20001 7.48616V4.64141C7.20001 2.78258 5.94308 1.25345 4.33155 1.06717C4.45433 0.957362 4.53334 0.788416 4.53334 0.598889C4.53334 0.268664 4.29409 0 4.00001 0C3.70593 0 3.46668 0.268664 3.46668 0.598889C3.46668 0.788416 3.54572 0.957362 3.66847 1.06717C2.05694 1.25345 0.800005 2.78258 0.800005 4.64141L0.800005 7.48616H0L0 8.3845H8V7.48616H7.20001Z"
+                                                fill="#9BACB5"></path>
+                                        </svg>
+                                    </i>{statNoti.description}
+                                </div>
+                                <div class="column">
+                                    <template if:true={statNoti.isDownloadAvailable}>
+                                        <span class="float-lg-right mr-5">
+                                            <a href="#" class="d-inline blue-primary disabled">
+                                                <i class="fas pr-1">
+                                                    <svg width="16" height="17" viewBox="0 0 16 17" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M6 11.5L3 8.5M6 11.5L9 8.5M6 11.5L6 5.5"
+                                                            stroke="#004F9B" stroke-width="2" stroke-linecap="square">
+                                                        </path>
+                                                    </svg>
+                                                </i>
+                                                {label.downloadsLbl}</a>
+                                        </span>
+                                    </template>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+                <template if:true={showNoti}>
+                    <div class="col-lg-12"><a class="d-inline blue-primary text-hover-underline f14 fbold"
+                            onclick={showallNoti} href="javascript:void(0);">
+                            <i class="fas pr-1">
+                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6 10L10 6L6 2" stroke="#004F9B" stroke-width="2" stroke-linecap="square">
+                                    </path>
+                                </svg>
+                            </i>
+                            Show all ({statDetNotiSize}) {label.notificationLbl}</a>
+                    </div>
+                </template>
+            </template>
+        -->
+            <!--
+            <template if:true={serviceNotifications}>
+                <div class="col-lg-12 alert-section mt-5 mb-lg-4 m-pl-0">
+                    <div class="notification col-lg-12 f18 mb-4 p-0 m-l-r-12">
+                        <h2 tabindex="0" role="heading" aria-level="2" class="noto-font f20"><span class="fbold">Service
+                                Notification</span><span> (1)</span></h2>
+                    </div>
+                    <div class="grey-darkest mb-2 pr-4 m-l-r-12">
+                        <span class="f14 font-weight-normal">
+                            <span>Patrol Inspection scheduled on <span class="fbold">29 Aug 2020</span> and <span
+                                    class="fbold">21 Dec 2020</span></span>
+                        </span>
+                    </div>
+                    <div class="blue-primary m-l-r-12">
+                        <a class="text-right blue-primary f12 text-hover-underline" href="javascript:void(0)">
+                            <i class="fas pr-1">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="5" y="5" width="6" height="7" stroke="#004F9B" stroke-width="2"></rect>
+                                    <line x1="8" y1="7" x2="11" y2="7" stroke="#004F9B" stroke-width="2"></line>
+                                </svg>
+                            </i>
+                            View contract
+                        </a>
+                    </div>
+                    <div class="chart-divider mt-5 mb-5 eng-section m-l-r-12"></div>
+                </div>
+            </template>
+            -->
+            <template if:true={overviewRequest}>
+                <div class="col-lg-12 alert-section mt-3 mb-4 m-pl-0">
+                    <div class="notification col-lg-12 f20 mb-10 p-0 m-l-r-12">
+                        <h2 tabindex="0" role="heading" aria-level="2" class="noto-font f20">
+                            <span class="fbold">{label.notificationLbl} </span><span>
+                                ({noticount})</span>
+                        </h2>
+                    </div>
+                    <template if:true={sysflag}>
+                        <div class="alert-white">
+                            <div class="alert m-l-r-12" role="alert">
+                                <div class="column">
+                                    <i class="fas pr-1">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M6.95312 11.5992C6.95312 12.3695 7.51386 12.9962 8.20312 12.9962C8.89239 12.9962 9.45312 12.3695 9.45312 11.5992H6.95312Z"
+                                                fill="#DBA521"></path>
+                                            <path
+                                                d="M11.2 9.48357V6.63981C11.2 4.78162 9.94308 3.25301 8.33155 3.0668C8.45433 2.95703 8.53334 2.78814 8.53334 2.59868C8.53334 2.26857 8.29409 2 8.00001 2C7.70593 2 7.46668 2.26857 7.46668 2.59868C7.46668 2.78814 7.54572 2.95703 7.66847 3.0668C6.05694 3.25301 4.80001 4.78162 4.80001 6.63981V9.48357H4V10.3816H12V9.48357H11.2Z"
+                                                fill="#DBA521"></path>
+                                        </svg>
+                                    </i> {label.notspecifythesiteLbl}
+                                </div>
+
+                                <div class="column">
+                                    <span class="float-lg-right mr-5">
+                                        <a href="javascript:void(0)" onclick={requestPlant}
+                                            class="d-inline blue-primary text-hover-underline">
+                                            <i class="fas pr-1">
+                                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M7 11.5L10.5 8L7 4.5" stroke="#004F9B" stroke-width="2"
+                                                        stroke-linecap="square"></path>
+                                                </svg>
+                                            </i>
+                                            {label.specifyasiteLbl}</a>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                    <template if:true={prodflag}>
+                        <div class="alert-white">
+                            <div class="alert m-l-r-12" role="alert">
+                                <div class="column">
+                                    <i class="fas pr-1">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M6.95312 11.5992C6.95312 12.3695 7.51386 12.9962 8.20312 12.9962C8.89239 12.9962 9.45312 12.3695 9.45312 11.5992H6.95312Z"
+                                                fill="#DBA521"></path>
+                                            <path
+                                                d="M11.2 9.48357V6.63981C11.2 4.78162 9.94308 3.25301 8.33155 3.0668C8.45433 2.95703 8.53334 2.78814 8.53334 2.59868C8.53334 2.26857 8.29409 2 8.00001 2C7.70593 2 7.46668 2.26857 7.46668 2.59868C7.46668 2.78814 7.54572 2.95703 7.66847 3.0668C6.05694 3.25301 4.80001 4.78162 4.80001 6.63981V9.48357H4V10.3816H12V9.48357H11.2Z"
+                                                fill="#DBA521"></path>
+                                        </svg>
+                                    </i> {label.notregisteredanyproductLbl}
+                                </div>
+
+                                <div class="column">
+                                    <span class="float-lg-right mr-5">
+                                        <a href={productRegURL} class="d-inline blue-primary text-hover-underline">
+                                            <i class="fas pr-1">
+                                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M7 11.5L10.5 8L7 4.5" stroke="#004F9B" stroke-width="2"
+                                                        stroke-linecap="square"></path>
+                                                </svg>
+                                            </i>
+                                            {label.registeryourproductsLbl}</a>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </template>
+        </div>
+    </div>
+</template>

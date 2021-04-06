@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Contract_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Contract Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>BCP</fullName>
+                <default>false</default>
+                <label>BCP</label>
+            </value>
+            <value>
+                <fullName>LCA</fullName>
+                <default>false</default>
+                <label>LCA</label>
+            </value>
+            <value>
+                <fullName>Annual support (hardware)</fullName>
+                <default>false</default>
+                <label>Annual support (hardware)</label>
+            </value>
+            <value>
+                <fullName>Annual support (software)</fullName>
+                <default>false</default>
+                <label>Annual support (software)</label>
+            </value>
+            <value>
+                <fullName>Annual support (hardware&amp;software)</fullName>
+                <default>false</default>
+                <label>Annual support (hardware&amp;software)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

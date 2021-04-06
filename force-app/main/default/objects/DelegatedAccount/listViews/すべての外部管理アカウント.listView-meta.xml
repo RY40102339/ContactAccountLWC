@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>すべての外部管理アカウント</fullName>
+    <filterScope>Everything</filterScope>
+    <label>すべての外部管理アカウント</label>
+</ListView>

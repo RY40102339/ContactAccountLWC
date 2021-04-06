@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>aecm__TaxanomyRootWithLevelL1</fullName>
+    <active>true</active>
+    <errorConditionFormula>(aecm__Taxonomy_Root__c = True)  &amp;&amp; !ISPICKVAL(aecm__Level__c, &apos;L1&apos;)</errorConditionFormula>
+    <errorMessage>Only L1 processes can be a taxonomy root.</errorMessage>
+</ValidationRule>

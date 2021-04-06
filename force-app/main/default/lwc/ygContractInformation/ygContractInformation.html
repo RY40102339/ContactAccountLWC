@@ -1,0 +1,77 @@
+<template>
+
+    <div class="row mb-4 mt-14">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-10 m-pl-0 m-pr-0">
+            <h2 tabindex="0" role="heading" aria-level="2" class="noto-font f20">
+                <span class="notification f20 fbold">
+                    <span>{label.contInformationLbl}</span>
+                </span>
+            </h2>
+            <template if:true={contractdInfoData}>
+                <table class="table table-borderless prod-info contract-info mt-3">
+                    <tbody>
+                        <tr class="f14">
+                            <th class="grey-medium-c font-weight-normal">Status</th>
+                            <td class={contractdInfoData.contClass}><strong>{contractdInfoData.contStatus}</strong></td>
+                        </tr>
+                        <tr class="f14">
+                            <th class="grey-medium-c font-weight-normal">{label.contractNoLbl}</th>
+                            <td class="grey-darkest">{contractdInfoData.contractNum}</td>
+                        </tr>
+                        <tr class="f14">
+                            <th class="grey-medium-c font-weight-normal">{label.contractNameLbl}</th>
+                            <td class="grey-darkest">{contractdInfoData.contractName}</td>
+                        </tr>
+                        <template if:true={contractdInfoData.contractDescription}>
+                            <tr class="f14">
+                                <th class="grey-medium-c font-weight-normal">{label.contractDescLbl}</th>
+                                <td class="grey-darkest">{contractdInfoData.contractDescription}</td>
+                            </tr>
+                        </template>
+                        <template if:true={contractdInfoData.serialNum}>
+                            <tr class="f14">
+                                <th class="grey-medium-c font-weight-normal">{label.prodNameLbl}</th>
+                                <td class="grey-darkest">{contractdInfoData.productName}</td>
+                            </tr>
+                            <tr class="f14">
+                                <th class="grey-medium-c font-weight-normal">{label.serialNumLbl}</th>
+                                <td><a href={productDetailURL}
+                                        class="grey-darkest text-hover-color"><ins>{contractdInfoData.serialNum}</ins></a>
+                                </td>
+                            </tr>
+                        </template>
+                        <tr class="f14">
+                            <th class="grey-medium-c font-weight-normal">{label.requestedByLbl}</th>
+                            <td class="grey-darkest">{contractdInfoData.requestedBy}</td>
+                        </tr>
+                        <tr class="f14">
+                            <th class="grey-medium-c font-weight-normal">{label.salesManagerLbl}</th>
+                            <td class="grey-darkest">
+                                <span class="pr-2">
+                                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="16" cy="16" r="16" fill="#9BACB5"></circle>
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M12.3081 13.1975C9.60528 14.6727 7.75 17.7172 7.75 21.2336C7.75 25.2606 10.1832 25.1179 13.536 24.9212C14.3141 24.8756 15.1418 24.827 16 24.827C16.8582 24.827 17.6859 24.8756 18.464 24.9212C21.8168 25.1179 24.25 25.2606 24.25 21.2336C24.25 17.5046 22.1635 14.3062 19.1925 12.9473C18.3025 13.9025 17.0335 14.4998 15.625 14.4998C14.3439 14.4998 13.1781 14.0056 12.3081 13.1975Z"
+                                            fill="white"></path>
+                                        <circle cx="15.625" cy="9.625" r="3.375" fill="white"></circle>
+                                    </svg>
+                                </span>
+                                {contractdInfoData.ygSalesManager}</td>
+                        </tr>
+                        <tr class="f14">
+                            <th class="grey-medium-c font-weight-normal">{label.startDateLbl}</th>
+                            <td class="grey-darkest">{contractdInfoData.startDate}</td>
+                        </tr>
+                        <tr class="f14">
+                            <th class="grey-medium-c font-weight-normal">{label.endDateLbl}</th>
+                            <td class="grey-darkest">{contractdInfoData.endDate}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </template>
+        </div>
+    </div>
+
+</template>

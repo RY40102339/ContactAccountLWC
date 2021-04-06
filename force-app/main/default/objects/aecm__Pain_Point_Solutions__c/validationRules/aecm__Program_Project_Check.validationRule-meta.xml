@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>aecm__Program_Project_Check</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(ISBLANK(aecm__Program_Project__c),ISPICKVAL(aecm__Status__c,&apos;Project Completed&apos;),OR(ISBLANK(aecm__Solution_Design__r.aecm__Program_Project__c ),NOT(ISPICKVAL( aecm__Solution_Design__r.aecm__Program_Project__r.aecm__Status__c ,&apos;Complete&apos;)))
+ )</errorConditionFormula>
+    <errorMessage>To create/update Pain point solution as &quot;Project complete&quot;, first associate it with a PROGRAM PROJECT of &quot;complete&quot; status otherwise change the association of status or program project</errorMessage>
+</ValidationRule>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>aecm__processLevelValidation</fullName>
+    <active>true</active>
+    <description>Error should be shown, any L3/L4 Process which has capabilities associated, should not be changes to other level</description>
+    <errorConditionFormula>IF( aecm__Capability_Processes_Count__c &gt;0 , OR(ISPICKVAL(aecm__Level__c ,&quot;L1&quot;),ISPICKVAL(aecm__Level__c ,&quot;L2&quot;),ISPICKVAL(aecm__Level__c ,&quot;L5&quot;),ISPICKVAL(aecm__Level__c ,&quot;L6&quot;))  ,false)</errorConditionFormula>
+    <errorMessage>Only L3 and L4 processes can have associated Capability Process records. You must remove all related Capability Process records before changing the level to something other than L3 or L4.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,35 @@
+.ptimeline li .tl-plus {
+    position: absolute;
+    top: 23px;
+    margin-left: -11px;
+    z-index: 1;
+    background: url('../YG_Images/icons/plus.svg') no-repeat;
+}
+
+.tl-plus:before {
+    background: url('../YG_Images/icons/plus.svg') no-repeat;
+}
+
+.tl-plus.active:before {
+    background: url('../YG_Images/icons/minus.svg') 50% 50% no-repeat;
+}
+
+.tl-plus.active .no-active-hide {
+    display: none;
+}
+
+.tl-plus.active .active-show {
+    display: inline-block;
+}
+
+ul li.timeline-inverted {
+    margin: 0 0 15px 0;
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.1rem;
+    text-align: justify;
+}
+
+.active-show {
+    display: none;
+}

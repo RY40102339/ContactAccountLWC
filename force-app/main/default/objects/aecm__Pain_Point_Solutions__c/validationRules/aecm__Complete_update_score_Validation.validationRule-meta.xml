@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>aecm__Complete_update_score_Validation</fullName>
+    <active>true</active>
+    <errorConditionFormula>ISPICKVAL(aecm__Solution_Design__r.aecm__Status__c ,&apos;Completed-Update Scores&apos;)</errorConditionFormula>
+    <errorMessage>Pain Point Solution can not be added or updated for Solution Design marked as Completed-Update Scores</errorMessage>
+</ValidationRule>

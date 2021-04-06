@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>aecm__Capability__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <inlineHelpText>Capability this pain point is related to. Pain points may not exists across multiple capabilities.</inlineHelpText>
+    <label>Capability</label>
+    <referenceTo>aecm__Capability__c</referenceTo>
+    <relationshipLabel>Capability Pain Points</relationshipLabel>
+    <relationshipName>Capability_Pain_Points</relationshipName>
+    <required>true</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

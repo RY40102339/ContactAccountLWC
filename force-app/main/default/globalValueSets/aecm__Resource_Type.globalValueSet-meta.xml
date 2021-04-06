@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Administrator</fullName>
+        <default>false</default>
+        <label>Administrator</label>
+    </customValue>
+    <customValue>
+        <fullName>Developer</fullName>
+        <default>false</default>
+        <label>Developer</label>
+    </customValue>
+    <customValue>
+        <fullName>Architect</fullName>
+        <default>false</default>
+        <label>Architect</label>
+    </customValue>
+    <customValue>
+        <fullName>Third Party</fullName>
+        <default>false</default>
+        <label>Third Party</label>
+    </customValue>
+    <customValue>
+        <fullName>Business Analyst</fullName>
+        <default>false</default>
+        <label>Business Analyst</label>
+    </customValue>
+    <customValue>
+        <fullName>Project Manager</fullName>
+        <default>false</default>
+        <label>Project Manager</label>
+    </customValue>
+    <customValue>
+        <fullName>QA Analyst</fullName>
+        <default>false</default>
+        <label>QA Analyst</label>
+    </customValue>
+    <masterLabel>Resource Type</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

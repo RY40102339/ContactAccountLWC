@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>aecm__Improvement_Priority__c</fullName>
+    <deprecated>false</deprecated>
+    <description>Level of importance to client in respect to best practice for improving a capability or sub capability.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>This measure evaluates the stage of importance and value that an organization places in a given capability or sub capability. Greater value is given based on degree of management, curation, and adoption activities and  behaviors.</inlineHelpText>
+    <label>Improvement Priority</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Not Acknowledged</fullName>
+                <default>true</default>
+                <label>Not Acknowledged</label>
+            </value>
+            <value>
+                <fullName>Acknowledged Low</fullName>
+                <default>false</default>
+                <label>Acknowledged Low</label>
+            </value>
+            <value>
+                <fullName>Moderate Importance</fullName>
+                <default>false</default>
+                <label>Moderate Importance</label>
+            </value>
+            <value>
+                <fullName>High Importance</fullName>
+                <default>false</default>
+                <label>High Importance</label>
+            </value>
+            <value>
+                <fullName>Critical for Success</fullName>
+                <default>false</default>
+                <label>Critical for Success</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

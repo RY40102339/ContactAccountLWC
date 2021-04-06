@@ -1,0 +1,50 @@
+<!--
+*******************************************************************************************************
+* (C) Copyright 2020 Yokogawa. All rights reserved.
+* This code is property of Yokogawa. Use, duplication and
+* disclosure in any form without permission of copyright holder is prohibited.
+* 
+******************************************************************************************************* 
+* @author Vinod Anandhan
+* @version 1.0
+* @created 05/19/2020
+* @description 
+* This component is used for displaying the product details in UI.
+*
+* *
+*  Change History:
+*  MM/DD/YYYY			Developer Name			Comments
+*  11/04/2020     Selvaraj T          Updated product history page link with product details page
+*  
+*
+*-->
+<template>
+<template if:true={childFlag}>
+  <div class="row pt-56 m-mt-64">
+    <div class="section">
+      <div class="col-lg-12">
+        <h2 tabindex="0" role="heading" aria-level="2" class="noto-font f20 mb-3">
+          <span class="notification f20 fbold">
+            <span>{label.combinationProductLbl}</span>
+          </span>
+        </h2>
+      </div>
+      <div class="col-lg-12 mb-1">
+        <div class="f14 grey-darkest mb-4">{parentrec} <span class="parentRecord"></span></div>
+        <ul class="b-list b-list_type_tree b-list_viewtype_centered">
+          <template for:each={childList} for:item="item">
+            <li key={item} class="b-list__item b-list__item_type_parent">
+              <label class="b-label">
+                <i class="fas fa-circle f10 gray-lignt-color"></i>
+                <span class="pl-2 f14 grey-darkest">{item.child}
+                  <a class={item.className} href={item.linkURL}>{item.childserial}</a>
+                </span>
+              </label>
+            </li>
+          </template>
+        </ul>
+      </div>
+    </div>
+  </div>
+</template>
+</template>

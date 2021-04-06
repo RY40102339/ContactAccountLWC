@@ -1,0 +1,57 @@
+<template>
+    <div class="row mt-14 mt-15 mb-lg-4 mb-72">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-11 pr-lg-5 m-pr-0 m-pl-0">
+            <h2 tabindex="0" role="heading" aria-level="2" class="noto-font f20 mb-4">
+                <span class="notification f20 ft-weight-800">{label.ygContLbl}</span>
+            </h2>
+            <div class="accordion mt-2">
+                <template for:each={salesOfficeDet} for:item="childOffice" for:index="key">
+                    <div key={childOffice.key}>
+                        <lightning-accordion allow-multiple-sections-open active-section-name={activeSections}>
+                            <lightning-accordion-section name="A" label={childOffice.key}
+                                class="blue-primary f14 fbold">
+                                <template for:each={childOffice.value} for:item="list" for:index="innerkey">
+                                    <div key={list} class="mt-4 f14">
+                                        <span class="fbold grey-darkest">
+                                            {list.name}
+                                        </span>
+                                        <p class="mt-2 grey-darkest font-weight-normal">
+                                            {list.address} {list.country} {list.postal_Code}
+                                        </p>
+                                        <p class="mt-2 grey-darkest font-weight-normal">
+                                            {label.telLbl} {list.contact_Number}
+                                        </p>
+                                    </div>
+                                </template>
+                            </lightning-accordion-section>
+                        </lightning-accordion>
+                    </div>
+                </template>
+            </div>
+            <div class="accordion">
+                <template for:each={serviceCenterDet} for:item="child" for:index="key">
+                    <div key={child.key}>
+                        <lightning-accordion allow-multiple-sections-open active-section-name={activeSections}>
+                            <lightning-accordion-section name="B" label={child.key} class="blue-primary f14 fbold">
+                                <template for:each={child.value} for:item="list" for:index="innerkey">
+                                    <div key={list} class="mt-4 f14">
+                                        <span class="fbold grey-darkest">
+                                            {list.name}
+                                        </span>
+                                        <p class="mt-2 grey-darkest font-weight-normal">
+                                            {list.address} {list.country} {list.postal_Code}
+                                        </p>
+                                        <p class="mt-2 grey-darkest font-weight-normal">
+                                            Tel: {list.contact_Number}
+                                        </p>
+                                    </div>
+                                </template>
+                            </lightning-accordion-section>
+                        </lightning-accordion>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+</template>

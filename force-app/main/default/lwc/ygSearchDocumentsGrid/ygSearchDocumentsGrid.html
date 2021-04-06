@@ -1,0 +1,210 @@
+<template>
+    <template if:true={isLoading}>
+        <div class="loading">
+            <div class="loading-txt">
+                <div class="row text-center">
+                    <div class="col-lg-12">
+                        <svg width="51" height="52" viewBox="0 0 51 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M0.410156 25.1209C11.2022 31.0632 20.0171 40.1454 25.6268 51.1329L25.6109 51.1349C31.2146 40.1493 40.0255 31.0692 50.8116 25.1249L50.7937 25.1407L25.6208 0L0.434001 25.1407L0.410156 25.1209Z"
+                                fill="#FFEE00"></path>
+                        </svg>
+                    </div>
+                    <div class="col-lg-12 mt-3" style="margin-top: 1rem !important;">
+                        <div class="spinner-border text-dark"></div>
+                        <div class="txt-load">Loading..</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+    <div class="row pt-4 mr-0">
+        <div class="section">
+            <div class="col-lg-12 dc-search pr-lg-5">
+                <div class="form-row mb-3">
+                    <div class="form-group d-flex col-md-6">
+                        <label for="keyword" class="sr-only">Search by keyword</label>
+                        <input type="text" class="form-control f14 grey-darkest" id="keyword" name="keyword"
+                            placeholder="Search by keyword" onkeypress={handleKeyPress} onkeyup={handleKeyup}>
+                        <span class="dc-search-icon d-flex align-items-center" aria-hidden="true"
+                            onclick={searchDocument}>
+                            <!--<img src={searchIcon} alt="search" aria-hidden="true" />-->
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20.1719 19.1719L27.2429 26.2429" stroke="#CCDCE8" stroke-width="2"></path>
+                                <circle cx="14" cy="13" r="9" stroke="#CCDCE8" stroke-width="2"></circle>
+                            </svg>
+                        </span>
+                        <span class="dc-search-tooltip d-flex align-items-center m-pr-0">
+                            <span class="cursor-pointer jbox-tooltip"
+                                title="Separate multiple keywords with spaces. Example: YTA wireless">
+                                <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="16" cy="16" r="12" stroke="#7D8E97" stroke-width="2"></circle>
+                                    <path
+                                        d="M14.8857 17.9443C14.8857 17.3063 14.9632 16.7982 15.1182 16.4199C15.2731 16.0417 15.5557 15.6702 15.9658 15.3057C16.3805 14.9365 16.6562 14.638 16.793 14.4102C16.9297 14.1777 16.998 13.9339 16.998 13.6787C16.998 12.9085 16.6426 12.5234 15.9316 12.5234C15.5944 12.5234 15.3232 12.6283 15.1182 12.8379C14.9176 13.043 14.8128 13.3278 14.8037 13.6924H12.8213C12.8304 12.8219 13.1107 12.1406 13.6621 11.6484C14.2181 11.1562 14.9746 10.9102 15.9316 10.9102C16.8978 10.9102 17.6475 11.1449 18.1807 11.6143C18.7139 12.0791 18.9805 12.7376 18.9805 13.5898C18.9805 13.9772 18.8939 14.3441 18.7207 14.6904C18.5475 15.0322 18.2445 15.4128 17.8115 15.832L17.2578 16.3584C16.9115 16.6911 16.7132 17.0807 16.6631 17.5273L16.6357 17.9443H14.8857ZM14.6875 20.043C14.6875 19.7376 14.79 19.487 14.9951 19.291C15.2048 19.0905 15.4714 18.9902 15.7949 18.9902C16.1185 18.9902 16.3828 19.0905 16.5879 19.291C16.7975 19.487 16.9023 19.7376 16.9023 20.043C16.9023 20.3438 16.7998 20.5921 16.5947 20.7881C16.3942 20.984 16.1276 21.082 15.7949 21.082C15.4622 21.082 15.1934 20.984 14.9883 20.7881C14.7878 20.5921 14.6875 20.3438 14.6875 20.043Z"
+                                        fill="#7D8E97"></path>
+                                </svg>
+                            </span>
+
+                        </span>
+                    </div>
+                    <div class="form-group d-flex col-md-6">
+                        <label for="modelTxt" class="sr-only">Search by model</label>
+                        <input type="text" class="form-control f14 grey-darkest" id="modelTxt" name="modelTxt"
+                            placeholder="Search by model" onkeyup={handleModelChange} onkeypress={handleKeyPress}
+                            onchange={handleChange}>
+                        <span class="dc-search-icon d-flex align-items-center" aria-hidden="true"
+                            onclick={searchDocument}>
+                            <!--<img src={searchIcon} alt="search" aria-hidden="true" />-->
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20.1719 19.1719L27.2429 26.2429" stroke="#CCDCE8" stroke-width="2"></path>
+                                <circle cx="14" cy="13" r="9" stroke="#CCDCE8" stroke-width="2"></circle>
+                            </svg>
+                        </span>
+                        <span class="dc-search-tooltip d-flex align-items-center m-pr-0">
+                            <span class="cursor-pointer jbox-tooltip"
+                                title="Type a product model. For example, type EJA to search for documents related to models starting with EJA (EJA110E, EJA115E, etc.).">
+                                <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="16" cy="16" r="12" stroke="#7D8E97" stroke-width="2"></circle>
+                                    <path
+                                        d="M14.8857 17.9443C14.8857 17.3063 14.9632 16.7982 15.1182 16.4199C15.2731 16.0417 15.5557 15.6702 15.9658 15.3057C16.3805 14.9365 16.6562 14.638 16.793 14.4102C16.9297 14.1777 16.998 13.9339 16.998 13.6787C16.998 12.9085 16.6426 12.5234 15.9316 12.5234C15.5944 12.5234 15.3232 12.6283 15.1182 12.8379C14.9176 13.043 14.8128 13.3278 14.8037 13.6924H12.8213C12.8304 12.8219 13.1107 12.1406 13.6621 11.6484C14.2181 11.1562 14.9746 10.9102 15.9316 10.9102C16.8978 10.9102 17.6475 11.1449 18.1807 11.6143C18.7139 12.0791 18.9805 12.7376 18.9805 13.5898C18.9805 13.9772 18.8939 14.3441 18.7207 14.6904C18.5475 15.0322 18.2445 15.4128 17.8115 15.832L17.2578 16.3584C16.9115 16.6911 16.7132 17.0807 16.6631 17.5273L16.6357 17.9443H14.8857ZM14.6875 20.043C14.6875 19.7376 14.79 19.487 14.9951 19.291C15.2048 19.0905 15.4714 18.9902 15.7949 18.9902C16.1185 18.9902 16.3828 19.0905 16.5879 19.291C16.7975 19.487 16.9023 19.7376 16.9023 20.043C16.9023 20.3438 16.7998 20.5921 16.5947 20.7881C16.3942 20.984 16.1276 21.082 15.7949 21.082C15.4622 21.082 15.1934 20.984 14.9883 20.7881C14.7878 20.5921 14.6875 20.3438 14.6875 20.043Z"
+                                        fill="#7D8E97"></path>
+                                </svg>
+                            </span>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-row mb-3 service-request">
+                    <div class="d-none">
+                        <a class="triggerClick" onclick={triggerSelect}>Click trigger</a>
+                        <input type="text" name="hiddenLevel">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="category-1" class="f14 grey-darkest">1. Filter by category</label>
+                        <select class="form-control selectpicker" name="category-1" id="category-1">
+                            <option value="0">Select a category</option>
+                            <template for:each={categoryLevel1} for:item="cLevel1">
+                                <option key={cLevel1.key} value={cLevel1.key}>
+                                    {cLevel1.value}
+                                </option>
+                            </template>
+                        </select>
+                    </div>
+                </div>
+                <fieldset class="form-group pt-3 mb-5" style="background: rgba(204, 220, 232, 0.2);">
+                    <div class="row m-0">
+                        <legend class="col-lg-12 grey-darkest f14 mb-3">Filter by Document Type</legend>
+                        <div class="col-lg-12 dc-type">
+                            <div class="form-check form-check-inline custom-chkbox m-sm-block mb-3 mb-lg-3">
+                                <input class="form-check-input" type="checkbox" name="documentType" id="inlineCheckbox1"
+                                    value="all" onchange={handleChkChange}>
+                                <label class="form-check-label grey-dark fbold f14" for="inlineCheckbox1">All</label>
+                            </div>
+                            <div class="form-check form-check-inline custom-chkbox m-sm-block mb-3">
+                                <input class="form-check-input" type="checkbox" name="documentType" id="inlineCheckbox2"
+                                    value="Bull" onchange={handleChkChange}>
+                                <label class="form-check-label grey-dark fbold f14"
+                                    for="inlineCheckbox2">Brochures</label>
+                            </div>
+                            <div class="form-check form-check-inline custom-chkbox m-sm-block mb-3">
+                                <input class="form-check-input" type="checkbox" name="documentType" id="inlineCheckbox3"
+                                    value="GS" onchange={handleChkChange}>
+                                <label class="form-check-label grey-dark fbold f14" for="inlineCheckbox3">General
+                                    Specifications
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline custom-chkbox m-sm-block mb-3">
+                                <input class="form-check-input" type="checkbox" name="documentType" id="inlineCheckbox4"
+                                    value="IM" onchange={handleChkChange}>
+                                <label class="form-check-label grey-dark fbold f14" for="inlineCheckbox4">User
+                                    Manual</label>
+                            </div>
+                            <div class="form-check form-check-inline custom-chkbox m-sm-block mb-3">
+                                <input class="form-check-input" type="checkbox" name="documentType" id="inlineCheckbox5"
+                                    value="TI" onchange={handleChkChange}>
+                                <label class="form-check-label grey-dark fbold f14" for="inlineCheckbox5">Technical
+                                    Information</label>
+                            </div>
+                            <div class="form-check form-check-inline custom-chkbox m-sm-block mb-3">
+                                <input class="form-check-input" type="checkbox" name="documentType" id="inlineCheckbox6"
+                                    value="SD" onchange={handleChkChange}>
+                                <label class="form-check-label grey-dark fbold f14"
+                                    for="inlineCheckbox6">Drawings</label>
+                            </div>
+                            <div class="col-lg-12 mb-3 chart-divider"></div>
+                        </div>
+                        <div class="col-lg-12 mb-3 dc-produts">
+                            <div class="form-check form-check-inline custom-chkbox">
+                                <input class="form-check-input" type="checkbox" name="idp" id="inlineCheckbox7"
+                                    value="true">
+                                <label class="form-check-label grey-darkest f14" for="inlineCheckbox7">Include
+                                    discontinued products</label>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="form-group row mb-0 m-pb-56">
+                    <div class="col text-lg-left">
+                        <button type="button" onclick={searchDocument}
+                            class="btn btn-primary text-uppercase f14 ft-weight-900">Search
+                            Documents</button>
+                    </div>
+                    <div class="col-auto text-lg-right d-flex align-items-end clear-link invisible">
+                        <a href="javascript:void(0)" onclick={clearSearch}
+                            class="blue-primary f12 text-hover-underline">
+                            <i class="fas pr-1 ml-lg-3">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 5L8 8M11 11L8 8M8 8L11 5L5 11" stroke="#004F9B" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                            </i>Clear Search
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-56"></div>
+            <div class="row col-lg-12">
+                <div class="col-lg-6">
+                    <div class="form-group row pb-3 download-btn d-none">
+                        <div class="col-lg-12 text-lg-left">
+                            <button type="button" onclick={downloadDoc}
+                                class="btn bg-white btn-primary blue-primary text-uppercase f14 ft-weight-900 disabled">Download
+                                selected documents</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-right totResult-sec mb-4 pr-lg-4 d-none">
+                    <span class="grey-darkest fbold f14">Documents found: {totalCnt}</span>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="table-responsive mb-5 pb-3">
+                    <table lwc:dom="manual" class="table table-borderless f14 docSearch-dtTable d-none">
+                    </table>
+                    <div class="col-lg-12 text-center mt-3 grid-loading d-none">
+                        <div class="spinner-border text-dark"></div>
+                        <div class="txt-load">Loading..</div>
+                    </div>
+                </div>
+            </div>
+            <template if:true={showLoadMore}>
+                <div class="row">
+                    <div class="col-lg-12 load-more pl-0 mb-4 mb-lg-5 d-flex justify-content-center">
+                        <button onclick={loadmore} class="f14 fbold blue-primary">
+                            <svg width="8" height="12" viewBox="0 0 8 12" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2 10L6 6L2 2" stroke="#004F9B" stroke-width="2" stroke-linecap="square">
+                                </path>
+                            </svg>
+                            {label.showLbl} {remainRecords} {label.moreLbl}
+                        </button>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </div>
+</template>

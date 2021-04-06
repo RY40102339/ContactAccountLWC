@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>aecm__Class__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <label>Class</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Financial Success</fullName>
+                <default>false</default>
+                <label>Financial Success</label>
+            </value>
+            <value>
+                <fullName>Operational Success</fullName>
+                <default>false</default>
+                <label>Operational Success</label>
+            </value>
+            <value>
+                <fullName>User Success</fullName>
+                <default>false</default>
+                <label>User Success</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

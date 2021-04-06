@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>aecm__Architecture_Component__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <inlineHelpText>Primary platform or business system that this pain point is related to. When provided, this enables reporting pain points by system.</inlineHelpText>
+    <label>Architecture Component</label>
+    <referenceTo>aecm__Architecture_Component__c</referenceTo>
+    <relationshipLabel>Capability Pain Points</relationshipLabel>
+    <relationshipName>Capability_Pain_Points</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

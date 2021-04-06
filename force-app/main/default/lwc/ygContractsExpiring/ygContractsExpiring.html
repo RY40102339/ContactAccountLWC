@@ -1,0 +1,85 @@
+<template>
+    <div class="mHidden" style="margin-top:17.55rem"></div>
+    <div class="row mt-1rem mt-14-lt">
+        <div class="section pl-4">
+            <div class="col-lg-12">
+                <div class="notification f20 mb-3 mt-3 p-0">
+                    <div class="row overview-links">
+                        <div class="col-lg-9 p-0 pd-rt">
+                            <span class="fbold">{label.contractHeaderLbl} <span
+                                    class="chart-title-total font-weight-normal">({recordCount})</span>
+                            </span>
+                        </div>
+                        <div class="col-lg-3 mt-1rem text-lg-right mHidden">
+                            <a href={allContractURL} class="text-right blue-primary f12 text-hover-underline">
+                                <i class="fas pr-2">
+                                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M5 8.5L8.5 5L5 1.5" stroke="#004F9B" stroke-width="2"
+                                            stroke-linecap="square"></path>
+                                    </svg>
+                                </i>
+                                {label.viewContractLbl}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="row">
+                            <div class="col-lg-12 m-pr-0">
+                                <div class="table-responsive mb-3 pb-2">
+                                    <div class="col-lg-12 text-center mt-3 mb-1 loading-grid">
+                                        <div class="spinner-border text-dark"></div>
+                                        <div class="txt-load">Loading..</div>
+                                    </div>
+                                    <table lwc:dom="manual"
+                                        class="table table-borderless f14 contractsExpiring-dtTable"></table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <template if:true={showLoadMore}>
+                        <div class="row col-lg-12 overview-links">
+                            <div class="col-lg-12 text-center mt-3 mb-1 loading-icon d-none">
+                                <div class="spinner-border text-dark"></div>
+                                <div class="txt-load">Loading..</div>
+                            </div>
+                            <div class="col-lg-12 text-lg-right text-right pr-lg-5 mb-5">
+                                <a href="javascript:void(0)" onclick={loadmore}
+                                    class="text-right blue-primary f12 text-hover-underline">
+                                    <i class="fas pr-1">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M4.5 7L8 10.5L11.5 7" stroke="#004F9B" stroke-width="2"
+                                                stroke-linecap="square"></path>
+                                        </svg>
+
+                                    </i>
+                                    {label.showLbl} {remainRecords} {label.moreLbl}
+                                </a>
+                            </div>
+                        </div>
+                    </template>
+                    <template if:true={showLess}>
+                        <div class="row col-lg-12 overview-links">
+                            <div class="col-lg-12 text-lg-right text-right mb-5 pb-4">
+                                <a href="javascript:void(0)" onclick={showless}
+                                    class="text-right blue-primary f12 text-hover-underline">
+                                    <i class="fas pl-1 rotate-180">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M4.5 7L8 10.5L11.5 7" stroke="#004F9B" stroke-width="2"
+                                                stroke-linecap="square"></path>
+                                        </svg>
+                                    </i>
+                                    {label.showLbl} Less
+                                </a>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

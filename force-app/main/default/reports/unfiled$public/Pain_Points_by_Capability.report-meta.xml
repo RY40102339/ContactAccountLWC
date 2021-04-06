@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>aecm__Capability_Pain_Point__c.YG_Capability_Area__c</field>
+    </columns>
+    <columns>
+        <field>aecm__Capability_Pain_Point__c.YG_Capability_Name__c</field>
+    </columns>
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>aecm__Capability_Pain_Point__c.aecm__Description__c</field>
+    </columns>
+    <columns>
+        <field>aecm__Capability_Pain_Point__c.YG_Geography__c</field>
+    </columns>
+    <columns>
+        <field>aecm__Capability_Pain_Point__c.aecm__Entity__c</field>
+    </columns>
+    <columns>
+        <field>aecm__Capability_Pain_Point__c.aecm__Persona__c</field>
+    </columns>
+    <description>PP Grouped by Functional Unit</description>
+    <filter>
+        <criteriaItems>
+            <column>aecm__Capability_Pain_Point__c.YG_Capability_Area__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>notEqual</operator>
+            <value>**placeholder**</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>aecm__Capability_Pain_Point__c.YG_Functional_Unit__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Pain Points by Capability</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$aecm__Capability_Pain_Point__c@aecm__Capability_Pain_Point__c.aecm__Capability__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>false</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>aecm__Capability_Pain_Point__c.aecm__Create_Date__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

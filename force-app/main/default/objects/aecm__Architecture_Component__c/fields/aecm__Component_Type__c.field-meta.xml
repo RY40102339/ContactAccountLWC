@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>aecm__Component_Type__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <label>Component Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>aecm__Component_Class__c</controllingField>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Ad Hoc System</fullName>
+                <default>false</default>
+                <label>Ad Hoc System</label>
+            </value>
+            <value>
+                <fullName>Back Office Business Platform</fullName>
+                <default>false</default>
+                <label>Back Office Business Platform</label>
+            </value>
+            <value>
+                <fullName>Cloud Storage</fullName>
+                <default>false</default>
+                <label>Cloud Storage</label>
+            </value>
+            <value>
+                <fullName>Front Office Business Platform</fullName>
+                <default>false</default>
+                <label>Front Office Business Platform</label>
+            </value>
+            <value>
+                <fullName>Integration Platform</fullName>
+                <default>false</default>
+                <label>Integration Platform</label>
+            </value>
+            <value>
+                <fullName>Middle Tier</fullName>
+                <default>false</default>
+                <label>Middle Tier</label>
+            </value>
+            <value>
+                <fullName>Onsite Storage</fullName>
+                <default>false</default>
+                <label>Onsite Storage</label>
+            </value>
+            <value>
+                <fullName>Other Business Platform</fullName>
+                <default>false</default>
+                <label>Other Business Platform</label>
+            </value>
+            <value>
+                <fullName>Router</fullName>
+                <default>false</default>
+                <label>Router</label>
+            </value>
+            <value>
+                <fullName>Security Appliance</fullName>
+                <default>false</default>
+                <label>Security Appliance</label>
+            </value>
+            <value>
+                <fullName>SSO</fullName>
+                <default>false</default>
+                <label>SSO</label>
+            </value>
+            <value>
+                <fullName>Switch</fullName>
+                <default>false</default>
+                <label>Switch</label>
+            </value>
+            <value>
+                <fullName>Telephony</fullName>
+                <default>false</default>
+                <label>Telephony</label>
+            </value>
+            <value>
+                <fullName>Telephony Appliance</fullName>
+                <default>false</default>
+                <label>Telephony Appliance</label>
+            </value>
+            <value>
+                <fullName>Virus Detection</fullName>
+                <default>false</default>
+                <label>Virus Detection</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Data</controllingFieldValue>
+            <valueName>Cloud Storage</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Data</controllingFieldValue>
+            <valueName>Onsite Storage</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Network</controllingFieldValue>
+            <valueName>Router</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Network</controllingFieldValue>
+            <valueName>Switch</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Network</controllingFieldValue>
+            <valueName>Telephony</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Network</controllingFieldValue>
+            <valueName>Telephony Appliance</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Other System</controllingFieldValue>
+            <valueName>Ad Hoc System</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Platform</controllingFieldValue>
+            <valueName>Back Office Business Platform</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Platform</controllingFieldValue>
+            <valueName>Front Office Business Platform</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Platform</controllingFieldValue>
+            <valueName>Middle Tier</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Platform</controllingFieldValue>
+            <valueName>Other Business Platform</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Security</controllingFieldValue>
+            <valueName>Security Appliance</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Security</controllingFieldValue>
+            <valueName>SSO</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Security</controllingFieldValue>
+            <valueName>Virus Detection</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

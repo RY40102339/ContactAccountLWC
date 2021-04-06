@@ -1,0 +1,232 @@
+<!--
+*******************************************************************************************************
+* (C) Copyright 2020 Yokogawa. All rights reserved.
+* This code is property of Yokogawa. Use, duplication and
+* disclosure in any form without permission of copyright holder is prohibited.
+* 
+******************************************************************************************************* 
+* @author Selvaraj Thangaraj
+* @version 1.0
+* @created 05/08/2020
+* @description 
+* This component is used for the displaying the menu functionality in UI.
+*
+* *
+*  Change History:
+*  MM/DD/YYYY			Developer Name			Comments
+*  07/22/2020        Selvaraj             Updated all stations to all systems in JS
+*  08/19/2020        Selvaraj             Updated service request label
+*
+*-->
+
+
+<template>
+   <!-- Google Tag Manager (noscript) -->
+   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MJC3GV" height="0" width="0"
+         style="display:none;visibility:hidden"></iframe></noscript>
+   <!-- End Google Tag Manager (noscript) -->
+   <div class="overlay"></div>
+   <template if:true={isLoading}>
+      <div class="loading">
+         <div class="loading-txt">
+            <div class="row text-center">
+               <div class="col-lg-12">
+                  <svg width="51" height="52" viewBox="0 0 51 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                     <path
+                        d="M0.410156 25.1209C11.2022 31.0632 20.0171 40.1454 25.6268 51.1329L25.6109 51.1349C31.2146 40.1493 40.0255 31.0692 50.8116 25.1249L50.7937 25.1407L25.6208 0L0.434001 25.1407L0.410156 25.1209Z"
+                        fill="#FFEE00"></path>
+                  </svg>
+               </div>
+               <div class="col-lg-12 mt-3" style="margin-top: 1rem !important;">
+                  <div class="spinner-border text-dark"></div>
+                  <div class="txt-load">Loading..</div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </template>
+
+   <!-- Sidebar Toggle (Topbar) -->
+   <button id="sidebarToggleTop" class="btn sidebarToggle btn-link d-sm-none rounded-circle mr-3 position-absolute"
+      onclick={showMenu} style="line-height: 55px;">
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+         <rect x="9" y="14" width="30" height="2" fill="white"></rect>
+         <rect x="9" y="23" width="30" height="2" fill="white"></rect>
+         <rect x="9" y="32" width="30" height="2" fill="white"></rect>
+      </svg>
+      <span class="sr-only">Toggle navigation</span>
+   </button>
+   <nav aria-label="Main menu">
+      <ul class="navbar-nav bg-light-blue sidebar sidebar-dark accordion accordionSidebar d-none d-sm-block"
+         id="accordionSidebar" data-id="accordionSidebar">
+         <!-- Sidebar - Brand -->
+         <li class="nav-item d-none d-sm-block">
+            <a class="sidebar-brand d-flex align-items-center justify-content-lg-center logo" href="#">
+               <div class="sidebar-brand-text mx-3"><img src={logo} alt="Yokogawa" width="100" /> </div>
+            </a>
+         </li>
+         <!-- <li class="nav-item active hideArrow border-0 d-sm-none">
+            <a class="sidebar-brand d-flex align-items-center justify-content-end p-0" href="javascript:void(0);" onclick={hideMenu}>
+               <div class="sidebar-brand-text bg-dark-blue">
+                  <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                     <path d="M8.48468 8.48608L25.4552 25.4566" stroke="white" stroke-width="2" stroke-linecap="square"></path>
+                     <path d="M25.4565 8.48608L8.48592 25.4566" stroke="white" stroke-width="2" stroke-linecap="square"></path>
+                  </svg>
+               </div>
+            </a>
+      </li> -->
+         <!-- Sidebar - Overview Active -->
+         <template if:true={overview}>
+            <li class="nav-item active">
+               <a class="sidebar-brand d-flex align-items-center justify-content-start justify-content-lg-center text-capitalize"
+                  href={overviewURL} aria-current="page">
+                  <div class="sidebar-brand-text mx-lg-3 mlogo">
+                     <img src={overviewActive} alt="overview" width="100" aria-hidden="true" />
+                     <span class="f14 m-f18 opacity-90 text-center">{label.overviewLbl}</span>
+                  </div>
+               </a>
+            </li>
+         </template>
+         <!-- Sidebar - Overview InActive -->
+         <template if:false={overview}>
+            <li class="nav-item" data-img-active={overviewActive} data-img-inactive={overviewInactive}>
+               <a class="sidebar-brand d-flex align-items-center justify-content-start justify-content-lg-center text-capitalize"
+                  href={overviewURL}>
+                  <div class="sidebar-brand-text mx-lg-3 mlogo">
+                     <img src={overviewInactive} alt="overview" width="100" aria-hidden="true" />
+                     <span class="f14 m-f18 opacity-30 text-center">{label.overviewLbl}</span>
+                  </div>
+               </a>
+            </li>
+         </template>
+
+         <template if:true={selfRegflag}>
+            <!-- Sidebar - Systems Active -->
+            <template if:true={systems}>
+               <li class="nav-item active">
+                  <a class="sidebar-brand d-flex align-items-center justify-content-start justify-content-lg-center text-capitalize"
+                     href={systemURL} aria-current="page">
+                     <div class="sidebar-brand-text mx-lg-3 mlogo">
+                        <img src={systemActive} alt="systems" width="100" aria-hidden="true" />
+                        <span class="f14 m-f18 opacity-90 text-center">{label.systemsLbl}</span>
+                     </div>
+                  </a>
+               </li>
+            </template>
+            <!-- Sidebar - Systems InActive -->
+            <template if:false={systems}>
+               <li class="nav-item" data-img-active={systemActive} data-img-inactive={systemInactive}>
+                  <a class="sidebar-brand d-flex align-items-center justify-content-start justify-content-lg-center text-capitalize"
+                     href={systemURL}>
+                     <div class="sidebar-brand-text mx-lg-3 mlogo">
+                        <img src={systemInactive} alt="systems" width="100" aria-hidden="true" />
+                        <span class="f14 m-f18 opacity-30 text-center">{label.systemsLbl}</span>
+                     </div>
+                  </a>
+               </li>
+            </template>
+         </template>
+
+         <template if:true={prodflag}>
+            <!-- Sidebar - Products Active -->
+            <template if:true={products}>
+               <li class="nav-item active">
+                  <a class="sidebar-brand d-flex align-items-center justify-content-start justify-content-lg-center text-capitalize"
+                     href={productURL} aria-current="page">
+                     <div class="sidebar-brand-text mx-lg-3 mlogo">
+                        <img src={productActive} alt="products" width="100" aria-hidden="true" />
+                        <span class="f14 m-f18 opacity-90 text-center">{label.productsLbl}</span>
+                     </div>
+                  </a>
+               </li>
+            </template>
+            <!-- Sidebar - Products InActive -->
+            <template if:false={products}>
+               <li class="nav-item" data-img-active={productActive} data-img-inactive={productInactive}>
+                  <a class="sidebar-brand d-flex align-items-center justify-content-start justify-content-lg-center text-capitalize"
+                     href={productURL}>
+                     <div class="sidebar-brand-text mx-lg-3 mlogo">
+                        <img src={productInactive} alt="products" width="100" aria-hidden="true" />
+                        <span class="f14 m-f18 opacity-30 text-center">{label.productsLbl}</span>
+                     </div>
+                  </a>
+               </li>
+            </template>
+         </template>
+
+         <template if:true={selfRegflag}>
+            <!-- Sidebar - contracts Active -->
+            <template if:true={contracts}>
+               <li class="nav-item active">
+                  <a class="sidebar-brand d-flex align-items-center justify-content-start justify-content-lg-center text-capitalize"
+                     href={contractUrl} aria-current="page">
+                     <div class="sidebar-brand-text mx-lg-3 mlogo">
+                        <img src={contractActive} alt="Contracts" width="100" aria-hidden="true" />
+                        <span class="f14 m-f18 opacity-90 text-center">Contracts</span>
+                     </div>
+                  </a>
+               </li>
+            </template>
+            <!-- Sidebar - contracts InActive -->
+            <template if:false={contracts}>
+               <li class="nav-item" data-img-active={contractActive} data-img-inactive={contractInactive}>
+                  <a class="sidebar-brand d-flex align-items-center justify-content-start justify-content-lg-center text-capitalize"
+                     href={contractUrl}>
+                     <div class="sidebar-brand-text mx-lg-3 mlogo">
+                        <img src={contractInactive} alt="Contracts" width="100" aria-hidden="true" />
+                        <span class="f14 m-f18 opacity-30 text-center">Contracts</span>
+                     </div>
+                  </a>
+               </li>
+            </template>
+         </template>
+         <!--<li class="divider-line" aria-hidden="true"></li>-->
+         <template if:true={dcSearch}>
+            <li class="nav-item active sRequest pb-3">
+               <a class="sidebar-brand" href={dcURL}>
+                  <div
+                     class="sidebar-brand-text mx-lg-3 mlogo d-flex align-items-center justify-content-start justify-content-lg-center ">
+                     <img src={dcActive} alt="Documents & Certificates" width="100" aria-hidden="true" />
+                  </div>
+                  <span class="f14 m-f18 opacity-90 text-center d-inline-block pt-1">Documents & Certificates</span>
+               </a>
+            </li>
+         </template>
+         <template if:false={dcSearch}>
+            <li class="nav-item sRequest pb-3" data-img-active={dcActive} data-img-inactive={dcInactive}>
+               <a class="sidebar-brand" href={dcURL}>
+                  <div
+                     class="sidebar-brand-text mx-lg-3 mlogo d-flex align-items-center justify-content-start justify-content-lg-center ">
+                     <img src={dcInactive} alt="Documents & Certificates" width="100" aria-hidden="true" />
+                  </div>
+                  <span class="f14 m-f18 opacity-30 text-center d-inline-block pt-1">Documents & Certificates</span>
+               </a>
+            </li>
+         </template>
+         <template if:true={serviceRequest}>
+            <li class="nav-item active sRequest pb-3">
+               <a class="sidebar-brand" href={serviceURL}>
+                  <div
+                     class="sidebar-brand-text mx-lg-3 mlogo d-flex align-items-center justify-content-start justify-content-lg-center ">
+                     <img src={serviceActive} alt="Service Request and Inquiries" width="100" aria-hidden="true" />
+                  </div>
+                  <span class="f14 m-f18 opacity-90 text-center d-inline-block pt-1">{label.servReqInqLbl}</span>
+               </a>
+            </li>
+         </template>
+         <template if:false={serviceRequest}>
+            <li class="nav-item sRequest pb-3" data-img-active={serviceActive} data-img-inactive={serviceInactive}>
+               <a class="sidebar-brand" href={serviceURL}>
+                  <div
+                     class="sidebar-brand-text mx-lg-3 mlogo d-flex align-items-center justify-content-start justify-content-lg-center ">
+                     <img src={serviceInactive} alt="Service Request and Inquiries" width="100" aria-hidden="true" />
+                  </div>
+                  <span class="f14 m-f18 opacity-30 text-center d-inline-block pt-1">{label.servReqInqLbl}</span>
+               </a>
+            </li>
+         </template>
+
+
+      </ul>
+   </nav>
+</template>

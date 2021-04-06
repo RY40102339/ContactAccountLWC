@@ -1,0 +1,89 @@
+<!--
+*******************************************************************************************************
+* (C) Copyright 2020 Yokogawa. All rights reserved.
+* This code is property of Yokogawa. Use, duplication and
+* disclosure in any form without permission of copyright holder is prohibited.
+* 
+******************************************************************************************************* 
+* @author Selvaraj Thangaraj
+* @version 1.0
+* @created 05/08/2020
+* @description 
+* This component is used for the filter functionality in UI.
+*
+* *
+*  Change History:
+*  MM/DD/YYYY			Developer Name			Comments
+*  07/29/2020           Selvaraj T              Updated filter logic for station details page
+*  09/17/2020           Jayaprasath             updated role condition for manage colleagues page
+*  10/21/2020           Selvaraj T              removed the hardware,software and maintenance phase related codes
+*-->
+
+<template>
+    <div class="row ml-0 d-none d-sm-block">
+        <template if:false={manageColleagues}>
+            <div class="section col-lg-12">
+                <div class="row section-filter sm-102vw ml-0">
+                    <!--<img class="filter" alt="filter" src={filterIcon} />-->
+                    <template if:true={products}>
+                        <!-- <i class="fas fa-filter"></i> -->
+                        <div class="col-12 pl-0 all-product-filter-box">
+                            <c-yg-look-up page-name={pgeName} place-holder={placeholder}></c-yg-look-up>
+                        </div>
+                    </template>
+                    <template if:true={prodCategory}>
+                        <!-- <i class="fas fa-filter"></i> -->
+                        <c-yg-look-up cat-name={prodCatName} page-name={pgeName} place-holder={placeholder}></c-yg-look-up>
+                    </template>
+                    <template if:true={systems}>
+                        <!-- <i class="fas fa-filter"></i> -->
+                        <c-yg-look-up is-true={systems} page-name={pgeName} place-holder={placeholder}></c-yg-look-up>
+                    </template>
+                    <template if:true={stationDetails}>
+                        <!-- <i class="fas fa-filter"></i> -->
+                        <c-yg-look-up system-id={systemId} cat-name={statName} page-name={pgeName}
+                            place-holder={placeholder}></c-yg-look-up>
+                    </template>
+                    <template if:true={productDetail}>
+                        <!-- <i class="fas fa-filter"></i> -->
+                        <c-yg-look-up cat-name={modelCode} page-name={pgeName} place-holder={placeholder}></c-yg-look-up>
+                    </template>
+                    <template if:true={allServiceRequest}>
+                        <!-- <i class="fas fa-filter"></i> -->
+                        <c-yg-look-up page-name={pgeName} place-holder={placeholder}></c-yg-look-up>
+                    </template>
+                    <template if:true={allContracts}>
+                        <!-- <i class="fas fa-filter"></i> -->
+                        <div class="col-12 pl-0 all-contracts-filter-box">
+                            <c-yg-look-up page-name={pgeName} place-holder={placeholder}></c-yg-look-up>
+                        </div>
+                    </template>
+                    <template if:true={softwareLicenses}>
+                        <!-- <i class="fas fa-filter"></i> -->
+                        <div class="col-12 pl-0 sl-service-request">
+                            <c-yg-look-up page-name={pgeName} place-holder={placeholder}></c-yg-look-up>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </template>
+        <template if:true={roleFlag}>
+            <template if:true={manageColleagues}>
+                <div class="section col-lg-6 pr-0 d-md-inline-block">
+                    <div class="row section-filter sm-93vw ml-0">
+                        <div class="col-lg-12 pl-0 d-lg-flex">
+                            <div class="col-12 pl-0">
+                                <c-yg-look-up page-name={pgeName} place-holder={placeholder}></c-yg-look-up>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 pl-0 pr-5 d-md-inline-block">
+                    <div class="col-lg-12 text-lg-right service-request mInviteColleagues-btn">
+						<button type="button" onclick={inviteYourColleagues} class="btn bg-white blue-primary btn-primary text-uppercase f12 noto-font ft-weight-800">{label.inviteColleaguesLbl}</button>
+					</div>
+                </div>
+            </template>
+        </template>
+    </div>
+</template>

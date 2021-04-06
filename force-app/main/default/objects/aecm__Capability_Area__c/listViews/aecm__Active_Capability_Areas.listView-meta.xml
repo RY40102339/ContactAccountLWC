@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>aecm__Active_Capability_Areas</fullName>
+    <columns>NAME</columns>
+    <columns>aecm__Capability_Domain__c</columns>
+    <columns>aecm__Capability_Count__c</columns>
+    <columns>aecm__Capability_Maturity_Status__c</columns>
+    <columns>aecm__Overall_Score__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>aecm__Active__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>Active Capability Areas</label>
+</ListView>

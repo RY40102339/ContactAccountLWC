@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Role xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseAccessLevel>Edit</caseAccessLevel>
+    <contactAccessLevel>Edit</contactAccessLevel>
+    <description>Self Register Users 顧客 マネージャ</description>
+    <mayForecastManagerShare>false</mayForecastManagerShare>
+    <name>Self Register Users 顧客 マネージャ</name>
+    <opportunityAccessLevel>None</opportunityAccessLevel>
+    <parentRole>Customer_Portal_Developer</parentRole>
+</Role>

@@ -1,0 +1,92 @@
+@media only screen and (max-width: 800px) {
+	
+	/* Force table to not be like tables anymore */
+	.manageColleagues-dtTable table, 
+	.manageColleagues-dtTable thead, 
+	.manageColleagues-dtTable tbody, 
+	.manageColleagues-dtTable th, 
+	.manageColleagues-dtTable td, 
+	.manageColleagues-dtTable tr { 
+		display: block; 
+	}
+ 
+	/* Hide table headers (but not display: none;, for accessibility) */
+	.manageColleagues-dtTable thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+ 
+	.manageColleagues-dtTable td { 
+		/* Behave  like a "row" */
+		border: none;
+		position: relative;
+		padding: 1.0rem 0.75rem 1.0rem 6.5rem;
+		white-space: normal;
+        text-align:left;
+        font-family: Noto Sans;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        color: #313538;
+    }
+	.manageColleagues-dtTable td:before { 
+		/* Now like a table header */
+		position: absolute;
+		left: 0;
+		width: 25%; 
+		white-space: pre-wrap;
+        text-align:left;
+        font-family: Noto Sans;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 12px;
+        color: #6A747B;
+	}
+    .manageColleagues-dtTable tbody tr{
+        padding: 0 !important;
+    }
+    .manageColleagues-dtTable tr.odd:hover, .manageColleagues-dtTable tr.even:hover {
+        background: #fff;
+        cursor: default;
+    }
+	/*
+	Label the data
+	*/
+    .manageColleagues-dtTable td:before{ 
+        content: attr(data-title) !important; 
+        position: absolute;
+        left: 0;
+        top: 20px !important; 
+	}
+	/* .ad-links{
+		padding: 0!important;
+	}
+	.ad-links a[data-id="Set as admin"],.ad-links a[data-id="Revoke admin"] {
+		padding: 0 !important;
+		float: left !important;
+	}
+	.ad-links a[name="deactive"] {
+		float: right !important;
+	}
+	.ad-links a[data-id="Revoke admin"], .ad-links a[name="deactive"],
+	.ad-links a[data-id="Revoke admin"] i, .ad-links a[name="deactive"] i{
+		padding: 0 !important;
+	} */
+	.manage-md-pd {
+		padding:0 !important;
+	}
+}
+.manage-md-pd {
+	padding:0 6rem;
+}
+.site-name-with-icon{
+	display: flex !important;
+	margin-bottom: 8px !important;
+}
+.mc-mr-48{
+	margin-right: 48px;
+}
+.mc-mb-32{
+	margin-bottom: 32px;
+}

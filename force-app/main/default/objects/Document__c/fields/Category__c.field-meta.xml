@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Category__c</fullName>
+    <description>This field is used to store the document category based on the type selected.</description>
+    <externalId>false</externalId>
+    <label>Category</label>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Type__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Instruction Manuals</fullName>
+                <default>false</default>
+                <label>Instruction Manuals</label>
+            </value>
+            <value>
+                <fullName>Technical Information</fullName>
+                <default>false</default>
+                <label>Technical Information</label>
+            </value>
+            <value>
+                <fullName>Certificates</fullName>
+                <default>false</default>
+                <label>Certificates</label>
+            </value>
+            <value>
+                <fullName>Software</fullName>
+                <default>false</default>
+                <label>Software</label>
+            </value>
+            <value>
+                <fullName>General Specifications</fullName>
+                <default>false</default>
+                <label>General Specifications</label>
+            </value>
+            <value>
+                <fullName>Drawings</fullName>
+                <default>false</default>
+                <label>Drawings</label>
+            </value>
+            <value>
+                <fullName>FAQs</fullName>
+                <default>false</default>
+                <label>FAQs</label>
+            </value>
+            <value>
+                <fullName>Training Modules</fullName>
+                <default>false</default>
+                <label>Training Modules</label>
+            </value>
+            <value>
+                <fullName>Specifications and Functions</fullName>
+                <default>false</default>
+                <label>Specifications and Functions</label>
+            </value>
+            <value>
+                <fullName>BOM</fullName>
+                <default>false</default>
+                <label>BOM</label>
+            </value>
+            <value>
+                <fullName>Lifecycle Report</fullName>
+                <default>false</default>
+                <label>Lifecycle Report</label>
+            </value>
+            <value>
+                <fullName>Accessories</fullName>
+                <default>false</default>
+                <label>Accessories</label>
+            </value>
+            <value>
+                <fullName>Technical InformationLink</fullName>
+                <default>false</default>
+                <label>Technical InformationLink</label>
+            </value>
+            <value>
+                <fullName>Brochures</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Brochures</label>
+            </value>
+            <value>
+                <fullName>FAQ</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>FAQ</label>
+            </value>
+            <value>
+                <fullName>Installation Guide</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Installation Guide</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Document</controllingFieldValue>
+            <valueName>Instruction Manuals</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Document</controllingFieldValue>
+            <valueName>Technical Information</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Document</controllingFieldValue>
+            <valueName>Certificates</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Document</controllingFieldValue>
+            <valueName>Software</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Document</controllingFieldValue>
+            <valueName>General Specifications</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Document</controllingFieldValue>
+            <valueName>Drawings</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Resources</controllingFieldValue>
+            <valueName>FAQs</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Resources</controllingFieldValue>
+            <valueName>Training Modules</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Resources</controllingFieldValue>
+            <valueName>Specifications and Functions</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Resources</controllingFieldValue>
+            <valueName>Technical InformationLink</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SysReport</controllingFieldValue>
+            <valueName>BOM</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>SysReport</controllingFieldValue>
+            <valueName>Lifecycle Report</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Accessories</controllingFieldValue>
+            <valueName>Accessories</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

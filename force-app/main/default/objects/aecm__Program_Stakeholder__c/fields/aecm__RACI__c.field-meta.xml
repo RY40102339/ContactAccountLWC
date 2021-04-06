@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>aecm__RACI__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <inlineHelpText>Set the stakeholder&apos;s RACI, Responsible, Accountable, Consulted, Informed.</inlineHelpText>
+    <label>RACI</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>aecm__Stakeholder_RACI</valueSetName>
+    </valueSet>
+</CustomField>

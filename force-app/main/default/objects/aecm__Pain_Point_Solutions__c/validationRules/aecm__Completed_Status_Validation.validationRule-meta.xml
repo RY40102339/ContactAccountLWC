@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>aecm__Completed_Status_Validation</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+	ISPICKVAL(aecm__Solution_Design__r.aecm__Status__c ,&apos;Complete&apos;),
+	OR(
+		NOT( aecm__QA_Complete__c ),
+	 	NOT(ISPICKVAL( aecm__Status__c,&apos;Project Completed&apos;)),
+	 	IF(
+	 		ISBLANK( aecm__Program_Project__c ),
+	 	    false,
+	  		NOT(ISPICKVAL( aecm__Program_Project__r.aecm__Status__c ,&apos;Complete&apos;) )
+	 	)
+		
+	)
+	)</errorConditionFormula>
+    <errorMessage>To solve a Capability Pain Point for a completed Solution Design, the Solution Design must be related to a completed Program Project.</errorMessage>
+</ValidationRule>

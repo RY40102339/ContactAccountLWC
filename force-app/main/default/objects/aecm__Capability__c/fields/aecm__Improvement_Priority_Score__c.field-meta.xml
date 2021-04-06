@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>aecm__Improvement_Priority_Score__c</fullName>
+    <deprecated>false</deprecated>
+    <description>CASE( Improvement_Priority__c , &quot;Not Acknowledged&quot;, 1, &quot;Acknowledged Low&quot;,2, &quot;Moderate Importance&quot;,3,&quot;High Importance&quot;,4,&quot;Critical for Success&quot;,5,0)</description>
+    <externalId>false</externalId>
+    <formula>IF
+(
+AND(aecm__Active__c = True, ISPICKVAL( aecm__Improvement_Priority__c , &quot;Not Acknowledged&quot;)), 1,
+IF
+(
+AND(aecm__Active__c = True, ISPICKVAL(aecm__Improvement_Priority__c, &quot;Acknowledged Low&quot;)), 2,
+IF
+(
+AND(aecm__Active__c = True, ISPICKVAL(aecm__Improvement_Priority__c, &quot;Moderate Importance&quot;)), 3,
+IF
+(
+AND(aecm__Active__c = True, ISPICKVAL(aecm__Improvement_Priority__c, &quot;High Importance&quot;)), 4,
+IF
+(
+AND(aecm__Active__c = True, ISPICKVAL(aecm__Improvement_Priority__c, &quot;Critical for Success&quot;)), 5,
+0
+)))))
+
+/* original formula CASE( Improvement_Priority__c , &quot;Not Acknowledged&quot;, 1, &quot;Acknowledged Low&quot;,2, &quot;Moderate Importance&quot;,3,&quot;High Importance&quot;,4,&quot;Critical for Success&quot;,5,0)*/</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>based on the value selected in the picklist field &quot;Improvement Priority&quot;.  Not Acknowledged = 1, Acknowledged Low = 2, Moderate Importance = 3,High Importance = 4,Critical for Success = 5 and the default is 0</inlineHelpText>
+    <label>Improvement Priority Score</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

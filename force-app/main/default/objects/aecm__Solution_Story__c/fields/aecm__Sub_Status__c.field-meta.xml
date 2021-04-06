@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>aecm__Sub_Status__c</fullName>
+    <deprecated>false</deprecated>
+    <externalId>false</externalId>
+    <label>Sub Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>aecm__Status__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Initial</fullName>
+                <default>false</default>
+                <label>Initial</label>
+            </value>
+            <value>
+                <fullName>Pending Assumption Updates</fullName>
+                <default>false</default>
+                <label>Pending Assumption Updates</label>
+            </value>
+            <value>
+                <fullName>Pending Acceptance Criteria Updates</fullName>
+                <default>false</default>
+                <label>Pending Acceptance Criteria Updates</label>
+            </value>
+            <value>
+                <fullName>Grooming</fullName>
+                <default>false</default>
+                <label>Grooming</label>
+            </value>
+            <value>
+                <fullName>Pending Sign-Off</fullName>
+                <default>false</default>
+                <label>Pending Sign-Off</label>
+            </value>
+            <value>
+                <fullName>Awaiting Solution</fullName>
+                <default>false</default>
+                <label>Awaiting Solution</label>
+            </value>
+            <value>
+                <fullName>Review for Cancel</fullName>
+                <default>false</default>
+                <label>Review for Cancel</label>
+            </value>
+            <value>
+                <fullName>In Review</fullName>
+                <default>false</default>
+                <label>In Review</label>
+            </value>
+            <value>
+                <fullName>Accepted</fullName>
+                <default>false</default>
+                <label>Accepted</label>
+            </value>
+            <value>
+                <fullName>In Story Development</fullName>
+                <default>false</default>
+                <label>In Story Development</label>
+            </value>
+            <value>
+                <fullName>Tech Review Started</fullName>
+                <default>false</default>
+                <label>Tech Review Started</label>
+            </value>
+            <value>
+                <fullName>Business Review Started</fullName>
+                <default>false</default>
+                <label>Business Review Started</label>
+            </value>
+            <value>
+                <fullName>Pending</fullName>
+                <default>false</default>
+                <label>Pending</label>
+            </value>
+            <value>
+                <fullName>Poor Quality</fullName>
+                <default>false</default>
+                <label>Poor Quality</label>
+            </value>
+            <value>
+                <fullName>Next Year</fullName>
+                <default>false</default>
+                <label>Next Year</label>
+            </value>
+            <value>
+                <fullName>Next Epic</fullName>
+                <default>false</default>
+                <label>Next Epic</label>
+            </value>
+            <value>
+                <fullName>Next Spint</fullName>
+                <default>false</default>
+                <label>Next Spint</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Requested</controllingFieldValue>
+            <valueName>Initial</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Requested</controllingFieldValue>
+            <valueName>In Review</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Requested</controllingFieldValue>
+            <valueName>Accepted</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Backlog</controllingFieldValue>
+            <valueName>Next Year</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Backlog</controllingFieldValue>
+            <valueName>Next Epic</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Backlog</controllingFieldValue>
+            <valueName>Next Spint</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Planned</controllingFieldValue>
+            <valueName>Awaiting Solution</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Planned</controllingFieldValue>
+            <valueName>Review for Cancel</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>In Progress</controllingFieldValue>
+            <valueName>Grooming</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>In Progress</controllingFieldValue>
+            <valueName>Pending Sign-Off</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>In Progress</controllingFieldValue>
+            <valueName>In Story Development</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Blocked</controllingFieldValue>
+            <valueName>Pending Assumption Updates</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Blocked</controllingFieldValue>
+            <valueName>Pending Acceptance Criteria Updates</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Blocked</controllingFieldValue>
+            <valueName>Poor Quality</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Ready for Tech Review</controllingFieldValue>
+            <valueName>Tech Review Started</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Ready for Tech Review</controllingFieldValue>
+            <controllingFieldValue>Ready for Business Review</controllingFieldValue>
+            <valueName>Pending</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Ready for Business Review</controllingFieldValue>
+            <valueName>Business Review Started</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,46 @@
+<!--
+*******************************************************************************************************
+* (C) Copyright 2020 Yokogawa. All rights reserved.
+* This code is property of Yokogawa. Use, duplication and
+* disclosure in any form without permission of copyright holder is prohibited.
+* 
+******************************************************************************************************* 
+* @author Jayaprasath
+* @version 1.0
+* @created 09/30/2020
+* @description 
+* This component is used to redirect to overview page after login 
+*
+* *
+*  Change History:
+*  MM/DD/YYYY			Developer Name			Comments
+*  
+*  
+*
+*-->
+
+<template>
+    <template if:true={isLoading}>
+        <div class="loading">
+            <div class="loading-txt">
+                <div class="row text-center">
+                    <div class="col-lg-12">
+                        <svg width="51" height="52" viewBox="0 0 51 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M0.410156 25.1209C11.2022 31.0632 20.0171 40.1454 25.6268 51.1329L25.6109 51.1349C31.2146 40.1493 40.0255 31.0692 50.8116 25.1249L50.7937 25.1407L25.6208 0L0.434001 25.1407L0.410156 25.1209Z"
+                                fill="#FFEE00"></path>
+                        </svg>
+                    </div>
+                    <div class="col-lg-12 mt-3" style="margin-top: 1rem !important;">
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated grey-dark-bg"
+                                role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"
+                                style="width: 100%"></div>
+                        </div>
+                        <div class="txt-load">Initializing your data...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+</template>

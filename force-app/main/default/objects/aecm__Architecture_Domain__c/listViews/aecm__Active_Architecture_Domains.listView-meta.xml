@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>aecm__Active_Architecture_Domains</fullName>
+    <columns>NAME</columns>
+    <columns>aecm__Related_Capabilities__c</columns>
+    <columns>aecm__Strategies__c</columns>
+    <columns>aecm__Description__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>aecm__Active__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>Active Architecture Domains</label>
+</ListView>

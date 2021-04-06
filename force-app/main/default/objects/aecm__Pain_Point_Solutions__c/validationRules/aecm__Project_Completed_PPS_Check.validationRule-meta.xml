@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>aecm__Project_Completed_PPS_Check</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+ISCHANGED(aecm__Status__c),
+ISPICKVAL(aecm__Program_Project__r.aecm__Status__c,&apos;Complete&apos;),
+NOT(ISPICKVAL( aecm__Status__c,&apos;Project Completed&apos;))
+)</errorConditionFormula>
+    <errorMessage>This Pain Point Solution is associated with a completed Program Project. You must change this association if you wish to change the status.</errorMessage>
+</ValidationRule>

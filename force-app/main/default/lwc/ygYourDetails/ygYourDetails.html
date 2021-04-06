@@ -1,0 +1,48 @@
+<!--
+*******************************************************************************************************
+* (C) Copyright 2020 Yokogawa. All rights reserved.
+* This code is property of Yokogawa. Use, duplication and
+* disclosure in any form without permission of copyright holder is prohibited.
+* 
+******************************************************************************************************* 
+* @author Selvaraj Thangaraj
+* @version 1.0
+* @created 08/18/2020
+* @description 
+* This component is used for displaying the contact details of customer.
+*
+* *
+*  Change History:
+*  MM/DD/YYYY			Developer Name			Comments
+*  
+*
+*-->
+
+<template>
+    <div class="row mb-72">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-11 mb-4 mt-lg-5 m-l-r-12">
+            <h2 tabindex="0" role="heading" aria-level="2" class="noto-font f20 mb-4">
+                <span class="notification f20 ft-weight-800">
+                    <span>{label.yourDetailsLbl}</span>
+                </span>
+            </h2>
+            <table class="table table-borderless prod-info">
+                <tbody>
+                    <tr class="f12">
+                        <th class="grey-dark-color font-weight-normal pt-0">{label.nameLbl}</th>
+                    </tr>
+                    <tr class="f14 fbold">
+                        <td class="grey-darkest">{name}</td>
+                    </tr>
+                    <tr class="f12">
+                        <th class="grey-dark-color font-weight-normal">{label.titleLbl}</th>
+                    </tr>
+                    <tr class="f14 fbold">
+                        <td class="grey-darkest">{title}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</template>

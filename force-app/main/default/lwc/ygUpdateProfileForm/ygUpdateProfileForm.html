@@ -1,0 +1,265 @@
+<template>
+    <div class="row">
+        <div class="section-update-profile">
+            <div class="col-lg-12">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="row">
+                            <div class="col-lg-7">
+                                <div class="row">
+                                    <div class="col-lg-12 mb-4 profile-image__content">
+                                        <span class="chart-divider profile-user-img">
+                                            <img src={profileImg} alt="Profile image">
+                                        </span>
+                                        <template if:true={userRoleFlag}>
+                                            <span class="grey-light text-center user-role-flag">
+                                                <span class="blue-primary f10 fbold user-role-text">{userRole}</span>
+                                            </span>
+                                        </template>
+                                        <span class="user-img-choose">
+                                            <div class="f12 alert-orange msg"></div>
+                                            <input type="file" name="fileUploader" class="fileUpload d-none"
+                                                onchange={handleFilesChange} />
+                                            <a href="javascript:void(0)" onclick={triggerFile}
+                                                class="d-block grey-darkest text-hover-color f12">
+                                                <ins>Choose a new image</ins>
+                                            </a>
+                                            <span class="grey-dark f12 noto-font">
+                                                <span class="f12 font-weight-normal">(Acceptable format jpg or
+                                                    png / Max. size 2.5 MB)</span>
+                                            </span>
+                                        </span>
+                                    </div>
+                                    <div class="form-group row col-lg-12 service-request">
+                                        <div class="col-lg-12">
+                                            <label for="fName" class="f14 fbold grey-darkest">
+                                                First name
+                                            </label>
+                                        </div>
+                                        <div class="col-lg-10 text-center text-lg-left">
+                                            <input onchange={getProfileInfo} data-id="FirstName" type="text"
+                                                class="form-control sm-93vw" name="fName"
+                                                value={prePopContact.FirstName} placeholder="" onkeyup={hideError}>
+                                            <div class="fname-err f14 mt-2 alert-orange"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row col-lg-12 service-request">
+                                        <div class="col-lg-12">
+                                            <label for="lName" class="f14 fbold grey-darkest">
+                                                Last name
+                                            </label>
+                                        </div>
+                                        <div class="col-lg-10 text-center text-lg-left">
+                                            <input onchange={getProfileInfo} type="text" data-id="LastName"
+                                                class="form-control sm-93vw" name="lName" value={prePopContact.LastName}
+                                                placeholder="" onkeyup={hideError}>
+                                            <div class="lname-err f14 mt-2 alert-orange"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row col-lg-12 service-request">
+                                        <div class="col-lg-12">
+                                            <label for="wEmail" class="f14 fbold grey-darkest">
+                                                Work email
+                                            </label>
+                                        </div>
+                                        <div class="col-lg-10 text-center text-lg-left">
+                                            <input type="text" data-id="Email" class="form-control sm-93vw"
+                                                name="wEmail" value={prePopContact.Email} placeholder=""
+                                                onkeyup={hideError} readonly>
+                                            <div class="wemail-err f14 mt-2 alert-orange"></div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row col-lg-12 service-request">
+                                        <div class="col-lg-12">
+                                            <label for="wEmail" class="f14 fbold grey-darkest">
+                                                Phone no.
+                                            </label>
+                                        </div>
+                                        <div class="col-lg-10 text-center text-lg-left">
+                                            <input onchange={getProfileInfo} data-id="Phone" type="text"
+                                                class="form-control sm-93vw" name="phoneNo" value={prePopContact.Phone}
+                                                placeholder="" onkeyup={hideError}>
+                                            <div class="phone-err f14 mt-2 alert-orange"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 mb-5 p-0 d-none">
+                                        <div class="notification f20 mb-3 p-0">
+                                            <div class="col-lg-11 pr-0 pd-rt">
+                                                <span class="fbold">Newsletter preference
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 text-left manage-colleague-checkbox mb-2">
+                                            <input onchange={getProfileInfo} data-id="Newsletter1_Subscription__c"
+                                                type="checkbox" id="letter1"
+                                                checked={prePopContact.Newsletter1_Subscription__c}>
+                                            <label for="letter1"
+                                                class="checkbox-inline noto-font f14 grey-darkest font-weight-normal">
+                                                <span>Subscribe to Yokogawa newsletter 1</span>
+                                            </label>
+                                        </div>
+                                        <div class="col-lg-12 text-left manage-colleague-checkbox mb-2">
+                                            <input onchange={getProfileInfo} data-id="Newsletter2_Subscription__c"
+                                                type="checkbox" id="letter2"
+                                                checked={prePopContact.Newsletter2_Subscription__c}>
+                                            <label for="letter2"
+                                                class="checkbox-inline noto-font f14 grey-darkest font-weight-normal">
+                                                <span>Subscribe to Yokogawa newsletter 2</span>
+                                            </label>
+                                        </div>
+                                        <div class="col-lg-12 text-left manage-colleague-checkbox mb-2">
+                                            <input onchange={getProfileInfo} data-id="Newsletter3_Subscription__c"
+                                                type="checkbox" id="letter3"
+                                                checked={prePopContact.Newsletter3_Subscription__c}>
+                                            <label for="letter3"
+                                                class="checkbox-inline noto-font f14 grey-darkest font-weight-normal">
+                                                <span>Subscribe to Yokogawa newsletter 3</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 mb-5 p-0 d-none">
+                                        <div class="notification f20 mb-3 p-0">
+                                            <div class="col-lg-11 pr-0 pd-rt">
+                                                <span class="fbold">Email preference
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 text-left manage-colleague-checkbox mb-2">
+                                            <input onchange={getProfileInfo} data-id="Contract_Subscription__c"
+                                                type="checkbox" id="conExpSoon"
+                                                checked={prePopContact.Contract_Subscription__c}>
+                                            <label for="conExpSoon"
+                                                class="checkbox-inline noto-font f14 grey-darkest font-weight-normal">
+                                                <span>Contracts expiring soon</span>
+                                            </label>
+                                        </div>
+                                        <div class="col-lg-12 text-left manage-colleague-checkbox mb-2">
+                                            <input onchange={getProfileInfo} data-id="Service_Request_Subscription__c"
+                                                type="checkbox" id="serReqUpdates"
+                                                checked={prePopContact.Service_Request_Subscription__c}>
+                                            <label for="serReqUpdates"
+                                                class="checkbox-inline noto-font f14 grey-darkest font-weight-normal">
+                                                <span>Service request updates</span>
+                                            </label>
+                                        </div>
+                                        <div class="col-lg-12 text-left manage-colleague-checkbox mb-2">
+                                            <input onchange={getProfileInfo} data-id="Software_Request_Subscription__c"
+                                                type="checkbox" id="srRelease"
+                                                checked={prePopContact.Software_Request_Subscription__c}>
+                                            <label for="srRelease"
+                                                class="checkbox-inline noto-font f14 grey-darkest font-weight-normal">
+                                                <span>Software release/update available</span>
+                                            </label>
+                                        </div>
+                                        <div class="col-lg-12 text-left manage-colleague-checkbox mb-2">
+                                            <input onchange={getProfileInfo} data-id="Calibration_Subscription__c"
+                                                type="checkbox" id="calibration"
+                                                checked={prePopContact.Calibration_Subscription__c}>
+                                            <label for="calibration"
+                                                class="checkbox-inline noto-font f14 grey-darkest font-weight-normal">
+                                                <span>Calibration recommended</span>
+                                            </label>
+                                        </div>
+                                        <div class="col-lg-12 text-left manage-colleague-checkbox mb-2">
+                                            <input onchange={getProfileInfo} data-id="Profile_Update_Subscription__c"
+                                                type="checkbox" id="prfChange"
+                                                checked={prePopContact.Profile_Update_Subscription__c}>
+                                            <label for="prfChange"
+                                                class="checkbox-inline noto-font f14 grey-darkest font-weight-normal">
+                                                <span>Personal profile changes</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row col-lg-12 service-request mb-5">
+                                        <div class="col-lg-12">
+                                            <div class="col-lg-10 p-0 service-request">
+                                                <button onclick={updateContactData} type="button"
+                                                    class="btn btn-primary text-uppercase f14 ft-weight-800 w-100">
+                                                    {saveBtn}
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-5">
+                                <c-yg-update-profile-sites></c-yg-update-profile-sites>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Use template if:true to display/hide popup based on isDeactivateModalOpen value-->
+    <template if:true={confirmModalOpen}>
+        <!-- Modal/Popup Box LWC starts here -->
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+            aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open request-detail">
+            <div class="slds-modal__container">
+                <!-- Modal/Popup Box LWC header here -->
+                <header class="slds-modal__header h-60 border-0 rounded-0">
+                    <button
+                        class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse border-0 shadow-none"
+                        title="Close" onclick={closeModal}>
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 8L24 24M40 40L24 24M24 24L40 8L8 40" stroke="#004F9B" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                        <span class="slds-assistive-text">{label.closeLbl}</span>
+                    </button>
+                </header>
+                <!-- Modal/Popup Box LWC body starts here -->
+                <div class="slds-modal__content slds-var-p-around_medium radius-0" id="modal-content-id-2">
+                    <div class="row">
+                        <div class="col-md-6 offset-md-3 p-0">
+                            <div class="col-md-12">
+                                <div class="col-md-12 align-items-center">
+                                    <div class="row mb-lg-5 text-center d-sm-block">
+                                        <div class="col-lg-12 mb-3">
+                                            <div class="row">
+                                                <div class="col-lg-12 p-0">
+                                                    <h2 role="heading" class="noto-font blue-primary f20 mb-0">
+                                                        <span class="f20 ft-weight-800">
+                                                            <span>Confirm your email address</span>
+                                                        </span>
+                                                    </h2>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 mb-5">
+                                            <div class="row">
+                                                <div class="col-lg-12 mb-3">
+                                                    <span class="f14 font-weight-normal grey-darkest text-nowrap">
+                                                        A confirmation email has been sent to {emailText}
+
+                                                    </span>
+                                                </div>
+                                                <div class="col-lg-12">
+                                                    <span class="f14 fbold grey-darkest text-nowrap">
+                                                        Click on the link in the email to verify your email
+                                                        address.
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 pt-2 mb-4">
+                                            <div class="text-center">
+                                                <button type="button" onclick={closeModal} style="width:130px"
+                                                    class="btn bg-white blue-primary btn-primary text-uppercase f12 noto-font ft-weight-900">OK</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+    <!-- </template> -->
+</template>
