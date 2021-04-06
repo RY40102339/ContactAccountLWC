@@ -42,6 +42,7 @@ $RECYCLE.BIN/
 
 # Temporary build Folders
 package/
+manifest/
 
 # Other Stuff?
 selenium-client-jars/
