@@ -75,43 +75,6 @@
         <fields>ACCOUNT.INDUSTRY</fields>
         <relatedList>Account.Industry__c</relatedList>
     </relatedLists>
-    <relatedLists>
-        <fields>FULL_NAME</fields>
-        <fields>ACCOUNT.NAME</fields>
-        <fields>CONTACT.ADDRESS2_CITY</fields>
-        <fields>CONTACT.ADDRESS2_COUNTRY_CODE</fields>
-        <fields>CONTACT.PHONE1</fields>
-        <fields>CONTACT.PHONE3</fields>
-        <fields>CONTACT.EMAIL</fields>
-        <fields>CORE.USERS.LAST_NAME</fields>
-        <fields>CONTACT_FIRST_NAME_LOCAL</fields>
-        <fields>CONTACT_LAST_NAME_LOCAL</fields>
-        <relatedList>Contact.Industry__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>FULL_NAME</fields>
-        <fields>LEAD.COMPANY</fields>
-        <fields>LEAD.RATING</fields>
-        <fields>LEAD.STATUS</fields>
-        <fields>LEAD.LEAD_SOURCE</fields>
-        <fields>CORE.USERS.FIRST_NAME</fields>
-        <fields>CORE.USERS.LAST_NAME</fields>
-        <fields>LEAD.CREATED_DATE</fields>
-        <fields>LEAD.LAST_ACTIVITY</fields>
-        <fields>LEAD.COUNTRY_CODE</fields>
-        <relatedList>Lead.Industry__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>OPPORTUNITY.NAME</fields>
-        <fields>Oppportunity_Id__c</fields>
-        <fields>ACCOUNT.NAME</fields>
-        <fields>OPPORTUNITY.RECORDTYPE</fields>
-        <fields>End_User_Country__c</fields>
-        <fields>OPPORTUNITY.STAGE_NAME</fields>
-        <fields>CORE.USERS.FULL_NAME</fields>
-        <fields>OPPORTUNITY.CLOSE_DATE</fields>
-        <relatedList>Opportunity.Industry__c</relatedList>
-    </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>
     <showInteractionLogPanel>false</showInteractionLogPanel>
