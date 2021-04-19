@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>City_Local__c</fullName>
-    <description>Company City in Local Language</description>
+    <fullName>VAT_Number__c</fullName>
+    <description>Company&apos;s VAT Number</description>
     <externalId>false</externalId>
-    <inlineHelpText>Company City in Local Language</inlineHelpText>
-    <label>City (Local)</label>
+    <label>VAT Number</label>
     <length>255</length>
     <required>false</required>
     <trackFeedHistory>false</trackFeedHistory>
-    <trackHistory>false</trackHistory>
+    <trackHistory>true</trackHistory>
     <type>Text</type>
     <unique>false</unique>
 </CustomField>
