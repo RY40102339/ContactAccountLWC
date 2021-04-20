@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>GDPR_Related_Country__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Identify if the country is a EEA country or not</description>
+    <externalId>false</externalId>
+    <label>GDPR Related Country</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

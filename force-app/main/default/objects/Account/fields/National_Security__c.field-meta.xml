@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>National_Security__c</fullName>
+    <description>Any imposed law that the company fall in</description>
+    <externalId>false</externalId>
+    <label>National Security</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>GDPR</fullName>
+                <default>false</default>
+                <label>GDPR</label>
+            </value>
+            <value>
+                <fullName>PDPA</fullName>
+                <default>false</default>
+                <label>PDPA</label>
+            </value>
+            <value>
+                <fullName>TCAS</fullName>
+                <default>false</default>
+                <label>TCAS</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>
