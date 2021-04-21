@@ -9788,7 +9788,7 @@
         <name>ImportLeads</name>
     </userPermissions>
     <userPermissions>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
         <name>ImportPersonal</name>
     </userPermissions>
     <userPermissions>
