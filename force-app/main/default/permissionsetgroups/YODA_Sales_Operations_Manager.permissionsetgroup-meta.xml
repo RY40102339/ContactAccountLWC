@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSetGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Permission Set Group for the &quot;Sales Operations Manager&quot; persona of the YODA program.</description>
+    <label>YODA Sales Operations Manager</label>
+    <permissionSets>Account_Edit</permissionSets>
+    <permissionSets>Contact_Edit</permissionSets>
+    <permissionSets>Lead_Edit</permissionSets>
+    <permissionSets>Opportunity_Edit</permissionSets>
+    <permissionSets>System_Customize_Application</permissionSets>
+    <permissionSets>System_Import_Custom_Objects</permissionSets>
+    <permissionSets>System_View_Setup_and_Configuration</permissionSets>
+    <status>Updated</status>
+</PermissionSetGroup>
