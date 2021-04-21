@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSetGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Permission Set Group for the &quot;Proposal Engineer&quot; persona of the YODA program.</description>
+    <label>YODA Proposal Engineer</label>
+    <permissionSets>Account_Edit</permissionSets>
+    <permissionSets>Contact_Edit</permissionSets>
+    <permissionSets>Opportunity_Create</permissionSets>
+    <permissionSets>Opportunity_Edit</permissionSets>
+    <status>Updated</status>
+</PermissionSetGroup>

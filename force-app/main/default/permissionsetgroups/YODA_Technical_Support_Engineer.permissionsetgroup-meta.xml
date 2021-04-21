@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSetGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Permission Set Group for the &quot;Technical Support Engineer&quot; persona of the YODA program.</description>
+    <label>YODA Technical Support Engineer</label>
+    <permissionSets>Account_Edit</permissionSets>
+    <permissionSets>Asset_Edit</permissionSets>
+    <permissionSets>Case_Create</permissionSets>
+    <permissionSets>Case_Edit</permissionSets>
+    <permissionSets>Contact_Edit</permissionSets>
+    <permissionSets>Lead_Create</permissionSets>
+    <permissionSets>Lead_Edit</permissionSets>
+    <permissionSets>Work_Order_Create</permissionSets>
+    <permissionSets>Work_Order_Edit</permissionSets>
+    <status>Updated</status>
+</PermissionSetGroup>
