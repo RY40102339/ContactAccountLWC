@@ -233,6 +233,10 @@
         <readable>true</readable>
     </fieldPermissions>
     <layoutAssignments>
+        <layout>Account-YODA Account Layout</layout>
+        <recordType>Account.Account</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Industry_Code__c-Industry Code Layout</layout>
     </layoutAssignments>
     <objectPermissions>
