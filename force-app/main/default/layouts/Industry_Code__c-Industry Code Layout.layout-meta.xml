@@ -73,6 +73,7 @@
         <fields>CORE.USERS.LAST_NAME</fields>
         <fields>Status__c</fields>
         <fields>Industry__c</fields>
+        <relatedList>Account.Industry__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>FULL_NAME</fields>
