@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSetGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Permission Set Group for the &quot;Marketing Specialist&quot; persona of the YODA program.</description>
+    <label>YODA Marketing Specialist</label>
+    <permissionSets>Account_Create</permissionSets>
+    <permissionSets>Campaign_Create</permissionSets>
+    <permissionSets>Campaign_Edit</permissionSets>
+    <permissionSets>Contact_Create</permissionSets>
+    <permissionSets>Lead_Create</permissionSets>
+    <status>Updated</status>
+</PermissionSetGroup>

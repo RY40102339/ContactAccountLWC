@@ -56,10 +56,6 @@ package.xml
 **/objects/NamespaceRegistry*
 **/settings/DevHub*
 
-# Default case layout includes an invalid field:SOLUTION.ISSUE in RelatedSolutionList
-# Remove the relatedlist for RelatedSolutionList from the case page layout before enabling this
-**/layouts/Case-Case Layout*
-
 # This default list view has a name that is too long
 **/objects/CommSubscriptionChannelType/listViews/All_CommSubscriptionChannelTypes*
 
@@ -92,9 +88,6 @@ package.xml
 
 # ManagedContentType is not supported by the api
 **/ManagedContentType/*
-
-# Profiles are ignored by default until QuickText tab issue is resolved.
-**/profiles/*
 
 # SAML configuration are a special case and should be handled uniquely.
 **/samlssoconfigs/*
