@@ -64,18 +64,6 @@
         <style>CustomLinks</style>
     </layoutSections>
     <relatedLists>
-        <fields>ACCOUNT.NAME</fields>
-        <fields>ACCOUNT.PHONE1</fields>
-        <fields>ACCOUNT.ADDRESS2_CITY</fields>
-        <fields>ACCOUNT.ADDRESS2_ZIP</fields>
-        <fields>ACCOUNT.ADDRESS2_COUNTRY_CODE</fields>
-        <fields>CORE.USERS.FIRST_NAME</fields>
-        <fields>CORE.USERS.LAST_NAME</fields>
-        <fields>Status__c</fields>
-        <fields>Industry__c</fields>
-        <relatedList>Account.Industry__c</relatedList>
-    </relatedLists>
-    <relatedLists>
         <fields>FULL_NAME</fields>
         <fields>ACCOUNT.NAME</fields>
         <fields>CONTACT.ADDRESS2_CITY</fields>
