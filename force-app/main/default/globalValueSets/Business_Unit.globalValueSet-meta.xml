@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Material SBU</fullName>
+        <default>false</default>
+        <label>Material SBU</label>
+    </customValue>
+    <customValue>
+        <fullName>Life SBU</fullName>
+        <default>false</default>
+        <label>Life SBU</label>
+    </customValue>
+    <customValue>
+        <fullName>Products HQ</fullName>
+        <default>false</default>
+        <label>Products HQ</label>
+    </customValue>
+    <customValue>
+        <fullName>Digital Solutions HQ</fullName>
+        <default>false</default>
+        <label>Digital Solutions HQ</label>
+    </customValue>
+    <customValue>
+        <fullName>YMI SBU</fullName>
+        <default>false</default>
+        <label>YMI SBU</label>
+    </customValue>
+    <customValue>
+        <fullName>Aerospace &amp; New Business SBU</fullName>
+        <default>false</default>
+        <label>Aerospace &amp; New Business SBU</label>
+    </customValue>
+    <description>Business Units for Yokogawa</description>
+    <masterLabel>Business Unit</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>
