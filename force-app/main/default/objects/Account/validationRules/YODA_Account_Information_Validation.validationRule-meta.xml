@@ -9,7 +9,7 @@
  OR(
   ISBLANK( ShippingCity ),
   ISBLANK( ShippingPostalCode ),
-  ISBLANK( ShippingCountry ) 
+  ISBLANK( ShippingCountry )
  )
 )</errorConditionFormula>
     <errorMessage>Please ensure to populate the Visit Address.</errorMessage>
