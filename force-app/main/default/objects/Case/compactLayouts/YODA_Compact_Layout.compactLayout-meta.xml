@@ -5,6 +5,7 @@
     <fields>CaseNumber</fields>
     <fields>AccountId</fields>
     <fields>RecordTypeId</fields>
+    <fields>Product_Category__c</fields>
     <fields>Status</fields>
     <fields>Priority</fields>
     <fields>OwnerId</fields>

@@ -1,36 +1,17 @@
 image: 'appirio/dx:beta'
 stages:
-  - cleanup
   - quality_scan
   - deploy
   - validate
-  - merge_request
 sonarqube_scan:
   stage: quality_scan
   script:
     - >-
       sonar-scanner-ee -Dsonar.login=$SONAR_LOGIN -Dsonar.qualitygate.wait=true
       -Dsonar.qualitygate.timeout=300
-  except:
-    - tags
-    - schedules
-sonarqube_merge_request_scan:
-  stage: quality_scan
-  script:
-    - git fetch origin $CI_MERGE_REQUEST_TARGET_BRANCH_NAME
-    - >-
-      sonar-scanner-ee -Dsonar.login=$SONAR_LOGIN -Dsonar.qualitygate.wait=true
-      -Dsonar.qualitygate.timeout=300
   only:
-    - merge_requests
-cleanup:
-  stage: cleanup
-  variables:
-    GIT_STRATEGY: clone
-  script:
-    - 'adx ci:shell --script cleanUp.sh --arguments master'
-  only:
-    - schedules
+    - QA
+    - UAT
 validate_against_QA:
   stage: validate
   cache: &ref_0
