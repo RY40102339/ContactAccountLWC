@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>Gigya_UID__c</fullName>
-    <description>GIGYA Unique ID</description>
+    <fullName>Software__c</fullName>
+    <description>This field is used to store the Software details</description>
     <externalId>false</externalId>
-    <label>Gigya_UID</label>
-    <length>255</length>
-    <required>false</required>
+    <label>Software</label>
+    <length>32768</length>
     <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>false</trackHistory>
-    <type>Text</type>
-    <unique>false</unique>
+    <type>Html</type>
+    <visibleLines>25</visibleLines>
 </CustomField>
