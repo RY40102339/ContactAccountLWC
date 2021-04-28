@@ -583,6 +583,18 @@
         <recordType>Case.Technical_Support</recordType>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Opportunity-YODA Product Layout</layout>
+        <recordType>Opportunity.Product</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Opportunity-YODA Project Layout</layout>
+        <recordType>Opportunity.Project</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Opportunity-YODA Recurring Business Layout</layout>
+        <recordType>Opportunity.Recurring_Business</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Industry_Code__c-Industry Code Layout</layout>
     </layoutAssignments>
     <objectPermissions>
@@ -619,6 +631,21 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Case.Technical_Support</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>true</default>
+        <recordType>Opportunity.Product</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Opportunity.Project</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Opportunity.Recurring_Business</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <tabVisibilities>
