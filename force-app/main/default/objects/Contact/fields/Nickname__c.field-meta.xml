@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>Company_Name__c</fullName>
-    <description>This field is used to store the company name of the self register contact</description>
+    <fullName>Nickname__c</fullName>
     <externalId>false</externalId>
-    <label>Company Name</label>
+    <label>Nickname</label>
     <length>255</length>
     <required>false</required>
     <trackFeedHistory>false</trackFeedHistory>
