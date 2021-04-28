@@ -562,6 +562,16 @@
         <field>Opportunity.X3rd_Party_Buyouts_Required__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Opportunity.Opportunity_Product_Count__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.Parent_Opportunity_Program__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <layoutAssignments>
         <layout>Account-YODA Account Layout</layout>
         <recordType>Account.Account</recordType>
@@ -581,6 +591,18 @@
     <layoutAssignments>
         <layout>Case-YODA Technical Support Layout</layout>
         <recordType>Case.Technical_Support</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Opportunity-YODA Product Layout</layout>
+        <recordType>Opportunity.Product</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Opportunity-YODA Project Layout</layout>
+        <recordType>Opportunity.Project</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Opportunity-YODA Recurring Business Layout</layout>
+        <recordType>Opportunity.Recurring_Business</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Industry_Code__c-Industry Code Layout</layout>
