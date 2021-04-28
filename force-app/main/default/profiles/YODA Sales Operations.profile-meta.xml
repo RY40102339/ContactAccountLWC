@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
+    <applicationVisibilities>
+        <application>YODA_Service_Console</application>
+        <default>false</default>
+        <visible>false</visible>
+    </applicationVisibilities>
     <custom>true</custom>
     <description>Profile for Sales Operations teams of the YODA program. Most permissions revolve around Account, Contact, Lead, Opportunity, and other user/object permission to support sales teams and processes</description>
     <fieldPermissions>
@@ -247,9 +252,30 @@
         <field>Account.Website</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Case.Reason</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <layoutAssignments>
         <layout>Account-YODA Account Layout</layout>
         <recordType>Account.Account</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Case-YODA General Inquiry</layout>
+        <recordType>Case.General_Inquiry</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Case-YODA Sales Request Layout</layout>
+        <recordType>Case.Sales_Request</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Case-YODA Service Request Layout</layout>
+        <recordType>Case.Service_Request</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Case-YODA Technical Support Layout</layout>
+        <recordType>Case.Technical_Support</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Industry_Code__c-Industry Code Layout</layout>
@@ -267,6 +293,27 @@
         <default>true</default>
         <personAccountDefault>true</personAccountDefault>
         <recordType>Account.Account</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>true</default>
+        <personAccountDefault>true</personAccountDefault>
+        <recordType>Case.General_Inquiry</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Case.Sales_Request</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Case.Service_Request</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Case.Technical_Support</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <tabVisibilities>
