@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>YODA_Re_Open_Needs_Reason</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(ISPICKVAL( PRIORVALUE(Status) , &quot;Closed&quot;),ISCHANGED(Status), ISBLANK( Re_open_Reason__c),NOT( $Setup.Bypass_Settings__c.Bypass_Validation_Rules__c ))</errorConditionFormula>
+    <errorDisplayField>Re_open_Reason__c</errorDisplayField>
+    <errorMessage>Add a Re-open reason to re-open a Case</errorMessage>
+</ValidationRule>

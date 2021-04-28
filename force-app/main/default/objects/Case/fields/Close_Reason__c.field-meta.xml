@@ -15,16 +15,6 @@
         <valueSetDefinition>
             <sorted>false</sorted>
             <value>
-                <fullName>Solved by customer</fullName>
-                <default>false</default>
-                <label>Solved by customer</label>
-            </value>
-            <value>
-                <fullName>Administrative Closure</fullName>
-                <default>false</default>
-                <label>Administrative Closure</label>
-            </value>
-            <value>
                 <fullName>Issue Resolved</fullName>
                 <default>false</default>
                 <label>Issue Resolved</label>
@@ -38,6 +28,16 @@
                 <fullName>Sales to Follow Up</fullName>
                 <default>false</default>
                 <label>Sales to Follow Up</label>
+            </value>
+            <value>
+                <fullName>Solved by customer</fullName>
+                <default>false</default>
+                <label>Solved by customer</label>
+            </value>
+            <value>
+                <fullName>Administrative Closure</fullName>
+                <default>false</default>
+                <label>Administrative Closure</label>
             </value>
             <value>
                 <fullName>Case Canceled</fullName>
@@ -77,18 +77,6 @@
         </valueSetDefinition>
         <valueSettings>
             <controllingFieldValue>Closed</controllingFieldValue>
-            <controllingFieldValue>Closed-Resolved</controllingFieldValue>
-            <controllingFieldValue>Closed-Canceled</controllingFieldValue>
-            <valueName>Solved by customer</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Closed</controllingFieldValue>
-            <controllingFieldValue>Closed-Resolved</controllingFieldValue>
-            <controllingFieldValue>Closed-Canceled</controllingFieldValue>
-            <valueName>Administrative Closure</valueName>
-        </valueSettings>
-        <valueSettings>
-            <controllingFieldValue>Closed</controllingFieldValue>
             <valueName>Issue Resolved</valueName>
         </valueSettings>
         <valueSettings>
@@ -98,6 +86,18 @@
         <valueSettings>
             <controllingFieldValue>Closed</controllingFieldValue>
             <valueName>Sales to Follow Up</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed</controllingFieldValue>
+            <controllingFieldValue>Closed-Resolved</controllingFieldValue>
+            <controllingFieldValue>Closed-Canceled</controllingFieldValue>
+            <valueName>Solved by customer</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed</controllingFieldValue>
+            <controllingFieldValue>Closed-Resolved</controllingFieldValue>
+            <controllingFieldValue>Closed-Canceled</controllingFieldValue>
+            <valueName>Administrative Closure</valueName>
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>Closed</controllingFieldValue>

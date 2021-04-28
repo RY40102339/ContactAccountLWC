@@ -199,35 +199,35 @@
     <picklistValues>
         <picklist>Service_you_require__c</picklist>
         <values>
-            <fullName>010</fullName>
+            <fullName>10</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>020</fullName>
+            <fullName>20</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>030</fullName>
+            <fullName>30</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>040</fullName>
+            <fullName>40</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>050</fullName>
+            <fullName>50</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>060</fullName>
+            <fullName>60</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>070</fullName>
+            <fullName>70</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>080</fullName>
+            <fullName>80</fullName>
             <default>false</default>
         </values>
         <values>
