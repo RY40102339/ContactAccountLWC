@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Close_Reason__c</fullName>
+    <description>Dependent on Status</description>
+    <externalId>false</externalId>
+    <label>Close Reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Status</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Solved by customer</fullName>
+                <default>false</default>
+                <label>Solved by customer</label>
+            </value>
+            <value>
+                <fullName>Administrative Closure</fullName>
+                <default>false</default>
+                <label>Administrative Closure</label>
+            </value>
+            <value>
+                <fullName>Issue Resolved</fullName>
+                <default>false</default>
+                <label>Issue Resolved</label>
+            </value>
+            <value>
+                <fullName>Answer Provided</fullName>
+                <default>false</default>
+                <label>Answer Provided</label>
+            </value>
+            <value>
+                <fullName>Sales to Follow Up</fullName>
+                <default>false</default>
+                <label>Sales to Follow Up</label>
+            </value>
+            <value>
+                <fullName>Case Canceled</fullName>
+                <default>false</default>
+                <label>Case Canceled</label>
+            </value>
+            <value>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Cancelled</label>
+            </value>
+            <value>
+                <fullName>Merged</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Merged</label>
+            </value>
+            <value>
+                <fullName>Opportunity Identified</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Opportunity Identified</label>
+            </value>
+            <value>
+                <fullName>Passed to Sales</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Passed to Sales</label>
+            </value>
+            <value>
+                <fullName>Resolved</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Resolved</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Closed</controllingFieldValue>
+            <controllingFieldValue>Closed-Resolved</controllingFieldValue>
+            <controllingFieldValue>Closed-Canceled</controllingFieldValue>
+            <valueName>Solved by customer</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed</controllingFieldValue>
+            <controllingFieldValue>Closed-Resolved</controllingFieldValue>
+            <controllingFieldValue>Closed-Canceled</controllingFieldValue>
+            <valueName>Administrative Closure</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed</controllingFieldValue>
+            <valueName>Issue Resolved</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed</controllingFieldValue>
+            <valueName>Answer Provided</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed</controllingFieldValue>
+            <valueName>Sales to Follow Up</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed</controllingFieldValue>
+            <valueName>Case Canceled</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

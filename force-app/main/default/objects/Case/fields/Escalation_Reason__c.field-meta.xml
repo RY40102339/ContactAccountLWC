@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Escalation_Reason__c</fullName>
+    <description>Picklist to further describe why a Case was escalated. Field created for the YODA Program</description>
+    <externalId>false</externalId>
+    <label>Escalation Reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Status</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Need Assistance</fullName>
+                <default>false</default>
+                <label>Need Assistance</label>
+            </value>
+            <value>
+                <fullName>Need Product Expertise</fullName>
+                <default>false</default>
+                <label>Need Product Expertise</label>
+            </value>
+            <value>
+                <fullName>Need Process Expertise</fullName>
+                <default>false</default>
+                <label>Need Process Expertise</label>
+            </value>
+            <value>
+                <fullName>Special Handling</fullName>
+                <default>false</default>
+                <label>Special Handling</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Escalated</controllingFieldValue>
+            <valueName>Need Assistance</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Escalated</controllingFieldValue>
+            <valueName>Need Product Expertise</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Escalated</controllingFieldValue>
+            <valueName>Need Process Expertise</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Escalated</controllingFieldValue>
+            <valueName>Special Handling</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>
