@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>YODA_Close_Case_Needs_Solution</fullName>
-    <active>true</active>
-    <errorConditionFormula>AND(ISPICKVAL(Status, &quot;Closed&quot;), ISBLANK( Solution__c ),NOT( $Setup.Bypass_Settings__c.Bypass_Validation_Rules__c ))</errorConditionFormula>
-    <errorDisplayField>Solution__c</errorDisplayField>
-    <errorMessage>Add a Solution to Close a Resolved Case</errorMessage>
-</ValidationRule>
