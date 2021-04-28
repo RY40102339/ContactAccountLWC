@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>General_Inquiry</fullName>
+    <fullName>Service_Request</fullName>
     <active>true</active>
     <businessProcess>YODA Default Support Process</businessProcess>
     <compactLayoutAssignment>YODA_Compact_Layout</compactLayoutAssignment>
-    <description>For general questions, document request, and complaints from customer.</description>
-    <label>General Inquiry</label>
+    <description>For repairs, calibrations, returns, recalls/replacements, schedule maintenance, training, etc.</description>
+    <label>Service Request</label>
     <picklistValues>
         <picklist>Classification__c</picklist>
         <values>
@@ -137,6 +137,10 @@
     <picklistValues>
         <picklist>Priority</picklist>
         <values>
+            <fullName>Emergency</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>High</fullName>
             <default>false</default>
         </values>
@@ -152,15 +156,43 @@
     <picklistValues>
         <picklist>Reason</picklist>
         <values>
-            <fullName>Complaints</fullName>
+            <fullName>Calibration</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Document Request</fullName>
+            <fullName>Cybersecuirty</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Other</fullName>
+            <fullName>Diagnosis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other Chargeable Service</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Product Non-conformity</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Regular Maintenance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Service Request</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>System Upgrade</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Training</fullName>
             <default>false</default>
         </values>
     </picklistValues>
@@ -203,6 +235,14 @@
             <default>false</default>
         </values>
         <values>
+            <fullName>110</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>300</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>900</fullName>
             <default>false</default>
         </values>
@@ -210,8 +250,12 @@
     <picklistValues>
         <picklist>Type</picklist>
         <values>
+            <fullName>Request For Service</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>Submit An Inquiry</fullName>
-            <default>true</default>
+            <default>false</default>
         </values>
     </picklistValues>
 </RecordType>
