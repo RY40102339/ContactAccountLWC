@@ -583,18 +583,6 @@
         <recordType>Case.Technical_Support</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Opportunity-YODA Product Layout</layout>
-        <recordType>Opportunity.Product</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Opportunity-YODA Project Layout</layout>
-        <recordType>Opportunity.Project</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Opportunity-YODA Recurring Business Layout</layout>
-        <recordType>Opportunity.Recurring_Business</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Industry_Code__c-Industry Code Layout</layout>
     </layoutAssignments>
     <objectPermissions>
