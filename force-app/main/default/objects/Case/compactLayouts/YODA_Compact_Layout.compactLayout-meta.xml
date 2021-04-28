@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>YODA_Compact_Layout</fullName>
+    <fields>Subject</fields>
+    <fields>CaseNumber</fields>
+    <fields>AccountId</fields>
+    <fields>RecordTypeId</fields>
+    <fields>Product_Category__c</fields>
+    <fields>Status</fields>
+    <fields>Priority</fields>
+    <fields>OwnerId</fields>
+    <label>YODA Compact Layout</label>
+</CompactLayout>

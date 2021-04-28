@@ -184,11 +184,14 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>View</actionName>
-        <type>Default</type>
+        <comment>Action override updated by Lightning App Builder during activation.</comment>
+        <content>YODA_Case_Lightning_page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>View</actionName>
-        <formFactor>Large</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -198,29 +201,132 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>true</enableFeeds>
-    <externalSharingModel>ReadWriteTransfer</externalSharingModel>
-    <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
-    <recordTypeTrackHistory>true</recordTypeTrackHistory>
+    <externalSharingModel>Read</externalSharingModel>
+    <profileSearchLayouts>
+        <fields>CASES.CASE_NUMBER</fields>
+        <fields>CASES.SUBJECT</fields>
+        <fields>ACCOUNT.NAME</fields>
+        <fields>NAME</fields>
+        <fields>OWNER_NAME</fields>
+        <fields>CASES.STATUS</fields>
+        <fields>CASES.RECORDTYPE</fields>
+        <fields>CASES.PRIORITY</fields>
+        <profileName>YODA Marketing</profileName>
+    </profileSearchLayouts>
+    <profileSearchLayouts>
+        <fields>CASES.CASE_NUMBER</fields>
+        <fields>CASES.SUBJECT</fields>
+        <fields>ACCOUNT.NAME</fields>
+        <fields>NAME</fields>
+        <fields>OWNER_NAME</fields>
+        <fields>CASES.STATUS</fields>
+        <fields>CASES.RECORDTYPE</fields>
+        <fields>CASES.PRIORITY</fields>
+        <profileName>YODA IT Solutions</profileName>
+    </profileSearchLayouts>
+    <profileSearchLayouts>
+        <fields>CASES.CASE_NUMBER</fields>
+        <fields>CASES.SUBJECT</fields>
+        <fields>ACCOUNT.NAME</fields>
+        <fields>NAME</fields>
+        <fields>OWNER_NAME</fields>
+        <fields>CASES.STATUS</fields>
+        <fields>CASES.RECORDTYPE</fields>
+        <fields>CASES.PRIORITY</fields>
+        <profileName>System Administrator</profileName>
+    </profileSearchLayouts>
+    <profileSearchLayouts>
+        <fields>CASES.CASE_NUMBER</fields>
+        <fields>CASES.SUBJECT</fields>
+        <fields>ACCOUNT.NAME</fields>
+        <fields>NAME</fields>
+        <fields>OWNER_NAME</fields>
+        <fields>CASES.STATUS</fields>
+        <fields>CASES.RECORDTYPE</fields>
+        <fields>CASES.PRIORITY</fields>
+        <profileName>YODA Sales Operations</profileName>
+    </profileSearchLayouts>
+    <profileSearchLayouts>
+        <fields>CASES.CASE_NUMBER</fields>
+        <fields>CASES.SUBJECT</fields>
+        <fields>ACCOUNT.NAME</fields>
+        <fields>NAME</fields>
+        <fields>OWNER_NAME</fields>
+        <fields>CASES.STATUS</fields>
+        <fields>CASES.RECORDTYPE</fields>
+        <fields>CASES.PRIORITY</fields>
+        <profileName>YODA Customer Service</profileName>
+    </profileSearchLayouts>
+    <profileSearchLayouts>
+        <fields>CASES.CASE_NUMBER</fields>
+        <fields>CASES.SUBJECT</fields>
+        <fields>ACCOUNT.NAME</fields>
+        <fields>NAME</fields>
+        <fields>OWNER_NAME</fields>
+        <fields>CASES.STATUS</fields>
+        <fields>CASES.RECORDTYPE</fields>
+        <fields>CASES.PRIORITY</fields>
+        <profileName>YHQ Administrator</profileName>
+    </profileSearchLayouts>
+    <profileSearchLayouts>
+        <fields>CASES.CASE_NUMBER</fields>
+        <fields>CASES.SUBJECT</fields>
+        <fields>ACCOUNT.NAME</fields>
+        <fields>NAME</fields>
+        <fields>OWNER_NAME</fields>
+        <fields>CASES.STATUS</fields>
+        <fields>CASES.RECORDTYPE</fields>
+        <fields>CASES.PRIORITY</fields>
+        <profileName>YODA Leadership</profileName>
+    </profileSearchLayouts>
+    <profileSearchLayouts>
+        <fields>CASES.CASE_NUMBER</fields>
+        <fields>CASES.SUBJECT</fields>
+        <fields>ACCOUNT.NAME</fields>
+        <fields>NAME</fields>
+        <fields>OWNER_NAME</fields>
+        <fields>CASES.STATUS</fields>
+        <fields>CASES.RECORDTYPE</fields>
+        <fields>CASES.PRIORITY</fields>
+        <profileName>YODA Sales</profileName>
+    </profileSearchLayouts>
+    <recordTypeTrackFeedHistory>true</recordTypeTrackFeedHistory>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
     <searchLayouts>
         <customTabListAdditionalFields>CASES.CASE_NUMBER</customTabListAdditionalFields>
         <customTabListAdditionalFields>CASES.SUBJECT</customTabListAdditionalFields>
-        <customTabListAdditionalFields>CASES.CREATED_DATE</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ACCOUNT.NAME</customTabListAdditionalFields>
+        <customTabListAdditionalFields>NAME</customTabListAdditionalFields>
+        <customTabListAdditionalFields>OWNER_NAME</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CASES.STATUS</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CASES.RECORDTYPE</customTabListAdditionalFields>
         <customTabListAdditionalFields>CASES.PRIORITY</customTabListAdditionalFields>
         <lookupDialogsAdditionalFields>CASES.CASE_NUMBER</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>CASES.SUBJECT</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>NAME</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>ACCOUNT.NAME</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>NAME</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>OWNER_NAME</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>CASES.STATUS</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>CASES.RECORDTYPE</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>CASES.PRIORITY</lookupDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>CASES.CASE_NUMBER</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>CASES.SUBJECT</lookupPhoneDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>NAME</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>ACCOUNT.NAME</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>NAME</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>OWNER_NAME</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>CASES.STATUS</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CASES.RECORDTYPE</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CASES.PRIORITY</lookupPhoneDialogsAdditionalFields>
+        <massQuickActions>Close_Cases</massQuickActions>
+        <massQuickActions>Change_Status</massQuickActions>
         <searchResultsAdditionalFields>CASES.CASE_NUMBER</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>CASES.SUBJECT</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ACCOUNT.NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>OWNER_NAME</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>CASES.STATUS</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>CASES.CREATED_DATE</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>CORE.USERS.ALIAS</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CASES.RECORDTYPE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CASES.PRIORITY</searchResultsAdditionalFields>
     </searchLayouts>
-    <sharingModel>ReadWriteTransfer</sharingModel>
+    <sharingModel>Read</sharingModel>
 </CustomObject>

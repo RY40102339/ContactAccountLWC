@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>General_Inquiry</fullName>
+    <fullName>Technical_Support</fullName>
     <active>true</active>
     <businessProcess>YODA Default Support Process</businessProcess>
     <compactLayoutAssignment>YODA_Compact_Layout</compactLayoutAssignment>
-    <description>For general questions, document request, and complaints from customer.</description>
-    <label>General Inquiry</label>
+    <description>For malfunction, incident, installation, setup, application, site support, engineering inquiry, etc.</description>
+    <label>Technical Support</label>
     <picklistValues>
         <picklist>Classification__c</picklist>
         <values>
@@ -152,15 +152,35 @@
     <picklistValues>
         <picklist>Reason</picklist>
         <values>
-            <fullName>Complaints</fullName>
+            <fullName>Application</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Document Request</fullName>
+            <fullName>Consultation</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Other</fullName>
+            <fullName>Engineering Inquiry</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Incident</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Installation%2FSetup</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malfunction</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Site Support</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Specification%2FFunctionality</fullName>
             <default>false</default>
         </values>
     </picklistValues>
@@ -210,7 +230,7 @@
     <picklistValues>
         <picklist>Type</picklist>
         <values>
-            <fullName>Submit An Inquiry</fullName>
+            <fullName>Request For Service</fullName>
             <default>true</default>
         </values>
     </picklistValues>

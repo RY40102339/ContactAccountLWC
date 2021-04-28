@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>General_Inquiry</fullName>
+    <fullName>Sales_Request</fullName>
     <active>true</active>
     <businessProcess>YODA Default Support Process</businessProcess>
     <compactLayoutAssignment>YODA_Compact_Layout</compactLayoutAssignment>
-    <description>For general questions, document request, and complaints from customer.</description>
-    <label>General Inquiry</label>
+    <description>For sales requests, such as RFQ, demo, parts order, contract renewal etc.</description>
+    <label>Sales Request</label>
     <picklistValues>
         <picklist>Classification__c</picklist>
         <values>
@@ -152,15 +152,23 @@
     <picklistValues>
         <picklist>Reason</picklist>
         <values>
-            <fullName>Complaints</fullName>
+            <fullName>Contract Renewal</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Document Request</fullName>
+            <fullName>Demo Request</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Other</fullName>
+            <fullName>Product Selection</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Quotation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TOKUCHU</fullName>
             <default>false</default>
         </values>
     </picklistValues>
