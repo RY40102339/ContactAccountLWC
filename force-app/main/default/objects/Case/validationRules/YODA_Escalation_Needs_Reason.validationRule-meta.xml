@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>YODA_Escalation_Needs_Reason</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(ISPICKVAL(Status, &quot;Escalated&quot;),  ISBLANK(TEXT(  Escalation_Reason__c )),NOT( $Setup.Bypass_Settings__c.Bypass_Validation_Rules__c ))</errorConditionFormula>
+    <errorDisplayField>Escalation_Reason__c</errorDisplayField>
+    <errorMessage>Please select Escalation Reason</errorMessage>
+</ValidationRule>
