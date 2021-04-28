@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Opportunity_Account_Status_Validation</fullName>
+    <active>true</active>
+    <description>Prevent Lead conversion if the Account status is Closed. Created for YODA</description>
+    <errorConditionFormula>AND(
+  NOT( $Setup.Bypass_Settings__c.Bypass_Validation_Rules__c),
+  ISCHANGED(StageName),
+  TEXT(StageName) = &apos;Develop&apos;,
+  OR (
+    ISPICKVAL(Account.Status__c, &apos;Closed&apos;),
+    ISPICKVAL( Account.Credit_Rating__c , &apos;Blocked&apos;)
+  )
+)</errorConditionFormula>
+    <errorMessage>An opportunity cannot move out of the &quot;Qualify&quot; stage while the account&apos;s status is closed or the credit rating is blocked. Please reach out to sales operations.</errorMessage>
+</ValidationRule>

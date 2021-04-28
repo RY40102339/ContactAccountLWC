@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Business_Unit__c</fullName>
+    <description>Business Unit that is handling this opportunity</description>
+    <externalId>false</externalId>
+    <label>Business Unit</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Material SBU</fullName>
+                <default>false</default>
+                <label>Material SBU</label>
+            </value>
+            <value>
+                <fullName>Life SBU</fullName>
+                <default>false</default>
+                <label>Life SBU</label>
+            </value>
+            <value>
+                <fullName>Products HQ</fullName>
+                <default>false</default>
+                <label>Products HQ</label>
+            </value>
+            <value>
+                <fullName>Digital Solutions HQ</fullName>
+                <default>false</default>
+                <label>Digital Solutions HQ</label>
+            </value>
+            <value>
+                <fullName>YMI SBU</fullName>
+                <default>false</default>
+                <label>YMI SBU</label>
+            </value>
+            <value>
+                <fullName>Aerospace &amp; New Business SBU</fullName>
+                <default>false</default>
+                <label>Aerospace &amp; New Business SBU</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>
