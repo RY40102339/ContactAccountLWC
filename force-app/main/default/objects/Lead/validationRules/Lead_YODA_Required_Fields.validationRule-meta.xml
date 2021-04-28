@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lead_YODA_Required_Fields</fullName>
+    <active>true</active>
+    <description>Prevent Lead update if First/Last Name, Email, Company (Account), Country, or Campaign is not populated</description>
+    <errorConditionFormula>AND(
+/*CONTAINS($Profile.Name, &apos;YODA&apos;),*/
+NOT( $Setup.Bypass_Settings__c.Bypass_Validation_Rules__c),
+OR(
+ ISBLANK( FirstName ),
+ ISBLANK( Email ),
+ ISBLANK(Country),
+ ISBLANK( Campaign__c )
+)
+)</errorConditionFormula>
+    <errorMessage>Please ensure to populate required fields: First Name, Email, Country, and Campaign.</errorMessage>
+</ValidationRule>

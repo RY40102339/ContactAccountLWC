@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Rejection_Reason__c</fullName>
+    <description>Reason why Sales has rejected a Lead. Created as part of YODA Program.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Reason why Sales has rejected a Lead</inlineHelpText>
+    <label>Rejection Reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Incorrectly assigned</fullName>
+                <default>false</default>
+                <label>Incorrectly assigned</label>
+            </value>
+            <value>
+                <fullName>Incomplete/Inaccurate</fullName>
+                <default>false</default>
+                <label>Incomplete/Inaccurate</label>
+            </value>
+            <value>
+                <fullName>No interest by sales</fullName>
+                <default>false</default>
+                <label>No interest by sales</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>
