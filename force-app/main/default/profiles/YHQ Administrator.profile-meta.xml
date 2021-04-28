@@ -115,6 +115,11 @@
         <default>false</default>
         <visible>false</visible>
     </applicationVisibilities>
+    <applicationVisibilities>
+        <application>YODA_Service_Console</application>
+        <default>false</default>
+        <visible>true</visible>
+    </applicationVisibilities>
     <classAccesses>
         <apexClass>ChangePasswordController</apexClass>
         <enabled>false</enabled>
@@ -2272,12 +2277,12 @@
         <editable>true</editable>
         <field>Account.Credit_Rating__c</field>
         <readable>true</readable>
-      </fieldPermissions>
-      <fieldPermissions>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Account.Credit_Term__c</field>
         <readable>true</readable>
-      </fieldPermissions>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.DUNS_Account_Name__c</field>
@@ -8356,6 +8361,22 @@
         <recordType>Case.Service_Inquiry</recordType>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Case-YODA General Inquiry</layout>
+        <recordType>Case.General_Inquiry</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Case-YODA Sales Request Layout</layout>
+        <recordType>Case.Sales_Request</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Case-YODA Service Request Layout</layout>
+        <recordType>Case.Service_Request</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Case-YODA Technical Support Layout</layout>
+        <recordType>Case.Technical_Support</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>CaseClose-Close Case Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -9923,7 +9944,8 @@
         <enabled>false</enabled>
     </pageAccesses>
     <recordTypeVisibilities>
-        <default>false</default>
+        <default>true</default>
+        <personAccountDefault>true</personAccountDefault>
         <recordType>Case.General_Inquiry</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -9933,8 +9955,23 @@
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Case.Sales_Request</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
         <default>true</default>
         <recordType>Case.Service_Inquiry</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Case.Service_Request</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Case.Technical_Support</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
