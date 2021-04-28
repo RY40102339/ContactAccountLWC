@@ -3,7 +3,7 @@
     <fullName>Project</fullName>
     <active>true</active>
     <businessProcess>YODA Default Sales Process</businessProcess>
-    <compactLayoutAssignment>New_Awesome_Companct_Layout</compactLayoutAssignment>
+    <compactLayoutAssignment>YODA_Opportunity_Compact_Layout</compactLayoutAssignment>
     <description>Created for the YODA program</description>
     <label>Project</label>
     <picklistValues>
