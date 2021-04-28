@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>Budget_Confirmed__c</fullName>
-    <defaultValue>false</defaultValue>
+    <fullName>Oppportunity_Id__c</fullName>
+    <description>Custom Field {00000000}</description>
+    <displayFormat>{00000000}</displayFormat>
     <externalId>false</externalId>
-    <label>Budget Confirmed</label>
-    <trackFeedHistory>false</trackFeedHistory>
+    <label>Oppportunity Id</label>
     <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>
-    <type>Checkbox</type>
+    <type>AutoNumber</type>
 </CustomField>

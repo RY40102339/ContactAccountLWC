@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>Budget_Confirmed__c</fullName>
+    <fullName>X3rd_Party_Buyouts_Required__c</fullName>
     <defaultValue>false</defaultValue>
+    <description>Identify if there is any buyouts required from 3rd parties</description>
     <externalId>false</externalId>
-    <label>Budget Confirmed</label>
+    <label>3rd Party Buyouts Required</label>
     <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Interest_Area_Product_Business_Line__c</fullName>
+    <description>Area or location in which the opportunity is implemented / the project that this opportunity is related to</description>
+    <externalId>false</externalId>
+    <label>Interest Area/Product/Business Line</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

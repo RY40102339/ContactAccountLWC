@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Functional_Unit__c</fullName>
+    <externalId>false</externalId>
+    <label>Functional Unit</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>11B02 - Project Sales</fullName>
+                <default>false</default>
+                <label>11B02 - Project Sales</label>
+            </value>
+            <value>
+                <fullName>11B03 - PCI</fullName>
+                <default>false</default>
+                <label>11B03 - PCI</label>
+            </value>
+            <value>
+                <fullName>11B04 - VPS</fullName>
+                <default>false</default>
+                <label>11B04 - VPS</label>
+            </value>
+            <value>
+                <fullName>11B06 - Life Cycle Sales</fullName>
+                <default>false</default>
+                <label>11B06 - Life Cycle Sales</label>
+            </value>
+            <value>
+                <fullName>11B08 - GLT Plus</fullName>
+                <default>false</default>
+                <label>11B08 - GLT Plus</label>
+            </value>
+            <value>
+                <fullName>11B09 - GB</fullName>
+                <default>false</default>
+                <label>11B09 - GB</label>
+            </value>
+            <value>
+                <fullName>11B11 - Intl. Business (YEF-NL)</fullName>
+                <default>false</default>
+                <label>11B11 - Intl. Business (YEF-NL)</label>
+            </value>
+            <value>
+                <fullName>11B12 - Amnimo</fullName>
+                <default>false</default>
+                <label>11B12 - Amnimo</label>
+            </value>
+            <value>
+                <fullName>12701 - FU Austria</fullName>
+                <default>false</default>
+                <label>12701 - FU Austria</label>
+            </value>
+            <value>
+                <fullName>12801 - Systems</fullName>
+                <default>false</default>
+                <label>12801 - Systems</label>
+            </value>
+            <value>
+                <fullName>12802 - PCI</fullName>
+                <default>false</default>
+                <label>12802 - PCI</label>
+            </value>
+            <value>
+                <fullName>12804 - System Service</fullName>
+                <default>false</default>
+                <label>12804 - System Service</label>
+            </value>
+            <value>
+                <fullName>12902 - Industry Sales</fullName>
+                <default>false</default>
+                <label>12902 - Industry Sales</label>
+            </value>
+            <value>
+                <fullName>12903 - Field-Sales PCI</fullName>
+                <default>false</default>
+                <label>12903 - Field-Sales PCI</label>
+            </value>
+            <value>
+                <fullName>12904 - System-service</fullName>
+                <default>false</default>
+                <label>12904 - System-service</label>
+            </value>
+            <value>
+                <fullName>12905 - PCI-services</fullName>
+                <default>false</default>
+                <label>12905 - PCI-services</label>
+            </value>
+            <value>
+                <fullName>12906 - Analytic Sales</fullName>
+                <default>false</default>
+                <label>12906 - Analytic Sales</label>
+            </value>
+            <value>
+                <fullName>12911 - Intl. Business (YEF-G)</fullName>
+                <default>false</default>
+                <label>12911 - Intl. Business (YEF-G)</label>
+            </value>
+            <value>
+                <fullName>12A01 - EPC &amp; Outside EU</fullName>
+                <default>false</default>
+                <label>12A01 - EPC &amp; Outside EU</label>
+            </value>
+            <value>
+                <fullName>12A02 - System sales</fullName>
+                <default>false</default>
+                <label>12A02 - System sales</label>
+            </value>
+            <value>
+                <fullName>12A03 - PCI Sales</fullName>
+                <default>false</default>
+                <label>12A03 - PCI Sales</label>
+            </value>
+            <value>
+                <fullName>12A04 - PCI Sales - Service</fullName>
+                <default>false</default>
+                <label>12A04 - PCI Sales - Service</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>
