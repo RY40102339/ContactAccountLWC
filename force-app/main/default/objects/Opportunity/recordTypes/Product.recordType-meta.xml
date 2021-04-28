@@ -7,6 +7,264 @@
     <description>Created for the YODA program</description>
     <label>Product</label>
     <picklistValues>
+        <picklist>Affiliates_to_receive_PO__c</picklist>
+        <values>
+            <fullName>KBC-PT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>KBC-SG</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>KBC-US</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NKS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PEI</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SCA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SSO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SVM-E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YAO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YAU</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YCA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YCA-CA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YCA-MX</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YCN</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YEA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YEA-BRN</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YEA-PKT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YEA-RSHQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YEF</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YEF-A</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YEF-B</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YEF-BG</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YEF-CH</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YEF-CZ</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Business_Unit__c</picklist>
+        <values>
+            <fullName>Aerospace %26 New Business SBU</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Digital Solutions HQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Life SBU</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Material SBU</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Products HQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YMI SBU</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Close_Lost_Reason__c</picklist>
+        <values>
+            <fullName>Commercial%2FLegal Compliant</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Country Restrictions %28Level 3%2C 4%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Customer Cancelled</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Decision not to bid</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Disqualified</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Duplicate Opportunity</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EPC Lost</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>End User Relationship</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Existing Installed Base</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Export Compliance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lacking Functionality</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lead Time%2FDelivery Time</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Local Service</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lost to Competitor-Price</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not meeting Standards</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Obsolete Product</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Technical Requirements</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Commitment_Received__c</picklist>
+        <values>
+            <fullName>Email</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not Yet</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Verbal</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Competition_Positioning__c</picklist>
+        <values>
+            <fullName>1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>4</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Contract_Risk_Review_Approval__c</picklist>
+        <values>
+            <fullName>1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>4</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cat 0</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
         <picklist>ForecastCategoryName</picklist>
         <values>
             <fullName>Best Case</fullName>
@@ -26,6 +284,97 @@
         </values>
         <values>
             <fullName>Pipeline</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Functional_Unit__c</picklist>
+        <values>
+            <fullName>11B02 - Project Sales</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>11B03 - PCI</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>11B04 - VPS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>11B06 - Life Cycle Sales</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>11B08 - GLT Plus</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>11B09 - GB</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>11B11 - Intl%2E Business %28YEF-NL%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>11B12 - Amnimo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>12701 - FU Austria</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>12801 - Systems</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>12802 - PCI</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>12804 - System Service</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>12902 - Industry Sales</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>12903 - Field-Sales PCI</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>12904 - System-service</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>12905 - PCI-services</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>12906 - Analytic Sales</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>12911 - Intl%2E Business %28YEF-G%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>12A01 - EPC %26 Outside EU</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>12A02 - System sales</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>12A03 - PCI Sales</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>12A04 - PCI Sales - Service</fullName>
             <default>false</default>
         </values>
     </picklistValues>
@@ -69,6 +418,137 @@
         </values>
         <values>
             <fullName>Website</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Non_standard_Products_Approved__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not Applicable</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Opportunity_Source_Lead_Source__c</picklist>
+        <values>
+            <fullName>Advertisement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Customer Event</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Employee Referral</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Google AdWords</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other Partner</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Purchased List</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Trade Show</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Webinar Website</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Project_Type__c</picklist>
+        <values>
+            <fullName>Expansion</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Grassroot</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Migration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Replacement</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Service %28Advanced %2F Improvement%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Service %28Conventional%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Upgrade</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Region__c</picklist>
+        <values>
+            <fullName>RHQ-YCA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RHQ-YCN</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RHQ-YEA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RHQ-YEF</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RHQ-YIL</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RHQ-YKO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RHQ-YMA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RHQ-YRU</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RHQ-YSA</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Status__c</picklist>
+        <values>
+            <fullName>Closed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Open</fullName>
             <default>false</default>
         </values>
     </picklistValues>
