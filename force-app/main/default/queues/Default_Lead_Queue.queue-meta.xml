@@ -4,13 +4,7 @@
     <name>Default Lead Queue</name>
     <queueMembers>
         <users>
-            <user>dkirzner@appirio.com.yodadev</user>
-            <user>dkirzner@appirio.com.yodadev2</user>
-            <user>li20119282@wipro.com.yodadev</user>
-            <user>pardeep.singh4@appirio.com.yodadev</user>
-            <user>yodasalesops@yokogawa.com.yodadev</user>
-            <user>yodaproposal@yokogawa.com.yodadev</user>
-            <user>yodasales@yokogawa.com.yodadev</user>
+            <user>nleguay@appirio.com.yokogawa.yodaqa1</user>
         </users>
     </queueMembers>
     <queueSobject>
