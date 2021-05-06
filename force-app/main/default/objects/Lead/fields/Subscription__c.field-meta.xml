@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Subscription__c</fullName>
+    <externalId>false</externalId>
+    <label>Subscription</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value>
+                <fullName>Calibration Subscription</fullName>
+                <default>false</default>
+                <label>Calibration Subscription</label>
+            </value>
+            <value>
+                <fullName>Contract Subscription</fullName>
+                <default>false</default>
+                <label>Contract Subscription</label>
+            </value>
+            <value>
+                <fullName>IA</fullName>
+                <default>false</default>
+                <label>IA</label>
+            </value>
+            <value>
+                <fullName>KBC</fullName>
+                <default>false</default>
+                <label>KBC</label>
+            </value>
+            <value>
+                <fullName>Life Innovations</fullName>
+                <default>false</default>
+                <label>Life Innovations</label>
+            </value>
+            <value>
+                <fullName>May we offer you more information on our products &amp; services</fullName>
+                <default>false</default>
+                <label>May we offer you more information on our products &amp; services</label>
+            </value>
+            <value>
+                <fullName>Newsletter 1 Subscription</fullName>
+                <default>false</default>
+                <label>Newsletter 1 Subscription</label>
+            </value>
+            <value>
+                <fullName>Newsletter 2 Subscription</fullName>
+                <default>false</default>
+                <label>Newsletter 2 Subscription</label>
+            </value>
+            <value>
+                <fullName>Newsletter 3 Subscription</fullName>
+                <default>false</default>
+                <label>Newsletter 3 Subscription</label>
+            </value>
+            <value>
+                <fullName>Profile Update Subscription</fullName>
+                <default>false</default>
+                <label>Profile Update Subscription</label>
+            </value>
+            <value>
+                <fullName>Service Request Subscription</fullName>
+                <default>false</default>
+                <label>Service Request Subscription</label>
+            </value>
+            <value>
+                <fullName>Software Request Subscription</fullName>
+                <default>false</default>
+                <label>Software Request Subscription</label>
+            </value>
+            <value>
+                <fullName>T&amp;M</fullName>
+                <default>false</default>
+                <label>T&amp;M</label>
+            </value>
+            <value>
+                <fullName>What prompted your interest for this query?</fullName>
+                <default>false</default>
+                <label>What prompted your interest for this query?</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>
