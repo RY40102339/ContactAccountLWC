@@ -8488,10 +8488,6 @@
         <recordType>Case.Sales_Inquiry</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Case-Case Layout</layout>
-        <recordType>Case.Service_Request</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Case-YODA General Inquiry</layout>
         <recordType>Case.General_Inquiry</recordType>
     </layoutAssignments>
