@@ -1224,6 +1224,13 @@
         <recordType>Case.Technical_Support</recordType>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Contact-YODA Contact Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Contact-YODA Contact Layout</layout>
+        <recordType>Contact.Customer_Contact</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Lead-YODA Lead Page Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -1302,6 +1309,11 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Case.Technical_Support</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>true</default>
+        <recordType>Contact.Customer_Contact</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
