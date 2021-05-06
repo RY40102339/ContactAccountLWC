@@ -258,6 +258,7 @@
     <compactLayoutAssignment>YODA_Lead_Compact_Layout</compactLayoutAssignment>
     <enableFeeds>true</enableFeeds>
     <enableHistory>true</enableHistory>
+<<<<<<< HEAD
     <externalSharingModel>Read</externalSharingModel>
     <profileSearchLayouts>
         <fields>FULL_NAME</fields>
@@ -363,6 +364,9 @@
         <fields>LEAD.COUNTRY_CODE</fields>
         <profileName>YODA Sales</profileName>
     </profileSearchLayouts>
+=======
+    <externalSharingModel>Private</externalSharingModel>
+>>>>>>> 1ecc9a02fd147c54f600da952f40d3d33f5f72ef
     <searchLayouts>
         <customTabListAdditionalFields>FULL_NAME</customTabListAdditionalFields>
         <customTabListAdditionalFields>LEAD.COMPANY</customTabListAdditionalFields>
