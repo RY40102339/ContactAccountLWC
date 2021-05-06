@@ -8641,7 +8641,11 @@
         <layout>CollaborationGroup-Group Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Contact-Contact Layout</layout>
+        <layout>Contact-YODA Contact Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Contact-YODA Contact Layout</layout>
+        <recordType>Contact.Customer_Contact</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>ContactPointTypeConsent-Contact Point Type Consent Layout</layout>
@@ -10198,6 +10202,11 @@
         <apexPage>pi__visitor</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
+    <recordTypeVisibilities>
+        <default>true</default>
+        <recordType>Contact.Customer_Contact</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
         <personAccountDefault>true</personAccountDefault>
