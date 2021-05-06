@@ -1,6 +1,3191 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
     <labels>
+        <fullName>YG_24_hours</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG 24 hours</shortDescription>
+        <value>24 hours</value>
+    </labels>
+    <labels>
+        <fullName>YG_2_6pm</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG (2-6pm)</shortDescription>
+        <value>(2-6pm)</value>
+    </labels>
+    <labels>
+        <fullName>YG_404_Not_Found</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG 404 Not Found</shortDescription>
+        <value>404 Not Found</value>
+    </labels>
+    <labels>
+        <fullName>YG_500</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG 500</shortDescription>
+        <value>500</value>
+    </labels>
+    <labels>
+        <fullName>YG_9am_12pm</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG (9am-12pm)</shortDescription>
+        <value>(9am-12pm)</value>
+    </labels>
+    <labels>
+        <fullName>YG_Action</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Action</shortDescription>
+        <value>Action</value>
+    </labels>
+    <labels>
+        <fullName>YG_Active_Service_Requests_and_Inquiries</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Active Service Requests and Inquiries</shortDescription>
+        <value>Active Service Requests and Inquiries</value>
+    </labels>
+    <labels>
+        <fullName>YG_Active_and_closed</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Active and closed</shortDescription>
+        <value>Active and closed</value>
+    </labels>
+    <labels>
+        <fullName>YG_Active_only</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Active only</shortDescription>
+        <value>Active only</value>
+    </labels>
+    <labels>
+        <fullName>YG_Address</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Address</shortDescription>
+        <value>Address</value>
+    </labels>
+    <labels>
+        <fullName>YG_Admin</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Admin</shortDescription>
+        <value>Admin</value>
+    </labels>
+    <labels>
+        <fullName>YG_Afternoon</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Afternoon</shortDescription>
+        <value>Afternoon</value>
+    </labels>
+    <labels>
+        <fullName>YG_Age</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Age</shortDescription>
+        <value>Age</value>
+    </labels>
+    <labels>
+        <fullName>YG_All</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG All</shortDescription>
+        <value>All</value>
+    </labels>
+    <labels>
+        <fullName>YG_All_Contracts</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_All_Contracts</shortDescription>
+        <value>All Contracts</value>
+    </labels>
+    <labels>
+        <fullName>YG_All_Products</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG All Products</shortDescription>
+        <value>All Products</value>
+    </labels>
+    <labels>
+        <fullName>YG_All_Stations</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG All Stations</shortDescription>
+        <value>All Stations</value>
+    </labels>
+    <labels>
+        <fullName>YG_All_Systems</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG All Systems</shortDescription>
+        <value>All Systems</value>
+    </labels>
+    <labels>
+        <fullName>YG_Alternative_call_back_number</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Alternative call-back number</shortDescription>
+        <value>Alternative call-back number</value>
+    </labels>
+    <labels>
+        <fullName>YG_Are</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Are</shortDescription>
+        <value>are:</value>
+    </labels>
+    <labels>
+        <fullName>YG_Arrange_Call</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Arrange Call</shortDescription>
+        <value>Arrange for a Yokogawa representative to call me back.</value>
+    </labels>
+    <labels>
+        <fullName>YG_Assigned_to</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_Assigned_to</shortDescription>
+        <value>Assigned to</value>
+    </labels>
+    <labels>
+        <fullName>YG_Attach_Label</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Attach Label</shortDescription>
+        <value>Would you like to attach any accompanying files?</value>
+    </labels>
+    <labels>
+        <fullName>YG_Attach_an_accompanying_file</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Attach an accompanying file</shortDescription>
+        <value>Attach an accompanying file</value>
+    </labels>
+    <labels>
+        <fullName>YG_Attach_an_accompanying_file_for</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Attach an accompanying file for</shortDescription>
+        <value>Attach an accompanying file for</value>
+    </labels>
+    <labels>
+        <fullName>YG_Attach_related_file</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Attach related file</shortDescription>
+        <value>Attach a related file</value>
+    </labels>
+    <labels>
+        <fullName>YG_Attachments_included</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Attachments included</shortDescription>
+        <value>Attachments included:</value>
+    </labels>
+    <labels>
+        <fullName>YG_Availability</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Availability</shortDescription>
+        <value>Availability</value>
+    </labels>
+    <labels>
+        <fullName>YG_Battery_replacement</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Battery replacement</shortDescription>
+        <value>Battery &lt;br/&gt;replacement</value>
+    </labels>
+    <labels>
+        <fullName>YG_Battery_to_replace</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Battery to replace</shortDescription>
+        <value>Battery to replace</value>
+    </labels>
+    <labels>
+        <fullName>YG_CDC_Proxy_Script</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG CDC Proxy Script</shortDescription>
+        <value>https://cdns.gigya.com/js/gigya.saml.js?apiKey=3_t54HHvpvYrel3N7gqVs7LbYwz1mkAl2DoNWUjj7zEabewRAGmqVGhWnLIM_jsIt2</value>
+    </labels>
+    <labels>
+        <fullName>YG_CDC_Script</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG CDC Script</shortDescription>
+        <value>https://cdns.gigya.com/js/gigya.js?apiKey=3_t54HHvpvYrel3N7gqVs7LbYwz1mkAl2DoNWUjj7zEabewRAGmqVGhWnLIM_jsIt2</value>
+    </labels>
+    <labels>
+        <fullName>YG_Calibration</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Calibration</shortDescription>
+        <value>Calibration</value>
+    </labels>
+    <labels>
+        <fullName>YG_Calibration_recommended</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Calibration recommended</shortDescription>
+        <value>Calibration &lt;br/&gt;recommended</value>
+    </labels>
+    <labels>
+        <fullName>YG_Calibration_recommended1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_Calibration_recommended1</shortDescription>
+        <value>Calibration recommended</value>
+    </labels>
+    <labels>
+        <fullName>YG_Call_back_number</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Call-back number</shortDescription>
+        <value>Call-back number</value>
+    </labels>
+    <labels>
+        <fullName>YG_Cancel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Cancel</shortDescription>
+        <value>Cancel</value>
+    </labels>
+    <labels>
+        <fullName>YG_Cancel_file_upload_and_submit_request</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Cancel file upload and submit request</shortDescription>
+        <value>Cancel file upload and submit request</value>
+    </labels>
+    <labels>
+        <fullName>YG_Case_Number</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_Case_Number</shortDescription>
+        <value>Case Number</value>
+    </labels>
+    <labels>
+        <fullName>YG_Characters_Left</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Characters Left</shortDescription>
+        <value>characters left</value>
+    </labels>
+    <labels>
+        <fullName>YG_Cleaning</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Cleaning</shortDescription>
+        <value>Cleaning</value>
+    </labels>
+    <labels>
+        <fullName>YG_Clear_results</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Clear results</shortDescription>
+        <value>Clear results</value>
+    </labels>
+    <labels>
+        <fullName>YG_Click_here</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG  Click here</shortDescription>
+        <value>Click here.</value>
+    </labels>
+    <labels>
+        <fullName>YG_Close</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Close</shortDescription>
+        <value>Close</value>
+    </labels>
+    <labels>
+        <fullName>YG_Closed_only</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Closed only</shortDescription>
+        <value>Closed only</value>
+    </labels>
+    <labels>
+        <fullName>YG_Combination_Product</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Combination Product</shortDescription>
+        <value>Combination Product</value>
+    </labels>
+    <labels>
+        <fullName>YG_Community_CDC_Login_URL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_Community CDC Login URL</shortDescription>
+        <value>https://myportal.yokogawa.com/login</value>
+    </labels>
+    <labels>
+        <fullName>YG_Company</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Company</shortDescription>
+        <value>Company</value>
+    </labels>
+    <labels>
+        <fullName>YG_Company_Info</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Company Info</shortDescription>
+        <value>Company information</value>
+    </labels>
+    <labels>
+        <fullName>YG_Company_and_sites_information</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Company and sites information</shortDescription>
+        <value>Company and sites information</value>
+    </labels>
+    <labels>
+        <fullName>YG_Condition_of_product_or_any_other_sites</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Condition of product or any other sites</shortDescription>
+        <value>Condition of product or any other sites:</value>
+    </labels>
+    <labels>
+        <fullName>YG_Condition_of_the_equipment_or_any_other_notes</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Condition of the equipment or any other notes</shortDescription>
+        <value>Condition of the equipment or any other notes</value>
+    </labels>
+    <labels>
+        <fullName>YG_Condition_of_the_product_or_any_other_notes</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Condition of the product or any other notes</shortDescription>
+        <value>Condition of the product or any other notes</value>
+    </labels>
+    <labels>
+        <fullName>YG_Condition_of_the_system_or_any_other_notes</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Condition of the system or any other notes</shortDescription>
+        <value>Condition of the system or any other notes</value>
+    </labels>
+    <labels>
+        <fullName>YG_Confirm</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Confirm</shortDescription>
+        <value>Confirm</value>
+    </labels>
+    <labels>
+        <fullName>YG_Contact</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Contact</shortDescription>
+        <value>Contact:</value>
+    </labels>
+    <labels>
+        <fullName>YG_Contact_No</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Contact No</shortDescription>
+        <value>Contact No.</value>
+    </labels>
+    <labels>
+        <fullName>YG_Contact_RegisterPage</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Contact RegisterPage</shortDescription>
+        <value>Contact</value>
+    </labels>
+    <labels>
+        <fullName>YG_Contact_support</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Contact support</shortDescription>
+        <value>Contact support</value>
+    </labels>
+    <labels>
+        <fullName>YG_Contract</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_Contract</shortDescription>
+        <value>Contract</value>
+    </labels>
+    <labels>
+        <fullName>YG_ContractFor</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_ContractFor</shortDescription>
+        <value>Contract for</value>
+    </labels>
+    <labels>
+        <fullName>YG_Contract_Header_Msg</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Contract Header Msg</shortDescription>
+        <value>Contracts Expiring in Less Than 6 Months</value>
+    </labels>
+    <labels>
+        <fullName>YG_Contract_Information</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_Contract_Information</shortDescription>
+        <value>Contract Information</value>
+    </labels>
+    <labels>
+        <fullName>YG_Contract_Number</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_Contract_Number</shortDescription>
+        <value>Contract No</value>
+    </labels>
+    <labels>
+        <fullName>YG_Contract_description</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_Contract_description</shortDescription>
+        <value>Contract description</value>
+    </labels>
+    <labels>
+        <fullName>YG_Contract_name</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_Contract_name</shortDescription>
+        <value>Contract name</value>
+    </labels>
+    <labels>
+        <fullName>YG_Contract_no</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_Contract_no</shortDescription>
+        <value>Contract no.:</value>
+    </labels>
+    <labels>
+        <fullName>YG_Contract_num</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_Contract_num</shortDescription>
+        <value>Contract no.</value>
+    </labels>
+    <labels>
+        <fullName>YG_Contracts</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_Contracts</shortDescription>
+        <value>Contracts</value>
+    </labels>
+    <labels>
+        <fullName>YG_Country</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Country</shortDescription>
+        <value>Country</value>
+    </labels>
+    <labels>
+        <fullName>YG_Covered</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Covered</shortDescription>
+        <value>Covered</value>
+    </labels>
+    <labels>
+        <fullName>YG_Cyber_security</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Cyber security</shortDescription>
+        <value>Cyber security</value>
+    </labels>
+    <labels>
+        <fullName>YG_DateSubmitted</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_DateSubmitted</shortDescription>
+        <value>Date Submitted</value>
+    </labels>
+    <labels>
+        <fullName>YG_Days</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Days</shortDescription>
+        <value>Days</value>
+    </labels>
+    <labels>
+        <fullName>YG_Deactivate_user_confirmation</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Deactivate user confirmation</shortDescription>
+        <value>Are you sure you want to deactivate the user?</value>
+    </labels>
+    <labels>
+        <fullName>YG_Deactivate_user_confirmation_msg</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Deactivate user confirmation msg</shortDescription>
+        <value>Once the user is deactivated, they will immediately lose access to the services of this portal.</value>
+    </labels>
+    <labels>
+        <fullName>YG_Description</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Description</shortDescription>
+        <value>Description:</value>
+    </labels>
+    <labels>
+        <fullName>YG_Details_of_the</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Details of the</shortDescription>
+        <value>Details of the</value>
+    </labels>
+    <labels>
+        <fullName>YG_Details_of_the_service_requests_are</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Details of the service requests are:</shortDescription>
+        <value>Details of the service requests are:</value>
+    </labels>
+    <labels>
+        <fullName>YG_Diagnosis</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Diagnosis</shortDescription>
+        <value>Diagnosis</value>
+    </labels>
+    <labels>
+        <fullName>YG_Discontinued_products</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Discontinued products</shortDescription>
+        <value>Discontinued &lt;br/&gt;products</value>
+    </labels>
+    <labels>
+        <fullName>YG_Documents</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Documents</shortDescription>
+        <value>Documents</value>
+    </labels>
+    <labels>
+        <fullName>YG_Domain</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Domain</shortDescription>
+        <value>Domain</value>
+    </labels>
+    <labels>
+        <fullName>YG_Don_t_have_an_account</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Don’t have an account</shortDescription>
+        <value>Don’t have an account</value>
+    </labels>
+    <labels>
+        <fullName>YG_Download_filtered_product_list</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Download filtered product list</shortDescription>
+        <value>Download filtered product list</value>
+    </labels>
+    <labels>
+        <fullName>YG_Download_filtered_station_list</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Download filtered station list</shortDescription>
+        <value>Download filtered station list</value>
+    </labels>
+    <labels>
+        <fullName>YG_Download_full_station_list</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Download full station list</shortDescription>
+        <value>Download full station list</value>
+    </labels>
+    <labels>
+        <fullName>YG_Download_product_list</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Download product list</shortDescription>
+        <value>Download product list</value>
+    </labels>
+    <labels>
+        <fullName>YG_Download_service_request_list</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Download service request list</shortDescription>
+        <value>Download service request list</value>
+    </labels>
+    <labels>
+        <fullName>YG_Downloads</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Downloads</shortDescription>
+        <value>Downloads</value>
+    </labels>
+    <labels>
+        <fullName>YG_Edit_notes</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_Edit_notes</shortDescription>
+        <value>Edit notes</value>
+    </labels>
+    <labels>
+        <fullName>YG_Email_Body_Plant</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Email Body Plant</shortDescription>
+        <value>The requested</value>
+    </labels>
+    <labels>
+        <fullName>YG_Email_Body_Plant_Approve2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Email Body Plant Approve2</shortDescription>
+        <value>plants has been approved.</value>
+    </labels>
+    <labels>
+        <fullName>YG_Email_Body_Plant_Decline2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Email Body Plant Decline2</shortDescription>
+        <value>plants has been denied.</value>
+    </labels>
+    <labels>
+        <fullName>YG_Email_Body_Plant_Request</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Email Body Plant Request</shortDescription>
+        <value>has requested access for the following plants :</value>
+    </labels>
+    <labels>
+        <fullName>YG_Email_From_Address</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Email From Address</shortDescription>
+        <value>icp-adm@cs.jp.yokogawa.com</value>
+    </labels>
+    <labels>
+        <fullName>YG_Email_Salutations</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Email Salutations</shortDescription>
+        <value>Hi</value>
+    </labels>
+    <labels>
+        <fullName>YG_Email_Salutations_Dear</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Email Salutations Dear</shortDescription>
+        <value>Dear</value>
+    </labels>
+    <labels>
+        <fullName>YG_Email_Salutations_Team</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Email Salutations Team</shortDescription>
+        <value>Hi Team,</value>
+    </labels>
+    <labels>
+        <fullName>YG_Email_Signature</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Email Signature</shortDescription>
+        <value>Regards,
+&lt;br/&gt;
+Yokogawa Customer Portal</value>
+    </labels>
+    <labels>
+        <fullName>YG_Email_Subject_Plant_Approve</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Email Subject Plant Approve</shortDescription>
+        <value>Plant access approved</value>
+    </labels>
+    <labels>
+        <fullName>YG_Email_Subject_Plant_Decline</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Email Subject Plant Decline</shortDescription>
+        <value>Plant access denied</value>
+    </labels>
+    <labels>
+        <fullName>YG_Email_Subject_Plant_Request</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Email Subject Plant Request</shortDescription>
+        <value>Plant access request</value>
+    </labels>
+    <labels>
+        <fullName>YG_Email_To_Address</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Email To Address</shortDescription>
+        <value>icp-adm@cs.jp.yokogawa.com</value>
+    </labels>
+    <labels>
+        <fullName>YG_End_date</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_End_date</shortDescription>
+        <value>End date</value>
+    </labels>
+    <labels>
+        <fullName>YG_End_user</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG End user</shortDescription>
+        <value>End user</value>
+    </labels>
+    <labels>
+        <fullName>YG_Ended</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Ended</shortDescription>
+        <value>Ended</value>
+    </labels>
+    <labels>
+        <fullName>YG_Enter_product_name_model_or_serial_number</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Enter product name,model or serial number</shortDescription>
+        <value>Enter product name, model or serial number</value>
+    </labels>
+    <labels>
+        <fullName>YG_Enter_product_name_or_serial_number</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Enter product name or serial number</shortDescription>
+        <value>Enter product name or serial number</value>
+    </labels>
+    <labels>
+        <fullName>YG_Entitlement_balance</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_Entitlement_balance</shortDescription>
+        <value>Entitlement balance</value>
+    </labels>
+    <labels>
+        <fullName>YG_Entitlement_quantity</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_Entitlement_quantity</shortDescription>
+        <value>Entitlement quantity</value>
+    </labels>
+    <labels>
+        <fullName>YG_Entitlement_type</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_Entitlement_type</shortDescription>
+        <value>Entitlement type</value>
+    </labels>
+    <labels>
+        <fullName>YG_Equipment_with_this_Issue</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Equipment with this Issue</shortDescription>
+        <value>Equipment with this Issue</value>
+    </labels>
+    <labels>
+        <fullName>YG_Error_Page_Title</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Error Page Title</shortDescription>
+        <value>SAML Error Page</value>
+    </labels>
+    <labels>
+        <fullName>YG_Expired</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Expired</shortDescription>
+        <value>Expired</value>
+    </labels>
+    <labels>
+        <fullName>YG_Expires</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_Expires</shortDescription>
+        <value>Expires</value>
+    </labels>
+    <labels>
+        <fullName>YG_Expires_today</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Expires today</shortDescription>
+        <value>Expires today</value>
+    </labels>
+    <labels>
+        <fullName>YG_Extended_Maintenance_Phase</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Extended Maintenance Phase</shortDescription>
+        <value>Extended Maintenance Phase</value>
+    </labels>
+    <labels>
+        <fullName>YG_Fax_number</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Fax number</shortDescription>
+        <value>Fax number</value>
+    </labels>
+    <labels>
+        <fullName>YG_File_Upload</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG File Upload</shortDescription>
+        <value>Once a file is selected for upload, the form will be submitted.</value>
+    </labels>
+    <labels>
+        <fullName>YG_Filter_By_Name</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Filter By Name</shortDescription>
+        <value>Filter by name</value>
+    </labels>
+    <labels>
+        <fullName>YG_Filter_By_Product_Name</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Filter By Product Name</shortDescription>
+        <value>Filter by product name</value>
+    </labels>
+    <labels>
+        <fullName>YG_Filter_By_Serial_Number</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Filter By Serial Number</shortDescription>
+        <value>Filter by serial number</value>
+    </labels>
+    <labels>
+        <fullName>YG_Filter_By_Station_Or_Module_Name</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Filter By Station Or Module Name</shortDescription>
+        <value>Filter by station or module name</value>
+    </labels>
+    <labels>
+        <fullName>YG_Filter_by_model_name</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_Filter_by_model_name</shortDescription>
+        <value>Filter by model name</value>
+    </labels>
+    <labels>
+        <fullName>YG_Firmware_updates</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Firmware updates</shortDescription>
+        <value>Firmware &lt;br/&gt;updates</value>
+    </labels>
+    <labels>
+        <fullName>YG_Firmware_updates_available</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Firmware updates available</shortDescription>
+        <value>Firmware updates &lt;br/&gt;available</value>
+    </labels>
+    <labels>
+        <fullName>YG_Firmware_updates_available1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_Firmware_updates_available1</shortDescription>
+        <value>Firmware update available</value>
+    </labels>
+    <labels>
+        <fullName>YG_Firmware_updates_available2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_Firmware updates available2</shortDescription>
+        <value>Firmware updates available</value>
+    </labels>
+    <labels>
+        <fullName>YG_Fix_instrument</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Fix instrument</shortDescription>
+        <value>Fix instrument</value>
+    </labels>
+    <labels>
+        <fullName>YG_Hardware</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Hardware</shortDescription>
+        <value>Hardware</value>
+    </labels>
+    <labels>
+        <fullName>YG_Hardwares</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Hardwares</shortDescription>
+        <value>Hardwares</value>
+    </labels>
+    <labels>
+        <fullName>YG_Home</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Home</shortDescription>
+        <value>Home</value>
+    </labels>
+    <labels>
+        <fullName>YG_In_Progress</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_In_Progress</shortDescription>
+        <value>In Progress</value>
+    </labels>
+    <labels>
+        <fullName>YG_Inquire_upgrade</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Inquire upgrade</shortDescription>
+        <value>Inquire upgrade</value>
+    </labels>
+    <labels>
+        <fullName>YG_Inquiries</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Inquiries</shortDescription>
+        <value>Inquiries</value>
+    </labels>
+    <labels>
+        <fullName>YG_Inquiry_Placeholder</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Inquiry Placeholder</shortDescription>
+        <value>i.e. product, systems software, etc</value>
+    </labels>
+    <labels>
+        <fullName>YG_Inquiry_Subject</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Inquiry Subject</shortDescription>
+        <value>Subject:</value>
+    </labels>
+    <labels>
+        <fullName>YG_Inquiry_Type</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Inquiry Type</shortDescription>
+        <value>Inquiry Type</value>
+    </labels>
+    <labels>
+        <fullName>YG_Inquiry_for</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Inquiry for</shortDescription>
+        <value>Inquiry for</value>
+    </labels>
+    <labels>
+        <fullName>YG_Inquiry_for_Others</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Inquiry for Others</shortDescription>
+        <value>Inquiry for Others</value>
+    </labels>
+    <labels>
+        <fullName>YG_Installed</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Installed</shortDescription>
+        <value>Installed</value>
+    </labels>
+    <labels>
+        <fullName>YG_Instrument</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Instrument</shortDescription>
+        <value>Instrument</value>
+    </labels>
+    <labels>
+        <fullName>YG_Internal_Server_error_Please_try_after_sometime</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Internal Server error Please try after sometime</shortDescription>
+        <value>Internal Server error, Please try after sometime ..!</value>
+    </labels>
+    <labels>
+        <fullName>YG_Invite_Colleagues</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Invite Colleagues</shortDescription>
+        <value>Invite your colleagues</value>
+    </labels>
+    <labels>
+        <fullName>YG_Invite_colleague_URL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Invite colleague URL</shortDescription>
+        <value>https://myadmin.yokogawa.com/admin/invitation</value>
+    </labels>
+    <labels>
+        <fullName>YG_Jump_to_domain</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Jump to domain</shortDescription>
+        <value>Jump to domain:</value>
+    </labels>
+    <labels>
+        <fullName>YG_Jump_to_project</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Jump to project</shortDescription>
+        <value>Jump to project:</value>
+    </labels>
+    <labels>
+        <fullName>YG_LCA</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG LCA</shortDescription>
+        <value>LCA</value>
+    </labels>
+    <labels>
+        <fullName>YG_LCA_end_date</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG LCA end date</shortDescription>
+        <value>LCA end date</value>
+    </labels>
+    <labels>
+        <fullName>YG_LCA_start_date</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG LCA start date</shortDescription>
+        <value>LCA start date</value>
+    </labels>
+    <labels>
+        <fullName>YG_Last_System_Info</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Last System Info</shortDescription>
+        <value>Last system info update:</value>
+    </labels>
+    <labels>
+        <fullName>YG_Learn_more</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Learn more</shortDescription>
+        <value>Learn more</value>
+    </labels>
+    <labels>
+        <fullName>YG_Loading</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Loading</shortDescription>
+        <value>Loading..</value>
+    </labels>
+    <labels>
+        <fullName>YG_Login_now</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Login now</shortDescription>
+        <value>Login now</value>
+    </labels>
+    <labels>
+        <fullName>YG_MS_code</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG MS code</shortDescription>
+        <value>MS code</value>
+    </labels>
+    <labels>
+        <fullName>YG_Maintenance</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Maintenance</shortDescription>
+        <value>Maintenance</value>
+    </labels>
+    <labels>
+        <fullName>YG_Maintenance_Phase</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Maintenance Phase</shortDescription>
+        <value>Maintenance Phase</value>
+    </labels>
+    <labels>
+        <fullName>YG_Maintenance_Phase_1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Maintenance Phase 1</shortDescription>
+        <value>Maintenance Phase 1</value>
+    </labels>
+    <labels>
+        <fullName>YG_Maintenance_Phase_2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Maintenance Phase 2</shortDescription>
+        <value>Maintenance Phase 2</value>
+    </labels>
+    <labels>
+        <fullName>YG_Maintenance_Phase_Ending_In</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Maintenance Phase Ending In</shortDescription>
+        <value>maintenance phase ending in</value>
+    </labels>
+    <labels>
+        <fullName>YG_Maintenance_Phases</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Maintenance Phases</shortDescription>
+        <value>Maintenance Phases</value>
+    </labels>
+    <labels>
+        <fullName>YG_Maintenance_phase_less_than</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Maintenance phase less than</shortDescription>
+        <value>maintenance phase ending in less than</value>
+    </labels>
+    <labels>
+        <fullName>YG_Manage_Access</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Manage Access</shortDescription>
+        <value>Manage access here:</value>
+    </labels>
+    <labels>
+        <fullName>YG_Manage_Colleague</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Manage Colleague</shortDescription>
+        <value>Manage Colleagues</value>
+    </labels>
+    <labels>
+        <fullName>YG_Manage_Colleague_popup_msg</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Manage Colleague popup msg</shortDescription>
+        <value>has requested access to the following site:</value>
+    </labels>
+    <labels>
+        <fullName>YG_Manage_Colleague_popup_msg1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Manage Colleague popup msg1</shortDescription>
+        <value>Set as admin</value>
+    </labels>
+    <labels>
+        <fullName>YG_Manage_Colleague_popup_msg2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Manage Colleague popup msg2</shortDescription>
+        <value>Revoke admin rights</value>
+    </labels>
+    <labels>
+        <fullName>YG_Manage_Colleague_popup_msg3</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Manage Colleague popup msg3</shortDescription>
+        <value>Deactivate account</value>
+    </labels>
+    <labels>
+        <fullName>YG_Model</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Model</shortDescription>
+        <value>Model</value>
+    </labels>
+    <labels>
+        <fullName>YG_ModelSuffix</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG ModelSuffix</shortDescription>
+        <value>Model and Suffix Code</value>
+    </labels>
+    <labels>
+        <fullName>YG_Model_Discontinued</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Model Discontinued</shortDescription>
+        <value>This model has been &lt;b&gt;discontinued &lt;/b&gt;</value>
+    </labels>
+    <labels>
+        <fullName>YG_Model_Recalled</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Model Recalled</shortDescription>
+        <value>This model has been &lt;b&gt;recalled&lt;/b&gt;</value>
+    </labels>
+    <labels>
+        <fullName>YG_Model_code</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Model code</shortDescription>
+        <value>Model code</value>
+    </labels>
+    <labels>
+        <fullName>YG_Mods</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Mods</shortDescription>
+        <value>Mods</value>
+    </labels>
+    <labels>
+        <fullName>YG_Module</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Module</shortDescription>
+        <value>Module</value>
+    </labels>
+    <labels>
+        <fullName>YG_Modules_in_6_months</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Modules in 6 months</shortDescription>
+        <value>modules maintenance phase ending in less than 6 months</value>
+    </labels>
+    <labels>
+        <fullName>YG_Months</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Months</shortDescription>
+        <value>Months</value>
+    </labels>
+    <labels>
+        <fullName>YG_More</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG More</shortDescription>
+        <value>more</value>
+    </labels>
+    <labels>
+        <fullName>YG_MoreProducts</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_MoreProducts</shortDescription>
+        <value>more</value>
+    </labels>
+    <labels>
+        <fullName>YG_MoreServiceRequests</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_MoreServiceRequests</shortDescription>
+        <value>more service requests</value>
+    </labels>
+    <labels>
+        <fullName>YG_More_records</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG More records</shortDescription>
+        <value>more records</value>
+    </labels>
+    <labels>
+        <fullName>YG_Morning</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Morning</shortDescription>
+        <value>Morning</value>
+    </labels>
+    <labels>
+        <fullName>YG_Name</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Name</shortDescription>
+        <value>Name</value>
+    </labels>
+    <labels>
+        <fullName>YG_Nearby_Service_Center</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Nearby Service Center</shortDescription>
+        <value>I will send-in the products to a nearby service center</value>
+    </labels>
+    <labels>
+        <fullName>YG_New_Service_inquiry_Email_Temp</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG New Service inquiry Email Temp</shortDescription>
+        <value>New Service inquiry</value>
+    </labels>
+    <labels>
+        <fullName>YG_New_Service_request_Email_Temp</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG New Service request Email Temp</shortDescription>
+        <value>New Service request</value>
+    </labels>
+    <labels>
+        <fullName>YG_New_case_is_submitted</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG New case is submitted</shortDescription>
+        <value>New case is submitted</value>
+    </labels>
+    <labels>
+        <fullName>YG_Next_software_license_expiry</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Next software license expiry</shortDescription>
+        <value>Next software license expiry</value>
+    </labels>
+    <labels>
+        <fullName>YG_No_Site_msg</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG No Site msg</shortDescription>
+        <value>No site assigned</value>
+    </labels>
+    <labels>
+        <fullName>YG_No_data_found</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG No data found</shortDescription>
+        <value>No data found</value>
+    </labels>
+    <labels>
+        <fullName>YG_No_results_found</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG No results found</shortDescription>
+        <value>No results found. Please select Other:</value>
+    </labels>
+    <labels>
+        <fullName>YG_Notes</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_Notes</shortDescription>
+        <value>Notes</value>
+    </labels>
+    <labels>
+        <fullName>YG_Notification</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Notification</shortDescription>
+        <value>Notifications</value>
+    </labels>
+    <labels>
+        <fullName>YG_Notifications_in_total</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Notifications in total</shortDescription>
+        <value>Notifications &lt;br/&gt; in total</value>
+    </labels>
+    <labels>
+        <fullName>YG_On_Call</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG On-Call</shortDescription>
+        <value>On-Call</value>
+    </labels>
+    <labels>
+        <fullName>YG_Only_Hardware</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Only Hardware</shortDescription>
+        <value>Only Hardware</value>
+    </labels>
+    <labels>
+        <fullName>YG_Only_Software</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Only Software</shortDescription>
+        <value>Only Software</value>
+    </labels>
+    <labels>
+        <fullName>YG_Oops</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Oops</shortDescription>
+        <value>Oops !</value>
+    </labels>
+    <labels>
+        <fullName>YG_Optional</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Optional</shortDescription>
+        <value>(optional)</value>
+    </labels>
+    <labels>
+        <fullName>YG_Order_availability</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Order availability</shortDescription>
+        <value>Order availability</value>
+    </labels>
+    <labels>
+        <fullName>YG_Other</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Other</shortDescription>
+        <value>Other</value>
+    </labels>
+    <labels>
+        <fullName>YG_Others</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Others</shortDescription>
+        <value>Others</value>
+    </labels>
+    <labels>
+        <fullName>YG_Our_engineer_will_be_at_your_site_within</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Our engineer will be at your site within</shortDescription>
+        <value>Our engineer will be at your site within:</value>
+    </labels>
+    <labels>
+        <fullName>YG_Overview</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Overview</shortDescription>
+        <value>Overview</value>
+    </labels>
+    <labels>
+        <fullName>YG_PatrolInspectionscheduledon</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_PatrolInspectionscheduledon</shortDescription>
+        <value>Patrol inspection scheduled on</value>
+    </labels>
+    <labels>
+        <fullName>YG_Per</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_Per</shortDescription>
+        <value>/Per</value>
+    </labels>
+    <labels>
+        <fullName>YG_Phase_end_date</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_Phase_end_date</shortDescription>
+        <value>Phase end date</value>
+    </labels>
+    <labels>
+        <fullName>YG_Phase_ending_in</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Phase ending in</shortDescription>
+        <value>Phase ending in</value>
+    </labels>
+    <labels>
+        <fullName>YG_Plant</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Plant</shortDescription>
+        <value>Plant</value>
+    </labels>
+    <labels>
+        <fullName>YG_Please_Enter_Related_Products</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Please Enter Related Products</shortDescription>
+        <value>Please Enter Related Products</value>
+    </labels>
+    <labels>
+        <fullName>YG_Please_Select_Preferred_Date</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Please Select Preferred Date</shortDescription>
+        <value>Please Select Preferred Date.</value>
+    </labels>
+    <labels>
+        <fullName>YG_Please_Select_Preferred_Time</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Please Select Preferred Time</shortDescription>
+        <value>Please Select Preferred Time.</value>
+    </labels>
+    <labels>
+        <fullName>YG_Please_Select_Service_Category</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Please Select Service Category</shortDescription>
+        <value>Please Select Service Category.</value>
+    </labels>
+    <labels>
+        <fullName>YG_Please_Select_Service_Options</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Please Select Service Options</shortDescription>
+        <value>Please Select Service Options.</value>
+    </labels>
+    <labels>
+        <fullName>YG_Please_enter_description</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Please enter description</shortDescription>
+        <value>Please enter description.</value>
+    </labels>
+    <labels>
+        <fullName>YG_Please_enter_subject</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Please enter subject</shortDescription>
+        <value>Please enter subject.</value>
+    </labels>
+    <labels>
+        <fullName>YG_Please_select_date</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Please select date</shortDescription>
+        <value>Please select date.</value>
+    </labels>
+    <labels>
+        <fullName>YG_Please_select_inquiry_type</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Please select inquiry type</shortDescription>
+        <value>Please select inquiry type.</value>
+    </labels>
+    <labels>
+        <fullName>YG_Please_select_time</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Please select time</shortDescription>
+        <value>Please select time.</value>
+    </labels>
+    <labels>
+        <fullName>YG_Preferred_Call_Back_day</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Preferred Call Back day</shortDescription>
+        <value>Preferred Call-Back day:</value>
+    </labels>
+    <labels>
+        <fullName>YG_Preferred_Call_Back_time</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Preferred Call Back time</shortDescription>
+        <value>Preferred Call-Back time:</value>
+    </labels>
+    <labels>
+        <fullName>YG_Preferred_pick_up_date</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_Preferred_pick_up_date</shortDescription>
+        <value>Preferred pick-up date</value>
+    </labels>
+    <labels>
+        <fullName>YG_Preferred_pick_up_time</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_Preferred_pick_up_time</shortDescription>
+        <value>Preferred pick-up time</value>
+    </labels>
+    <labels>
+        <fullName>YG_Preferred_visit_date</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Preferred visit date</shortDescription>
+        <value>Preferred visit date:</value>
+    </labels>
+    <labels>
+        <fullName>YG_Preferred_visit_time_of_day</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Preferred visit time of day</shortDescription>
+        <value>Preferred visit time of day</value>
+    </labels>
+    <labels>
+        <fullName>YG_Process_eqpt</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Process eqpt</shortDescription>
+        <value>Process eqpt</value>
+    </labels>
+    <labels>
+        <fullName>YG_Prod_Calibration_recommended</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_Prod_Calibration_recommended</shortDescription>
+        <value>Calibration recommended</value>
+    </labels>
+    <labels>
+        <fullName>YG_ProductName_Model</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_ProductName_Model</shortDescription>
+        <value>Product Name/Model</value>
+    </labels>
+    <labels>
+        <fullName>YG_Product_Categories</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_Product_Categories</shortDescription>
+        <value>Product Categories</value>
+    </labels>
+    <labels>
+        <fullName>YG_Product_Information</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Product Information</shortDescription>
+        <value>Product Information</value>
+    </labels>
+    <labels>
+        <fullName>YG_Product_Life_History</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Product Life History</shortDescription>
+        <value>Product Life History</value>
+    </labels>
+    <labels>
+        <fullName>YG_Product_Lifecycle_Information</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Product Lifecycle Information</shortDescription>
+        <value>Product Lifecycle Information</value>
+    </labels>
+    <labels>
+        <fullName>YG_Product_Module</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_Product/Module</shortDescription>
+        <value>Product/Module</value>
+    </labels>
+    <labels>
+        <fullName>YG_Product_Notifications</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_Product Notifications</shortDescription>
+        <value>Product Notifications</value>
+    </labels>
+    <labels>
+        <fullName>YG_Product_Reg_Msg1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Product Reg Msg1</shortDescription>
+        <value>This serial number has been registered by someone outside your organization.</value>
+    </labels>
+    <labels>
+        <fullName>YG_Product_Reg_Msg2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Product Reg Msg2</shortDescription>
+        <value>has already been registered.</value>
+    </labels>
+    <labels>
+        <fullName>YG_Product_Reg_Msg3</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Product Reg Msg3</shortDescription>
+        <value>has already been registered to this site</value>
+    </labels>
+    <labels>
+        <fullName>YG_Product_Reg_Msg4</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Product Reg Msg4</shortDescription>
+        <value>products have been successfully added to your product list.</value>
+    </labels>
+    <labels>
+        <fullName>YG_Product_Registration</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Product Registration</shortDescription>
+        <value>Product Registration</value>
+    </labels>
+    <labels>
+        <fullName>YG_Product_Registration_Msg1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Product Registration Msg1</shortDescription>
+        <value>Register your non-system related products and enjoy:</value>
+    </labels>
+    <labels>
+        <fullName>YG_Product_Registration_Msg2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Product Registration Msg2</shortDescription>
+        <value>Quicker service and more efficient support</value>
+    </labels>
+    <labels>
+        <fullName>YG_Product_Timeline</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Product Timeline</shortDescription>
+        <value>Product Timeline</value>
+    </labels>
+    <labels>
+        <fullName>YG_Product_carrier</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Product carrier</shortDescription>
+        <value>Product carrier</value>
+    </labels>
+    <labels>
+        <fullName>YG_Product_for_maintenance</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Product for maintenance</shortDescription>
+        <value>Product for maintenance</value>
+    </labels>
+    <labels>
+        <fullName>YG_Product_inquiring_about</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Product inquiring about</shortDescription>
+        <value>Product inquiring about</value>
+    </labels>
+    <labels>
+        <fullName>YG_Product_name</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Product name</shortDescription>
+        <value>Product name</value>
+    </labels>
+    <labels>
+        <fullName>YG_Product_registration_successful</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Product registration successful</shortDescription>
+        <value>Product registration successful!</value>
+    </labels>
+    <labels>
+        <fullName>YG_Product_support_alerts</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Product support alerts</shortDescription>
+        <value>Product support alerts</value>
+    </labels>
+    <labels>
+        <fullName>YG_Product_to_calibrate</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Product to calibrate</shortDescription>
+        <value>Product to calibrate</value>
+    </labels>
+    <labels>
+        <fullName>YG_Product_to_clean</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Product to clean</shortDescription>
+        <value>Product to clean</value>
+    </labels>
+    <labels>
+        <fullName>YG_Product_to_fix</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Product to fix</shortDescription>
+        <value>Product to fix</value>
+    </labels>
+    <labels>
+        <fullName>YG_Product_to_repair</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Product to repair</shortDescription>
+        <value>Product to repair</value>
+    </labels>
+    <labels>
+        <fullName>YG_Product_to_replace</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Product to replace</shortDescription>
+        <value>Product to replace</value>
+    </labels>
+    <labels>
+        <fullName>YG_Product_to_service</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Product to service</shortDescription>
+        <value>Product to service</value>
+    </labels>
+    <labels>
+        <fullName>YG_Product_to_troubleshoot</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Product to troubleshoot</shortDescription>
+        <value>Product to troubleshoot</value>
+    </labels>
+    <labels>
+        <fullName>YG_Productdetail</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_Productdetail</shortDescription>
+        <value>Product Detail</value>
+    </labels>
+    <labels>
+        <fullName>YG_Production_date</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Production date</shortDescription>
+        <value>Production date</value>
+    </labels>
+    <labels>
+        <fullName>YG_Products</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Products</shortDescription>
+        <value>Products</value>
+    </labels>
+    <labels>
+        <fullName>YG_Products_Small</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Products Small</shortDescription>
+        <value>products</value>
+    </labels>
+    <labels>
+        <fullName>YG_Progress</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Progress</shortDescription>
+        <value>Progress</value>
+    </labels>
+    <labels>
+        <fullName>YG_ProxyPage_Title</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG ProxyPage Title</shortDescription>
+        <value>SAML Proxy Page for Customer Portal DEV</value>
+    </labels>
+    <labels>
+        <fullName>YG_Purchased_date</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Purchased date</shortDescription>
+        <value>Purchased date</value>
+    </labels>
+    <labels>
+        <fullName>YG_Qty</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Qty</shortDescription>
+        <value>Qty</value>
+    </labels>
+    <labels>
+        <fullName>YG_Quantity</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Quantity</shortDescription>
+        <value>Quantity</value>
+    </labels>
+    <labels>
+        <fullName>YG_Re_order</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Re-order</shortDescription>
+        <value>Re-order</value>
+    </labels>
+    <labels>
+        <fullName>YG_Recalled_products</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Recalled products</shortDescription>
+        <value>Recalled &lt;br/&gt;products</value>
+    </labels>
+    <labels>
+        <fullName>YG_Recalled_products2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_Recalled products2</shortDescription>
+        <value>Recalled products</value>
+    </labels>
+    <labels>
+        <fullName>YG_Register</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Register</shortDescription>
+        <value>Register</value>
+    </labels>
+    <labels>
+        <fullName>YG_Register_product</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG  Register product</shortDescription>
+        <value>Register product by serial number</value>
+    </labels>
+    <labels>
+        <fullName>YG_Register_your_products</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Register your products</shortDescription>
+        <value>Register your products</value>
+    </labels>
+    <labels>
+        <fullName>YG_Regulation_changes</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Regulation changes</shortDescription>
+        <value>Regulation &lt;br/&gt;changes</value>
+    </labels>
+    <labels>
+        <fullName>YG_Regulations_changes</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_Regulations changes</shortDescription>
+        <value>Regulations changes</value>
+    </labels>
+    <labels>
+        <fullName>YG_Related_documents</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Related documents</shortDescription>
+        <value>Related documents</value>
+    </labels>
+    <labels>
+        <fullName>YG_Renew_LCA</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Renew LCA</shortDescription>
+        <value>Renew LCA</value>
+    </labels>
+    <labels>
+        <fullName>YG_Renew_contract</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_Renew_contract</shortDescription>
+        <value>Renew contract</value>
+    </labels>
+    <labels>
+        <fullName>YG_Renewal_for</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Renewal for</shortDescription>
+        <value>Renewal for</value>
+    </labels>
+    <labels>
+        <fullName>YG_Repair</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Repair</shortDescription>
+        <value>Repair</value>
+    </labels>
+    <labels>
+        <fullName>YG_Replace_eqpt</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Replace eqpt</shortDescription>
+        <value>Replace eqpt</value>
+    </labels>
+    <labels>
+        <fullName>YG_Request_A_Service</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_Request_A_Service</shortDescription>
+        <value>REQUEST A SERVICE</value>
+    </labels>
+    <labels>
+        <fullName>YG_Request_Access_to_Sites</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Request Access to Sites</shortDescription>
+        <value>Request Access to Sites</value>
+    </labels>
+    <labels>
+        <fullName>YG_Request_For_Maintenance_Service</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Request For Maintenance Service</shortDescription>
+        <value>Request For Service</value>
+    </labels>
+    <labels>
+        <fullName>YG_Request_YOK_to_transer_acc</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Request YOK to transer acc</shortDescription>
+        <value>Request Yokogawa to transfer account</value>
+    </labels>
+    <labels>
+        <fullName>YG_Request_for_calibration</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_Request_for_calibration</shortDescription>
+        <value>Request for calibration</value>
+    </labels>
+    <labels>
+        <fullName>YG_Request_for_quotation</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Request for quotation</shortDescription>
+        <value>Request for quotation</value>
+    </labels>
+    <labels>
+        <fullName>YG_Request_one_here</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Request one here</shortDescription>
+        <value>Request one here</value>
+    </labels>
+    <labels>
+        <fullName>YG_Requested_by</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_Requested_by</shortDescription>
+        <value>Requested by</value>
+    </labels>
+    <labels>
+        <fullName>YG_Resources</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Resources</shortDescription>
+        <value>Resources</value>
+    </labels>
+    <labels>
+        <fullName>YG_Results</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Results</shortDescription>
+        <value>Results</value>
+    </labels>
+    <labels>
+        <fullName>YG_Return_to_login</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Return to login</shortDescription>
+        <value>Return to login</value>
+    </labels>
+    <labels>
+        <fullName>YG_Revision</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Revision</shortDescription>
+        <value>Revision</value>
+    </labels>
+    <labels>
+        <fullName>YG_Revision_no</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Revision no</shortDescription>
+        <value>Revision no.</value>
+    </labels>
+    <labels>
+        <fullName>YG_SFDCBaseURL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG SFDCBaseURL</shortDescription>
+        <value>https://yokogawa-icrm.my.salesforce.com/</value>
+    </labels>
+    <labels>
+        <fullName>YG_SUBMIT_INQUIRY</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG SUBMIT INQUIRY</shortDescription>
+        <value>SUBMIT INQUIRY</value>
+    </labels>
+    <labels>
+        <fullName>YG_SW_License_Expiry</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG SW License Expiry</shortDescription>
+        <value>Software License Expiry</value>
+    </labels>
+    <labels>
+        <fullName>YG_SW_Patches</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG SW Patches</shortDescription>
+        <value>SW Patches</value>
+    </labels>
+    <labels>
+        <fullName>YG_SW_corrupted</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG SW corrupted</shortDescription>
+        <value>SW corrupted</value>
+    </labels>
+    <labels>
+        <fullName>YG_Sales_Office</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Sales Office</shortDescription>
+        <value>Sales Office</value>
+    </labels>
+    <labels>
+        <fullName>YG_Sales_Phase</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Sales Phase</shortDescription>
+        <value>Sales Phase</value>
+    </labels>
+    <labels>
+        <fullName>YG_Sales_Quote</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Sales &amp; Quote</shortDescription>
+        <value>Sales &amp; Quote</value>
+    </labels>
+    <labels>
+        <fullName>YG_Sales_and_Quote</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Sales and Quote</shortDescription>
+        <value>Sales and Quote</value>
+    </labels>
+    <labels>
+        <fullName>YG_Save</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Save</shortDescription>
+        <value>Save</value>
+    </labels>
+    <labels>
+        <fullName>YG_Security</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Security</shortDescription>
+        <value>Security</value>
+    </labels>
+    <labels>
+        <fullName>YG_Select_a_domain</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Select a domain</shortDescription>
+        <value>Select a domain</value>
+    </labels>
+    <labels>
+        <fullName>YG_Select_a_maintenance_service</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Select a maintenance service</shortDescription>
+        <value>Select a maintenance service</value>
+    </labels>
+    <labels>
+        <fullName>YG_Selected_Products</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Selected Products</shortDescription>
+        <value>selected products</value>
+    </labels>
+    <labels>
+        <fullName>YG_Self_Register_Users_Accid</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Self Register Users Accid</shortDescription>
+        <value>0012w00000bO6vPAAS</value>
+    </labels>
+    <labels>
+        <fullName>YG_Serial_No</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Serial No</shortDescription>
+        <value>Serial No.</value>
+    </labels>
+    <labels>
+        <fullName>YG_Serial_no_code</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Serial no code</shortDescription>
+        <value>Serial no. code</value>
+    </labels>
+    <labels>
+        <fullName>YG_Serial_num</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_Serial_num</shortDescription>
+        <value>Serial no.:</value>
+    </labels>
+    <labels>
+        <fullName>YG_Serial_number</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Serial number</shortDescription>
+        <value>Serial number</value>
+    </labels>
+    <labels>
+        <fullName>YG_ServAir_Case_Number</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG ServAir Case Number</shortDescription>
+        <value>ServAir Case Number:</value>
+    </labels>
+    <labels>
+        <fullName>YG_ServiceMenuHeading</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_ServiceMenuHeading</shortDescription>
+        <value>Service Menu</value>
+    </labels>
+    <labels>
+        <fullName>YG_Service_Center</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Service Center</shortDescription>
+        <value>Service Center</value>
+    </labels>
+    <labels>
+        <fullName>YG_Service_For</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Service For</shortDescription>
+        <value>Service For -</value>
+    </labels>
+    <labels>
+        <fullName>YG_Service_Menu_Timeline</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_Service_Menu_Timeline</shortDescription>
+        <value>Service Menu Timeline</value>
+    </labels>
+    <labels>
+        <fullName>YG_Service_On_Site</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Service On-Site</shortDescription>
+        <value>A yokogawa representative will carry out the maintenance service on-site</value>
+    </labels>
+    <labels>
+        <fullName>YG_Service_Request_and_Inquiries</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Service Request and Inquiries</shortDescription>
+        <value>Service Request and Inquiries</value>
+    </labels>
+    <labels>
+        <fullName>YG_Service_Type</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Service Type</shortDescription>
+        <value>Service Type</value>
+    </labels>
+    <labels>
+        <fullName>YG_Service_contract</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_Service_contract</shortDescription>
+        <value>Service contract</value>
+    </labels>
+    <labels>
+        <fullName>YG_Service_location</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_Service_location</shortDescription>
+        <value>Service location</value>
+    </labels>
+    <labels>
+        <fullName>YG_Service_required</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Service required</shortDescription>
+        <value>Service required:</value>
+    </labels>
+    <labels>
+        <fullName>YG_Service_you_require</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Service you require</shortDescription>
+        <value>Service you require:</value>
+    </labels>
+    <labels>
+        <fullName>YG_ServicemenuGridcolumn</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_ServicemenuGridcolumn</shortDescription>
+        <value>Service menu</value>
+    </labels>
+    <labels>
+        <fullName>YG_Short_Description</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Short Description</shortDescription>
+        <value>A short description could help us get the right person to quickly look into your query</value>
+    </labels>
+    <labels>
+        <fullName>YG_Short_name</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Short name</shortDescription>
+        <value>Short name</value>
+    </labels>
+    <labels>
+        <fullName>YG_Show</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_Show</shortDescription>
+        <value>Show</value>
+    </labels>
+    <labels>
+        <fullName>YG_Show_status</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Show status</shortDescription>
+        <value>Show status:</value>
+    </labels>
+    <labels>
+        <fullName>YG_Sign_In</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Sign In</shortDescription>
+        <value>Sign In</value>
+    </labels>
+    <labels>
+        <fullName>YG_Sign_in_again</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Sign in again</shortDescription>
+        <value>Sign in again.</value>
+    </labels>
+    <labels>
+        <fullName>YG_Site_Access_msg</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Site Access msg</shortDescription>
+        <value>Approve site access request</value>
+    </labels>
+    <labels>
+        <fullName>YG_Site_Process</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Site Process</shortDescription>
+        <value>Site Process</value>
+    </labels>
+    <labels>
+        <fullName>YG_Site_location</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Site location</shortDescription>
+        <value>Site location</value>
+    </labels>
+    <labels>
+        <fullName>YG_Site_name</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Site name</shortDescription>
+        <value>Site name</value>
+    </labels>
+    <labels>
+        <fullName>YG_Site_number</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Site number</shortDescription>
+        <value>Site number</value>
+    </labels>
+    <labels>
+        <fullName>YG_Sites</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Sites</shortDescription>
+        <value>Sites</value>
+    </labels>
+    <labels>
+        <fullName>YG_Skip_Attachment_and_Submit_Inquiry</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Skip Attachment and Submit Inquiry</shortDescription>
+        <value>Skip Attachment and Submit Inquiry</value>
+    </labels>
+    <labels>
+        <fullName>YG_Skip_Attachment_and_submit_request</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Skip Attachment and submit request</shortDescription>
+        <value>Skip Attachment and submit request</value>
+    </labels>
+    <labels>
+        <fullName>YG_Software</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Software</shortDescription>
+        <value>Software</value>
+    </labels>
+    <labels>
+        <fullName>YG_Software_Licenses</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Software Licenses</shortDescription>
+        <value>Software Licenses</value>
+    </labels>
+    <labels>
+        <fullName>YG_Software_no_longer_supported</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Software no longer supported</shortDescription>
+        <value>Software no longer supported</value>
+    </labels>
+    <labels>
+        <fullName>YG_Software_package_name</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Software package name</shortDescription>
+        <value>Software package name</value>
+    </labels>
+    <labels>
+        <fullName>YG_Software_revision_no</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Software revision no</shortDescription>
+        <value>Software &lt;br/&gt; revision no.</value>
+    </labels>
+    <labels>
+        <fullName>YG_Software_updates</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Software updates</shortDescription>
+        <value>Software &lt;br/&gt;updates</value>
+    </labels>
+    <labels>
+        <fullName>YG_Softwares</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Softwares</shortDescription>
+        <value>Softwares</value>
+    </labels>
+    <labels>
+        <fullName>YG_Sorry_an_error_has_occured_Requested_page_not_found</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_Sorry an error has occured, Requested page not found!</shortDescription>
+        <value>Sorry, an error has occured, Requested page not found!</value>
+    </labels>
+    <labels>
+        <fullName>YG_Spare</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Spare</shortDescription>
+        <value>Spare</value>
+    </labels>
+    <labels>
+        <fullName>YG_Specifications_and_Functions</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Specifications and Functions</shortDescription>
+        <value>Specifications and Functions</value>
+    </labels>
+    <labels>
+        <fullName>YG_Specify_a_site</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Specify a site</shortDescription>
+        <value>Specify a site</value>
+    </labels>
+    <labels>
+        <fullName>YG_Start_date</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_Start_date</shortDescription>
+        <value>Start date</value>
+    </labels>
+    <labels>
+        <fullName>YG_Station</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Station</shortDescription>
+        <value>Station</value>
+    </labels>
+    <labels>
+        <fullName>YG_Station_name</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Station name</shortDescription>
+        <value>Station name</value>
+    </labels>
+    <labels>
+        <fullName>YG_Status</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Status</shortDescription>
+        <value>Status</value>
+    </labels>
+    <labels>
+        <fullName>YG_Subject</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Subject</shortDescription>
+        <value>Subject</value>
+    </labels>
+    <labels>
+        <fullName>YG_Submit_An_Inquiry</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Submit An Inquiry</shortDescription>
+        <value>Submit An Inquiry</value>
+    </labels>
+    <labels>
+        <fullName>YG_Submit_Date</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Submit Date</shortDescription>
+        <value>Submit date</value>
+    </labels>
+    <labels>
+        <fullName>YG_Submit_New_Request</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Submit New Request</shortDescription>
+        <value>Submit a new service request or inquiry</value>
+    </labels>
+    <labels>
+        <fullName>YG_Submit_Service_Request_and_Inquiry</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Submit Service Request and Inquiry</shortDescription>
+        <value>Submit Service Request and Inquiry</value>
+    </labels>
+    <labels>
+        <fullName>YG_Submit_request</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Submit request</shortDescription>
+        <value>Submit request</value>
+    </labels>
+    <labels>
+        <fullName>YG_Submit_request_for_Service</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Submit request for Service</shortDescription>
+        <value>SUBMIT REQUEST FOR SERVICE</value>
+    </labels>
+    <labels>
+        <fullName>YG_Submitted_by</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_Submitted_by</shortDescription>
+        <value>Submitted by</value>
+    </labels>
+    <labels>
+        <fullName>YG_Successful_iCP_Account_Creation</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Successful iCP Account Creation</shortDescription>
+        <value>Successful iCP Account Creation</value>
+    </labels>
+    <labels>
+        <fullName>YG_Suffix_Code</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Suffix Code</shortDescription>
+        <value>Suffix Code</value>
+    </labels>
+    <labels>
+        <fullName>YG_Sw_licenses_expiring_soon</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Sw licenses expiring soon</shortDescription>
+        <value>Software licenses &lt;br/&gt; expiring soon</value>
+    </labels>
+    <labels>
+        <fullName>YG_Sys_Contract_no</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Sys Contract no</shortDescription>
+        <value>Contract no.</value>
+    </labels>
+    <labels>
+        <fullName>YG_Sys_Description</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Sys Description</shortDescription>
+        <value>Description</value>
+    </labels>
+    <labels>
+        <fullName>YG_Sys_Extended_phase</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Sys Extended phase</shortDescription>
+        <value>Extended phase</value>
+    </labels>
+    <labels>
+        <fullName>YG_Sys_Info_Update</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Sys Info Update</shortDescription>
+        <value>Information on this page is accurate as last system update.</value>
+    </labels>
+    <labels>
+        <fullName>YG_Sys_Maintenance_phase</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Sys Maintenance phase</shortDescription>
+        <value>Maintenance phase</value>
+    </labels>
+    <labels>
+        <fullName>YG_Sys_Maintenance_phase_1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Sys Maintenance phase 1</shortDescription>
+        <value>Maintenance phase 1</value>
+    </labels>
+    <labels>
+        <fullName>YG_Sys_Maintenance_phase_2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Sys Maintenance phase 2</shortDescription>
+        <value>Maintenance phase 2</value>
+    </labels>
+    <labels>
+        <fullName>YG_Sys_Sales_phase</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Sys Sales phase</shortDescription>
+        <value>Sales phase</value>
+    </labels>
+    <labels>
+        <fullName>YG_Sys_Upgrade</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Sys Upgrade</shortDescription>
+        <value>Sys Upgrade</value>
+    </labels>
+    <labels>
+        <fullName>YG_System</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG System</shortDescription>
+        <value>System</value>
+    </labels>
+    <labels>
+        <fullName>YG_System_HW_fail</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG System HW fail</shortDescription>
+        <value>System HW fail</value>
+    </labels>
+    <labels>
+        <fullName>YG_System_ID</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG System ID</shortDescription>
+        <value>System ID:</value>
+    </labels>
+    <labels>
+        <fullName>YG_System_Notifications</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_System_Notifications</shortDescription>
+        <value>System Notifications</value>
+    </labels>
+    <labels>
+        <fullName>YG_System_Overview</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG System Overview</shortDescription>
+        <value>System Overview</value>
+    </labels>
+    <labels>
+        <fullName>YG_System_check</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG System check</shortDescription>
+        <value>System check</value>
+    </labels>
+    <labels>
+        <fullName>YG_System_that_requires_check</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG System that requires check</shortDescription>
+        <value>System that requires check</value>
+    </labels>
+    <labels>
+        <fullName>YG_System_that_requires_update</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG System that requires update</shortDescription>
+        <value>System that requires update</value>
+    </labels>
+    <labels>
+        <fullName>YG_System_to_troubleshoot</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG System to troubleshoot</shortDescription>
+        <value>System to troubleshoot</value>
+    </labels>
+    <labels>
+        <fullName>YG_System_with_this_Issue</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG System with this Issue</shortDescription>
+        <value>System with this Issue</value>
+    </labels>
+    <labels>
+        <fullName>YG_Systems</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Systems</shortDescription>
+        <value>Systems</value>
+    </labels>
+    <labels>
+        <fullName>YG_Technical_Information</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Technical Information</shortDescription>
+        <value>Technical Information</value>
+    </labels>
+    <labels>
+        <fullName>YG_Technical_Support</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Technical Support</shortDescription>
+        <value>Technical Support</value>
+    </labels>
+    <labels>
+        <fullName>YG_Tel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Tel</shortDescription>
+        <value>Tel:</value>
+    </labels>
+    <labels>
+        <fullName>YG_Telephone_number</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Telephone number</shortDescription>
+        <value>Telephone number</value>
+    </labels>
+    <labels>
+        <fullName>YG_Tell_us_about_your_inquiry</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Tell us about your inquiry</shortDescription>
+        <value>Tell us about your inquiry</value>
+    </labels>
+    <labels>
+        <fullName>YG_ThankLogout_Msg</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG ThankLogout Msg</shortDescription>
+        <value>We hope you’ll be back soon. If you are finished with this session, 
+ we recommend you to close this window.</value>
+    </labels>
+    <labels>
+        <fullName>YG_Thank_you</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Thank you</shortDescription>
+        <value>Thank you.</value>
+    </labels>
+    <labels>
+        <fullName>YG_Thank_you_for_your_inquiry</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_Thank_you_for_your_inquiry</shortDescription>
+        <value>Thank you for your inquiry.</value>
+    </labels>
+    <labels>
+        <fullName>YG_Thank_you_message</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Thank you message</shortDescription>
+        <value>Your request has been sent and we’ll get back to you as soon as we can.</value>
+    </labels>
+    <labels>
+        <fullName>YG_ThisBCPExpiringIn</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_ThisBCPExpiringIn</shortDescription>
+        <value>This BCP</value>
+    </labels>
+    <labels>
+        <fullName>YG_ThisContractExpiringIn</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_ThisContractExpiringIn</shortDescription>
+        <value>This contract</value>
+    </labels>
+    <labels>
+        <fullName>YG_ThisLCAExpiringIn</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_ThisLCAExpiringIn</shortDescription>
+        <value>This LCA</value>
+    </labels>
+    <labels>
+        <fullName>YG_Title</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Title</shortDescription>
+        <value>Title</value>
+    </labels>
+    <labels>
+        <fullName>YG_Tokuchu_no</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Tokuchu no</shortDescription>
+        <value>Tokuchu no.</value>
+    </labels>
+    <labels>
+        <fullName>YG_Training</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Training</shortDescription>
+        <value>Training</value>
+    </labels>
+    <labels>
+        <fullName>YG_Troubleshoot</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Troubleshoot</shortDescription>
+        <value>Troubleshoot</value>
+    </labels>
+    <labels>
+        <fullName>YG_Type</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Type</shortDescription>
+        <value>Type</value>
+    </labels>
+    <labels>
+        <fullName>YG_Type_Status</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Type Status</shortDescription>
+        <value>Type/Status</value>
+    </labels>
+    <labels>
+        <fullName>YG_Update</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_Update</shortDescription>
+        <value>Update</value>
+    </labels>
+    <labels>
+        <fullName>YG_Update_Password</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Update Password</shortDescription>
+        <value>Update Password</value>
+    </labels>
+    <labels>
+        <fullName>YG_Update_Profile</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Update Profile</shortDescription>
+        <value>Profile &amp; Settings</value>
+    </labels>
+    <labels>
+        <fullName>YG_Update_Profile_Msg1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Update Profile Msg1</shortDescription>
+        <value>To update the sites that you are able to view, click the button below to request access.</value>
+    </labels>
+    <labels>
+        <fullName>YG_Update_Profile_Msg2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Update Profile Msg2</shortDescription>
+        <value>Select the sites you wish to have access to below:</value>
+    </labels>
+    <labels>
+        <fullName>YG_Update_Profile_Msg3</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Update Profile Msg3</shortDescription>
+        <value>Your request has been submitted to the admin</value>
+    </labels>
+    <labels>
+        <fullName>YG_Update_Profile_Msg4</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Update Profile Msg4</shortDescription>
+        <value>You requested access to the following site:</value>
+    </labels>
+    <labels>
+        <fullName>YG_UploadImageFormatError_Msg</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG UploadImageFormatError Msg</shortDescription>
+        <value>Please try again with PNG or JPG</value>
+    </labels>
+    <labels>
+        <fullName>YG_UploadImageSizeError_Msg</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG UploadImageSizeError Msg</shortDescription>
+        <value>File Size is to long</value>
+    </labels>
+    <labels>
+        <fullName>YG_Upon_successfully_submitting_this_request</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG (Upon successfully submitting this request)</shortDescription>
+        <value>(Upon successfully submitting this request)</value>
+    </labels>
+    <labels>
+        <fullName>YG_View_All_Contract</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG View All Contract</shortDescription>
+        <value>View all contracts</value>
+    </labels>
+    <labels>
+        <fullName>YG_View_All_Product</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG View All Product</shortDescription>
+        <value>View all products</value>
+    </labels>
+    <labels>
+        <fullName>YG_View_All_Request_History</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG View All Request History</shortDescription>
+        <value>Full service requests/inquiries history</value>
+    </labels>
+    <labels>
+        <fullName>YG_View_Generation_Model</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG View Generation Model</shortDescription>
+        <value>View new generation model</value>
+    </labels>
+    <labels>
+        <fullName>YG_View_all</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG View all</shortDescription>
+        <value>View all</value>
+    </labels>
+    <labels>
+        <fullName>YG_View_all_Stations</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG View all Stations</shortDescription>
+        <value>View all Stations</value>
+    </labels>
+    <labels>
+        <fullName>YG_View_all_hardwares</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG View all hardwares</shortDescription>
+        <value>View all Hardwares</value>
+    </labels>
+    <labels>
+        <fullName>YG_View_all_products</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG View all products</shortDescription>
+        <value>View all &lt;br/&gt; products</value>
+    </labels>
+    <labels>
+        <fullName>YG_View_all_softwares</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG View all softwares</shortDescription>
+        <value>View all softwares</value>
+    </labels>
+    <labels>
+        <fullName>YG_View_details</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_View_details</shortDescription>
+        <value>View details</value>
+    </labels>
+    <labels>
+        <fullName>YG_View_station_details</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG View station details</shortDescription>
+        <value>View station details</value>
+    </labels>
+    <labels>
+        <fullName>YG_View_system_details</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG View system details</shortDescription>
+        <value>View system details:</value>
+    </labels>
+    <labels>
+        <fullName>YG_View_the_details_of_the_case_here</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG View the details of the case here</shortDescription>
+        <value>View the details of the case here:</value>
+    </labels>
+    <labels>
+        <fullName>YG_Warranty</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Warranty</shortDescription>
+        <value>Warranty</value>
+    </labels>
+    <labels>
+        <fullName>YG_Warranty_Expiring</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Warranty Expiring</shortDescription>
+        <value>Warranty expiring in</value>
+    </labels>
+    <labels>
+        <fullName>YG_Warranty_expiring_soon</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Warranty expiring soon</shortDescription>
+        <value>Warranty expiring &lt;br/&gt;soon</value>
+    </labels>
+    <labels>
+        <fullName>YG_Warranty_expiring_soon2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_Warranty expiring soon2</shortDescription>
+        <value>Warranty expiring soon</value>
+    </labels>
+    <labels>
+        <fullName>YG_What_are_you_inquiring_about</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG What are you inquiring about</shortDescription>
+        <value>What are you inquiring about?</value>
+    </labels>
+    <labels>
+        <fullName>YG_What_is_your_inquiry_about</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG What is your inquiry about</shortDescription>
+        <value>What is your inquiry about?</value>
+    </labels>
+    <labels>
+        <fullName>YG_Which_product_are_you_inquiring_about</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Which product are you inquiring about</shortDescription>
+        <value>Which product are you inquiring about</value>
+    </labels>
+    <labels>
+        <fullName>YG_XJ_no</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG XJ no</shortDescription>
+        <value>XJ no</value>
+    </labels>
+    <labels>
+        <fullName>YG_YG_iCP_Account_Creation_Email_Temp</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG YG iCP Account Creation Email Temp</shortDescription>
+        <value>YG iCP Account Creation</value>
+    </labels>
+    <labels>
+        <fullName>YG_Yokogawa_Contact</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Yokogawa Contact</shortDescription>
+        <value>Yokogawa Contact</value>
+    </labels>
+    <labels>
+        <fullName>YG_Yokogawa_Sales_Manager</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_Yokogawa_Sales_Manager</shortDescription>
+        <value>Yokogawa Sales Manager</value>
+    </labels>
+    <labels>
+        <fullName>YG_You_have_a_new_inquiry_for</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG You have a new inquiry for</shortDescription>
+        <value>You have a new inquiry for</value>
+    </labels>
+    <labels>
+        <fullName>YG_You_have_a_new_service_request_for</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG You have a new service request for</shortDescription>
+        <value>You have a new service request for</value>
+    </labels>
+    <labels>
+        <fullName>YG_You_have_successfully_logged_out</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG You have successfully logged out</shortDescription>
+        <value>You have successfully logged out.</value>
+    </labels>
+    <labels>
+        <fullName>YG_You_have_to</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG You have to</shortDescription>
+        <value>* You have to</value>
+    </labels>
+    <labels>
+        <fullName>YG_You_may_send_your_product_to_these_service_centers</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG You may send your product to these service centers</shortDescription>
+        <value>You may send your product to these service centers:</value>
+    </labels>
+    <labels>
+        <fullName>YG_Your_Details</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG Your Details</shortDescription>
+        <value>Your Details</value>
+    </labels>
+    <labels>
+        <fullName>YG_account_is_deactivated_immediately</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG account is deactivated immediately</shortDescription>
+        <value>When your account is deactivated, you will immediately lose access to this portal services.</value>
+    </labels>
+    <labels>
+        <fullName>YG_another_user_before_you_can_deactivate_your_acc</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG another user before you can deactivate your acc</shortDescription>
+        <value>to another user before you can deactivate your account.</value>
+    </labels>
+    <labels>
+        <fullName>YG_are_you_sure_to_deactivate_acc</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG are you sure  to deactivate acc</shortDescription>
+        <value>Are you sure you want to deactivate your own account?</value>
+    </labels>
+    <labels>
+        <fullName>YG_assign_admin_rights</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG assign admin rights</shortDescription>
+        <value>assign admin rights</value>
+    </labels>
+    <labels>
+        <fullName>YG_ending_in</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG ending in</shortDescription>
+        <value>ending in</value>
+    </labels>
+    <labels>
+        <fullName>YG_from_the_Yokogawa_iCP_from</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG from the Yokogawa iCP from</shortDescription>
+        <value>from the Yokogawa iCP from</value>
+    </labels>
+    <labels>
+        <fullName>YG_iCP_Case_Number</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG iCP Case Number</shortDescription>
+        <value>iCP Case Number:</value>
+    </labels>
+    <labels>
+        <fullName>YG_iCP_Email_Signature</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG iCP Email Signature</shortDescription>
+        <value>Thank you,
+&lt;br/&gt;
+Yokogawa iCP Team</value>
+    </labels>
+    <labels>
+        <fullName>YG_iCP_Email_body</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG iCP Email body</shortDescription>
+        <value>Thank you for joining the Yokogawa Customer Portal, we are pleased to inform you that your account has successfully been created.
+&lt;br/&gt;&lt;br/&gt;
+You may begin to use the portal by logging in with the credentials you used to create your account.</value>
+    </labels>
+    <labels>
+        <fullName>YG_not_registered_any_product</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG not registered any product</shortDescription>
+        <value>You have not registered any product</value>
+    </labels>
+    <labels>
+        <fullName>YG_that_was_submitted_on</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG that was submitted on</shortDescription>
+        <value>that was submitted on</value>
+    </labels>
+    <labels>
+        <fullName>Yg_not_specify_the_site</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Yg not specify the site</shortDescription>
+        <value>You have not specify the site you are working at</value>
+    </labels>
+    <labels>
         <fullName>Lead_Page_Banner_Message</fullName>
         <language>en_US</language>
         <protected>false</protected>
