@@ -3185,4 +3185,11 @@ You may begin to use the portal by logging in with the credentials you used to c
         <shortDescription>Yg not specify the site</shortDescription>
         <value>You have not specify the site you are working at</value>
     </labels>
+    <labels>
+        <fullName>Lead_Page_Banner_Message</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lead Page Banner Message</shortDescription>
+        <value>Click &quot;Convert&quot; or &quot;Reject&quot; to accept or reject this Lead</value>
+    </labels>
 </CustomLabels>
