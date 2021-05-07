@@ -9202,10 +9202,6 @@
         <recordType>Case.Sales_Inquiry</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Case-Case Layout</layout>
-        <recordType>Case.Service_Inquiry</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Case-YODA General Inquiry</layout>
         <recordType>Case.General_Inquiry</recordType>
     </layoutAssignments>
@@ -10836,7 +10832,7 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
-        <recordType>Case.Service_Inquiry</recordType>
+        <recordType>Case.Service_Request</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
