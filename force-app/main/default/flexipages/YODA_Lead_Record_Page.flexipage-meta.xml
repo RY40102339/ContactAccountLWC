@@ -31,7 +31,7 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>richTextValue</name>
-                    <value>&lt;p style=&quot;text-align: right;&quot;&gt;&lt;b&gt;To Sales&lt;/b&gt;: {!$Label.Lead_Page_Banner_Message}&lt;/p&gt;</value>
+                    <value>&lt;p style=&quot;text-align: right;&quot;&gt;&lt;b&gt;To Sales&lt;/b&gt;: {!$Label.YODA_Lead_Page_Banner_Message}&lt;/p&gt;</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:richText</componentName>
             </componentInstance>
