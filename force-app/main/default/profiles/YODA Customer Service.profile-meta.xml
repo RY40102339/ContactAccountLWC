@@ -254,6 +254,36 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Campaign.Business_Owner__c</field>
+        <readable>true</readable>
+      </fieldPermissions>
+      <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign.Business_Unit__c</field>
+        <readable>true</readable>
+      </fieldPermissions>
+      <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign.Cost_Details__c</field>
+        <readable>true</readable>
+      </fieldPermissions>
+      <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign.External_Costs__c</field>
+        <readable>true</readable>
+      </fieldPermissions>
+      <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign.Internal_Costs__c</field>
+        <readable>true</readable>
+      </fieldPermissions>
+      <fieldPermissions>
+        <editable>false</editable>
+        <field>Campaign.Region__c</field>
+        <readable>true</readable>
+      </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Case.Reason</field>
         <readable>true</readable>
     </fieldPermissions>
