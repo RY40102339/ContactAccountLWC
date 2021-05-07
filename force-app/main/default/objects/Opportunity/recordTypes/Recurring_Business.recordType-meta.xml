@@ -503,45 +503,6 @@
         </values>
     </picklistValues>
     <picklistValues>
-        <picklist>Region__c</picklist>
-        <values>
-            <fullName>RHQ-YCA</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>RHQ-YCN</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>RHQ-YEA</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>RHQ-YEF</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>RHQ-YIL</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>RHQ-YKO</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>RHQ-YMA</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>RHQ-YRU</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>RHQ-YSA</fullName>
-            <default>false</default>
-        </values>
-    </picklistValues>
-    <picklistValues>
         <picklist>Status__c</picklist>
         <values>
             <fullName>Closed</fullName>
