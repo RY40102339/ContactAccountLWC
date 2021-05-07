@@ -3,13 +3,13 @@
     <sorted>false</sorted>
     <standardValue>
         <fullName>Active</fullName>
-        <default>true</default>
+        <default>false</default>
         <label>Active</label>
         <closed>false</closed>
     </standardValue>
     <standardValue>
         <fullName>New</fullName>
-        <default>false</default>
+        <default>true</default>
         <label>New</label>
         <closed>false</closed>
     </standardValue>
