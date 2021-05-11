@@ -158,10 +158,6 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Opportunity_Source_Lead_Source__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>CampaignId</field>
             </layoutItems>
             <layoutItems>
