@@ -12,5 +12,5 @@
   ISBLANK( ShippingCountry )
  )
 )</errorConditionFormula>
-    <errorMessage>Please ensure to populate the Visit Address.</errorMessage>
+    <errorMessage>Please ensure to populate the Main Address.</errorMessage>
 </ValidationRule>
