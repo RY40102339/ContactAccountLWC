@@ -1237,6 +1237,11 @@
         <field>Opportunity.Parent_Opportunity_Program__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>User.Business_Unit__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <layoutAssignments>
         <layout>Account-YODA Account Layout</layout>
         <recordType>Account.Account</recordType>
