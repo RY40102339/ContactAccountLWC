@@ -258,6 +258,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>AccountTeamMember.Business_Unit__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Campaign.Business_Owner__c</field>
         <readable>true</readable>
@@ -1222,17 +1227,21 @@
         <field>Opportunity.X3rd_Party_Buyouts_Required__c</field>
         <readable>true</readable>
     </fieldPermissions>
-<fieldPermissions>
-    <editable>false</editable>
-    <field>Opportunity.Opportunity_Product_Count__c</field>
-    <readable>true</readable>
-</fieldPermissions>
-
-<fieldPermissions>
-    <editable>true</editable>
-    <field>Opportunity.Parent_Opportunity_Program__c</field>
-    <readable>true</readable>
-</fieldPermissions>  
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Opportunity.Opportunity_Product_Count__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.Parent_Opportunity_Program__c</field>
+        <readable>true</readable>
+    </fieldPermissions>  
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>User.Business_Unit__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <layoutAssignments>
         <layout>Account-YODA Account Layout</layout>
         <recordType>Account.Account</recordType>
