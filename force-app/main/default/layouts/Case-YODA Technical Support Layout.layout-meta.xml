@@ -186,10 +186,6 @@
                 <behavior>Edit</behavior>
                 <field>ContactId</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>AccountId</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -207,6 +203,22 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>SuppliedCompany</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Web_Category_of_Interest__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Web_Product_of_Interest__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Web_Country__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Web_State__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -348,11 +360,12 @@
     </relatedLists>
     <relatedObjects>ContactId</relatedObjects>
     <relatedObjects>AccountId</relatedObjects>
+    <runAssignmentRulesDefault>false</runAssignmentRulesDefault>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>true</showHighlightsPanel>
     <showInteractionLogPanel>false</showInteractionLogPanel>
     <showKnowledgeComponent>false</showKnowledgeComponent>
-    <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
+    <showRunAssignmentRulesCheckbox>true</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>true</showSubmitAndAttachButton>
     <summaryLayout>
         <masterLabel>00h1s000000Gmt0</masterLabel>
@@ -362,11 +375,6 @@
             <field>ContactId</field>
             <posX>0</posX>
             <posY>0</posY>
-        </summaryLayoutItems>
-        <summaryLayoutItems>
-            <field>AccountId</field>
-            <posX>0</posX>
-            <posY>1</posY>
         </summaryLayoutItems>
         <summaryLayoutItems>
             <field>CaseNumber</field>
