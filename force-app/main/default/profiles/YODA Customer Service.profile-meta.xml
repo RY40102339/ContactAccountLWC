@@ -8,7 +8,7 @@
     <applicationVisibilities>
         <application>YODA_Service_Console</application>
         <default>true</default>
-        <visible>false</visible>
+        <visible>true</visible>
     </applicationVisibilities>
     <custom>true</custom>
     <description>Profile for Support teams of the YODA program. Most permissions revolve around Account, Contact, Cases, and other user/object permission to perform customer service tasks</description>
