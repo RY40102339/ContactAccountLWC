@@ -163,10 +163,6 @@
         <label>Account Summary</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Migration_Id__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Industry_Code__c</field>
             </layoutItems>
