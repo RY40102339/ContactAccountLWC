@@ -186,10 +186,6 @@
                 <behavior>Edit</behavior>
                 <field>ContactId</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>AccountId</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -348,11 +344,12 @@
     </relatedLists>
     <relatedObjects>ContactId</relatedObjects>
     <relatedObjects>AccountId</relatedObjects>
+    <runAssignmentRulesDefault>false</runAssignmentRulesDefault>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>true</showHighlightsPanel>
     <showInteractionLogPanel>false</showInteractionLogPanel>
     <showKnowledgeComponent>false</showKnowledgeComponent>
-    <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
+    <showRunAssignmentRulesCheckbox>true</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>true</showSubmitAndAttachButton>
     <summaryLayout>
         <masterLabel>00h1s000000Gmt0</masterLabel>
@@ -362,11 +359,6 @@
             <field>ContactId</field>
             <posX>0</posX>
             <posY>0</posY>
-        </summaryLayoutItems>
-        <summaryLayoutItems>
-            <field>AccountId</field>
-            <posX>0</posX>
-            <posY>1</posY>
         </summaryLayoutItems>
         <summaryLayoutItems>
             <field>CaseNumber</field>
