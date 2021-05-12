@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ListView xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>MyActiveCampaigns</fullName>
+    <fullName>New_Last_Week</fullName>
     <columns>CAMPAIGN.NAME</columns>
     <columns>CAMPAIGN.CAMPAIGN_TYPE</columns>
     <columns>CAMPAIGN.STATUS</columns>
@@ -10,11 +10,11 @@
     <columns>Business_Unit__c</columns>
     <columns>CORE.USERS.FIRST_NAME</columns>
     <columns>CORE.USERS.LAST_NAME</columns>
-    <filterScope>Mine</filterScope>
+    <filterScope>Everything</filterScope>
     <filters>
-        <field>CAMPAIGN.ACTIVE</field>
+        <field>CAMPAIGN.CREATED_DATE</field>
         <operation>equals</operation>
-        <value>1</value>
+        <value>LAST_WEEK</value>
     </filters>
-    <label>My Active Campaigns</label>
+    <label>New Last Week</label>
 </ListView>
