@@ -162,7 +162,6 @@
         <editHeading>true</editHeading>
         <label>Account Summary</label>
         <layoutColumns>
-
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Industry_Code__c</field>
