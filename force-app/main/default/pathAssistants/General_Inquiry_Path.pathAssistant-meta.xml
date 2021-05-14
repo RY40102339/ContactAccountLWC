@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>Case</entityName>
+    <fieldName>Status</fieldName>
+    <masterLabel>General Inquiry Path</masterLabel>
+    <pathAssistantSteps>
+        <fieldNames>Escalation_Reason__c</fieldNames>
+        <picklistValueName>Escalated</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>General_Inquiry</recordTypeName>
+</PathAssistant>
