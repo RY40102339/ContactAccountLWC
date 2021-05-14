@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Send email to opportunity owner about the opportunity closed won</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>YODA Opportunity Closed WON</name>
+    <relatedEntityType>Opportunity</relatedEntityType>
+    <style>none</style>
+    <subject>*** Opportunity Closed Won Notification ***</subject>
+    <type>custom</type>
+    <uiType>SFX</uiType>
+</EmailTemplate>
