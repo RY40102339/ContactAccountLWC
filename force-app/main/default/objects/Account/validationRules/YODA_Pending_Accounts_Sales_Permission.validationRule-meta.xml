@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>YODA_Pending_Accounts_Sales_Permission</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+ NOT( $Setup.Bypass_Settings__c.Bypass_Validation_Rules__c),
+ NOT( $Permission.YODA_Activate_Pending_Accounts ),
+  ISCHANGED(Status__c),
+  ISPICKVAL(Status__c,&apos;Active&apos;),
+  ISPICKVAL(PRIORVALUE(Status__c),&apos;Pending&apos;)
+)</errorConditionFormula>
+    <errorMessage>Sales operations users are only allowed to change Account status from Pending to Active.</errorMessage>
+</ValidationRule>

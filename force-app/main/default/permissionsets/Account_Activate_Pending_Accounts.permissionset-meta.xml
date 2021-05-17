@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>YODA_Activate_Pending_Accounts</name>
+    </customPermissions>
+    <description>Custom Permission assigned: YODA_Activate_Pending_Accounts</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Account - Activate Pending Accounts Permission</label>
+    <license>Salesforce</license>
+</PermissionSet>
