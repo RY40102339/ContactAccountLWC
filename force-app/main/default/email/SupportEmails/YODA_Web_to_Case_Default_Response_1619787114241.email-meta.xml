@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Notify Requestor when the case has been opened via web-to-case form</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>YODA Web-to-Case Default Response</name>
+    <relatedEntityType>Case</relatedEntityType>
+    <style>none</style>
+    <subject>Thanks for contacting us</subject>
+    <type>custom</type>
+    <uiType>SFX</uiType>
+</EmailTemplate>
