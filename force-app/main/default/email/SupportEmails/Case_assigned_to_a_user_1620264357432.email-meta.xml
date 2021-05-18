@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Email to new case owner that they now have a case.</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>YODA Case assigned to a user</name>
+    <relatedEntityType>Case</relatedEntityType>
+    <style>none</style>
+    <subject>[YODA] You were assigned to Case #: {{{Case.CaseNumber}}}({{{Case.Account}}})</subject>
+    <type>custom</type>
+    <uiType>SFX</uiType>
+</EmailTemplate>
