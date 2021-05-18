@@ -1,0 +1,14 @@
+<html><head>
+	<title></title>
+</head>
+<body style="height: auto; min-height: auto;">Dear {{{Case.SuppliedName}}},<br />
+<br />
+Thanks for contacting Yokogawa. One of our service representatives will get in touch with you soon.<br />
+<br />
+We look forward to serving you.<br />
+-------------------------------------<br />
+Case #{{{Case.CaseNumber}}}: &quot;{{{Case.Subject}}}&quot;<br />
+Case detail: {{{Case.Description}}}<br />
+<br />
+Sincerely,<br />
+Yokogawa Support</body></html>
