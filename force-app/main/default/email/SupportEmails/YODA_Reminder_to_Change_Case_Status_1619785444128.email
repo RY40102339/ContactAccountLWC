@@ -1,0 +1,32 @@
+<html><head>
+	<title></title>
+</head>
+<body style="height: auto; min-height: auto;"><p>The following case needs your attention. The status has not been changed for more than one week. Please check the status of the case.</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;Case #: {{{Case.CaseNumber}}}</p>
+
+<p>&nbsp;Case Owner: {{{Case.Owner}}}</p>
+
+<p>&nbsp;Company: {{{Case.Account}}}</p>
+
+<p>&nbsp;Contact: {{{Case.Contact}}}</p>
+
+<p>&nbsp;Product: {{{Case.Product}}}</p>
+
+<p>&nbsp;Subject: {{{Case.Subject}}}</p>
+
+<p>&nbsp;URL:{{{Case.Link}}}</p>
+
+<p>&nbsp;Description: {{{Case.Description}}}</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;YODA Administrator</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;This is an automatically generated email from YODA.</p>
+
+<p>&nbsp;Please DO NOT REPLY to this email address as your email will not be delivered or read.</p></body></html>
