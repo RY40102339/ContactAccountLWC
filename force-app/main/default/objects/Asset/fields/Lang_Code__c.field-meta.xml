@@ -6,7 +6,8 @@
     <externalId>false</externalId>
     <label>Lang Code</label>
     <length>10</length>
-    <required>true</required>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>false</trackHistory>
     <type>Text</type>
     <unique>false</unique>
