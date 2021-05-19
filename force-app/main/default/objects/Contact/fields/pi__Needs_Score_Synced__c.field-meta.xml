@@ -9,5 +9,6 @@
     <externalId>false</externalId>
     <label>Needs Score Synced</label>
     <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
     <type>Checkbox</type>
 </CustomField>
