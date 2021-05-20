@@ -118,10 +118,11 @@
         <lookupPhoneDialogsAdditionalFields>ASSET.INSTALL_DATE</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>ACCOUNT.NAME</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>CONTACT.NAME</lookupPhoneDialogsAdditionalFields>
-        <searchResultsAdditionalFields>ASSET.NAME</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>ASSET.SERIAL_NUMBER</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>ASSET.INSTALL_DATE</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>ACCOUNT.NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>PRODUCT2.NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>MS_Code__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ASSET.SERIAL_NUMBER</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Production_Date__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>CONTACT.NAME</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
