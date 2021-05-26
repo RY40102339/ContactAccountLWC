@@ -5,6 +5,8 @@
     <fields>AccountId</fields>
     <fields>CloseDate</fields>
     <fields>Amount</fields>
+    <fields>Affiliates_to_receive_PO__c</fields>
     <fields>OwnerId</fields>
+    <fields>Oppportunity_Id__c</fields>
     <label>YODA Opportunity Compact Layout</label>
 </CompactLayout>
