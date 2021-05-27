@@ -12,5 +12,5 @@
   ISBLANK( ShippingCountry )
  )
 )</errorConditionFormula>
-    <errorMessage>Please ensure to populate the Main Address.</errorMessage>
+    <errorMessage>Please ensure City, Zip and Country in Account Main Address are completed.</errorMessage>
 </ValidationRule>
