@@ -29,5 +29,6 @@
     </quickActionLayout>
     <standardLabel>New</standardLabel>
     <targetObject>Case</targetObject>
+    <targetRecordType>Case.General_Inquiry</targetRecordType>
     <type>Create</type>
 </QuickAction>
