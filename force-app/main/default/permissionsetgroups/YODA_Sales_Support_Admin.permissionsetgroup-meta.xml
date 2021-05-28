@@ -10,5 +10,6 @@
     <permissionSets>Lead_Edit</permissionSets>
     <permissionSets>Opportunity_Create</permissionSets>
     <permissionSets>Opportunity_Edit</permissionSets>
+    <permissionSets>System_Manage_Public_List_Views</permissionSets>
     <status>Updated</status>
 </PermissionSetGroup>
