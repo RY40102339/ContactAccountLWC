@@ -3,6 +3,11 @@
     <custom>true</custom>
     <description>Profile for leadership of the YODA program</description>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Migration_Id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Account.API_Last_Executed_Date__c</field>
         <readable>true</readable>
