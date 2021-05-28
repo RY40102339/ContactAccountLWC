@@ -4,6 +4,11 @@
     <description>Profile for Sales teams of the YODA program. Most permissions revolve around Account, Contact, Lead, Opportunity, and other user/object permission to perform sales tasks</description>
     <fieldPermissions>
         <editable>true</editable>
+        <field>AccountContactRelation.Roles</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Asset.Domain__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -90,6 +95,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Asset.Xj_no__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Campaign.StartDate</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
