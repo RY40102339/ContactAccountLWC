@@ -1,49 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
     <customValue>
-        <fullName>RHQ-YCA</fullName>
+        <fullName>Global</fullName>
         <default>false</default>
-        <label>RHQ-YCA</label>
+        <label>Global</label>
     </customValue>
     <customValue>
-        <fullName>RHQ-YCN</fullName>
+        <fullName>YCA</fullName>
         <default>false</default>
-        <label>RHQ-YCN</label>
+        <label>YCA</label>
     </customValue>
     <customValue>
-        <fullName>RHQ-YEA</fullName>
+        <fullName>YCN</fullName>
         <default>false</default>
-        <label>RHQ-YEA</label>
+        <label>YCN</label>
     </customValue>
     <customValue>
-        <fullName>RHQ-YEF</fullName>
+        <fullName>YEA</fullName>
         <default>false</default>
-        <label>RHQ-YEF</label>
+        <label>YEA</label>
     </customValue>
     <customValue>
-        <fullName>RHQ-YIL</fullName>
+        <fullName>YEF</fullName>
         <default>false</default>
-        <label>RHQ-YIL</label>
+        <label>YEF</label>
     </customValue>
     <customValue>
-        <fullName>RHQ-YKO</fullName>
+        <fullName>YIL</fullName>
         <default>false</default>
-        <label>RHQ-YKO</label>
+        <label>YIL</label>
     </customValue>
     <customValue>
-        <fullName>RHQ-YMA</fullName>
+        <fullName>YKO</fullName>
         <default>false</default>
-        <label>RHQ-YMA</label>
+        <label>YKO</label>
     </customValue>
     <customValue>
-        <fullName>RHQ-YRU</fullName>
+        <fullName>YMA</fullName>
         <default>false</default>
-        <label>RHQ-YRU</label>
+        <label>YMA</label>
     </customValue>
     <customValue>
-        <fullName>RHQ-YSA</fullName>
+        <fullName>YRU</fullName>
         <default>false</default>
-        <label>RHQ-YSA</label>
+        <label>YRU</label>
+    </customValue>
+    <customValue>
+        <fullName>YSA</fullName>
+        <default>false</default>
+        <label>YSA</label>
+    </customValue>
+    <customValue>
+        <fullName>YHQ</fullName>
+        <default>false</default>
+        <label>YHQ</label>
+    </customValue>
+    <customValue>
+        <fullName>YJP</fullName>
+        <default>false</default>
+        <label>YJP</label>
     </customValue>
     <description>RHQ Regions for Yokogawa</description>
     <masterLabel>Region</masterLabel>
