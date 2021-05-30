@@ -2,7 +2,6 @@
 <CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>YODA_Compact_Layout</fullName>
     <fields>Subject</fields>
-    <fields>CaseNumber</fields>
     <fields>AccountId</fields>
     <fields>RecordTypeId</fields>
     <fields>Product_Category__c</fields>
