@@ -137,10 +137,6 @@
     <picklistValues>
         <picklist>Priority</picklist>
         <values>
-            <fullName>Emergency</fullName>
-            <default>false</default>
-        </values>
-        <values>
             <fullName>High</fullName>
             <default>false</default>
         </values>
