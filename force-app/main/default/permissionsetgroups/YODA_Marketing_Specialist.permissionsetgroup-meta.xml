@@ -6,6 +6,7 @@
     <permissionSets>Campaign_Create</permissionSets>
     <permissionSets>Campaign_Edit</permissionSets>
     <permissionSets>Contact_Create</permissionSets>
+    <permissionSets>Custom_Permission_Show_Lead_Status_Path</permissionSets>
     <permissionSets>Lead_Create</permissionSets>
     <status>Updated</status>
 </PermissionSetGroup>

@@ -6,9 +6,11 @@
     <permissionSets>Account_Edit</permissionSets>
     <permissionSets>Contact_Create</permissionSets>
     <permissionSets>Contact_Edit</permissionSets>
+    <permissionSets>Custom_Permission_Show_Lead_Status_Path</permissionSets>
     <permissionSets>Lead_Create</permissionSets>
     <permissionSets>Lead_Edit</permissionSets>
     <permissionSets>Opportunity_Create</permissionSets>
     <permissionSets>Opportunity_Edit</permissionSets>
+    <permissionSets>System_Create_and_Customize_List_Views</permissionSets>
     <status>Updated</status>
 </PermissionSetGroup>

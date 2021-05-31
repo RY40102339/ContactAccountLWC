@@ -2,5 +2,6 @@
 <PermissionSetGroup xmlns="http://soap.sforce.com/2006/04/metadata">
     <description>Permission Set Group for the &quot;Solutions Marketer&quot; persona of the YODA program.</description>
     <label>YODA Solutions Marketer</label>
+    <permissionSets>Custom_Permission_Show_Lead_Status_Path</permissionSets>
     <status>Updated</status>
 </PermissionSetGroup>
