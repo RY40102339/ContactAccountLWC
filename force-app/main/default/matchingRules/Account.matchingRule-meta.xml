@@ -4,23 +4,17 @@
         <fullName>YODA_Account_Matching_Rule</fullName>
         <description>Matching Rule to check on an account with the following fields as an exact match
 
-Account Name - Fuzzy
-Zip - Exact
-City- Exact</description>
+Account Name - Exact
+ShippingCountry - EXACT</description>
         <label>YODA Account Matching Rule</label>
         <matchingRuleItems>
             <blankValueBehavior>NullNotAllowed</blankValueBehavior>
             <fieldName>Name</fieldName>
-            <matchingMethod>CompanyName</matchingMethod>
-        </matchingRuleItems>
-        <matchingRuleItems>
-            <blankValueBehavior>NullNotAllowed</blankValueBehavior>
-            <fieldName>ShippingPostalCode</fieldName>
             <matchingMethod>Exact</matchingMethod>
         </matchingRuleItems>
         <matchingRuleItems>
             <blankValueBehavior>NullNotAllowed</blankValueBehavior>
-            <fieldName>ShippingCity</fieldName>
+            <fieldName>ShippingCountry</fieldName>
             <matchingMethod>Exact</matchingMethod>
         </matchingRuleItems>
         <ruleStatus>Active</ruleStatus>

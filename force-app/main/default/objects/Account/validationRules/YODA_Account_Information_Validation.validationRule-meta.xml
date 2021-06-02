@@ -7,10 +7,8 @@
  /*CONTAINS( $Profile.Name , &apos;YODA&apos;),*/
  NOT($Setup.Bypass_Settings__c.Bypass_Validation_Rules__c),
  OR(
-  ISBLANK( ShippingCity ),
-  ISBLANK( ShippingPostalCode ),
   ISBLANK( ShippingCountry )
  )
 )</errorConditionFormula>
-    <errorMessage>Please ensure City, Zip and Country in Account Main Address are completed.</errorMessage>
+    <errorMessage>Please ensure Country in Account Main Address.</errorMessage>
 </ValidationRule>
