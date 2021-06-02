@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>52.0</apiVersion>
+    <assignments>
+        <name>Assign_BU</name>
+        <label>Assign BU</label>
+        <locationX>587</locationX>
+        <locationY>410</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Business_Unit__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>YMI SBU</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <interviewLabel>YODA Lead Assign BU {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>YODA Lead Assign BU</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>50</locationX>
+        <locationY>50</locationY>
+        <connector>
+            <targetReference>Assign_BU</targetReference>
+        </connector>
+        <filterLogic>or</filterLogic>
+        <filters>
+            <field>Category_of_Interest__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Oscilloscope</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Category_of_Interest__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Power Analyzer and Power Meter</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Category_of_Interest__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Data Acquisition (DAQ)</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Category_of_Interest__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Optical Test Equipment</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Category_of_Interest__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Signal Generators, Sources and Supplies</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Category_of_Interest__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Portal and Handheld Instruments</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Category_of_Interest__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Other Test &amp; Measurement Instruments</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Category_of_Interest__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Test &amp; Measurement Accessories</stringValue>
+            </value>
+        </filters>
+        <object>Lead</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>CategoryofInterestChoice</name>
+        <dataType>Picklist</dataType>
+        <isCollection>true</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+</Flow>
