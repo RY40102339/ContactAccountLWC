@@ -5,6 +5,6 @@
     <label>Default Lead Queue</label>
     <queue>Default_Lead_Queue</queue>
     <sharedTo>
-        <allInternalUsers></allInternalUsers>
+        <allInternalUsers/>
     </sharedTo>
 </ListView>
