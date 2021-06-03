@@ -10,7 +10,7 @@ sonarqube_scan:
       sonar-scanner-ee -Dsonar.login=$SONAR_LOGIN -Dsonar.qualitygate.wait=true
       -Dsonar.qualitygate.timeout=300
   only:
-    - QA
+    - QA_donotrun
     - UAT
 validate_against_QA:
   stage: validate
