@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>YODA_Prevent_Add_Lead_Contact</fullName>
+    <active>true</active>
+    <description>Prevent the addition of leads or contacts to campaigns when not in Planned or In progress status.</description>
+    <errorConditionFormula>AND (
+    NOT($Setup.Bypass_Settings__c.Bypass_Validation_Rules__c),
+    ISNEW(),
+    NOT(ISPICKVAL(Campaign.Status, &quot;In Progress&quot;)),
+    NOT(ISPICKVAL(Campaign.Status, &quot;Planned&quot;))
+)</errorConditionFormula>
+    <errorMessage>Addition of Leads and Contacts is only possible when Campaign is in Planned or In Progress status.</errorMessage>
+</ValidationRule>
