@@ -5,6 +5,6 @@
     <label>Sales Rejected Queue</label>
     <queue>Sales_Rejected_Queue</queue>
     <sharedTo>
-        <allInternalUsers></allInternalUsers>
+        <allInternalUsers/>
     </sharedTo>
 </ListView>
