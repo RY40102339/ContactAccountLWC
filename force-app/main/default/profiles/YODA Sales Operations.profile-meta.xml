@@ -908,6 +908,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead.Business_Unit__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Lead.Region__c</field>
         <readable>true</readable>
@@ -927,6 +932,11 @@
         <field>Opportunity.Region__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.Description_Notes__c</field>
+        <readable>true</readable>
+    </fieldPermissions>  
     <fieldPermissions>
         <editable>true</editable>
         <field>OpportunityLineItem.Description</field>
