@@ -1712,6 +1712,9 @@
         <visible>true</visible>
     </recordTypeVisibilities>
     <layoutAssignments>
+        <layout>Asset-YODA Asset Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Pricebook2-Price Book Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
