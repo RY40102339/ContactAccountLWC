@@ -1602,6 +1602,12 @@
         <recordType>Contact.Customer_Contact</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
+    <layoutAssignments>
+        <layout>Pricebook2-Price Book Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>PricebookEntry-Price Book Entry Layout</layout>
+    </layoutAssignments>
     <tabVisibilities>
         <tab>standard-Campaign</tab>
         <visibility>DefaultOn</visibility>
