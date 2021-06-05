@@ -3,6 +3,24 @@
     <actionOverrides>
         <actionName>View</actionName>
         <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>YODA_Order_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>Order</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>YODA_Order_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>Order</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
         <content>YODA_Opportunity_Record_Page</content>
         <formFactor>Large</formFactor>
         <skipRecordTypeSelect>false</skipRecordTypeSelect>
@@ -749,6 +767,7 @@
             <tab>standard-Account</tab>
         </mappings>
         <mappings>
+            <fieldName>AccountId</fieldName>
             <tab>standard-Case</tab>
         </mappings>
         <mappings>
@@ -764,6 +783,7 @@
             <tab>standard-Lead</tab>
         </mappings>
         <mappings>
+            <fieldName>Product__c</fieldName>
             <tab>standard-Task</tab>
         </mappings>
         <mappings>
