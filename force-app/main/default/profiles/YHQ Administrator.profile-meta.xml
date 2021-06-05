@@ -1272,6 +1272,9 @@
         <recordType>Contact.Customer_Contact</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
+    <layoutAssignments>
+        <layout>Asset-YODA Asset Layout</layout>
+    </layoutAssignments>
     <tabVisibilities>
         <tab>standard-Asset</tab>
         <visibility>DefaultOn</visibility>
