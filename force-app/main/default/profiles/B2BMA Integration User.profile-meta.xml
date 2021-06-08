@@ -2478,8 +2478,6 @@
         <field>Asset.Order_Date__c</field>
         <readable>false</readable>
     </fieldPermissions>
-    </readable>
-    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Asset.Price</field>
