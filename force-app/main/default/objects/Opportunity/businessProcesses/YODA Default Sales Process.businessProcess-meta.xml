@@ -11,19 +11,7 @@
         <default>false</default>
     </values>
     <values>
-        <fullName>Identify %28SAL%29</fullName>
-        <default>false</default>
-    </values>
-    <values>
         <fullName>Negotiation</fullName>
-        <default>false</default>
-    </values>
-    <values>
-        <fullName>Propose %2F Quote</fullName>
-        <default>false</default>
-    </values>
-    <values>
-        <fullName>Qualify%28SQL%29</fullName>
         <default>false</default>
     </values>
 </BusinessProcess>
