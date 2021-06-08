@@ -19,8 +19,10 @@ import notificationLbl from '@salesforce/label/c.YG_Notification';
 import contractNameLbl from '@salesforce/label/c.YG_Contract_name';
 import contractDescLbl from '@salesforce/label/c.YG_Contract_description';
 import productNameLbl from '@salesforce/label/c.YG_Product_name';
+import renewNowLbl from '@salesforce/label/c.YG_renew_now';
 
-let profImgUrl = '', contractname = '', contractdesc = '', productname = '', detailContractURL = '';
+
+let profImgUrl = '', contractname = '', contractdesc = '', productname = '', detailContractURL = '', renewNow;
 
 export default class YgContractsExpiring extends LightningElement {
     @wire(CurrentPageReference) pageRef;
@@ -44,7 +46,7 @@ export default class YgContractsExpiring extends LightningElement {
     allContractURL;
     className = 'ht-collapse';
     label = {
-        showLbl, moreLbl, contractHeaderLbl, viewContractLbl, serviceContractLbl, salesManagerLbl, notificationLbl, contractNameLbl, contractDescLbl, productNameLbl
+        showLbl, moreLbl, contractHeaderLbl, viewContractLbl, serviceContractLbl, salesManagerLbl, notificationLbl, contractNameLbl, contractDescLbl, productNameLbl, renewNowLbl
     };
 
     constructor() {
@@ -224,6 +226,10 @@ export default class YgContractsExpiring extends LightningElement {
                     contractname = this.label.contractNameLbl;
                     contractdesc = this.label.contractDescLbl;
                     productname = this.label.productNameLbl;
+                    renewNow = this.label.renewNowLbl;
+
+                    let renewURL = this.communityURL + 'service-request-and-inquiries' + '?pc=' + this.plant_Code + '&contractno=';
+
                     this.contractGridData.forEach(function (list) {
 
                         contractHtml = '';
@@ -251,10 +257,16 @@ export default class YgContractsExpiring extends LightningElement {
                         }
 
                         //this condition is to display data on Notification column
-                        if (list.notification != '') {
-                            noti += '<span class="noto-font f14 grey-darkest font-weight-normal"><i class="fas fa-bell-orange pr-3 pb-3 f14">&nbsp;</i>' + list.notification + '</span>';
-                        } else {
-                            noti += '<span>&nbsp;</span>';
+                        if (typeof list.notification != 'undefined') {
+                            noti += '<i class="fas fa-bell-yellow pr-3 pb-3">&nbsp;</i><a class="text-hover-color" href=' + renewURL + list.contractNo + '><ins>' + list.notification + ', '+ renewNow +' <ins></a>';
+                        }
+
+                        if (typeof list.expiredNotification != 'undefined') {
+                            noti += '<i class="fas pr-2 pb-3"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.2 6.63981V9.48357H12V10.3816H4V9.48357H4.80001V6.63981C4.80001 4.78162 6.05694 3.25301 7.66847 3.0668C7.54572 2.95703 7.46668 2.78814 7.46668 2.59868C7.46668 2.26857 7.70593 2 8.00001 2C8.29409 2 8.53334 2.26857 8.53334 2.59868C8.53334 2.78814 8.45433 2.95703 8.33155 3.0668C9.94308 3.25301 11.2 4.78162 11.2 6.63981ZM8.20337 12.9962C7.5141 12.9962 6.95337 12.3695 6.95337 11.5992H9.45337C9.45337 12.3695 8.89264 12.9962 8.20337 12.9962Z" fill="#7D8E97"/></svg></i><span class="grey-dark">' + list.expiredNotification + '</span>';
+                        }
+
+                        if (noti == '') {
+                            noti += '-';
                         }
 
                         dataTable.row.add([
@@ -316,6 +328,8 @@ export default class YgContractsExpiring extends LightningElement {
                         targets: 1
                     }]
                 });
+                let renewURL = this.communityURL + 'service-request-and-inquiries' + '?pc=' + this.plant_Code + '&contractno=';
+                renewNow = this.label.renewNowLbl;
 
                 loadData.forEach(function (list) {
                     let contractHtml = '';
@@ -343,10 +357,16 @@ export default class YgContractsExpiring extends LightningElement {
                     }
 
                     //this condition is to display data on Notification column
-                    if (list.notification != '') {
-                        noti += '<span class="noto-font f14 grey-darkest font-weight-normal"><i class="fas fa-bell-orange pr-3 pb-3 f14">&nbsp;</i>' + list.notification + '</span>';
-                    } else {
-                        noti += '<span>&nbsp;</span>';
+                    if (typeof list.notification != 'undefined') {
+                        noti += '<span class="noto-font f14 grey-darkest font-weight-normal"><i class="fas fa-bell-yellow pr-3 pb-3 f14">&nbsp;</i><a class="text-hover-color" href=' + renewURL + list.contractNo + '><ins>' + list.notification + ', '+ renewNow +' <ins></a></span>';
+                    }
+
+                    if (typeof list.expiredNotification != 'undefined') {
+                        noti += '<i class="fas pr-2 pb-3"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.2 6.63981V9.48357H12V10.3816H4V9.48357H4.80001V6.63981C4.80001 4.78162 6.05694 3.25301 7.66847 3.0668C7.54572 2.95703 7.46668 2.78814 7.46668 2.59868C7.46668 2.26857 7.70593 2 8.00001 2C8.29409 2 8.53334 2.26857 8.53334 2.59868C8.53334 2.78814 8.45433 2.95703 8.33155 3.0668C9.94308 3.25301 11.2 4.78162 11.2 6.63981ZM8.20337 12.9962C7.5141 12.9962 6.95337 12.3695 6.95337 11.5992H9.45337C9.45337 12.3695 8.89264 12.9962 8.20337 12.9962Z" fill="#7D8E97"/></svg></i><span class="grey-dark">' + list.expiredNotification + '</span>';
+                    }
+
+                    if (noti == '') {
+                        noti += '-';
                     }
 
                     dataTable.row.add([

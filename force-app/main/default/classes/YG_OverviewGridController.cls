@@ -173,11 +173,13 @@ public class YG_OverviewGridController {
                         Datetime dt = Datetime.newInstance(dte.year(),dte.month(),dte.day());
                         String dateVal = dt.format('dd MMM YYYY'); 
                         csedat.submitDate = dateVal;
+                        csedat.rawDate = dt.format('YYYYMMdd'); 
                     }else{
                         date dte = cse.CreatedDate.date();
                         Datetime dt = Datetime.newInstance(dte.year(),dte.month(),dte.day());
                         String dateVal = dt.format('dd MMM YYYY'); 
                         csedat.submitDate = dateVal;
+                        csedat.rawDate = dt.format('YYYYMMdd'); 
                     }
                     csedat.serviceType = cse.Service_You_Require__c;
                     csedat.reason = cse.Reason;
@@ -355,6 +357,7 @@ public class YG_OverviewGridController {
     
     public class CaseData{
         @AuraEnabled public String submitDate;
+        @AuraEnabled public String rawDate;
         @AuraEnabled public String product;
         @AuraEnabled public String serviceType;
         @AuraEnabled public String progress; 

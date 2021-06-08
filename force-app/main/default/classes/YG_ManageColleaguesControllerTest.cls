@@ -23,6 +23,7 @@ public class YG_ManageColleaguesControllerTest {
         Account acc = new account();
         acc.name='ABC Test Account';
 		acc.AccountNumber = '102224533'; 
+         acc.Type = 'Customer';
         insert acc;    
         
         //Insert test contact record
@@ -57,6 +58,25 @@ public class YG_ManageColleaguesControllerTest {
         contactList.add(con2);
         insert contactList;
         
+         Contact con3 = new Contact();   
+        con3.FirstName='User3';
+        con3.LastName='CVX AU34';
+        con3.Email='cvxauuser011123@chevron.com';
+        con3.accountid=acc.id; 
+        con3.Portal_User_Roles__c = 'CU';
+        con3.status__c = true;
+        contactList.add(con3);
+        
+         Contact contest = new Contact();   
+        contest.FirstName='Usertest';
+        contest.LastName='CVX AU34';
+        contest.Email='cvxauuser011123@chevron.com';
+        contest.accountid=acc.id; 
+        contest.Portal_User_Roles__c = 'CA';
+        contest.status__c = true;
+        contactList.add(contest);
+        
+        
         List<Contact> contactLists=new List<Contact>();
         Contact cons = new Contact();   
         cons.FirstName='User3';
@@ -79,104 +99,109 @@ public class YG_ManageColleaguesControllerTest {
         insert user;
         
         //Inserting test plant record
-        List<Plant__c> plantList=new List<Plant__c>();
-            Plant__c plant1=new Plant__c();
+              
+       List<Account> plantList=new List<Account>();
+            Account plant1=new Account();
             plant1.Name = 'TestPlant1';
-            plant1.Account__c = acc.Id;  
-            plant1.Plant_Code__c = '300000142';
-            plant1.Lang_Code__c = 'EN';
-            plant1.Location__c ='';
-            plant1.Telephone_number__c ='';
-            plant1.Fax_number__c ='';
-        	plant1.Plant_Name__c = 'TestPlant1';
+            plant1.ParentId = acc.Id;  
+            plant1.AccountNumber = '300000142';
+        	plant1.Type = 'Plant';
+            plant1.ShippingPostalCode ='';
+       		plant1.ShippingStreet ='';
+            plant1.Phone ='';
+            plant1.Fax ='';
         plantList.add(plant1);
         
-        Plant__c plant2=new Plant__c();
+        
+        Account plant2=new Account();
             plant2.Name = 'TestPlant2';
-            plant2.Account__c = acc.Id;  
-            plant2.Plant_Code__c = '300000123';
-            plant2.Lang_Code__c = 'EN';
-            plant2.Location__c ='MY';
-            plant2.Telephone_number__c ='1265545';
-            plant2.Fax_number__c ='12135665';
-        	plant2.Plant_Name__c = 'TestPlant2';
-        plantList.add(plant2); 
+            plant2.ParentId = acc.Id;  
+            plant2.AccountNumber = '300000123';
+        	plant2.Type = 'Plant';
+            plant2.ShippingPostalCode ='';
+       		plant2.ShippingStreet ='';
+            plant2.Phone ='1265545';
+            plant2.Fax ='12135665';
+        plantList.add(plant2);
         
-        Plant__c plant3=new Plant__c();
+        
+        Account plant3=new Account();
             plant3.Name = 'TestPlant3';
-            plant3.Account__c = acc.Id;  
-            plant3.Plant_Code__c = '300000124';
-            plant3.Lang_Code__c = 'EN';
-            plant3.Location__c ='MY';
-            plant3.Telephone_number__c =null;
-            plant3.Fax_number__c ='hhh';
-        	plant3.Plant_Name__c = 'TestPlant3';
-        plantList.add(plant3); 
+            plant3.ParentId = acc.Id;  
+            plant3.AccountNumber = '300000124';
+        	plant3.Type = 'Plant';
+           plant3.ShippingPostalCode ='';
+       		plant3.ShippingStreet ='';
+            plant3.Phone =null;
+            plant3.Fax ='hhh';
+        plantList.add(plant3);
         
-        Plant__c plant4=new Plant__c();
+        
+        Account plant4=new Account();
             plant4.Name = 'TestPlant4';
-            plant4.Account__c = acc.Id;  
-            plant4.Plant_Code__c = '300000098';
-            plant4.Lang_Code__c = 'EN';
-            plant4.Location__c ='MY';
-            plant4.Telephone_number__c =null;
-            plant4.Fax_number__c ='tyu';
-        	plant4.Plant_Name__c = 'TestPlant4';
+            plant4.ParentId = acc.Id;  
+            plant4.AccountNumber = '300000098';
+           plant4.Type = 'Plant';
+           plant4.ShippingPostalCode ='';
+       		plant4.ShippingStreet ='';
+            plant4.Phone =null;
+            plant4.Fax ='tyu';
         plantList.add(plant4);
         insert plantList;
         
-         Plant__c plant5=new Plant__c();
+        
+        Account plant5=new Account();
             plant5.Name = 'TestPlant5';
-            plant5.Account__c = acc.Id;  
-            plant5.Plant_Code__c = '300000188';
-            plant5.Lang_Code__c = 'EN';
-            plant5.Location__c ='MY';
-            plant5.Telephone_number__c =null;
-            plant5.Fax_number__c ='tyu';
-        	plant5.Plant_Name__c = 'TestPlant5';
+            plant5.ParentId = acc.Id;  
+            plant5.AccountNumber = '300000188';
+             plant5.Type = 'Plant';
+           plant5.ShippingPostalCode ='';
+       		plant5.ShippingStreet ='';
+            plant5.Phone =null;
+            plant5.Fax ='tyu';
          	insert plant5;
         
         //Inserting test plant record
-        List<Customer_Plant__c> cusPlantList=new List<Customer_Plant__c>();
-        Customer_Plant__c cusPlant = new Customer_Plant__c();
-        	cusPlant.Contact__c = con.id;
+       /* List<Customer_Plant__c> cusPlantList=new List<Customer_Plant__c>();*/
+        List<AccountContactRelation> cusPlantList=new List<AccountContactRelation>();
+      
+        AccountContactRelation cusPlant = new AccountContactRelation();
+        	cusPlant.ContactId = con.id;
             cusPlant.Status__c = 'Request site access';
-            cusPlant.Plant__c = plant1.id;
+            cusPlant.AccountId = plant1.id;
         	cusPlantList.add(cusPlant);
-        Customer_Plant__c cusPlant1 = new Customer_Plant__c();
-        	cusPlant1.Contact__c = con.id;
+        AccountContactRelation cusPlant1 = new AccountContactRelation();
+        	cusPlant1.ContactId = con.id;
             cusPlant1.Status__c = 'Approved site access';
-            cusPlant1.Plant__c = plant2.id;
+            cusPlant1.AccountId = plant2.id;
         	cusPlantList.add(cusPlant1);
         
-        Customer_Plant__c cusPlant2 = new Customer_Plant__c();
-        	cusPlant2.Contact__c = con1.id;
+       
+        AccountContactRelation cusPlant2 = new AccountContactRelation();
+        	cusPlant2.ContactId = con1.id;
             cusPlant2.Status__c = 'Decline site access';
-            cusPlant2.Plant__c = plant2.id;
+            cusPlant2.AccountId = plant2.id;
         	cusPlantList.add(cusPlant2);
-         Customer_Plant__c cusPlant3 = new Customer_Plant__c();
-        	cusPlant3.Contact__c = con1.id;
+         AccountContactRelation cusPlant3 = new AccountContactRelation();
+        	cusPlant3.ContactId = con1.id;
             cusPlant3.Status__c = 'Request site access';
-            cusPlant3.Plant__c = plant2.id;
-        	cusPlantList.add(cusPlant3); 
+            cusPlant3.AccountId = plant3.id;
+        	cusPlantList.add(cusPlant3);
         
-        Customer_Plant__c cusPlant5 = new Customer_Plant__c();
-        	cusPlant5.Contact__c = con2.id;
+       
+        
+        AccountContactRelation cusPlant5 = new AccountContactRelation();
+        	cusPlant5.ContactId = con2.id;
             cusPlant5.Status__c = 'Decline site access';
-            cusPlant5.Plant__c = plant3.id;
+            cusPlant5.AccountId = plant3.id;
         	cusPlantList.add(cusPlant5);
-         Customer_Plant__c cusPlant4 = new Customer_Plant__c();
-        	cusPlant4.Contact__c = con2.id;
+         AccountContactRelation cusPlant4 = new AccountContactRelation();
+        	cusPlant4.ContactId = con2.id;
             cusPlant4.Status__c = 'Approved site access';
-            cusPlant4.Plant__c = plant3.id;
-        	cusPlantList.add(cusPlant4); 
+            cusPlant4.AccountId = plant4.id;
+        	cusPlantList.add(cusPlant4);
         
-        Customer_Plant__c cusPlant6 = new Customer_Plant__c();
-        	cusPlant6.Contact__c = cons.id;
-            cusPlant6.Status__c = 'Decline site access';
-            cusPlant6.Plant__c = plant3.id;
-        	cusPlantList.add(cusPlant6); 
-        insert cusPlantList;
+        Insert cusPlantList;
         
          //Insert test custom setting record for community URL
         YG_Community_Configuration__c commConfig=new YG_Community_Configuration__c();
@@ -186,12 +211,16 @@ public class YG_ManageColleaguesControllerTest {
         
         //to pass the plant code as list in arguments 
          List<String> plnIdList=new List<String>();
-            for(Plant__c plnList :plantList){
+            /*for(Plant__c plnList :plantList){
                 plnIdList.add(plnList.Plant_Code__c);
+            }*/
+        for(Account plnList :plantList){
+                plnIdList.add(plnList.AccountNumber);
             }
-        
         List<String> plnIdList1=new List<String>();
-        plnIdList1.add(plant5.Plant_Code__c);
+       /* plnIdList1.add(plant5.Plant_Code__c);*/
+        plnIdList1.add(plant5.AccountNumber);
+        
         
         String cid = cons.id;
         
@@ -252,8 +281,9 @@ public class YG_ManageColleaguesControllerTest {
                     
                     //Line to cover getUserDeactive() method 
                     YG_ManageColleaguesController.getUserDeactive(con.id,false);
-                    //YG_ManageColleaguesController.getUserDeactive(con.id,true);
+                  //  YG_ManageColleaguesController.getUserDeactive(contest.id,true);
                     YG_ManageColleaguesController.getUserDeactive(null,false);
+                    // YG_ManageColleaguesController.getUserDeactive(null,true);
                     
                     //Line to cover getUserAdmin() method 
                     YG_ManageColleaguesController.getUserAdmin(cid,'Set as admin');
@@ -265,6 +295,7 @@ public class YG_ManageColleaguesControllerTest {
                     
                     //Line to cover getAdminPlant() method 
                     YG_ManageColleaguesController.getAdminPlant(cons.id,acc.id);
+                    // YG_ManageColleaguesController.getAdminPlant(contest.id,acc.id);
 
                     DMLException dmlEx = new DMLException('Test Ex Email');
                     

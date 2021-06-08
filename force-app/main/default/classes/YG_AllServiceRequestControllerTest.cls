@@ -25,11 +25,13 @@ public class YG_AllServiceRequestControllerTest {
         Account acc = new account();
         acc.name='Test Account'; 
         acc.AccountNumber = '1212121';
+        acc.Type = 'Customer';
         insert acc;
         
         //Insert self registered account record
         Account acc1 = new account();
-        acc1.name='Self Registered';        
+        acc1.name='Self Registered';  
+        acc1.Type = 'Customer';
         insert acc1; 
         
         //Insert test contact record
@@ -119,7 +121,7 @@ public class YG_AllServiceRequestControllerTest {
         prod1.Name = 'Device Smart Communicators BT200';
         prod1.Model_Code__c = 'BT200';
         prod1.Category__c = catg3.Id;
-        prod1.Production_Date__c = Date.newInstance(2014, 12, 17);
+       // prod1.Production_Date__c = Date.newInstance(2014, 12, 17);
         prod1.Lang_Code__c = 'EN';
         prodList.add(prod1);
         
@@ -127,7 +129,7 @@ public class YG_AllServiceRequestControllerTest {
         prod2.Name = 'DCS';
         prod2.Model_Code__c = 'AFV10D';
         prod2.Category__c = catg5.Id;
-        prod2.Production_Date__c = Date.newInstance(2014, 12, 17);
+      //  prod2.Production_Date__c = Date.newInstance(2014, 12, 17);
         prod2.Lang_Code__c = 'EN';
         prodList.add(prod2);
         
@@ -294,7 +296,7 @@ public class YG_AllServiceRequestControllerTest {
         system.runAs(user){
             Test.startTest();
             List<String> empty=new List<String>();
-            List<String> filterValue=new List<String>{'Technical Support','Schedule Maintenance','Calibration'};
+            List<String> filterValue=new List<String>{'Technical Support','Scheduled Maintenance','Calibration'};
             
             YG_AllServiceRequestController.ServiceRequestGridWrapper servReqWrap = new YG_AllServiceRequestController.ServiceRequestGridWrapper();
             servReqWrap = YG_AllServiceRequestController.getServiceRequestGridDetails(empty, '', 'Active', 100, 0);
@@ -331,7 +333,7 @@ public class YG_AllServiceRequestControllerTest {
             YG_AllServiceRequestController.ServiceRequestCSVWrapper csvData = YG_AllServiceRequestController.getServiceRequestCSVDetails();
             system.assertEquals(19, csvData.caseCSVDataList.size());
             
-            YG_AllServiceRequestController.ServiceRequestChartWrapper chartDat = YG_AllServiceRequestController.getServiceRequestChartDetails();
+            YG_AllServiceRequestController.ServiceRequestChartWrapper chartDat = YG_AllServiceRequestController.getServiceRequestChartDetails('','');
             system.assertEquals(6, chartDat.prodChartDataList.size());
             system.assertEquals(7, chartDat.sysChartDataList.size());
             system.assertEquals(3, chartDat.inqChartDataList.size());
@@ -342,7 +344,7 @@ public class YG_AllServiceRequestControllerTest {
             
             String caseNo1 = [Select CaseNumber From Case Where id = :case3.id].CaseNumber;
             YG_AllServiceRequestController.modelServiceInfo modelServ1 = YG_AllServiceRequestController.getServiceReqInfo(caseNo1);
-            system.assertEquals('Schedule Maintenance', modelServ1.serviceType);
+            system.assertEquals('Scheduled Maintenance', modelServ1.serviceType);
             
             String caseNo2 = [Select CaseNumber From Case Where id = :case7.id].CaseNumber;
             YG_AllServiceRequestController.modelServiceInfo modelServ2 = YG_AllServiceRequestController.getServiceReqInfo(caseNo2);
@@ -350,7 +352,7 @@ public class YG_AllServiceRequestControllerTest {
             
             String caseNo3 = [Select CaseNumber From Case Where id = :case8.id].CaseNumber;
             YG_AllServiceRequestController.modelServiceInfo modelServ3 = YG_AllServiceRequestController.getServiceReqInfo(caseNo3);
-            system.assertEquals('Schedule Maintenance', modelServ3.serviceType);
+            system.assertEquals('Scheduled Maintenance', modelServ3.serviceType);
             
 			YG_AllServiceRequestController.modelServiceInfo modelServExcep = YG_AllServiceRequestController.getServiceReqInfo('caseNo');
 			String updDescExcep = YG_AllServiceRequestController.toUpdateCaseDescription('caseNo3','test');
@@ -372,11 +374,13 @@ public class YG_AllServiceRequestControllerTest {
         Account acc = new account();
         acc.name='Test Account'; 
         acc.AccountNumber = '1212121';
+        acc.Type = 'Customer';
         insert acc;
         
         //Insert self registered account record
         Account acc1 = new account();
-        acc1.name='Self Registered';        
+        acc1.name='Self Registered';
+		acc1.Type = 'Customer';        
         insert acc1; 
         
         //Insert test contact record
@@ -466,7 +470,7 @@ public class YG_AllServiceRequestControllerTest {
         prod1.Name = 'Device Smart Communicators BT200';
         prod1.Model_Code__c = 'BT200';
         prod1.Category__c = catg3.Id;
-        prod1.Production_Date__c = Date.newInstance(2014, 12, 17);
+        //prod1.Production_Date__c = Date.newInstance(2014, 12, 17);
         prod1.Lang_Code__c = 'EN';
         prodList.add(prod1);
         
@@ -474,7 +478,7 @@ public class YG_AllServiceRequestControllerTest {
         prod2.Name = 'DCS';
         prod2.Model_Code__c = 'AFV10D';
         prod2.Category__c = catg5.Id;
-        prod2.Production_Date__c = Date.newInstance(2014, 12, 17);
+      //prod2.Production_Date__c = Date.newInstance(2014, 12, 17);
         prod2.Lang_Code__c = 'EN';
         prodList.add(prod2);
         
@@ -641,7 +645,7 @@ public class YG_AllServiceRequestControllerTest {
         system.runAs(user){
             Test.startTest();
             List<String> empty=new List<String>();
-            List<String> filterValue=new List<String>{'Technical Support','Schedule Maintenance','Calibration'};
+            List<String> filterValue=new List<String>{'Technical Support','Scheduled Maintenance','Calibration'};
             
             YG_AllServiceRequestController.ServiceRequestGridWrapper servReqWrap = new YG_AllServiceRequestController.ServiceRequestGridWrapper();
             servReqWrap = YG_AllServiceRequestController.getServiceRequestGridDetails(empty, '', 'Active', 100, 0);
@@ -678,10 +682,17 @@ public class YG_AllServiceRequestControllerTest {
             YG_AllServiceRequestController.ServiceRequestCSVWrapper csvData = YG_AllServiceRequestController.getServiceRequestCSVDetails();
             system.assertEquals(19, csvData.caseCSVDataList.size());
             
-            YG_AllServiceRequestController.ServiceRequestChartWrapper chartDat = YG_AllServiceRequestController.getServiceRequestChartDetails();
+            YG_AllServiceRequestController.ServiceRequestChartWrapper chartDat = YG_AllServiceRequestController.getServiceRequestChartDetails('','');
             system.assertEquals(6, chartDat.prodChartDataList.size());
             system.assertEquals(7, chartDat.sysChartDataList.size());
             system.assertEquals(3, chartDat.inqChartDataList.size());
+            YG_AllServiceRequestController.ServiceRequestChartWrapper chartDat1 = YG_AllServiceRequestController.getServiceRequestChartDetails('','Active');
+            YG_AllServiceRequestController.ServiceRequestChartWrapper chartDat2 = YG_AllServiceRequestController.getServiceRequestChartDetails('Product','Active');
+            YG_AllServiceRequestController.ServiceRequestChartWrapper chartDat3 = YG_AllServiceRequestController.getServiceRequestChartDetails('System','Active');
+            YG_AllServiceRequestController.ServiceRequestChartWrapper chartDat4 = YG_AllServiceRequestController.getServiceRequestChartDetails('Inquiry','Active');
+            YG_AllServiceRequestController.ServiceRequestChartWrapper chartDat5 = YG_AllServiceRequestController.getServiceRequestChartDetails('Product','');
+            YG_AllServiceRequestController.ServiceRequestChartWrapper chartDat6 = YG_AllServiceRequestController.getServiceRequestChartDetails('System','');
+            YG_AllServiceRequestController.ServiceRequestChartWrapper chartDat7 = YG_AllServiceRequestController.getServiceRequestChartDetails('Inquiry','');
             
             String caseNo = [Select CaseNumber From Case Where id = :case6.id].CaseNumber;
             YG_AllServiceRequestController.modelServiceInfo modelServ = YG_AllServiceRequestController.getServiceReqInfo(caseNo);
@@ -689,7 +700,7 @@ public class YG_AllServiceRequestControllerTest {
             
             String caseNo1 = [Select CaseNumber From Case Where id = :case3.id].CaseNumber;
             YG_AllServiceRequestController.modelServiceInfo modelServ1 = YG_AllServiceRequestController.getServiceReqInfo(caseNo1);
-            system.assertEquals('Schedule Maintenance', modelServ1.serviceType);
+            system.assertEquals('Scheduled Maintenance', modelServ1.serviceType);
             
             String caseNo2 = [Select CaseNumber From Case Where id = :case7.id].CaseNumber;
             YG_AllServiceRequestController.modelServiceInfo modelServ2 = YG_AllServiceRequestController.getServiceReqInfo(caseNo2);
@@ -697,7 +708,7 @@ public class YG_AllServiceRequestControllerTest {
             
             String caseNo3 = [Select CaseNumber From Case Where id = :case8.id].CaseNumber;
             YG_AllServiceRequestController.modelServiceInfo modelServ3 = YG_AllServiceRequestController.getServiceReqInfo(caseNo3);
-            system.assertEquals('Schedule Maintenance', modelServ3.serviceType);
+            system.assertEquals('Scheduled Maintenance', modelServ3.serviceType);
             
 			YG_AllServiceRequestController.modelServiceInfo modelServExcep = YG_AllServiceRequestController.getServiceReqInfo('caseNo');
 			String updDescExcep = YG_AllServiceRequestController.toUpdateCaseDescription('caseNo3','test');

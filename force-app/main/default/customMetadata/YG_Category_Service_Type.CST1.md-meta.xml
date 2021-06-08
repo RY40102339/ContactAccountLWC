@@ -12,7 +12,7 @@
     </values>
     <values>
         <field>Service_Type__c</field>
-        <value xsi:type="xsd:string">Schedule Maintenance+010,On-call Support+020,Training+040,System Upgrade+060,Security+070,Modification+100,Others+900</value>
+        <value xsi:type="xsd:string">Scheduled Maintenance+010,On-call Support+020,Training+040,System Upgrade+060,Security+070,Modification+100,Others+900</value>
     </values>
     <values>
         <field>Top_Category_Code__c</field>

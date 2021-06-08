@@ -24,6 +24,7 @@
     <columns>
         <field>EMAIL</field>
     </columns>
+    <currency>JPY</currency>
     <format>Summary</format>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>

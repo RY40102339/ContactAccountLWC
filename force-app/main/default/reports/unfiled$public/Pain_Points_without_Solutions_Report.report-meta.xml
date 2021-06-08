@@ -12,6 +12,7 @@
     <columns>
         <field>aecm__Capability_Pain_Point__c.aecm__Pain_Points_Solutions__r$aecm__Pain_Point_Solution_Title__c</field>
     </columns>
+    <currency>JPY</currency>
     <description>Pain Points without Solutions - Appirio 
 mpb</description>
     <filter>
@@ -20,8 +21,9 @@ mpb</description>
             <columnToColumn>false</columnToColumn>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
-            <value></value>
+            <value/>
         </criteriaItems>
+        <language>en_US</language>
     </filter>
     <format>Tabular</format>
     <name>Pain Points without Solutions Report</name>

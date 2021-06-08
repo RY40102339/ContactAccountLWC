@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
-    <excludeButtons>DataDotComCompanyHierarchy</excludeButtons>
+    <excludeButtons>DataDotComAccountInsights</excludeButtons>
+    <excludeButtons>DataDotComClean</excludeButtons>
     <excludeButtons>DisableCustomerPortalAccount</excludeButtons>
     <excludeButtons>DisablePartnerPortalAccount</excludeButtons>
     <excludeButtons>IncludeOffline</excludeButtons>
@@ -36,10 +37,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Language_Code__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Industry_Type__c</field>
             </layoutItems>
             <layoutItems>
@@ -53,6 +50,22 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>LastContractSyncAPIDate__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Country__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Has_Asset__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Fax</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Required</behavior>
+                <field>CurrencyIsoCode</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -99,6 +112,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Legal_Entity_After__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>System_API_Last_Sync_Date__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
@@ -286,6 +303,11 @@
     <relatedContent>
         <relatedContentItems>
             <layoutItem>
+                <component>wits:newsPanel</component>
+            </layoutItem>
+        </relatedContentItems>
+        <relatedContentItems>
+            <layoutItem>
                 <component>runtime_sales_social:socialPanel</component>
             </layoutItem>
         </relatedContentItems>
@@ -293,6 +315,7 @@
     <relatedLists>
         <fields>FULL_NAME</fields>
         <fields>CONTACT.TITLE</fields>
+        <fields>Portal_User_Roles__c</fields>
         <fields>CONTACT.EMAIL</fields>
         <fields>CONTACT.PHONE1</fields>
         <relatedList>RelatedContactList</relatedList>
@@ -307,6 +330,7 @@
     <relatedLists>
         <fields>CONTACT.FULL_NAME</fields>
         <fields>CONTACT.ACCOUNT_NAME</fields>
+        <fields>Status__c</fields>
         <fields>CONTACT.TITLE</fields>
         <fields>ACCCONRELATION.IS_DIRECT</fields>
         <fields>CONTACT.EMAIL</fields>
@@ -365,11 +389,22 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <relatedList>Plant__c.Account__c</relatedList>
+        <relatedList>Project__c.Account__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>ASSET.NAME</fields>
+        <fields>ASSET.SERIAL_NUMBER</fields>
+        <fields>ASSET.INSTALL_DATE</fields>
+        <fields>ACCOUNT.NAME</fields>
+        <fields>CONTACT.NAME</fields>
+        <fields>PRODUCT2.NAME</fields>
+        <relatedList>Asset.PlantAccount__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <relatedList>Project__c.Account__c</relatedList>
+        <fields>Project_Code__c</fields>
+        <fields>Account__c</fields>
+        <relatedList>Project__c.PlantAccount__c</relatedList>
     </relatedLists>
     <relatedObjects>ParentId</relatedObjects>
     <showEmailCheckbox>false</showEmailCheckbox>

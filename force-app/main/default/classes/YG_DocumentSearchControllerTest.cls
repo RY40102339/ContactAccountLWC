@@ -76,7 +76,7 @@ public class YG_DocumentSearchControllerTest {
         prod1.Model_Code__c = 'AFV10D';
         prod1.Product_Type__c = 'Station';
         prod1.Category__c = catg2.Id;
-        prod1.Production_Date__c = Date.newInstance(2014, 12, 17);
+       // prod1.Production_Date__c = Date.newInstance(2014, 12, 17);
         prod1.Lang_Code__c = 'EN';
         prod1.IsActive = true;
         prodList.add(prod1);
@@ -86,7 +86,7 @@ public class YG_DocumentSearchControllerTest {
         prod1NumericModcode.Model_Code__c = '123';
         prod1NumericModcode.Product_Type__c = 'Station';
         prod1NumericModcode.Category__c = catg2.Id;
-        prod1NumericModcode.Production_Date__c = Date.newInstance(2014, 12, 17);
+       // prod1NumericModcode.Production_Date__c = Date.newInstance(2014, 12, 17);
         prod1NumericModcode.Lang_Code__c = 'EN';
         prod1NumericModcode.IsActive = true;
         prodList.add(prod1NumericModcode);
@@ -96,7 +96,7 @@ public class YG_DocumentSearchControllerTest {
         prod1NumericModcode2.Model_Code__c = '12';
         prod1NumericModcode2.Product_Type__c = 'Station';
         prod1NumericModcode2.Category__c = catg2.Id;
-        prod1NumericModcode2.Production_Date__c = Date.newInstance(2014, 12, 17);
+       // prod1NumericModcode2.Production_Date__c = Date.newInstance(2014, 12, 17);
         prod1NumericModcode2.Lang_Code__c = 'EN';
         prod1NumericModcode2.IsActive = true;
         prodList.add(prod1NumericModcode2);
@@ -106,7 +106,7 @@ public class YG_DocumentSearchControllerTest {
         prod2.Model_Code__c = 'PC';
         prod2.Product_Type__c = 'Station';
         prod2.Category__c = catg3.Id;
-        prod2.Production_Date__c = Date.newInstance(2014, 12, 17);
+      //  prod2.Production_Date__c = Date.newInstance(2014, 12, 17);
         prod2.Lang_Code__c = 'EN';
         prod2.IsActive = true;
         prodList.add(prod2);
@@ -116,7 +116,7 @@ public class YG_DocumentSearchControllerTest {
         prod3.Model_Code__c = 'AAI143';
         prod3.Product_Type__c = 'Hardware';
         prod3.Category__c = catg2.Id;
-        prod3.Production_Date__c = Date.newInstance(2014, 12, 17);
+       // prod3.Production_Date__c = Date.newInstance(2014, 12, 17);
         prod3.Lang_Code__c = 'EN';
         prod3.IsActive = true;
         prodList.add(prod3);
@@ -126,7 +126,7 @@ public class YG_DocumentSearchControllerTest {
         prod4.Model_Code__c = 'AAI543';
         prod4.Product_Type__c = 'Hardware';
         prod4.Category__c = catg2.Id;
-        prod4.Production_Date__c = Date.newInstance(2014, 12, 17);
+      //  prod4.Production_Date__c = Date.newInstance(2014, 12, 17);
         prod4.Lang_Code__c = 'EN';
         prod4.IsActive = true;
         prodList.add(prod4);
@@ -136,7 +136,7 @@ public class YG_DocumentSearchControllerTest {
         prod5.Model_Code__c = 'LFS1550';
         prod5.Product_Type__c = 'Software';
         prod5.Category__c = catg3.Id;
-        prod5.Production_Date__c = Date.newInstance(2014, 12, 17);
+       // prod5.Production_Date__c = Date.newInstance(2014, 12, 17);
         prod5.Lang_Code__c = 'EN';
         prod5.IsActive = true;
         prodList.add(prod5);

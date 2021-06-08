@@ -23,6 +23,7 @@
 *  07/24/2020			Selvaraj T				Added code for search in Software License page
 *  10/22/2020			Jayaprasath				Modified code for search under product-detail page
 *  10/22/2020			Selvaraj T				Modified code for searching stations and model based on project code 
+*  04/19/2021           Vinod 					Removed Plant__c(Plant) Lookup field from Asset and newly added PlantAccount__c(Account) Lookup field in Asset.
 */
 
 public class YG_SearchController {
@@ -95,7 +96,8 @@ public class YG_SearchController {
                system.debug('in'); 
             }
             else if(pageName != 'all-products' && pageName != 'product-details' && pageName != 'allservicerequest'){
-            Plant__c plantObj = YG_HelperClass.getPlantID(plantCode,lang);
+            /*Plant__c plantObj = YG_HelperClass.getPlantID(plantCode,lang);*/
+            Account plantObj = YG_HelperClass.getPlantID(plantCode,lang);
             plantId = plantObj.Id;
             System.debug('plantId::'+plantId);
             }
@@ -126,7 +128,7 @@ public class YG_SearchController {
                 }
                 
                 //Query to filter the product categories.
-                List<Asset> assetList= [Select Product2.Id, Product2.Product_Categories__c from Asset where Product2.Product_Categories__c LIKE : searchKey AND Product2.Product_type__c =null 
+                List<Asset> assetList= [Select Product2.Id, Product2.Category__r.Name/*Product2.Product_Categories__c*/ from Asset where /*Product2.Product_Categories__c*/Product2.Category__r.Name LIKE : searchKey AND Product2.Product_type__c =null 
                     AND Id IN:assetIds AND Lang_Code__c=:langCode AND Product2.Id NOT IN :lstExcludeitems];
                 
                 //To remove the duplicate assets
@@ -170,7 +172,7 @@ public class YG_SearchController {
                     }
                     
                     //Query to filter the product categories.
-                    List<Asset> assetList= [Select Product2.Id, Product2.Product_Categories__c from Asset where Product2.Product_Categories__c LIKE : searchKey AND Product2.Top_Category__c= :topCatCode
+                    List<Asset> assetList= [Select Product2.Id, Product2.Category__r.Name/*Product2.Product_Categories__c*/ from Asset where /*Product2.Product_Categories__c*/ Product2.Category__r.Name LIKE : searchKey AND Product2.Top_Category__c= :topCatCode
                                             AND Product2.Product_type__c =null AND Id IN:assetIds AND Lang_Code__c=:langCode AND Product2.Id NOT IN :lstExcludeitems];
                     
                     //To remove the duplicate assets
@@ -317,7 +319,8 @@ public class YG_SearchController {
             if(pageName == 'all-systems'){
                 
                 String sQueryStat = 'Select Id,Name from Asset where Name LIKE : searchKey AND Product2.Category__r.Category_Type__c = \'System\' AND Station_Type__c =:stype '+
-									' AND Plant__r.Id=\''+plantId+'\' AND Project__r.Project_Code__c IN :projCodeList AND Lang_Code__c=:langCode AND Name NOT IN :lstExcludeitemsName';
+									' AND PlantAccount__r.Id=\''+plantId+'\' AND Project__r.Project_Code__c IN :projCodeList AND Lang_Code__c=:langCode AND Name NOT IN :lstExcludeitemsName';
+                
                 List<sObject> lstOfStatRecords = Database.query(sQueryStat);
                 Set<String> statName = new Set<String>();
                 
@@ -332,7 +335,8 @@ public class YG_SearchController {
                 }
                 
                 String sQueryModel =  'Select Product2.Id,Product2.Model_Code__c from Asset where Product2.Model_Code__c LIKE : searchKey AND Station_Type__c =:stype '+
-									 ' AND Plant__r.Id=\''+plantId+'\' AND Project__r.Project_Code__c IN :projCodeList AND Lang_Code__c=:langCode AND Product2.Model_Code__c NOT IN :lstExcludeitemsName GROUP BY Product2.Id,Product2.Model_Code__c';
+									 ' AND PlantAccount__r.Id=\''+plantId+'\' AND Project__r.Project_Code__c IN :projCodeList AND Lang_Code__c=:langCode AND Product2.Model_Code__c NOT IN :lstExcludeitemsName GROUP BY Product2.Id,Product2.Model_Code__c';
+                
                 List<sObject> lstOfModelRecords = Database.query(sQueryModel);
                 Set<String> modCode = new Set<String>();
                 
@@ -386,7 +390,8 @@ public class YG_SearchController {
                 //String sQuery =  'Select Id, Name from Asset where Name LIKE: searchKey AND Parent.Name = :catName AND Id NOT IN :lstExcludeitems';
                 
                 String sQuery =  'Select Id, Name from Asset where Name LIKE : searchKey AND Project__r.Project_Code__c = :projectCode AND Parent.Name = :catName '+
-								 ' AND Plant__r.Id=\''+plantId+'\' AND Lang_Code__c=:langCode AND Id NOT IN :lstExcludeitems';
+								 ' AND PlantAccount__r.Id=\''+plantId+'\' AND Lang_Code__c=:langCode AND Id NOT IN :lstExcludeitems';
+                
                 List<sObject> lstOfRecords = Database.query(sQuery);
                 for (sObject obj: lstOfRecords) {
                     returnList.add(obj);
@@ -411,8 +416,9 @@ public class YG_SearchController {
             //get filtered data for software licenses page
             if(pageName == 'software-licenses'){
                 String sQuery =  'Select product2.Id,product2.Name from Asset where product2.Name LIKE : searchKey '+
-								 ' AND Lang_Code__c=:langCode AND Plant__r.Id=\''+plantId+'\' AND Product2.Category__r.Name = \'Software\' AND '+
+								 ' AND Lang_Code__c=:langCode AND PlantAccount__r.Id=\''+plantId+'\' AND Product2.Category__r.Name = \'Software\' AND '+
                     			 'product2.Id NOT IN :lstExcludeitems GROUP BY Product2.Id, Product2.Name';
+                
                 List<sObject> lstOfRecords = Database.query(sQuery);
                 for (sObject obj: lstOfRecords) {
                     returnList.add(obj);

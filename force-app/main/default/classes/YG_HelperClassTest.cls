@@ -13,7 +13,9 @@
 *  Change History:
 *  MM/DD/YYYY			Developer Name			Comments
 *  10/13/2020			Selvaraj T				Commented the phase date fields in product object  
-*  
+*  04/21/2021			Kavya					Removed Plant__c Object and replaced with Account Object also removed Customer_Plant__c Object and replaced with AccountContactRelation Object.
+*												Removed Plant__c(Plant) Lookup field from Asset and Project Objects and newly added PlantAccount__c(Account) Lookup field in Asset  and Project Object.
+
 */
 @isTest
 public class YG_HelperClassTest {
@@ -22,7 +24,8 @@ public class YG_HelperClassTest {
         
         //Inserting test account record
         Account acc = new account();
-        acc.name='XYZ Account';        
+        acc.name='XYZ Account';   
+        acc.Type = 'Customer';
         insert acc;    
         
         //Inserting test contact record
@@ -46,7 +49,7 @@ public class YG_HelperClassTest {
         insert user;
         
         //Inserting test plant record
-        List<Plant__c> plantList=new List<Plant__c>();
+        /*List<Plant__c> plantList=new List<Plant__c>();
         Plant__c plant1=new Plant__c();
         plant1.Name = 'TestPlant';
         plant1.Account__c = acc.Id;  
@@ -54,13 +57,28 @@ public class YG_HelperClassTest {
         plant1.Lang_Code__c = 'EN';
         plant1.Plant_Name__c = 'TestPlant';
         plantList.add(plant1);
+        insert plantList;*/
+        List<Account> plantList=new List<Account>();
+        Account plant1=new Account();
+        plant1.Name = 'TestPlant';
+        plant1.ParentId = acc.Id;  
+        plant1.AccountNumber = '300000142';
+        plant1.Type = 'Plant';
+        plantList.add(plant1);
         insert plantList;
         
         //Inserting test customer plant record
-        List<Customer_Plant__c> cusPlantList=new List<Customer_Plant__c>();
+        /*List<Customer_Plant__c> cusPlantList=new List<Customer_Plant__c>();
         Customer_Plant__c cusPlant1=new Customer_Plant__c();
         cusPlant1.Contact__c = con.Id;
         cusPlant1.Plant__c = plant1.Id;
+        cusPlant1.Status__c = 'Approved site access';
+        cusPlantList.add(cusPlant1);
+        insert cusPlantList;*/
+        List<AccountContactRelation> cusPlantList=new List<AccountContactRelation>();
+        AccountContactRelation cusPlant1=new AccountContactRelation();
+        cusPlant1.ContactId = con.Id;
+        cusPlant1.AccountId = plant1.Id;
         cusPlant1.Status__c = 'Approved site access';
         cusPlantList.add(cusPlant1);
         insert cusPlantList;
@@ -69,7 +87,7 @@ public class YG_HelperClassTest {
         List<Project__c> projectList=new List<Project__c>();
         Project__c proj1=new Project__c();
         proj1.Account__c = acc.Id;
-        proj1.Plant__c = plant1.Id;
+        proj1.PlantAccount__c = plant1.Id;
         proj1.Project_Code__c = 'VP700250';
         projectList.add(proj1);
         insert projectList;
@@ -142,7 +160,7 @@ public class YG_HelperClassTest {
         prod1.Name = 'Device Smart Communicators BT200';
         prod1.Model_Code__c = 'BT200';
         prod1.Category__c = catg3.Id;
-        prod1.Production_Date__c = Date.newInstance(2014, 12, 17);
+        //prod1.Production_Date__c = Date.newInstance(2014, 12, 17);
         prod1.Lang_Code__c = 'EN';
         prodList.add(prod1);
         
@@ -150,7 +168,7 @@ public class YG_HelperClassTest {
         prod2.Name = 'DCS';
         prod2.Model_Code__c = 'AFV10D';
         prod2.Category__c = catg5.Id;
-        prod2.Production_Date__c = Date.newInstance(2014, 12, 17);
+        //prod2.Production_Date__c = Date.newInstance(2014, 12, 17);
         prod2.Lang_Code__c = 'EN';
         prodList.add(prod2);       
         
@@ -163,7 +181,7 @@ public class YG_HelperClassTest {
         ass1.Product2Id = prod2.Id;
         ass1.AccountId = acc.Id;
         ass1.ContactId = con.Id;
-        ass1.Plant__c = plant1.Id;
+        ass1.PlantAccount__c = plant1.Id;
         ass1.Project__c = proj1.Id;
         ass1.Lang_Code__c = 'EN';
         assList.add(ass1);
@@ -173,6 +191,7 @@ public class YG_HelperClassTest {
         ass2.Product2Id = prod1.Id;
         ass2.AccountId = acc.Id;
         ass2.ContactId = con.Id;
+        ass2.PlantAccount__c = plant1.Id;
         ass2.Lang_Code__c = 'EN';
         ass2.SerialNumber = 'Test123';
         assList.add(ass2);
@@ -254,10 +273,15 @@ public class YG_HelperClassTest {
             List<Id> emptyList = new List<Id>();
             
             //Executing the getCusPlantInfo() method
-            List<Customer_Plant__c> cusPlant = YG_HelperClass.getCusPlantInfo(con.Id);
+            /*List<Customer_Plant__c> cusPlant = YG_HelperClass.getCusPlantInfo(con.Id);
+            system.assertEquals(1, cusPlant.size());*/
+            
+            List<AccountContactRelation> cusPlant = YG_HelperClass.getCusPlantInfo(con.Id);
             system.assertEquals(1, cusPlant.size());
             
-            List<Customer_Plant__c> cusPlt1 = YG_HelperClass.getCusPlantInfo(con.Id, 'EN');
+            /*List<Customer_Plant__c> cusPlt1 = YG_HelperClass.getCusPlantInfo(con.Id, 'EN');
+            system.assertEquals(1, cusPlt1.size());*/
+            List<AccountContactRelation> cusPlt1 = YG_HelperClass.getCusPlantInfo(con.Id, 'EN');
             system.assertEquals(1, cusPlt1.size());
             
             //Executing the getCusPlantList() method
@@ -265,13 +289,20 @@ public class YG_HelperClassTest {
             system.assertEquals(1, conLst.size());
             
             //Executing the getPlantID() method
-            Plant__c plt = YG_HelperClass.getPlantID('300000142', 'EN');
-            system.assertEquals('300000142', plt.Plant_Code__c);
+            //Plant__c plt = YG_HelperClass.getPlantID('300000142', 'EN');
+            //system.assertEquals('300000142', plt.Plant_Code__c);
+            Account plt = YG_HelperClass.getPlantID('300000142', 'EN');
+            System.debug('plt:::'+plt);
+            system.assertEquals('300000142', plt.AccountNumber);
             
-            Plant__c pltExcep = YG_HelperClass.getPlantID('1212', 'EN');
+            //Plant__c pltExcep = YG_HelperClass.getPlantID('1212', 'EN');
+            Account pltExcep = YG_HelperClass.getPlantID('1212', 'EN');
             
             //Executing the getPlantList() method
-            List<Plant__c> pltList = YG_HelperClass.getPlantList(acc.Id,'EN');
+            //List<Plant__c> pltList = YG_HelperClass.getPlantList(acc.Id,'EN');
+            //system.assertEquals(1, pltList.size());
+            List<Account> pltList = YG_HelperClass.getPlantList(acc.Id,'EN');
+            System.debug('pltList::'+pltList);
             system.assertEquals(1, pltList.size());
             
             //Executing the getAssetsInfo() method
@@ -361,7 +392,7 @@ public class YG_HelperClassTest {
             
             //Executing the getServiceContractExpiry() method
             String str = YG_HelperClass.getServiceContractExpiry(date.today());
-            System.assertEquals(' Expires today', str); 
+            System.assertEquals('Expires today', str); 
             
             String str1 = YG_HelperClass.getServiceContractExpiry(date.today().addmonths(3));
             

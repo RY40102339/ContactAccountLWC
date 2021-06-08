@@ -13,7 +13,8 @@
 *
 *  Change History:
 *  MM/DD/YYYY			Developer Name			Comments
-*  
+*  04/21/2021 			Kavya 					Removed Plant__c Object and replaced with Account Object.
+*											    Removed Plant__c(Plant) Lookup field from Asset and Project Objects and newly added PlantAccount__c(Account) Lookup field in Asset and Project Object.
 */
 
 @istest
@@ -21,7 +22,8 @@ public class YG_CombinationProductTest {
      @istest static void getCombinationProductTestMethod(){
          //Insert test account record
          Account acc = new account();
-         acc.name='ABC Test Account';        
+         acc.name='ABC Test Account';  
+         acc.Type = 'Customer';
          //acc.DUNS_Number__c=102224533; 
          insert acc;    
          
@@ -42,27 +44,43 @@ public class YG_CombinationProductTest {
          insert user;
         
          //Inserting test plant record
-         List<Plant__c> plantList=new List<Plant__c>();
+        /* List<Plant__c> plantList=new List<Plant__c>();
          Plant__c plant1=new Plant__c();
          plant1.Name = 'TestPlant';
          plant1.Account__c = acc.Id;  
          plant1.Plant_Code__c = '300000142';
          plant1.Lang_Code__c = 'EN';
+         plantList.add(plant1);*/
+         
+         //Inserting test plant record
+         List<Account> plantList=new List<Account>();
+         Account plant1=new Account();
+         plant1.Name = 'TestPlant';
+         plant1.ParentId = acc.Id;  
+         plant1.AccountNumber = '300000142';
+         plant1.Type = 'Plant';
          plantList.add(plant1);
         
-         Plant__c plant2=new Plant__c();
+        /* Plant__c plant2=new Plant__c();
          plant2.Name = 'TestPlant2';
          plant2.Account__c = acc.Id;  
          plant2.Plant_Code__c = '300000123';
          plant2.Lang_Code__c = 'EN';
+         plantList.add(plant2);
+         insert plantList;*/
+         Account plant2=new Account();
+         plant2.Name = 'TestPlant2';
+         plant2.ParentId = acc.Id;  
+         plant2.AccountNumber = '300000123';
+         plant2.Type = 'Plant';
          plantList.add(plant2);
          insert plantList;
          
          //Insert test project record   
          List<Project__c> projectList=new List<Project__c>();
          Project__c proj1=new Project__c();
-         proj1.Account__c = acc.Id;
-         proj1.Plant__c = plant1.Id;
+        proj1.Account__c = acc.Id;
+         proj1.PlantAccount__c = plant1.Id;
          proj1.Project_Code__c = 'VP700250';
          projectList.add(proj1);
          insert projectList; 
@@ -86,7 +104,7 @@ public class YG_CombinationProductTest {
          prod1.Model_Code__c = 'LFS1550';
          prod1.Product_Type__c = 'Hardware';
          prod1.Category__c = catg1.Id;
-         prod1.Production_Date__c = Date.newInstance(2014, 12, 17);
+         //prod1.Production_Date__c = Date.newInstance(2014, 12, 17);
          prodList.add(prod1);            
          Insert prodList;
          
@@ -97,7 +115,7 @@ public class YG_CombinationProductTest {
          ass1.AccountId = acc.Id;
          ass1.ContactId = con.Id;
          ass1.SerialNumber = 'FCS0111';
-         ass1.Plant__c = plant1.Id;
+         ass1.PlantAccount__c = plant1.Id;
          ass1.Project__c = proj1.Id;
          ass1.MS_Code__c = 'FCS0111';
          ass1.Status = 'Installed';
@@ -111,7 +129,7 @@ public class YG_CombinationProductTest {
          ass2.AccountId = acc.Id;
          ass2.ContactId = con.Id;
          ass2.SerialNumber = 'SU1234567';
-         ass2.Plant__c = plant1.Id;
+         ass2.PlantAccount__c = plant1.Id;
          ass2.Project__c = proj1.Id;
          ass2.MS_Code__c = 'LXY12345';
          ass2.Status = 'Installed';
@@ -127,7 +145,7 @@ public class YG_CombinationProductTest {
          ass3.AccountId = acc.Id;
          ass3.ContactId = con.Id;
          ass3.SerialNumber = 'SU1234567';
-         ass3.Plant__c = plant1.Id;
+         ass3.PlantAccount__c = plant1.Id;
          ass3.Project__c = proj1.Id;
          ass3.MS_Code__c = 'LXY12345';
          ass3.Status = 'Installed';

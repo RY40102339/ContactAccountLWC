@@ -17,6 +17,8 @@
 *  MM/DD/YYYY			Developer Name			Comments
 *  09/15/2020			Selvaraj T              Class is rewritten based on new page design and ERD updates
 *  11/03/2020			Selvaraj T              Updated the logic to handle multiple projects under single plant
+*  04/20/2021           Kavya                   Removed Plant__c Object and replaced with Account Object.
+*												Removed Plant__c(Plant) Lookup field from Asset and Project Objects and newly added PlantAccount__c(Account) Lookup field in Asset  and Project Object.
 */
 
 
@@ -45,8 +47,10 @@ public class YG_SystemsController {
             String selfRegAccId = allValues.get('YGSelfRegisterAccountId').Text_1__c;
             
             if(plantCode != '' && plantCode != null){
-                Plant__c plt = [Select Id, Name, Account__c, API_Last_Executed_Date__c From Plant__c where Plant_Code__c = :plantCode AND Account__c = :accId AND Account__c != :selfRegAccId Limit 1];
-                DateTime delAPIDt = plt.API_Last_Executed_Date__c;
+               /* Plant__c plt = [Select Id, Name, Account__c, API_Last_Executed_Date__c From Plant__c where Plant_Code__c = :plantCode AND Account__c = :accId AND Account__c != :selfRegAccId Limit 1];*/
+                 Account plt = [Select Id, Name, ParentId, System_API_Last_Sync_Date__c From Account where ((AccountNumber = :plantCode AND ParentId = :accId) OR (AccountNumber = :plantCode AND Id = :accId)) AND ParentId != :selfRegAccId Limit 1];
+              /*  DateTime delAPIDt = plt.API_Last_Executed_Date__c;*/
+                DateTime delAPIDt = plt.System_API_Last_Sync_Date__c;
                 if(delAPIDt != null){
                     delAPIDt = delAPIDt.addDays(Integer.valueof(days.trim()));
                 }
@@ -94,12 +98,13 @@ public class YG_SystemsController {
                 sysWrap.plantCode = plantCode;
                 
                 //get the plant details from plant code
-                Plant__c plant = YG_HelperClass.getPlantID(plantCode,langCode);
+              /*  Plant__c plant = YG_HelperClass.getPlantID(plantCode,langCode);*/
+                Account plant = YG_HelperClass.getPlantID(plantCode,langCode);
                 pltId = plant.id;
                 system.debug('pltId::'+pltId);
                 
                 //get the project which has assets
-                asstList = [Select Project__c From Asset where Plant__r.Id=:pltId AND Station_Type__c != null];
+                asstList = [Select Project__c From Asset where PlantAccount__r.Id=:pltId AND Station_Type__c != null];
                 for(Asset ast: asstList){
                     if(!projIdList.contains(ast.Project__c)){
                         projIdList.add(ast.Project__c);
@@ -108,7 +113,8 @@ public class YG_SystemsController {
                 
                 //Get the project asociated to the plant
                 projList = [Select Id,Name,Project_Code__c,Last_System_Update_Date__c,Revision_No__c, Parent_Project__c,  
-                            Parent_Project__r.Project_Code__c from Project__c where Plant__r.Id=:pltId And Id =:projIdList order by CreatedDate Asc];
+                            Parent_Project__r.Project_Code__c from Project__c where PlantAccount__r.Id=:pltId And Id =:projIdList order by CreatedDate Asc];
+                
                 system.debug('projList::'+projList);
                 
                 //Logic to get independent and integrated systems (parent and child projects)
@@ -216,7 +222,8 @@ public class YG_SystemsController {
             system.debug('langCode::'+langCode);
             
             //Get plant id based on the plant code
-            Plant__c plant = YG_HelperClass.getPlantID(plantCode,langCode);
+            /*Plant__c plant = YG_HelperClass.getPlantID(plantCode,langCode);*/
+            Account plant = YG_HelperClass.getPlantID(plantCode,langCode);
             pltId = plant.id;
             system.debug('pltId::'+pltId);
             
@@ -226,8 +233,9 @@ public class YG_SystemsController {
             
             //Get Project Details
             List<Project__c> projList = [Select Id,Name,Project_Code__c,Last_System_Update_Date__c,Revision_No__c, Parent_Project__c,  
-                        				 Parent_Project__r.Project_Code__c from Project__c where Plant__r.Id=:pltId And 
+                        				 Parent_Project__r.Project_Code__c from Project__c where PlantAccount__r.Id=:pltId And 
                                          Project_Code__c IN :projCodeList order by CreatedDate Asc];
+            
          	
             //get project id and record in map
             for(Project__c proj: projList){
@@ -253,16 +261,17 @@ public class YG_SystemsController {
                         }
                     }
                     
-                    assetList = [SELECT Id,Name,Plant__c,Product2Id,Project__c,Product_Name__c,Product2.Category__r.Name,
+                    assetList = [SELECT Id,Name,PlantAccount__c,Product2Id,Project__c,Product_Name__c,Product2.Category__r.Name,
                                  Product2.Name,Product2.Model_Code__c,Station_Type__c,Domain__c, Revision_No__c,Station_Number__c
                                  FROM Asset WHERE Project__r.Project_Code__c IN :projCodeList AND (Name IN :filterValue OR Product2.Model_Code__c IN :filterValue) 
-                                 AND Product2.Category__r.Category_Type__c = 'System' AND Lang_Code__c = :langCode AND Plant__r.Id=:pltId Order By Domain__c ASC];
+                                 AND Product2.Category__r.Category_Type__c = 'System' AND Lang_Code__c = :langCode AND PlantAccount__r.Id=:pltId Order By Domain__c ASC];
+                    
                     
                 }else{
                     
-                    assetList = [SELECT Id,Name,Plant__c,Product2Id,Product_Name__c,Product2.Name,Product2.Model_Code__c,Station_Type__c,Product2.Category__r.Name,Station_Number__c,
+                    assetList = [SELECT Id,Name,PlantAccount__c,Product2Id,Product_Name__c,Product2.Name,Product2.Model_Code__c,Station_Type__c,Product2.Category__r.Name,Station_Number__c,
                                  Domain__c, Revision_No__c FROM Asset WHERE Project__r.Project_Code__c IN :projCodeList AND Product2.Category__r.Category_Type__c = 'System' 
-                                 AND Lang_Code__c=:langCode AND Plant__r.Id=:pltId Order By Domain__c, Name ASC];
+                                 AND Lang_Code__c=:langCode AND PlantAccount__r.Id=:pltId Order By Domain__c, Name ASC];
                 
                 }
             }            
@@ -686,10 +695,11 @@ public class YG_SystemsController {
             List<String> projCodeList = projectCode.split(' / ');
             system.debug('projCodeList::'+projCodeList);
             
-            assetList = [SELECT Id,Name,AccountId,MS_Code__c,ParentId,Plant__c,Product2Id,
+            assetList = [SELECT Id,Name,AccountId,MS_Code__c,ParentId,PlantAccount__c,Product2Id,
                          SerialNumber,Product2.Name,Product2.Model_Code__c,Product2.Product_Type__c,
                          Domain__c, Revision_No__c FROM Asset WHERE Project__r.Project_Code__c IN :projCodeList AND Product2.Category__r.Category_Type__c = 'System' 
-                         AND Lang_Code__c=:langCode AND Plant__r.Id=:plantId];
+                         AND Lang_Code__c=:langCode AND PlantAccount__r.Id=:plantId];
+            
             
             for(Asset asst: assetList){
                 asstId.add(asst.Id);

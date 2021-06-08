@@ -58,6 +58,7 @@
     <columns>
         <field>ROLLUP_DESCRIPTION</field>
     </columns>
+    <currency>JPY</currency>
     <filter>
         <criteriaItems>
             <column>LAST_ACTIVITY</column>
@@ -66,6 +67,7 @@
             <operator>greaterThan</operator>
             <value>LAST_N_DAYS:4</value>
         </criteriaItems>
+        <language>en_US</language>
     </filter>
     <format>Summary</format>
     <groupingsDown>

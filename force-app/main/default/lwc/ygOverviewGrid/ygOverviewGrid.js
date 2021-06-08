@@ -183,6 +183,9 @@ export default class ygOverviewGrid extends LightningElement {
 				if (result.inqCaseCnt > 0) {
 					this.inquiryBtn = true;
 				}
+
+				console.log('result.caseDataList ==> ' + JSON.stringify(result.caseDataList));
+
 				this.totalrecsize = result.activeBtnSize;
 				this.selectedBtn = result.activeBtn;
 				this.btnactive = result.activeBtn;
@@ -251,9 +254,9 @@ export default class ygOverviewGrid extends LightningElement {
 						table.innerHTML = columnHeaderHtml;
 						dataTable = $(table).DataTable({
 							"paging": false,
-							"searching": true, // false to disable search (or any other option)
+							"searching": false, // false to disable search (or any other option)
 							"info": false,
-							"order": [0, 'desc'],
+							"order": [],
 							"oSearch": {
 								"bSmart": false
 							},
@@ -287,7 +290,7 @@ export default class ygOverviewGrid extends LightningElement {
 							}
 
 							dataTable.row.add([
-								'<strong>' + list.submitDate + '</strong>' + '<div class="pdf-doc f14">' + prod + '</div>',
+								'<span class="d-none">' + list.rawDate + '</span><strong>' + list.submitDate + '</strong>' + '<div class="pdf-doc f14">' + prod + '</div>',
 								'<strong>' + list.reason + '</strong>' + '<a class="d-block text-hover-color" data-id=' + list.caseId + ' href="javascript:void(0)"><ins>' + list.progress + '</ins></a>'
 							]);
 						})
@@ -311,9 +314,9 @@ export default class ygOverviewGrid extends LightningElement {
 						table.innerHTML = columnHeaderHtml;
 						dataTable = $(table).DataTable({
 							"paging": false,
-							"searching": true, // false to disable search (or any other option)
+							"searching": false, // false to disable search (or any other option)
 							"info": false,
-							"order": [0, 'desc'],
+							"order": [],
 							"oSearch": {
 								"bSmart": false
 							},
@@ -353,7 +356,7 @@ export default class ygOverviewGrid extends LightningElement {
 							}
 
 							dataTable.row.add([
-								'<div class="font-weight-normal d-none d-sm-block"><strong>' + list.submitDate + '</strong><br>' + prod + '</div><div class="d-sm-none"><strong>' + list.submitDate + '</strong><br>' + prod + '</div>',
+								'<span class="d-none">' + list.rawDate + '</span><div class="font-weight-normal d-none d-sm-block"><strong>' + list.submitDate + '</strong><br>' + prod + '</div><div class="d-sm-none"><strong>' + list.submitDate + '</strong><br>' + prod + '</div>',
 								'<div class="font-weight-normal d-none d-sm-block">' + list.serviceType + '</div><div class="d-sm-none"><strong>' + list.serviceType + '</strong><br>' + progress + '</div>',
 								'<span class="d-none d-sm-block">' + progress + '</span>'
 							]);
@@ -636,7 +639,7 @@ export default class ygOverviewGrid extends LightningElement {
 				if (this.selectedBtn === 'Inquiry') {
 					dataTable = $(table).DataTable({
 						"paging": false,
-						"searching": true, // false to disable search (or any other option)
+						"searching": false, // false to disable search (or any other option)
 						"info": false,
 						"order": [],
 						"oSearch": {
@@ -661,7 +664,7 @@ export default class ygOverviewGrid extends LightningElement {
 						}
 
 						dataTable.row.add([
-							'<strong>' + list.submitDate + '</strong>' + '<div class="pdf-doc f14">' + prod + '</div>',
+							'<span class="d-none">' + list.rawDate + '</span><strong>' + list.submitDate + '</strong>' + '<div class="pdf-doc f14">' + prod + '</div>',
 							'<strong>' + list.reason + '</strong>' + '<a class="d-block text-hover-color" data-id=' + list.caseId + ' href="javascript:void(0)"><ins>' + list.progress + '</ins></a>'
 						]).draw();
 					})
@@ -669,9 +672,9 @@ export default class ygOverviewGrid extends LightningElement {
 				else {
 					dataTable = $(table).DataTable({
 						"paging": false,
-						"searching": true, // false to disable search (or any other option)
+						"searching": false, // false to disable search (or any other option)
 						"info": false,
-						"order": [0, 'desc'],
+						"order": [],
 						"oSearch": {
 							"bSmart": false
 						},
@@ -700,7 +703,7 @@ export default class ygOverviewGrid extends LightningElement {
 						}
 
 						dataTable.row.add([
-							'<div class="font-weight-normal d-none d-sm-block"><strong>' + list.submitDate + '</strong><br>' + prod + '</div><div class="d-sm-none"><strong>' + list.submitDate + '</strong><br>' + prod + '</div>',
+							'<span class="d-none">' + list.rawDate + '</span><div class="font-weight-normal d-none d-sm-block"><strong>' + list.submitDate + '</strong><br>' + prod + '</div><div class="d-sm-none"><strong>' + list.submitDate + '</strong><br>' + prod + '</div>',
 							'<div class="font-weight-normal d-none d-sm-block">' + list.serviceType + '</div><div class="d-sm-none"><strong>' + list.serviceType + '</strong><br>' + progress + '</div>',
 							'<span class="d-none d-sm-block">' + progress + '</span>'
 						]).draw();

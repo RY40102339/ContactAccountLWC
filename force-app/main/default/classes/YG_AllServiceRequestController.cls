@@ -20,7 +20,7 @@
 public class YG_AllServiceRequestController {
     
     public static User userInformation =  YG_Utility.getLoggedInUserInfo(UserInfo.getUserId());
-   
+    
     //This method is used to get the grid details in all service request page
     @AuraEnabled 
     public static ServiceRequestGridWrapper getServiceRequestGridDetails(List<String> filterValue,String catType,String caseStatus,Integer loadLimit, Integer offset){
@@ -31,28 +31,28 @@ public class YG_AllServiceRequestController {
         system.debug('loadLimit::'+loadLimit);
         system.debug('offset::'+offset);
         
-		
-		ServiceRequestGridWrapper servReqWrap = new ServiceRequestGridWrapper();
-		List<Case> allCaseList = new List<Case>(); //List to store all the case data
+        
+        ServiceRequestGridWrapper servReqWrap = new ServiceRequestGridWrapper();
+        List<Case> allCaseList = new List<Case>(); //List to store all the case data
         List<Case> gridCaseList = new List<Case>(); //List to store the case data based on limit
-		List<CaseData> caseDataList = new List<CaseData>(); //List to store the case grid data
+        List<CaseData> caseDataList = new List<CaseData>(); //List to store the case grid data
         List<String> caseStatList = new List<String>();
         List<String> filteredCaseList = new List<String>();
-		Integer totalCaseCnt = 0;
+        Integer totalCaseCnt = 0;
         Integer prodCaseCnt = 0;
         Integer sysCaseCnt = 0;
         Integer inqCaseCnt = 0;
         List<String> prodService=new List<String>{'050','030','040','080','100','900'};
-        List<String> sysService=new List<String>{'010','020','040','060','070','100','900'};
-        Map<String, String> serviceMap=new Map<String, String>();
+            List<String> sysService=new List<String>{'010','020','040','060','070','100','900'};
+                Map<String, String> serviceMap=new Map<String, String>();
         List<Id> allCaseId = new List<Id>();
         List<Id> prodId = new List<Id>();
         List<Id> sysId = new List<Id>();
         List<Id> inqId = new List<Id>();
         
-	
-		try{
-			//To get the map of services
+        
+        try{
+            //To get the map of services
             Schema.DescribeFieldResult fieldResult = Case.Service_You_Require__c.getDescribe();
             List<Schema.PicklistEntry> serviceList = fieldResult.getPicklistValues();
             
@@ -61,7 +61,7 @@ public class YG_AllServiceRequestController {
             }
             system.debug('serviceMap::'+serviceMap);
             
-			//Get the user lang code
+            //Get the user lang code
             String langCode = YG_CommonUtils.getLanguageCode(userInformation.LanguageLocaleKey); 
             system.debug('langCode::'+langCode);            
             
@@ -85,14 +85,14 @@ public class YG_AllServiceRequestController {
             
             if(filterValue.size()>0){
                 List<Case> cseList = [Select Id From Case Where account.id = :accId And (toLabel(Service_You_Require__c) IN :filterValue OR
-                                      Reason IN :filterValue OR Product.Name IN :filterValue OR Asset.Product2.Name IN :filterValue)];
+                                                                                         Reason IN :filterValue OR Product.Name IN :filterValue OR Asset.Product2.Name IN :filterValue)];
                 for(Case cse: cseList){
                     filteredCaseList.add(cse.Id);
                 }
             }
             system.debug('filteredCaseList::'+filteredCaseList.size());
-			
-			//query all cases under specific contact
+            
+            //query all cases under specific contact
             if(accId == selfRegAccId){
                 if(filteredCaseList.size()>0){
                     allCaseList = [Select Id, CreatedDate, Description, Progress__c, Service_You_Require__c, Asset.Product2.Name, Asset.Product2.Model_Code__c,
@@ -202,7 +202,7 @@ public class YG_AllServiceRequestController {
             
             system.debug('gridCaseList::'+gridCaseList.size());
             
-			//looping the case list to get grid data for service and inquiry
+            //looping the case list to get grid data for service and inquiry
             for(Case cse: gridCaseList){
                 if(cse.Service_You_Require__c != null || cse.Reason != null){
                     CaseData csedat = new CaseData();
@@ -212,11 +212,13 @@ public class YG_AllServiceRequestController {
                         Datetime dt = Datetime.newInstance(dte.year(),dte.month(),dte.day());
                         String dateSub = dt.format('dd MMM YYYY'); 
                         csedat.dateSubmitted = dateSub;
+                        csedat.rawDate = dt.format('YYYYMMdd'); 
                     }else{
                         date dte = cse.CreatedDate.date();
                         Datetime dt = Datetime.newInstance(dte.year(),dte.month(),dte.day());
                         String dateSub = dt.format('dd MMM YYYY');
                         csedat.dateSubmitted = dateSub;
+                        csedat.rawDate = dt.format('YYYYMMdd');
                     }
                     
                     csedat.status = cse.status;
@@ -239,7 +241,7 @@ public class YG_AllServiceRequestController {
                         csedat.productName = cse.Asset.Product2.Name;
                         csedat.modelCode = cse.Asset.Product2.Model_Code__c;
                         if(cse.Asset.SerialNumber != null){
-                        	csedat.serialNumber = 'S/N ' +cse.Asset.SerialNumber;    
+                            csedat.serialNumber = 'S/N ' +cse.Asset.SerialNumber;    
                         }else{
                             csedat.serialNumber = '';
                         }
@@ -254,15 +256,15 @@ public class YG_AllServiceRequestController {
             }
             
             totalCaseCnt = prodCaseCnt + sysCaseCnt + inqCaseCnt;
-			
-			servReqWrap.totalCaseCnt = totalCaseCnt;
-			servReqWrap.prodCaseCnt = prodCaseCnt;
-			servReqWrap.sysCaseCnt = sysCaseCnt;
-			servReqWrap.inqCaseCnt = inqCaseCnt;
-			servReqWrap.caseDataList = caseDataList;
-			
-		}
-		catch(Exception e){
+            
+            servReqWrap.totalCaseCnt = totalCaseCnt;
+            servReqWrap.prodCaseCnt = prodCaseCnt;
+            servReqWrap.sysCaseCnt = sysCaseCnt;
+            servReqWrap.inqCaseCnt = inqCaseCnt;
+            servReqWrap.caseDataList = caseDataList;
+            
+        }
+        catch(Exception e){
             system.debug('Exception Cause::'+e.getCause());
             system.debug('Exception LineNumber::'+e.getLineNumber());
             system.debug('Exception Message::'+e.getMessage());
@@ -272,28 +274,29 @@ public class YG_AllServiceRequestController {
                                 'Class:YG_AllServiceRequestController; Method: getServiceRequestGridDetails(); Line #:'+e.getLineNumber()+'; Message:'+e.getMessage(),
                                 UserInfo.getUserId());
         }
-		
-		system.debug('servReqWrap::'+servReqWrap);
+        
+        system.debug('servReqWrap::'+servReqWrap);
         return servReqWrap;
-	
-	}
-	
-	public class ServiceRequestGridWrapper{
+        
+    }
+    
+    public class ServiceRequestGridWrapper{
         @AuraEnabled public Integer totalCaseCnt = 0;
         @AuraEnabled public Integer prodCaseCnt = 0;
         @AuraEnabled public Integer sysCaseCnt = 0;
         @AuraEnabled public Integer inqCaseCnt = 0;
         @AuraEnabled public List<CaseData> caseDataList;
     }
-	
-	public class CaseData{
+    
+    public class CaseData{
         @AuraEnabled public String caseNumber;
         @AuraEnabled public String dateSubmitted;
+        @AuraEnabled public String rawDate;
         @AuraEnabled public String status = '-';
         @AuraEnabled public String serviceType = '';
         @AuraEnabled public String productName = '';
         @AuraEnabled public String modelCode = '';
-		@AuraEnabled public String serialNumber = '';
+        @AuraEnabled public String serialNumber = '';
     }
     
     //This method is to get data for csv
@@ -318,15 +321,15 @@ public class YG_AllServiceRequestController {
             
             //get csv data
             if(accId == selfRegAccId){
-               csvCaseList = [Select Id, CreatedDate, Description, Progress__c, toLabel(Service_You_Require__c), Asset.Product2.Name, Asset.Product2.Model_Code__c,
-                           ProductId, AssetId, Asset.Product2.Category__r.Category_type__c, Product.Category__r.Category_type__c, Asset.SerialNumber,
-                           Type, Reason, Product.Name, Product.Model_Code__c, CaseNumber,Status,ServAir_Created_Date__c From Case Where account.id = :accId And contact.id = :conId And Type IN ('Request For Service','Submit An Inquiry')
-                           And Status IN ('Active','Closed') Order by CreatedDate Desc]; 
+                csvCaseList = [Select Id, CreatedDate, Description, Progress__c, toLabel(Service_You_Require__c), Asset.Product2.Name, Asset.Product2.Model_Code__c,
+                               ProductId, AssetId, Asset.Product2.Category__r.Category_type__c, Product.Category__r.Category_type__c, Asset.SerialNumber,
+                               Type, Reason, Product.Name, Product.Model_Code__c, CaseNumber,Status,ServAir_Created_Date__c From Case Where account.id = :accId And contact.id = :conId And Type IN ('Request For Service','Submit An Inquiry')
+                               And Status IN ('Active','Closed') Order by CreatedDate Desc]; 
             }else{
-              csvCaseList = [Select Id, CreatedDate, Description, Progress__c, toLabel(Service_You_Require__c), Asset.Product2.Name, Asset.Product2.Model_Code__c,
-                           ProductId, AssetId, Asset.Product2.Category__r.Category_type__c, Product.Category__r.Category_type__c, Asset.SerialNumber,
-                           Type, Reason, Product.Name, Product.Model_Code__c, CaseNumber,Status,ServAir_Created_Date__c From Case Where account.id = :accId And Type IN ('Request For Service','Submit An Inquiry')
-                           And Status IN ('Active','Closed') Order by CreatedDate Desc];  
+                csvCaseList = [Select Id, CreatedDate, Description, Progress__c, toLabel(Service_You_Require__c), Asset.Product2.Name, Asset.Product2.Model_Code__c,
+                               ProductId, AssetId, Asset.Product2.Category__r.Category_type__c, Product.Category__r.Category_type__c, Asset.SerialNumber,
+                               Type, Reason, Product.Name, Product.Model_Code__c, CaseNumber,Status,ServAir_Created_Date__c From Case Where account.id = :accId And Type IN ('Request For Service','Submit An Inquiry')
+                               And Status IN ('Active','Closed') Order by CreatedDate Desc];  
             }
             
             
@@ -340,11 +343,13 @@ public class YG_AllServiceRequestController {
                         Datetime dt = Datetime.newInstance(dte.year(),dte.month(),dte.day());
                         String dateSub = dt.format('dd MMM YYYY'); 
                         csedat.dateSubmitted = dateSub;
+                        
                     }else{
                         date dte = cse.CreatedDate.date();
                         Datetime dt = Datetime.newInstance(dte.year(),dte.month(),dte.day());
                         String dateSub = dt.format('dd MMM YYYY');
                         csedat.dateSubmitted = dateSub;
+                        
                     }
                     csedat.status = cse.status;
                     csedat.caseNumber = cse.CaseNumber;
@@ -400,37 +405,41 @@ public class YG_AllServiceRequestController {
     public class ServiceRequestCSVWrapper{
         @AuraEnabled public List<CaseCSVData> caseCSVDataList;
     }
-	
-	public class CaseCSVData{
+    
+    public class CaseCSVData{
         @AuraEnabled public String caseNumber;
         @AuraEnabled public String dateSubmitted;
         @AuraEnabled public String status = '-';
         @AuraEnabled public String serviceType = '';
         @AuraEnabled public String productName = '';
         @AuraEnabled public String modelCode = '';
-		@AuraEnabled public String serialNumber = '';
+        @AuraEnabled public String serialNumber = '';
     }
-        
+    
     //This method is used to get the chart details in all service request page
- 	@AuraEnabled  
-	public static ServiceRequestChartWrapper getServiceRequestChartDetails(){
-		
-		ServiceRequestChartWrapper chartWrap = new ServiceRequestChartWrapper();
-		List<ChartData> prodChartDataList = new List<ChartData>(); //List to store product chart data
-		List<ChartData> sysChartDataList = new List<ChartData>(); //List to store system chart data
-		List<ChartData> inqChartDataList = new List<ChartData>(); //List to store inquiry chart data
+    @AuraEnabled  
+    public static ServiceRequestChartWrapper getServiceRequestChartDetails(string caseType,string caseStatus){
+        
+        system.debug('caseType::'+caseType);
+        system.debug('caseStatus::'+caseStatus);
+        
+        ServiceRequestChartWrapper chartWrap = new ServiceRequestChartWrapper();
+        List<ChartData> prodChartDataList = new List<ChartData>(); //List to store product chart data
+        List<ChartData> sysChartDataList = new List<ChartData>(); //List to store system chart data
+        List<ChartData> inqChartDataList = new List<ChartData>(); //List to store inquiry chart data
         List<AggregateResult> caseTypeProdList = new List<AggregateResult>();
         List<AggregateResult> caseTypeSystemList = new List<AggregateResult>();
         List<AggregateResult> caseTypeInqList = new List<AggregateResult>();
         List<Case> allCaseList = new List<Case>();
+        List<Id> allCaseId = new List<Id>();
         List<Id> prodCaseId = new List<Id>();
         List<Id> sysCaseId = new List<Id>();
         List<Id> inqCaseId = new List<Id>();
-		List<String> prodService=new List<String>{'050','030','040','080','100','900'};
-        List<String> sysService=new List<String>{'010','020','040','060','070','100','900'};
-            
-		//Defining array for chart color 
-		String [] arrayOfColorcode = new List<String>();
+        List<String> prodService=new List<String>{'050','030','040','080','100','900'};
+            List<String> sysService=new List<String>{'010','020','040','060','070','100','900'};
+                
+                //Defining array for chart color 
+                String [] arrayOfColorcode = new List<String>();
         Integer i = 0,j = 0,k = 0;
         arrayOfColorcode.add('#FFEE00');
         arrayOfColorcode.add('#F1BC1A');
@@ -439,10 +448,10 @@ public class YG_AllServiceRequestController {
         arrayOfColorcode.add('#00316C');
         arrayOfColorcode.add('#00694C');
         arrayOfColorcode.add('#00A04C');
-		
-		try{
-			
-			//Get the user lang code
+        
+        try{
+            
+            //Get the user lang code
             String langCode = YG_CommonUtils.getLanguageCode(userInformation.LanguageLocaleKey); 
             system.debug('langCode::'+langCode);            
             
@@ -472,104 +481,158 @@ public class YG_AllServiceRequestController {
             for(Case cse: allCaseList){
                 if(cse.Type == 'Request For Service' && ((cse.Product.Category__r.Category_type__c == 'Product' || cse.Asset.Product2.Category__r.Category_type__c == 'Product') || (cse.AssetId == null && cse.ProductId == null)) && cse.Service_You_Require__c != null && prodService.contains(cse.Service_You_Require__c)){
                     prodCaseId.add(cse.Id);
+                    allCaseId.add(cse.Id);
                 }
-                if(!prodCaseId.contains(cse.Id) && cse.Type == 'Request For Service' && cse.Service_You_Require__c != null && ((cse.Product.Category__r.Category_type__c == 'System' || cse.Asset.Product2.Category__r.Category_type__c == 'System' ) || (cse.AssetId == null && cse.ProductId == null))  && sysService.contains(cse.Service_You_Require__c)){
+                if(!allCaseId.contains(cse.Id) && !prodCaseId.contains(cse.Id) && cse.Type == 'Request For Service' && cse.Service_You_Require__c != null && ((cse.Product.Category__r.Category_type__c == 'System' || cse.Asset.Product2.Category__r.Category_type__c == 'System' ) || (cse.AssetId == null && cse.ProductId == null))  && sysService.contains(cse.Service_You_Require__c)){
                     sysCaseId.add(cse.Id);
+                    allCaseId.add(cse.Id);
                 }
                 if(cse.Type == 'Submit An Inquiry' && cse.Reason != null){
                     inqCaseId.add(cse.Id);
+                    allCaseId.add(cse.Id);
                 }
             }
             
-            caseTypeProdList = [Select Count(id) cnt, toLabel(Service_You_Require__c) From Case where account.id = :accId AND contact.id = :conId 
-                                AND Id IN :prodCaseId Group By Service_You_Require__c];
+            system.debug('prodCaseId::'+prodCaseId.size());
+            system.debug('sysCaseId::'+sysCaseId.size());
+            system.debug('inqCaseId::'+inqCaseId.size());
             
-            caseTypeSystemList = [Select Count(id) cnt, toLabel(Service_You_Require__c) From Case where account.id = :accId AND contact.id = :conId 
-                                  AND Id IN :sysCaseId Group By Service_You_Require__c];
+            if(caseType == ''){
+                if(caseStatus == ''){
+                    caseTypeProdList = [Select Count(id) cnt, toLabel(Service_You_Require__c) From Case where 
+                                        Id IN :prodCaseId Group By Service_You_Require__c];
+                    
+                    caseTypeSystemList = [Select Count(id) cnt, toLabel(Service_You_Require__c) From Case where 
+                                          Id IN :sysCaseId Group By Service_You_Require__c];
+                    
+                    caseTypeInqList = [Select Count(id) cnt, Reason From Case where Id IN :inqCaseId 
+                                       Group By Reason];
+                }else{
+                    caseTypeProdList = [Select Count(id) cnt, toLabel(Service_You_Require__c) From Case where 
+                                        Status = :caseStatus AND Id IN :prodCaseId Group By Service_You_Require__c];
+                    
+                    caseTypeSystemList = [Select Count(id) cnt, toLabel(Service_You_Require__c) From Case where 
+                                          Status = :caseStatus AND Id IN :sysCaseId Group By Service_You_Require__c];
+                    
+                    caseTypeInqList = [Select Count(id) cnt, Reason From Case where Status = :caseStatus AND Id IN :inqCaseId 
+                                       Group By Reason]; 
+                }
+                
+            }
             
-            caseTypeInqList = [Select Count(id) cnt, Reason From Case where account.id = :accId AND contact.id = :conId AND Id IN :inqCaseId 
-                               Group By Reason];
-			
+            if(caseType == 'Product'){
+                if(caseStatus == ''){
+                    caseTypeProdList = [Select Count(id) cnt, toLabel(Service_You_Require__c) From Case where 
+                                        Id IN :prodCaseId Group By Service_You_Require__c];
+                }else{
+                    caseTypeProdList = [Select Count(id) cnt, toLabel(Service_You_Require__c) From Case where 
+                                        Status = :caseStatus AND Id IN :prodCaseId Group By Service_You_Require__c]; 
+                }
+            }
             
-			for(AggregateResult res: caseTypeProdList){
+            if(caseType == 'System'){
+                if(caseStatus == ''){
+                    caseTypeSystemList = [Select Count(id) cnt, toLabel(Service_You_Require__c) From Case where 
+                                          Id IN :sysCaseId Group By Service_You_Require__c];
+                }else{
+                    caseTypeSystemList = [Select Count(id) cnt, toLabel(Service_You_Require__c) From Case where 
+                                          Status = :caseStatus AND Id IN :sysCaseId Group By Service_You_Require__c];
+                }
+            }
+            
+            if(caseType == 'Inquiry'){
+                if(caseStatus == ''){
+                    caseTypeInqList = [Select Count(id) cnt, Reason From Case where Id IN :inqCaseId 
+                                       Group By Reason]; 
+                }else{
+                    caseTypeInqList = [Select Count(id) cnt, Reason From Case where Status = :caseStatus AND Id IN :inqCaseId 
+                                       Group By Reason];
+                }
+            }
+            
+            system.debug('caseTypeProdList::'+caseTypeProdList);
+            system.debug('caseTypeSystemList::'+caseTypeSystemList);
+            system.debug('caseTypeInqList::'+caseTypeInqList);
+            
+            for(AggregateResult res: caseTypeProdList){
                 ChartData prodChart = new ChartData();
                 
-				if((String)res.get('Service_You_Require__c') == '050'){
-					prodChart.value = (Integer)res.get('cnt');
-					prodChart.label = Label.YG_Calibration +': '+(Integer)res.get('cnt');
-					prodChart.color = arrayOfColorcode[i];
-				}
-				if((String)res.get('Service_You_Require__c') == '030'){
-					prodChart.value = (Integer)res.get('cnt');
-					prodChart.label = Label.YG_Repair +': '+(Integer)res.get('cnt');
-					prodChart.color = arrayOfColorcode[i];
-				}
-				if((String)res.get('Service_You_Require__c') == '040'){
-					prodChart.value = (Integer)res.get('cnt');
-					prodChart.label = Label.YG_Training +': '+(Integer)res.get('cnt');
-					prodChart.color = arrayOfColorcode[i];
-				}
-				
-				if((String)res.get('Service_You_Require__c') == '080'){
-					prodChart.value = (Integer)res.get('cnt');
-					prodChart.label = Label.YG_Diagnosis +': '+(Integer)res.get('cnt');
-					prodChart.color = arrayOfColorcode[i];
-				}
-				if((String)res.get('Service_You_Require__c') == '100'){
-					prodChart.value = (Integer)res.get('cnt');
-					prodChart.label = Label.YG_Mods +': '+(Integer)res.get('cnt');
-					prodChart.color = arrayOfColorcode[i];
-				}
-				if((String)res.get('Service_You_Require__c') == '900'){
-					prodChart.value = (Integer)res.get('cnt');
-					prodChart.label = Label.YG_Others +': '+(Integer)res.get('cnt');
-					prodChart.color = arrayOfColorcode[i];
-				}
+                if((String)res.get('Service_You_Require__c') == '050'){
+                    prodChart.value = (Integer)res.get('cnt');
+                    prodChart.label = Label.YG_Calibration +': '+(Integer)res.get('cnt');
+                    prodChart.color = arrayOfColorcode[i];
+                }
+                if((String)res.get('Service_You_Require__c') == '030'){
+                    prodChart.value = (Integer)res.get('cnt');
+                    prodChart.label = Label.YG_Repair +': '+(Integer)res.get('cnt');
+                    prodChart.color = arrayOfColorcode[i];
+                }
+                if((String)res.get('Service_You_Require__c') == '040'){
+                    prodChart.value = (Integer)res.get('cnt');
+                    prodChart.label = Label.YG_Training +': '+(Integer)res.get('cnt');
+                    prodChart.color = arrayOfColorcode[i];
+                }
+                
+                if((String)res.get('Service_You_Require__c') == '080'){
+                    prodChart.value = (Integer)res.get('cnt');
+                    prodChart.label = Label.YG_Diagnosis +': '+(Integer)res.get('cnt');
+                    prodChart.color = arrayOfColorcode[i];
+                }
+                if((String)res.get('Service_You_Require__c') == '100'){
+                    prodChart.value = (Integer)res.get('cnt');
+                    prodChart.label = Label.YG_Mods +': '+(Integer)res.get('cnt');
+                    prodChart.color = arrayOfColorcode[i];
+                }
+                if((String)res.get('Service_You_Require__c') == '900'){
+                    prodChart.value = (Integer)res.get('cnt');
+                    prodChart.label = Label.YG_Others +': '+(Integer)res.get('cnt');
+                    prodChart.color = arrayOfColorcode[i];
+                }
                 
                 i++;
                 if(prodChart != null){
                     prodChartDataList.add(prodChart);
                 }
             }
-			
-			for(AggregateResult res: caseTypeSystemList){
+            
+            for(AggregateResult res: caseTypeSystemList){
                 ChartData sysChart = new ChartData();
                 system.debug('res::'+res);               
-				if((String)res.get('Service_You_Require__c') == '010'){
-					sysChart.value = (Integer)res.get('cnt');
-					sysChart.label = Label.YG_Maintenance +': '+(Integer)res.get('cnt');
-					sysChart.color = arrayOfColorcode[j];
-				}
-				if((String)res.get('Service_You_Require__c') == '020'){
-					sysChart.value = (Integer)res.get('cnt');
-					sysChart.label = Label.YG_On_Call +': '+(Integer)res.get('cnt');
-					sysChart.color = arrayOfColorcode[j];
-				}
-				if((String)res.get('Service_You_Require__c') == '040'){
-					sysChart.value = (Integer)res.get('cnt');
-					sysChart.label = Label.YG_Training +': '+(Integer)res.get('cnt');
-					sysChart.color = arrayOfColorcode[j];
-				}
-				if((String)res.get('Service_You_Require__c') == '060'){
-					sysChart.value = (Integer)res.get('cnt');
-					sysChart.label = Label.YG_Sys_Upgrade +': '+(Integer)res.get('cnt');
-					sysChart.color = arrayOfColorcode[j];
-				}
-				if((String)res.get('Service_You_Require__c') == '070'){
-					sysChart.value = (Integer)res.get('cnt');
-					sysChart.label = Label.YG_Security +': '+(Integer)res.get('cnt');
-					sysChart.color = arrayOfColorcode[j];
-				}
-				if((String)res.get('Service_You_Require__c') == '100'){
-					sysChart.value = (Integer)res.get('cnt');
-					sysChart.label = Label.YG_Mods +': '+(Integer)res.get('cnt');
-					sysChart.color = arrayOfColorcode[j];
-				}
-				if((String)res.get('Service_You_Require__c') == '900'){
-					sysChart.value = (Integer)res.get('cnt');
-					sysChart.label = Label.YG_Others +': '+(Integer)res.get('cnt');
-					sysChart.color = arrayOfColorcode[j];
-				}
+                if((String)res.get('Service_You_Require__c') == '010'){
+                    sysChart.value = (Integer)res.get('cnt');
+                    sysChart.label = Label.YG_Maintenance +': '+(Integer)res.get('cnt');
+                    sysChart.color = arrayOfColorcode[j];
+                }
+                if((String)res.get('Service_You_Require__c') == '020'){
+                    sysChart.value = (Integer)res.get('cnt');
+                    sysChart.label = Label.YG_On_Call +': '+(Integer)res.get('cnt');
+                    sysChart.color = arrayOfColorcode[j];
+                }
+                if((String)res.get('Service_You_Require__c') == '040'){
+                    sysChart.value = (Integer)res.get('cnt');
+                    sysChart.label = Label.YG_Training +': '+(Integer)res.get('cnt');
+                    sysChart.color = arrayOfColorcode[j];
+                }
+                if((String)res.get('Service_You_Require__c') == '060'){
+                    sysChart.value = (Integer)res.get('cnt');
+                    sysChart.label = Label.YG_Sys_Upgrade +': '+(Integer)res.get('cnt');
+                    sysChart.color = arrayOfColorcode[j];
+                }
+                if((String)res.get('Service_You_Require__c') == '070'){
+                    sysChart.value = (Integer)res.get('cnt');
+                    sysChart.label = Label.YG_Security +': '+(Integer)res.get('cnt');
+                    sysChart.color = arrayOfColorcode[j];
+                }
+                if((String)res.get('Service_You_Require__c') == '100'){
+                    sysChart.value = (Integer)res.get('cnt');
+                    sysChart.label = Label.YG_Mods +': '+(Integer)res.get('cnt');
+                    sysChart.color = arrayOfColorcode[j];
+                }
+                if((String)res.get('Service_You_Require__c') == '900'){
+                    sysChart.value = (Integer)res.get('cnt');
+                    sysChart.label = Label.YG_Others +': '+(Integer)res.get('cnt');
+                    sysChart.color = arrayOfColorcode[j];
+                }
                 
                 j++;
                 
@@ -577,38 +640,38 @@ public class YG_AllServiceRequestController {
                     sysChartDataList.add(sysChart);
                 }
             }
-			
-			for(AggregateResult res: caseTypeInqList){
+            
+            for(AggregateResult res: caseTypeInqList){
                 ChartData inqChart = new ChartData();
-                               
-				if((String)res.get('Reason') == 'Sales and Quote'){
-					inqChart.value = (Integer)res.get('cnt');
-					inqChart.label = Label.YG_Sales_Quote +': '+(Integer)res.get('cnt');
-					inqChart.color = arrayOfColorcode[k];
-				}
-				if((String)res.get('Reason') == 'Technical Support'){
-					inqChart.value = (Integer)res.get('cnt');
-					inqChart.label = Label.YG_Technical_Support +': '+(Integer)res.get('cnt');
-					inqChart.color = arrayOfColorcode[k];
-				}
-				if((String)res.get('Reason') == 'Others'){
-					inqChart.value = (Integer)res.get('cnt');
-					inqChart.label = Label.YG_Others +': '+(Integer)res.get('cnt');
-					inqChart.color = arrayOfColorcode[k];
-				}
+                
+                if((String)res.get('Reason') == 'Sales and Quote'){
+                    inqChart.value = (Integer)res.get('cnt');
+                    inqChart.label = Label.YG_Sales_Quote +': '+(Integer)res.get('cnt');
+                    inqChart.color = arrayOfColorcode[k];
+                }
+                if((String)res.get('Reason') == 'Technical Support'){
+                    inqChart.value = (Integer)res.get('cnt');
+                    inqChart.label = Label.YG_Technical_Support +': '+(Integer)res.get('cnt');
+                    inqChart.color = arrayOfColorcode[k];
+                }
+                if((String)res.get('Reason') == 'Others'){
+                    inqChart.value = (Integer)res.get('cnt');
+                    inqChart.label = Label.YG_Others +': '+(Integer)res.get('cnt');
+                    inqChart.color = arrayOfColorcode[k];
+                }
                 
                 k++;
                 if(inqChart != null){
                     inqChartDataList.add(inqChart);
                 }
             }
-			
-			chartWrap.prodChartDataList = prodChartDataList;
-			chartWrap.sysChartDataList = sysChartDataList;
-			chartWrap.inqChartDataList = inqChartDataList;
-			
-		}
-		catch(Exception e){
+            
+            chartWrap.prodChartDataList = prodChartDataList;
+            chartWrap.sysChartDataList = sysChartDataList;
+            chartWrap.inqChartDataList = inqChartDataList;
+            
+        }
+        catch(Exception e){
             system.debug('Exception Cause::'+e.getCause());
             system.debug('Exception LineNumber::'+e.getLineNumber());
             system.debug('Exception Message::'+e.getMessage());
@@ -618,23 +681,23 @@ public class YG_AllServiceRequestController {
                                 'Class:YG_AllServiceRequestController; Method: getServiceRequestChartDetails(); Line #:'+e.getLineNumber()+'; Message:'+e.getMessage(),
                                 UserInfo.getUserId());
         }
-		
-		system.debug('chartWrap::'+chartWrap);
+        
+        system.debug('chartWrap::'+chartWrap);
         return chartWrap;
-		
-	}
-	
-	public class ServiceRequestChartWrapper{
-		@AuraEnabled public List<ChartData> prodChartDataList;
-		@AuraEnabled public List<ChartData> sysChartDataList;
-		@AuraEnabled public List<ChartData> inqChartDataList;
-	}
-	
-	public class ChartData{
-		@AuraEnabled public Integer value; //serviceTypeCount
+        
+    }
+    
+    public class ServiceRequestChartWrapper{
+        @AuraEnabled public List<ChartData> prodChartDataList;
+        @AuraEnabled public List<ChartData> sysChartDataList;
+        @AuraEnabled public List<ChartData> inqChartDataList;
+    }
+    
+    public class ChartData{
+        @AuraEnabled public Integer value; //serviceTypeCount
         @AuraEnabled public String label; //serviceType
         @AuraEnabled public String color; //colorcode
-	}
+    }
     
     //This method is used to get the data for the service request details popup window
     @AuraEnabled
@@ -650,9 +713,9 @@ public class YG_AllServiceRequestController {
             
             if(caseNo != '' && caseNo != null){
                 caseDetails = [Select Id, Type, CaseNumber, Reason, CreatedDate, ProductId, Product.Name, Product.Model_Code__c, Product.Category__r.Category_type__c,AssetId, Asset.SerialNumber,Deliverables_ID__c,
-                               Asset.Product2.Name, Asset.Product2.Model_Code__c,  Assigned_To_Name__c, Asset.Product2.Category__r.Category_type__c, Contact.Name, Description, Owner.Name, CreatedBy.Name,ServAir_Created_Date__c,Asset.Id,
+                               Asset.Product2.Name, Asset.Product2.Model_Code__c, ServAir_Incident_Number__c, Assigned_To_Name__c, Asset.Product2.Category__r.Category_type__c, Contact.Name, Description, Owner.Name, CreatedBy.Name,ServAir_Created_Date__c,Asset.Id,
                                toLabel(Service_you_require__c) From case Where CaseNumber=: caseNo Limit 1];
-
+                
                 system.debug('caseDetails::'+caseDetails);
                 if(caseDetails.AssetId == null){
                     case caseAssetUpt=new case();
@@ -667,11 +730,15 @@ public class YG_AllServiceRequestController {
                     }
                 }
                 
-                modelWindowInfo.caseNum = caseDetails.CaseNumber;
+                if(caseDetails.ServAir_Incident_Number__c != null){
+                    modelWindowInfo.caseNum = caseDetails.ServAir_Incident_Number__c;
+                }else{
+                    modelWindowInfo.caseNum = caseDetails.CaseNumber;
+                }
                 modelWindowInfo.description = caseDetails.Description;
                 modelWindowInfo.caseCreatedBy = caseDetails.CreatedBy.Name;
                 if(caseDetails.Assigned_To_Name__c != null){
-                modelWindowInfo.caseAssignedTo = caseDetails.Assigned_To_Name__c;
+                    modelWindowInfo.caseAssignedTo = caseDetails.Assigned_To_Name__c;
                 }else{
                     modelWindowInfo.caseAssignedTo = '-';
                 }
@@ -685,16 +752,16 @@ public class YG_AllServiceRequestController {
                 }
                 
                 if(caseDetails.ServAir_Created_Date__c != null){
-                        date cddte = caseDetails.ServAir_Created_Date__c.date();
-                         Datetime cddt = Datetime.newInstance(cddte.year(),cddte.month(),cddte.day());
-                        String cddateVal = cddt.format('dd MMM YYYY'); 
-                        modelWindowInfo.submittedDate = cddateVal;
-                    }else{
-                        date cddte = caseDetails.CreatedDate.Date();
-                        Datetime cddt = Datetime.newInstance(cddte.year(),cddte.month(),cddte.day());
-                        String cddateVal = cddt.format('dd MMM YYYY'); 
-                        modelWindowInfo.submittedDate = cddateVal;
-                    }
+                    date cddte = caseDetails.ServAir_Created_Date__c.date();
+                    Datetime cddt = Datetime.newInstance(cddte.year(),cddte.month(),cddte.day());
+                    String cddateVal = cddt.format('dd MMM YYYY'); 
+                    modelWindowInfo.submittedDate = cddateVal;
+                }else{
+                    date cddte = caseDetails.CreatedDate.Date();
+                    Datetime cddt = Datetime.newInstance(cddte.year(),cddte.month(),cddte.day());
+                    String cddateVal = cddt.format('dd MMM YYYY'); 
+                    modelWindowInfo.submittedDate = cddateVal;
+                }
                 
                 
                 if(caseDetails.AssetId != null){
@@ -717,18 +784,18 @@ public class YG_AllServiceRequestController {
                     }
                     
                     /*
-                    if(ent != null){
-                        if(ent.ServiceContract.EndDate < Date.today()){
-                            date dte = ent.ServiceContract.EndDate;
-                            Datetime dt = Datetime.newInstance(dte.year(),dte.month(),dte.day());
-                            String dateVal = dt.format('dd MMM YYYY'); 
-                            modelWindowInfo.contractType = ent.ServiceContract.Contract_Type__c+', '+Label.YG_Ended+dateVal;
-                        }else{
-                            modelWindowInfo.contractType = ent.ServiceContract.Contract_Type__c;
-                        }
-                    }else{
-                        modelWindowInfo.contractType = '-';
-                    }*/
+if(ent != null){
+if(ent.ServiceContract.EndDate < Date.today()){
+date dte = ent.ServiceContract.EndDate;
+Datetime dt = Datetime.newInstance(dte.year(),dte.month(),dte.day());
+String dateVal = dt.format('dd MMM YYYY'); 
+modelWindowInfo.contractType = ent.ServiceContract.Contract_Type__c+', '+Label.YG_Ended+dateVal;
+}else{
+modelWindowInfo.contractType = ent.ServiceContract.Contract_Type__c;
+}
+}else{
+modelWindowInfo.contractType = '-';
+}*/
                     
                     if(caseDetails.Asset.SerialNumber != null){
                         modelWindowInfo.serialNumber = caseDetails.Asset.SerialNumber;
@@ -742,7 +809,7 @@ public class YG_AllServiceRequestController {
                 }else{
                     modelWindowInfo.serialNumber = '-';
                 }
-                 
+                
                 if(caseDetails.ProductId != null){
                     modelWindowInfo.serialNumber = '-';
                     modelWindowInfo.productName = caseDetails.Product.Name;
@@ -796,7 +863,7 @@ public class YG_AllServiceRequestController {
         
         System.debug('caseNo:::'+caseNo);
         System.debug('notes:::'+notes);
-
+        
         Case caseList;
         String result;
         
@@ -845,7 +912,7 @@ public class YG_AllServiceRequestController {
                 if(caseOldhist[0].OldValue != null){
                     hisOldData.description = caseOldhist[0].OldValue.toString();
                     dte = Datetime.newInstance(caseOldhist[0].CreatedDate.year(),caseOldhist[0].CreatedDate.month(),caseOldhist[0].CreatedDate.day());
-                	hisOldData.hisDate = dte.format('dd MMMM YYYY'); 
+                    hisOldData.hisDate = dte.format('dd MMMM YYYY'); 
                 }
             }else{
                 hisOldData.description = cse.Progress__c;
@@ -869,7 +936,7 @@ public class YG_AllServiceRequestController {
             if(hisOldData.description != null){
                 hisList.add(hisOldData);
             }
-             
+            
             
             System.debug('hisList::'+hisList);
             caseWrap.hisWrap = hisList;

@@ -1,6 +1,6 @@
 import { LightningElement, wire, track } from 'lwc';
 import getCommunityURL from '@salesforce/apex/YG_Utility.getCommunityURL';
-import getAccountLogo from '@salesforce/apex/YG_HeaderController.getAccountLogo';
+import getAccountLogo from '@salesforce/apex/YG_HeaderController.getAccountData';
 //import toGetStationSize from '@salesforce/apex/YG_HelperClass.toGetStationSize';
 import getTotalContractSize from '@salesforce/apex/YG_AllServiceContractsController.getTotalContractSize';
 import getUserRole from '@salesforce/apex/YG_LoggedUserRoleController.getNotifyUserRole';
@@ -53,6 +53,7 @@ export default class YgHeader extends LightningElement {
     contractTotalSize;
     @track hideSearch = true;
     @track roleFlag = false;
+    shortName;
     name;
     email;
     contact;
@@ -81,6 +82,7 @@ export default class YgHeader extends LightningElement {
         //this method id used to verify the logged user Role
         getUserRole().then(result => {
             this.role = result.role;
+            this.shortName = result.fName.charAt(0) + '' + result.lName.charAt(0);
             this.name = result.fName + ' ' + result.lName;
             this.email = result.email;
             this.contact = result.phone;
@@ -139,7 +141,7 @@ export default class YgHeader extends LightningElement {
         getAccountLogo()
             .then(result => {
                 if (result != null) {
-                    this.profileLogo = result;
+                    this.profileLogo = result.Account_Logo__c;
                 } else {
                     this.profileLogo = YG_CustomerPortal + '/YG_Images/image-profile-default.svg';
                 }
@@ -276,6 +278,7 @@ export default class YgHeader extends LightningElement {
 
         getUserRole().then(result => {
             this.role = result.role;
+            this.shortName = result.fName.charAt(0) + '' + result.lName.charAt(0);
             this.name = result.fName + ' ' + result.lName;
             this.email = result.email;
             this.contact = result.phone;

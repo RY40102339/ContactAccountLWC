@@ -8,6 +8,7 @@ import getServiceContractCSV from '@salesforce/apex/YG_ProductDetailsCSV.getServ
 import getCommunityURL from '@salesforce/apex/YG_Utility.getCommunityURL';
 import getCustomConfig from '@salesforce/apex/YG_Utility.getCustomConfig';
 import showLbl from '@salesforce/label/c.YG_Show';
+import renewedLbl from '@salesforce/label/c.YG_Renewed_with';
 import moreProductsLbl from '@salesforce/label/c.YG_MoreProducts';
 import callDelivAPI from '@salesforce/apex/YG_SystemsController.callDelivAPI';
 import getDeliverableNoAndSystemId from "@salesforce/apex/YG_SystemsAPI.getDeliverableNoAndSystemId";
@@ -44,7 +45,7 @@ export default class YgAllContractsGrid extends LightningElement {
     filterBtnTotalRec;
     filterRadioTotCnt;
     label = {
-        showLbl, moreProductsLbl
+        showLbl, moreProductsLbl, renewedLbl
     };
 
     constructor() {
@@ -479,7 +480,7 @@ export default class YgAllContractsGrid extends LightningElement {
                         }
                     });
 
-                    let contractHtml = '', notiHtml = '', profileImg = '';
+                    let contractHtml = '', notiHtml = '', profileImg = '', renewedLbl = this.label.renewedLbl, renewURL;
 
                     this.allContractsGridData.forEach(function (list) {
                         contractHtml = '';
@@ -511,9 +512,19 @@ export default class YgAllContractsGrid extends LightningElement {
                             contractHtml += '<div class="col-12 mb-2 pl-0"><p class="text-left f12 mb-0">Serial no.:</p><p class="text-left f12 fbold mb-0">' + list.serialNum + '</p></div>';
                         }
 
+                        renewURL = commUrl + 'service-request-and-inquiries' + '?pc=' + plt + '&contractno=' + list.contractNum;
+
+
                         if (typeof list.notification != 'undefined') {
-                            notiHtml += '<i class="fas fa-bell-orange pr-3 pb-3 f14">&nbsp;</i>' + list.notification;
-                        } else {
+                            notiHtml += '<i class="fas pr-2 pb-3 f14"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.95337 11.5996C6.95337 12.3699 7.5141 12.9965 8.20337 12.9965C8.89264 12.9965 9.45337 12.3699 9.45337 11.5996H6.95337Z" fill="#DBA521"/><path d="M11.2 9.48357V6.63981C11.2 4.78162 9.94308 3.25301 8.33155 3.0668C8.45433 2.95703 8.53334 2.78814 8.53334 2.59868C8.53334 2.26857 8.29409 2 8.00001 2C7.70593 2 7.46668 2.26857 7.46668 2.59868C7.46668 2.78814 7.54572 2.95703 7.66847 3.0668C6.05694 3.25301 4.80001 4.78162 4.80001 6.63981V9.48357H4V10.3816H12V9.48357H11.2Z" fill="#DBA521"/></svg></i><a class="text-hover-color" href="' + renewURL + '"><ins>' + list.notification + '</ins><a>';
+                        }
+
+                        if (typeof list.notification2 != 'undefined') {
+                            notiHtml += '<i class="fas pr-2 pb-3"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.2 6.63981V9.48357H12V10.3816H4V9.48357H4.80001V6.63981C4.80001 4.78162 6.05694 3.25301 7.66847 3.0668C7.54572 2.95703 7.46668 2.78814 7.46668 2.59868C7.46668 2.26857 7.70593 2 8.00001 2C8.29409 2 8.53334 2.26857 8.53334 2.59868C8.53334 2.78814 8.45433 2.95703 8.33155 3.0668C9.94308 3.25301 11.2 4.78162 11.2 6.63981ZM8.20337 12.9962C7.5141 12.9962 6.95337 12.3695 6.95337 11.5992H9.45337C9.45337 12.3695 8.89264 12.9962 8.20337 12.9962Z" fill="#7D8E97"/></svg></i><span class="grey-dark">' + list.notification2[0] + '</span>';
+                            notiHtml += '<span class="d-flex align-items-baseline mt-2"><i class="fas pr-2 pb-3"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8L7 10L11 4" stroke="#00A04C" stroke-width="2"/></svg></i><a class="text-hover-color"><a class="text-hover-color" href="' + commUrl + 'contract-details?pc=' + plt + '&contractno=' + list.renewcontractNum + '"><ins>' + renewedLbl + '<br> ' + list.notification2[1] + '</ins></a></span>';
+                        }
+
+                        if (notiHtml == '') {
                             notiHtml += '-';
                         }
 
@@ -526,8 +537,8 @@ export default class YgAllContractsGrid extends LightningElement {
                         dataTable.row.add([
                             contractHtml,
                             profileImg,
-                            list.startDate,
-                            list.endDate,
+                            '<span class="d-none">' + list.unixStartDate + '</span>' + list.startDate,
+                            '<span class="d-none">' + list.unixEndDate + '</span>' + list.endDate,
                             notiHtml
                         ]);
                     })
@@ -632,7 +643,7 @@ export default class YgAllContractsGrid extends LightningElement {
                     }]
                 });
                 //alert('above load data')
-                let contractHtml = '', notiHtml = '', profileImg = '';
+                let contractHtml = '', notiHtml = '', profileImg = '', renewURL;
                 loadData.forEach(function (list) {
 
                     contractHtml = '';
@@ -651,9 +662,19 @@ export default class YgAllContractsGrid extends LightningElement {
                         contractHtml += '<div class="col-12 mb-2 pl-0"><p class="text-left f12 mb-0">Serial no.:</p><p class="text-left f12 fbold mb-0">' + list.serialNum + '</p></div>';
                     }
 
+                    renewURL = commUrl + 'service-request-and-inquiries' + '?pc=' + plt + '&contractno=' + list.contractNum;
+
+
                     if (typeof list.notification != 'undefined') {
-                        notiHtml += '<i class="fas fa-bell-orange pr-3 pb-3 f14">&nbsp;</i>' + list.notification;
-                    } else {
+                        notiHtml += '<i class="fas pr-2 pb-3 f14"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.95337 11.5996C6.95337 12.3699 7.5141 12.9965 8.20337 12.9965C8.89264 12.9965 9.45337 12.3699 9.45337 11.5996H6.95337Z" fill="#DBA521"/><path d="M11.2 9.48357V6.63981C11.2 4.78162 9.94308 3.25301 8.33155 3.0668C8.45433 2.95703 8.53334 2.78814 8.53334 2.59868C8.53334 2.26857 8.29409 2 8.00001 2C7.70593 2 7.46668 2.26857 7.46668 2.59868C7.46668 2.78814 7.54572 2.95703 7.66847 3.0668C6.05694 3.25301 4.80001 4.78162 4.80001 6.63981V9.48357H4V10.3816H12V9.48357H11.2Z" fill="#DBA521"/></svg></i><a class="text-hover-color" href="' + renewURL + '"><ins>' + list.notification + '</ins></a>';
+                    }
+
+                    if (typeof list.notification2 != 'undefined') {
+                        notiHtml += '<i class="fas pr-2 pb-3"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.2 6.63981V9.48357H12V10.3816H4V9.48357H4.80001V6.63981C4.80001 4.78162 6.05694 3.25301 7.66847 3.0668C7.54572 2.95703 7.46668 2.78814 7.46668 2.59868C7.46668 2.26857 7.70593 2 8.00001 2C8.29409 2 8.53334 2.26857 8.53334 2.59868C8.53334 2.78814 8.45433 2.95703 8.33155 3.0668C9.94308 3.25301 11.2 4.78162 11.2 6.63981ZM8.20337 12.9962C7.5141 12.9962 6.95337 12.3695 6.95337 11.5992H9.45337C9.45337 12.3695 8.89264 12.9962 8.20337 12.9962Z" fill="#7D8E97"/></svg></i><span class="grey-dark">' + list.notification2[0] + '</span>';
+                        notiHtml += '<span class="d-flex align-items-baseline mt-2"><i class="fas pr-2 pb-3"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 8L7 10L11 4" stroke="#00A04C" stroke-width="2"/></svg></i><a class="text-hover-color"><a class="text-hover-color" href="' + commUrl + 'contract-details?pc=' + plt + '&contractno=' + list.renewcontractNum + '"><ins>' + renewedLbl + '<br> ' + list.notification2[1] + '</ins></a></span>';
+                    }
+
+                    if (notiHtml == '') {
                         notiHtml += '-';
                     }
 
@@ -666,8 +687,8 @@ export default class YgAllContractsGrid extends LightningElement {
                     dataTable.row.add([
                         contractHtml,
                         profileImg,
-                        list.startDate,
-                        list.endDate,
+                        '<span class="d-none">' + list.unixStartDate + '</span>' + list.startDate,
+                        '<span class="d-none">' + list.unixEndDate + '</span>' + list.endDate,
                         notiHtml
                     ]).draw(false);
                 })

@@ -7,7 +7,7 @@
     <layouts>
         <layout>Category Hierarchy Layout</layout>
         <sections>
-            <label></label>
+            <label><!-- Custom Links --></label>
             <section>Custom Links</section>
         </sections>
     </layouts>

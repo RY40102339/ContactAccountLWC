@@ -15,7 +15,8 @@
 *
 *  Change History:
 *  MM/DD/YYYY			Developer Name			Comments
-*  
+*  04/20/2021           Kavya 					Removed Plant__c Object and replaced with Account Object.
+*												Removed Plant__c(Plant) Lookup field from Asset and Project Objects and newly added PlantAccount__c(Account) Lookup field in Asset and Project Object.
 *
 */
 
@@ -63,32 +64,35 @@ public class YG_SoftwareLicensesController {
             //Get plant id based on the plant code
             if(plantCode != null && plantCode != ''){
             
-                Plant__c plant = YG_HelperClass.getPlantID(plantCode,langCode);
+               /* Plant__c plant = YG_HelperClass.getPlantID(plantCode,langCode);*/
+                 Account plant = YG_HelperClass.getPlantID(plantCode,langCode);
                 pltId = plant.id;
                 system.debug('pltId::'+pltId);
                 
                 //Get the project asociated to the plant
-                projList = [Select Id,Name,Project_Code__c,Revision_No__c from Project__c where Plant__r.Id=:pltId];
+                projList = [Select Id,Name,Project_Code__c,Revision_No__c from Project__c where PlantAccount__r.Id=:pltId];
                 system.debug('projList::'+projList);
                 for(Project__c proj: projList){
                     projectIdMap.put(proj.Id,proj.Project_Code__c);
                 }
                 
                 //List to get the total software license count
-                softWrap.totalSoftwareCount = [Select Count() FROM Asset WHERE Plant__c = :pltId AND Product2.Category__r.Name = 'Software'];
+                softWrap.totalSoftwareCount = [Select Count() FROM Asset WHERE PlantAccount__c = :pltId AND Product2.Category__r.Name = 'Software'];
                 
                 //Get asset details based on the plant id
                 if(filterValue.size()>0 && !filterValue.isEmpty() && filterValue != null){
-                    assetList = [SELECT Station_Type__c, Product_Name__c, Product2Id ,Product2.Name,Product2.Model_Code__c,Revision_No__c,Project__c,
+                   assetList = [SELECT Station_Type__c, Product_Name__c, Product2Id ,Product2.Name,Product2.Model_Code__c,Revision_No__c,Project__c,
                                  Project__r.Name, Project__r.Revision_No__c FROM Asset 
-                                 WHERE Plant__c = :pltId AND Product2.Category__r.Name = 'Software' AND Product2.Name IN :filterValue  
+                                 WHERE PlantAccount__c = :pltId AND Product2.Category__r.Name = 'Software' AND Product2.Name IN :filterValue  
                                  ORDER BY Product2.Name];
+                    
                 }
                 else{
-                    assetList = [SELECT Station_Type__c, Product_Name__c, Product2Id ,Product2.Name,Product2.Model_Code__c,Revision_No__c,Project__c,
+                   assetList = [SELECT Station_Type__c, Product_Name__c, Product2Id ,Product2.Name,Product2.Model_Code__c,Revision_No__c,Project__c,
                                  Project__r.Name, Project__r.Revision_No__c FROM Asset 
-                                 WHERE Plant__c = :pltId AND Product2.Category__r.Name = 'Software' ORDER BY Product2.Name 
+                                 WHERE PlantAccount__c = :pltId AND Product2.Category__r.Name = 'Software' ORDER BY Product2.Name 
                                  LIMIT :loadLimit OFFSET :offset];
+                    
                 }
                 
                 for(Asset ar : assetList){
