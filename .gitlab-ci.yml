@@ -27,6 +27,21 @@ validate_against_QA:
       --checkonly --targetalias QA
   only:
     - /^featureQA/.*/
+validate_against_TEMPQA:
+  stage: validate
+  cache: &ref_0
+    key: $CI_COMMIT_REF_SLUG
+    paths:
+      - node
+  except: &ref_1
+    - schedules
+  script:
+    - >-
+      adx deploy:source --sourcepath
+      force-app/main/default --testlevel NoTestRun
+      --checkonly --targetalias TEMPQA
+  only:
+    - TEMPQA
 deploy_to_QA:
   stage: deploy
   cache: *ref_0
