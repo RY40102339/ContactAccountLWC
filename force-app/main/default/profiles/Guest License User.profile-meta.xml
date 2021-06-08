@@ -2473,11 +2473,7 @@
         <field>Asset.Order_Date__c</field>
         <readable>false</readable>
     </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Asset.Plant_Name__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
+    
     <fieldPermissions>
         <editable>false</editable>
         <field>Asset.Plant__c</field>
