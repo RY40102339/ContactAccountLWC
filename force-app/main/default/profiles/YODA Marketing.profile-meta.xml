@@ -272,11 +272,7 @@
         <field>Asset.Order_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Asset.Plant__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
+     
     <fieldPermissions>
         <editable>true</editable>
         <field>Asset.Product_Carrier__c</field>

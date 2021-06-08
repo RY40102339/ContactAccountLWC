@@ -2474,12 +2474,7 @@
         <readable>false</readable>
     </fieldPermissions>
     
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Asset.Plant__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
+ 
         <editable>false</editable>
         <field>Asset.Price</field>
         <readable>false</readable>
