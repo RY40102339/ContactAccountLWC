@@ -3,6 +3,7 @@ stages:
   - quality_scan
   - deploy
   - validate
+  -validate_against_tempqa
 sonarqube_scan:
   stage: quality_scan
   script:
@@ -38,9 +39,7 @@ deploy_to_QA:
       --targetalias QA
   only:
     - QA
-
-
-validate_against_TEMPQA:
+validate_against_tempqa:
   stage: validate
   cache: *ref_0
   except: *ref_1
@@ -51,8 +50,6 @@ validate_against_TEMPQA:
       --checkonly --targetalias TEMPQA
   only:
     -TempQA
-
-
 validate_against_PROD:
   stage: validate
   cache: *ref_0
