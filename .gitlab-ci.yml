@@ -3,7 +3,6 @@ stages:
   - quality_scan
   - deploy
   - validate
-  -validate_against_tempqa
 sonarqube_scan:
   stage: quality_scan
   script:
@@ -25,9 +24,9 @@ validate_against_QA:
     - >-
       adx deploy:source --sourcepath
       force-app/main/default --testlevel NoTestRun
-      --checkonly --targetalias QA
+      --checkonly --targetalias TEMPQA
   only:
-    - /^featureQA/.*/
+    - TEMPQA
 deploy_to_QA:
   stage: deploy
   cache: *ref_0
@@ -39,17 +38,6 @@ deploy_to_QA:
       --targetalias QA
   only:
     - QA
-validate_against_tempqa:
-  stage: validate
-  cache: *ref_0
-  except: *ref_1
-  script:
-    - >-
-      adx deploy:source --sourcepath
-      force-app/main/default
-      --checkonly --targetalias TEMPQA
-  only:
-    -TempQA
 validate_against_PROD:
   stage: validate
   cache: *ref_0
