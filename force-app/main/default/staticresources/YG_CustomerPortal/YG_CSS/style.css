@@ -320,6 +320,10 @@ textarea.disabled {
     margin-top: 38px
 }
 
+.mb-32 {
+    margin-bottom: 32px
+}
+
 .pt-56 {
     padding-top: 56px
 }
@@ -555,10 +559,19 @@ _:-ms-fullscreen,
 .portal-logo {
     width: 44px;
     height: 44px;
+    line-height: 44px;
+    background: #fff;
+    letter-spacing: 1px;
+}
+
+/*
+.portal-logo {
+    width: 44px;
+    height: 44px;
     background: #fff;
     display: flex;
     align-items: center
-}
+}*/
 
 .logo-img img {
     max-width: 50px !important;
@@ -2213,14 +2226,16 @@ button.btn.btn-primary:hover {
 .upload-file .slds-file-selector__dropzone {
     border: none;
     margin-left: 16px;
-    padding: 0
+    padding: 0;
+    width: 100%;
 }
 
 .maintenance-upload-file .slds-file-selector,
 .upload-file .slds-file-selector {
     height: 48px;
     align-items: end;
-    line-height: 35px
+    line-height: 35px;
+    width: 100%;
 }
 
 .maintenance-upload-file .slds-file-selector__text,
@@ -2262,6 +2277,10 @@ button.btn.btn-primary:hover {
 .submit-data,
 .upload-file .submit-data {
     background: rgba(204, 220, 232, .2)
+}
+
+slot[interop-primitiveFileDroppableZone_primitiveFileDroppableZone] {
+    width: 100%;
 }
 
 .request-detail .slds-modal__container {
@@ -2834,10 +2853,7 @@ button.btn.btn-primary:hover {
     width: 10%;
 }
 
-button.section-control.slds-button.slds-button_reset.slds-accordion__summary-action[aria-expanded=false] {
-    color: #313538;
-}
-
+button.section-control.slds-button.slds-button_reset.slds-accordion__summary-action[aria-expanded=false],
 button.section-control.slds-button.slds-button_reset.slds-accordion__summary-action[aria-expanded=true] {
     color: #004f9b;
 }

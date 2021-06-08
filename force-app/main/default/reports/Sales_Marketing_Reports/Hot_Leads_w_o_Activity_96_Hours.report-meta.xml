@@ -21,6 +21,7 @@
     <columns>
         <field>EMAIL</field>
     </columns>
+    <currency>JPY</currency>
     <filter>
         <criteriaItems>
             <column>LAST_ACTIVITY</column>
@@ -36,6 +37,7 @@
             <operator>equals</operator>
             <value>Hot</value>
         </criteriaItems>
+        <language>en_US</language>
     </filter>
     <format>Summary</format>
     <groupingsDown>

@@ -432,7 +432,7 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>YG Contract Header Msg</shortDescription>
-        <value>Contracts Expiring in Less Than 6 Months</value>
+        <value>Contracts Expired and Expiring in Less Than 6 Months</value>
     </labels>
     <labels>
         <fullName>YG_Contract_Information</fullName>
@@ -808,11 +808,25 @@ Yokogawa Customer Portal</value>
         <value>Expired</value>
     </labels>
     <labels>
+        <fullName>YG_Expired_on</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_Expired_on</shortDescription>
+        <value>Expired on</value>
+    </labels>
+    <labels>
         <fullName>YG_Expires</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>YG_Expires</shortDescription>
         <value>Expires</value>
+    </labels>
+    <labels>
+        <fullName>YG_Expires_in</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_Expires_in</shortDescription>
+        <value>Expires in</value>
     </labels>
     <labels>
         <fullName>YG_Expires_today</fullName>
@@ -1940,6 +1954,13 @@ Yokogawa Customer Portal</value>
         <protected>false</protected>
         <shortDescription>YG Renewal for</shortDescription>
         <value>Renewal for</value>
+    </labels>
+    <labels>
+        <fullName>YG_Renewed_with</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_Renewed_with</shortDescription>
+        <value>Renewed with</value>
     </labels>
     <labels>
         <fullName>YG_Repair</fullName>
@@ -3126,6 +3147,13 @@ Yokogawa Customer Portal</value>
         <value>assign admin rights</value>
     </labels>
     <labels>
+        <fullName>YG_d</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_d</shortDescription>
+        <value>d</value>
+    </labels>
+    <labels>
         <fullName>YG_ending_in</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -3165,11 +3193,32 @@ Yokogawa iCP Team</value>
 You may begin to use the portal by logging in with the credentials you used to create your account.</value>
     </labels>
     <labels>
+        <fullName>YG_m</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_m</shortDescription>
+        <value>m</value>
+    </labels>
+    <labels>
         <fullName>YG_not_registered_any_product</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>YG not registered any product</shortDescription>
         <value>You have not registered any product</value>
+    </labels>
+    <labels>
+        <fullName>YG_on</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_on</shortDescription>
+        <value>on</value>
+    </labels>
+    <labels>
+        <fullName>YG_renew_now</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YG_renew_now</shortDescription>
+        <value>renew now</value>
     </labels>
     <labels>
         <fullName>YG_that_was_submitted_on</fullName>
@@ -3184,12 +3233,5 @@ You may begin to use the portal by logging in with the credentials you used to c
         <protected>false</protected>
         <shortDescription>Yg not specify the site</shortDescription>
         <value>You have not specify the site you are working at</value>
-    </labels>
-    <labels>
-        <fullName>Lead_Page_Banner_Message</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Lead Page Banner Message</shortDescription>
-        <value>Click &quot;Convert&quot; or &quot;Reject&quot; to accept or reject this Lead</value>
     </labels>
 </CustomLabels>

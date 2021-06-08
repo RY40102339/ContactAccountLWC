@@ -15,7 +15,8 @@
 *  MM/DD/YYYY			Developer Name			Comments
 *  10/05/2020			Selvaraj T				Worked on improving the code coverage
 *  10/13/2020			Selvaraj T				Commented the phase date fields in product object
-*  
+*  04/22/2021			Kavya					Removed Plant__c Object and replaced with Account Object also removed Customer_Plant__c Object and replaced with AccountContactRelation Object.
+*												Removed Plant__c(Plant) Lookup field from Asset and Project Objects and newly added PlantAccount__c(Account) Lookup field in Asset  and Project Object.
 *
 */
 
@@ -28,6 +29,7 @@ public class YG_ServiceRequestAndInquiriesTest {
         //Inserting test account record
         Account acc = new account();
         acc.name='XYZ Account';  
+        acc.Type = 'Customer';
         acc.AccountNumber = '1212121';
         acc.ShippingCountry = 'India';
         insert acc; 
@@ -67,20 +69,39 @@ public class YG_ServiceRequestAndInquiriesTest {
         insert user;
         
         //Inserting test plant record
-        List<Plant__c> plantList=new List<Plant__c>();
+       /* List<Plant__c> plantList=new List<Plant__c>();
         Plant__c plant1=new Plant__c();
         plant1.Name = 'TestPlant';
         plant1.Account__c = acc.Id;  
         plant1.Plant_Code__c = '300000142';
         plant1.Lang_Code__c = 'EN';
         plantList.add(plant1);
+        insert plantList;*/
+        
+       //Inserting test plant record
+        List<Account> plantList=new List<Account>();
+        Account plant1=new Account();
+        plant1.Name = 'TestPlant';
+        plant1.ParentId = acc.Id;  
+        plant1.AccountNumber = '300000142';
+        plant1.Type = 'Plant';
+        plantList.add(plant1);
         insert plantList;
         
         //Inserting test customer plant record
-        List<Customer_Plant__c> cusPlantList=new List<Customer_Plant__c>();
+        /*List<Customer_Plant__c> cusPlantList=new List<Customer_Plant__c>();
         Customer_Plant__c cusPlant1=new Customer_Plant__c();
         cusPlant1.Contact__c = con.Id;
         cusPlant1.Plant__c = plant1.Id;
+        cusPlant1.Status__c = 'Approved site access';
+        cusPlantList.add(cusPlant1);
+        insert cusPlantList;*/
+        
+        //Inserting test customer plant record
+        List<AccountContactRelation> cusPlantList=new List<AccountContactRelation>();
+        AccountContactRelation cusPlant1=new AccountContactRelation();
+        cusPlant1.ContactId = con.Id;
+        cusPlant1.AccountId = plant1.Id;
         cusPlant1.Status__c = 'Approved site access';
         cusPlantList.add(cusPlant1);
         insert cusPlantList;
@@ -89,7 +110,7 @@ public class YG_ServiceRequestAndInquiriesTest {
         List<Project__c> projectList=new List<Project__c>();
         Project__c proj1=new Project__c();
         proj1.Account__c = acc.Id;
-        proj1.Plant__c = plant1.Id;
+        proj1.PlantAccount__c = plant1.Id;
         proj1.Name = 'Test Project';
         proj1.Project_Code__c = 'VP700250';
         projectList.add(proj1);
@@ -162,7 +183,7 @@ public class YG_ServiceRequestAndInquiriesTest {
         prod1.Name = 'Distributed Control Systems (DCS)';
         prod1.Model_Code__c = 'AFV10D';
         prod1.Category__c = catg2.Id;
-        prod1.Production_Date__c = Date.newInstance(2014, 12, 17);
+       // prod1.Production_Date__c = Date.newInstance(2014, 12, 17);
         prod1.Lang_Code__c = 'EN';
         prodList.add(prod1);
         
@@ -170,7 +191,7 @@ public class YG_ServiceRequestAndInquiriesTest {
         prod2.Name = 'PC';
         prod2.Model_Code__c = 'PC';
         prod2.Category__c = catg3.Id;
-        prod2.Production_Date__c = Date.newInstance(2014, 12, 17);
+       // prod2.Production_Date__c = Date.newInstance(2014, 12, 17);
         prod2.Lang_Code__c = 'EN';
         prodList.add(prod2);
         
@@ -179,7 +200,7 @@ public class YG_ServiceRequestAndInquiriesTest {
         prod3.Model_Code__c = 'AAI143';
         prod3.Product_Type__c = 'Hardware';
         prod3.Category__c = catg2.Id;
-        prod3.Production_Date__c = Date.newInstance(2014, 12, 17);
+       // prod3.Production_Date__c = Date.newInstance(2014, 12, 17);
         prod3.Lang_Code__c = 'EN';
         prodList.add(prod3);
         
@@ -188,7 +209,7 @@ public class YG_ServiceRequestAndInquiriesTest {
         prod4.Model_Code__c = 'AAI543';
         prod4.Product_Type__c = 'Hardware';
         prod4.Category__c = catg2.Id;
-        prod4.Production_Date__c = Date.newInstance(2014, 12, 17);
+      //  prod4.Production_Date__c = Date.newInstance(2014, 12, 17);
         prod4.Lang_Code__c = 'EN';
         prodList.add(prod4);
         
@@ -197,7 +218,7 @@ public class YG_ServiceRequestAndInquiriesTest {
         prod5.Model_Code__c = 'LFS1550';
         prod5.Product_Type__c = 'Software';
         prod5.Category__c = catg3.Id;
-        prod5.Production_Date__c = Date.newInstance(2014, 12, 17);
+        //prod5.Production_Date__c = Date.newInstance(2014, 12, 17);
         prod5.Lang_Code__c = 'EN';
         prodList.add(prod5);
         
@@ -206,7 +227,7 @@ public class YG_ServiceRequestAndInquiriesTest {
         prod6.Model_Code__c = 'SH123145';
         prod6.Product_Type__c = '';
         prod6.Category__c = catg6.Id;
-        prod6.Production_Date__c = Date.newInstance(2014, 12, 17);
+       // prod6.Production_Date__c = Date.newInstance(2014, 12, 17);
         prod6.Lang_Code__c = 'EN';
         prodList.add(prod6);
         
@@ -215,7 +236,7 @@ public class YG_ServiceRequestAndInquiriesTest {
         prod7.Model_Code__c = 'TestProduct';
         prod7.Product_Type__c = '';
         prod7.Category__c = catg7.id;
-        prod7.Production_Date__c = Date.newInstance(2014, 12, 17);
+       // prod7.Production_Date__c = Date.newInstance(2014, 12, 17);
         prod7.Lang_Code__c = 'EN';
         prodList.add(prod7);
         
@@ -226,10 +247,10 @@ public class YG_ServiceRequestAndInquiriesTest {
         Asset ass1=new Asset();
         ass1.Name = 'FCS0111';
         ass1.Product2Id = prod1.Id;
-        ass1.AccountId = acc.Id;
+       ass1.AccountId = acc.Id;
         ass1.ContactId = con.Id;
         ass1.SerialNumber = '';
-        ass1.Plant__c = plant1.Id;
+        ass1.PlantAccount__c = plant1.Id;
         ass1.Project__c = proj1.Id;
         ass1.MS_Code__c = 'FCS0111';
         ass1.Lang_Code__c = 'EN';
@@ -244,7 +265,7 @@ public class YG_ServiceRequestAndInquiriesTest {
         ass2.AccountId = acc.Id;
         ass2.ContactId = con.Id;
         ass2.SerialNumber = '';
-        ass2.Plant__c = plant1.Id;
+        ass2.PlantAccount__c = plant1.Id;
         ass2.MS_Code__c = 'CP451-10';
         ass2.Project__c = proj1.Id;
         ass2.Lang_Code__c = 'EN';
@@ -256,10 +277,10 @@ public class YG_ServiceRequestAndInquiriesTest {
         Asset ass3=new Asset();
         ass3.Name = 'C2MD04027H';
         ass3.Product2Id = prod3.Id;
-        ass3.AccountId = acc.Id;
+       ass3.AccountId = acc.Id;
         ass3.ContactId = con.Id;
         ass3.SerialNumber = 'C2MD04027H';
-        ass3.Plant__c = plant1.Id;
+       ass3.PlantAccount__c = plant1.Id;
         ass3.MS_Code__c = 'CP451-10';
         ass3.ParentId = ass1.Id;
         ass3.Lang_Code__c = 'EN';
@@ -272,7 +293,7 @@ public class YG_ServiceRequestAndInquiriesTest {
         ass4.AccountId = acc.Id;
         ass4.ContactId = con.Id;
         ass4.SerialNumber = 'C2MD04026H';
-        ass4.Plant__c = plant1.Id;
+        ass4.PlantAccount__c = plant1.Id;
         ass4.MS_Code__c = 'CP451-10';
         ass4.ParentId = ass1.Id;
         ass4.Lang_Code__c = 'EN';
@@ -285,7 +306,7 @@ public class YG_ServiceRequestAndInquiriesTest {
         ass5.AccountId = acc.Id;
         ass5.ContactId = con.Id;
         ass5.SerialNumber = 'LFS1550-V11';
-        ass5.Plant__c = plant1.Id;
+       ass5.PlantAccount__c = plant1.Id;
         ass5.MS_Code__c = 'LFS1550-V11';
         ass5.ParentId = ass2.Id;
         ass5.Lang_Code__c = 'EN';
@@ -298,7 +319,7 @@ public class YG_ServiceRequestAndInquiriesTest {
         ass6.AccountId = acc.Id;
         ass6.ContactId = con.Id;
         ass6.SerialNumber = 'SU1234567';
-        ass6.Plant__c = plant1.Id;
+        ass6.PlantAccount__c = plant1.Id;
         ass6.MS_Code__c = 'SU1234567';
         ass6.Lang_Code__c = 'EN';
         ass6.Project__c = proj1.Id;

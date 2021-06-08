@@ -22,21 +22,20 @@
 public class YG_HeaderController {
     
     public static User userInformation =  YG_Utility.getLoggedInUserInfo(UserInfo.getUserId());
-    //public static User userInformation =  YG_Utility.getLoggedInUserInfo('005p0000003rbfUAAQ');
     
     //This method is used to get the account logo based on logged in user 
     @AuraEnabled
-    public static string getAccountLogo(){
+    public static Account getAccountData(){
         
-        String acctLogo = null;
+        Account acc = null;
         
         try{
             
             Id accId = userInformation.Contact.AccountId;
             system.debug('accId::'+accId);
             
-            acctLogo = [Select Id, Name, Account_Logo__c from Account where id= :accId].Account_Logo__c;
-            system.debug('acctLogo::'+acctLogo);
+            acc = [Select Id, Name, Account_Logo__c, AccountNumber from Account where id= :accId Limit 1];
+            system.debug('acc::'+acc);
         }
         catch(Exception e){
             system.debug('Exception Cause::'+e.getCause());
@@ -49,7 +48,7 @@ public class YG_HeaderController {
                                 UserInfo.getUserId());
         }
         
-        return acctLogo;
+        return acc;
     }
 
 }

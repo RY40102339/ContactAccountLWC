@@ -35,4 +35,12 @@ table.contractsExpiring-dtTable td:nth-child(3) {
     padding: 1.5rem 0.25rem 1.5rem 0;
     word-break: break-word;
   }
+
+  table.dataTable {
+    width: calc(100% - 20px) !important;
+  }
+
+  .dataTable td:last-child {
+    white-space: normal;
+  }
 }

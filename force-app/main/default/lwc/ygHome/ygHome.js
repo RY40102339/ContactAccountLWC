@@ -4,17 +4,66 @@ import getContractAPI from '@salesforce/apex/YG_ContractAPIHandler.getContractAP
 import getContractProduct from '@salesforce/apex/YG_ContractAPIHandler.getContractProduct';
 import callCaseAPIInfo from '@salesforce/apex/YG_CaseAPI.callCaseAPIInfo';
 import YG_CustomerPortal from "@salesforce/resourceUrl/YG_CustomerPortal";
+import getAccountData from '@salesforce/apex/YG_HeaderController.getAccountData';
+import getDeliverableNoAndSystemId from '@salesforce/apex/YG_SystemsAPI.getDeliverableNoAndSystemId';
+import callDelivAPI from '@salesforce/apex/YG_SystemsController.callDelivAPI';
 import { loadStyle } from "lightning/platformResourceLoader";
 
 export default class YgHome extends LightningElement {
     //Customer plant details var
     plantCodeList = [];
     @track isLoading = true;
+    accNo;
 
     constructor() {
         super();
         console.log("Begin Time " + new Date().toLocaleString());
 
+
+        getAccountData()
+            .then(result => {
+                if (result.AccountNumber != null) {
+                    this.accNo = result.AccountNumber;
+                    callDelivAPI({ plantCode: result.AccountNumber })
+                        .then(result => {
+                            if (result) {
+                                getDeliverableNoAndSystemId({ plantCodeList: this.accNo })
+                                    .then(result => {
+                                        console.log('Deliverable API Result:' + result);
+                                        if (result) {
+                                            this.contractAPI();
+                                        } else {
+                                            this.contractAPI();
+                                        }
+                                        return result;
+                                    })
+                                    .catch(error => {
+                                        console.log('deliverable api err::' + JSON.stringify(error.message));
+                                    })
+                            } else {
+                                this.contractAPI();
+                            }
+                        })
+                        .catch(error => {
+                            console.log('Call Deliverable API Error' + JSON.stringify(error.message));
+                        })
+                } else {
+                    window.location.href = "overview";
+                }
+
+            }).catch(error => {
+                console.log('account data err::' + JSON.stringify(error.message));
+            })
+    }
+
+    connectedCallback() {
+        Promise.all([
+            loadStyle(this, YG_CustomerPortal + "/YG_CSS/common.css"),
+            loadStyle(this, YG_CustomerPortal + "/YG_CSS/style.css")
+        ]);
+    }
+
+    contractAPI() {
         checkContractSync()
             .then(result => {
                 console.log('Contract Sync Result::' + result);
@@ -84,14 +133,6 @@ export default class YgHome extends LightningElement {
             .catch(error => {
                 console.log('Contract Sync Error::' + JSON.stringify(error.message));
             })
-
-    }
-
-    connectedCallback() {
-        Promise.all([
-            loadStyle(this, YG_CustomerPortal + "/YG_CSS/common.css"),
-            loadStyle(this, YG_CustomerPortal + "/YG_CSS/style.css")
-        ]);
     }
 
 }

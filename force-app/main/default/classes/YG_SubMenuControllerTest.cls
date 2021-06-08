@@ -81,7 +81,7 @@ public class YG_SubMenuControllerTest {
         prod1.Name = 'Device Smart Communicators BT200';
         prod1.Model_Code__c = 'BT200';
         prod1.Category__c = catg3.Id;
-        prod1.Production_Date__c = Date.newInstance(2014, 12, 17);
+      //  prod1.Production_Date__c = Date.newInstance(2014, 12, 17);
         prod1.Lang_Code__c = 'EN';
         prodList.add(prod1);       
         

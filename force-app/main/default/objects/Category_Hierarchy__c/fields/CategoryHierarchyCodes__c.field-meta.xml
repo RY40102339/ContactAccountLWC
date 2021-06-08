@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CategoryHierarchyCodes__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE( Category_Level__c,
+
+4, if(Category_Hierarchy__r.Category_Hierarchy__r.Category_Code__c != null &amp;&amp; Category_Hierarchy__r.Category_Code__c != null, Category_Code__c +&apos;/&apos;+Category_Hierarchy__r.Category_Code__c+&apos;/&apos;+Category_Hierarchy__r.Category_Hierarchy__r.Category_Code__c, Category_Hierarchy__r.Category_Code__c),
+
+&quot; &quot;)+CASE( Category_Level__c,
+
+3, if(Category_Hierarchy__r.Category_Code__c != null, Category_Code__c +&apos;/&apos;+Category_Hierarchy__r.Category_Code__c, Category_Hierarchy__r.Category_Code__c),
+
+&quot; &quot;)+CASE(Category_Level__c,
+
+2, if(Category_Code__c != null, Category_Code__c, Category_Code__c), 
+
+&quot; &quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>CategoryHierarchyCodes</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

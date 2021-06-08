@@ -16,7 +16,7 @@ or serial number.
 *  Change History:
 *  MM/DD/YYYY			Developer Name			Comments
 *  10/22/2020       	Jayaprasath				Removed Shipping_Date__c field from this class
-*
+*  04/19/2021			Kavya		    		Removed Plant__c(Plant) Lookup field from Asset and newly added PlantAccount__c(Account) Lookup field in Asset Object.
 */
 public class YG_CadImageController  {
     
@@ -114,7 +114,7 @@ public class YG_CadImageController  {
             }
             System.debug('Img::'+Img);
 			if(serialNo == '' && modelCode != '' && modelCode != null){
-            Asset[] pro = [SELECT Id,Name,AccountId,MS_Code__c,Order_Date__c,ParentId,Plant__c,Product2Id,Product_Carrier__c,Project__c, 
+            Asset[] pro = [SELECT Id,Name,AccountId,MS_Code__c,Order_Date__c,ParentId,PlantAccount__c,Product2Id,Product_Carrier__c,Project__c, 
                                SerialNumber,Status,Tokuchu_no__c,Xj_no__c, Product2.name, Product2.Id, 
                                Product2.Top_Category__c,Product2.category__r.Name FROM Asset Where Product2.Model_Code__c =: modelCode 
                                Limit 1];

@@ -14,7 +14,7 @@
 * @test class name - 
 *  Change History:
 *  MM/DD/YYYY			Developer Name			Comments
-*  
+*  04/19/2021           Kavya                   Removed Plant__c Object and replaced with Account Object
 */
 
 public class YG_CaseAPI {
@@ -63,9 +63,13 @@ public class YG_CaseAPI {
         
         try {
             
-            List<Plant__c> pltList = [Select Plant_Code__c From Plant__c Where Account__c = :accountId];
+           /* List<Plant__c> pltList = [Select Plant_Code__c From Plant__c Where Account__c = :accountId];
             for(Plant__c plt: pltList){
                 plantCode.add(plt.Plant_Code__c);
+            }*/
+               List<Account> pltList = [Select AccountNumber From Account Where Id = :accountId and Type = 'Plant'];
+            for(Account plt: pltList){
+                plantCode.add(plt.AccountNumber);
             }
             
             res = binding.send(req);
@@ -297,7 +301,7 @@ public class YG_CaseAPI {
      public static Map<String, Product2> getCaseProduct(List<String> modelCodeList, String langCode){
          
         System.debug('Inside getCaseProduct ::: modelCodeList :::'+modelCodeList+' ::: langCode :::'+langCode); 
-        List<Product2> productObjList = [Select ID, name, Model_Code__c,Product_Categories__c,Lang_Code__c from Product2 where Model_Code__c IN: modelCodeList and Lang_Code__c =:langCode];     
+        List<Product2> productObjList = [Select ID, name, Model_Code__c,/*Product_Categories__c,*/Lang_Code__c from Product2 where Model_Code__c IN: modelCodeList and Lang_Code__c =:langCode];     
         Map<String, Product2> productMap = new Map<String, Product2>();
         if (null != productObjList && productObjList.size() >0){
             for(Product2 product: productObjList){

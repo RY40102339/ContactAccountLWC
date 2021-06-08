@@ -21,8 +21,9 @@ public class YG_SetAdminCDCAPI {
     public static User userInformation =  YG_Utility.getLoggedInUserInfo(UserInfo.getUserId());
     
     @future(callout = true)
-    public static void getUpdateAdmin(List<Id> contactId,String role,String idPortal){
+    public static void getUpdateAdmin(List<Id> contactId,String role,String idPortal,String plants){
         system.debug('role**'+role);
+        system.debug('Plants**'+plants);
         
         // Call Custom Setting to get the CDC API Config keys
         Map<String, YG_Community_Configuration__c> allValues = new Map<String, YG_Community_Configuration__c>();        
@@ -39,12 +40,21 @@ public class YG_SetAdminCDCAPI {
         data dataAPI =new data();//Wrapper initialization
         List<customerportal> cpList = new List<customerportal>();
         customerportal cp = new customerportal();
+        String jsonString;
+        String jsonRequestBody;
+        
+        if(Plants == ''){
         dataAPI.idportal_auth = idPortal;
         cp.role = role;
         cpList.add(cp);
         //dataAPI.customerportal = cpList; 
-        String jsonString = '{"idportal_auth":"'+idPortal+'","customerportal":{"role":"'+role+'"}}';
-        String jsonRequestBody = JSON.serialize(dataAPI);
+        jsonString = '{"idportal_auth":"'+idPortal+'","customerportal":{"role":"'+role+'"}}';
+        jsonRequestBody = JSON.serialize(dataAPI);
+        }else{
+            //{customerportal:{'plantList':'[{"plantCode": "300000170","plantName": "Chevron Wheatstone Downstream OTS1"}]'}}
+            jsonString = '{"customerportal":{"plantList":\''+plants+'\'}}';
+            jsonRequestBody = JSON.serialize(dataAPI);
+        }
         
         system.debug('data ::'+dataAPI);
         system.debug('jsonString ::'+jsonString);
@@ -112,6 +122,11 @@ public class YG_SetAdminCDCAPI {
     }
     public class customerportal{
         public String role = 'CA';
+        public List<plantList> plantList;
+    }
+    public class plantList{
+        public String plantCode;
+        public String plantName;
     }
 
 }

@@ -14,7 +14,7 @@
 * @test class name - 
 *  Change History:
 *  MM/DD/YYYY			Developer Name			Comments
-*  
+*  04/19/2021 			Vinod 					Removed Plant__c Object and replaced with Account Object Type'Plant'.
 */
 
 public class YG_PlantAPIController {
@@ -37,7 +37,8 @@ public class YG_PlantAPIController {
         
         System.debug('AccountNumber ::: '+ accountNumber);
         
-        List<Plant__c> plantList =[Select ID,Name,Plant_Code__c,Country__c,Location__c,Telephone_number__c,Fax_number__c,Account__c from Plant__c where Account__c =:userInformation.Contact.Account.Id];
+       /* List<Plant__c> plantList =[Select ID,Name,Plant_Code__c,Country__c,Location__c,Telephone_number__c,Fax_number__c,Account__c from Plant__c where Account__c =:userInformation.Contact.Account.Id];*/
+        List<Account> plantList =[Select ID,Name,AccountNumber,ShippingCountry,ShippingStreet,ShippingPostalCode,Phone,Fax,ParentId from Account where ParentId =:userInformation.Contact.Account.Id and Type = 'Plant'];
                
         String response = '';
         // Instantiate a new http object
@@ -63,7 +64,8 @@ public class YG_PlantAPIController {
             System.Debug('response headers ::: '+res.getHeaderKeys());
             System.Debug('response header ::: '+res.getHeader('X-CLA-Code'));
             
-            List<Plant__c> plantListToUpsert = new List<Plant__c>();
+           /* List<Plant__c> plantListToUpsert = new List<Plant__c>();*/
+             List<Account> plantListToUpsert = new List<Account>();
             
             if (res.getStatusCode() == 200){                
                  
@@ -77,30 +79,41 @@ public class YG_PlantAPIController {
                 
                 if(null !=plantResponse && plantResponse.size()>0){
                     for(PlantAPIResponseWrapper plantObj : plantResponse){
-                        Plant__c plant = new Plant__c();                        
+                      /* Plant__c plant = new Plant__c(); */
+                        Account plant = new Account(); 
                         String name = plantObj.name;                        
                         if(null != plantObj.name){
-                            if(name.length() <= 79){
+                       //     if(name.length() <= 79){
                                 plant.Name = name;
-                            }
+                          /*  }
                             else{
                             	plant.Name = name.substring(0,79);    
-                            }                            
+                            } */                           
                         }
-                        plant.Plant_Name__c = plantObj.name;
+                       /* plant.Plant_Name__c = plantObj.name;
                         plant.Plant_Code__c=plantObj.plantNo;
+                        plant.Name = plantObj.name;*/
+                        plant.AccountNumber=plantObj.plantNo;
+                        plant.Type = 'Plant';
                         if(null !=plantObj.countryDivCd){
-                       	  plant.Country__c =plantObj.countryDivCd.divCd;
+                       	 /* plant.Country__c =plantObj.countryDivCd.divCd;*/
+                            plant.ShippingCountry =plantObj.countryDivCd.divCd;
                           //plant.Country__c ='IN';
                         }
                         
                         if(null != plantObj.address){
-                        	plant.Location__c = plantObj.address+' '+plantObj.zipCode;
+                        	/*plant.Location__c = plantObj.address+' '+plantObj.zipCode;*/
+                            plant.ShippingPostalCode = plantObj.zipCode;
+                            plant.ShippingStreet = plantObj.address;
                         }
-                        plant.Telephone_number__c = plantObj.telNo;
+                       /* plant.Telephone_number__c = plantObj.telNo;
                         plant.Fax_number__c = plantObj.faxNo;      
                         //plant.Account__c = account.Id;
-                        plant.Account__c = userInformation.Contact.Account.Id;
+                        plant.Account__c = userInformation.Contact.Account.Id;*/
+                         plant.Phone = plantObj.telNo;
+                        plant.Fax = plantObj.faxNo;      
+                        //plant.Account__c = account.Id;
+                        plant.ParentId = userInformation.Contact.Account.Id;
                         if(plantList != null){
                         	setPlantId(plantList, plant);
                         }
@@ -148,11 +161,15 @@ public class YG_PlantAPIController {
         return requestBody;
     }
     
-    private static Plant__c setPlantId (List<Plant__c> plantList, Plant__c plant){        
+   /* private static Plant__c setPlantId (List<Plant__c> plantList, Plant__c plant){*/    
+    private static Account setPlantId (List<Account> plantList, Account plant){
         
         if(plantList != null && plantList.size() > 0 ){
-            for(Plant__c plantObj : plantList){
+            /*for(Plant__c plantObj : plantList){
                 if(plantObj.Plant_Code__c.equals(plant.Plant_Code__c)){
+                    plant.Id = plantObj.Id;*/
+            for(Account plantObj : plantList){
+                if(plantObj.AccountNumber.equals(plant.AccountNumber)){
                     plant.Id = plantObj.Id;
                 }
             }            
@@ -261,7 +278,8 @@ public class YG_PlantAPIController {
     }
     
     public class PlantResponseWrapper{
-        @AuraEnabled public List<Plant__c> plantList;
+      /*  @AuraEnabled public List<Plant__c> plantList;*/
+          @AuraEnabled public List<Account> plantList;
     }
 
 }

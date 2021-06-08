@@ -26,6 +26,7 @@
     <enableUpDownVote>false</enableUpDownVote>
     <forgotPasswordTemplate>unfiled$public/CommunityForgotPasswordEmailTemplate</forgotPasswordTemplate>
     <gatherCustomerSentimentData>false</gatherCustomerSentimentData>
+    <maxFileSizeKb>8192</maxFileSizeKb>
     <networkMemberGroups>
         <profile>Ogilvy Administrator</profile>
         <profile>YHQ Administrator</profile>

@@ -13,7 +13,8 @@
 *
 *  Change History:
 *  MM/DD/YYYY      Developer Name      Comments
-*  
+*  04/22/2021			Kavya    	   Removed Plant__c Object and replaced with Account Object also removed Customer_Plant__c Object and replaced with AccountContactRelation Object.
+*									   Removed Plant__c(Plant) Lookup field from Asset and Project Objects and newly added PlantAccount__c(Account) Lookup field in Asset  and Project Object.
 *  
 *
 */
@@ -26,6 +27,7 @@ public class YG_SystemsAPITest {
         //Inserting test account record
         Account acc = new account();
         acc.name='Test Account';  
+        acc.Type = 'Customer';
         insert acc; 
         
         //Inserting test contact record
@@ -47,7 +49,7 @@ public class YG_SystemsAPITest {
         insert user;
         
         //Inserting test plant record
-        List<Plant__c> plantList=new List<Plant__c>();
+       /* List<Plant__c> plantList=new List<Plant__c>();
         Plant__c plant1=new Plant__c();
         plant1.Name = 'TestPlant';
         plant1.Account__c = acc.Id;  
@@ -55,13 +57,33 @@ public class YG_SystemsAPITest {
         plant1.Lang_Code__c = 'EN';
         plant1.API_Last_Executed_Date__c = null;
         plantList.add(plant1);
+        insert plantList;*/
+        
+        //Inserting test plant record
+       List<Account> plantList=new List<Account>();
+        Account plant1=new Account();
+        plant1.Name = 'TestPlant';
+        plant1.ParentId = acc.Id;  
+        plant1.AccountNumber = '300000123';
+        plant1.Type = 'Plant';
+        plant1.System_API_Last_Sync_Date__c = null;
+        plantList.add(plant1);
         insert plantList;
         
         //Inserting test customer plant record
-        List<Customer_Plant__c> cusPlantList=new List<Customer_Plant__c>();
+       /* List<Customer_Plant__c> cusPlantList=new List<Customer_Plant__c>();
         Customer_Plant__c cusPlant1=new Customer_Plant__c();
         cusPlant1.Contact__c = con.Id;
         cusPlant1.Plant__c = plant1.Id;
+        cusPlant1.Status__c = 'Approved site access';
+        cusPlantList.add(cusPlant1);
+        insert cusPlantList;*/
+        
+        //Inserting test customer plant record
+        List<AccountContactRelation> cusPlantList=new List<AccountContactRelation>();
+        AccountContactRelation cusPlant1=new AccountContactRelation();
+        cusPlant1.ContactId = con.Id;
+        cusPlant1.AccountId = plant1.Id;
         cusPlant1.Status__c = 'Approved site access';
         cusPlantList.add(cusPlant1);
         insert cusPlantList;
@@ -137,6 +159,7 @@ public class YG_SystemsAPITest {
         //Inserting test account record
         Account acc = new account();
         acc.name='Test Account';  
+        acc.Type = 'Customer';
         insert acc; 
         
         //Inserting test contact record
@@ -158,7 +181,7 @@ public class YG_SystemsAPITest {
         insert user;
         
         //Inserting test plant record
-        List<Plant__c> plantList=new List<Plant__c>();
+      /*  List<Plant__c> plantList=new List<Plant__c>();
         Plant__c plant1=new Plant__c();
         plant1.Name = 'TestPlant';
         plant1.Account__c = acc.Id;  
@@ -166,13 +189,33 @@ public class YG_SystemsAPITest {
         plant1.Lang_Code__c = 'EN';
         plant1.API_Last_Executed_Date__c = null;
         plantList.add(plant1);
+        insert plantList;*/
+        
+        //Inserting test plant record
+        List<Account> plantList=new List<Account>();
+        Account plant1=new Account();
+        plant1.Name = 'TestPlant';
+        plant1.ParentId = acc.Id;  
+        plant1.AccountNumber = '300000123';
+        plant1.Type = 'Plant';
+        plant1.System_API_Last_Sync_Date__c = null ;
+        plantList.add(plant1);
         insert plantList;
         
         //Inserting test customer plant record
-        List<Customer_Plant__c> cusPlantList=new List<Customer_Plant__c>();
+       /* List<Customer_Plant__c> cusPlantList=new List<Customer_Plant__c>();
         Customer_Plant__c cusPlant1=new Customer_Plant__c();
         cusPlant1.Contact__c = con.Id;
         cusPlant1.Plant__c = plant1.Id;
+        cusPlant1.Status__c = 'Approved site access';
+        cusPlantList.add(cusPlant1);
+        insert cusPlantList;*/
+        
+        //Inserting test customer plant record
+       List<AccountContactRelation> cusPlantList=new List<AccountContactRelation>();
+        AccountContactRelation cusPlant1=new AccountContactRelation();
+        cusPlant1.ContactId = con.Id;
+        cusPlant1.AccountId = plant1.Id;
         cusPlant1.Status__c = 'Approved site access';
         cusPlantList.add(cusPlant1);
         insert cusPlantList;
@@ -183,7 +226,7 @@ public class YG_SystemsAPITest {
         proj.Name = 'VP711178';
         proj.Project_Code__c = 'VP711178';
         proj.Account__c = acc.Id;
-        proj.Plant__c = plant1.Id;
+        proj.PlantAccount__c = plant1.Id;
         projList.add(proj);
         insert projList;        
         
@@ -258,6 +301,7 @@ public class YG_SystemsAPITest {
         //Inserting test account record
         Account acc = new account();
         acc.name='Test Account';  
+        acc.Type = 'Customer';
         insert acc; 
         
         //Inserting test contact record
@@ -279,7 +323,7 @@ public class YG_SystemsAPITest {
         insert user;
         
         //Inserting test plant record
-        List<Plant__c> plantList=new List<Plant__c>();
+       /* List<Plant__c> plantList=new List<Plant__c>();
         Plant__c plant1=new Plant__c();
         plant1.Name = 'TestPlant';
         plant1.Account__c = acc.Id;  
@@ -287,13 +331,33 @@ public class YG_SystemsAPITest {
         plant1.Lang_Code__c = 'EN';
         plant1.API_Last_Executed_Date__c = null;
         plantList.add(plant1);
+        insert plantList;*/
+        
+        //Inserting test plant record
+       List<Account> plantList=new List<Account>();
+        Account plant1=new Account();
+        plant1.Name = 'TestPlant';
+        plant1.ParentId = acc.Id;  
+        plant1.AccountNumber = '300000123';
+        plant1.Type = 'Plant';
+        plant1.System_API_Last_Sync_Date__c = null ;
+        plantList.add(plant1);
         insert plantList;
         
         //Inserting test customer plant record
-        List<Customer_Plant__c> cusPlantList=new List<Customer_Plant__c>();
+       /* List<Customer_Plant__c> cusPlantList=new List<Customer_Plant__c>();
         Customer_Plant__c cusPlant1=new Customer_Plant__c();
         cusPlant1.Contact__c = con.Id;
         cusPlant1.Plant__c = plant1.Id;
+        cusPlant1.Status__c = 'Approved site access';
+        cusPlantList.add(cusPlant1);
+        insert cusPlantList;*/
+        
+        //Inserting test customer plant record
+        List<AccountContactRelation> cusPlantList=new List<AccountContactRelation>();
+        AccountContactRelation cusPlant1=new AccountContactRelation();
+        cusPlant1.ContactId = con.Id;
+        cusPlant1.AccountId = plant1.Id;
         cusPlant1.Status__c = 'Approved site access';
         cusPlantList.add(cusPlant1);
         insert cusPlantList;
@@ -324,21 +388,21 @@ public class YG_SystemsAPITest {
         proj.Name = 'VP711178';
         proj.Project_Code__c = 'VP711178';
         proj.Account__c = acc.Id;
-        proj.Plant__c = plant1.Id;
+        proj.PlantAccount__c = plant1.Id;
         projList.add(proj);
 		
 		Project__c proj1 = new Project__c();
         proj1.Name = 'VP704674';
         proj1.Project_Code__c = 'VP704674';
-        proj1.Account__c = acc.Id;
-        proj1.Plant__c = plant1.Id;
+       proj1.Account__c = acc.Id;
+        proj1.PlantAccount__c = plant1.Id;
         projList.add(proj1);
 
 		Project__c proj2 = new Project__c();
         proj2.Name = 'ATLAS001';
         proj2.Project_Code__c = 'ATLAS001';
-        proj2.Account__c = acc.Id;
-        proj2.Plant__c = plant1.Id;
+       proj2.Account__c = acc.Id;
+       proj2.PlantAccount__c = plant1.Id;
         projList.add(proj2);		
 		
         insert projList;
@@ -370,7 +434,7 @@ public class YG_SystemsAPITest {
         ast.Product2Id = prod2.Id;
         ast.Project__c = proj.Id;
         ast.AccountId = acc.Id;
-        ast.Plant__c = plant1.Id;
+        ast.PlantAccount__c = plant1.Id;
 		astList.add(ast);
 		
 		Asset ast1 = new Asset();
@@ -382,7 +446,7 @@ public class YG_SystemsAPITest {
         ast1.Product2Id = prod1.Id;
         ast1.Project__c = proj.Id;
         ast1.AccountId = acc.Id;
-        ast1.Plant__c = plant1.Id;
+        ast1.PlantAccount__c = plant1.Id;
 		astList.add(ast1);
 		
 		Asset ast2 = new Asset();
@@ -394,7 +458,7 @@ public class YG_SystemsAPITest {
         ast2.Product2Id = prod2.Id;
         ast2.Project__c = proj.Id;
         ast2.AccountId = acc.Id;
-        ast2.Plant__c = plant1.Id;
+        ast2.PlantAccount__c = plant1.Id;
 		astList.add(ast2);
 		
 		Asset ast3 = new Asset();
@@ -405,7 +469,7 @@ public class YG_SystemsAPITest {
         ast3.Product2Id = prod1.Id;
         ast3.Project__c = proj1.Id;
         ast3.AccountId = acc.Id;
-        ast3.Plant__c = plant1.Id;
+        ast3.PlantAccount__c = plant1.Id;
 		astList.add(ast3);
 		
 		Asset ast4 = new Asset();
@@ -416,7 +480,7 @@ public class YG_SystemsAPITest {
         ast4.Product2Id = prod2.Id;
         ast4.Project__c = proj2.Id;
         ast4.AccountId = acc.Id;
-        ast4.Plant__c = plant1.Id;
+        ast4.PlantAccount__c = plant1.Id;
 		astList.add(ast4);
 		
 		insert astList;

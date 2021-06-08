@@ -12,7 +12,7 @@
 *
 *  Change History:
 *  MM/DD/YYYY           Developer Name          Comments
-*  
+*  04/21/2021 			Kavya					Removed Plant__c Object and replaced with Account Object.
 *
 */
 
@@ -25,6 +25,7 @@ public class YG_DeactivateHelperTest {
         //Insert test account record
         Account acc = new account();
         acc.name='XYZ Account'; 
+         acc.Type = 'Customer';
         insert acc;    
 
         //Insert test contact record 
@@ -46,12 +47,22 @@ public class YG_DeactivateHelperTest {
         insert con1;
 
         //Inserting test plant record
-        List<Plant__c> plantList=new List<Plant__c>();
+       /* List<Plant__c> plantList=new List<Plant__c>();
         Plant__c plant1=new Plant__c();
         plant1.Name = 'TestPlantDoc';
         plant1.Account__c = acc.Id;  
         plant1.Plant_Code__c = '300000142';
         plant1.Lang_Code__c = 'EN';
+        plantList.add(plant1);
+        insert plantList;*/
+        
+        //Inserting test plant record
+       List<Account> plantList=new List<Account>();
+        Account plant1=new Account();
+        plant1.Name = 'TestPlantDoc';
+        plant1.ParentId = acc.Id;  
+        plant1.AccountNumber = '300000142';
+        plant1.Type = 'Plant';
         plantList.add(plant1);
         insert plantList;
         

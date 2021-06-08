@@ -86,14 +86,14 @@ public class YG_ProductInformationControllerTest {
         prod1.Model_Code__c = 'AX01C';
         prod1.Category__c = catg1.Id;
         prod1.Type__c = 'ADMAG AXG';
-        prod1.Production_Date__c = Date.newInstance(2014, 12, 17);
+      //  prod1.Production_Date__c = Date.newInstance(2014, 12, 17);
         prodList.add(prod1);
         
         Product2 prod2=new Product2();
         prod2.Name = 'Carolis Flow Meter';
         prod2.Model_Code__c = 'CFM01';
         prod2.Category__c = catg2.Id;
-        prod2.Production_Date__c = Date.newInstance(2014, 12, 17);
+       // prod2.Production_Date__c = Date.newInstance(2014, 12, 17);
         prodList.add(prod2);
         
         insert prodList;

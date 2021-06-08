@@ -40,7 +40,7 @@ public class YG_GetAccountCDCAPIMockCallout implements HttpCalloutMock{
               '"createdTimestamp": 1607669228000,'+
               '"data": {'+
                 '"ProfileID": "00ep0000000IVAO",'+
-                '"account_number": "Verticurl",'+
+                '"account_number": "1234567",'+
                 '"login_permission_customerportal": "on",'+
                 '"language": "en",'+
                 '"custportal_userID": "anand.selvarasu-20201211064708@verticurl.com",'+
@@ -103,7 +103,8 @@ public class YG_GetAccountCDCAPIMockCallout implements HttpCalloutMock{
                 '"lastName": "Selvarasu",'+
                 '"address": "Testing",'+
                 '"country": "IN",'+
-                '"email": "anand.selvarasu@verticurl.com",'+
+                //'"email": "anand.selvarasu@verticurl.com",'+
+                '"email": "yg.test@gmail.com",'+
                 '"phones": {'+
                   '"number": "+911234567890"'+
                 '},'+

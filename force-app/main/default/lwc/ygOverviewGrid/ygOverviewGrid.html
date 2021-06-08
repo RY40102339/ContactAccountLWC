@@ -20,8 +20,6 @@
 *-->
 
 <template>
-
-
     <template if:true={isLoading}>
         <div class="loading">
             <div class="loading-txt">
@@ -41,10 +39,9 @@
             </div>
         </div>
     </template>
-
     <template if:true={showServReqInqData}>
         <div class="row mt-14-lt mb-64">
-            <div class="section pl-4">
+            <div class="section pl-0">
                 <div class="col-lg-12">
                     <div class="notification f20 mb-3 p-0">
                         <div class="row">
@@ -253,32 +250,27 @@
                                         <span class="row pl-3 f12 pb-1 grey-dark-1">{label.caseNumLbl}</span>
                                         <span class="row pl-3 grey-darkest f14 fbold">{caseDetails.caseNum}</span>
                                     </div>
-                                </div>
-                                <div class="row mt-4 mb-4">
                                     <div class="col-6 col-md-6">
                                         <span class="row pl-3 f12 pb-1 grey-dark-1">{label.serialNoLbl}</span>
                                         <span class="row pl-3 grey-darkest f14 fbold">{caseDetails.serialNumber}</span>
                                     </div>
+                                </div>
+                                <div class="row mt-4 mb-4">
                                     <div class="col-6 col-md-6">
                                         <span class="row pl-3 f12 pb-1 grey-dark-1">{label.servTypeLbl}</span>
                                         <span class="row pl-3 grey-darkest f14 fbold">{caseDetails.serviceType}</span>
                                     </div>
-                                </div>
-                                <div class="row mt-4 mb-4">
                                     <div class="col-6 col-md-6">
                                         <span class="row pl-3 f12 pb-1 grey-dark-1">{label.contractLbl}</span>
                                         <template if:true={showContractType}>
                                             <template for:each={caseDetails.contractType} for:item="contType">
-                                                <span key={contType} class="row pl-3 grey-darkest f14 fbold">{contType}</span>
+                                                <span key={contType}
+                                                    class="row pl-3 grey-darkest f14 fbold">{contType}</span>
                                             </template>
                                         </template>
                                         <template if:false={showContractType}>
                                             <span class="row pl-3 grey-darkest f14 fbold">-</span>
                                         </template>
-                                    </div>
-                                    <div class="col-6 col-md-6">
-                                        <span class="row pl-3 f12 pb-1 grey-dark-1">{label.dateSubLbl}</span>
-                                        <span class="row pl-3 grey-darkest f14 fbold">{caseDetails.submittedDate}</span>
                                     </div>
                                 </div>
                                 <div class="row mt-4 mb-4">
@@ -286,6 +278,12 @@
                                         <span class="row pl-3 f12 pb-1 grey-dark-1">{label.subByLbl}</span>
                                         <span class="row pl-3 grey-darkest f14 fbold">{caseDetails.caseCreatedBy}</span>
                                     </div>
+                                    <div class="col-6 col-md-6">
+                                        <span class="row pl-3 f12 pb-1 grey-dark-1">{label.dateSubLbl}</span>
+                                        <span class="row pl-3 grey-darkest f14 fbold">{caseDetails.submittedDate}</span>
+                                    </div>
+                                </div>
+                                <div class="row mt-4 mb-4">
                                     <div class="col-6 col-md-6">
                                         <span class="row pl-3 f12 pb-1 grey-dark-1">{label.assigToLbl}</span>
                                         <span
@@ -296,7 +294,7 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="notes" class="row pl-3 f12 grey-dark-1">{label.notesLbl}</label>
-                                            <span class="desc fbold grey-darkest f14 pre">
+                                            <span class="desc fbold grey-darkest f14 pre pl-1">
                                                 {caseDetails.description}
                                             </span>
                                         </div>

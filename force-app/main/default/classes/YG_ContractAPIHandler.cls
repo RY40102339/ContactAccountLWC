@@ -14,7 +14,7 @@
 *
 *  Change History:
 *  MM/DD/YYYY			Developer Name			Comments
-*  
+*  04/19/2021           Kavya                   Removed Customer_Plant__c Object and replaced with AccountContactRelation Object
 */
 public class YG_ContractAPIHandler {
     
@@ -363,7 +363,8 @@ System.debug('parentServContMap::'+parentServContMap);*/
         Map<String, Id> prodModelcodeMap=new Map<String, Id>(); //get the product details for the scope of products
         //List<String> assetNameList=new List<String>();
         Map<String, Id> assMap=new Map<String, Id>();
-        List<Customer_Plant__c> cusPlantList=new List<Customer_Plant__c>();
+        /*List<Customer_Plant__c> cusPlantList=new List<Customer_Plant__c>();
+        List<AccountContactRelation> cusPlantList=new List<AccountContactRelation>();*/
         List<Asset> contAssetList=new List<Asset>();
         List<String> deliverableAsset=new List<String>(); // this list is used to check for the duplicate deliverable id for the user account
         

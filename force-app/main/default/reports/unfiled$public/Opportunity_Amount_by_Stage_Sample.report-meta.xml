@@ -67,6 +67,7 @@
     <columns>
         <field>ACCOUNT_NAME</field>
     </columns>
+    <currency>JPY</currency>
     <description>This report is used to power the embedded chart on the Accounts page.  Any changes made here will be reflected in that chart.</description>
     <format>Summary</format>
     <groupingsDown>

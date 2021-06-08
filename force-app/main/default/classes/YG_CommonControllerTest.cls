@@ -13,7 +13,9 @@
 *
 *  Change History:
 *  MM/DD/YYYY			Developer Name			Comments
-*  
+*  04/21/2021 			Kavya 					Removed Plant__c Object and replaced with Account Object also removed Customer_Plant__c Object and replaced with AccountContactRelation Object.
+
+.*												Removed Plant__c(Plant) Lookup field from Asset and Project Objects and newly added PlantAccount__c(Account) Lookup field in Asset  and Project Object.
 *  
 *
 */
@@ -28,6 +30,7 @@ public class YG_CommonControllerTest {
         Account acc = new account();
         acc.name='XYZ Account'; 
         acc.AccountNumber = null; 
+        acc.Type = 'Customer';
         insert acc;
 
 		//Insert test contact record        
@@ -53,20 +56,39 @@ public class YG_CommonControllerTest {
         
          
         //Insert test plant record   
-            List<Plant__c> plantList=new List<Plant__c>();
+            /*List<Plant__c> plantList=new List<Plant__c>();
             Plant__c plant1=new Plant__c();
             plant1.Name = 'TestPlant';
             plant1.Account__c = acc.Id;  
             plant1.Plant_Code__c = '300000142';
         	plant1.Lang_Code__c = 'EN';
             plantList.add(plant1);
+            insert plantList;*/
+        
+        //Insert test plant record   
+            List<Account> plantList=new List<Account>();
+            Account plant1=new Account();
+            plant1.Name = 'TestPlant';
+            plant1.ParentId = acc.Id;  
+            plant1.AccountNumber = '300000142';
+         	plant1.Type = 'Plant';
+            plantList.add(plant1);
             insert plantList;
             
             //Insert test customer plant record   
-            List<Customer_Plant__c> cusPlantList=new List<Customer_Plant__c>();
+            /*List<Customer_Plant__c> cusPlantList=new List<Customer_Plant__c>();
             Customer_Plant__c cusPlant1=new Customer_Plant__c();
             cusPlant1.Contact__c = con.Id;
             cusPlant1.Plant__c = plant1.Id;
+        	cusPlant1.Status__c = 'Approved site access';
+            cusPlantList.add(cusPlant1);
+            insert cusPlantList;*/
+        
+         //Insert test customer plant record   
+        List<AccountContactRelation> cusPlantList=new List<AccountContactRelation>();
+            AccountContactRelation cusPlant1=new AccountContactRelation();
+            cusPlant1.ContactId = con.Id;
+            cusPlant1.AccountId = plant1.Id;
         	cusPlant1.Status__c = 'Approved site access';
             cusPlantList.add(cusPlant1);
             insert cusPlantList;
@@ -75,7 +97,7 @@ public class YG_CommonControllerTest {
             List<Project__c> projectList=new List<Project__c>();
             Project__c proj1=new Project__c();
             proj1.Account__c = acc.Id;
-            proj1.Plant__c = plant1.Id;
+            proj1.PlantAccount__c = plant1.Id;
             proj1.Project_Code__c = 'VP700250';
             projectList.add(proj1);
             insert projectList;
@@ -100,7 +122,7 @@ public class YG_CommonControllerTest {
             prod1.Model_Code__c = 'LFS1550';
             prod1.Product_Type__c = 'Hardware';
             prod1.Category__c = catg1.Id;
-            prod1.Production_Date__c = Date.newInstance(2014, 12, 17);
+            //prod1.Production_Date__c = Date.newInstance(2014, 12, 17);
             prodList.add(prod1);
             
             Insert prodList;
@@ -109,10 +131,10 @@ public class YG_CommonControllerTest {
             Asset ass1=new Asset();
             ass1.Name = 'FCS0111';
             ass1.Product2Id = prod1.Id;
-            ass1.AccountId = acc.Id;
+           ass1.AccountId = acc.Id;
             ass1.ContactId = con.Id;
             ass1.SerialNumber = 'FCS0111';
-            ass1.Plant__c = plant1.Id;
+            ass1.PlantAccount__c = plant1.Id;
             ass1.Project__c = proj1.Id;
             ass1.MS_Code__c = 'FCS0111';
             ass1.Status = 'Installed';
@@ -165,6 +187,7 @@ public class YG_CommonControllerTest {
         Account acc = new account();
         acc.name='XYZ Account'; 
         acc.AccountNumber = '963258'; 
+        acc.Type = 'Customer';
         insert acc;
 
 		//Insert test contact record        
@@ -190,20 +213,38 @@ public class YG_CommonControllerTest {
         
          
         //Insert test plant record   
-            List<Plant__c> plantList=new List<Plant__c>();
+           /* List<Plant__c> plantList=new List<Plant__c>();
             Plant__c plant1=new Plant__c();
             plant1.Name = 'TestPlant';
             plant1.Account__c = acc.Id;  
             plant1.Plant_Code__c = '300000142';
         	plant1.Lang_Code__c = 'EN';
             plantList.add(plant1);
+            insert plantList;*/
+        //Insert test plant record   
+        List<Account> plantList=new List<Account>();
+            Account plant1=new Account();
+            plant1.Name = 'TestPlant';
+            plant1.ParentId = acc.Id;  
+            plant1.AccountNumber = '300000142';
+        	plant1.Type = 'Plant';
+            plantList.add(plant1);
             insert plantList;
             
             //Insert test customer plant record   
-            List<Customer_Plant__c> cusPlantList=new List<Customer_Plant__c>();
+            /*List<Customer_Plant__c> cusPlantList=new List<Customer_Plant__c>();
             Customer_Plant__c cusPlant1=new Customer_Plant__c();
             cusPlant1.Contact__c = con.Id;
             cusPlant1.Plant__c = plant1.Id;
+        	cusPlant1.Status__c = 'Approved site access';
+            cusPlantList.add(cusPlant1);
+            insert cusPlantList;*/
+        
+        //Insert test customer plant record   
+            List<AccountContactRelation> cusPlantList=new List<AccountContactRelation>();
+            AccountContactRelation cusPlant1=new AccountContactRelation();
+            cusPlant1.ContactId = con.Id;
+            cusPlant1.AccountId = plant1.Id;
         	cusPlant1.Status__c = 'Approved site access';
             cusPlantList.add(cusPlant1);
             insert cusPlantList;
@@ -212,7 +253,7 @@ public class YG_CommonControllerTest {
             List<Project__c> projectList=new List<Project__c>();
             Project__c proj1=new Project__c();
             proj1.Account__c = acc.Id;
-            proj1.Plant__c = plant1.Id;
+            proj1.PlantAccount__c = plant1.Id;
             proj1.Project_Code__c = 'VP700250';
             projectList.add(proj1);
             insert projectList;
@@ -237,7 +278,7 @@ public class YG_CommonControllerTest {
             prod1.Model_Code__c = 'LFS1550';
             prod1.Product_Type__c = 'Hardware';
             prod1.Category__c = catg1.Id;
-            prod1.Production_Date__c = Date.newInstance(2014, 12, 17);
+           // prod1.Production_Date__c = Date.newInstance(2014, 12, 17);
             prodList.add(prod1);
             
             Insert prodList;
@@ -249,7 +290,7 @@ public class YG_CommonControllerTest {
             ass1.AccountId = acc.Id;
             ass1.ContactId = con.Id;
             ass1.SerialNumber = 'FCS0111';
-            ass1.Plant__c = plant1.Id;
+           ass1.PlantAccount__c = plant1.Id;
             ass1.Project__c = proj1.Id;
             ass1.MS_Code__c = 'FCS0111';
             ass1.Status = 'Installed';

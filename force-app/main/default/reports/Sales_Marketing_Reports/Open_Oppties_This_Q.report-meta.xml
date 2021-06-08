@@ -37,6 +37,7 @@
     <columns>
         <field>ROLLUP_DESCRIPTION</field>
     </columns>
+    <currency>JPY</currency>
     <format>Summary</format>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>

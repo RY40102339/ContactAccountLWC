@@ -32,7 +32,7 @@ public class YG_Utility {
         try{
             
             loggedInUser = [SELECT Id,Name,Username,LastName,FirstName,Email,LanguageLocaleKey,ContactId,Contact.AccountId,Contact.MailingCountry,
-                            Contact.Account.ShippingCountry,Contact.Account.AccountNumber,Contact.Name,Contact.Email,Contact.Fax,
+                            Contact.Account.ShippingCountry,Contact.Account.AccountNumber,Contact.Name,Contact.Email,Contact.Fax,Contact.Account.Has_Asset__c,
                             Contact.Title,Contact.Department,Contact.Phone,Contact.MobilePhone, Contact.Profile_Image__c, Contact.Account.LastContractSyncAPIDate__c                           
                             FROM USER WHERE Id =: userId];
           

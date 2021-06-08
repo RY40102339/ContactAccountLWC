@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PlantAccount__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>This field is used to store the plant.</description>
+    <externalId>false</externalId>
+    <label>PlantAccount</label>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>Assets (PlantAccount)</relationshipLabel>
+    <relationshipName>Assets1</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>

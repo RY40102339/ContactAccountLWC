@@ -13,7 +13,8 @@
 *  Change History:
 *  MM/DD/YYYY			Developer Name			Comments
 *  07/01/2020			Vinod					plant selection added for code coverage.
-*
+*  04/21/2021 			Kavya 					Removed Plant__c Object and replaced with Account Object.
+*												Removed Plant__c(Plant) Lookup field from Asset and newly added PlantAccount__c(Account) Lookup field in Asset Object. 					
 */
 @istest
 public class YG_DocumentAndResourceControllerTest {
@@ -23,7 +24,8 @@ public class YG_DocumentAndResourceControllerTest {
 		
         //Inserting test account record
         Account acc = new account();
-        acc.name='Test AccountDocData';        
+        acc.name='Test AccountDocData';    
+        acc.Type = 'Customer';
         //acc.DUNS_Number__c=102224222; 
         insert acc;
         
@@ -46,12 +48,22 @@ public class YG_DocumentAndResourceControllerTest {
         insert user;  
         
         //Inserting test plant record
-        List<Plant__c> plantList=new List<Plant__c>();
+       /* List<Plant__c> plantList=new List<Plant__c>();
         Plant__c plant1=new Plant__c();
         plant1.Name = 'TestPlantDoc';
         plant1.Account__c = acc.Id;  
         plant1.Plant_Code__c = '300000142';
         plant1.Lang_Code__c = 'EN';
+        plantList.add(plant1);
+        insert plantList;*/
+        
+        //Inserting test plant record
+       List<Account> plantList=new List<Account>();
+        Account plant1=new Account();
+        plant1.Name = 'TestPlantDoc';
+        plant1.ParentId = acc.Id;  
+        plant1.AccountNumber = '300000142';
+         plant1.Type = 'Plant';
         plantList.add(plant1);
         insert plantList;
         
@@ -82,14 +94,14 @@ public class YG_DocumentAndResourceControllerTest {
         prod1.Name = 'ADMAG AXG: Magnetic Flow Meter';
         prod1.Model_Code__c = 'AX01C';
         prod1.Category__c = catg6.Id;
-        prod1.Production_Date__c = Date.newInstance(2014, 12, 17);
+        //prod1.Production_Date__c = Date.newInstance(2014, 12, 17);
         prodList.add(prod1);
         
         Product2 prod2=new Product2();
         prod2.Name = 'Device Smart Communicators BT200';
         prod2.Model_Code__c = 'BT200';
         prod2.Category__c = catg3.Id;
-        prod2.Production_Date__c = Date.newInstance(2014, 12, 17);
+        //prod2.Production_Date__c = Date.newInstance(2014, 12, 17);
         prodList.add(prod2);
         
         insert prodList;
@@ -102,7 +114,7 @@ public class YG_DocumentAndResourceControllerTest {
         ass1.AccountId = acc.Id;
         ass1.ContactId = con.Id;
         ass1.SerialNumber = 'SU1234567';
-        ass1.Plant__c = plant1.Id;
+        ass1.PlantAccount__c = plant1.Id;
         ass1.MS_Code__c = 'AAI543-H50';
         //ass1.Shipping_Date__c = Date.newInstance(2019, 7, 28);
         ass1.Status = 'Installed';

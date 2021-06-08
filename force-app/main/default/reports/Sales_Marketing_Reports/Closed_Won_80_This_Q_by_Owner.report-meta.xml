@@ -64,6 +64,7 @@
     <columns>
         <field>ACCOUNT_NAME</field>
     </columns>
+    <currency>JPY</currency>
     <format>Summary</format>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>

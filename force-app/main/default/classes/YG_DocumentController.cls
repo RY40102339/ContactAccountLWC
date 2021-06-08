@@ -15,8 +15,8 @@
 *
 *  Change History:
 *  MM/DD/YYYY			Developer Name			Comments
-*  
-*  
+*  04/19/2021           Kavya                   Removed Plant__c Object and replaced with Account Object and modified new account lookup field on Asset Object.
+*  												Removed Plant__c(Plant) Lookup field from Asset and newly added PlantAccount__c(Account) Lookup field in Asset Object.
 *
 */
 
@@ -51,11 +51,13 @@ public class YG_DocumentController {
                                       	Where SerialNumber =: serialNo 
                                         AND Lang_Code__c =: languageId limit 1];
                  } else {
-                   Plant__c plantObj = YG_HelperClass.getPlantID(plantCode,languageId);
+                 /*  Plant__c plantObj = YG_HelperClass.getPlantID(plantCode,languageId);*/
+                      Account plantObj = YG_HelperClass.getPlantID(plantCode,languageId);
                    assetObj=[Select MS_Code__c, Product2.Model_Code__c From Asset 
-                                      	Where Plant__r.Id=:plantObj.Id 
+                                      	Where PlantAccount__r.Id=:plantObj.Id 
                                       	AND SerialNumber =: serialNo 
                                         AND Lang_Code__c =: languageId limit 1];
+                    
                  }
             	
                 

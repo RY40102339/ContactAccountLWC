@@ -39,6 +39,8 @@ public class YG_AllServiceContractsController {
         List<Id> servContId=new List<Id>();
         List<Id> contractIdList=new List<Id>(); //To get the list of contract ids associated with plant and cust assets
         List<Id> selectedServiceContractIdList = new List<Id>(); //To get the service contract ids expiry less than 6 months
+        Map<String, Date> contEndDate=new Map<String, Date>(); //Map to get the cont and end date.
+        List<String> notificationExpCont=new List<String>();
         Integer expiryLessSixMon = 0;
         Integer activeStatus = 0;
         Integer inactiveStatus = 0;
@@ -66,25 +68,32 @@ public class YG_AllServiceContractsController {
             }
             System.debug('final servCont Ids::'+contractIdList);
             //To get the total service contract count
-            serviceContractTotalCnt = [Select Id, Contract_No__c, Name, EndDate, Description, YG_Sales_Manager_Name__c, YG_Sales_Manager_Email__c, YG_Sales_Manager_contact_no__c/*,
-                                        (Select Id, Asset.Name, Asset.Product2.Name  From Entitlements)*/
-                                        From ServiceContract Where Id IN: contractIdList];
+            serviceContractTotalCnt = [Select Id, Contract_No__c, Name, EndDate, Description, YG_Sales_Manager_Name__c, YG_Sales_Manager_Email__c, YG_Sales_Manager_contact_no__c, Renewed_Contract__c/*,
+(Select Id, Asset.Name, Asset.Product2.Name  From Entitlements)*/
+                                       From ServiceContract Where Id IN: contractIdList];
             System.debug('serviceContractTotalCnt::'+serviceContractTotalCnt);
             System.debug('serviceContractTotalCnt.size()::'+serviceContractTotalCnt.size());
             if(serviceContractTotalCnt.size() > 0){
                 servContract.totalContractCnt = serviceContractTotalCnt.size();
+                //Map to get the renewed contract end date
+                for(ServiceContract servExpEndDate : serviceContractTotalCnt){
+                    System.debug('servExpEndDate::'+servExpEndDate);
+                    contEndDate.put(servExpEndDate.Contract_No__c, servExpEndDate.EndDate);
+                }
             }
             System.debug('servContract.totalContractCnt::'+servContract.totalContractCnt);
+            System.debug('Map contEndDate::'+contEndDate);
+            
             
             //To get the Expiry less than 6 months service contract ids
             Id selectedServiceContractId ; 
-           	for(ServiceContract sc:serviceContractTotalCnt){
+            for(ServiceContract sc:serviceContractTotalCnt){
                 String notify = YG_HelperClass.getServiceContractExpiry(sc.EndDate);
                 if(notify != null){
                     selectedServiceContractId = sc.id;
                     selectedServiceContractIdList.add(selectedServiceContractId);
                 }
-                 system.debug('selectedServiceContractIdList::'+selectedServiceContractIdList);
+                system.debug('selectedServiceContractIdList::'+selectedServiceContractIdList);
                 
             }
             
@@ -95,19 +104,19 @@ public class YG_AllServiceContractsController {
                 System.debug('servContractFilterIdList ::');
                 if(servContractFilterIdList.size() > 0 && filterdByStatus != '' && filterdByStatus != 'Expires' && filteredByIndustry == null && filterdByStatus != null){
                     System.debug('servContractFilterIdList  and filterdByStatus only::');
-                    servContractList = [Select Id, Contract_No__c, Name, Description, YG_Sales_Manager_Name__c, YG_Sales_Manager_Email__c, YG_Sales_Manager_contact_no__c,
-                                    StartDate, EndDate, YG_Sales_Manager_profile_photo__c, Owner.Name, Owner.Email, Owner.Phone,Contract_Type__c, Status, Contract_categories__c,
-                                    (Select Id, Asset__r.Name, Asset__r.Product2.Name  From Scope_of_Product__r)
-                                    From ServiceContract Where Id IN: servContractFilterIdList And Status =:filterdByStatus];
+                    servContractList = [Select Id, Contract_No__c, Name, Description, YG_Sales_Manager_Name__c, YG_Sales_Manager_Email__c, YG_Sales_Manager_contact_no__c, Renewed_Contract__c,
+                                        StartDate, EndDate, YG_Sales_Manager_profile_photo__c, Owner.Name, Owner.Email, Owner.Phone,Contract_Type__c, Status, Contract_categories__c,
+                                        (Select Id, Asset__r.Name, Asset__r.Product2.Name  From Scope_of_Product__r)
+                                        From ServiceContract Where Id IN: servContractFilterIdList And Status =:filterdByStatus];
                 }else if(servContractFilterIdList.size() > 0 && filterdByStatus == null  && filteredByIndustry != '' && filteredByIndustry != null ){
                     System.debug('servContractFilterIdList and filteredByIndustry only::');
-                    servContractList = [Select Id, Contract_No__c, Name, Description, YG_Sales_Manager_Name__c, YG_Sales_Manager_Email__c, YG_Sales_Manager_contact_no__c,
+                    servContractList = [Select Id, Contract_No__c, Name, Description, YG_Sales_Manager_Name__c, YG_Sales_Manager_Email__c, YG_Sales_Manager_contact_no__c, Renewed_Contract__c,
                                         StartDate, EndDate, YG_Sales_Manager_profile_photo__c, Owner.Name, Owner.Email, Owner.Phone,Contract_Type__c, Status, Contract_categories__c,
                                         (Select Id, Asset__r.Name, Asset__r.Product2.Name  From Scope_of_Product__r)
                                         From ServiceContract Where Id IN: servContractFilterIdList And Contract_categories__c =: filteredByIndustry];
                 }else if(servContractFilterIdList.size() > 0 && filterdByStatus != null && filterdByStatus != 'Expires' && filteredByIndustry != null ){
                     System.debug('servContractFilterIdList, filterdByStatus and filteredByIndustry::'); 
-                    servContractList = [Select Id, Contract_No__c, Name, Description, YG_Sales_Manager_Name__c, YG_Sales_Manager_Email__c, YG_Sales_Manager_contact_no__c,
+                    servContractList = [Select Id, Contract_No__c, Name, Description, YG_Sales_Manager_Name__c, YG_Sales_Manager_Email__c, YG_Sales_Manager_contact_no__c, Renewed_Contract__c,
                                         StartDate, EndDate, YG_Sales_Manager_profile_photo__c, Owner.Name, Owner.Email, Owner.Phone,Contract_Type__c, Status, Contract_categories__c,
                                         (Select Id, Asset__r.Name, Asset__r.Product2.Name  From Scope_of_Product__r)
                                         From ServiceContract Where Id IN: servContractFilterIdList And Status =:filterdByStatus And Contract_categories__c =: filteredByIndustry ];
@@ -121,7 +130,7 @@ public class YG_AllServiceContractsController {
                             selectFilderIdExpiresStatus.add(expiryId);
                         }
                     }
-                    servContractList = [Select Id, Contract_No__c, Name, Description, YG_Sales_Manager_Name__c, YG_Sales_Manager_Email__c, YG_Sales_Manager_contact_no__c,
+                    servContractList = [Select Id, Contract_No__c, Name, Description, YG_Sales_Manager_Name__c, YG_Sales_Manager_Email__c, YG_Sales_Manager_contact_no__c, Renewed_Contract__c,
                                         StartDate, EndDate, YG_Sales_Manager_profile_photo__c, Owner.Name, Owner.Email, Owner.Phone,Contract_Type__c, Status, Contract_categories__c,
                                         (Select Id, Asset__r.Name, Asset__r.Product2.Name  From Scope_of_Product__r)
                                         From ServiceContract Where Id IN:selectFilderIdExpiresStatus ];
@@ -133,54 +142,54 @@ public class YG_AllServiceContractsController {
                         }
                     }
                     System.debug('Filter by Status Expires less than 6month status and filteredByIndustry::');
-                    servContractList = [Select Id, Contract_No__c, Name, Description, YG_Sales_Manager_Name__c, YG_Sales_Manager_Email__c, YG_Sales_Manager_contact_no__c,
+                    servContractList = [Select Id, Contract_No__c, Name, Description, YG_Sales_Manager_Name__c, YG_Sales_Manager_Email__c, YG_Sales_Manager_contact_no__c, Renewed_Contract__c,
                                         StartDate, EndDate, YG_Sales_Manager_profile_photo__c, Owner.Name, Owner.Email, Owner.Phone,Contract_Type__c, Status, Contract_categories__c,
                                         (Select Id, Asset__r.Name, Asset__r.Product2.Name  From Scope_of_Product__r)
                                         From ServiceContract Where Id IN: selectFilderIdExpiresStatus And Contract_categories__c =: filteredByIndustry];
                 }else{
                     System.debug('servContractFilterIdList only');
-                servContractList = [Select Id, Contract_No__c, Name, Description, YG_Sales_Manager_Name__c, YG_Sales_Manager_Email__c, YG_Sales_Manager_contact_no__c,
-                                    StartDate, EndDate, YG_Sales_Manager_profile_photo__c, Owner.Name, Owner.Email, Owner.Phone,Contract_Type__c, Status, Contract_categories__c,
-                                    (Select Id, Asset__r.Name, Asset__r.Product2.Name  From Scope_of_Product__r)
-                                    From ServiceContract Where Id IN: servContractFilterIdList ];
-                    }
+                    servContractList = [Select Id, Contract_No__c, Name, Description, YG_Sales_Manager_Name__c, YG_Sales_Manager_Email__c, YG_Sales_Manager_contact_no__c, Renewed_Contract__c,
+                                        StartDate, EndDate, YG_Sales_Manager_profile_photo__c, Owner.Name, Owner.Email, Owner.Phone,Contract_Type__c, Status, Contract_categories__c,
+                                        (Select Id, Asset__r.Name, Asset__r.Product2.Name  From Scope_of_Product__r)
+                                        From ServiceContract Where Id IN: servContractFilterIdList ];
+                }
             }
             else{
                 System.debug('insidefilters');
-                  if(filterdByStatus != '' && filterdByStatus != 'Expires' && filteredByIndustry == null && filterdByStatus != null){
+                if(filterdByStatus != '' && filterdByStatus != 'Expires' && filteredByIndustry == null && filterdByStatus != null){
                     System.debug('filterdByStatus only::');                
-                    servContractList = [Select Id, Contract_No__c, Name, Description, YG_Sales_Manager_Name__c, YG_Sales_Manager_Email__c, YG_Sales_Manager_contact_no__c,
+                    servContractList = [Select Id, Contract_No__c, Name, Description, YG_Sales_Manager_Name__c, YG_Sales_Manager_Email__c, YG_Sales_Manager_contact_no__c, Renewed_Contract__c,
                                         StartDate, EndDate, YG_Sales_Manager_profile_photo__c, Owner.Name, Owner.Email, Owner.Phone,Contract_Type__c, Status, Contract_categories__c,
                                         (Select Id, Asset__r.Name, Asset__r.Product2.Name  From Scope_of_Product__r)
                                         From ServiceContract Where Id IN: contractIdList And Status =:filterdByStatus Limit : loadLimit offset :offset];
                 }else if(filterdByStatus == null  && filteredByIndustry != '' && filteredByIndustry != null  ){
                     System.debug('filteredByIndustry only::');
-                    servContractList1 = [Select Id, Contract_No__c, Name, Description, YG_Sales_Manager_Name__c, YG_Sales_Manager_Email__c, YG_Sales_Manager_contact_no__c,
-                                        StartDate, EndDate, YG_Sales_Manager_profile_photo__c, Owner.Name, Owner.Email, Owner.Phone,Contract_Type__c, Status, Contract_categories__c,
-                                        (Select Id, Asset__r.Name, Asset__r.Product2.Name  From Scope_of_Product__r)
-                                        From ServiceContract Where Id IN: contractIdList And Contract_categories__c =: filteredByIndustry ];
+                    servContractList1 = [Select Id, Contract_No__c, Name, Description, YG_Sales_Manager_Name__c, YG_Sales_Manager_Email__c, YG_Sales_Manager_contact_no__c, Renewed_Contract__c,
+                                         StartDate, EndDate, YG_Sales_Manager_profile_photo__c, Owner.Name, Owner.Email, Owner.Phone,Contract_Type__c, Status, Contract_categories__c,
+                                         (Select Id, Asset__r.Name, Asset__r.Product2.Name  From Scope_of_Product__r)
+                                         From ServiceContract Where Id IN: contractIdList And Contract_categories__c =: filteredByIndustry ];
                     
-                    servContractList = [Select Id, Contract_No__c, Name, Description, YG_Sales_Manager_Name__c, YG_Sales_Manager_Email__c, YG_Sales_Manager_contact_no__c,
+                    servContractList = [Select Id, Contract_No__c, Name, Description, YG_Sales_Manager_Name__c, YG_Sales_Manager_Email__c, YG_Sales_Manager_contact_no__c, Renewed_Contract__c,
                                         StartDate, EndDate, YG_Sales_Manager_profile_photo__c, Owner.Name, Owner.Email, Owner.Phone,Contract_Type__c, Status, Contract_categories__c,
                                         (Select Id, Asset__r.Name, Asset__r.Product2.Name  From Scope_of_Product__r)
                                         From ServiceContract Where Id IN: contractIdList And Contract_categories__c =: filteredByIndustry Limit : loadLimit offset :offset];
                 }else if( filterdByStatus != null && filterdByStatus != 'Expires' && filteredByIndustry != null ){
                     System.debug('filterdByStatus and filteredByIndustry::'); 
-                    servContractList = [Select Id, Contract_No__c, Name, Description, YG_Sales_Manager_Name__c, YG_Sales_Manager_Email__c, YG_Sales_Manager_contact_no__c,
+                    servContractList = [Select Id, Contract_No__c, Name, Description, YG_Sales_Manager_Name__c, YG_Sales_Manager_Email__c, YG_Sales_Manager_contact_no__c, Renewed_Contract__c,
                                         StartDate, EndDate, YG_Sales_Manager_profile_photo__c, Owner.Name, Owner.Email, Owner.Phone,Contract_Type__c, Status, Contract_categories__c,
                                         (Select Id, Asset__r.Name, Asset__r.Product2.Name  From Scope_of_Product__r)
                                         From ServiceContract Where Id IN: contractIdList And Status =:filterdByStatus And Contract_categories__c =: filteredByIndustry Limit : loadLimit offset :offset];
-            
+                    
                 }//if(plantCode != null && filteredByIndustry == null && filteredByIndustry == '' && filterdByStatus == null && filterdByStatus == '' && filterdByStatus == 'Expiry'){
                 else if(filterdByStatus == 'Expires' && filteredByIndustry == null){
                     System.debug('Filter by Status Expires less than 6 months::');
-                    servContractList = [Select Id, Contract_No__c, Name, Description, YG_Sales_Manager_Name__c, YG_Sales_Manager_Email__c, YG_Sales_Manager_contact_no__c,
+                    servContractList = [Select Id, Contract_No__c, Name, Description, YG_Sales_Manager_Name__c, YG_Sales_Manager_Email__c, YG_Sales_Manager_contact_no__c, Renewed_Contract__c,
                                         StartDate, EndDate, YG_Sales_Manager_profile_photo__c, Owner.Name, Owner.Email, Owner.Phone,Contract_Type__c, Status, Contract_categories__c,
                                         (Select Id, Asset__r.Name, Asset__r.Product2.Name  From Scope_of_Product__r)
                                         From ServiceContract Where Id IN: selectedServiceContractIdList Limit : loadLimit offset :offset];
                 }else if(filterdByStatus == 'Expires' && filteredByIndustry != null){
                     System.debug('Filter by Status Expires less than 6month status and filteredByIndustry::');
-                    servContractList = [Select Id, Contract_No__c, Name, Description, YG_Sales_Manager_Name__c, YG_Sales_Manager_Email__c, YG_Sales_Manager_contact_no__c,
+                    servContractList = [Select Id, Contract_No__c, Name, Description, YG_Sales_Manager_Name__c, YG_Sales_Manager_Email__c, YG_Sales_Manager_contact_no__c, Renewed_Contract__c,
                                         StartDate, EndDate, YG_Sales_Manager_profile_photo__c, Owner.Name, Owner.Email, Owner.Phone,Contract_Type__c, Status, Contract_categories__c,
                                         (Select Id, Asset__r.Name, Asset__r.Product2.Name  From Scope_of_Product__r)
                                         From ServiceContract Where Id IN: selectedServiceContractIdList And Contract_categories__c =: filteredByIndustry Limit : loadLimit offset :offset];
@@ -188,7 +197,7 @@ public class YG_AllServiceContractsController {
                 else{   
                     System.debug('ALL');
                     //Loaded on page loads first
-                    servContractList = [Select Id, Contract_No__c, Name, Description, YG_Sales_Manager_Name__c, YG_Sales_Manager_Email__c, YG_Sales_Manager_contact_no__c,
+                    servContractList = [Select Id, Contract_No__c, Name, Description, YG_Sales_Manager_Name__c, YG_Sales_Manager_Email__c, YG_Sales_Manager_contact_no__c, Renewed_Contract__c,
                                         StartDate, EndDate, YG_Sales_Manager_profile_photo__c, Owner.Name, Owner.Email, Owner.Phone,Contract_Type__c, Status, Contract_categories__c,
                                         (Select Id, Asset__r.Name, Asset__r.Product2.Name  From Scope_of_Product__r)
                                         From ServiceContract Where Id IN: contractIdList Limit : loadLimit offset :offset];	//
@@ -220,8 +229,10 @@ public class YG_AllServiceContractsController {
                             servContRec.industry = servCont.Contract_categories__c;
                             Datetime dt1 = Datetime.newInstance(servCont.StartDate.year(),servCont.StartDate.month(),servCont.StartDate.day());
                             servContRec.startDate = dt1.format('dd MMM '+dt1.year());
+                            servContRec.unixStartDate = dt1.format('YYYYMMdd');
                             Datetime dt2 = Datetime.newInstance(servCont.EndDate.year(),servCont.EndDate.month(),servCont.EndDate.day());
                             servContRec.endDate = dt2.format('dd MMM '+dt2.year());
+                            servContRec.unixEndDate = dt2.format('YYYYMMdd');
                             String serviceContractExpiry = YG_HelperClass.getServiceContractExpiry(servCont.EndDate);
                             if(serviceContractExpiry != null && servCont.Status == 'Active'){
                                 servContRec.notification = serviceContractExpiry;
@@ -237,16 +248,32 @@ public class YG_AllServiceContractsController {
                             if(servCont.Status == 'Expired'){
                                 expiredStatus ++;
                             }
-                            
+                            //To check the contract is renewed for notification
+                            System.debug('servCont.Renewed_Contract__c::'+servCont.Renewed_Contract__c);
+                            if(servCont.Renewed_Contract__c != null){
+                                String renew = servCont.Renewed_Contract__c;
+                                servContRec.renewcontractNum = renew;
+                                Date renewEndDate = contEndDate.get(renew);
+                                if(renewEndDate != null){
+                                    Datetime renewdt1 = Datetime.newInstance(renewEndDate.year(),renewEndDate.month(),renewEndDate.day());
+                                    String renewdate = renewdt1.format('dd MMM '+dt1.year());
+                                    String noti2= renew +' '+Label.YG_on+' '+renewdate;
+                                    renewdate = Label.YG_Expired_on + ' '+renewdate;
+                                    notificationExpCont.add(renewdate);
+                                    notificationExpCont.add(noti2);
+                                    servContRec.notification2 = notificationExpCont;
+                                }
+                                System.debug('servContRec.notification2::'+servContRec.notification2);
+                            }
                             /*if(servCont.Contract_categories__c == 'Industrial Automation'){
-                                industryAuto ++;
-                            }
-                            if(servCont.Contract_categories__c == 'Test & Measurement'){
-                                testAndMeasure ++;
-                            }
-                            if(servCont.Contract_categories__c == 'Life Innovation'){
-                                lifeInno ++;
-                            }*/
+industryAuto ++;
+}
+if(servCont.Contract_categories__c == 'Test & Measurement'){
+testAndMeasure ++;
+}
+if(servCont.Contract_categories__c == 'Life Innovation'){
+lifeInno ++;
+}*/
                             serviceContractListWrap.add(servContRec);
                         } 
                     }else{
@@ -257,11 +284,13 @@ public class YG_AllServiceContractsController {
                         System.debug('servCont.StartDate::'+servCont.StartDate);
                         Datetime dt1 = Date.newInstance(servCont.StartDate.year(),servCont.StartDate.month(),servCont.StartDate.day());
                         servContRec.startDate = dt1.format('dd MMM '+dt1.year());
+                        servContRec.unixStartDate = dt1.format('YYYYMMdd');
                         System.debug('servContRec.startDate');
                         System.debug('servCont.EndDate::'+servCont.EndDate);
                         Datetime dt2 = Date.newInstance(servCont.EndDate.year(),servCont.EndDate.month(),servCont.EndDate.day());
                         System.debug('dt2::'+dt2);
                         servContRec.endDate = dt2.format('dd MMM '+dt2.year());
+                        servContRec.unixEndDate = dt2.format('YYYYMMdd');
                         System.debug('servContRec.endDate::'+servContRec.endDate);
                         servContRec.contractDescription = servCont.Description;
                         servContRec.ygSalesManager = servCont.YG_Sales_Manager_Name__c;
@@ -283,15 +312,32 @@ public class YG_AllServiceContractsController {
                         if(servCont.Status == 'Expired'){
                             expiredStatus ++;
                         }
+                        //To check the contract is renewed for notification
+                        System.debug('servCont.Renewed_Contract__c::'+servCont.Renewed_Contract__c);
+                        if(servCont.Renewed_Contract__c != null){
+                            String renew = servCont.Renewed_Contract__c;
+                            servContRec.renewcontractNum = renew;
+                            Date renewEndDate = contEndDate.get(renew);
+                            if(renewEndDate != null){
+                                Datetime renewdt1 = Datetime.newInstance(renewEndDate.year(),renewEndDate.month(),renewEndDate.day());
+                                String renewdate = renewdt1.format('dd MMM '+dt1.year());
+                                String noti2= renew +' '+Label.YG_on+' '+renewdate;
+                                renewdate = Label.YG_Expired_on + ' '+renewdate;
+                                notificationExpCont.add(renewdate);
+                                notificationExpCont.add(noti2);
+                                servContRec.notification2 = notificationExpCont;
+                            }
+                            System.debug('servContRec.notification2::'+servContRec.notification2);
+                        }
                         /*if(servCont.Contract_categories__c == 'Industrial Automation'){
-                            industryAuto ++;
-                        }
-                        if(servCont.Contract_categories__c == 'Test & Measurement'){
-                            testAndMeasure ++;
-                        }
-                        if(servCont.Contract_categories__c == 'Life Innovation'){
-                            lifeInno ++;
-                        }*/
+industryAuto ++;
+}
+if(servCont.Contract_categories__c == 'Test & Measurement'){
+testAndMeasure ++;
+}
+if(servCont.Contract_categories__c == 'Life Innovation'){
+lifeInno ++;
+}*/
                         serviceContractListWrap.add(servContRec);
                     }
                 }
@@ -306,8 +352,8 @@ public class YG_AllServiceContractsController {
                 servContract.futureContract = inactiveStatus;
                 servContract.expiredContract = expiredStatus;
                 /*servContract.industrialAutoCnt = industryAuto;
-        		servContract.testAndMeasureCnt = testAndMeasure;
-        		servContract.lifeInnovationCnt = lifeInno;*/
+servContract.testAndMeasureCnt = testAndMeasure;
+servContract.lifeInnovationCnt = lifeInno;*/
                 
                 
             }else{
@@ -318,24 +364,24 @@ public class YG_AllServiceContractsController {
                 servContract.futureContract = servNotiWrap.futureContract;
                 servContract.expiredContract = servNotiWrap.expiredContract;
                 /*servContract.industrialAutoCnt = servNotiWrap.industrialAutoCnt;
-        		servContract.testAndMeasureCnt = servNotiWrap.testAndMeasureCnt;
-        		servContract.lifeInnovationCnt = servNotiWrap.lifeInnovationCnt;*/
+servContract.testAndMeasureCnt = servNotiWrap.testAndMeasureCnt;
+servContract.lifeInnovationCnt = servNotiWrap.lifeInnovationCnt;*/
             }
             System.debug('expiryLessSixMon::'+expiryLessSixMon);
             System.debug('activeStatus::'+activeStatus);
             System.debug('inactiveStatus::'+inactiveStatus);
             System.debug('expiredStatus::'+expiredStatus);
             /*System.debug('industryAuto::'+industryAuto);
-            System.debug('testAndMeasure::'+testAndMeasure);
-            System.debug('lifeInno::'+lifeInno);*/
+System.debug('testAndMeasure::'+testAndMeasure);
+System.debug('lifeInno::'+lifeInno);*/
             
             System.debug('servContract.expirySixMonths::'+servContract.expirySixMonths);
             System.debug('servContract.activeContract::'+servContract.activeContract);
             System.debug('servContract.futureContract::'+servContract.futureContract);
             System.debug('servContract.expiredContract::'+servContract.expiredContract);
             /*System.debug('servContract.industrialAutoCnt::'+servContract.industrialAutoCnt);
-            System.debug('servContract.testAndMeasureCnt::'+servContract.testAndMeasureCnt);
-            System.debug('servContract.lifeInnovationCnt::'+servContract.lifeInnovationCnt);*/
+System.debug('servContract.testAndMeasureCnt::'+servContract.testAndMeasureCnt);
+System.debug('servContract.lifeInnovationCnt::'+servContract.lifeInnovationCnt);*/
             
             
             //This condition is used to get the data for button filter 'Expiry than 6 months'
@@ -348,8 +394,8 @@ public class YG_AllServiceContractsController {
                     if(serv.notification != null){
                         String selectedStatus = serv.notification;
                         //if(selectedStatus.contains(filterdByStatus)){
-                            system.debug('serv::'+serv);
-                            serviceContExpListWrap.add(serv);
+                        system.debug('serv::'+serv);
+                        serviceContExpListWrap.add(serv);
                         //}
                     }
                 }
@@ -407,8 +453,8 @@ public class YG_AllServiceContractsController {
         @AuraEnabled public Integer expiredContract;
         @AuraEnabled public Integer radioBtnCnt;
         /*@AuraEnabled public Integer industrialAutoCnt;
-        @AuraEnabled public Integer testAndMeasureCnt;
-        @AuraEnabled public Integer lifeInnovationCnt;*/
+@AuraEnabled public Integer testAndMeasureCnt;
+@AuraEnabled public Integer lifeInnovationCnt;*/
         
         @AuraEnabled public List<ServiceContracts> ServiceContractsList;
     }
@@ -419,10 +465,14 @@ public class YG_AllServiceContractsController {
         @AuraEnabled public String productName;
         @AuraEnabled public String serialNum;
         @AuraEnabled public String ygSalesManager;
+        @AuraEnabled public String unixStartDate;
         @AuraEnabled public String startDate;
         @AuraEnabled public String endDate;
+        @AuraEnabled public String unixEndDate;
         @AuraEnabled public String notification;
+        @AuraEnabled public List<String> notification2;
         @AuraEnabled public String industry;
+        @AuraEnabled public String renewcontractNum;
         
     }
     
@@ -472,19 +522,19 @@ public class YG_AllServiceContractsController {
         System.debug('contractIdList::'+contractIdList);
         
         //This logic used to get the contract without any sop system assets and this contract relate to the account
-            List<Id> servContWithoutSop = YG_AllServiceContractsController.getServContWithoutSOP(accId);
-            System.debug('servContWithoutSop::'+servContWithoutSop);
-            for(Id servId : servContWithoutSop){
-                if(!contractIdList.contains(servId)){
-                    contractIdList.add(servId);
-                }
+        List<Id> servContWithoutSop = YG_AllServiceContractsController.getServContWithoutSOP(accId);
+        System.debug('servContWithoutSop::'+servContWithoutSop);
+        for(Id servId : servContWithoutSop){
+            if(!contractIdList.contains(servId)){
+                contractIdList.add(servId);
             }
-            System.debug('final servCont Ids::'+contractIdList);
+        }
+        System.debug('final servCont Ids::'+contractIdList);
         
         if(contractIdList.size() > 0){
             serviceContractTotalCnt = [Select Id, Contract_No__c, Name, Description, YG_Sales_Manager_Name__c, YG_Sales_Manager_Email__c, YG_Sales_Manager_contact_no__c,
-                                        (Select Id, Asset__r.Name, Asset__r.Product2.Name  From Scope_of_Product__r)
-                                        From ServiceContract Where Id IN: contractIdList];
+                                       (Select Id, Asset__r.Name, Asset__r.Product2.Name  From Scope_of_Product__r)
+                                       From ServiceContract Where Id IN: contractIdList];
             if(serviceContractTotalCnt.size() > 0){
                 totalContractSize = serviceContractTotalCnt.size();
             }
@@ -504,7 +554,7 @@ public class YG_AllServiceContractsController {
         colorcode.put('Active','yok-green');
         colorcode.put('Expired','orange-red');
         ServiceContract servContract=new ServiceContract();
-       
+        
         for(ServiceContract servCon: [Select Id, Contract_No__c, Name, Description, YG_Sales_Manager_Name__c, YG_Sales_Manager_Email__c, YG_Sales_Manager_contact_no__c,
                                       StartDate, EndDate, YG_Sales_Manager_profile_photo__c, contact.name, Owner.Name, Owner.Email, Owner.Phone,Contract_Type__c, Status, Contract_categories__c, Account.Name,
                                       (Select Id, Asset__r.Name, Asset__r.Product2.Name, Asset__r.Product2.Model_Code__c  From Scope_of_Product__r)
@@ -608,10 +658,10 @@ public class YG_AllServiceContractsController {
             System.debug('entitlementIdList::'+entitlementIdList);
             System.debug('entitlementIdListSize::'+entitlementIdList.size());
             System.debug('serviceContractId::'+serviceContractId);
-           
+            
             if(serviceContractId != null){
-            servContract = [Select Id, Name, Contract_No__c, StartDate, EndDate, Contract_Type__c, Renewed_Contract__c From ServiceContract Where Id=:serviceContractId];
-            System.debug('servContract::'+servContract);
+                servContract = [Select Id, Name, Contract_No__c, StartDate, EndDate, Contract_Type__c, Renewed_Contract__c From ServiceContract Where Id=:serviceContractId];
+                System.debug('servContract::'+servContract);
             }
             servMenu.contractNum =  servContract.Contract_No__c;
             servMenu.contractType =  servContract.Contract_Type__c;
@@ -623,7 +673,7 @@ public class YG_AllServiceContractsController {
             //To get the notification bar data
             System.debug('servContract.Renewed_Contract__c'+servContract.Renewed_Contract__c);
             if(servContract.EndDate < now){
-                     conEndDate = null;
+                conEndDate = null;
             }else{
                 System.debug('else::');
                 conEndDate = servContract.EndDate;
@@ -654,23 +704,23 @@ public class YG_AllServiceContractsController {
                     ServiceMenuWrap servmenuWrap=new ServiceMenuWrap();
                     servMenu.productName = entitle.Asset.Product2.Name;
                     if(entitle.Name != null){
-                    servmenuWrap.serviceMenu = entitle.Name;
+                        servmenuWrap.serviceMenu = entitle.Name;
                     }else{
                         servmenuWrap.serviceMenu = '-';
                     }
                     if(entitle.Entitlement_type__c != null){
-                    servmenuWrap.entitlementType = entitle.Entitlement_type__c;
+                        servmenuWrap.entitlementType = entitle.Entitlement_type__c;
                     }else{
                         servmenuWrap.entitlementType = '-';
                     }
                     if(entitle.Entitlement_quantity__c != null){
-                    servmenuWrap.entitlementQuantity = entitle.Entitlement_quantity__c;
+                        servmenuWrap.entitlementQuantity = entitle.Entitlement_quantity__c;
                     }
                     if(entitle.Entitlement_balance__c != null){
-                    servmenuWrap.entitlementBalance = entitle.Entitlement_balance__c;
+                        servmenuWrap.entitlementBalance = entitle.Entitlement_balance__c;
                     }
                     if(entitle.Per__c != null){
-                    servmenuWrap.per = entitle.Per__c;
+                        servmenuWrap.per = entitle.Per__c;
                     }else{
                         servmenuWrap.per = '-';
                     }
@@ -724,7 +774,7 @@ public class YG_AllServiceContractsController {
         System.debug('entitlementListID::'+entitlementListID);
         //Getting the date after 6monts
         Datetime dtTime=System.now();
-         Date now = date.today();
+        Date now = date.today();
         date dt= date.newinstance(dtTime.year(), dtTime.month(), dtTime.day());
         date dateAfter=dt.addMonths(+6);
         List<String> inspections=new List<String>(); //to store the inspection dates
@@ -771,9 +821,9 @@ public class YG_AllServiceContractsController {
             }
             
             if(inspections.size() > 0){
-                    notiCnt ++;
-                }
-             notiContract.notiCount =  notiCnt;
+                notiCnt ++;
+            }
+            notiContract.notiCount =  notiCnt;
         }
         return notiContract;
         
@@ -790,32 +840,32 @@ public class YG_AllServiceContractsController {
     //This method is used to get the contract Timeline
     @AuraEnabled
     public static ServMenuHistoryWrapper getServiceMenuTimeLine(String contractNum, String selectEntitlementId){ //
-    //public static ServMenuHistoryWrapper getServiceMenuTimeLine(){
+        //public static ServMenuHistoryWrapper getServiceMenuTimeLine(){
         HistoryWrap hisWrap=new HistoryWrap();
         //Id selectEntitlementId = '550p00000000m2PAAQ';
         List<String> entitlementId = new List<String>();//'550p00000000m25AAA';
         /*entitlementId.add('550p00000000m25AAA');
-        entitlementId.add('550p00000000m2KAAQ');
-        entitlementId.add('550p00000000m2PAAQ');
-        entitlementId.add('550p00000000m2UAAQ');
-        entitlementId.add('550p00000000m2ZAAQ');
-        entitlementId.add('550p00000000m2eAAA');
-        entitlementId.add('550p00000000m2jAAA');
-        entitlementId.add('550p00000000m2oAAA');*/
+entitlementId.add('550p00000000m2KAAQ');
+entitlementId.add('550p00000000m2PAAQ');
+entitlementId.add('550p00000000m2UAAQ');
+entitlementId.add('550p00000000m2ZAAQ');
+entitlementId.add('550p00000000m2eAAA');
+entitlementId.add('550p00000000m2jAAA');
+entitlementId.add('550p00000000m2oAAA');*/
         
         
         //Query to get the list of entitlement of a service contract
-            List<Entitlement> entitleList=new List<Entitlement>();
-            entitleList = [Select Id, Name, AccountId, ServiceContractId, AssetId, Per__c, Entitlement_quantity__c, Entitlement_type__c, 
-                           Entitlement_balance__c, ServiceContract.Name,ContractMainteCrmID__c From Entitlement Where ServiceContract.Contract_No__c =: contractNum ];
-            System.debug('entitleList::'+entitleList);
-            System.debug('entitleList::size::'+entitleList.size());
-            for(Entitlement entitle: entitleList){
-                entitlementId.add(entitle.ContractMainteCrmID__c);
-                
-            }
-            System.debug('entitlementId::'+entitlementId);
-            System.debug('entitlementId.size::'+entitlementId.size());
+        List<Entitlement> entitleList=new List<Entitlement>();
+        entitleList = [Select Id, Name, AccountId, ServiceContractId, AssetId, Per__c, Entitlement_quantity__c, Entitlement_type__c, 
+                       Entitlement_balance__c, ServiceContract.Name,ContractMainteCrmID__c From Entitlement Where ServiceContract.Contract_No__c =: contractNum ];
+        System.debug('entitleList::'+entitleList);
+        System.debug('entitleList::size::'+entitleList.size());
+        for(Entitlement entitle: entitleList){
+            entitlementId.add(entitle.ContractMainteCrmID__c);
+            
+        }
+        System.debug('entitlementId::'+entitlementId);
+        System.debug('entitlementId.size::'+entitlementId.size());
         
         
         //List<Inspection__c> inspectionList=new List<Inspection__c>();
@@ -834,84 +884,84 @@ public class YG_AllServiceContractsController {
         
         //Query to get the inspection list details
         /*inspectionList = [Select Name, Actual_Date__c, Scheduled_Date__c, Status__c, Type__c, Entitlement__r.Name from Inspection__c 
-                          Where Entitlement__c IN: entitlementId ORDER BY Actual_Date__c Desc];*/
+Where Entitlement__c IN: entitlementId ORDER BY Actual_Date__c Desc];*/
         Try{
-        if(selectEntitlementId == null){
-            System.debug('inside null');
-            inspectionList = [Select Actual_Date__c, Scheduled_Date__c, Status, Inspection_Category__c, Entitlement.Name from WorkOrder 
-                              Where Entitlement.ContractMainteCrmID__c IN: entitlementId ORDER BY Actual_Date__c Desc];
-            System.debug('inspectionList::'+inspectionList);
-            System.debug('inspectionList.size()::'+inspectionList.size());
-            
-            //Query to get the entitlement cases
-            
-            entitlementCaseList = [Select Id, CreatedDate, CaseNumber, Description, status, Subject, Entitlement.Id, Entitlement.Name,ContractMainteCrmID__c 
-                                   from case Where ContractMainteCrmID__c IN: entitlementId];
-            if(entitlementCaseList.size() > 0){
-                for(Case caseId : entitlementCaseList){
-                    casId.add(caseId.Id);
+            if(selectEntitlementId == null){
+                System.debug('inside null');
+                inspectionList = [Select Actual_Date__c, Scheduled_Date__c, Status, Inspection_Category__c, Entitlement.Name from WorkOrder 
+                                  Where Entitlement.ContractMainteCrmID__c IN: entitlementId ORDER BY Actual_Date__c Desc];
+                System.debug('inspectionList::'+inspectionList);
+                System.debug('inspectionList.size()::'+inspectionList.size());
+                
+                //Query to get the entitlement cases
+                
+                entitlementCaseList = [Select Id, CreatedDate, CaseNumber, Description, status, Subject, Entitlement.Id, Entitlement.Name,ContractMainteCrmID__c 
+                                       from case Where ContractMainteCrmID__c IN: entitlementId];
+                if(entitlementCaseList.size() > 0){
+                    for(Case caseId : entitlementCaseList){
+                        casId.add(caseId.Id);
+                    }
                 }
-            }
-            System.debug('casId::'+casId);
-            
-        }else{
-            System.debug('inside ID:'+selectEntitlementId);
-            inspectionList = [Select Actual_Date__c, Scheduled_Date__c, Status, Inspection_Category__c, Entitlement.Name from WorkOrder 
-                              Where Entitlement.ContractMainteCrmID__c =:selectEntitlementId  ORDER BY Actual_Date__c Desc];
-            System.debug('inspectionList::'+inspectionList);
-            System.debug('inspectionList.size()::'+inspectionList.size());
-            
-            //Query to get the entitlement cases
-            
-            entitlementCaseList = [Select Id, CreatedDate, CaseNumber, Description, status, Subject, Entitlement.Id, Entitlement.Name
-                                   from case Where ContractMainteCrmID__c =: selectEntitlementId];
-            if(entitlementCaseList.size() > 0){
-                for(Case caseId : entitlementCaseList){
-                    casId.add(caseId.Id);
+                System.debug('casId::'+casId);
+                
+            }else{
+                System.debug('inside ID:'+selectEntitlementId);
+                inspectionList = [Select Actual_Date__c, Scheduled_Date__c, Status, Inspection_Category__c, Entitlement.Name from WorkOrder 
+                                  Where Entitlement.ContractMainteCrmID__c =:selectEntitlementId  ORDER BY Actual_Date__c Desc];
+                System.debug('inspectionList::'+inspectionList);
+                System.debug('inspectionList.size()::'+inspectionList.size());
+                
+                //Query to get the entitlement cases
+                
+                entitlementCaseList = [Select Id, CreatedDate, CaseNumber, Description, status, Subject, Entitlement.Id, Entitlement.Name
+                                       from case Where ContractMainteCrmID__c =: selectEntitlementId];
+                if(entitlementCaseList.size() > 0){
+                    for(Case caseId : entitlementCaseList){
+                        casId.add(caseId.Id);
+                    }
                 }
+                System.debug('casId::'+casId);
+                System.debug('casId::'+casId);
             }
-            System.debug('casId::'+casId);
-            System.debug('casId::'+casId);
-        }
-        
-        if(casId.size() > 0){
+            
+            if(casId.size() > 0){
                 casehist = [select CaseId, NewValue, OldValue, CreatedDate from CaseHistory where CaseId IN: casId and Field='Progress__c' ORDER BY CreatedDate Desc];
             }
-        //Getting the unique year and adding in the list
-        /*if(casehist.size() > 0){
-            for(CaseHistory c: casehist){
-                if(c.CreatedDate != null){
-                    Integer year = c.CreatedDate.Year();
-                    if(!yr.contains(year)){
-                        yr.add(year);
+            //Getting the unique year and adding in the list
+            /*if(casehist.size() > 0){
+for(CaseHistory c: casehist){
+if(c.CreatedDate != null){
+Integer year = c.CreatedDate.Year();
+if(!yr.contains(year)){
+yr.add(year);
+}
+}
+}
+}*/
+            if(entitlementCaseList.size() > 0){
+                for(case c: entitlementCaseList){
+                    if(c.CreatedDate != null){
+                        Integer year = c.CreatedDate.Year();
+                        if(!yr.contains(year)){
+                            yr.add(year);
+                        }
                     }
                 }
             }
-        }*/
-         if(entitlementCaseList.size() > 0){
-            for(case c: entitlementCaseList){
-                if(c.CreatedDate != null){
-                    Integer year = c.CreatedDate.Year();
-                    if(!yr.contains(year)){
-                        yr.add(year);
-                    }
-                }
-            }
-        }
             
-        System.debug('yr:::'+yr);
-        if(inspectionList.size() > 0){
-            for(WorkOrder ins: inspectionList){
-                if(ins.Actual_Date__c != null){
-                    Integer year = ins.Actual_Date__c.Year();
-                    if(!yr.contains(year)){
-                        yr.add(year);
+            System.debug('yr:::'+yr);
+            if(inspectionList.size() > 0){
+                for(WorkOrder ins: inspectionList){
+                    if(ins.Actual_Date__c != null){
+                        Integer year = ins.Actual_Date__c.Year();
+                        if(!yr.contains(year)){
+                            yr.add(year);
+                        }
                     }
                 }
             }
-        }
-        System.debug('yr:::'+yr);
-        
+            System.debug('yr:::'+yr);
+            
             //Sorting the years in Descending
             //yr.sort(desc);
             for(Integer i = 0 ; i < yr.size() ; i ++) {
@@ -925,146 +975,146 @@ public class YG_AllServiceContractsController {
                     }
                 }
             }
-        //logic to add the inspection records to the timeline map
-        for(Integer year : yr){
-            List<sObjectData> sObjList=new List<sObjectData>();
-            Integer timeLineYear = year;
-            System.debug('year::'+year);
-            if(inspectionList.size() > 0){
+            //logic to add the inspection records to the timeline map
+            for(Integer year : yr){
+                List<sObjectData> sObjList=new List<sObjectData>();
+                Integer timeLineYear = year;
+                System.debug('year::'+year);
+                if(inspectionList.size() > 0){
+                    sObjectData sObj;
+                    for(WorkOrder inspec : inspectionList){
+                        sObj=new sObjectData();
+                        if(inspec.Actual_Date__c != null){
+                            System.debug('inspec::'+inspec);
+                            if(inspec.Actual_Date__c.Year() == year){
+                                System.debug('inspec.Actual_Date__c.Year()::'+inspec.Actual_Date__c.Year());
+                                System.debug('Year()::'+year);
+                                //sObjectData sObj=new sObjectData();
+                                sObj.type = 'Inspection';
+                                sObj.description = 'Scheduled Patrol Inspection';
+                                sObj.dateValue = inspec.Actual_Date__c;
+                                Datetime dt = Datetime.newInstance(inspec.Actual_Date__c.year(),inspec.Actual_Date__c.month(),inspec.Actual_Date__c.day());
+                                sObj.hisDate = dt.format('dd MMMM '+dt.year());
+                                System.debug('sObj::'+sObj);
+                                sObjList.add(sObj);
+                                System.debug('sObjList:::'+sObjList);
+                            }
+                        }
+                    }
+                    mapOfTimeline1.put(timeLineYear, sObjList);
+                    System.debug('mapOfTimeline1:::'+mapOfTimeline1);
+                }
+                System.debug('sObjList.size():::'+sObjList.size());
+            }
+            System.debug('mapOfTimeline1:::'+mapOfTimeline1);
+            
+            //
+            
+            //logic to add the case records to the timeline map
+            
+            for(Integer year : yr){
+                List<sObjectData> sObjList=new List<sObjectData>();
                 sObjectData sObj;
-                for(WorkOrder inspec : inspectionList){
+                for(Case caseRec : entitlementCaseList){
                     sObj=new sObjectData();
-                    if(inspec.Actual_Date__c != null){
-                        System.debug('inspec::'+inspec);
-                        if(inspec.Actual_Date__c.Year() == year){
-                            System.debug('inspec.Actual_Date__c.Year()::'+inspec.Actual_Date__c.Year());
-                            System.debug('Year()::'+year);
-                            //sObjectData sObj=new sObjectData();
-                            sObj.type = 'Inspection';
-                            sObj.description = 'Scheduled Patrol Inspection';
-                            sObj.dateValue = inspec.Actual_Date__c;
-                            Datetime dt = Datetime.newInstance(inspec.Actual_Date__c.year(),inspec.Actual_Date__c.month(),inspec.Actual_Date__c.day());
-                            sObj.hisDate = dt.format('dd MMMM '+dt.year());
-                            System.debug('sObj::'+sObj);
-                            sObjList.add(sObj);
-                            System.debug('sObjList:::'+sObjList);
+                    if(caseRec.CreatedDate.Year() == year){
+                        sObj.type = 'Case';
+                        sObj.caseno = caseRec.CaseNumber;
+                        sObj.status = caseRec.Status;
+                        sObj.dateValue = caseRec.CreatedDate;
+                        Datetime dt2 = Datetime.newInstance(caseRec.CreatedDate.year(),caseRec.CreatedDate.month(),caseRec.CreatedDate.day());
+                        sObj.caseCreatedDate = dt2.format('dd MMMM '+dt2.year());
+                        sObj.caseSubject = caseRec.Subject;
+                        List<caseHis>  caseHisList=new List<caseHis>();
+                        caseHis casHisRec;
+                        for(CaseHistory caseHisRec  : casehist){
+                            System.debug('caseHisRec::'+caseHisRec);
+                            casHisRec=new caseHis();
+                            if(caseRec.Id == caseHisRec.CaseId){
+                                casHisRec.progress = caseHisRec.NewValue.toString();
+                                Datetime dt = Datetime.newInstance(caseHisRec.CreatedDate.year(),caseHisRec.CreatedDate.month(),caseHisRec.CreatedDate.day());
+                                casHisRec.hisDate = dt.format('dd MMMM '+dt.year());
+                                caseHisList.add(casHisRec);
+                            }
                         }
+                        mapOfTimelineCaseHis.put(sObj.caseno,  caseHisList);
+                        System.debug('mapOfTimelineCaseHis::'+mapOfTimelineCaseHis);
+                        //sObj.serCaseHis = caseHisList;
+                        sObjList.add(sObj);
                     }
                 }
-                mapOfTimeline1.put(timeLineYear, sObjList);
-                System.debug('mapOfTimeline1:::'+mapOfTimeline1);
+                mapOfTimeline2.put(year, sObjList);
+                System.debug('sObjList:::'+sObjList);
+                System.debug('sObjList.size():::'+sObjList.size());
             }
-            System.debug('sObjList.size():::'+sObjList.size());
-        }
-        System.debug('mapOfTimeline1:::'+mapOfTimeline1);
-        
-        //
-        
-        //logic to add the case records to the timeline map
-        
-        for(Integer year : yr){
-            List<sObjectData> sObjList=new List<sObjectData>();
-            sObjectData sObj;
-            for(Case caseRec : entitlementCaseList){
-                sObj=new sObjectData();
-                if(caseRec.CreatedDate.Year() == year){
-                    sObj.type = 'Case';
-                    sObj.caseno = caseRec.CaseNumber;
-                    sObj.status = caseRec.Status;
-                    sObj.dateValue = caseRec.CreatedDate;
-                    Datetime dt2 = Datetime.newInstance(caseRec.CreatedDate.year(),caseRec.CreatedDate.month(),caseRec.CreatedDate.day());
-                    sObj.caseCreatedDate = dt2.format('dd MMMM '+dt2.year());
-                    sObj.caseSubject = caseRec.Subject;
-                    List<caseHis>  caseHisList=new List<caseHis>();
-                    caseHis casHisRec;
-                    for(CaseHistory caseHisRec  : casehist){
-                        System.debug('caseHisRec::'+caseHisRec);
-                        casHisRec=new caseHis();
-                        if(caseRec.Id == caseHisRec.CaseId){
-                            casHisRec.progress = caseHisRec.NewValue.toString();
-                            Datetime dt = Datetime.newInstance(caseHisRec.CreatedDate.year(),caseHisRec.CreatedDate.month(),caseHisRec.CreatedDate.day());
-                            casHisRec.hisDate = dt.format('dd MMMM '+dt.year());
-                            caseHisList.add(casHisRec);
-                        }
-                    }
-                    mapOfTimelineCaseHis.put(sObj.caseno,  caseHisList);
-                    System.debug('mapOfTimelineCaseHis::'+mapOfTimelineCaseHis);
-                    //sObj.serCaseHis = caseHisList;
-                    sObjList.add(sObj);
-                }
-            }
-            mapOfTimeline2.put(year, sObjList);
-            System.debug('sObjList:::'+sObjList);
-            System.debug('sObjList.size():::'+sObjList.size());
-        }
-        System.debug('mapOfTimeline2:::'+mapOfTimeline2);
-        //mapOfTimeline1.putAll(mapOfTimeline2);
-        //System.debug('mapOfTimeline1:::'+mapOfTimeline1);
-        
-        //Merging two maps
-        
-        for(Integer year : yr){
-            HistoryWrap hisWra = new HistoryWrap();
-            hisWra.prodYear = year;
-            List<sObjectData> objList = new List<sObjectData>();
+            System.debug('mapOfTimeline2:::'+mapOfTimeline2);
+            //mapOfTimeline1.putAll(mapOfTimeline2);
+            //System.debug('mapOfTimeline1:::'+mapOfTimeline1);
             
-            if(mapOfTimeline1.get(year) != null){
-                for(sObjectData ph: mapOfTimeline1.get(year)){
-                    sObjectData sOData = new sObjectData();
-                    if(ph.dateValue.Year() == year){
-                        sOData.type = ph.type;
-                        sOData.description = ph.description;
-                        sOData.dateValue =  ph.dateValue;
-                        sOData.hisDate = ph.hisDate;    
-                        objList.add(sOData); 
-                    }
-                }
-            }
+            //Merging two maps
             
-            if(mapOfTimeline2.get(year) != null){
-                for(sObjectData ph: mapOfTimeline2.get(year)){
-                    sObjectData sOData = new sObjectData();
-                    if(ph.dateValue != null){
+            for(Integer year : yr){
+                HistoryWrap hisWra = new HistoryWrap();
+                hisWra.prodYear = year;
+                List<sObjectData> objList = new List<sObjectData>();
+                
+                if(mapOfTimeline1.get(year) != null){
+                    for(sObjectData ph: mapOfTimeline1.get(year)){
+                        sObjectData sOData = new sObjectData();
                         if(ph.dateValue.Year() == year){
                             sOData.type = ph.type;
                             sOData.description = ph.description;
                             sOData.dateValue =  ph.dateValue;
-                            sOData.hisDate = ph.hisDate; 
-                            sOData.caseno = ph.caseno;
-                            sOData.status = ph.status;
-                            sOData.caseSubject = ph.caseSubject;
-                            sOData.caseCreatedDate = ph.caseCreatedDate;
-                            if(ph.caseno != null){
-                                List<caseHis> csHisList=new List<caseHis>();
-                                //for(caseHis cs: ph.serCaseHis){
-                                if(mapOfTimelineCaseHis.get(ph.caseno) != null){
-                                    for(caseHis cs: mapOfTimelineCaseHis.get(ph.caseno)){
-                                        System.debug('cs:::'+cs);
-                                        caseHis csHisRec=new caseHis();
-                                        if(cs.progress != null){
-                                            csHisRec.progress = cs.progress;
-                                        }
-                                        if(cs.hisDate != null){
-                                            csHisRec.hisDate = cs.hisDate;
-                                        }
-                                        csHisList.add(csHisRec);
-                                        
-                                    }
-                                }
-                                sOData.serCaseHis = csHisList;
-                            }
+                            sOData.hisDate = ph.hisDate;    
                             objList.add(sOData); 
                         }
                     }
                 }
+                
+                if(mapOfTimeline2.get(year) != null){
+                    for(sObjectData ph: mapOfTimeline2.get(year)){
+                        sObjectData sOData = new sObjectData();
+                        if(ph.dateValue != null){
+                            if(ph.dateValue.Year() == year){
+                                sOData.type = ph.type;
+                                sOData.description = ph.description;
+                                sOData.dateValue =  ph.dateValue;
+                                sOData.hisDate = ph.hisDate; 
+                                sOData.caseno = ph.caseno;
+                                sOData.status = ph.status;
+                                sOData.caseSubject = ph.caseSubject;
+                                sOData.caseCreatedDate = ph.caseCreatedDate;
+                                if(ph.caseno != null){
+                                    List<caseHis> csHisList=new List<caseHis>();
+                                    //for(caseHis cs: ph.serCaseHis){
+                                    if(mapOfTimelineCaseHis.get(ph.caseno) != null){
+                                        for(caseHis cs: mapOfTimelineCaseHis.get(ph.caseno)){
+                                            System.debug('cs:::'+cs);
+                                            caseHis csHisRec=new caseHis();
+                                            if(cs.progress != null){
+                                                csHisRec.progress = cs.progress;
+                                            }
+                                            if(cs.hisDate != null){
+                                                csHisRec.hisDate = cs.hisDate;
+                                            }
+                                            csHisList.add(csHisRec);
+                                            
+                                        }
+                                    }
+                                    sOData.serCaseHis = csHisList;
+                                }
+                                objList.add(sOData); 
+                            }
+                        }
+                    }
+                }
+                System.debug('objList::'+objList);
+                hisWra.servMenuHis = objList;
+                hisWrapList.add(hisWra);
             }
-            System.debug('objList::'+objList);
-            hisWra.servMenuHis = objList;
-            hisWrapList.add(hisWra);
-        }
-        system.debug('hisWrapList::'+hisWrapList);
-        servHisWrap.hisWrap = hisWrapList;
-        system.debug('servHisWrap::'+servHisWrap);
+            system.debug('hisWrapList::'+hisWrapList);
+            servHisWrap.hisWrap = hisWrapList;
+            system.debug('servHisWrap::'+servHisWrap);
         }catch(Exception e){
             system.debug('Exception Cause::'+e.getCause());
             system.debug('Exception LineNumber::'+e.getLineNumber());
@@ -1154,7 +1204,7 @@ public class YG_AllServiceContractsController {
         ContractName = serviceCont.Name;
         return ContractName;
     }
-     //This method is used to get the submitted case details on the renewal of contract thankyou page
+    //This method is used to get the submitted case details on the renewal of contract thankyou page
     @AuraEnabled
     public static Case getContractCaseSubmitThankYouPageDetails(String caseid){
         System.debug('caseid::'+caseid);

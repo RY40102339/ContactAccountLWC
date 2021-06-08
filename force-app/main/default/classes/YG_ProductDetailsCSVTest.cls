@@ -12,7 +12,8 @@
 *
 *  Change History:
 *  MM/DD/YYYY			Developer Name			Comments
-*
+*  04/22/2021				Kavya				Removed Plant__c Object and eplaced with Account Object also removed Customer_Plant__c Object and replaced with AccountContactRelation Object.
+*												Removed Plant__c(Plant) Lookup field from Asset and Project Objects and newly added PlantAccount__c(Account) Lookup field in Asset  and Project Object.
 *
 */
 @istest
@@ -21,6 +22,7 @@ public class YG_ProductDetailsCSVTest {
         //Insert test account record
         Account acc = new account();
         acc.name='Test Account';        
+         acc.Type = 'Customer';
         //acc.DUNS_Number__c=102224222; 
         insert acc;    
         
@@ -43,33 +45,55 @@ public class YG_ProductDetailsCSVTest {
         insert user;   
         
         //Insert test plant record
-        List<Plant__c> plantList=new List<Plant__c>();
+        /*List<Plant__c> plantList=new List<Plant__c>();
         Plant__c plant1=new Plant__c();
         plant1.Name = 'TestPlant';
         plant1.Account__c = acc.Id;  
         plant1.Plant_Code__c = '300000142';
         plant1.Lang_Code__c = 'EN';
         plantList.add(plant1);
+        insert plantList;*/
+        
+         //Insert test plant record
+        List<Account> plantList=new List<Account>();
+        Account plant1=new Account();
+        plant1.Name = 'TestPlant';
+        plant1.ParentId = acc.Id;  
+        plant1.AccountNumber = '300000142';
+        plant1.Type = 'Plant';
+        plantList.add(plant1);
         insert plantList;
         
         List<Id> pltId = new List<Id>();
-        for(Plant__c plt: plantList){
+        /*for(Plant__c plt: plantList){
+            pltId.add(plt.Id);
+        }*/
+        for(Account plt: plantList){
             pltId.add(plt.Id);
         }
         
         //Insert test customer plant record
-        List<Customer_Plant__c> cusPlantList=new List<Customer_Plant__c>();
+       /* List<Customer_Plant__c> cusPlantList=new List<Customer_Plant__c>();
         Customer_Plant__c cusPlant1=new Customer_Plant__c();
         cusPlant1.Contact__c = con.Id;
         cusPlant1.Plant__c = plant1.Id;
+        cusPlantList.add(cusPlant1);
+        insert cusPlantList;*/
+        
+        //Insert test customer plant record
+        List<AccountContactRelation> cusPlantList=new List<AccountContactRelation>();
+        AccountContactRelation cusPlant1=new AccountContactRelation();
+        cusPlant1.ContactId = con.Id;
+        cusPlant1.AccountId = plant1.Id;
         cusPlantList.add(cusPlant1);
         insert cusPlantList;
         
         //Insert test project record
         List<Project__c> projectList=new List<Project__c>();
         Project__c proj1=new Project__c();
+        proj1.Account__c = plant1.Id;
         proj1.Account__c = acc.Id;
-        proj1.Plant__c = plant1.Id;
+        proj1.PlantAccount__c = plant1.Id;
         proj1.Project_Code__c = 'VP700250';
         projectList.add(proj1);
         insert projectList;
@@ -115,7 +139,7 @@ public class YG_ProductDetailsCSVTest {
         prod2.Name = 'Device Smart Communicators BT200';
         prod2.Model_Code__c = 'BT200';
         prod2.Category__c = catg3.Id;
-        prod2.Production_Date__c = Date.newInstance(2014, 12, 17);
+       // prod2.Production_Date__c = Date.newInstance(2014, 12, 17);
         prod2.Lang_Code__c = 'EN';
         prodList.add(prod2);
         
@@ -130,7 +154,7 @@ public class YG_ProductDetailsCSVTest {
         ass1.AccountId = acc.Id;
         ass1.ContactId = con.Id;
         ass1.SerialNumber = 'SU1234567';
-        ass1.Plant__c = plant1.Id;
+       ass1.PlantAccount__c = plant1.Id;
         ass1.MS_Code__c = 'AAI543-H50';
         ass1.Lang_Code__c = 'EN';
         ass1.Status = 'Installed';
@@ -140,10 +164,10 @@ public class YG_ProductDetailsCSVTest {
         Asset ass2=new Asset();
         ass2.Name = 'SU1234568';
         ass2.Product2Id = prod2.Id;
-        ass2.AccountId = acc.Id;
+       ass2.AccountId = acc.Id;
         ass2.ContactId = con.Id;
         ass2.SerialNumber = 'SU1234568';
-        ass2.Plant__c = plant1.Id;
+      ass2.PlantAccount__c = plant1.Id;
         ass2.MS_Code__c = 'AAI543-H50';
         ass2.Lang_Code__c = 'EN';
         ass2.Status = 'Installed';
@@ -156,7 +180,7 @@ public class YG_ProductDetailsCSVTest {
         ass3.AccountId = acc.Id;
         ass3.ContactId = con.Id;
         ass3.SerialNumber = 'SU1234569';
-        ass3.Plant__c = plant1.Id;
+        ass3.PlantAccount__c = plant1.Id;
         ass3.MS_Code__c = 'AAI543-H50';
         ass3.Status = 'Installed';
         ass3.Lang_Code__c = 'EN';
@@ -169,7 +193,7 @@ public class YG_ProductDetailsCSVTest {
         ass4.AccountId = acc.Id;
         ass4.ContactId = con.Id;
         ass4.SerialNumber = 'SU1234579';
-        ass4.Plant__c = plant1.Id;
+       ass4.PlantAccount__c = plant1.Id;
         ass4.MS_Code__c = 'AAI543-H50';
         ass4.Status = 'Installed';
         ass4.Lang_Code__c = 'EN';
@@ -182,7 +206,7 @@ public class YG_ProductDetailsCSVTest {
         ass5.AccountId = acc.Id;
         ass5.ContactId = con.Id;
         ass5.SerialNumber = 'SU1234589';
-        ass5.Plant__c = plant1.Id;
+        ass5.PlantAccount__c = plant1.Id;
         ass5.MS_Code__c = 'AAI543-H50';
         ass5.Status = 'Installed';
         ass5.Lang_Code__c = 'EN';

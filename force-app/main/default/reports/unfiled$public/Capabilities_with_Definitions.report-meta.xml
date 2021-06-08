@@ -6,6 +6,7 @@
     <columns>
         <field>aecm__Capability_Area__c.aecm__Capabilities__r$aecm__Short_Description__c</field>
     </columns>
+    <currency>JPY</currency>
     <filter>
         <criteriaItems>
             <column>aecm__Capability_Area__c.aecm__Capabilities__r$Name</column>
@@ -14,6 +15,7 @@
             <operator>notEqual</operator>
             <value>**placeholder**</value>
         </criteriaItems>
+        <language>en_US</language>
     </filter>
     <format>Summary</format>
     <groupingsDown>

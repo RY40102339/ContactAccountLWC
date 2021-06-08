@@ -177,7 +177,12 @@ public class YG_GridController {
                 Integer contractExpired = 0;
                 Integer contractToBeExpired = 0;
                 
-                prodDet.products =prod.Product_Categories__c;
+                if(prod.Category__r.Category_Hierarchy__r.CategoryHierarchyCodes__c != null){
+                prodDet.products = YG_GridController.getCategoryHierarchies(prod.Category__r.Category_Hierarchy__r.CategoryHierarchyCodes__c, langCode);
+                }else{
+                  // prodDet.products =prod.Category__r.Name;
+                }
+                //prodDet.products =prod.Product_Categories__c;
                 prodDet.modelCode = prod.Model_Code__c;
                 prodDet.productNameAndCode = prod.Name +' '+prod.Model_Code__c;
                 
@@ -276,6 +281,30 @@ public class YG_GridController {
         @AuraEnabled public integer qty;
         @AuraEnabled public List<string> notifications = new List<String>();
         @AuraEnabled public integer notificationCount = 0;
+    }
+    
+    //This method is used to get the category hierarchies 
+    @AuraEnabled
+    public static String getCategoryHierarchies(String catHierarchyCodes, String langCode){
+        //System.debug('catLevel::'+catLevel);
+        System.debug('catHierarchyCodes::'+catHierarchyCodes);
+        System.debug('langCode:::'+langCode);
+        List<Category__c> catList=new List<Category__c>();
+        List<String> finalCategories=new List<String>();
+        String[]  catCodes;
+        //catLevel -=catLevel;
+        String sString = catHierarchyCodes;
+        String[] splitted = sString.split('\\/');
+        System.debug('splitted::'+splitted);
+        System.debug('splitted::'+splitted.size());
+        catList = [Select Name, Category_Type__c, Language_Code__c From Category__c Where Category_Hierarchy__r.Category_Code__c IN : splitted And Language_Code__c=:langCode];
+        System.debug('catList::'+catList);
+        for(Category__c cat:catList){
+            finalCategories.add(cat.Name);
+        }
+        String result = String.join(finalCategories, '/');
+        System.debug('result::'+result);
+        return result;
     }
    
         

@@ -71,7 +71,7 @@
     <name>Marketing Exec Campaign ROI by Camp Type</name>
     <params>
         <name>scopeid</name>
-        <value></value>
+        <value/>
     </params>
     <params>
         <name>co</name>

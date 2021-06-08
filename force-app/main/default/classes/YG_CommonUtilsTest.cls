@@ -63,7 +63,7 @@ public class YG_CommonUtilsTest {
            
              try{  
                  Date d= Date.newInstance(2016, 12, 9);
-                 Date d1= Date.newInstance(2020, 05, 01);
+                 Date d1= Date.newInstance(2020, 07, 01);
                  Integer i=01;
                  YG_CommonUtils.getWarrantyExpiryStr(d,i);
                  YG_CommonUtils.getWarrantyExpiryStr(d1,i);

@@ -22,22 +22,24 @@
     <div class="row overview-calc-width">
         <div class="section">
             <div class="col-lg-12">
-                <div class="row"> 
+                <div class="row">
                     <template if:false={displaySiteInfo}>
                         <div class="col-lg-12 mb-2">
                             <a class="blue-primary f14" href="javascript:void(0)" onclick={toggleSiteInfo}>
                                 <span class="f14 noto-font font-weight-normal mr-1">
                                     Show site info
                                 </span>
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
                                     <path d="M8 4V12" stroke="#004F9B" stroke-width="2" stroke-linecap="square"></path>
-                                    <path d="M12 8L4 8" stroke="#004F9B" stroke-width="2" stroke-linecap="square"></path>
+                                    <path d="M12 8L4 8" stroke="#004F9B" stroke-width="2" stroke-linecap="square">
+                                    </path>
                                 </svg>
                             </a>
                         </div>
                         <div class="col-lg-12">
                             <div class="chart-divider"></div>
-                        </div> 
+                        </div>
                     </template>
                     <template if:true={displaySiteInfo}>
                         <div class="col-lg-12 mb-2">
@@ -45,85 +47,71 @@
                                 <span class="f14 noto-font font-weight-normal mr-1">
                                     Hide site info
                                 </span>
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12 8L4 8" stroke="#004F9B" stroke-width="2" stroke-linecap="square"></path>
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 8L4 8" stroke="#004F9B" stroke-width="2" stroke-linecap="square">
+                                    </path>
                                 </svg>
                             </a>
                         </div>
                         <div class="col-lg-12">
                             <div style="border: 1px solid rgba(204, 220, 232, 0.2)"></div>
-                        </div> 
-                    </template>   
-                        <div class="col-lg-12 site_info_box" style="display: none;">
-                            <div class="col-lg-12 submit-data">
-                                <div class="row pt-3">
-                                    <div class="col-lg-5 mb-3">
-                                        <div class="f12 grey-dark-1">
-                                            <span class="f12 noto-font font-weight-normal">{label.siteName}</span>
-                                        </div>
-                                        <div class="f14 stat-name">
-                                            <span class="f14 noto-font fbold">{name}</span>
-                                        </div>
+                        </div>
+                    </template>
+                    <div class="col-lg-12 site_info_box" style="display: none;">
+                        <div class="col-lg-12 submit-data">
+                            <div class="row pt-3">
+                                <div class="col-lg-5 mb-4">
+                                    <div class="f12 grey-dark-1">
+                                        <span class="f12 noto-font font-weight-normal">{label.siteName}</span>
                                     </div>
-                                    <div class="col-lg-4 mb-3">
-                                        <div class="f12 grey-dark-1">
-                                            <span class="f12 noto-font font-weight-normal">{label.siteNumber}</span>
-                                        </div>
-                                        <div class="f14 stat-name">
-                                            <span class="f14 noto-font fbold">{sitenumber}</span>
-                                        </div>
+                                    <div class="f14 stat-name">
+                                        <span class="f14 noto-font fbold">{name}</span>
                                     </div>
-                                    <div class="col-lg-3 mb-3">
-                                        <div class="f12 grey-dark-1">
-                                            <span class="f12 noto-font font-weight-normal">{label.endUser}</span>
-                                        </div>
-                                        <div class="f14 stat-name">
-                                            <span class="f14 noto-font fbold">{accname}</span>
-                                        </div>
+                                </div>
+                                <div class="col-lg-4 mb-4">
+                                    <div class="f12 grey-dark-1">
+                                        <span class="f12 noto-font font-weight-normal">{label.country}</span>
                                     </div>
-                                    <div class="col-lg-5 mb-3">
-                                        <div class="f12 grey-dark-1">
-                                            <span class="f12 noto-font font-weight-normal">{label.shortName}</span>
-                                        </div>
-                                        <div class="f14 stat-name">
-                                            <span class="f14 noto-font fbold">{shortname}</span>
-                                        </div>
+                                    <div class="f14 stat-name">
+                                        <span class="f14 noto-font fbold">{country}</span>
                                     </div>
-                                    <div class="col-lg-4 mb-3">
-                                        <div class="f12 grey-dark-1">
-                                            <span class="f12 noto-font font-weight-normal">{label.country}</span>
-                                        </div>
-                                        <div class="f14 stat-name">
-                                            <span class="f14 noto-font fbold">{country}</span>
-                                        </div>
+                                </div>
+                                <div class="col-lg-3 mb-4">
+                                    <div class="f12 grey-dark-1">
+                                        <span class="f12 noto-font font-weight-normal">{label.siteNumber}</span>
                                     </div>
-                                    <div class="col-lg-3 mb-3">
-                                        <div class="f12 grey-dark-1">
-                                            <span class="f12 noto-font font-weight-normal">{label.location}</span>
-                                        </div>
-                                        <div class="f14 stat-name">
-                                            <span class="f14 noto-font fbold">{location}</span>
-                                        </div>
+                                    <div class="f14 stat-name">
+                                        <span class="f14 noto-font fbold">{sitenumber}</span>
                                     </div>
-                                    <div class="col-lg-5 mb-3">
-                                        <div class="f12 grey-dark-1">
-                                            <span class="f12 noto-font font-weight-normal">{label.phone}</span>
-                                        </div>
-                                        <div class="f14 stat-name">
-                                            <span class="f14 noto-font fbold">{phone}</span>
-                                        </div>
+                                </div>
+                                <div class="col-lg-5 mb-4">
+                                    <div class="f12 grey-dark-1">
+                                        <span class="f12 noto-font font-weight-normal">{label.location}</span>
                                     </div>
-                                    <div class="col-lg-4 mb-3">
-                                        <div class="f12 grey-dark-1">
-                                            <span class="f12 noto-font font-weight-normal">{label.fax}</span>
-                                        </div>
-                                        <div class="f14 stat-name">
-                                            <span class="f14 noto-font fbold">{fax}</span>
-                                        </div>
+                                    <div class="f14 stat-name">
+                                        <span class="f14 noto-font fbold">{location}</span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 mb-4">
+                                    <div class="f12 grey-dark-1">
+                                        <span class="f12 noto-font font-weight-normal">{label.phone}</span>
+                                    </div>
+                                    <div class="f14 stat-name">
+                                        <span class="f14 noto-font fbold">{phone}</span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 mb-4">
+                                    <div class="f12 grey-dark-1">
+                                        <span class="f12 noto-font font-weight-normal">{label.fax}</span>
+                                    </div>
+                                    <div class="f14 stat-name">
+                                        <span class="f14 noto-font fbold">{fax}</span>
                                     </div>
                                 </div>
                             </div>
-                        </div>        
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

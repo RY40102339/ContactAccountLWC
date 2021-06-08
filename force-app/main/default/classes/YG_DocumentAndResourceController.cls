@@ -16,6 +16,7 @@
 *  MM/DD/YYYY			Developer Name			Comments
 *  08/21/2020			Chitrakishore			Modified the code for the document API call			
 *  10/22/2020       	Jayaprasath				Removed Shipping_Date__c field from this class
+*  04/20/201			Vinod					Removed Plant__c(Plant) Lookup field from Asset and newly added PlantAccount__c(Account) Lookup field in Asset Object.                  
 */
 public class YG_DocumentAndResourceController {
     
@@ -100,15 +101,18 @@ public class YG_DocumentAndResourceController {
                 List<Id> assetIds =  YG_HelperClass.getCustomerAssets(contactId);
                 //Quering with the model code to get the ms code
                 if('product-details'.equalsIgnorecase(frm) || 'product-history'.equalsIgnoreCase(frm)) {
-                    assetList = [SELECT Id,Name,AccountId,MS_Code__c,Order_Date__c,ParentId,Plant__c,Product2Id,Product_Carrier__c,Project__c,
+                    assetList = [SELECT Id,Name,AccountId,MS_Code__c,Order_Date__c,ParentId,PlantAccount__c,Product2Id,Product_Carrier__c,Project__c,
                              SerialNumber,Status,Tokuchu_no__c,Xj_no__c, Product2.name, Product2.Top_Category__c, Product2.category__r.Name FROM Asset
                              Where Product2.Model_Code__c =:modelCode AND Id in: assetIds];
+                    
                 } else {
-                    Plant__c plantObj = YG_HelperClass.getPlantID(plantCode,langCode);
+                  /*  Plant__c plantObj = YG_HelperClass.getPlantID(plantCode,langCode);*/
+                    Account plantObj = YG_HelperClass.getPlantID(plantCode,langCode);
                     System.debug('plantObj::'+plantObj);
-                	assetList = [SELECT Id,Name,AccountId,MS_Code__c,Order_Date__c,ParentId,Plant__c,Product2Id,Product_Carrier__c,Project__c,
+                	assetList = [SELECT Id,Name,AccountId,MS_Code__c,Order_Date__c,ParentId,PlantAccount__c,Product2Id,Product_Carrier__c,Project__c,
                              SerialNumber,Status,Tokuchu_no__c,Xj_no__c, Product2.name, Product2.Top_Category__c, Product2.category__r.Name FROM Asset
-                             Where Product2.Model_Code__c =:modelCode AND Plant__r.Id=:plantObj.Id];
+                             Where Product2.Model_Code__c =:modelCode AND PlantAccount__r.Id=:plantObj.Id];
+                    
                 }
                 System.debug('assetList::'+assetList);
                 

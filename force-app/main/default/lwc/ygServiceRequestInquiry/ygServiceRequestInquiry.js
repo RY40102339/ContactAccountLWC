@@ -47,6 +47,7 @@ import fileplaceholderLbl from "@salesforce/label/c.YG_File_Upload";
 import otherInqLbl from "@salesforce/label/c.YG_Inquiry_for_Others";
 import inqforLbl from "@salesforce/label/c.YG_Inquiry_for";
 import renewalforLbl from "@salesforce/label/c.YG_Renewal_for";
+import CaseDocumentAPI from "@salesforce/apex/YG_CaseDocumentAPI.CaseDocumentAPI";
 
 export default class YgRequestForm extends LightningElement {
 
@@ -442,10 +443,26 @@ export default class YgRequestForm extends LightningElement {
   handleUploadFinished(event) {
     const uploadedFiles = event.detail.files;
     const srElement = this.template.querySelector(".service-request");
-
+    if (uploadedFiles.length > 0) {
+      window.location.href = this.communityURL + "thank-you" + "?caseid=" + this.recordId;
+    }  
+    CaseDocumentAPI({ caseId: this.recordId })
+      .then((result) => {
+        console.log("callCaseDocumentAPIsuccess: " + result);
+        })
+        .catch((error) => {
+          this.error = error;
+          console.log("callCaseDocumentAPIerr: " + JSON.stringify(this.error));
+        });
+    
+  }
+  handleUploadFinishedInquiry(event) {
+    const uploadedFiles = event.detail.files;
+    const srElement = this.template.querySelector(".service-request");
     if (uploadedFiles.length > 0) {
       window.location.href = this.communityURL + "thank-you" + "?caseid=" + this.recordId;
     }
+    
   }
 
   handleChange(event) {
