@@ -11,10 +11,6 @@
         <default>false</default>
     </values>
     <values>
-        <fullName>Develop</fullName>
-        <default>false</default>
-    </values>
-    <values>
         <fullName>Disqualify</fullName>
         <default>false</default>
     </values>
