@@ -160,6 +160,7 @@
         <trackHistory>false</trackHistory>
         <type>Text</type>
     </nameField>
+    <pluralLabel>Projects</pluralLabel>
     <searchLayouts>
         <customTabListAdditionalFields>Project_Code__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Account__c</customTabListAdditionalFields>

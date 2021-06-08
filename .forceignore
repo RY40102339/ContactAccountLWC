@@ -94,3 +94,5 @@ package.xml
 
 # Only valid if Send Email and activities are enabled across the pipeline.
 **/quickActions/SendEmail*
+**/staticresources/pi__*
+**/staticresources/aecm__*

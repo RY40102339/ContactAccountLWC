@@ -1,21 +1,5 @@
-.action-toolbar {
-  height: 25px;
-  padding: 4px;
-  position: fixed;
-  background: #78A1C5;
-  width: 100%;
-  bottom: 0;
-  z-index: 100;
-  text-align: center;
-}
-.action-toolbar button {
-  margin: 0 8px;
-}
-.action-toolbar-message-container {
-  display: none;
-  position: absolute;
-  top: 40%;
-  text-align: center;
-  width: 100%;
-  opacity: .6;
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<StaticResource xmlns="http://soap.sforce.com/2006/04/metadata">
+    <cacheControl>Public</cacheControl>
+    <contentType>application/zip</contentType>
+</StaticResource>

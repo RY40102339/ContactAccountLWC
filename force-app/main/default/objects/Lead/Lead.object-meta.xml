@@ -322,19 +322,6 @@
         <fields>LEAD.CREATED_DATE</fields>
         <fields>LEAD.LAST_ACTIVITY</fields>
         <fields>LEAD.COUNTRY_CODE</fields>
-        <profileName>YODA Customer Service</profileName>
-    </profileSearchLayouts>
-    <profileSearchLayouts>
-        <fields>FULL_NAME</fields>
-        <fields>LEAD.COMPANY</fields>
-        <fields>LEAD.RATING</fields>
-        <fields>LEAD.STATUS</fields>
-        <fields>LEAD.LEAD_SOURCE</fields>
-        <fields>CORE.USERS.FIRST_NAME</fields>
-        <fields>CORE.USERS.LAST_NAME</fields>
-        <fields>LEAD.CREATED_DATE</fields>
-        <fields>LEAD.LAST_ACTIVITY</fields>
-        <fields>LEAD.COUNTRY_CODE</fields>
         <profileName>YHQ Administrator</profileName>
     </profileSearchLayouts>
     <profileSearchLayouts>

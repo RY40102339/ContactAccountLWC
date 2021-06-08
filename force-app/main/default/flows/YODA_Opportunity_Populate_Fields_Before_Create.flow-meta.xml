@@ -1,28 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
-    <decisions>
-        <name>Bypass_Setting</name>
-        <label>Bypass Setting</label>
-        <locationX>248</locationX>
-        <locationY>278</locationY>
-        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
-        <rules>
-            <name>Bypass_Setting_Flow_Rules</name>
-            <conditionLogic>and</conditionLogic>
-            <conditions>
-                <leftValueReference>$Setup.Bypass_Settings__c.Bypass_Flow_Rules__c</leftValueReference>
-                <operator>EqualTo</operator>
-                <rightValue>
-                    <booleanValue>false</booleanValue>
-                </rightValue>
-            </conditions>
-            <connector>
-                <targetReference>Opportunity_Region_Update</targetReference>
-            </connector>
-            <label>Bypass Setting Flow Rules</label>
-        </rules>
-    </decisions>
+    <apiVersion>51.0</apiVersion>
+    <assignments>
+        <name>Opportunity_Assign_Industry_from_Account</name>
+        <label>Opportunity Assign Industry from Account</label>
+        <locationX>51</locationX>
+        <locationY>372</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Industry__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Process_Industry</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Region__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Process_Region</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
     <description>Populate fields before Opportunity record is created</description>
+    <formulas>
+        <name>Process_Industry</name>
+        <dataType>String</dataType>
+        <expression>IF(ISNULL({!$Record.Industry__c}), {!$Record.End_User__r.Industry__c},  {!$Record.Industry__c})</expression>
+    </formulas>
+    <formulas>
+        <name>Process_Region</name>
+        <dataType>String</dataType>
+        <expression>IF(
+AND(
+{!$Record__Prior.Id} = NULL,
+{!$Setup.Bypass_Settings__c.Bypass_Flow_Rules__c} = false
+),
+TEXT({!$Record.Region__c}),
+TEXT({!$Record.Owner.Region__c})
+)</expression>
+    </formulas>
     <interviewLabel>YODA Opportunity Populate Fields Before Create {!$Flow.CurrentDateTime}</interviewLabel>
     <label>YODA Opportunity - Populate Fields Before Create</label>
     <processMetadataValues>
@@ -44,27 +60,14 @@
         </value>
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
-    <recordUpdates>
-        <name>Opportunity_Region_Update</name>
-        <label>Opportunity Region Update</label>
-        <locationX>397</locationX>
-        <locationY>416</locationY>
-        <inputAssignments>
-            <field>Region__c</field>
-            <value>
-                <elementReference>$Record.Owner.Region__c</elementReference>
-            </value>
-        </inputAssignments>
-        <inputReference>$Record</inputReference>
-    </recordUpdates>
     <start>
         <locationX>50</locationX>
-        <locationY>50</locationY>
+        <locationY>52</locationY>
         <connector>
-            <targetReference>Bypass_Setting</targetReference>
+            <targetReference>Opportunity_Assign_Industry_from_Account</targetReference>
         </connector>
         <object>Opportunity</object>
-        <recordTriggerType>Create</recordTriggerType>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
         <triggerType>RecordBeforeSave</triggerType>
     </start>
     <status>Active</status>

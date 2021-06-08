@@ -201,17 +201,6 @@
         <fields>OPPORTUNITY.STAGE_NAME</fields>
         <fields>CORE.USERS.FULL_NAME</fields>
         <fields>OPPORTUNITY.CLOSE_DATE</fields>
-        <profileName>YODA Customer Service</profileName>
-    </profileSearchLayouts>
-    <profileSearchLayouts>
-        <fields>OPPORTUNITY.NAME</fields>
-        <fields>Oppportunity_Id__c</fields>
-        <fields>ACCOUNT.NAME</fields>
-        <fields>OPPORTUNITY.RECORDTYPE</fields>
-        <fields>End_User_Country__c</fields>
-        <fields>OPPORTUNITY.STAGE_NAME</fields>
-        <fields>CORE.USERS.FULL_NAME</fields>
-        <fields>OPPORTUNITY.CLOSE_DATE</fields>
         <profileName>YHQ Administrator</profileName>
     </profileSearchLayouts>
     <profileSearchLayouts>

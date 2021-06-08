@@ -1,7 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
-    <validationRules>
-        <errorMessage></errorMessage>
-        <name>aecm__Cannot_exceed_100</name>
-    </validationRules>
-</CustomObjectTranslation>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata"/>

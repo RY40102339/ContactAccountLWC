@@ -36,13 +36,6 @@
         </values>
     </picklistValues>
     <picklistValues>
-        <picklist>Reason</picklist>
-        <values>
-            <fullName>Sales and Quote</fullName>
-            <default>false</default>
-        </values>
-    </picklistValues>
-    <picklistValues>
         <picklist>Service_you_require__c</picklist>
         <values>
             <fullName>010</fullName>

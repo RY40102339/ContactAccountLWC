@@ -10,7 +10,7 @@
         <matchingRule>YODA_Account_Matching_Rule</matchingRule>
         <objectMapping xsi:nil="true"/>
     </duplicateRuleMatchRules>
-    <isActive>true</isActive>
+    <isActive>false</isActive>
     <masterLabel>YODA Account Duplicate Rule</masterLabel>
     <operationsOnInsert>Alert</operationsOnInsert>
     <operationsOnInsert>Report</operationsOnInsert>
