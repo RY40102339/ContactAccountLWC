@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>低</fullName>
+        <default>true</default>
+        <label>低</label>
+    </standardValue>
+    <standardValue>
+        <fullName>中</fullName>
+        <default>false</default>
+        <label>中</label>
+    </standardValue>
+    <standardValue>
+        <fullName>高</fullName>
+        <default>false</default>
+        <label>高</label>
+    </standardValue>
+    <standardValue>
+        <fullName>重大</fullName>
+        <default>false</default>
+        <label>重大</label>
+    </standardValue>
+</StandardValueSet>
