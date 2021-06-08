@@ -4,11 +4,4 @@
         <plural>false</plural>
         <value>Project</value>
     </caseValues>
-    <layouts>
-        <layout>Project Layout</layout>
-        <sections>
-            <label><!-- Custom Links --></label>
-            <section>Custom Links</section>
-        </sections>
-    </layouts>
 </CustomObjectTranslation>
