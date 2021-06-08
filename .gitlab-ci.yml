@@ -42,6 +42,17 @@ validate_against_TEMPQA:
       --checkonly --targetalias TEMPQA
   only:
     - TEMPQA
+deploy_to_TEMPQA:
+  stage: deploy
+  cache: *ref_0
+  except: *ref_1
+  script:
+    - >-
+      adx deploy:source --sourcepath
+      force-app/main/default
+      --targetalias TEMPQA
+  only:
+    - TEMPQA
 deploy_to_QA:
   stage: deploy
   cache: *ref_0
