@@ -122,13 +122,43 @@
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
+                <componentInstanceProperties>
+                    <name>metricTypes</name>
+                    <valueList>
+                        <valueListItems>
+                            <value>emailOpenRate</value>
+                        </valueListItems>
+                        <valueListItems>
+                            <value>emailClickThroughRate</value>
+                        </valueListItems>
+                        <valueListItems>
+                            <value>totalEmailDelivered</value>
+                        </valueListItems>
+                        <valueListItems>
+                            <value>formSubmissionRate</value>
+                        </valueListItems>
+                        <valueListItems>
+                            <value>totalFormView</value>
+                        </valueListItems>
+                        <valueListItems>
+                            <value>uniqueMarketingLinksClicks</value>
+                        </valueListItems>
+                        <valueListItems>
+                            <value>totalLandingPageView</value>
+                        </valueListItems>
+                        <valueListItems>
+                            <value>landingPageSubmissionRate</value>
+                        </valueListItems>
+                    </valueList>
+                </componentInstanceProperties>
+                <componentName>runtime_sales_campaign:metricsPanel</componentName>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
                 <componentName>forceChatter:recordFeedContainer</componentName>
             </componentInstance>
         </itemInstances>
-        <name>Facet-0204a631-c524-4715-af90-6c153b258b14</name>
-        <type>Facet</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
         <itemInstances>
             <componentInstance>
                 <componentInstanceProperties>
@@ -163,7 +193,7 @@
                 <componentName>runtime_sales_campaign:metricsPanel</componentName>
             </componentInstance>
         </itemInstances>
-        <name>Facet-537c0323-4420-49ef-96cc-7ec9c0b85a58</name>
+        <name>Facet-0204a631-c524-4715-af90-6c153b258b14</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
@@ -176,19 +206,6 @@
                 <componentInstanceProperties>
                     <name>title</name>
                     <value>Standard.Tab.collaborate</value>
-                </componentInstanceProperties>
-                <componentName>flexipage:tab</componentName>
-            </componentInstance>
-        </itemInstances>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
-                    <name>body</name>
-                    <value>Facet-537c0323-4420-49ef-96cc-7ec9c0b85a58</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>title</name>
-                    <value>Standard.Tab.engagement</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:tab</componentName>
             </componentInstance>
