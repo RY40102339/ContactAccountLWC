@@ -39,6 +39,7 @@ deploy_to_QA:
   only:
     - QA
 
+
 validate_against_TEMPQA:
   stage: validate
   cache: *ref_0
