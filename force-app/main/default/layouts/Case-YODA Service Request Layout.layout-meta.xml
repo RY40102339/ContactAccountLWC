@@ -208,10 +208,6 @@
                 <behavior>Edit</behavior>
                 <field>SuppliedCompany</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Web_Country__c</field>
-            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
