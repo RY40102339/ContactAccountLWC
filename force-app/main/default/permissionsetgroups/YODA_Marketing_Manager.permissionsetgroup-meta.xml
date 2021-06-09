@@ -4,8 +4,6 @@
     <label>YODA Marketing Manager</label>
     <permissionSets>Account_Create</permissionSets>
     <permissionSets>App_Sales_Import_Leads</permissionSets>
-    <permissionSets>Campaign_Create</permissionSets>
-    <permissionSets>Campaign_Edit</permissionSets>
     <permissionSets>Contact_Create</permissionSets>
     <permissionSets>Custom_Permission_Show_Lead_Status_Path</permissionSets>
     <permissionSets>Lead_Create</permissionSets>
