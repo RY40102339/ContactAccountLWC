@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>YODA_Escalated_Priority_Reason</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( IsEscalated ,  ISBLANK(TEXT(  Escalation_Reason__c )),ISBLANK(TEXT(   Priority  )),NOT( $Setup.Bypass_Settings__c.Bypass_Validation_Rules__c ))</errorConditionFormula>
+    <errorMessage>Please select Escalation Reason and Priority</errorMessage>
+</ValidationRule>
