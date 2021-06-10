@@ -247,7 +247,8 @@
         <fields>ParentId</fields>
         <fields>CurrencyIsoCode</fields>
         <relatedLists>
-            <relatedList>RelatedContactList</relatedList>
+            <fields>CONTACT.FULL_NAME</fields>
+            <relatedList>RelatedAccountContactRelationList</relatedList>
         </relatedLists>
         <relatedLists>
             <fields>OPPORTUNITY.NAME</fields>
@@ -349,11 +350,14 @@
         <relatedList>RelatedHistoryList</relatedList>
     </relatedLists>
     <relatedLists>
-        <fields>FULL_NAME</fields>
-        <fields>CONTACT.ADDRESS2_COUNTRY</fields>
+        <fields>CONTACT.FULL_NAME</fields>
+        <fields>CONTACT.ACCOUNT_NAME</fields>
         <fields>CONTACT.TITLE</fields>
         <fields>CONTACT.EMAIL</fields>
-        <relatedList>RelatedContactList</relatedList>
+        <fields>ACCCONRELATION.IS_DIRECT</fields>
+        <fields>CONTACT.PHONE1</fields>
+        <fields>ACCCONRELATION.ROLES</fields>
+        <relatedList>RelatedAccountContactRelationList</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>OPPORTUNITY.NAME</fields>
