@@ -2,33 +2,48 @@
 <StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
     <sorted>false</sorted>
     <standardValue>
-        <fullName>Needs Analysis</fullName>
+        <fullName>Identify (SAL)</fullName>
         <default>false</default>
-        <description>You&apos;re defining the prospect&apos;s needs.</description>
-        <label>Needs Analysis</label>
+        <label>Identify (SAL)</label>
         <closed>false</closed>
         <forecastCategory>Pipeline</forecastCategory>
-        <probability>35</probability>
+        <probability>10</probability>
         <won>false</won>
     </standardValue>
     <standardValue>
-        <fullName>Proposal</fullName>
+        <fullName>Qualify(SQL)</fullName>
         <default>false</default>
-        <description>You&apos;re developing a sales proposal for the prospect.</description>
-        <label>Proposal</label>
+        <label>Qualify(SQL)</label>
+        <closed>false</closed>
+        <forecastCategory>Pipeline</forecastCategory>
+        <probability>20</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Develop</fullName>
+        <default>false</default>
+        <label>Develop</label>
         <closed>false</closed>
         <forecastCategory>BestCase</forecastCategory>
-        <probability>75</probability>
+        <probability>40</probability>
+        <won>false</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Propose / Quote</fullName>
+        <default>false</default>
+        <label>Propose / Quote</label>
+        <closed>false</closed>
+        <forecastCategory>Forecast</forecastCategory>
+        <probability>60</probability>
         <won>false</won>
     </standardValue>
     <standardValue>
         <fullName>Negotiation</fullName>
         <default>false</default>
-        <description>You&apos;re working with the prospect on the proposal you delivered.</description>
         <label>Negotiation</label>
         <closed>false</closed>
         <forecastCategory>Forecast</forecastCategory>
-        <probability>90</probability>
+        <probability>80</probability>
         <won>false</won>
     </standardValue>
     <standardValue>
@@ -52,13 +67,12 @@
         <won>false</won>
     </standardValue>
     <standardValue>
-        <fullName>Qualification</fullName>
+        <fullName>Disqualify</fullName>
         <default>false</default>
-        <description>You&apos;ve contacted the prospect and they&apos;re interested.</description>
-        <label>Qualification</label>
-        <closed>false</closed>
-        <forecastCategory>Pipeline</forecastCategory>
-        <probability>10</probability>
+        <label>Disqualify</label>
+        <closed>true</closed>
+        <forecastCategory>Omitted</forecastCategory>
+        <probability>0</probability>
         <won>false</won>
     </standardValue>
 </StandardValueSet>
