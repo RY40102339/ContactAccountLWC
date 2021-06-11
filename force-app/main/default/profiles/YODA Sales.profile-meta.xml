@@ -1507,6 +1507,11 @@
         <editable>true</editable>
         <field>Opportunity.Description_Notes__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.Parent_Opportunity_Program__c</field>
+        <readable>true</readable>
     </fieldPermissions>    
     <fieldPermissions>
         <editable>true</editable>
