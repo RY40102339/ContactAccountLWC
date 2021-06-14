@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
-    <apiVersion>51.0</apiVersion>
     <assignments>
         <description>Bring over the End User&apos;s Industry to the Opportunity&apos;s Industry automatically</description>
         <name>Opportunity_Assign_Industry_from_Account</name>
         <label>Opportunity Assign Industry from Account</label>
-        <locationX>822</locationX>
-        <locationY>359</locationY>
+        <locationX>176</locationX>
+        <locationY>311</locationY>
         <assignmentItems>
             <assignToReference>$Record.Industry__c</assignToReference>
             <operator>Assign</operator>
@@ -14,8 +13,39 @@
                 <elementReference>$Record.End_User__r.Industry__c</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Region__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Oppty_Region_Update</elementReference>
+            </value>
+        </assignmentItems>
     </assignments>
     <description>Auto-populate Opportunity Industry based on End User&apos;s Industry</description>
+    <formulas>
+        <name>Oppty_Region_Update</name>
+        <dataType>String</dataType>
+        <expression>IF(
+AND(
+{!$Record__Prior.Id} = NULL,
+{!$Setup.Bypass_Settings__c.Bypass_Flow_Rules__c} = false
+),
+TEXT({!$Record.Region__c}),
+TEXT({!$Record.Owner.Region__c})
+)</expression>
+    </formulas>
+    <formulas>
+        <description>Populate Industry from End User when Industry is null.</description>
+        <name>OptyIndustryUpdate</name>
+        <dataType>String</dataType>
+        <expression>IF(
+AND(
+{!$Record.Industry__c} = NULL,
+{!$Setup.Bypass_Settings__c.Bypass_Flow_Rules__c} = false
+),
+TEXT({!$Record.End_User__r.Industry__c})
+)</expression>
+    </formulas>
     <interviewLabel>YODA Opportunity Populate Industry {!$Flow.CurrentDateTime}</interviewLabel>
     <label>YODA Opportunity Populate Industry</label>
     <processMetadataValues>
@@ -27,7 +57,7 @@
     <processMetadataValues>
         <name>CanvasMode</name>
         <value>
-            <stringValue>FREE_FORM_CANVAS</stringValue>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
         </value>
     </processMetadataValues>
     <processMetadataValues>
@@ -38,12 +68,11 @@
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
     <start>
-        <locationX>696</locationX>
-        <locationY>48</locationY>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
         <connector>
             <targetReference>Opportunity_Assign_Industry_from_Account</targetReference>
         </connector>
-        <filterLogic>and</filterLogic>
         <filters>
             <field>Industry__c</field>
             <operator>IsNull</operator>
@@ -55,5 +84,5 @@
         <recordTriggerType>CreateAndUpdate</recordTriggerType>
         <triggerType>RecordBeforeSave</triggerType>
     </start>
-    <status>Active</status>
+    <status>InvalidDraft</status>
 </Flow>
