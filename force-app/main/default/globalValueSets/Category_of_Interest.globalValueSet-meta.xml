@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Accessories</fullName>
+        <default>false</default>
+        <label>Accessories</label>
+    </customValue>
+    <customValue>
+        <fullName>Accessories &gt; Adapters / Connectors</fullName>
+        <default>false</default>
+        <label>Accessories &gt; Adapters / Connectors</label>
+    </customValue>
+    <customValue>
+        <fullName>Accessories &gt; Cables</fullName>
+        <default>false</default>
+        <label>Accessories &gt; Cables</label>
+    </customValue>
+    <customValue>
+        <fullName>Accessories &gt; Modules</fullName>
+        <default>false</default>
+        <label>Accessories &gt; Modules</label>
+    </customValue>
+    <customValue>
+        <fullName>Accessories &gt; Others</fullName>
+        <default>false</default>
+        <label>Accessories &gt; Others</label>
+    </customValue>
+    <customValue>
+        <fullName>Accessories &gt; Probes</fullName>
+        <default>false</default>
+        <label>Accessories &gt; Probes</label>
+    </customValue>
+    <customValue>
+        <fullName>Accessories &gt; Rack mount kits</fullName>
+        <default>false</default>
+        <label>Accessories &gt; Rack mount kits</label>
+    </customValue>
+    <customValue>
+        <fullName>Data Acquisition (DAQ)</fullName>
+        <default>false</default>
+        <label>Data Acquisition (DAQ)</label>
+    </customValue>
+    <customValue>
+        <fullName>Data Acquisition (DAQ) &gt; High Speed Data Acquisition</fullName>
+        <default>false</default>
+        <label>Data Acquisition (DAQ) &gt; High Speed Data Acquisition</label>
+    </customValue>
+    <customValue>
+        <fullName>Data Acquisition (DAQ) &gt; Low Speed DAQ &amp; Industrial Recorders</fullName>
+        <default>false</default>
+        <label>Data Acquisition (DAQ) &gt; Low Speed DAQ &amp; Industrial Recorders</label>
+    </customValue>
+    <customValue>
+        <fullName>Data Acquisition (DAQ) &gt; ScopeCorders</fullName>
+        <default>false</default>
+        <label>Data Acquisition (DAQ) &gt; ScopeCorders</label>
+    </customValue>
+    <customValue>
+        <fullName>Optical Test Equipment</fullName>
+        <default>false</default>
+        <label>Optical Test Equipment</label>
+    </customValue>
+    <customValue>
+        <fullName>Optical Test Equipment &gt; Modular Manufacturing Test System</fullName>
+        <default>false</default>
+        <label>Optical Test Equipment &gt; Modular Manufacturing Test System</label>
+    </customValue>
+    <customValue>
+        <fullName>Optical Test Equipment &gt; Optical Spectrum Analyzer</fullName>
+        <default>false</default>
+        <label>Optical Test Equipment &gt; Optical Spectrum Analyzer</label>
+    </customValue>
+    <customValue>
+        <fullName>Optical Test Equipment &gt; Optical Time Domain Reflectometer</fullName>
+        <default>false</default>
+        <label>Optical Test Equipment &gt; Optical Time Domain Reflectometer</label>
+    </customValue>
+    <customValue>
+        <fullName>Optical Test Equipment &gt; Optical Wavelength Meter</fullName>
+        <default>false</default>
+        <label>Optical Test Equipment &gt; Optical Wavelength Meter</label>
+    </customValue>
+    <customValue>
+        <fullName>Optical Test Equipment &gt; Portable Ethernet Testers</fullName>
+        <default>false</default>
+        <label>Optical Test Equipment &gt; Portable Ethernet Testers</label>
+    </customValue>
+    <customValue>
+        <fullName>Optical Test Equipment &gt; Portable Power Meters and Light Sources</fullName>
+        <default>false</default>
+        <label>Optical Test Equipment &gt; Portable Power Meters and Light Sources</label>
+    </customValue>
+    <customValue>
+        <fullName>Oscilloscopes</fullName>
+        <default>false</default>
+        <label>Oscilloscopes</label>
+    </customValue>
+    <customValue>
+        <fullName>Oscilloscopes &gt; Current Probes</fullName>
+        <default>false</default>
+        <label>Oscilloscopes &gt; Current Probes</label>
+    </customValue>
+    <customValue>
+        <fullName>Oscilloscopes &gt; Logic Probes</fullName>
+        <default>false</default>
+        <label>Oscilloscopes &gt; Logic Probes</label>
+    </customValue>
+    <customValue>
+        <fullName>Oscilloscopes &gt; Mixed Signal Oscilloscopes</fullName>
+        <default>false</default>
+        <label>Oscilloscopes &gt; Mixed Signal Oscilloscopes</label>
+    </customValue>
+    <customValue>
+        <fullName>Oscilloscopes &gt; Oscilloscope Accessories</fullName>
+        <default>false</default>
+        <label>Oscilloscopes &gt; Oscilloscope Accessories</label>
+    </customValue>
+    <customValue>
+        <fullName>Oscilloscopes &gt; Oscilloscopes Application Software</fullName>
+        <default>false</default>
+        <label>Oscilloscopes &gt; Oscilloscopes Application Software</label>
+    </customValue>
+    <customValue>
+        <fullName>Oscilloscopes &gt; ScopeCorders</fullName>
+        <default>false</default>
+        <label>Oscilloscopes &gt; ScopeCorders</label>
+    </customValue>
+    <customValue>
+        <fullName>Oscilloscopes &gt; ScopeCorders Accessories</fullName>
+        <default>false</default>
+        <label>Oscilloscopes &gt; ScopeCorders Accessories</label>
+    </customValue>
+    <customValue>
+        <fullName>Oscilloscopes &gt; Voltage Probes</fullName>
+        <default>false</default>
+        <label>Oscilloscopes &gt; Voltage Probes</label>
+    </customValue>
+    <customValue>
+        <fullName>Other Test &amp; Measurement Instruments</fullName>
+        <default>false</default>
+        <label>Other Test &amp; Measurement Instruments</label>
+    </customValue>
+    <customValue>
+        <fullName>Other Test &amp; Measurement Instruments &gt; Manometers</fullName>
+        <default>false</default>
+        <label>Other Test &amp; Measurement Instruments &gt; Manometers</label>
+    </customValue>
+    <customValue>
+        <fullName>Portable and Handheld Instruments</fullName>
+        <default>false</default>
+        <label>Portable and Handheld Instruments</label>
+    </customValue>
+    <customValue>
+        <fullName>Portable and Handheld Instruments &gt; Calibrators</fullName>
+        <default>false</default>
+        <label>Portable and Handheld Instruments &gt; Calibrators</label>
+    </customValue>
+    <customValue>
+        <fullName>Portable and Handheld Instruments &gt; Calibrators Accessories</fullName>
+        <default>false</default>
+        <label>Portable and Handheld Instruments &gt; Calibrators Accessories</label>
+    </customValue>
+    <customValue>
+        <fullName>Portable and Handheld Instruments &gt; Clamp-on Testers</fullName>
+        <default>false</default>
+        <label>Portable and Handheld Instruments &gt; Clamp-on Testers</label>
+    </customValue>
+    <customValue>
+        <fullName>Portable and Handheld Instruments &gt; DC Precision Measuring</fullName>
+        <default>false</default>
+        <label>Portable and Handheld Instruments &gt; DC Precision Measuring</label>
+    </customValue>
+    <customValue>
+        <fullName>Portable and Handheld Instruments &gt; Digital Multimeters</fullName>
+        <default>false</default>
+        <label>Portable and Handheld Instruments &gt; Digital Multimeters</label>
+    </customValue>
+    <customValue>
+        <fullName>Portable and Handheld Instruments &gt; Digital Multimeters Accessories</fullName>
+        <default>false</default>
+        <label>Portable and Handheld Instruments &gt; Digital Multimeters Accessories</label>
+    </customValue>
+    <customValue>
+        <fullName>Portable and Handheld Instruments &gt; Earth Ground Testers</fullName>
+        <default>false</default>
+        <label>Portable and Handheld Instruments &gt; Earth Ground Testers</label>
+    </customValue>
+    <customValue>
+        <fullName>Portable and Handheld Instruments &gt; Insulation Testers</fullName>
+        <default>false</default>
+        <label>Portable and Handheld Instruments &gt; Insulation Testers</label>
+    </customValue>
+    <customValue>
+        <fullName>Portable and Handheld Instruments &gt; Lux Meters</fullName>
+        <default>false</default>
+        <label>Portable and Handheld Instruments &gt; Lux Meters</label>
+    </customValue>
+    <customValue>
+        <fullName>Portable and Handheld Instruments &gt; Meters Accessories</fullName>
+        <default>false</default>
+        <label>Portable and Handheld Instruments &gt; Meters Accessories</label>
+    </customValue>
+    <customValue>
+        <fullName>Portable and Handheld Instruments &gt; Portable Power Quality Monitor/Recorder</fullName>
+        <default>false</default>
+        <label>Portable and Handheld Instruments &gt; Portable Power Quality Monitor/Recorder</label>
+    </customValue>
+    <customValue>
+        <fullName>Portable and Handheld Instruments &gt; Thermometers</fullName>
+        <default>false</default>
+        <label>Portable and Handheld Instruments &gt; Thermometers</label>
+    </customValue>
+    <customValue>
+        <fullName>Power Analyzers and Power Meters</fullName>
+        <default>false</default>
+        <label>Power Analyzers and Power Meters</label>
+    </customValue>
+    <customValue>
+        <fullName>Power Analyzers and Power Meters &gt; Power Analyzer Accessories</fullName>
+        <default>false</default>
+        <label>Power Analyzers and Power Meters &gt; Power Analyzer Accessories</label>
+    </customValue>
+    <customValue>
+        <fullName>Power Analyzers and Power Meters &gt; Power Measurement Application Software</fullName>
+        <default>false</default>
+        <label>Power Analyzers and Power Meters &gt; Power Measurement Application Software</label>
+    </customValue>
+    <customValue>
+        <fullName>Power Analyzers and Power Meters &gt; Precision Current Transformers</fullName>
+        <default>false</default>
+        <label>Power Analyzers and Power Meters &gt; Precision Current Transformers</label>
+    </customValue>
+    <customValue>
+        <fullName>Signal Generators, Sources and Supplies</fullName>
+        <default>false</default>
+        <label>Signal Generators, Sources and Supplies</label>
+    </customValue>
+    <customValue>
+        <fullName>Signal Generators, Sources and Supplies &gt; Digital Multimeters</fullName>
+        <default>false</default>
+        <label>Signal Generators, Sources and Supplies &gt; Digital Multimeters</label>
+    </customValue>
+    <customValue>
+        <fullName>Signal Generators, Sources and Supplies &gt; Function Generators</fullName>
+        <default>false</default>
+        <label>Signal Generators, Sources and Supplies &gt; Function Generators</label>
+    </customValue>
+    <customValue>
+        <fullName>Signal Generators, Sources and Supplies &gt; Programmable DC Sources</fullName>
+        <default>false</default>
+        <label>Signal Generators, Sources and Supplies &gt; Programmable DC Sources</label>
+    </customValue>
+    <customValue>
+        <fullName>Signal Generators, Sources and Supplies &gt; Source Measure Units</fullName>
+        <default>false</default>
+        <label>Signal Generators, Sources and Supplies &gt; Source Measure Units</label>
+    </customValue>
+    <customValue>
+        <fullName>Signal Generators, Sources and Supplies &gt; Source Measure Units &gt; Programmable DC Sources</fullName>
+        <default>false</default>
+        <label>Signal Generators, Sources and Supplies &gt; Source Measure Units &gt; Programmable DC Sources</label>
+    </customValue>
+    <customValue>
+        <fullName>Signal Generators, Sources and Supplies &gt; Voltage and Current Calibrators and Standards</fullName>
+        <default>false</default>
+        <label>Signal Generators, Sources and Supplies &gt; Voltage and Current Calibrators and Standards</label>
+    </customValue>
+    <description>Used on Case</description>
+    <masterLabel>Category of Interest</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>
