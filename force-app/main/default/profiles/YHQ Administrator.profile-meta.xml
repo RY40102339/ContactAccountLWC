@@ -10,6 +10,42 @@
         <field>Lead.Migration_Id__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <recordTypeVisibilities>
+        <default>true</default>
+        <recordType>Case.General_Inquiry</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>true</default>
+        <recordType>Case.Sales_Request</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>true</default>
+        <recordType>Case.Service_Request</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>true</default>
+        <recordType>Case.Technical_Support</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <layoutAssignments>
+        <layout>Case-YODA General Inquiry</layout>
+        <recordType>Case.General_Inquiry</recordType>
+    </layoutAssignments>
+     <layoutAssignments>
+        <layout>Case-YODA Sales Request Layout</layout>
+        <recordType>Case.Sales_Request</recordType>
+    </layoutAssignments>
+     <layoutAssignments>
+        <layout>Case-YODA Service Request Layout</layout>
+        <recordType>Case.Service_Request</recordType>
+    </layoutAssignments>
+     <layoutAssignments>
+        <layout>Case-YODA Technical Support Layout</layout>
+        <recordType>Case.Technical_Support</recordType>
+    </layoutAssignments>
     <userLicense>Salesforce</userLicense>
     <userPermissions>
         <enabled>true</enabled>
