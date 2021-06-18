@@ -4,6 +4,7 @@
     <label>YODA Inside Sales Rep</label>
     <permissionSets>Account_Create</permissionSets>
     <permissionSets>Account_Edit</permissionSets>
+    <permissionSets>Campaign_Influence_Read</permissionSets>
     <permissionSets>Contact_Create</permissionSets>
     <permissionSets>Contact_Edit</permissionSets>
     <permissionSets>Custom_Permission_Show_Lead_Status_Path</permissionSets>
