@@ -941,6 +941,16 @@
         <editable>true</editable>
         <field>Opportunity.Parent_Opportunity_Program__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.Close_Lost_Reason__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.Lost_Reason__c</field>
+        <readable>true</readable>
     </fieldPermissions>  
     <fieldPermissions>
         <editable>true</editable>
