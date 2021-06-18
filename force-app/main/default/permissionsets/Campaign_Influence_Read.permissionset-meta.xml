@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Permission Set to be assigned to Permission Set Groups for users of the persona to have necessary CRUD access.</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Campaign Influence Read</label>
+    <license>CRMUserPsl</license>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>CampaignInfluence2</name>
+    </userPermissions>
+</PermissionSet>

@@ -4,6 +4,7 @@
     <label>YODA Sales Manager</label>
     <permissionSets>Account_Create</permissionSets>
     <permissionSets>Account_Edit</permissionSets>
+    <permissionSets>Campaign_Influence_Read</permissionSets>
     <permissionSets>Contact_Create</permissionSets>
     <permissionSets>Contact_Edit</permissionSets>
     <permissionSets>Lead_Edit</permissionSets>

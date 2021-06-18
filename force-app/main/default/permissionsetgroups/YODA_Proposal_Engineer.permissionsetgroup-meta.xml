@@ -3,6 +3,7 @@
     <description>Permission Set Group for the &quot;Proposal Engineer&quot; persona of the YODA program.</description>
     <label>YODA Proposal Engineer</label>
     <permissionSets>Account_Edit</permissionSets>
+    <permissionSets>Campaign_Influence_Read</permissionSets>
     <permissionSets>Contact_Edit</permissionSets>
     <permissionSets>Opportunity_Create</permissionSets>
     <permissionSets>Opportunity_Edit</permissionSets>
