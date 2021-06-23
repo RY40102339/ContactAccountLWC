@@ -42,8 +42,8 @@
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>TotalAmount</field>
+                <behavior>Edit</behavior>
+                <field>Total_Order_Amount__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -247,7 +247,7 @@
             <posY>0</posY>
         </summaryLayoutItems>
         <summaryLayoutItems>
-            <field>TotalAmount</field>
+            <field>Total_Order_Amount__c</field>
             <posX>2</posX>
             <posY>0</posY>
         </summaryLayoutItems>
