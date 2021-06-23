@@ -7,7 +7,6 @@
     <columns>ACCOUNT.ADDRESS2_COUNTRY_CODE</columns>
     <columns>ACCOUNT.LAST_ACTIVITY</columns>
     <columns>UPDATEDBY_USER.ALIAS</columns>
-    <columns>ACCOUNT.TYPE</columns>
     <filterScope>Everything</filterScope>
     <label>Accounts By Type</label>
 </ListView>

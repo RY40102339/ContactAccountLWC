@@ -7,7 +7,6 @@
     <columns>ACCOUNT.ADDRESS2_COUNTRY_CODE</columns>
     <columns>ACCOUNT.LAST_ACTIVITY</columns>
     <columns>UPDATEDBY_USER.ALIAS</columns>
-    <columns>ACCOUNT.CREATED_DATE</columns>
     <filterScope>Everything</filterScope>
     <filters>
         <field>ACCOUNT.CREATED_DATE</field>
