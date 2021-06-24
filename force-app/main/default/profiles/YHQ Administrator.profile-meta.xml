@@ -192,6 +192,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>OrderItem.Integration_YGSSAP_Id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OrderItem.Migration_Id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Product2.BU__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -307,7 +317,7 @@
         <recordType>Case.Technical_Support</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Order-YODA Order Layout</layout>
+        <layout>OrderItem-Order Product Layout</layout>
     </layoutAssignments>
     <userLicense>Salesforce</userLicense>
     <userPermissions>
