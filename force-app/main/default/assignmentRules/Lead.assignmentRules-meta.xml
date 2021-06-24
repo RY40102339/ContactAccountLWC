@@ -107,7 +107,6 @@
             <assignedTo>Japan_T_M</assignedTo>
             <assignedToType>Queue</assignedToType>
             <formula>AND(CONTAINS( &quot;Japan&quot; , Country),  ISPICKVAL(Business_Unit__c,&quot;YMI SBU&quot;), ISPICKVAL(Rating, &quot;Hot&quot;))</formula>
-            <template>unfiled$public/New_Lead_Sample</template>
         </ruleEntry>
         <ruleEntry>
             <assignedTo>YCA_T_M</assignedTo>
