@@ -337,7 +337,6 @@
         <field>Asset.Order_Date__c</field>
         <readable>false</readable>
     </fieldPermissions>
-     
     <fieldPermissions>
         <editable>true</editable>
         <field>Asset.Price</field>
@@ -742,6 +741,16 @@
         <editable>false</editable>
         <field>Campaign.pi__Pardot_Has_Dependencies__c</field>
         <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.Integration_ServAir_Id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.Migration_Id__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
