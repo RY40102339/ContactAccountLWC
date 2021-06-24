@@ -1,3 +1,212 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<AssignmentRules xmlns="http://soap.sforce.com/2006/04/metadata"/>
-
+<AssignmentRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <assignmentRule>
+        <fullName>YODA Lead Assignment Rules</fullName>
+        <active>true</active>
+        <ruleEntry>
+            <assignedTo>Tele_Japan_T_M</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(CONTAINS( &quot;Japan&quot; , Country), ISPICKVAL(Business_Unit__c,&quot;YMI SBU&quot;), ISPICKVAL(Rating, &quot;Warm&quot;))</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Tele_YCA_T_M</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(CONTAINS(&quot;ARUBA, ANGUILLA,NETHERLANDS ANTILLES, ANTIGUA AND BARBUDA, BAHAMAS, BELIZE, BERMUDA, BARBADOS, CANADA, COSTA RICA, CAYMAN ISLANDS, DOMINICA, DOMINICAN REPUBLIC, GUADELOUPE, GRENADA, GUATEMALA, HONDURAS, HAITI, JAMAICA, SAINT KITTS AND NEVIS, MEXICO, NORTHERN MARIANA ISLANDS, MARTINIQUE, NICARAGUA, PANAMA, PUERTO RICO, EL SALVADOR, TURKS AND CAICOS ISLANDS, TRINIDAD AND TOBAGO, UNITED STATES MINOR OUTLYING ISLANDS, UNITED STATES, SAINT VINCENT AND THE GRENADINES, VIRGIN ISLANDS, BRITISH&quot;, UPPER(Country)), ISPICKVAL(Business_Unit__c,&quot;YMI SBU&quot;), ISPICKVAL(Rating, &quot;Warm&quot;))</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Tele_YIL_T_M</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(CONTAINS( &quot;BANGLADESH, BHUTAN, INDIA, SRI LANKA, MALDIVES,NEPAL&quot; , UPPER(Country)), ISPICKVAL(Business_Unit__c,&quot;YMI SBU&quot;), ISPICKVAL(Rating, &quot;Warm&quot;))</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Tele_YEF_NL_T_M</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(CONTAINS(&quot;Albania,Andorra,Austria,Bosnia and Herzegovina,Bulgaria,Croatia,Czechia,France,French Guiana,French Polynesia,French Southern Territories,Hungary,Ireland,Macedonia,Martinique,Mayotte,Monaco,Montenegro,New Caledonia,Norway,Poland,Portugal,Réunion,Romania,Serbia,Slovakia,Slovenia,Spain,Saint Pierre and Miquelon,Switzerland,Turkey,Wallis and Futuna,Bouvet Island,Denmark,Estonia,Faroe Islands,Finland,Greenland,Iceland,Israel,Latvia,Lithuania,Netherlands,Svalbard and Jan Mayen,Sweden&quot;, Country), ISPICKVAL(Business_Unit__c,&quot;YMI SBU&quot;), ISPICKVAL(Rating, &quot;Warm&quot;))</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Tele_YEF_B_T_M</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(CONTAINS( &quot;Belgium, Luxembourg&quot; , Country), ISPICKVAL(Business_Unit__c,&quot;YMI SBU&quot;), ISPICKVAL(Rating, &quot;Warm&quot;))</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Tele_YEF_GB_T_M</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(CONTAINS( &quot;Bermuda,British Indian Ocean Territory,Virgin Islands, British,Cayman Islands,Gibraltar,Montserrat,Pitcairn,Saint Helena, Ascension and Tristan da Cunha,South Georgia and the South Sandwich Islands,Turks and Caicos Islands,United Kingdom&quot; , Country), ISPICKVAL(Business_Unit__c,&quot;YMI SBU&quot;), ISPICKVAL(Rating, &quot;Warm&quot;))</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Tele_YEF_G_T_M</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(CONTAINS( &quot;Germany, Liechtenstein&quot; , Country), ISPICKVAL(Business_Unit__c,&quot;YMI SBU&quot;), ISPICKVAL(Rating, &quot;Warm&quot;))</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Tele_YEF_I_T_M</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(CONTAINS( &quot; Cyprus,Greece,Italy,Malta,San Marino,Holy See (Vatican City State)&quot; , Country), ISPICKVAL(Business_Unit__c,&quot;YMI SBU&quot;), ISPICKVAL(Rating, &quot;Warm&quot;))</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Tele_YSH_T_M</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(CONTAINS( &quot;China,Hong Kong,Macao,Mongolia&quot; , Country), ISPICKVAL(Business_Unit__c,&quot;YMI SBU&quot;), ISPICKVAL(Rating, &quot;Warm&quot;))</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Tele_YEA_T_M</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(CONTAINS( &quot; Australia,Cocos (Keeling) Islands,Christmas Island,Fiji,Heard Island and McDonald Islands,Indonesia,Norfolk Island,Papua New Guinea,Maldives,Singapore, New Zealand, Cambodia, Myanmar, Lao People&apos;s Democratic Republic&quot; , Country), ISPICKVAL(Business_Unit__c,&quot;YMI SBU&quot;), ISPICKVAL(Rating, &quot;Warm&quot;))</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Tele_YEM_T_M</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(CONTAINS( &quot;Brunei Darussalam,Malaysia&quot; , Country), ISPICKVAL(Business_Unit__c,&quot;YMI SBU&quot;), ISPICKVAL(Rating, &quot;Warm&quot;))</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Tele_YNZ_T_M</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(CONTAINS( &quot;Cook Islands,New Zealand,Tokelau&quot; , Country), ISPICKVAL(Business_Unit__c,&quot;YMI SBU&quot;), ISPICKVAL(Rating, &quot;Warm&quot;))</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Tele_YPI_T_M</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(CONTAINS( &quot;Philippines&quot; , Country), ISPICKVAL(Business_Unit__c,&quot;YMI SBU&quot;), ISPICKVAL(Rating, &quot;Warm&quot;))</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Tele_YTH_T_M</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(CONTAINS( &quot;Thailand&quot; , Country), ISPICKVAL(Business_Unit__c,&quot;YMI SBU&quot;), ISPICKVAL(Rating, &quot;Warm&quot;))</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Tele_YVN_T_M</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(CONTAINS( &quot;Viet Nam&quot; , Country), ISPICKVAL(Business_Unit__c,&quot;YMI SBU&quot;), ISPICKVAL(Rating, &quot;Warm&quot;))</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Tele_YKO_T_M</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(CONTAINS( &quot;Korea, Republic of&quot; , Country), ISPICKVAL(Business_Unit__c,&quot;YMI SBU&quot;), ISPICKVAL(Rating, &quot;Warm&quot;))</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Tele_YMA_T_M</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(CONTAINS( &quot;Algeria,Angola,Bahrain,Benin,Botswana,Burkina Faso,Burundi,Cameroon,Cabo Verde,Central African Republic,Chad,Comoros,Congo, the Democratic Republic of the,Côte d&apos;Ivoire,Djibouti,Egypt,Equatorial Guinea,Eritrea,Ethiopia,Gabon,Gambia,Ghana,Guinea,Guinea-Bissau,Iraq,Jordan,Kenya,Kuwait,Lebanon,Lesotho,Liberia,Libya,Madagascar,Malawi,Mali,Mauritius,Mauritania,Morocco,Mozambique,Namibia,Niger,Nigeria,Oman,Qatar,Pakistan,Rwanda,Congo,Sao Tome and Principe,Saudi Arabia,Senegal,Seychelles,Sierra Leone,Somalia,South Africa,Sudan,South Sudan,Eswatini,Syrian Arab Republic,Tanzania, United Republic of,Togo,Tunisia,United Arab Emirates,Uganda,Western Sahara,Yemen,Zambia,Zimbabwe&quot;, Country), ISPICKVAL(Business_Unit__c,&quot;YMI SBU&quot;), ISPICKVAL(Rating, &quot;Warm&quot;))</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Tele_YRU_T_M</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(CONTAINS( &quot;Armenia,Azerbaijan,Belarus,Kazakhstan,Kyrgyzstan,Moldova,Russian Federation,Tajikistan,Turkmenistan,Ukraine,Uzbekistan&quot; , Country), ISPICKVAL(Business_Unit__c,&quot;YMI SBU&quot;), ISPICKVAL(Rating, &quot;Warm&quot;))</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Tele_YSA_T_M</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(CONTAINS( &quot;Argentina,Bolivia,Brazil,Chile,Colombia,Cuba,Ecuador,Guyana,Paraguay,Peru,Suriname,Uruguay,Venezuela&quot; , Country), ISPICKVAL(Business_Unit__c,&quot;YMI SBU&quot;), ISPICKVAL(Rating, &quot;Warm&quot;))</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Tele_Other_T_M</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(CONTAINS( &quot;Afghanistan,Antarctica,Timor-Leste,Falkland Islands,Georgia,Iran,Kiribati,Marshall Islands,Micronesia,Nauru,Niue,Korea, Democratic People&apos;s Republic of,Palau,Palestine, State of,Samoa,Solomon Islands,Taiwan,Tonga,Tuvalu,Vanuatu&quot; , Country), ISPICKVAL(Business_Unit__c,&quot;YMI SBU&quot;), ISPICKVAL(Rating, &quot;Warm&quot;))</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Japan_T_M</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(CONTAINS( &quot;Japan&quot; , Country),  ISPICKVAL(Business_Unit__c,&quot;YMI SBU&quot;), ISPICKVAL(Rating, &quot;Hot&quot;))</formula>
+            <template>unfiled$public/New_Lead_Sample</template>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>YCA_T_M</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(CONTAINS(&quot;ARUBA, ANGUILLA,NETHERLANDS ANTILLES, ANTIGUA AND BARBUDA, BAHAMAS, BELIZE, BERMUDA, BARBADOS, CANADA, COSTA RICA, CAYMAN ISLANDS, DOMINICA, DOMINICAN REPUBLIC, GUADELOUPE, GRENADA, GUATEMALA, HONDURAS, HAITI, JAMAICA, SAINT KITTS AND NEVIS, MEXICO, NORTHERN MARIANA ISLANDS, MARTINIQUE, NICARAGUA, PANAMA, PUERTO RICO, EL SALVADOR, TURKS AND CAICOS ISLANDS, TRINIDAD AND TOBAGO, UNITED STATES MINOR OUTLYING ISLANDS, UNITED STATES, SAINT VINCENT AND THE GRENADINES, VIRGIN ISLANDS, BRITISH&quot;,                UPPER(Country)),  ISPICKVAL(Business_Unit__c,&quot;YMI SBU&quot;), ISPICKVAL(Rating, &quot;Hot&quot;))</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>YIL_T_M</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(CONTAINS( &quot;BANGLADESH, BHUTAN, INDIA, SRI LANKA, MALDIVES,NEPAL&quot; , UPPER(Country)), ISPICKVAL(Business_Unit__c,&quot;YMI SBU&quot;), ISPICKVAL(Rating, &quot;Hot&quot;))</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>YEF_NL_T_M</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(CONTAINS(&quot;Albania,Andorra,Austria,Bosnia and Herzegovina,Bulgaria,Croatia,Czechia,France,French Guiana,French Polynesia,French Southern Territories,Hungary,Ireland,Macedonia,Martinique,Mayotte,Monaco,Montenegro,New Caledonia,Norway,Poland,Portugal,Réunion,Romania,Serbia,Slovakia,Slovenia,Spain,Saint Pierre and Miquelon,Switzerland,Turkey,Wallis and Futuna,Bouvet Island,Denmark,Estonia,Faroe Islands,Finland,Greenland,Iceland,Israel,Latvia,Lithuania,Netherlands,Svalbard and Jan Mayen,Sweden&quot;,                Country),  ISPICKVAL(Business_Unit__c,&quot;YMI SBU&quot;), ISPICKVAL(Rating, &quot;Hot&quot;))</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>YEF_B_T_M</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(CONTAINS( &quot;Belgium, Luxembourg&quot; , Country), ISPICKVAL(Business_Unit__c,&quot;YMI SBU&quot;), ISPICKVAL(Rating, &quot;Hot&quot;))</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>YEF_GB_T_M</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(CONTAINS( &quot;Bermuda,British Indian Ocean Territory,Virgin Islands, British,Cayman Islands,Gibraltar,Montserrat,Pitcairn,Saint Helena, Ascension and Tristan da Cunha,South Georgia and the South Sandwich Islands,Turks and Caicos Islands,United Kingdom&quot; , Country), ISPICKVAL(Business_Unit__c,&quot;YMI SBU&quot;), ISPICKVAL(Rating, &quot;Hot&quot;))</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>YEF_G_T_M</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(CONTAINS( &quot;Germany, Liechtenstein&quot; , Country), ISPICKVAL(Business_Unit__c,&quot;YMI SBU&quot;), ISPICKVAL(Rating, &quot;Hot&quot;))</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>YEF_I_T_M</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(CONTAINS( &quot; Cyprus,Greece,Italy,Malta,San Marino,Holy See (Vatican City State)&quot; , Country), ISPICKVAL(Business_Unit__c,&quot;YMI SBU&quot;), ISPICKVAL(Rating, &quot;Hot&quot;))</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>YSH_T_M</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(CONTAINS( &quot;China,Hong Kong,Macao,Mongolia&quot; , Country), ISPICKVAL(Business_Unit__c,&quot;YMI SBU&quot;), ISPICKVAL(Rating, &quot;Hot&quot;))</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>YEA_T_M</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(CONTAINS( &quot; Australia,Cocos (Keeling) Islands,Christmas Island,Fiji,Heard Island and McDonald Islands,Indonesia,Norfolk Island,Papua New Guinea,Maldives,Singapore, New Zealand, Cambodia, Myanmar, Lao People&apos;s Democratic Republic&quot; , Country), ISPICKVAL(Business_Unit__c,&quot;YMI SBU&quot;), ISPICKVAL(Rating, &quot;Hot&quot;))</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>YEM_T_M</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(CONTAINS( &quot;Brunei Darussalam,Malaysia&quot; , Country), ISPICKVAL(Business_Unit__c,&quot;YMI SBU&quot;), ISPICKVAL(Rating, &quot;Hot&quot;))</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>YNZ_T_M</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(CONTAINS( &quot;Cook Islands,New Zealand,Tokelau&quot; , Country), ISPICKVAL(Business_Unit__c,&quot;YMI SBU&quot;), ISPICKVAL(Rating, &quot;Hot&quot;))</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>YPI_T_M</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(CONTAINS( &quot;Philippines&quot; , Country), ISPICKVAL(Business_Unit__c,&quot;YMI SBU&quot;), ISPICKVAL(Rating, &quot;Hot&quot;))</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>YTH_T_M</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(CONTAINS( &quot;Thailand&quot; , Country), ISPICKVAL(Business_Unit__c,&quot;YMI SBU&quot;), ISPICKVAL(Rating, &quot;Hot&quot;))</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>YVN_T_M</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(CONTAINS( &quot;Viet Nam&quot; , Country), ISPICKVAL(Business_Unit__c,&quot;YMI SBU&quot;), ISPICKVAL(Rating, &quot;Hot&quot;))</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>YKO_T_M</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(CONTAINS( &quot;Korea, Republic of&quot; , Country), ISPICKVAL(Business_Unit__c,&quot;YMI SBU&quot;), ISPICKVAL(Rating, &quot;Hot&quot;))</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>YMA_T_M</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(CONTAINS( &quot;Algeria,Angola,Bahrain,Benin,Botswana,Burkina Faso,Burundi,Cameroon,Cabo Verde,Central African Republic,Chad,Comoros,Congo, the Democratic Republic of the,Côte d&apos;Ivoire,Djibouti,Egypt,Equatorial Guinea,Eritrea,Ethiopia,Gabon,Gambia,Ghana,Guinea,Guinea-Bissau,Iraq,Jordan,Kenya,Kuwait,Lebanon,Lesotho,Liberia,Libya,Madagascar,Malawi,Mali,Mauritius,Mauritania,Morocco,Mozambique,Namibia,Niger,Nigeria,Oman,Qatar,Pakistan,Rwanda,Congo,Sao Tome and Principe,Saudi Arabia,Senegal,Seychelles,Sierra Leone,Somalia,South Africa,Sudan,South Sudan,Eswatini,Syrian Arab Republic,Tanzania, United Republic of,Togo,Tunisia,United Arab Emirates,Uganda,Western Sahara,Yemen,Zambia,Zimbabwe&quot;,   Country),   ISPICKVAL(Business_Unit__c,&quot;YMI SBU&quot;), ISPICKVAL(Rating, &quot;Hot&quot;))</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>YRU_T_M</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(CONTAINS( &quot;Armenia,Azerbaijan,Belarus,Kazakhstan,Kyrgyzstan,Moldova,Russian Federation,Tajikistan,Turkmenistan,Ukraine,Uzbekistan&quot; , Country), ISPICKVAL(Business_Unit__c,&quot;YMI SBU&quot;), ISPICKVAL(Rating, &quot;Hot&quot;))</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>YSA_T_M</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(CONTAINS( &quot;Argentina,Bolivia,Brazil,Chile,Colombia,Cuba,Ecuador,Guyana,Paraguay,Peru,Suriname,Uruguay,Venezuela&quot; , Country), ISPICKVAL(Business_Unit__c,&quot;YMI SBU&quot;), ISPICKVAL(Rating, &quot;Hot&quot;))</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Other_T_M</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(CONTAINS( &quot;Afghanistan,Antarctica,Timor-Leste,Falkland Islands,Georgia,Iran,Kiribati,Marshall Islands,Micronesia,Nauru,Niue,Korea, Democratic People&apos;s Republic of,Palau,Palestine, State of,Samoa,Solomon Islands,Taiwan,Tonga,Tuvalu,Vanuatu&quot; , Country), ISPICKVAL(Business_Unit__c,&quot;YMI SBU&quot;), ISPICKVAL(Rating, &quot;Hot&quot;))</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Default_Lead_Queue</assignedTo>
+            <assignedToType>Queue</assignedToType>
+        </ruleEntry>
+    </assignmentRule>
+</AssignmentRules>
