@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Stage__c</fullName>
+    <description>Stage of Lead</description>
+    <externalId>false</externalId>
+    <label>Stage</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Auto-qualified Lead (AQL)</fullName>
+                <default>true</default>
+                <label>Auto-qualified Lead (AQL)</label>
+            </value>
+            <value>
+                <fullName>Tele-qualified Lead (TQL)</fullName>
+                <default>false</default>
+                <label>Tele-qualified Lead (TQL)</label>
+            </value>
+            <value>
+                <fullName>TQL Rejected</fullName>
+                <default>false</default>
+                <label>TQL Rejected</label>
+            </value>
+            <value>
+                <fullName>Marketing Qualified Lead (MQL)</fullName>
+                <default>false</default>
+                <label>Marketing Qualified Lead (MQL)</label>
+            </value>
+            <value>
+                <fullName>Sales Accepted Lead (SAL)</fullName>
+                <default>false</default>
+                <label>Sales Accepted Lead (SAL)</label>
+            </value>
+            <value>
+                <fullName>Sales Rejected Lead</fullName>
+                <default>false</default>
+                <label>Sales Rejected Lead</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>
