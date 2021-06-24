@@ -1406,6 +1406,16 @@
         <editable>true</editable>
         <field>Order.Type</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>OrderItem.Integration_YGSSAP_Id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>OrderItem.Migration_Id__c</field>
+        <readable>true</readable>
     </fieldPermissions>    
     <fieldPermissions>
         <editable>false</editable>
@@ -1593,8 +1603,8 @@
         <recordType>Case.Technical_Support</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Order-YODA Order Layout</layout>
-    </layoutAssignments>  
+        <layout>OrderItem-Order Product Layout</layout>
+    </layoutAssignments>
     <layoutAssignments>
         <layout>Pricebook2-Price Book Layout</layout>
     </layoutAssignments>
