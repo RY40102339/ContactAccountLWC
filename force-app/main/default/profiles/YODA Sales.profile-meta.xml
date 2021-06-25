@@ -3,6 +3,26 @@
     <custom>true</custom>
     <description>Profile for Sales teams of the YODA program. Most permissions revolve around Account, Contact, Lead, Opportunity, and other user/object permission to perform sales tasks</description>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.Preferred_Language__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Preferred_Language__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.Preferred_Language__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Dialect__c.Preferred_Language__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Account.Migration_Id__c</field>
         <readable>true</readable>
