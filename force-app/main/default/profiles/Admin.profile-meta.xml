@@ -1291,6 +1291,9 @@
         <layout>Asset-YODA Asset Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Dialect__c-Dialect Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>OrderItem-Order Product Layout</layout>
     </layoutAssignments>
     <tabVisibilities>
