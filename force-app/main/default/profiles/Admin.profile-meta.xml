@@ -239,6 +239,31 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Category__c.Application__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Category__c.Category__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Category__c.Description__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Category__c.Service_Org__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Category__c.Start_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Contact.AccountId</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1286,6 +1311,9 @@
     </recordTypeVisibilities>
     <layoutAssignments>
         <layout>Asset-YODA Asset Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Category__c-Category Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Dialect__c-Dialect Layout</layout>
