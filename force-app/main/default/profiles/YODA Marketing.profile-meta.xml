@@ -4,6 +4,11 @@
     <description>Profile for Marketing team of the YODA program. Most permissions revolve around Lead, Campaign, Account, Contact, and other user permission to perform marketing tasks</description>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Contact.Preferred_Language__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Account.Preferred_Language__c</field>
         <readable>true</readable>
     </fieldPermissions>

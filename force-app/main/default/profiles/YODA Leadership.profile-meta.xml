@@ -4,6 +4,11 @@
     <description>Profile for leadership of the YODA program</description>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Contact.Preferred_Language__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Account.Preferred_Language__c</field>
         <readable>true</readable>
     </fieldPermissions>
