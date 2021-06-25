@@ -1843,6 +1843,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Product2.Material_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Product2.Migration_Id__c</field>
         <readable>true</readable>
@@ -2008,15 +2013,15 @@
         <layout>Case-YODA General Inquiry</layout>
         <recordType>Case.General_Inquiry</recordType>
     </layoutAssignments>
-     <layoutAssignments>
+    <layoutAssignments>
         <layout>Case-YODA Sales Request Layout</layout>
         <recordType>Case.Sales_Request</recordType>
     </layoutAssignments>
-     <layoutAssignments>
+    <layoutAssignments>
         <layout>Case-YODA Service Request Layout</layout>
         <recordType>Case.Service_Request</recordType>
     </layoutAssignments>
-     <layoutAssignments>
+    <layoutAssignments>
         <layout>Case-YODA Technical Support Layout</layout>
         <recordType>Case.Technical_Support</recordType>
     </layoutAssignments>    
@@ -2034,6 +2039,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>PricebookEntry-Price Book Entry Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Product2-YODA Product Layout</layout>
     </layoutAssignments>
     <tabVisibilities>
         <tab>standard-Asset</tab>

@@ -1254,6 +1254,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Product2.Material_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Product2.Migration_Id__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1350,6 +1355,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>OrderItem-Order Product Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Product2-YODA Product Layout</layout>
     </layoutAssignments>
     <tabVisibilities>
         <tab>standard-Asset</tab>
