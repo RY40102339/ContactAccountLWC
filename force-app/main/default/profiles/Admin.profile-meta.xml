@@ -642,9 +642,6 @@
         <field>Dialect__c.Product_ID__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <layoutAssignments>
-        <layout>Dialect__c-Dialect Layout</layout>
-    </layoutAssignments>
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead.Address</field>
