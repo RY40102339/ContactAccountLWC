@@ -386,6 +386,10 @@
         <visible>true</visible>
     </recordTypeVisibilities>
     <layoutAssignments>
+        <layout>Account-YODA Account Layout</layout>
+        <recordType>Account.Account</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Case-YODA General Inquiry</layout>
         <recordType>Case.General_Inquiry</recordType>
     </layoutAssignments>
