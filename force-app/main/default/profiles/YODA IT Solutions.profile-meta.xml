@@ -2007,6 +2007,10 @@
         <visible>true</visible>
     </recordTypeVisibilities>
     <layoutAssignments>
+        <layout>Account-YODA Account Layout</layout>
+        <recordType>Account.Account</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Asset-YODA Asset Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
