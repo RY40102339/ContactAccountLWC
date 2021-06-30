@@ -13,7 +13,6 @@
         <locationY>200</locationY>
         <actionName>Opportunity.Opportunity_Notification_Closed_Won</actionName>
         <actionType>emailAlert</actionType>
-        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
             <name>SObjectRowId</name>
             <value>
@@ -34,7 +33,6 @@
         <locationY>200</locationY>
         <actionName>Opportunity.Opportunity_Notification_Closed_Lost</actionName>
         <actionType>emailAlert</actionType>
-        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
             <name>SObjectRowId</name>
             <value>
@@ -459,7 +457,7 @@
         </rules>
     </decisions>
     <description>Runs when an Opportunity&apos;s Stage is set to Closed Won or Closed Lost</description>
-    <interviewLabel>YODA_Opportunity_Closed_Notification_Email-3_InterviewLabel</interviewLabel>
+    <interviewLabel>YODA_Opportunity_Closed_Notification_Email-4_InterviewLabel</interviewLabel>
     <label>YODA Opportunity Closed Notification Email</label>
     <processMetadataValues>
         <name>ObjectType</name>
