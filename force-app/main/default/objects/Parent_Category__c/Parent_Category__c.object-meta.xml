@@ -152,13 +152,13 @@
     <enableSearch>true</enableSearch>
     <enableSharing>false</enableSharing>
     <enableStreamingApi>false</enableStreamingApi>
-    <externalSharingModel>ReadWrite</externalSharingModel>
-    <label>Dialect</label>
+    <externalSharingModel>Private</externalSharingModel>
+    <label>Parent Category</label>
     <nameField>
-        <label>Dialect Name</label>
+        <label>Parent Category Name</label>
         <type>Text</type>
     </nameField>
-    <pluralLabel>Dialects</pluralLabel>
+    <pluralLabel>Parent Categories</pluralLabel>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
     <visibility>Public</visibility>
