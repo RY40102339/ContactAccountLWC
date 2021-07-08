@@ -69,11 +69,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Dialect__c.Category_ID__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Dialect__c.Preferred_Language__c</field>
         <readable>true</readable>
     </fieldPermissions>

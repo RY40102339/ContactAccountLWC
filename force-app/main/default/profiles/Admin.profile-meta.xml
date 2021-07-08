@@ -1381,7 +1381,6 @@
         <dataCategoryGroup>Product</dataCategoryGroup>
         <visibility>ALL</visibility>
     </categoryGroupVisibilities>
-    <custom>false</custom>  
     <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>

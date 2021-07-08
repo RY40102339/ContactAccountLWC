@@ -118,7 +118,6 @@
         <fields>ARTICLE_NUMBER</fields>
         <fields>LAST_PUBLISHED_DATE</fields>
         <fields>UPDATEDBY_USER</fields>
-        <relatedList>Knowledge__kav.Category__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>

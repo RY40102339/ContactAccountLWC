@@ -757,7 +757,6 @@
     <tabs>standard-report</tabs>
     <tabs>standard-Dashboard</tabs>
     <tabs>Industry_Code__c</tabs>
-    <tabs>Competitor__c</tabs>
     <tabs>Yokogawa_Competitor__c</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>LightningService_UtilityBar</utilityBar>
