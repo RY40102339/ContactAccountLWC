@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>YODA_Parent_Category_Validation</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( IsBLANK( Child_Category__c  ),
+IsBLANK( Parent_Category_Id__c ) )</errorConditionFormula>
+    <errorMessage>Either Child Category ID or Parent Category ID is mandatory</errorMessage>
+</ValidationRule>

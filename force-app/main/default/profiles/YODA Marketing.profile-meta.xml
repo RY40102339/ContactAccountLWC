@@ -2,6 +2,16 @@
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
     <custom>true</custom>
     <description>Profile for Marketing team of the YODA program. Most permissions revolve around Lead, Campaign, Account, Contact, and other user permission to perform marketing tasks</description>
+    <applicationVisibilities>
+        <application>standard__LightningService</application>
+        <default>false</default>
+        <visible>false</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>standard__Sales</application>
+        <default>false</default>
+        <visible>true</visible>
+    </applicationVisibilities>
     <fieldPermissions>
         <editable>true</editable>
         <field>Contact.Preferred_Language__c</field>
@@ -55,6 +65,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Contact.Preferred_Language__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Dialect__c.Category_ID__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1105,6 +1120,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Dialect__c.Description__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Dialect__c.Integration_YPMM_Id__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

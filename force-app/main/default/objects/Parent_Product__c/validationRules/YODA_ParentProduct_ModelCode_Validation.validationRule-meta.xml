@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>YODA_ParentProduct_ModelCode_Validation</fullName>
+    <active>true</active>
+    <description>YODA Parent Product object Model Code field Validation</description>
+    <errorConditionFormula>AND( IsBLANK(Child_Model_Code__c ),
+     IsBLANK(Parent_Model_Code__c ) )</errorConditionFormula>
+    <errorMessage>Either Child Model Code or Parent Model Code is Mandatory.</errorMessage>
+</ValidationRule>

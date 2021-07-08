@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <excludeButtons>Submit</excludeButtons>
     <layoutSections>
         <customLabel>false</customLabel>
         <detailHeading>false</detailHeading>
@@ -26,12 +27,6 @@
                 <behavior>Required</behavior>
                 <field>Category_Hierarchy__c</field>
             </layoutItems>
-        </layoutColumns>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>OwnerId</field>
-            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Category__c</field>
@@ -42,11 +37,17 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Application__c</field>
+                <field>CurrencyIsoCode</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Description__c</field>
+            </layoutItems>
+        </layoutColumns>
+        <layoutColumns>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>OwnerId</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
@@ -81,18 +82,43 @@
         <style>CustomLinks</style>
     </layoutSections>
     <relatedLists>
+        <fields>TASK.SUBJECT</fields>
+        <fields>TASK.WHO_NAME</fields>
+        <fields>ACTIVITY.TASK</fields>
+        <fields>TASK.DUE_DATE</fields>
+        <fields>TASK.STATUS</fields>
+        <fields>TASK.PRIORITY</fields>
+        <fields>CORE.USERS.FULL_NAME</fields>
+        <relatedList>RelatedActivityList</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>TASK.SUBJECT</fields>
+        <fields>TASK.WHO_NAME</fields>
+        <fields>ACTIVITY.TASK</fields>
+        <fields>TASK.DUE_DATE</fields>
+        <fields>CORE.USERS.FULL_NAME</fields>
+        <fields>TASK.LAST_UPDATE</fields>
+        <relatedList>RelatedHistoryList</relatedList>
+    </relatedLists>
+    <relatedLists>
         <relatedList>RelatedNoteList</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>PRODUCT2.NAME</fields>
         <fields>PRODUCT2.CUSTOMER_PRODUCT_ID</fields>
-        <fields>Model_Code__c</fields>
         <fields>PRODUCT2.DESCRIPTION</fields>
         <relatedList>Product2.Category__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
         <relatedList>Category__c.Category__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>TITLE</fields>
+        <fields>ARTICLE_NUMBER</fields>
+        <fields>LAST_PUBLISHED_DATE</fields>
+        <fields>UPDATEDBY_USER</fields>
+        <relatedList>Knowledge__kav.Category__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
@@ -104,7 +130,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00hp0000000jlBp</masterLabel>
+        <masterLabel>00hp0000000jkTS</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

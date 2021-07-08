@@ -14,4 +14,24 @@
     <tabs>standard-Product2</tabs>
     <tabs>standard-Forecasting3</tabs>
     <tabs>standard-Quote</tabs>
+    <tabs>Category_Hierarchy__c</tabs>
+    <tabs>Project__c</tabs>
+    <tabs>Category__c</tabs>
+    <tabs>Customer_Plant__c</tabs>
+    <tabs>Document__c</tabs>
+    <tabs>Plant__c</tabs>
+    <tabs>ErrorLog__c</tabs>
+    <tabs>Office__c</tabs>
+    <tabs>Customer_Asset__c</tabs>
+    <tabs>Inspection__c</tabs>
+    <tabs>Maintenance_Phase__c</tabs>
+    <tabs>Product_Extension__c</tabs>
+    <tabs>Software_Download__c</tabs>
+    <tabs>Test</tabs>
+    <tabs>Serial_Number_Search_Result__c</tabs>
+    <tabs>Scope_of_Product__c</tabs>
+    <tabs>Industry_Code__c</tabs>
+    <tabs>standard-WaveHome</tabs>
+    <tabs>Competitor__c</tabs>
+    <tabs>Yokogawa_Competitor__c</tabs>
 </CustomApplication>
