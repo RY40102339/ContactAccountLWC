@@ -757,15 +757,11 @@
     <tabs>standard-report</tabs>
     <tabs>standard-Dashboard</tabs>
     <tabs>Industry_Code__c</tabs>
-    <tabs>Yokogawa_Competitor__c</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>LightningService_UtilityBar</utilityBar>
     <workspaceConfig>
         <mappings>
             <tab>Industry_Code__c</tab>
-        </mappings>
-        <mappings>
-            <tab>Yokogawa_Competitor__c</tab>
         </mappings>
         <mappings>
             <tab>standard-Account</tab>
