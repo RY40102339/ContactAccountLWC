@@ -21,7 +21,6 @@
     <tabs>ErrorLog__c</tabs>
     <tabs>Office__c</tabs>
     <tabs>Customer_Asset__c</tabs>
-    <tabs>Inspection__c</tabs>
     <tabs>Maintenance_Phase__c</tabs>
     <tabs>Product_Extension__c</tabs>
     <tabs>Software_Download__c</tabs>
