@@ -425,10 +425,6 @@
         <default>false</default>
         <visible>true</visible>
     </applicationVisibilities>
-    <categoryGroupVisibilities>
-        <dataCategoryGroup>Product</dataCategoryGroup>
-        <visibility>ALL</visibility>
-    </categoryGroupVisibilities>
     <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>
