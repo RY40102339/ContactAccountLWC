@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>Win_Reason__c</fullName>
+    <fullName>Category_of_Interest__c</fullName>
     <externalId>false</externalId>
-    <label>Win Reason</label>
-    <length>255</length>
+    <label>Category of Interest</label>
     <required>false</required>
     <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>
-    <type>Text</type>
-    <unique>false</unique>
-</CustomField> 
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Category_of_Interest</valueSetName>
+    </valueSet>
+</CustomField>

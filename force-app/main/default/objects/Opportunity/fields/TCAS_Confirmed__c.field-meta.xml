@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>Win_Reason__c</fullName>
+    <fullName>TCAS_Confirmed__c</fullName>
+    <defaultValue>false</defaultValue>
     <externalId>false</externalId>
-    <label>Win Reason</label>
-    <length>255</length>
-    <required>false</required>
+    <label>TCAS Confirmed</label>
     <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>
-    <type>Text</type>
-    <unique>false</unique>
-</CustomField> 
+    <type>Checkbox</type>
+</CustomField>
