@@ -541,7 +541,6 @@
     <relatedLists>
         <fields>MemberName</fields>
         <fields>OppAccessLevel</fields>
-        <fields>Business_Unit__c</fields>
         <fields>TeamMemberRole</fields>
         <relatedList>RelatedOpportunitySalesTeam</relatedList>
     </relatedLists>
