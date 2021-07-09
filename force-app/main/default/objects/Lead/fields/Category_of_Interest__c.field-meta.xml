@@ -5,57 +5,10 @@
     <label>Category of Interest</label>
     <required>false</required>
     <trackFeedHistory>false</trackFeedHistory>
-    <trackHistory>true</trackHistory>
+    <trackHistory>false</trackHistory>
     <type>Picklist</type>
     <valueSet>
         <restricted>true</restricted>
-        <valueSetDefinition>
-            <sorted>false</sorted>
-            <value>
-                <fullName>None</fullName>
-                <default>false</default>
-                <label>None</label>
-            </value>
-            <value>
-                <fullName>Oscilloscope</fullName>
-                <default>false</default>
-                <label>Oscilloscope</label>
-            </value>
-            <value>
-                <fullName>Power Analyzer and Power Meter</fullName>
-                <default>false</default>
-                <label>Power Analyzer and Power Meter</label>
-            </value>
-            <value>
-                <fullName>Data Acquisition (DAQ)</fullName>
-                <default>false</default>
-                <label>Data Acquisition (DAQ)</label>
-            </value>
-            <value>
-                <fullName>Optical Test Equipment</fullName>
-                <default>false</default>
-                <label>Optical Test Equipment</label>
-            </value>
-            <value>
-                <fullName>Signal Generators, Sources and Supplies</fullName>
-                <default>false</default>
-                <label>Signal Generators, Sources and Supplies</label>
-            </value>
-            <value>
-                <fullName>Portal and Handheld Instruments</fullName>
-                <default>false</default>
-                <label>Portal and Handheld Instruments</label>
-            </value>
-            <value>
-                <fullName>Other Test &amp; Measurement Instruments</fullName>
-                <default>false</default>
-                <label>Other Test &amp; Measurement Instruments</label>
-            </value>
-            <value>
-                <fullName>Test &amp; Measurement Accessories</fullName>
-                <default>false</default>
-                <label>Test &amp; Measurement Accessories</label>
-            </value>
-        </valueSetDefinition>
+        <valueSetName>Category_of_Interest</valueSetName>
     </valueSet>
 </CustomField>

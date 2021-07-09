@@ -1148,6 +1148,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead.Category_of_Interest__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Lead.Region__c</field>
         <readable>true</readable>
@@ -1515,6 +1520,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Opportunity.AccountId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.Category_of_Interest__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
