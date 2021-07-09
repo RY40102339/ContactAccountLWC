@@ -244,10 +244,6 @@
                 <behavior>Edit</behavior>
                 <field>SSTP_Number__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Proposal_price_Authorized__c</field>
-            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
