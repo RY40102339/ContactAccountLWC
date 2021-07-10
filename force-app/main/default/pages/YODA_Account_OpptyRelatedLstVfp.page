@@ -1,0 +1,163 @@
+<apex:page standardController="Account" extensions="YODA_Account_OpptyRelatedLstCls">
+    <apex:slds />
+    <apex:includeLightning />
+    
+    <style type="text/css">
+        .pbHeader{
+        height:2rem;
+        padding-left:2%;
+        font-weight:bold;
+        }
+        .myButton{
+        background-color:white;
+        }
+        .ltngBtn{
+        
+        }
+        .pullUpDiv{
+        margin-top: -0.75rem;
+        }
+        .border_Bottom{
+            border-bottom:1px solid rgb(221, 219, 218)
+        }
+        .border_Right{
+            border-right:1px solid rgb(221, 219, 218)
+        }
+        .border_Left{
+            border-left:1px solid rgb(221, 219, 218)
+        }
+    </style>
+    
+    <apex:includescript value="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"/>
+    <apex:stylesheet value="//cdn.datatables.net/1.10.4/css/jquery.dataTables.css" />
+    
+    <script>
+    $ = jQuery.noConflict();
+    $(document).ready(function () { 
+        $('.activeBtn').removeClass('btn');        
+        
+        $('.delCls').click(function(){
+            
+            if (confirm("Are you sure?") == true) {
+                openUrl($(this).prop('lang'));
+            }
+        });
+        function openUrl(delUrl){
+            window.open(delUrl);
+        }
+    });
+    </script>
+    <div class="pullUpDiv">    
+        <apex:form rendered="{!AND(IsAccountTeamMember == True, OpprtySize > 0)}" id="pageForm">
+            <apex:pageMessages />
+            <div style="text-align:right;padding:7px;">
+                <apex:commandButton style="margin-top:0.5%;" rendered="{!IsAccountTeamMember}" styleClass="activeBtn slds-button slds-button_neutral" value="New" action="{!URLFOR($Action.Opportunity.New,null,[retURL=Account.id])}"/>
+            </div>
+            
+            <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+                <thead>
+                    <tr class="slds-line-height_reset">
+                        <th style="height:2.25rem" class="headerRow border_Bottom border_Left" scope="col">
+                            <div class="slds-truncate" title="Action">Action</div>
+                        </th>
+                        <th class="border_Bottom" scope="col">
+                            <div class="slds-truncate" title="Opportunity Name">Opportunity Name</div>
+                        </th>
+                        <th class="border_Bottom" scope="col">
+                            <div class="slds-truncate" title="Owner">Owner</div>
+                        </th>
+                        <th class="border_Bottom" scope="col">
+                            <div class="slds-truncate" title="Stage Name">Stage</div>
+                        </th>
+                        <th class="border_Bottom" scope="col">
+                            <div class="slds-truncate" title="Lastmodified Date<">Lastmodified Date</div>
+                        </th>
+                        <th class="border_Bottom border_Right" scope="col">
+                            <div class="slds-truncate" title="End User">End User</div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <apex:repeat value="{!Account.Opportunities}" var="opp">
+                        <tr class="slds-hint-parent">
+                            <td data-label="Opportunity Name" scope="row" class="border_Left">
+                                <div class="slds-truncate" title="Cloudhub">
+                                    <apex:commandLink value="Edit" action="/{!opp.id}/e" style="color: #015ba7;"/>
+                                    <apex:outputLabel >&nbsp;|&nbsp;</apex:outputLabel>
+                                    <apex:commandLink styleClass="delCls" lang="{!URLFOR($Action.Opportunity.Delete,opp.id,[retURL=Account.id])}" style="color: #015ba7;" reRender="nothing" value="Del" id="deleteButton" />
+                                </div>
+                            </td>
+                            <td data-label="Opportunity Name" scope="row">
+                                <div class="slds-truncate" title="Cloudhub">
+                                    <apex:commandLink rendered="{!IsAccountTeamMember}" style="color: #015ba7;" value="{!Opp.Name}" action="{!URLFOR($Action.Opportunity.view,opp.id,[retURL=Account.id])}"/>
+                                    <apex:outputField rendered="{!!IsAccountTeamMember}" style="color: #015ba7;" value="{!Opp.Name}"/>
+                                </div>
+                            </td>
+                            <td data-label="Owner">
+                                <div class="slds-truncate" title="Cloudhub">
+                                    <apex:outputlabel styleclass="slds-text-link" onclick="window.open('/_ui/core/userprofile/UserProfilePage?u={!opp.OwnerId}&tab=sfdc.ProfilePlatformFeed&isdtp=p1')"> {!opp.Owner.Name}</apex:outputlabel>
+                                </div>
+                            </td>
+                            <td data-label="Stage Name">
+                                <div class="slds-truncate" title="StageName">
+                                    <apex:outputField value="{!opp.StageName}"/>
+                                </div>
+                            </td>
+                            <td data-label="Lastmodified Date">
+                                <div class="slds-truncate" title="Last modified Date">
+                                    <apex:outputField value="{!opp.LastmodifiedDate}"/>
+                                </div>
+                            </td>
+                            <td data-label="End User" class="border_Right">
+                                <div class="slds-truncate" title="End User">
+                                    <apex:outputlabel styleclass="slds-text-link" onclick="window.open('/_ui/core/userprofile/UserProfilePage?u={!opp.End_User__c}&tab=sfdc.ProfilePlatformFeed&isdtp=p1')"> {!opp.End_User__r.Name}</apex:outputlabel>
+                                </div>
+                            </td>
+                        </tr>
+                    </apex:repeat>
+                </tbody>
+            </table> 
+        </apex:form>        
+        
+        <apex:form rendered="{!AND(!IsAccountTeamMember == True, OpprtySize > 0)}">
+            <div style="text-align:right;padding:7px;">
+                <apex:commandButton rendered="{!IsAccountTeamMember}" styleClass="activeBtn slds-button slds-button_neutral" value="New" action="{!URLFOR($Action.Opportunity.New,null,[retURL=Account.id])}"/>
+            </div>
+            
+            <table class="slds-table--header-fixed slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+                <thead>
+                    <tr class="slds-line-height_reset">
+                        <th style="height:2.25rem;" class="slds-cell-fixed border_Bottom border_Left" scope="col">&nbsp;</th>
+                        <th class="slds-cell-fixed border_Bottom" scope="col">
+                            <div class="slds-truncate" title="Opportunity Name">Opportunity Name</div>
+                        </th>
+                        <th class="slds-cell-fixed border_Bottom border_Right" scope="col">
+                            <div class="slds-truncate " title="Owner">Owner</div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <apex:repeat value="{!Account.Opportunities}" var="opp">
+                        <tr class="slds-hint-parent">
+                            <td data-label="Opportunity Name" scope="row" class="border_Left">&nbsp;</td>
+                            <td data-label="Opportunity Name" scope="row">
+                                <div class="slds-truncate" title="Cloudhub">
+                                    <apex:commandLink rendered="{!IsAccountTeamMember}" style="color: #015ba7;" value="{!Opp.Name}" action="{!URLFOR($Action.Opportunity.view,opp.id,[retURL=Account.id])}"/>
+                                    <apex:outputField rendered="{!!IsAccountTeamMember}" style="color: #015ba7;" value="{!Opp.Name}"/>
+                                </div>
+                            </td>
+                            <td data-label="Owner" class="border_Right">
+                                <div class="slds-truncate" title="Cloudhub">
+                                    <apex:outputlabel styleclass="slds-text-link" onclick="window.open('/_ui/core/userprofile/UserProfilePage?u={!opp.OwnerId}&tab=sfdc.ProfilePlatformFeed&isdtp=p1')"> {!opp.Owner.Name}</apex:outputlabel>
+                                </div>
+                            </td>
+                        </tr>
+                    </apex:repeat>
+                </tbody>
+            </table>
+        </apex:form>
+    </div>
+    <div class="slds-form-element__label" style="margin-top: 2%;position: sticky;">
+        <apex:outputLabel styleClass="slds-form-element__label" rendered="{!OpprtySize == 0}" style="margin-top: 2%;">No opportunities available.</apex:outputLabel>
+    </div>
+</apex:page>
