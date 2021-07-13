@@ -4,5 +4,6 @@
     <label>YODA Technical Sales Consultant</label>
     <permissionSets>Campaign_Influence_Read</permissionSets>
     <permissionSets>System_Create_and_Customize_List_Views</permissionSets>
+    <permissionSets>System_Create_and_Customize_Reports_and_Dashboards</permissionSets>
     <status>Updated</status>
 </PermissionSetGroup>
