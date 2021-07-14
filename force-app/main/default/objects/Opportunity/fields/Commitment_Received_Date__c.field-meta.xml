@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>Affiliates_to_receive_PO__c</fullName>
+    <fullName>Commitment_Received_Date__c</fullName>
     <externalId>false</externalId>
-    <label>Affiliates to receive PO</label>
+    <label>Commitment Received Date</label>
     <required>false</required>
     <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>
-    <type>Picklist</type>
-    <valueSet>
-        <restricted>true</restricted>
-        <valueSetName>Affiliates_to_receive_PO</valueSetName>
-    </valueSet>
+    <type>Date</type>
 </CustomField>

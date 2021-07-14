@@ -4,7 +4,7 @@
     <active>true</active>
     <businessProcess>YODA Default Sales Process</businessProcess>
     <compactLayoutAssignment>YODA_Opportunity_Compact_Layout</compactLayoutAssignment>
-    <description>Created for the YODA program</description>
+    <description>Tangible goods that provide customer benefit or satisfaction, such as hardware or ready made software applications.</description>
     <label>Product</label>
     <picklistValues>
         <picklist>Affiliates_to_receive_PO__c</picklist>
@@ -73,6 +73,14 @@
             <default>false</default>
         </values>
         <values>
+            <fullName>YEA-EMD</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YEA-GF</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>YEA-PKT</fullName>
             <default>false</default>
         </values>
@@ -104,13 +112,249 @@
             <fullName>YEF-CZ</fullName>
             <default>false</default>
         </values>
+        <values>
+            <fullName>YEF-E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YEF-F</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YEF-G</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YEF-GB</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YEF-HQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YEF-HU</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YEF-I</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YEF-IR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YEF-MTG</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YEF-MTU</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YEF-NL</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YEF-NLS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YEF-NO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YEF-PL</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YEF-PLB</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YEF-PT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YEF-RO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YEF-RS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YEF-SK</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YEF-TR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YEF-TRI</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YEI-S</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YEM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YHQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YIL</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YIN</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YJP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YKM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YKO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YMA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YMA-AAR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YMA-AD</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YMA-AO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YMA-AOB</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YMA-CG</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YMA-KSA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YMA-NG</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YMA-OMN</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YMA-SA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YMA-SNG</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YMA-SSA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YMA-TN</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YNT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YNZ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YPI</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YQA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YRU</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YRU-KZ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YRU-UKR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YSA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YSA-CO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YSK</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YSL</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YTH</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YTH-CAM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YTH-LAO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YTH-MYA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YTW</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YVN</fullName>
+            <default>false</default>
+        </values>
     </picklistValues>
     <picklistValues>
         <picklist>Business_Unit__c</picklist>
-        <values>
-            <fullName>Aerospace %26 New Business SBU</fullName>
-            <default>false</default>
-        </values>
         <values>
             <fullName>Digital Solutions HQ</fullName>
             <default>false</default>
@@ -129,6 +373,41 @@
         </values>
         <values>
             <fullName>YMI SBU</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Category_of_Interest__c</picklist>
+        <values>
+            <fullName>Data Acquisition %28DAQ%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Optical Test Equipment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Oscilloscopes</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other Test %26 Measurement Instruments</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Portable and Handheld Instruments</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Power Analyzers and Power Meters</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Signal Generators%2C Sources and Supplies</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Test %26 Measurement Accessories</fullName>
             <default>false</default>
         </values>
     </picklistValues>
@@ -185,19 +464,19 @@
     <picklistValues>
         <picklist>Competition_Positioning__c</picklist>
         <values>
-            <fullName>1</fullName>
+            <fullName>Front Runner</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>2</fullName>
+            <fullName>Only Alternative</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>3</fullName>
+            <fullName>Shared</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>4</fullName>
+            <fullName>Zero</fullName>
             <default>false</default>
         </values>
     </picklistValues>
@@ -221,6 +500,21 @@
         </values>
         <values>
             <fullName>Cat 0</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>DB_Competitor__c</picklist>
+        <values>
+            <fullName>Competitor A</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Competitor B</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Competitor C</fullName>
             <default>false</default>
         </values>
     </picklistValues>
@@ -427,17 +721,53 @@
             <default>false</default>
         </values>
     </picklistValues>
-    <!--<picklistValues>
-        <picklist>Status__c</picklist>
+    <picklistValues>
+        <picklist>Region__c</picklist>
         <values>
-            <fullName>Closed</fullName>
+            <fullName>Global</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Open</fullName>
+            <fullName>YCA</fullName>
             <default>false</default>
         </values>
-    </picklistValues>-->
+        <values>
+            <fullName>YCN</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YEA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YEF</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YHQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YJP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YKO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YMA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YRU</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YSA</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
     <picklistValues>
         <picklist>Type</picklist>
         <values>
