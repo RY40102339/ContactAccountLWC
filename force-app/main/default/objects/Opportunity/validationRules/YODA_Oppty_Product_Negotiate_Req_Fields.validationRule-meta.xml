@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>YODA_Oppty_Product_Negotiate_Req_Fields</fullName>
+    <active>true</active>
+    <description>Created for YODA.
+Fields that are required for the &quot;Negotiate&quot; stage of Opportunities in the &quot;Product&quot; record type.</description>
+    <errorConditionFormula>AND(
+NOT( $Setup.Bypass_Settings__c.Bypass_Validation_Rules__c ),
+ISPICKVAL(StageName,&apos;Negotiate&apos;),
+OR (
+ISBLANK(Customer_PO_Received__c),
+NOT(PO_Approved__c),
+NOT(	Order_Entry_Approved__c),
+ISBLANK(Order_Entry_Date__c),
+ISBLANK(SO_Number__c),
+ISBLANK( Quotation_Issued__c),
+NOT(Export_Control_Check__c),
+ISBLANK(Quotation_Number__c),
+NOT(Proposal_price_Authorized__c),
+ISPICKVAL(Competition_Positioning__c,&quot;&quot;),
+ISBLANK( RFQ_Received_Date__c),
+ISBLANK(Application__c),
+ISPICKVAL(Category_of_Interest__c,&quot;&quot;),
+ISBLANK( End_User__c),
+ISBLANK(Amount)
+)
+)</errorConditionFormula>
+    <errorMessage>To mark &apos;Negotiate&apos; stage as complete, please ensure below key fields are populated:
+Customer PO Received, PO Approved, Order Entry Approved, Order Entry Date and SO Number with &quot;Propose / Quote&quot;, &quot;Develop&quot; and &quot;Qualify(SQL)&quot; stages required fields.</errorMessage>
+</ValidationRule>
