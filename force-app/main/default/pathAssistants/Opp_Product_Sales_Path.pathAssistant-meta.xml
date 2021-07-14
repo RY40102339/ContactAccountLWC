@@ -22,6 +22,10 @@
         <picklistValueName>Develop</picklistValueName>
     </pathAssistantSteps>
     <pathAssistantSteps>
+        <info>&lt;p&gt;Disqualify&lt;/p&gt;</info>
+        <picklistValueName>Disqualify</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
         <fieldNames>Description_Notes__c</fieldNames>
         <info>&lt;p&gt;The “Identify” stage of your Opportunity Flow is the start of new potential business with your customer. &lt;/p&gt;&lt;p&gt;In this stage, you have become aware of a potential opportunity for the first time, and start to track related information, including the account and contact. You may or advance to the next stage at any time, and may also “disqualify” any opportunities in this stage to indicate stop of all sales actions. &lt;/p&gt;&lt;p&gt;Selecting “Disqualify” doesn´t mean that you lost the opportunity; it means there is no business opportunity for Yokogawa. &lt;/p&gt;</info>
         <picklistValueName>Identify (SAL)</picklistValueName>
