@@ -315,16 +315,6 @@
         <relatedList>RelatedCampaignMemberStatusList</relatedList>
     </relatedLists>
     <relatedLists>
-        <fields>OPPORTUNITY.NAME</fields>
-        <fields>CONTACT.NAME</fields>
-        <fields>REVENUE_SHARE</fields>
-        <fields>OPPORTUNITY.AMOUNT</fields>
-        <fields>OPPORTUNITY.STAGE_NAME</fields>
-        <fields>OPPORTUNITY.CLOSE_DATE</fields>
-        <fields>CORE.USERS.FULL_NAME</fields>
-        <relatedList>RelatedCampaignInfluence2CampaignList</relatedList>
-    </relatedLists>
-    <relatedLists>
         <fields>NAME</fields>
         <fields>TOTAL_VIEWS</fields>
         <fields>TOTAL_FORM_SUBMISSIONS</fields>
