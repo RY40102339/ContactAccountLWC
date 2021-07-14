@@ -3,7 +3,7 @@
     <fullName>In_Forecast__c</fullName>
     <defaultValue>true</defaultValue>
     <externalId>false</externalId>
-    <label>In Forecast?</label>
+    <label>In Forecast</label>
     <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>

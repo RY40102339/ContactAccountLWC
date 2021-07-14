@@ -4,7 +4,7 @@
     <defaultValue>false</defaultValue>
     <description>Accepted by delivery</description>
     <externalId>false</externalId>
-    <label>Order Entry Approved ?</label>
+    <label>Order Entry Approved</label>
     <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>

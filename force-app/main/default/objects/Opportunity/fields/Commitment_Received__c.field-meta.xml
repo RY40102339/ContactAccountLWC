@@ -2,7 +2,7 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Commitment_Received__c</fullName>
     <externalId>false</externalId>
-    <label>Commitment Received ?</label>
+    <label>Commitment Received</label>
     <required>false</required>
     <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>false</trackHistory>
@@ -26,6 +26,11 @@
                 <fullName>Not Yet</fullName>
                 <default>false</default>
                 <label>Not Yet</label>
+            </value>
+            <value>
+                <fullName>Letter of Intent</fullName>
+                <default>false</default>
+                <label>Letter of Intent</label>
             </value>
         </valueSetDefinition>
     </valueSet>

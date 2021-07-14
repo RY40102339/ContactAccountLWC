@@ -3,7 +3,7 @@
     <fullName>Regulatory_Approved__c</fullName>
     <defaultValue>false</defaultValue>
     <externalId>false</externalId>
-    <label>Regulatory Approved?</label>
+    <label>Regulatory Approved</label>
     <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>

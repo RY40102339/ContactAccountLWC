@@ -3,7 +3,7 @@
     <fullName>FID_Approved__c</fullName>
     <defaultValue>false</defaultValue>
     <externalId>false</externalId>
-    <label>FID Approved?</label>
+    <label>FID Approved</label>
     <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>

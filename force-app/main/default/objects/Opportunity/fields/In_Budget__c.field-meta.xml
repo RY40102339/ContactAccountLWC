@@ -3,7 +3,7 @@
     <fullName>In_Budget__c</fullName>
     <defaultValue>false</defaultValue>
     <externalId>false</externalId>
-    <label>In Budget?</label>
+    <label>In Budget</label>
     <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>
