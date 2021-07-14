@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Market_Competitor_info</fullName>
+    <active>true</active>
+    <compactLayoutAssignment>YODA_Knowledge_Compact_Layout</compactLayoutAssignment>
+    <description>Market trends and competitors’ information.</description>
+    <label>Market / Competitor info</label>
+    <picklistValues>
+        <picklist>Category1__c</picklist>
+        <values>
+            <fullName>Driver</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Firmware</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Service pack</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Service release</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Software 32bit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Software 64bit</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Document_Type__c</picklist>
+        <values>
+            <fullName>Certificates</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Drawings</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>General Specifications</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Instruction Manuals</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Software</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Technical Information</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Product_category__c</picklist>
+        <values>
+            <fullName>Test1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Test2</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Test3</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Test4</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Product_type__c</picklist>
+        <values>
+            <fullName>Analytical Products</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Controllers %26 Indicators</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Field Instruments</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Process Control PLC%2FRTU %28STARDOM%29</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>
