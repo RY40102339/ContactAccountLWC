@@ -135,75 +135,35 @@
     <picklistValues>
         <picklist>Close_Lost_Reason__c</picklist>
         <values>
-            <fullName>Commercial%2FLegal Compliant</fullName>
+            <fullName>Feature / product performance</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Country Restrictions %28Level 3%2C 4%29</fullName>
+            <fullName>Price</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Customer Cancelled</fullName>
+            <fullName>Delivery capability / reputation</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Decision not to bid</fullName>
+            <fullName>Service capability / reputation</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Disqualified</fullName>
+            <fullName>Customer has lost (EPC,SI,etc)</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Duplicate Opportunity</fullName>
+            <fullName>On indefinite hold</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>EPC Lost</fullName>
+            <fullName>Duplicate opportunity (mark for delete)</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>End User Relationship</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Existing Installed Base</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Export Compliance</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Lacking Functionality</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Lead Time%2FDelivery Time</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Local Service</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Lost to Competitor-Price</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Not meeting Standards</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Obsolete Product</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Other</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Technical Requirements</fullName>
+            <fullName>Blocked (export control or credit status)</fullName>
             <default>false</default>
         </values>
     </picklistValues>
