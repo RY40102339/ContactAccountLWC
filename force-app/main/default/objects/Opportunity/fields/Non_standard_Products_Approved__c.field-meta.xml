@@ -2,7 +2,7 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Non_standard_Products_Approved__c</fullName>
     <externalId>false</externalId>
-    <label>Non-standard Products Approved?</label>
+    <label>Non-standard Products Approved</label>
     <required>false</required>
     <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>false</trackHistory>

@@ -3,7 +3,7 @@
     <fullName>PO_Approved__c</fullName>
     <defaultValue>false</defaultValue>
     <externalId>false</externalId>
-    <label>PO Approved ?</label>
+    <label>PO Approved</label>
     <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>

@@ -3,7 +3,7 @@
     <fullName>Finalized_Service_Aggrement__c</fullName>
     <defaultValue>false</defaultValue>
     <externalId>false</externalId>
-    <label>Finalized Service Aggrement ?</label>
+    <label>Finalized Service Aggrement</label>
     <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>
