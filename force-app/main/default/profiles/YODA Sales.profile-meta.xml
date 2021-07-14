@@ -1421,7 +1421,7 @@
         <editable>false</editable>
         <field>Lead.Migration_Id__c</field>
         <readable>true</readable>
-    </fieldPermissions>     
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead.MobilePhone</field>
@@ -1630,6 +1630,31 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Opportunity.Competitor__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.Customer_PO_Received__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.Order_Entry_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.Quotation_Number__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.SO_Number__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.SSTP_Number__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
