@@ -52,7 +52,7 @@
                 <field>LeadSource</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Required</behavior>
+                <behavior>Edit</behavior>
                 <field>Campaign__c</field>
             </layoutItems>
             <layoutItems>
