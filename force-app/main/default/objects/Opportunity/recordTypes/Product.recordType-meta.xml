@@ -467,7 +467,7 @@
             <default>false</default>
         </values>
     </picklistValues>
-    <picklistValues>
+    <!--<picklistValues>
         <picklist>Status__c</picklist>
         <values>
             <fullName>Closed</fullName>
@@ -477,7 +477,7 @@
             <fullName>Open</fullName>
             <default>false</default>
         </values>
-    </picklistValues>
+    </picklistValues>-->
     <picklistValues>
         <picklist>Type</picklist>
         <values>
