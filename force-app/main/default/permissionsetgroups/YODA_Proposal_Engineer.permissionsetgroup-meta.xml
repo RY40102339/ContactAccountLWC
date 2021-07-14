@@ -8,5 +8,6 @@
     <permissionSets>Opportunity_Create</permissionSets>
     <permissionSets>Opportunity_Edit</permissionSets>
     <permissionSets>System_Create_and_Customize_List_Views</permissionSets>
+    <permissionSets>System_Create_and_Customize_Reports_and_Dashboards</permissionSets>
     <status>Updated</status>
 </PermissionSetGroup>
