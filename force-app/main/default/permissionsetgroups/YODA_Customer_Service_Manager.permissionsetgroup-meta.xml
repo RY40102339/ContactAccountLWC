@@ -10,6 +10,8 @@
     <permissionSets>Lead_Create</permissionSets>
     <permissionSets>Lead_Edit</permissionSets>
     <permissionSets>System_Create_and_Customize_Reports_and_Dashboards</permissionSets>
+    <permissionSets>System_View_Archived_Articles</permissionSets>
+    <permissionSets>System_View_Draft_Articles</permissionSets>
     <permissionSets>Work_Order_Create</permissionSets>
     <permissionSets>Work_Order_Edit</permissionSets>
     <status>Updated</status>
