@@ -15,7 +15,7 @@
         <default>false</default>
         <label>Products HQ</label>
     </customValue>
-    <customValue> 
+    <customValue>
         <fullName>Digital Solutions HQ</fullName>
         <default>false</default>
         <label>Digital Solutions HQ</label>
@@ -26,9 +26,14 @@
         <label>YMI SBU</label>
     </customValue>
     <customValue>
-        <fullName>Aerospace &amp; New Business SBU</fullName>
+        <fullName>KBC</fullName>
         <default>false</default>
-        <label>Aerospace &amp; New Business SBU</label>
+        <label>KBC</label>
+    </customValue>
+    <customValue>
+        <fullName>Energy &amp; Sustainable SBU</fullName>
+        <default>false</default>
+        <label>Energy &amp; Sustainable SBU</label>
     </customValue>
     <description>Business Units for Yokogawa</description>
     <masterLabel>Business Unit</masterLabel>
