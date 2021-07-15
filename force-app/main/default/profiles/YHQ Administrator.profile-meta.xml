@@ -42,6 +42,16 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.Double_Opt_In_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.Double_Opt_In_Source__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Opportunity.AccountId</field>
         <readable>true</readable>
@@ -541,6 +551,12 @@
     <layoutAssignments>
         <layout>Contact-YODA Contact Layout</layout>
         <recordType>Contact.Customer_Contact</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Competitor__c-YODA Competitor Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Yokogawa_Competitor__c-Master Competitor Layout</layout>
     </layoutAssignments>
     <tabVisibilities>
         <tab>standard-Opportunity</tab>
