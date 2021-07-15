@@ -2534,6 +2534,10 @@
         <layout>Category__c-Category Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Contact-YODA Contact Layout</layout>
+        <recordType>Contact.Customer_Contact</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Dialect__c-Dialect Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
