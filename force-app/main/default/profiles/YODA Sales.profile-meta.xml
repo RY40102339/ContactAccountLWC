@@ -2591,14 +2591,6 @@
         <layout>Product2-YODA Product Layout</layout>
     </layoutAssignments>
     <tabVisibilities>
-        <tab>Competitor</tab>
-        <visibility>DefaultOn</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
-        <tab>Yokogawa Competitor</tab>
-        <visibility>DefaultOn</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
         <tab>standard-Asset</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>

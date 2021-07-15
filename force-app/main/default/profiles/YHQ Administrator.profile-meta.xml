@@ -543,10 +543,6 @@
         <recordType>Contact.Customer_Contact</recordType>
     </layoutAssignments>
     <tabVisibilities>
-        <tab>Yokogawa Competitor</tab>
-        <visibility>DefaultOn</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
         <tab>standard-Opportunity</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
