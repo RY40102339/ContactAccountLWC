@@ -533,6 +533,10 @@
         <recordType>Opportunity.Recurring_Business</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
+    <layoutAssignments>
+        <layout>Contact-YODA Contact Layout</layout>
+        <recordType>Contact.Customer_Contact</recordType>
+    </layoutAssignments>
     <tabVisibilities>
         <tab>standard-Opportunity</tab>
         <visibility>DefaultOn</visibility>
