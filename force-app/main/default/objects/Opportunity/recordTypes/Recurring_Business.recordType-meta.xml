@@ -508,21 +508,6 @@
         </values>
     </picklistValues>
     <picklistValues>
-        <picklist>DB_Competitor__c</picklist>
-        <values>
-            <fullName>Competitor A</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Competitor B</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Competitor C</fullName>
-            <default>false</default>
-        </values>
-    </picklistValues>
-    <picklistValues>
         <picklist>ForecastCategoryName</picklist>
         <values>
             <fullName>Best Case</fullName>
