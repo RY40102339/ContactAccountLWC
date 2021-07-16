@@ -17,6 +17,6 @@ ShippingCountry - EXACT</description>
             <fieldName>ShippingCountry</fieldName>
             <matchingMethod>Exact</matchingMethod>
         </matchingRuleItems>
-        <ruleStatus>InActive</ruleStatus>
+        <ruleStatus>Active</ruleStatus>
     </matchingRules>
 </MatchingRules>
