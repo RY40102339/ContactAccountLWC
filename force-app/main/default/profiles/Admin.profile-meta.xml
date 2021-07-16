@@ -1061,45 +1061,6 @@
         <editable>false</editable>
         <field>Lead.pi__utm_term__c</field>
         <readable>false</readable>
-    </fieldPermissions>    <fieldPermissions>
-        <editable>true</editable>
-        <field>Competitor__c.Additional_Information__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Competitor__c.Competitor_Name__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Competitor__c.Contested_Amount__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Competitor__c.Primary_Competitor__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Competitor__c.Product__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Competitor__c.Strengths__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Competitor__c.Weaknesses__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Competitor__c.Website__c</field>
-        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -1288,7 +1249,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Opportunity.Finalized_Service_Aggrement__c</field>
+        <field>Opportunity.Finalized_Service_Agreement__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1546,11 +1507,8 @@
         <field>Opportunity.X3rd_Party_Buyouts_Required__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
+        <fieldPermissions>
         <editable>true</editable>
-        <field>Yokogawa_Competitor__c.Website__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>OpportunityLineItem.Integration_G1SMS_Id__c</field>
