@@ -8,10 +8,10 @@ public class YODA_Account_OpptyRelatedLstTest {
             
             apexpages.currentpage().getParameters().put('id', accRec.id);
             apexpages.standardController sc = new apexpages.standardController(accRec);
-            salesrep_AccountOpptyRelatedLstCls sarLst = new salesrep_AccountOpptyRelatedLstCls(sc);
-          sarLst.IsAccountTeamMember = sarLst.IsAccountTeamMember;
-          sarLst.getOpprtySize();
-          sarLst.AccountId = sarLst.AccountId;
+            YODA_Account_OpptyRelatedLstCls oppLst = new YODA_Account_OpptyRelatedLstCls(sc);
+            oppLst.IsAccountTeamMember = oppLst.IsAccountTeamMember;
+            oppLst.getOpprtySize();
+            oppLst.AccountId = oppLst.AccountId;
         test.stopTest();
     }
 }
