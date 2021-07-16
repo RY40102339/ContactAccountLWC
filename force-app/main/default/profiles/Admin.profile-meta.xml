@@ -111,7 +111,6 @@
         <field>Asset.Order_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
-     
     <fieldPermissions>
         <editable>true</editable>
         <field>Asset.Price</field>
@@ -1507,8 +1506,6 @@
         <field>Opportunity.X3rd_Party_Buyouts_Required__c</field>
         <readable>true</readable>
     </fieldPermissions>
-        <fieldPermissions>
-        <editable>true</editable>
     <fieldPermissions>
         <editable>true</editable>
         <field>OpportunityLineItem.Integration_G1SMS_Id__c</field>

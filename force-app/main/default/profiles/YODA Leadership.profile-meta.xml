@@ -1231,7 +1231,7 @@
         <editable>false</editable>
         <field>Dialect__c.Integration_YPMM_Id__c</field>
         <readable>true</readable>
-    </fieldPermissions>    
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Dialect__c.Preferred_Language__c</field>
@@ -1811,11 +1811,6 @@
         <editable>true</editable>
         <field>Opportunity.Functional_Unit__c</field>
         <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Opportunity.Hidden_Checkbox__c</field>
-        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
