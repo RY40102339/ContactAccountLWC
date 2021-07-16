@@ -796,6 +796,7 @@
         <editable>false</editable>
         <field>Lead.Double_Opt_In_Source__c</field>
         <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead.Double_Opt_In_Status__c</field>
