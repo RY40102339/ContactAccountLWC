@@ -3,4 +3,4 @@
 </head>
 <body style="height: auto; min-height: auto;">Opportunity: {{{Opportunity.Name}}} was Closed and Won<br />
 <br />
-Redirect here for details: {{{Opportunity.Link}}} Win Reason: {{{Opportunity.Win_Reason__c}}}</body></html>
+Redirect here for details: {{{Opportunity.Link}}} 
