@@ -56,7 +56,7 @@
         <label>Dutch</label>
     </customValue>
     <customValue>
-        <fullName>English</fullName>
+        <fullName>EN</fullName>
         <default>false</default>
         <label>English</label>
     </customValue>
@@ -111,7 +111,7 @@
         <label>Italian</label>
     </customValue>
     <customValue>
-        <fullName>Japanese</fullName>
+        <fullName>JA</fullName>
         <default>false</default>
         <label>Japanese</label>
     </customValue>
@@ -210,7 +210,7 @@
         <default>false</default>
         <label>Vietnamese</label>
     </customValue>
-    <description>Used by Account</description>
+    <description>Used by Account, Contact and Dialect</description>
     <masterLabel>Preferred Language</masterLabel>
     <sorted>false</sorted>
 </GlobalValueSet>
