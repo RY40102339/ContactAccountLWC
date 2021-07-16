@@ -1353,6 +1353,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.Double_Opt_In_Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Lead.Email</field>
         <readable>true</readable>
@@ -2568,9 +2573,6 @@
         <recordType>Contact.Customer_Contact</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Competitor__c-YODA Competitor Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Dialect__c-Dialect Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -2584,9 +2586,6 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Product2-YODA Product Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Yokogawa_Competitor__c-Master Competitor Layout</layout>
     </layoutAssignments>
     <tabVisibilities>
         <tab>standard-Asset</tab>
