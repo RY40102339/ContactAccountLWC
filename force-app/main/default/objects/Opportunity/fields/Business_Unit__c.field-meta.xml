@@ -39,9 +39,9 @@
                 <label>YMI SBU</label>
             </value>
             <value>
-                <fullName>Aerospace &amp; New Business SBU</fullName>
+                <fullName>Energy &amp; Sustainable SBU</fullName>
                 <default>false</default>
-                <label>Aerospace &amp; New Business SBU</label>
+                <label>Energy &amp; Sustainable SBU</label>
             </value>
         </valueSetDefinition>
     </valueSet>
