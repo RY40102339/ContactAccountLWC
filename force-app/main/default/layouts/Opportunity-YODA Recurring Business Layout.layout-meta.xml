@@ -564,11 +564,6 @@
             <posY>0</posY>
         </summaryLayoutItems>
         <summaryLayoutItems>
-            <field>Affiliates_to_receive_PO__c</field>
-            <posX>0</posX>
-            <posY>1</posY>
-        </summaryLayoutItems>
-        <summaryLayoutItems>
             <field>CloseDate</field>
             <posX>1</posX>
             <posY>0</posY>
