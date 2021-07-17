@@ -562,6 +562,18 @@
         <layout>Contact-YODA Contact Layout</layout>
         <recordType>Contact.Customer_Contact</recordType>
     </layoutAssignments>
+    <layoutAssignments>
+        <layout>Opportunity-YODA Product Layout</layout>
+        <recordType>Opportunity.Product</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Opportunity-YODA Project Layout</layout>
+        <recordType>Opportunity.Project</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Opportunity-YODA Recurring Business Layout</layout>
+        <recordType>Opportunity.Recurring_Business</recordType>
+    </layoutAssignments>
     <tabVisibilities>
         <tab>standard-Opportunity</tab>
         <visibility>DefaultOn</visibility>

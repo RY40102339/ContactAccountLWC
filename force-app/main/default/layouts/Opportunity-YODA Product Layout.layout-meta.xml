@@ -50,10 +50,6 @@
                 <field>Oppportunity_Id__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>ExpectedRevenue</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Required</behavior>
                 <field>StageName</field>
             </layoutItems>
@@ -158,14 +154,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Interest_Area_Product_Business_Line__c</field>
+                <field>Category_of_Interest__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>TCAS_Approved__c</field>
-            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Nuclear_Industry_Compliant__c</field>
@@ -193,10 +185,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Proposal_price_Authorized__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Affiliates_to_receive_PO__c</field>
             </layoutItems>
             <layoutItems>
@@ -208,10 +196,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>X3rd_Party_Buyouts_Required__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Non_standard_Products_Approved__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -232,6 +216,10 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Non_standard_Products_Approved__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Quotation_Issued__c</field>
             </layoutItems>
             <layoutItems>
@@ -243,6 +231,14 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>SSTP_Number__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Proposal_price_Authorized__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Export_Control_Check__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -263,17 +259,17 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>PO_Number__c</field>
+                <field>Customer_PO_Number__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Order_Entry_Approved__c</field>
+                <field>PO_Approved__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>PO_Approved__c</field>
+                <field>Order_Entry_Approved__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -370,11 +366,6 @@
             <sortOrder>3</sortOrder>
         </platformActionListItems>
         <platformActionListItems>
-            <actionName>FeedItem.TextPost</actionName>
-            <actionType>QuickAction</actionType>
-            <sortOrder>4</sortOrder>
-        </platformActionListItems>
-        <platformActionListItems>
             <actionName>FeedItem.QuestionPost</actionName>
             <actionType>QuickAction</actionType>
             <sortOrder>5</sortOrder>
@@ -388,6 +379,11 @@
             <actionName>NewContact</actionName>
             <actionType>QuickAction</actionType>
             <sortOrder>7</sortOrder>
+        </platformActionListItems>
+        <platformActionListItems>
+            <actionName>FeedItem.TextPost</actionName>
+            <actionType>QuickAction</actionType>
+            <sortOrder>4</sortOrder>
         </platformActionListItems>
         <platformActionListItems>
             <actionName>Clone</actionName>
@@ -452,6 +448,7 @@
     <relatedLists>
         <fields>MemberName</fields>
         <fields>OppAccessLevel</fields>
+        <fields>Business_Unit__c</fields>
         <fields>TeamMemberRole</fields>
         <relatedList>RelatedOpportunitySalesTeam</relatedList>
     </relatedLists>

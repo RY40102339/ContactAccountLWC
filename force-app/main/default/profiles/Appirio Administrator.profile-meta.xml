@@ -3,27 +3,12 @@
     <custom>false</custom>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Contact.Preferred_Language__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Account.Preferred_Language__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.YODA_Account_Number__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Contact.Preferred_Language__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Dialect__c.Preferred_Language__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -126,7 +111,6 @@
         <field>Asset.Order_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
-     
     <fieldPermissions>
         <editable>true</editable>
         <field>Asset.Price</field>
@@ -730,6 +714,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Dialect__c.Integration_YPMM_Id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Dialect__c.Preferred_Language__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1900,6 +1889,18 @@
         <layout>Dialect__c-Dialect Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Opportunity-YODA Product Layout</layout>
+        <recordType>Opportunity.Product</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Opportunity-YODA Project Layout</layout>
+        <recordType>Opportunity.Project</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Opportunity-YODA Recurring Business Layout</layout>
+        <recordType>Opportunity.Recurring_Business</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>OrderItem-Order Product Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -1915,6 +1916,10 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>standard-Lead</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-Opportunity</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <userLicense>Salesforce</userLicense>

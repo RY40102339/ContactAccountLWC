@@ -1847,6 +1847,15 @@
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
+        <object>Opportunity</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
         <object>Yokogawa_Competitor__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
@@ -1893,6 +1902,18 @@
         <layout>Dialect__c-Dialect Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Opportunity-YODA Product Layout</layout>
+        <recordType>Opportunity.Product</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Opportunity-YODA Project Layout</layout>
+        <recordType>Opportunity.Project</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Opportunity-YODA Recurring Business Layout</layout>
+        <recordType>Opportunity.Recurring_Business</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>OrderItem-Order Product Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -1908,6 +1929,10 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>standard-Lead</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-Opportunity</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <userLicense>Salesforce</userLicense>

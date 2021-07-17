@@ -2256,6 +2256,18 @@
         <layout>Dialect__c-Dialect Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Opportunity-YODA Product Layout</layout>
+        <recordType>Opportunity.Product</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Opportunity-YODA Project Layout</layout>
+        <recordType>Opportunity.Project</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Opportunity-YODA Recurring Business Layout</layout>
+        <recordType>Opportunity.Recurring_Business</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>OrderItem-Order Product Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -2289,6 +2301,10 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>standard-Lead</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-Opportunity</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
      <tabVisibilities>

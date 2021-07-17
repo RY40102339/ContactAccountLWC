@@ -2439,6 +2439,15 @@
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Opportunity</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
         <allowCreate>false</allowCreate>
         <allowDelete>false</allowDelete>
         <allowEdit>false</allowEdit>
@@ -2524,6 +2533,18 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Dialect__c-Dialect Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Opportunity-YODA Product Layout</layout>
+        <recordType>Opportunity.Product</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Opportunity-YODA Project Layout</layout>
+        <recordType>Opportunity.Project</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Opportunity-YODA Recurring Business Layout</layout>
+        <recordType>Opportunity.Recurring_Business</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>OrderItem-Order Product Layout</layout>
