@@ -380,7 +380,7 @@
         <fields>ACCOUNT.NAME</fields>
         <fields>CONTACT.NAME</fields>
         <fields>PRODUCT2.NAME</fields>
-        <relatedList>Asset.Ship_To_Party_Customer__c</relatedList>
+        <relatedList>Asset</relatedList>
     </relatedLists>
     <relatedObjects>ParentId</relatedObjects>
     <showEmailCheckbox>false</showEmailCheckbox>
