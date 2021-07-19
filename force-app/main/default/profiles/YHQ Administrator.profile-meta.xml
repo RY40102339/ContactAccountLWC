@@ -559,6 +559,10 @@
         <visible>true</visible>
     </recordTypeVisibilities>
     <layoutAssignments>
+        <layout>Account-YODA Account Layout</layout>
+        <recordType>Account.Account</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Contact-YODA Contact Layout</layout>
         <recordType>Contact.Customer_Contact</recordType>
     </layoutAssignments>
