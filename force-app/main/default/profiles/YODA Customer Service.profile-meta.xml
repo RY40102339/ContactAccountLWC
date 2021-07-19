@@ -2280,6 +2280,10 @@
         <layout>Product2-YODA Product Layout</layout>
     </layoutAssignments>
     <tabVisibilities>
+        <tab>Knowledge__kav</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
         <tab>standard-Asset</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
