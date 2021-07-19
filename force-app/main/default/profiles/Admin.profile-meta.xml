@@ -1895,6 +1895,9 @@
         <layout>Category__c-Category Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Competitor__c-YODA Competitor Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Contact-YODA Contact Layout</layout>
         <recordType>Contact.Customer_Contact</recordType>
     </layoutAssignments>
@@ -1918,6 +1921,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Product2-YODA Product Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Yokogawa_Competitor__c-Master Competitor Layout</layout>
     </layoutAssignments>
     <tabVisibilities>
         <tab>standard-Asset</tab>
