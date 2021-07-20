@@ -2,11 +2,6 @@
 <Queue xmlns="http://soap.sforce.com/2006/04/metadata">
     <doesSendEmailToMembers>true</doesSendEmailToMembers>
     <name>Japan T&amp;M</name>
-    <queueMembers>
-        <users>
-            <user>dkirzner@appirio.com.yokogawa.yodaqa1</user>
-        </users>
-    </queueMembers>
     <queueSobject>
         <sobjectType>Case</sobjectType>
     </queueSobject>
