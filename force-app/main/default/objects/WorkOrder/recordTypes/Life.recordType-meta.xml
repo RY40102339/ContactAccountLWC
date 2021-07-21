@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Life</fullName>
+    <active>true</active>
+    <description>For Life Science, Bioprocess, Pharmaceutical, Food &amp; Beverage, Water</description>
+    <label>Life</label>
+    <picklistValues>
+        <picklist>Inspection_Category__c</picklist>
+        <values>
+            <fullName>On-Spot</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Periodic Inspection</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Priority</picklist>
+        <values>
+            <fullName>Critical</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>High</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Low</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Medium</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Status</picklist>
+        <values>
+            <fullName>Case Created</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Completed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inspection Created</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Partially Completed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Plan Completed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Planning</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Waiting For Approval</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Work Approved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Work Completed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Work Requested</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Work Started</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>WorkOrderType__c</picklist>
+        <values>
+            <fullName>Annual Maintenance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Factory Modification</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Factory Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Modification</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>On-site Modification</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>On-site Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Others</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Periodical Check</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Start-up</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Warranty Service</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>
