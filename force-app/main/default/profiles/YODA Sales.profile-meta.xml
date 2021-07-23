@@ -3128,6 +3128,9 @@
         <layout>Asset-YODA Asset Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Campaign-YODA Campaign Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>CampaignMember-YODA Campaign Member Page Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
