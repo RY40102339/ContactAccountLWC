@@ -214,50 +214,10 @@
             <default>true</default>
         </values>
     </picklistValues>
-    <picklistValues>
+<picklistValues>
         <picklist>Web_Category_of_Interest__c</picklist>
         <values>
-            <fullName>Accessories</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Accessories %3E Adapters %2F Connectors</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Accessories %3E Cables</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Accessories %3E Modules</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Accessories %3E Others</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Accessories %3E Probes</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Accessories %3E Rack mount kits</fullName>
-            <default>false</default>
-        </values>
-        <values>
             <fullName>Data Acquisition %28DAQ%29</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Data Acquisition %28DAQ%29 %3E High Speed Data Acquisition</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Data Acquisition %28DAQ%29 %3E Low Speed DAQ %26 Industrial Recorders</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Data Acquisition %28DAQ%29 %3E ScopeCorders</fullName>
             <default>false</default>
         </values>
         <values>
@@ -265,63 +225,7 @@
             <default>false</default>
         </values>
         <values>
-            <fullName>Optical Test Equipment %3E Modular Manufacturing Test System</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Optical Test Equipment %3E Optical Spectrum Analyzer</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Optical Test Equipment %3E Optical Time Domain Reflectometer</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Optical Test Equipment %3E Optical Wavelength Meter</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Optical Test Equipment %3E Portable Ethernet Testers</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Optical Test Equipment %3E Portable Power Meters and Light Sources</fullName>
-            <default>false</default>
-        </values>
-        <values>
             <fullName>Oscilloscopes</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Oscilloscopes %3E Current Probes</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Oscilloscopes %3E Logic Probes</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Oscilloscopes %3E Mixed Signal Oscilloscopes</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Oscilloscopes %3E Oscilloscope Accessories</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Oscilloscopes %3E Oscilloscopes Application Software</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Oscilloscopes %3E ScopeCorders</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Oscilloscopes %3E ScopeCorders Accessories</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Oscilloscopes %3E Voltage Probes</fullName>
             <default>false</default>
         </values>
         <values>
@@ -329,59 +233,7 @@
             <default>false</default>
         </values>
         <values>
-            <fullName>Other Test %26 Measurement Instruments %3E Manometers</fullName>
-            <default>false</default>
-        </values>
-        <values>
             <fullName>Portable and Handheld Instruments</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Portable and Handheld Instruments %3E Calibrators</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Portable and Handheld Instruments %3E Calibrators Accessories</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Portable and Handheld Instruments %3E Clamp-on Testers</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Portable and Handheld Instruments %3E DC Precision Measuring</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Portable and Handheld Instruments %3E Digital Multimeters</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Portable and Handheld Instruments %3E Digital Multimeters Accessories</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Portable and Handheld Instruments %3E Earth Ground Testers</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Portable and Handheld Instruments %3E Insulation Testers</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Portable and Handheld Instruments %3E Lux Meters</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Portable and Handheld Instruments %3E Meters Accessories</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Portable and Handheld Instruments %3E Portable Power Quality Monitor%2FRecorder</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Portable and Handheld Instruments %3E Thermometers</fullName>
             <default>false</default>
         </values>
         <values>
@@ -389,43 +241,11 @@
             <default>false</default>
         </values>
         <values>
-            <fullName>Power Analyzers and Power Meters %3E Power Analyzer Accessories</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Power Analyzers and Power Meters %3E Power Measurement Application Software</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Power Analyzers and Power Meters %3E Precision Current Transformers</fullName>
-            <default>false</default>
-        </values>
-        <values>
             <fullName>Signal Generators%2C Sources and Supplies</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Signal Generators%2C Sources and Supplies %3E Digital Multimeters</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Signal Generators%2C Sources and Supplies %3E Function Generators</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Signal Generators%2C Sources and Supplies %3E Programmable DC Sources</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Signal Generators%2C Sources and Supplies %3E Source Measure Units</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Signal Generators%2C Sources and Supplies %3E Source Measure Units %3E Programmable DC Sources</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Signal Generators%2C Sources and Supplies %3E Voltage and Current Calibrators and Standards</fullName>
+            <fullName>Test %26 Measurement Accessories</fullName>
             <default>false</default>
         </values>
     </picklistValues>
