@@ -150,7 +150,7 @@
             <default>false</default>
         </values>
         <values>
-            <fullName>English</fullName>
+            <fullName>EN</fullName>
             <default>false</default>
         </values>
         <values>
@@ -194,7 +194,7 @@
             <default>false</default>
         </values>
         <values>
-            <fullName>Japanese</fullName>
+            <fullName>JA</fullName>
             <default>false</default>
         </values>
         <values>
