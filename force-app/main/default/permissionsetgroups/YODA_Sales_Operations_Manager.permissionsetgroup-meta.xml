@@ -4,7 +4,6 @@
     <label>YODA Sales Operations Manager</label>
     <permissionSets>Account_Edit</permissionSets>
     <permissionSets>Contact_Edit</permissionSets>
-    <permissionSets>Lead_Create</permissionSets>
     <permissionSets>Lead_Edit</permissionSets>
     <permissionSets>Opportunity_Edit</permissionSets>
     <permissionSets>System_Convert_Leads</permissionSets>

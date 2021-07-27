@@ -7,7 +7,6 @@
     <permissionSets>Campaign_Influence_Read</permissionSets>
     <permissionSets>Contact_Create</permissionSets>
     <permissionSets>Contact_Edit</permissionSets>
-    <permissionSets>Lead_Create</permissionSets>
     <permissionSets>Lead_Edit</permissionSets>
     <permissionSets>Opportunity_Create</permissionSets>
     <permissionSets>Opportunity_Edit</permissionSets>
