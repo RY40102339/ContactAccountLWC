@@ -85,6 +85,15 @@
         <itemInstances>
             <componentInstance>
                 <componentInstanceProperties>
+                    <name>hideHeader</name>
+                    <value>false</value>
+                </componentInstanceProperties>
+                <componentName>force:relatedListQuickLinksContainer</componentName>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
                     <name>tabs</name>
                     <value>Facet-ed5f9649-d122-4f9a-9f7e-38e17049149d</value>
                 </componentInstanceProperties>
@@ -97,13 +106,13 @@
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
-                <componentInstanceProperties>
-                    <name>hideHeader</name>
-                    <value>false</value>
-                </componentInstanceProperties>
-                <componentName>force:relatedListQuickLinksContainer</componentName>
+                <componentName>force:detailPanel</componentName>
             </componentInstance>
         </itemInstances>
+        <name>Facet-7cf27799-fd66-4ebf-a20c-3dbe7cb9a441</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
         <itemInstances>
             <componentInstance>
                 <componentInstanceProperties>
@@ -148,15 +157,6 @@
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
-                <componentName>force:detailPanel</componentName>
-            </componentInstance>
-        </itemInstances>
-        <name>Facet-7cf27799-fd66-4ebf-a20c-3dbe7cb9a441</name>
-        <type>Facet</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
-        <itemInstances>
-            <componentInstance>
                 <componentInstanceProperties>
                     <name>flavor</name>
                     <value>list</value>
@@ -176,11 +176,11 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>body</name>
-                    <value>Facet-f4b08c44-0d55-4d21-9532-b99466649619</value>
+                    <value>Facet-7cf27799-fd66-4ebf-a20c-3dbe7cb9a441</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>title</name>
-                    <value>Standard.Tab.relatedLists</value>
+                    <value>Standard.Tab.detail</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:tab</componentName>
             </componentInstance>
@@ -193,11 +193,11 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>body</name>
-                    <value>Facet-7cf27799-fd66-4ebf-a20c-3dbe7cb9a441</value>
+                    <value>Facet-f4b08c44-0d55-4d21-9532-b99466649619</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>title</name>
-                    <value>Standard.Tab.detail</value>
+                    <value>Standard.Tab.relatedLists</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:tab</componentName>
             </componentInstance>
