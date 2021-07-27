@@ -102,13 +102,9 @@
             <fullName>SA</fullName>
             <default>false</default>
         </values>
-    </picklistValues>
+    </picklistValues> 
     <picklistValues>
         <picklist>Preferred_Language__c</picklist>
-        <values>
-            <fullName>Afrikaans</fullName>
-            <default>false</default>
-        </values>
         <values>
             <fullName>Arabic</fullName>
             <default>false</default>
@@ -150,7 +146,7 @@
             <default>false</default>
         </values>
         <values>
-            <fullName>English</fullName>
+            <fullName>EN</fullName>
             <default>false</default>
         </values>
         <values>
@@ -194,7 +190,7 @@
             <default>false</default>
         </values>
         <values>
-            <fullName>Japanese</fullName>
+            <fullName>JA</fullName>
             <default>false</default>
         </values>
         <values>
