@@ -106,10 +106,6 @@
     <picklistValues>
         <picklist>Preferred_Language__c</picklist>
         <values>
-            <fullName>Afrikaans</fullName>
-            <default>false</default>
-        </values>
-        <values>
             <fullName>Arabic</fullName>
             <default>false</default>
         </values>
