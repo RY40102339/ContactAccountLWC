@@ -102,7 +102,7 @@
             <fullName>SA</fullName>
             <default>false</default>
         </values>
-    </picklistValues>
+    </picklistValues> 
     <picklistValues>
         <picklist>Preferred_Language__c</picklist>
         <values>
