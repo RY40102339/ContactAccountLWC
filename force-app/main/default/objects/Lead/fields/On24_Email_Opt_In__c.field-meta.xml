@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>On24_Email_Opt_In__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Registrant provisioned text</description>
+    <externalId>false</externalId>
+    <label>On24 Email Opt-In</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>
