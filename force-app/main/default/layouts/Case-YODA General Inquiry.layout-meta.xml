@@ -345,7 +345,6 @@
         <relatedList>WorkOrders</relatedList>
     </relatedLists>
     <relatedLists>
-    <relatedLists>
         <fields>CASES.CASE_NUMBER</fields>
         <fields>CASES.SUBJECT</fields>
         <fields>CASES.PRIORITY</fields>

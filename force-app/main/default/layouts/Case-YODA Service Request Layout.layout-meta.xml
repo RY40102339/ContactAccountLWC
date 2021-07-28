@@ -355,7 +355,6 @@
         <fields>Status</fields>
         <relatedList>WorkOrders</relatedList>
     </relatedLists>
-    <relatedLists>
     <relatedObjects>ContactId</relatedObjects>
     <relatedObjects>AccountId</relatedObjects>
     <runAssignmentRulesDefault>false</runAssignmentRulesDefault>
