@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>3 Day Alert (Sales)</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>YODA Lead 3 Day Alert (Sales)</name>
+    <style>none</style>
+    <subject>Action required-</subject>
+    <textOnly>View/Update Lead: 
+{!Lead.Link}
+
+Dear {!Lead.FirstName},
+
+You have a lead that has not been updated in 3 days. Please accept or reject the lead at your earliest convenience.
+
+Here is the inquiry information:
+
+Inquiry: {!Lead.Description}
+Campaign: {!Lead.Campaign__c}
+
+
+Thank you for your prompt follow up.
+
+Sincerely,
+Yokogawa Management Team</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

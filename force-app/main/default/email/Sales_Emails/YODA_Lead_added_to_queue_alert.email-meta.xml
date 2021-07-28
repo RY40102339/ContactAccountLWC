@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Lead added to queue alert template</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>YODA Lead added to queue alert</name>
+    <style>none</style>
+    <subject>You have a new lead in queue</subject>
+    <textOnly>View/Update Lead: {!Lead.Link}
+
+
+Dear Sales,
+
+
+A new lead has entered the sales queue. If this lead belongs to your territory,
+
+please assign the lead to yourself, and qualify it. This lead is a {!Lead.Rating} lead from
+
+{!Lead.LeadSource}
+
+
+Here is the inquiry information:
+
+
+Inquiry: {!Lead.Description}
+
+Campaign: {!Lead.Campaign__c}
+
+
+Thank you for your prompt follow up.
+
+
+Sincerely,
+
+
+Yokogawa Management Team</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

@@ -1,13 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <assignments>
-        <description>Executes on before event(insert/update) and updates following lead  fields:
-1.Business Unit
-2.Region</description>
-        <name>Set_Lead_Fields</name>
-        <label>Set_Lead_Fields</label>
-        <locationX>452</locationX>
-        <locationY>286</locationY>
+        <name>Lead_Field_Updates</name>
+        <label>Lead Field Updates</label>
+        <locationX>176</locationX>
+        <locationY>311</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Lead_Accepted_Date__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>LeadAcceptedDate</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Status_Changed_DateTime__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>StatusChangedDate</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Conversion_Rejection_Date__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Conversion_Rejection_Date</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Recent_Status_Changed_Date__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>RecentStatusChangedDate</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Tele_Queue_Accepted_Date__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>TeleQueueDate</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Sales_Queue_Accepted_Date__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>SalesQueDate</elementReference>
+            </value>
+        </assignmentItems>
         <assignmentItems>
             <assignToReference>$Record.Business_Unit__c</assignToReference>
             <operator>Assign</operator>
@@ -22,16 +61,122 @@
                 <elementReference>Set_Region</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Tele_Queue_Assigned_Date__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>TeleQueueAssignedDate</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Sales_Queue_Assigned_Date__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>SalesQueueAssignedDate</elementReference>
+            </value>
+        </assignmentItems>
     </assignments>
     <description>Executes before a lead is created/updated.
 Strictly no cross object manipulations involved.</description>
+    <formulas>
+        <name>Conversion_Rejection_Date</name>
+        <dataType>Date</dataType>
+        <expression>IF(
+	AND(
+        OR(
+        	 TEXT({!$Record.Status}) == &apos;Rejected&apos;,
+            {!$Record.IsConverted} == TRUE
+        ),
+       TEXT({!$Record.Status}) != TEXT({!$Record__Prior.Status})        
+    ),
+    DATEVALUE({!$Flow.InterviewStartTime}),
+    {!$Record.Conversion_Rejection_Date__c}
+)</expression>
+    </formulas>
+    <formulas>
+        <name>LeadAcceptedDate</name>
+        <dataType>Date</dataType>
+        <expression>IF(
+AND(
+ISNULL({!$Record.Lead_Accepted_Date__c}),
+OR(
+ISNEW(),
+{!$Record.OwnerId} != {!$Record__Prior.OwnerId}
+),
+BEGINS({!$Record.OwnerId}, &apos;005&apos;),
+NOT(BEGINS({!$Record__Prior.OwnerId}, &apos;005&apos;))
+),
+DATEVALUE({!$Flow.InterviewStartTime}), {!$Record.Lead_Accepted_Date__c}
+)</expression>
+    </formulas>
+    <formulas>
+        <name>RecentStatusChangedDate</name>
+        <dataType>Date</dataType>
+        <expression>IF(
+AND(
+ BEGINS({!$Record.OwnerId}, &apos;005&apos;),
+NOT(ISBLANK(TEXT({!$Record__Prior.Status}))),
+TEXT({!$Record.Status}) != TEXT({!$Record__Prior.Status})
+),
+DATEVALUE({!$Flow.InterviewStartTime}), {!$Record.Recent_Status_Changed_Date__c}
+)</expression>
+    </formulas>
+    <formulas>
+        <name>SalesQueDate</name>
+        <dataType>Date</dataType>
+        <expression>IF(
+AND(
+BEGINS({!$Record.OwnerId}, &apos;005&apos;),
+ISNULL({!$Record.Sales_Queue_Accepted_Date__c}),
+NOT(BEGINS({!$Record__Prior.Owner:Group.DeveloperName}, &apos;Tele&apos;))
+),
+DATEVALUE({!$Flow.InterviewStartTime}),
+{!$Record.Sales_Queue_Accepted_Date__c}
+)</expression>
+    </formulas>
+    <formulas>
+        <name>SalesQueueAssignedDate</name>
+        <dataType>Date</dataType>
+        <expression>IF(
+    OR(
+       AND(
+               ISPICKVAL({!$Record.Rating}, &apos;Hot&apos;),
+            TEXT({!$Record.Rating}) != TEXT({!$Record__Prior.Rating})
+        ),
+        AND(
+            NOT(BEGINS({!$Record.OwnerId}, &apos;005&apos;)),
+            NOT(BEGINS({!$Record.Owner:Group.DeveloperName}, &apos;Tele&apos;)),
+            NOT(BEGINS({!$Record.Owner:Group.DeveloperName}, &apos;Default&apos;)),
+            {!$Record.OwnerId} != {!$Record__Prior.OwnerId}
+        ),
+        AND(
+        	ISNEW(),
+            ISPICKVAL({!$Record.Rating}, &apos;Hot&apos;)
+        )
+    ),
+    DATEVALUE({!$Flow.InterviewStartTime}),  {!$Record.Sales_Queue_Assigned_Date__c}
+)</expression>
+    </formulas>
+    <formulas>
+        <name>SalesQueueDays</name>
+        <dataType>Number</dataType>
+        <expression>IF(
+AND(
+{!$Record.OwnerId} != {!$Record__Prior.OwnerId},
+BEGINS({!$Record.OwnerId}, &apos;005&apos;),
+NOT(BEGINS({!$Record.OwnerId}, &apos;005&apos;))
+),
+NOW()-{!$Record.LastmodifiedDate}, 0
+)</expression>
+        <scale>0</scale>
+    </formulas>
     <formulas>
         <name>Set_Business_Unit</name>
         <dataType>String</dataType>
         <expression>IF(
 OR(
-ISPICKVAL({!$Record.Category_of_Interest__c},&apos;Oscilloscope&apos;),
-ISPICKVAL({!$Record.Category_of_Interest__c},&apos;Power Analyzer and Power Meter&apos;),
+ISPICKVAL({!$Record.Category_of_Interest__c},&apos;Oscilloscopes&apos;),
+ISPICKVAL({!$Record.Category_of_Interest__c},&apos;Power Analyzer and Power Meters&apos;),
 ISPICKVAL({!$Record.Category_of_Interest__c},&apos;Data Acquisition (DAQ)&apos;),
 ISPICKVAL({!$Record.Category_of_Interest__c},&apos;Optical Test Equipment&apos;),
 ISPICKVAL({!$Record.Category_of_Interest__c},&apos;Signal Generators, Sources and Supplies&apos;),
@@ -51,6 +196,59 @@ TEXT({!$Record.Region__c}),
 TEXT({!$Record.Owner:User.Region__c})
 )</expression>
     </formulas>
+    <formulas>
+        <name>StatusChangedDate</name>
+        <dataType>DateTime</dataType>
+        <expression>IF(
+	AND(
+    	BEGINS({!$Record.OwnerId}, &apos;005&apos;),
+        NOT(ISBLANK(TEXT({!$Record__Prior.Status}))),
+        TEXT({!$Record.Status}) !=  TEXT({!$Record__Prior.Status}),
+        ISNULL({!$Record.Status_Changed_DateTime__c})        
+    ),
+    {!$Flow.InterviewStartTime},
+    {!$Record.Status_Changed_DateTime__c}
+)</expression>
+    </formulas>
+    <formulas>
+        <name>TeleQueueAssignedDate</name>
+        <dataType>Date</dataType>
+        <expression>IF(
+    OR(
+ AND(
+               ISPICKVAL({!$Record.Rating}, &apos;Warm&apos;),
+            TEXT({!$Record.Rating}) != TEXT({!$Record__Prior.Rating})
+        ),
+        AND(
+             {!$Record.OwnerId} != {!$Record__Prior.OwnerId},
+            BEGINS({!$Record.Owner:Group.DeveloperName}, &apos;Tele&apos;)           
+        ),
+        AND(
+        	ISNEW(),
+            ISPICKVAL({!$Record.Rating}, &apos;Warm&apos;)
+        )
+    ),
+    DATEVALUE({!$Flow.InterviewStartTime}),  {!$Record.Tele_Queue_Assigned_Date__c}
+)</expression>
+    </formulas>
+    <formulas>
+        <name>TeleQueueDate</name>
+        <dataType>Date</dataType>
+        <expression>IF(
+AND(
+BEGINS({!$Record.OwnerId}, &apos;005&apos;),
+ISNULL({!$Record.Tele_Queue_Accepted_Date__c}),
+BEGINS({!$Record__Prior.Owner:Group.DeveloperName}, &apos;Tele&apos;)
+),
+DATEVALUE({!$Flow.InterviewStartTime}),
+{!$Record.Tele_Queue_Accepted_Date__c}
+)</expression>
+    </formulas>
+    <formulas>
+        <name>TodayDate</name>
+        <dataType>Date</dataType>
+        <expression>{!$Flow.InterviewStartTime}</expression>
+    </formulas>
     <interviewLabel>Executes before a lead is created/updated.
 Strictly no cross object manipulations involved {!$Flow.CurrentDateTime}</interviewLabel>
     <label>YODA Lead Before Insert/Update Operations</label>
@@ -63,7 +261,7 @@ Strictly no cross object manipulations involved {!$Flow.CurrentDateTime}</interv
     <processMetadataValues>
         <name>CanvasMode</name>
         <value>
-            <stringValue>FREE_FORM_CANVAS</stringValue>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
         </value>
     </processMetadataValues>
     <processMetadataValues>
@@ -75,9 +273,9 @@ Strictly no cross object manipulations involved {!$Flow.CurrentDateTime}</interv
     <processType>AutoLaunchedFlow</processType>
     <start>
         <locationX>50</locationX>
-        <locationY>50</locationY>
+        <locationY>0</locationY>
         <connector>
-            <targetReference>Set_Lead_Fields</targetReference>
+            <targetReference>Lead_Field_Updates</targetReference>
         </connector>
         <object>Lead</object>
         <recordTriggerType>CreateAndUpdate</recordTriggerType>

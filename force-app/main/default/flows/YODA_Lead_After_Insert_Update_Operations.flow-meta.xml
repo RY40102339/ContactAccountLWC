@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
-    <description>YODA Lead After Insert/Update Operations - Testing Close Date formula</description>
+    <description>YODA Insert/Update Operations - Testing Close Date formula</description>
     <formulas>
         <name>CloseDate</name>
         <dataType>Date</dataType>
@@ -17,8 +17,8 @@
         <dataType>Date</dataType>
         <expression>{!$Record.CreatedDate}+365</expression>
     </formulas>
-    <interviewLabel>YODA Lead After Insert/Update Operations {!$Flow.CurrentDateTime}</interviewLabel>
-    <label>YODA Lead After Insert/Update Operations</label>
+    <interviewLabel>YODA Insert/Update Operations {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>YODA Insert/Update Operations</label>
     <processMetadataValues>
         <name>BuilderType</name>
         <value>
