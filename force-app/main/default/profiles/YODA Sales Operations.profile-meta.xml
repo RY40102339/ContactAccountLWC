@@ -3478,6 +3478,56 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Workato_Integrations_Tracking__c.Error_Message__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Workato_Integrations_Tracking__c.Error_Type__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Workato_Integrations_Tracking__c.Source_Data_ID__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Workato_Integrations_Tracking__c.Source_System_ID__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Workato_Integrations_Tracking__c.Source_System__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Workato_Integrations_Tracking__c.Source_Table_Object__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Workato_Integrations_Tracking__c.Status__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Workato_Integrations_Tracking__c.Success_Operation__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Workato_Integrations_Tracking__c.YODA_Object__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Workato_Integrations_Tracking__c.YODA_Record_ID__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Yokogawa_Competitor__c.Website__c</field>
         <readable>true</readable>
@@ -3658,6 +3708,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Product2-YODA Product Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Workato_Integrations_Tracking__c-Workato Integrations Tracking Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Yokogawa_Competitor__c-Master Competitor Layout</layout>
