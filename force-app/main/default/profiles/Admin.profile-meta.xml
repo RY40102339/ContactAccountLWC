@@ -1909,6 +1909,10 @@
         <editable>false</editable>
         <field>Contact.pi__utm_term__c</field>
         <readable>false</readable>
+    </fieldPermissions> <fieldPermissions>
+        <editable>true</editable>
+        <field>ContentVersion.Migration_Id__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -3420,6 +3424,9 @@
     <layoutAssignments>
         <layout>Contact-YODA Contact Layout</layout>
         <recordType>Contact.Customer_Contact</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ContentVersion-Content Version</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Dialect__c-Dialect Layout</layout>
