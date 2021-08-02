@@ -1878,6 +1878,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Document__c.Migration_Id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Industry_Code__c.Full_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>

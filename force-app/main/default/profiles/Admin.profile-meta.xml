@@ -1909,9 +1909,15 @@
         <editable>false</editable>
         <field>Contact.pi__utm_term__c</field>
         <readable>false</readable>
-    </fieldPermissions> <fieldPermissions>
+    </fieldPermissions> 
+    <fieldPermissions>
         <editable>true</editable>
         <field>ContentVersion.Migration_Id__c</field>
+        <readable>true</readable>
+    </fieldPermissions> 
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Document__c.Migration_Id__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
