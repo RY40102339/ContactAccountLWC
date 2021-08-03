@@ -27,7 +27,7 @@
         <titleSize>18</titleSize>
     </chart>
     <columns>
-        <field>Opportunity.Business_Unit_deleted__c</field>
+        <field>Opportunity.Business_Unit__c</field>
     </columns>
     <columns>
         <field>OPPORTUNITY_NAME</field>

@@ -29,7 +29,7 @@
         <name>co</name>
         <value>1</value>
     </params>
-    <reportType>Only_Competitors__c</reportType>
+    <reportType>Competitor__c</reportType>
     <scope>organization</scope>
     <showDetails>true</showDetails>
     <showGrandTotal>true</showGrandTotal>
