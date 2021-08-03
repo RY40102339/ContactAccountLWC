@@ -1,4 +1,4 @@
-<apex:page standardController="Account" extensions="YODA_Account_OpptyRelatedLstCls">
+<apex:page standardController="Account" extensions="YODA_Account_OptyRltdLstCls">
     <apex:slds />
     <apex:includeLightning />
     
@@ -48,12 +48,18 @@
     });
     </script>
     <div class="pullUpDiv">    
-        <apex:form rendered="{!AND(IsAccountTeamMember == True, OpprtySize > 0)}" id="pageForm">
+        <apex:form rendered="{!AND(IsAccountTeamMember == True , OpprtySize > 0)}" id="pageForm">
             <apex:pageMessages />
-            <div style="text-align:right;padding:7px;">
-                <apex:commandButton style="margin-top:0.5%;" rendered="{!IsAccountTeamMember}" styleClass="activeBtn slds-button slds-button_neutral" value="New" action="{!URLFOR($Action.Opportunity.New,null,[retURL=Account.id])}"/>
-            </div>
             
+            <!--Hema-July/30/21 - Added code to fix record type id issue-->
+            <div style="text-align:right;padding:7px;">
+                <apex:commandlink action="{!switch}" target="_blank">
+                    <apex:commandButton value="New"/>
+                </apex:commandLink>
+            <!-- <apex:commandButton style="margin-top:0.5%;" rendered="{!IsAccountTeamMember == True}" styleClass="activeBtn slds-button slds-button_neutral" value="New" action="{!URLFOR($Action.Opportunity.New,null,[retURL=Account.id])}"/>
+            <apex:commandButton style="margin-top:0.5%;" styleClass="activeBtn slds-button slds-button_neutral" value="New" action="{!createOpp}"/>-->
+            </div>
+            <!--Hema-July/30/21 - Added code to fix record type id issue-->            
             <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
                 <thead>
                     <tr class="slds-line-height_reset">
@@ -70,7 +76,7 @@
                             <div class="slds-truncate" title="Stage Name">Stage</div>
                         </th>
                         <th class="border_Bottom" scope="col">
-                            <div class="slds-truncate" title="Lastmodified Date<">Lastmodified Date</div>
+                            <div class="slds-truncate" title="Lastmodified Date">Lastmodified Date</div>
                         </th>
                         <th class="border_Bottom border_Right" scope="col">
                             <div class="slds-truncate" title="End User">End User</div>
@@ -120,10 +126,13 @@
         </apex:form>        
         
         <apex:form rendered="{!AND(!IsAccountTeamMember == True, OpprtySize > 0)}">
-            <div style="text-align:right;padding:7px;">
-                <apex:commandButton rendered="{!IsAccountTeamMember}" styleClass="activeBtn slds-button slds-button_neutral" value="New" action="{!URLFOR($Action.Opportunity.New,null,[retURL=Account.id])}"/>
-            </div>
             
+            <!--Hema-July/30/21 - Added code to fix record type id issue -->            
+            <!--<div style="text-align:right;padding:7px;">--> 
+                <!-- <apex:commandButton rendered="{!IsAccountTeamMember == True}" styleClass="activeBtn slds-button slds-button_neutral" value="New" action="{!createOpp}"/> -->
+               <!-- <apex:commandButton rendered="{!IsAccountTeamMember == True}" styleClass="activeBtn slds-button slds-button_neutral" value="New" action="{!URLFOR($Action.Opportunity.New,null,[retURL=Account.id])}"/> -->
+            <!-- </div>-->
+            <!--Hema-July/30/21 - Added code to fix record type id issue--> 
             <table class="slds-table--header-fixed slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
                 <thead>
                     <tr class="slds-line-height_reset">
@@ -157,7 +166,22 @@
             </table>
         </apex:form>
     </div>
-    <div class="slds-form-element__label" style="margin-top: 2%;position: sticky;">
-        <apex:outputLabel styleClass="slds-form-element__label" rendered="{!OpprtySize == 0}" style="margin-top: 2%;">No opportunities available.</apex:outputLabel>
+    <div class="slds-form-element__label col-md-12" style="margin-top: 2%;position: sticky;width:100%;">
+        <apex:outputLabel styleClass="slds-form-element__label" rendered="{!OpprtySize == 0}" style="margin-top: 2%;width:100%;">
+            <div style="margin-top: -3%;"> No opportunities available.</div>
+            <div style="text-align:right;padding:7px;margin-top: -3%;" class="slds-float--right">
+                <apex:form >
+                    
+                    <!-- Hema-->
+                    <apex:commandlink action="{!switch}" target="_blank">
+                        <apex:commandButton value="New"/>
+                    </apex:commandLink>
+					<!--<apex:commandButton styleClass="activeBtn slds-button slds-button_neutral" value="New" action="{!createOpp}"/>
+                    <apex:commandButton rendered="{!IsAccountTeamMember == True}" styleClass="activeBtn slds-button slds-button_neutral" value="New" action="{!URLFOR($Action.Opportunity.New,null,[retURL=Account.id])}"/>-->
+                    <!--Hema-->
+                    
+               </apex:form>
+            </div>
+        </apex:outputLabel>
     </div>
 </apex:page>

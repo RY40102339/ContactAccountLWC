@@ -4,6 +4,14 @@
         <apexClass>AddProductstoKnowledgeController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+    <classAccesses>
+        <apexClass>YODA_Account_OptyRltdLstCls</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>YODA_Account_OptyRltdLstCls_Test</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <custom>false</custom>
     <fieldPermissions>
         <editable>true</editable>
@@ -3386,6 +3394,10 @@
     </objectPermissions>
     <pageAccesses>
         <apexPage>AddProductstoKnowledge</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>YODA_Account_OpptyRelatedLstVfp</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <recordTypeVisibilities>
