@@ -1,3 +1,20 @@
+/*
+*******************************************************************************************************
+* (C) Copyright 2021 Yokogawa. All rights reserved.
+* This code is property of Yokogawa. Use, duplication and
+* disclosure in any form without permission of copyright holder is prohibited.
+* 
+******************************************************************************************************* 
+* @author Hemalatha Gorthy
+* @version 1.0
+* @created 03/08/2021
+* @description 
+* This is a Opportunity Related List class on Account FlexiPage.
+*
+*  Change History:
+*  MM/DD/YYYY			Developer Name			Comments
+*  08/03/2021           Hemalatha Gorthy        New Visualforce Page to display Opportunity Related List on Account FlexiPage.
+*/
 public class YODA_Account_OptyRltdLstCls {
     
     public Account parentAccount { get; set; }
@@ -37,7 +54,7 @@ public class YODA_Account_OptyRltdLstCls {
             Opportunity op = new Opportunity(
                 RecordTypeId = selectedRecordType,
                 Name = 'Test',
-                StageName = '1. Account Research',
+                StageName = 'Identify (SAL)',
                 CloseDate = Date.today());
             insert op;
             return new PageReference('/006/e?retURL=%2F' + op.Id + '&RecordType=' + op.RecordTypeId + '&ent=Opportunity&nooverride=1');
