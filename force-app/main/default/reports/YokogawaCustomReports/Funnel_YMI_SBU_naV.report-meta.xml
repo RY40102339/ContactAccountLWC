@@ -54,7 +54,7 @@
     <currency>JPY</currency>
     <filter>
         <criteriaItems>
-            <column>Opportunity.Business_Unit_deleted__c</column>
+            <column>Opportunity.Business_Unit__c</column>
             <columnToColumn>false</columnToColumn>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>

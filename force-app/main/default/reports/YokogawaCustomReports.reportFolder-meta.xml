@@ -7,8 +7,8 @@
     </folderShares>
     <folderShares>
         <accessLevel>Manage</accessLevel>
-        <sharedTo>Admin</sharedTo>
-        <sharedToType>Profile</sharedToType>
+        <sharedTo>sailaja.kunchala@wipro.com.yokogawa.yodaqa1</sharedTo>
+        <sharedToType>User</sharedToType>
     </folderShares>
     <name>Yokogawa Custom Reports</name>
 </ReportFolder>
