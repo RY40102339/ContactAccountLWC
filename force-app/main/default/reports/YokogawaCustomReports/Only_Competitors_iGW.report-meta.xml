@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Competitor__c$Name</field>
+    </columns>
+    <columns>
+        <field>Competitor__c$Competed_Opportunity__c</field>
+    </columns>
+    <columns>
+        <field>Competitor__c$Strengths__c</field>
+    </columns>
+    <columns>
+        <field>Competitor__c$Weaknesses__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Competitor__c$Contested_Amount__c</field>
+    </columns>
+    <columns>
+        <field>Competitor__c$Product__c</field>
+    </columns>
+    <columns>
+        <field>Competitor__c$Additional_Information__c</field>
+    </columns>
+    <currency>USD</currency>
+    <format>Tabular</format>
+    <name>Only Competitors</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Only_Competitors__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Competitor__c$CreatedDate</dateColumn>
+        <interval>INTERVAL_CURRENT</interval>
+    </timeFrameFilter>
+</Report>
