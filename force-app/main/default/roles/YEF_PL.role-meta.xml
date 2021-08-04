@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Role xmlns="http://soap.sforce.com/2006/04/metadata">
-    <caseAccessLevel>Edit</caseAccessLevel>
+    <caseAccessLevel>Read</caseAccessLevel>
     <contactAccessLevel>Edit</contactAccessLevel>
+    <description>YEF-PL</description>
     <mayForecastManagerShare>false</mayForecastManagerShare>
-    <name>Customer Portal Developer</name>
-    <opportunityAccessLevel>Edit</opportunityAccessLevel>
+    <name>YEF-PL</name>
+    <opportunityAccessLevel>Read</opportunityAccessLevel>
+    <parentRole>YEF_IA_Head</parentRole>
 </Role>

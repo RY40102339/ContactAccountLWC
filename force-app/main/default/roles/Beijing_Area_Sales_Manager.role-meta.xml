@@ -3,6 +3,7 @@
     <caseAccessLevel>Edit</caseAccessLevel>
     <contactAccessLevel>Edit</contactAccessLevel>
     <mayForecastManagerShare>false</mayForecastManagerShare>
-    <name>Customer Portal Developer</name>
-    <opportunityAccessLevel>Edit</opportunityAccessLevel>
+    <name>Beijing Area Sales Manager</name>
+    <opportunityAccessLevel>Read</opportunityAccessLevel>
+    <parentRole>Sales_Division_Country_Sales_Manager</parentRole>
 </Role>

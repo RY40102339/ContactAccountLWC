@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Role xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseAccessLevel>Read</caseAccessLevel>
+    <contactAccessLevel>Edit</contactAccessLevel>
+    <description>YMI Non-Domestic Sales &amp; Marketing</description>
+    <mayForecastManagerShare>false</mayForecastManagerShare>
+    <name>YMI Non-Domestic Sales &amp; Marketing</name>
+    <opportunityAccessLevel>Read</opportunityAccessLevel>
+    <parentRole>YMI_Head</parentRole>
+</Role>
