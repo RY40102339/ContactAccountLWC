@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Role xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseAccessLevel>Read</caseAccessLevel>
+    <contactAccessLevel>Edit</contactAccessLevel>
+    <description>YIL Marketing Specialist</description>
+    <mayForecastManagerShare>false</mayForecastManagerShare>
+    <name>YIL Marketing Specialist</name>
+    <opportunityAccessLevel>Read</opportunityAccessLevel>
+    <parentRole>YIL_T_M_Head</parentRole>
+</Role>

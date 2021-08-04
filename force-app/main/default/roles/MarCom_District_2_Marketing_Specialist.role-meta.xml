@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Role xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseAccessLevel>Read</caseAccessLevel>
+    <contactAccessLevel>Edit</contactAccessLevel>
+    <description>MarCom District 2 Marketing Specialist</description>
+    <mayForecastManagerShare>false</mayForecastManagerShare>
+    <name>MarCom District 2 Marketing Specialist</name>
+    <opportunityAccessLevel>Read</opportunityAccessLevel>
+    <parentRole>MarCom_District_2_Leader</parentRole>
+</Role>

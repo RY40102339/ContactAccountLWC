@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Role xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseAccessLevel>Read</caseAccessLevel>
+    <contactAccessLevel>Edit</contactAccessLevel>
+    <description>Shanghai District 2 Leader</description>
+    <mayForecastManagerShare>false</mayForecastManagerShare>
+    <name>Shanghai District 2 Leader</name>
+    <opportunityAccessLevel>Read</opportunityAccessLevel>
+    <parentRole>Shanghai_Area_Sales_Manager</parentRole>
+</Role>
