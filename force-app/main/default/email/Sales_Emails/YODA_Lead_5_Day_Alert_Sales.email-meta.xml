@@ -5,23 +5,42 @@
     <encodingKey>UTF-8</encodingKey>
     <name>YODA Lead 5 Day Alert (Sales)</name>
     <style>none</style>
-    <subject>Action required-</subject>
-    <textOnly>View/Update Lead:
-{!Lead.Link}
+    <subject>Action required - Update lead</subject>
+    <textOnly>View/Update Lead: {!Lead.Link}
 
-Dear {!Lead.FirstName},
 
-You have a lead that has not been updated in 1 week. Please accept or reject the lead at your earliest convenience.
+Dear{!Lead.OwnerFirstName},
+
+
+You have a lead that has not been updated in 5 days. Please accept or
+
+reject the lead at your earliest convenience.
+
 
 Here is the inquiry information:
 
-Inquiry: {!Lead.Description}
+
+Company: {!Lead.Company}
+
+Lead Name: {!Lead.Name}
+
+
+
+Category of Interest: {!Lead.Category_of_Interest__c}
+
+
 Campaign: {!Lead.Campaign__c}
+
+
+Click here to update the lead.
 
 
 Thank you for your prompt follow up.
 
+
 Sincerely,
+
+
 Yokogawa Management Team</textOnly>
     <type>custom</type>
     <uiType>Aloha</uiType>

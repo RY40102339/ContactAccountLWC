@@ -1,15 +1,22 @@
-<p>View/Update Lead: <a href="{!Lead.Link}">{!Lead.Link}</a></p>
+<p><b>View/Update Lead: </b><a href="{!Lead.Link}">{!Lead.Link}</a></p>
 <p></p>
 <p>Dear Sales,</p>
 <p></p>
 <p>A new lead has entered the sales queue. If this lead belongs to your territory,</p>
-<p>please assign the lead to yourself, and qualify it. This lead is a {!Lead.Rating} lead from</p>
-<p>{!Lead.LeadSource}</p>
+<p>please assign the lead to yourself, and qualify it. This lead is a {!Lead.Rating} lead.</p>
 <p></p>
 <p>Here is the inquiry information:</p>
 <p></p>
-<p>Inquiry: {!Lead.Description} </p>
+<p>Company: {!Lead.Company} </p>
+<p>Lead Name: {!Lead.FirstName} {!Lead.LastName}</p>
+<p>Messsage: {!Lead.Message}</p>
+<p> </p>
+<p> </p>
+<p>Category of Interest: {!Lead.Category_of_Interest__c}</p>
+<p></p>
 <p>Campaign: {!Lead.Campaign__c}</p>
+<p></p>
+<p><b><a href="{!Lead.Link}">Click here</a></b> to view the lead.</p>
 <p></p>
 <p>Thank you for your prompt follow up.</p>
 <p></p>

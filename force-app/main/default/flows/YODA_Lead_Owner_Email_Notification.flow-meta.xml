@@ -710,7 +710,7 @@
         </rules>
     </decisions>
     <description>The sales user will receive an email notification when: a. A lead is assigned to sales user b. 3 days later if there is no action c. 5 days later if no action.</description>
-    <interviewLabel>on-14_InterviewLabel</interviewLabel>
+    <interviewLabel>YODA_Lead_Owner_Email_Notification-14_InterviewLabel</interviewLabel>
     <label>YODA Lead Owner Email Notification</label>
     <processMetadataValues>
         <name>ObjectType</name>
