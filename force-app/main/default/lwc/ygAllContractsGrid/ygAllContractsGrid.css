@@ -1,4 +1,5 @@
 @media only screen and (max-width: 800px) {
+
   /* Force table to not be like tables anymore */
   .allContracts-dtTable table,
   .allContracts-dtTable thead,
@@ -29,6 +30,7 @@
     font-size: 14px;
     color: #313538;
   }
+
   .allContracts-dtTable td:before {
     /* Now like a table header */
     position: absolute;
@@ -42,17 +44,21 @@
     font-size: 12px;
     color: #6a747b;
   }
-  .allContracts-dtTable tbody tr:nth-child(1){
+
+  .allContracts-dtTable tbody tr:nth-child(1) {
     border-top: 1px solid #CCDCE8 !important;
   }
+
   .allContracts-dtTable tbody tr {
     padding: 0 !important;
   }
+
   .allContracts-dtTable tr.odd:hover,
   .allContracts-dtTable tr.even:hover {
     background: #fff;
     cursor: default;
   }
+
   /*
 	Label the data
 	*/
@@ -69,26 +75,33 @@
     padding: 1rem .75rem 1rem 12rem !important;
   }
 }
-.allContracts-dtTable.dataTable tr th:nth-child(1){
+
+.allContracts-dtTable.dataTable tr th:nth-child(1) {
   width: 30% !important;
 }
-.allContracts-dtTable.dataTable tr th:nth-child(2){
+
+.allContracts-dtTable.dataTable tr th:nth-child(2) {
   width: 20% !important;
 }
-.allContracts-dtTable.dataTable tr th:nth-child(3){
+
+.allContracts-dtTable.dataTable tr th:nth-child(3) {
   width: 12% !important;
 }
-.allContracts-dtTable.dataTable tr th:nth-child(4){
+
+.allContracts-dtTable.dataTable tr th:nth-child(4) {
   width: 12% !important;
 }
-.allContracts-dtTable.dataTable tr th:nth-child(5){
+
+.allContracts-dtTable.dataTable tr th:nth-child(5) {
   width: 26% !important;
 }
+
 @media only screen and (min-width: 800px) {
+
   .allContracts-dtTable.dataTable tr td:nth-child(1),
   .allContracts-dtTable.dataTable tr td:nth-child(2),
   .allContracts-dtTable.dataTable tr td:nth-child(3),
-  .allContracts-dtTable.dataTable tr td:nth-child(4){
+  .allContracts-dtTable.dataTable tr td:nth-child(4) {
     padding: 1.5rem 1.75rem 1.5rem 0;
   }
 }

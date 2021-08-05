@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Product_of_Interest__c</fullName>
+    <externalId>false</externalId>
+    <label>Product of Interest</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>About Oprex</fullName>
+                <default>false</default>
+                <label>About Oprex</label>
+            </value>
+            <value>
+                <fullName>Advanced Decision Support</fullName>
+                <default>false</default>
+                <label>Advanced Decision Support</label>
+            </value>
+            <value>
+                <fullName>Asset Management</fullName>
+                <default>false</default>
+                <label>Asset Management</label>
+            </value>
+            <value>
+                <fullName>Asset Performance</fullName>
+                <default>false</default>
+                <label>Asset Performance</label>
+            </value>
+            <value>
+                <fullName>Components</fullName>
+                <default>false</default>
+                <label>Components</label>
+            </value>
+            <value>
+                <fullName>Consulting</fullName>
+                <default>false</default>
+                <label>Consulting</label>
+            </value>
+            <value>
+                <fullName>Control System</fullName>
+                <default>false</default>
+                <label>Control System</label>
+            </value>
+            <value>
+                <fullName>Cybersecurity System</fullName>
+                <default>false</default>
+                <label>Cybersecurity System</label>
+            </value>
+            <value>
+                <fullName>Data Acquisition (DAQ)</fullName>
+                <default>false</default>
+                <label>Data Acquisition (DAQ)</label>
+            </value>
+            <value>
+                <fullName>Digital Transformation</fullName>
+                <default>false</default>
+                <label>Digital Transformation</label>
+            </value>
+            <value>
+                <fullName>Energy Management</fullName>
+                <default>false</default>
+                <label>Energy Management</label>
+            </value>
+            <value>
+                <fullName>Field Instruments</fullName>
+                <default>false</default>
+                <label>Field Instruments</label>
+            </value>
+            <value>
+                <fullName>Field Services</fullName>
+                <default>false</default>
+                <label>Field Services</label>
+            </value>
+            <value>
+                <fullName>Industrial IOT</fullName>
+                <default>false</default>
+                <label>Industrial IOT</label>
+            </value>
+            <value>
+                <fullName>Industrial Networking</fullName>
+                <default>false</default>
+                <label>Industrial Networking</label>
+            </value>
+            <value>
+                <fullName>Inventory Management</fullName>
+                <default>false</default>
+                <label>Inventory Management</label>
+            </value>
+            <value>
+                <fullName>Life Innovation</fullName>
+                <default>false</default>
+                <label>Life Innovation</label>
+            </value>
+            <value>
+                <fullName>Life Science</fullName>
+                <default>false</default>
+                <label>Life Science</label>
+            </value>
+            <value>
+                <fullName>Operations Management</fullName>
+                <default>false</default>
+                <label>Operations Management</label>
+            </value>
+            <value>
+                <fullName>Process Analytics</fullName>
+                <default>false</default>
+                <label>Process Analytics</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

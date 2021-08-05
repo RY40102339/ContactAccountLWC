@@ -13,7 +13,7 @@
 *
 *  Change History:
 *  MM/DD/YYYY			Developer Name			Comments
-*  
+*  04/22/2021           Kavya					Removed Plant__c Object and replaced with Account Object also removed Customer_Plant__c Object and replaced with AccountContactRelation Object.
 *
 */
 
@@ -27,6 +27,7 @@ public class YG_Update_Contact_UserTest {
         Account acc = new account();
         acc.name='XYZ Account';
 		acc.AccountNumber = '123456'; 
+        acc.Type = 'Customer';
         insert acc;    
 
         
@@ -60,6 +61,7 @@ public class YG_Update_Contact_UserTest {
         Account acc1 = new account();
         acc1.name='XYZ Account';
 		acc1.AccountNumber = '234567'; 
+        acc.Type = 'Customer';
         insert acc1;    
 
         
@@ -86,7 +88,7 @@ public class YG_Update_Contact_UserTest {
         
         insert user1;
         
-        Plant__c plant1=new Plant__c();
+       /* Plant__c plant1=new Plant__c();
             plant1.Name = 'TestPlant1';
             plant1.Account__c = acc1.Id;  
             plant1.Plant_Code__c = '300000142';
@@ -95,9 +97,20 @@ public class YG_Update_Contact_UserTest {
             plant1.Telephone_number__c ='';
             plant1.Fax_number__c ='';
         	plant1.Plant_Name__c = 'TestPlant1';
+        	insert plant1;*/
+        
+        	Account plant1=new Account();
+            plant1.Name = 'TestPlant1';
+            plant1.ParentId = acc1.Id;  
+            plant1.AccountNumber = '300000142';
+        	plant1.Type = 'Plant';
+            plant1.ShippingPostalCode ='';
+         	plant1.ShippingStreet ='';
+            plant1.Phone ='';
+            plant1.Fax ='';
         	insert plant1;
         
-        Plant__c plant2=new Plant__c();
+       /* Plant__c plant2=new Plant__c();
             plant2.Name = 'TestPlant2';
             plant2.Account__c = acc1.Id;  
             plant2.Plant_Code__c = '300000123';
@@ -106,12 +119,28 @@ public class YG_Update_Contact_UserTest {
             plant2.Telephone_number__c ='1265545';
             plant2.Fax_number__c ='12135665';
         	plant2.Plant_Name__c = 'TestPlant2';
+        	insert plant2;*/
+        
+        Account plant2=new Account();
+            plant2.Name = 'TestPlant2';
+            plant2.ParentId = acc1.Id;  
+            plant2.AccountNumber = '300000123';
+        	plant2.Type = 'Plant';
+            plant2.ShippingPostalCode ='';
+         	plant2.ShippingStreet ='';
+            plant2.Phone ='1265545';
+            plant2.Fax ='12135665';
         	insert plant2;
         
-        Customer_Plant__c cusPlant1 = new Customer_Plant__c();
+       /* Customer_Plant__c cusPlant1 = new Customer_Plant__c();
         	cusPlant1.Contact__c = con1.id;
             cusPlant1.Status__c = 'Decline site access';
             cusPlant1.Plant__c = plant1.id;
+        	insert cusPlant1;*/
+        AccountContactRelation cusPlant1 = new AccountContactRelation();
+        	cusPlant1.ContactId = con1.id;
+            cusPlant1.Status__c = 'Decline site access';
+            cusPlant1.AccountId = plant1.id;
         	insert cusPlant1;
 
 		        
@@ -133,6 +162,16 @@ public class YG_Update_Contact_UserTest {
             insert endpointConfig;
             insert selfRegAcc;
             insert prfID;
+        
+            	YG_Community_Configuration__c userkey = new YG_Community_Configuration__c(name= 'CDC User Key',Text_1__c='AK5wDuYDS/nK');
+                YG_Community_Configuration__c secret = new YG_Community_Configuration__c(name= 'CDC Secret Key',Text_1__c='ahIkjsv9iBJuWWyrl5/U9oCR+t7oLg/H');
+                YG_Community_Configuration__c apiKey = new YG_Community_Configuration__c(name= 'CDC APIKey',Text_1__c='3_yVCM13to0NZ_YDdZcY8ULjHZ70yEk0mEINhaRbXA7CDd2Ir2jvHnmxrMZ-PUa22V');
+                YG_Community_Configuration__c endpointURL = new YG_Community_Configuration__c(name= 'CDC setAccountInfo Endpoint URL',Text_1__c='https://accounts.us1.gigya.com/accounts.setAccountInfo');
+                
+                insert userkey;
+                insert secret;
+                insert apiKey;
+                insert endpointURL;
             
             
             String res = '{ '+
@@ -245,6 +284,7 @@ public class YG_Update_Contact_UserTest {
                 '"login_permission_snow": "false",'+
                 '"customerportal": {'+
                   '"role": "SA"'+
+                  //'"plantList": "[{"plantCode":"300000158","plantName":"Chevron Gorgon Utilities"}]"'+
                 '},'+
                 '"phone": "911234567890",'+
                 '"companyname": "Verticurl1",'+
@@ -297,11 +337,11 @@ public class YG_Update_Contact_UserTest {
               '"oldestDataUpdated": "2020-12-11T06:47:08.492Z",'+
               '"oldestDataUpdatedTimestamp": 1607669228492,'+
               '"profile": {'+
-                '"firstName": "Anand1",'+
-                '"lastName": "Selvarasu1",'+
+                '"firstName": "Anand123",'+
+                '"lastName": "Selvarasu123",'+
                 '"address": "Testing1",'+
                 '"country": "US",'+
-                '"city": "cbe",'+
+                '"city": "cbe1",'+
                 '"state": "ka",'+
                 '"email": "anand.selvarasu1@verticurl.com",'+
                 '"phones": {'+
@@ -315,7 +355,103 @@ public class YG_Update_Contact_UserTest {
               '"verified": "2021-01-21T15:48:10.580Z",'+
               '"verifiedTimestamp": 1611244090580'+
               
-            '}';            
+            '}'; 
+        
+        //This response is not a email verified emails.verified.isEmpty()
+        String res3 = '{ '+
+              '"callId": "daba91000c0141f499343054d53b8627",'+
+              '"errorCode": 0,'+
+              '"apiVersion": 2,'+
+              '"statusCode": 200,'+
+              '"statusReason": "OK",'+
+              '"time": "2021-02-02T09:28:43.037Z",'+
+              '"registeredTimestamp": 1607669228000,'+
+              '"UID": "48207f845b854397b19b40e972156b72",'+
+              '"created": "2020-12-11T06:47:08.492Z",'+
+              '"createdTimestamp": 1607669228000,'+
+              '"data": {'+
+                '"ProfileID": "00ep0000000IVAO",'+
+                '"account_number": "234567",'+
+                '"login_permission_customerportal": "on",'+
+                '"language": "en",'+
+                '"custportal_userID": "anand.selvarasu-20201211064708@verticurl.com",'+
+                '"login_permission_snow": "false",'+
+                '"customerportal": {'+
+                  '"role": "SA"'+
+                  //'"plantList": "[{"plantCode":"300000158","plantName":"Chevron Gorgon Utilities"}]"'+
+                '},'+
+                '"phone": "911234567890",'+
+                '"companyname": "Verticurl1",'+
+                '"snow": {'+
+                  '"primaryadmin": "false"'+
+                '},'+
+                '"idportal_auth": "3",'+
+                '"job_title": "Verticurl1",'+
+                '"account": "Verticurl1"'+
+              '},'+
+              '"subscriptions": {},'+
+              '"preferences": {'+
+                '"terms": {'+
+                  '"lca_terms": {'+
+                    '"isConsentGranted": true,'+
+                    '"docDate": "2020-04-19T00:00:00Z",'+
+                    '"lastConsentModified": "2020-12-11T06:47:08.617Z",'+
+                    '"tags": [],'+
+                    '"customData": [],'+
+                    '"entitlements": []'+
+                  '}'+
+                '},'+
+                '"privacy": {'+
+                  '"lca_privacy": {'+
+                    '"isConsentGranted": true,'+
+                    '"docDate": "2020-04-23T00:00:00Z",'+
+                    '"lastConsentModified": "2020-12-11T06:47:08.617Z",'+
+                    '"tags": [],'+
+                    '"customData": [],'+
+                    '"entitlements": []'+
+                  '}'+
+                '}'+
+              '},'+
+              '"emails": {'+
+                '"verified": ['+
+                 // '"anand.selvarasu1@verticurl.com"'+
+                '],'+
+                '"unverified": ['+
+                  '"anand123.selvarasu1@verticurl.com"'+
+                ']'+
+              '},'+
+              '"isActive": true,'+
+              '"isRegistered": true,'+
+              '"isVerified": true,'+
+              '"lastLogin": "2021-02-02T06:33:10.283Z",'+
+              '"lastLoginTimestamp": 1612247590000,'+
+              '"lastUpdated": "2021-01-28T05:24:58.176Z",'+
+              '"lastUpdatedTimestamp": 1611811498176,'+
+              '"loginProvider": "site",'+
+              '"oldestDataUpdated": "2020-12-11T06:47:08.492Z",'+
+              '"oldestDataUpdatedTimestamp": 1607669228492,'+
+              '"profile": {'+
+                '"firstName": "Anand123",'+
+                '"lastName": "Selvarasu123",'+
+                '"address": "Testing1",'+
+                '"country": "US",'+
+                '"city": "cbe1",'+
+                '"state": "ka",'+
+                '"email": "anand.selvarasu1@verticurl.com",'+
+                '"phones": {'+
+                  '"number": "+911234567880"'+
+                '},'+
+                '"photoURL": "https://dev1-yg.cs31.force.com/servlet/servlet.ImageServer?id=015p0000000kzJgAAI&oid=00Dp00000004u6mEAA",'+
+                '"zip": "6410021"'+
+              '},'+
+              '"registered": "2020-12-11T06:47:08.763Z",'+
+              '"socialProviders": "site",'+
+              '"verified": "2021-01-21T15:48:10.580Z",'+
+              '"verifiedTimestamp": 1611244090580'+
+              
+            '}'; 
+        //This response is to cover the catch exception
+         String res4 = '{"callId":"","errorCode":0,"apiVersion":2,"statusCode":400,"statusReason":"OK","time":"2021-05-18T12:33:31.779Z","registeredTimestamp":1619600897000,"UID":"77b5516b86b1436ca510a33633a8861c","created":"2021-04-28T09:08:17.688Z","createdTimestamp":1619600897000,"data":{"ProfileID":"00ep0000000lVEf","profession":"","account_number":"200066853","login_permission_customerportal":"on","language":"en","branch":"","login_permission_snow":false,"customerportal":{"role":"CU","plantList":"[{\"plantCode\":\"300000158\",\"plantName\":\"Chevron Gorgon Utilities\"}]"},"phone":"86575654654","companyname":"CHEVRON AUSTRALIA PTY LTD","snow":{"primaryadmin":false},"Phone":"123456789","idportal_auth":"0","department":"","job_title":"Process Engineer","account":"200066853"},"preferences":{"terms":{"customerportal_terms":{"isConsentGranted":true,"docDate":"2021-04-01T00:00:00Z","lastConsentModified":"2021-04-28T09:08:17.775Z","tags":[],"customData":[],"entitlements":[]}},"privacy":{"customerportal_privacy":{"isConsentGranted":true,"docDate":"2021-04-01T00:00:00Z","lastConsentModified":"2021-04-28T09:08:17.775Z","tags":[],"customData":[],"entitlements":[]}}},"emails":{"verified":["testcustomer1@yopmail.com"],"unverified":[]},"isActive":true,"isRegistered":true,"isVerified":true,"lastLogin":"2021-05-18T05:37:23.172Z","lastLoginTimestamp":1621316243000,"lastUpdated":"2021-05-18T12:33:27.711Z","lastUpdatedTimestamp":1621341207711,"loginProvider":"site","oldestDataUpdated":"2021-04-28T09:08:17.688Z","oldestDataUpdatedTimestamp":1619600897688,"profile":{"firstName":"Test Customer1","lastName":"User","address":"Sydney","country":"AU","email":"testcustomer1@yopmail.com","phones":{"number":"86575654654"},"photoURL":"https://icpqa1-yok.cs113.force.com/servlet/servlet.ImageServer?id=0151s000000A3e1AAC&oid=00D1s0000008l0AEAQ","zip":"12345"},"registered":"2021-04-28T09:08:17.886Z","socialProviders":"site","verified":"2021-04-28T09:08:30.010Z","verifiedTimestamp":1619600910010}';
             
           //execute method as portal user   
          test.startTest();
@@ -325,6 +461,8 @@ public class YG_Update_Contact_UserTest {
             try{                
                 YG_Update_Contact_User.updateContact(res);
                 YG_Update_Contact_User.updateUser(res1);
+                YG_Update_Contact_User.updateUser(res3);
+                YG_Update_Contact_User.updateUser(res4);
             }
             catch(Exception e){
                 
@@ -336,7 +474,7 @@ public class YG_Update_Contact_UserTest {
             Test.setMock(HttpCalloutMock.class, new YG_PlantAPIMockCallout());
             
             try{                
-                YG_Update_Contact_User.updateContact(res1);
+               // YG_Update_Contact_User.updateContact(res1);
             }
             catch(Exception e){
                 

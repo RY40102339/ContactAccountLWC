@@ -96,7 +96,10 @@ public class YG_ProductDetailsCSV {
                 for(Asset ass: assetList){
                     csvDataWrapper csv=new csvDataWrapper();
                     List<String> noti=new List<String>();
-                    csv.productCategories = ass.Product2.Product_Categories__c;
+                    if(ass.Product2.Category__r.Category_Hierarchy__r.CategoryHierarchyCodes__c != null){
+                        csv.productCategories = YG_GridController.getCategoryHierarchies(ass.Product2.Category__r.Category_Hierarchy__r.CategoryHierarchyCodes__c, langCode);
+                    }
+                    //csv.productCategories = ass.Product2.Product_Categories__c;
                     csv.productNameAndCode = ass.Product2.Name+' '+ass.Product2.Model_Code__c;
                     if(!prodNameList.contains(csv.productNameAndCode)){
                         prodNameList.add(csv.productNameAndCode);

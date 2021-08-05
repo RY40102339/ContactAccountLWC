@@ -7,5 +7,6 @@
     <externalId>false</externalId>
     <label>Pardot Hard Bounced</label>
     <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
     <type>Checkbox</type>
 </CustomField>

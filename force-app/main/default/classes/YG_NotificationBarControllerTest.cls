@@ -28,6 +28,7 @@ public class YG_NotificationBarControllerTest {
         //Insert test account record
         Account acc = new account();
         acc.name='Test AccountDocData';        
+          acc.Type = 'Customer';
         //acc.DUNS_Number__c=102224222; 
         insert acc;
         
@@ -40,6 +41,14 @@ public class YG_NotificationBarControllerTest {
         con.Status__c = true;
         insert con;
         
+        Contact con2 = new Contact();   
+        con2.FirstName='User2';
+        con2.LastName='DocContact12';
+        con2.Email='testContact2@chevron.com';
+        con2.accountid=acc.id; 
+        con2.Status__c = true;
+        insert con2;
+        
         //Insert test portal user record
         User user = new User();   
         user.ProfileID = [Select Id From Profile Where Name='Customer Portal User'].id; 
@@ -51,17 +60,27 @@ public class YG_NotificationBarControllerTest {
         insert user;  
         
         //Insert test plant record
-        List<Plant__c> plantList=new List<Plant__c>();
+      /*  List<Plant__c> plantList=new List<Plant__c>();
         Plant__c plant1=new Plant__c();
         plant1.Name = 'TestPlantDoc';
         plant1.Account__c = acc.Id;  
         plant1.Plant_Code__c = '300000142';
         plant1.Lang_Code__c = 'EN';
         plantList.add(plant1);
+        insert plantList;*/
+        
+        //Insert test plant record
+        List<Account> plantList=new List<Account>();
+        Account plant1=new Account();
+        plant1.Name = 'TestPlantDoc';
+        plant1.ParentId = acc.Id;  
+        plant1.AccountNumber = '300000142';
+        plant1.Type = 'Plant';
+        plantList.add(plant1);
         insert plantList;
         
         //Inserting test plant record
-        List<Customer_Plant__c> cusPlantList=new List<Customer_Plant__c>();
+       /* List<Customer_Plant__c> cusPlantList=new List<Customer_Plant__c>();
         Customer_Plant__c cusPlant = new Customer_Plant__c();
         	cusPlant.Contact__c = con.id;
             cusPlant.Status__c = 'Request site access';
@@ -71,6 +90,19 @@ public class YG_NotificationBarControllerTest {
         	cusPlant1.Contact__c = con.id;
             cusPlant1.Status__c = 'Decline site access';
             cusPlant1.Plant__c = plant1.id;
+        	cusPlantList.add(cusPlant1); 
+        insert cusPlantList;*/
+        
+        List<AccountContactRelation> cusPlantList=new List<AccountContactRelation>();
+        AccountContactRelation cusPlant = new AccountContactRelation();
+        	cusPlant.ContactId = con.id;
+            cusPlant.Status__c = 'Request site access';
+            cusPlant.AccountId = plant1.id;
+        	cusPlantList.add(cusPlant);
+        AccountContactRelation cusPlant1 = new AccountContactRelation();
+        	cusPlant1.ContactId = con2.id;
+            cusPlant1.Status__c = 'Decline site access';
+            cusPlant1.AccountId = plant1.id;
         	cusPlantList.add(cusPlant1); 
         insert cusPlantList;
         
@@ -101,7 +133,7 @@ public class YG_NotificationBarControllerTest {
         prod1.Name = 'ADMAG AXG: Magnetic Flow Meter';
         prod1.Model_Code__c = 'AX01C';
         prod1.Category__c = catg6.Id;
-        prod1.Production_Date__c = Date.newInstance(2014, 12, 17);
+       // prod1.Production_Date__c = Date.newInstance(2014, 12, 17);
         //prodList.add(prod1);
         insert prod1;
         
@@ -140,10 +172,11 @@ public class YG_NotificationBarControllerTest {
         Asset ass1=new Asset();
         ass1.Name = 'SU1234569';
         ass1.Product2Id = prod1.Id;
-        ass1.AccountId = acc.Id;
+       // ass1.AccountId = acc.Id;
+        ass1.AccountId = plant1.Id;
         ass1.ContactId = con.Id;
         ass1.SerialNumber = 'SU1234569';
-        ass1.Plant__c = plant1.Id;
+        //ass1.Plant__c = plant1.Id;
         ass1.MS_Code__c = 'AAI543-H50';
         //ass1.Shipping_Date__c = Date.newInstance(2019, 7, 28);
         ass1.Status = 'Installed';
@@ -153,10 +186,11 @@ public class YG_NotificationBarControllerTest {
         Asset ass3=new Asset();
         ass3.Name = 'SU1234567';
         ass3.Product2Id = prod1.Id;
-        ass3.AccountId = acc.Id;
+       // ass3.AccountId = acc.Id;
+        ass3.AccountId = plant1.Id;
         ass3.ContactId = con.Id;
         ass3.SerialNumber = 'SU1234567';
-        ass3.Plant__c = plant1.Id;
+       // ass3.Plant__c = plant1.Id;
         ass3.MS_Code__c = 'AAI543-H50';
         ass3.Status = 'Installed';
         ass3.Lang_Code__c = 'EN';
@@ -216,7 +250,7 @@ public class YG_NotificationBarControllerTest {
         prod2.Name = 'Device Smart Communicators BT200';
         prod2.Model_Code__c = 'BT200';
         prod2.Category__c = catg3.Id;
-        prod2.Production_Date__c = Date.newInstance(2014, 12, 17);
+       // prod2.Production_Date__c = Date.newInstance(2014, 12, 17);
         prodList.add(prod2);
         
         insert prodList;
@@ -237,10 +271,11 @@ public class YG_NotificationBarControllerTest {
         Asset ass2=new Asset();
         ass2.Name = 'BT1234567';
         ass2.Product2Id = prod2.Id;
-        ass2.AccountId = acc.Id;
+       // ass2.AccountId = acc.Id;
+        ass2.AccountId = plant1.Id;
         ass2.ContactId = con.Id;
         ass2.SerialNumber = 'BT1234567';
-        ass2.Plant__c = plant1.Id;
+        //ass2.Plant__c = plant1.Id;
         ass2.MS_Code__c = 'AAI543-BT';
         //ass2.Shipping_Date__c = Date.newInstance(2019, 7, 28);
         ass2.Status = 'Installed';

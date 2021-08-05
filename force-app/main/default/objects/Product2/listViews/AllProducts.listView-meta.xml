@@ -6,11 +6,12 @@
     <columns>PRODUCT2.DESCRIPTION</columns>
     <columns>PRODUCT2.FAMILY</columns>
     <columns>Model_Code__c</columns>
+    <columns>Product_Type__c</columns>
     <filterScope>Everything</filterScope>
     <filters>
-        <field>PRODUCT2.NAME</field>
+        <field>Model_Code__c</field>
         <operation>contains</operation>
-        <value>centum</value>
+        <value>ALE111</value>
     </filters>
     <label>All Products</label>
 </ListView>

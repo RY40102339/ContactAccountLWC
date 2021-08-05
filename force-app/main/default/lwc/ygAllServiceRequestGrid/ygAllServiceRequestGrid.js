@@ -140,6 +140,7 @@ export default class YgAllServiceRequestGrid extends LightningElement {
                 fireEvent(this.pageRef, 'serviceRequestCnt', result.totalCaseCnt);
 
                 this.serviceReqGridData = result.caseDataList;
+
                 this.loadedRecord = result.caseDataList.length;
                 this.remainRecords = result.totalCaseCnt - this.loadedRecord;
                 if (this.loadedRecord < result.totalCaseCnt) {
@@ -191,6 +192,8 @@ export default class YgAllServiceRequestGrid extends LightningElement {
             }).then(() => {
                 const radioInput = this.template.querySelectorAll('.form-group');
                 $('div.newradio--inline input:first', radioInput).prop("checked", true);
+                fireEvent(this.pageRef, 'serviceRequestChart', "" + "~" + $('div.newradio--inline input:first', radioInput).val());
+
             }).catch((error) => {
                 this.isLoading = false;
                 this.error = error.body;
@@ -201,6 +204,7 @@ export default class YgAllServiceRequestGrid extends LightningElement {
 
         fireEvent(this.pageRef, 'clearBtnFilter', 'clear');
         let radioValue = event.currentTarget.value;
+        fireEvent(this.pageRef, 'serviceRequestChart', "" + "~" + radioValue);
         this.serviceReqGridData = [];
         this.showLoadMore = false;
         this.statusBtnFilter = radioValue;
@@ -268,12 +272,6 @@ export default class YgAllServiceRequestGrid extends LightningElement {
                 this.isLoading = false;
                 this.error = error.body.message;
             });
-
-        /*setTimeout(function () {
-            $('.dataTables_filter input').val(radioValue);
-            $('.dataTables_filter input').keyup();
-            dataTable.search(radioValue).draw();
-        }, 500);*/
     }
 
     getFilteredAllServiceRequestBtn(param) {
@@ -336,10 +334,16 @@ export default class YgAllServiceRequestGrid extends LightningElement {
                     this.loadExternalLibraries();
                 }
                 this.loadExternal = false;
-            })/*.then(() => {
+            }).then(() => {
+
                 const radioInput = this.template.querySelectorAll('.form-group');
-                $('div.newradio--inline input:first', radioInput).prop("checked", true);
-            })*/.catch((error) => {
+                let chkedVal = $('div.newradio--inline input:checked', radioInput).val();
+                fireEvent(this.pageRef, 'showRequestChart', param + '~' + chkedVal);
+
+                /*
+                const radioInput = this.template.querySelectorAll('.form-group');
+                $('div.newradio--inline input:first', radioInput).prop("checked", true);*/
+            }).catch((error) => {
                 this.isLoading = false;
                 this.error = error.body.message;
             });
@@ -443,9 +447,9 @@ export default class YgAllServiceRequestGrid extends LightningElement {
 
                     dataTable = $(table).DataTable({
                         "paging": false,
-                        "searching": true, // false to disable search (or any other option)
+                        "searching": false, // false to disable search (or any other option)
                         "info": false,
-                        "order": [0, 'desc'],
+                        "order": [],
                         "oSearch": { "bSmart": false },
                         "columnDefs": [{
                             orderable: false,
@@ -466,7 +470,7 @@ export default class YgAllServiceRequestGrid extends LightningElement {
                         }
 
                         dataTable.row.add([
-                            '<div class="font-weight-normal d-none d-sm-block">' + list.dateSubmitted + '</div><div class="d-sm-none"><strong>' + list.dateSubmitted + '</strong><br>' + productNameAndModule + '</div>',
+                            '<span class="d-none">' + list.rawDate + '</span><div class="font-weight-normal d-none d-sm-block">' + list.dateSubmitted + '</div><div class="d-sm-none"><strong>' + list.dateSubmitted + '</strong><br>' + productNameAndModule + '</div>',
                             '<div class="font-weight-normal d-none d-sm-block">' + productNameAndModule + '</div><div class="d-sm-none"><strong>' + list.serviceType + '</strong><br><a class="text-hover-color" data-id=' + list.caseNumber + ' href="javascript:void(0)"><ins>' + list.status + '</ins></a></div>',
                             list.serviceType,
                             '<span class=d-none>' + list.status + '</span><a class="text-hover-color" data-id=' + list.caseNumber + ' href="javascript:void(0)"><ins>' + list.status + '</ins></a>'
@@ -544,9 +548,9 @@ export default class YgAllServiceRequestGrid extends LightningElement {
 
                 dataTable = $(table).DataTable({
                     "paging": false,
-                    "searching": true, // false to disable search (or any other option)
+                    "searching": false, // false to disable search (or any other option)
                     "info": false,
-                    "order": [0, 'desc'],
+                    "order": [],
                     "oSearch": { "bSmart": false },
                     "columnDefs": [{
                         orderable: false,
@@ -567,7 +571,7 @@ export default class YgAllServiceRequestGrid extends LightningElement {
                     }
 
                     dataTable.row.add([
-                        '<div class="font-weight-normal d-none d-sm-block">' + list.dateSubmitted + '</div><div class="d-sm-none"><strong>' + list.dateSubmitted + '</strong><br>' + productNameAndModule + '</div>',
+                        '<span class="d-none">' + list.rawDate + '</span><div class="font-weight-normal d-none d-sm-block">' + list.dateSubmitted + '</div><div class="d-sm-none"><strong>' + list.dateSubmitted + '</strong><br>' + productNameAndModule + '</div>',
                         '<div class="font-weight-normal d-none d-sm-block">' + productNameAndModule + '</div><div class="d-sm-none"><strong>' + list.serviceType + '</strong><br><a class="text-hover-color" data-id=' + list.caseNumber + ' href="javascript:void(0)"><ins>' + list.status + '</ins></a></div>',
                         list.serviceType,
                         '<span class=d-none>' + list.status + '</span><a class="text-hover-color" data-id=' + list.caseNumber + ' href="javascript:void(0)"><ins>' + list.status + '</ins></a>'
@@ -603,6 +607,9 @@ export default class YgAllServiceRequestGrid extends LightningElement {
 
         getServiceReqInfo({ caseNo: caseId })
             .then(result => {
+
+                console.log('getServiceReqInfo:: ' + JSON.stringify(result));
+
                 console.log('result.caseAssignedTo::' + result.caseAssignedTo);
                 if (result.contractType.length > 0) {
                     this.showContractType = true;

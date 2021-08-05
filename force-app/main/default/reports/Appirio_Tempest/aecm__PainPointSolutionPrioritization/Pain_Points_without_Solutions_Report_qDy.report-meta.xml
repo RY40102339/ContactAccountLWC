@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>aecm__Capability_Pain_Point__c$Name</field>
+    </columns>
+    <columns>
+        <field>aecm__Capability_Pain_Point__c$aecm__Short_Description__c</field>
+    </columns>
+    <columns>
+        <field>aecm__Capability_Pain_Point__c$YG_Functional_Unit__c</field>
+    </columns>
+    <columns>
+        <field>aecm__Capability_Pain_Point__c$aecm__Entity__c</field>
+    </columns>
+    <columns>
+        <field>aecm__Capability_Pain_Point__c$YG_Geography__c</field>
+    </columns>
+    <crossFilters>
+        <operation>without</operation>
+        <primaryTableColumn>aecm__Capability_Pain_Point__c$Id</primaryTableColumn>
+        <relatedTable>aecm__Pain_Point_Solutions__c</relatedTable>
+        <relatedTableJoinColumn>aecm__Capability_Pain_Point__c</relatedTableJoinColumn>
+    </crossFilters>
+    <format>Tabular</format>
+    <name>Pain Points without Solutions Report</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Pain_Points_without_Solutions__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>aecm__Capability_Pain_Point__c$aecm__Create_Date__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

@@ -47,8 +47,8 @@ export default class YgLookUp extends LightningElement {
         console.log("In connectedCallback ::: ");
         registerListener("plantAutoFilter", this.removeSelectedValue, this);
         registerListener('plantFilter', this.getPlantCode, this);
-        registerListener('selectedSystem',this.getSystemId,this);
-        registerListener('defaultSystem',this.getSystemId,this);
+        registerListener('selectedSystem', this.getSystemId, this);
+        registerListener('defaultSystem', this.getSystemId, this);
     }
 
     disconnectedCallback() {
@@ -61,7 +61,7 @@ export default class YgLookUp extends LightningElement {
         this.plantCode = plantCode;
     }
 
-    getSystemId(result){
+    getSystemId(result) {
         this.systemId = result;
     }
 
@@ -225,7 +225,7 @@ export default class YgLookUp extends LightningElement {
 
                             } else {
 
-                                name = list.Product2.Product_Categories__c;
+                                name = list.Product2.Category__r.Name;
                                 temparr.push({ Id: list.Product2.Id, Name: name });
                             }
 
@@ -281,7 +281,7 @@ export default class YgLookUp extends LightningElement {
                 name = list.Name;
                 temparr.push({ Id: list.Id, Name: name });
             } else {
-                name = list.Product2.Product_Categories__c;
+                name = list.Product2.Category__r.Name;
                 temparr.push({ Id: list.Product2.Id, Name: name });
             }
             /*if (list.Model_Code__c != undefined) {

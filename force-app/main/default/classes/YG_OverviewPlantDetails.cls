@@ -15,7 +15,7 @@
 *
 *  Change History:
 *  MM/DD/YYYY			Developer Name			Comments
-*  
+*  04/19/2021           Vinod					Removed Plant__c Object and replaced with Account Object.
 */
 
 public class YG_OverviewPlantDetails {
@@ -38,20 +38,27 @@ public class YG_OverviewPlantDetails {
             Id accId = userInformation.Contact.AccountId;
             
              //To get the plant id
-            Plant__c plant =  [SELECT ID,Name,Plant_Name__c,Plant_Code__c,Lang_Code__c,//Country__c,
+            /*Plant__c plant =  [SELECT ID,Name,Plant_Name__c,Plant_Code__c,Lang_Code__c,//Country__c,
                                Fax_number__c,Location__c,Telephone_number__c,Account__r.Name, Account__r.Short_Name__c 
-                               FROM Plant__c WHERE Plant_Code__c =: plantCode AND Account__c =: accId AND Lang_Code__c =:langCode];
-            
+                               FROM Plant__c WHERE Plant_Code__c =: plantCode AND Account__c =: accId AND Lang_Code__c =:langCode];*/
+            Account plant =  [SELECT ID,Name,AccountNumber,ShippingCountry,//Country__c,
+                               Shippingstreet,ShippingPostalCode,Phone,Fax,Parent.Name, Parent.Short_Name__c 
+                               FROM Account WHERE (AccountNumber =: plantCode AND ParentId =: accId AND Type='Plant') OR (AccountNumber =: plantCode AND Id =: accId And Has_Asset__c = True)];
                  
-                    overviewPlantWap.name = plant.Plant_Name__c;
+                    /*overviewPlantWap.name = plant.Plant_Name__c;
                     overviewPlantWap.accname = plant.Account__r.Name;
-                    overviewPlantWap.sitenumber = plant.Plant_Code__c;
+                    overviewPlantWap.sitenumber = plant.Plant_Code__c;*/
+            		overviewPlantWap.name = plant.Name;
+                    overviewPlantWap.accname = plant.parent.Name;
+                    overviewPlantWap.sitenumber = plant.AccountNumber;
                    
-                    if(plant.Account__r.Short_Name__c == null){
+                    //if(plant.Account__r.Short_Name__c == null){
+                    if(plant.parent.Short_Name__c == null){
                         overviewPlantWap.shortname = '-'; 
                     }
                     else{
-                        overviewPlantWap.shortname = plant.Account__r.Short_Name__c;
+                        //overviewPlantWap.shortname = plant.Account__r.Short_Name__c;
+                        overviewPlantWap.shortname = plant.parent.Short_Name__c;
                     }
                     /*if(plant.Country__c == null){
                         overviewPlantWap.country = '-';  
@@ -59,23 +66,49 @@ public class YG_OverviewPlantDetails {
                     else{
                         overviewPlantWap.country = plant.Country__c;
                     }*/
-                    if(plant.Location__c == null){
+                    /*if(plant.Location__c == null){
                         overviewPlantWap.location = '-';   
                     }
                     else{
                         overviewPlantWap.location = plant.Location__c;
+                    }*/
+            		if(plant.ShippingCountry == null){
+                        overviewPlantWap.country = '-';  
                     }
-                    if(plant.Telephone_number__c == null){
+                    else{
+                        overviewPlantWap.country = plant.ShippingCountry;
+                    }
+                if(plant.Shippingstreet == null && plant.ShippingPostalCode == null ){
+                        overviewPlantWap.location = '-';   
+                    }
+                    else{
+                        overviewPlantWap.location = plant.Shippingstreet+' '+plant.ShippingPostalCode;
+                    }
+            		
+                        
+                    /*if(plant.Telephone_number__c == null){
                         overviewPlantWap.phone = '-';    
                     }
                     else{
                         overviewPlantWap.phone = plant.Telephone_number__c;
                     }
-                    if(plant.Fax_number__c == null){
+					if(plant.Fax_number__c == null){
                         overviewPlantWap.fax = '-';     
                     }
                     else{
                         overviewPlantWap.fax = plant.Fax_number__c; 
+                    }*/
+            		if(plant.Phone == null){
+                        overviewPlantWap.phone = '-';    
+                    }
+                    else{
+                        overviewPlantWap.phone = plant.Phone;
+                    }
+                    if(plant.Fax == null){
+                        overviewPlantWap.fax = '-';     
+                    }
+                    else{
+                        overviewPlantWap.fax = plant.Fax; 
                     }
             
                 

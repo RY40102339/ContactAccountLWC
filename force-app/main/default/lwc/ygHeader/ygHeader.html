@@ -188,8 +188,9 @@
 
                     <li class="profile-info nav-item no-arrow">
                         <a class="nav-link pr-0 logo-img" href="javascript:void(0);" onclick={showDropdown}>
-                            <div class="portal-logo">
-                                <img src={profileLogo} alt="Profile" width="50" />
+                            <div class="portal-logo text-center blue-primary f22 text-uppercase">
+                                {shortName}
+                                <!--<img src={profileLogo} alt="Profile" width="50" />-->
                             </div>
                         </a>
                         <!-- Dropdown - User Information -->
@@ -199,7 +200,7 @@
                                 <div class="row">
                                     <div class="col-12 d-flex">
                                         <div class="col-11 p-0">
-                                            <p class="text-left f20 mb-0">{name}</p>
+                                            <p class="text-left f20 mb-0 text-capitalize">{name}</p>
                                         </div>
                                         <div class="col-1 p-0">
                                             <a href="javascript:void(0);" onclick={showDropdown}>

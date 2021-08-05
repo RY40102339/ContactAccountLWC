@@ -6,5 +6,6 @@
     <externalId>false</externalId>
     <label>Contract Subscription</label>
     <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
     <type>Checkbox</type>
 </CustomField>

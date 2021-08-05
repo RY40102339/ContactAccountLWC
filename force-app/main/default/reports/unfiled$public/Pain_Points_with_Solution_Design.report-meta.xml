@@ -27,7 +27,7 @@ Solution Design = Epic Name in CMC. Epics can be traced to User Stories in CMC.<
             <columnToColumn>false</columnToColumn>
             <isUnlocked>true</isUnlocked>
             <operator>notEqual</operator>
-            <value></value>
+            <value/>
         </criteriaItems>
     </filter>
     <format>Tabular</format>

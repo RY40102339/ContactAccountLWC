@@ -1,57 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
-    <label></label>
+    <label><!-- Category --></label>
     <name>Category__c</name>
     <picklistValues>
         <masterLabel>Accessories</masterLabel>
-        <translation></translation>
+        <translation><!-- Accessories --></translation>
     </picklistValues>
     <picklistValues>
         <masterLabel>BOM</masterLabel>
-        <translation></translation>
+        <translation><!-- BOM --></translation>
     </picklistValues>
     <picklistValues>
         <masterLabel>Certificates</masterLabel>
-        <translation></translation>
+        <translation><!-- Certificates --></translation>
     </picklistValues>
     <picklistValues>
         <masterLabel>Drawings</masterLabel>
-        <translation></translation>
+        <translation><!-- Drawings --></translation>
     </picklistValues>
     <picklistValues>
         <masterLabel>FAQs</masterLabel>
-        <translation></translation>
+        <translation><!-- FAQs --></translation>
     </picklistValues>
     <picklistValues>
         <masterLabel>General Specifications</masterLabel>
-        <translation></translation>
+        <translation><!-- General Specifications --></translation>
     </picklistValues>
     <picklistValues>
         <masterLabel>Instruction Manuals</masterLabel>
-        <translation></translation>
+        <translation><!-- Instruction Manuals --></translation>
     </picklistValues>
     <picklistValues>
         <masterLabel>Lifecycle Report</masterLabel>
-        <translation></translation>
+        <translation><!-- Lifecycle Report --></translation>
     </picklistValues>
     <picklistValues>
         <masterLabel>Software</masterLabel>
-        <translation></translation>
+        <translation><!-- Software --></translation>
     </picklistValues>
     <picklistValues>
         <masterLabel>Specifications and Functions</masterLabel>
-        <translation></translation>
+        <translation><!-- Specifications and Functions --></translation>
     </picklistValues>
     <picklistValues>
         <masterLabel>Technical Information</masterLabel>
-        <translation></translation>
+        <translation><!-- Technical Information --></translation>
     </picklistValues>
     <picklistValues>
         <masterLabel>Technical InformationLink</masterLabel>
-        <translation></translation>
+        <translation><!-- Technical InformationLink --></translation>
     </picklistValues>
     <picklistValues>
         <masterLabel>Training Modules</masterLabel>
-        <translation></translation>
+        <translation><!-- Training Modules --></translation>
     </picklistValues>
 </CustomFieldTranslation>

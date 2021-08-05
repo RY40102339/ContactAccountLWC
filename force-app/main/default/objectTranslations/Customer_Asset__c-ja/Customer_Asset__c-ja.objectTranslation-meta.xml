@@ -7,7 +7,7 @@
     <layouts>
         <layout>Customer Asset Layout</layout>
         <sections>
-            <label></label>
+            <label><!-- Custom Links --></label>
             <section>Custom Links</section>
         </sections>
     </layouts>

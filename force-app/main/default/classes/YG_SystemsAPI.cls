@@ -12,7 +12,8 @@
 *
 *  Change History:
 *  MM/DD/YYYY			Developer Name			Comments
-*
+*  04/20/2021           Vinod 					Removed Plant__c Object and replaced with Account Object also removed Customer_Plant__c Object and replaced with AccountContactRelation Object.
+*												Removed Plant__c(Plant) Lookup field from Asset and Project Objects and newly added PlantAccount__c(Account) Lookup field in Asset and Project Object.
 */
 
 public class YG_SystemsAPI {
@@ -24,7 +25,8 @@ public class YG_SystemsAPI {
     public static Map<String,String> getCustomerPlantDetails(){
         
         Map<String,String> plantCodeMap = new Map<String,String>(); //map to store the plant code and its id
-        List<Customer_Plant__c> cusPlantList = new List<Customer_Plant__c>();
+        /*List<Customer_Plant__c> cusPlantList = new List<Customer_Plant__c>();*/
+        List<AccountContactRelation> cusPlantList = new List<AccountContactRelation>();
         
         try{
             //get loggedin user contact id
@@ -38,17 +40,28 @@ public class YG_SystemsAPI {
             String days = allValues.get('Deliverable API Execution Days').Text_1__c;
             
             //get customer plant based on loggedin user contact id
-            cusPlantList = [Select Plant__r.Id,Plant__r.Plant_Code__c, Plant__r.API_Last_Executed_Date__c From Customer_Plant__c Where Status__c = 'Approved site access'
-                        and Contact__c =: conId order by Plant__r.Name Asc];
+           /* cusPlantList = [Select Plant__r.Id,Plant__r.Plant_Code__c, Plant__r.API_Last_Executed_Date__c From Customer_Plant__c Where Status__c = 'Approved site access'
+                        and Contact__c =: conId order by Plant__r.Name Asc];*/
+            cusPlantList = [Select AccountId,Account.AccountNumber, Account.System_API_Last_Sync_Date__c From AccountContactRelation Where Status__c = 'Approved site access'
+                        and ContactId =: conId order by Account.Name Asc];
             
             if(cusPlantList.size() > 0){
-                for(Customer_Plant__c pltCode: cusPlantList){
+               /* for(Customer_Plant__c pltCode: cusPlantList){
                     DateTime delAPIDt = pltCode.Plant__r.API_Last_Executed_Date__c;
                     if(delAPIDt != null){
                         delAPIDt = delAPIDt.addDays(Integer.valueof(days.trim()));
                     }
                     if(!plantCodeMap.containsKey(pltCode.Plant__r.Plant_Code__c) && (dt > delAPIDt || delAPIDt == null)){
                         plantCodeMap.put(pltCode.Plant__r.Plant_Code__c,pltCode.Plant__r.Id);
+                    }
+                }*/
+                for(AccountContactRelation pltCode: cusPlantList){
+                    DateTime delAPIDt = pltCode.Account.System_API_Last_Sync_Date__c ;
+                    if(delAPIDt != null){
+                        delAPIDt = delAPIDt.addDays(Integer.valueof(days.trim()));
+                    }
+                    if(!plantCodeMap.containsKey(pltCode.Account.AccountNumber) && (dt > delAPIDt || delAPIDt == null)){
+                        plantCodeMap.put(pltCode.Account.AccountNumber,pltCode.AccountId);
                     }
                 }
             }
@@ -101,6 +114,7 @@ public class YG_SystemsAPI {
             //get the account id and account number
             Id accId = userInformation.Contact.AccountId;
             String accountNumber = userInformation.Contact.Account.AccountNumber;
+            Boolean ifAcc = false; 
 		
 			//get the request url details from community settings
 			Map<String, YG_Community_Configuration__c> allValues = YG_Community_Configuration__c.getAll();
@@ -112,11 +126,13 @@ public class YG_SystemsAPI {
             if(plantCodeList.size()>0){
                 
                 //get the project using plant code
+                /*List<Project__c> existProjList = [Select Id, Name, Project_Code__c From Project__c Where 
+                                             		Plant__r.Plant_Code__c =: plantCodeList];*/
                 List<Project__c> existProjList = [Select Id, Name, Project_Code__c From Project__c Where 
-                                             		Plant__r.Plant_Code__c =: plantCodeList];
-                
+                                             		PlantAccount__r.AccountNumber =: plantCodeList];
                 for(String pltCode: plantCodeList /*plantMap.keySet()*/){
-                    if(pltCode == '-'){
+                    if(pltCode == accountNumber){
+                        ifAcc = true;
                         req.setBody('{"dlvCustomerBranch": {"customerBranchCd": "'+accountNumber+'"}}');
                     }else{
                         req.setBody('{"type":"deliverables","plantCrm": {"plantNo": "'+pltCode+'"}}');
@@ -139,7 +155,8 @@ public class YG_SystemsAPI {
                             Project__c proj = new Project__c();
                             proj.Name = resp.systemIdCrm;
                             proj.Account__c = accId;
-                            proj.Plant__c = plantMap.get(pltCode);
+                            proj.PlantAccount__c = plantMap.get(pltCode);
+                            //proj.Account__c = plantMap.get(pltCode);
                             proj.Project_Code__c = resp.systemIdCrm;
                             for(Project__c p: existProjList){
                                 if(p.Project_Code__c == resp.systemIdCrm){
@@ -153,7 +170,7 @@ public class YG_SystemsAPI {
                 }
             }
             if(projList.size()>0 && !plantdeliverableNoMap.isEmpty() && !deiverableNoSystemMap.isEmpty() && plantdeliverableNoMap != null && deiverableNoSystemMap != null){
-                isSuccess = getDeliverableAssetDetails(plantdeliverableNoMap,plantMap,deiverableNoSystemMap,projList);                
+                isSuccess = getDeliverableAssetDetails(plantdeliverableNoMap,plantMap,deiverableNoSystemMap,projList,ifAcc);                
             }
         }
         catch(Exception e){
@@ -186,8 +203,8 @@ public class YG_SystemsAPI {
         List<String> modCodeList = new List<String>(); //List to store the model code
         Map<String,String> plantMap = new Map<String,String>(); //map to store plant code as Key and id as value
         Map<String,String> plantSystemIdMap = new Map<String,String>(); //map to store System Id as Key and Plant code as value
-        List<Plant__c> pltList = new List<Plant__c>(); //list to update plants
-        
+        /*List<Plant__c> pltList = new List<Plant__c>();*/ //list to update plants
+        List<Account> pltList = new List<Account>(); //list to update plants
         // Instantiate a new http object
         Http http = new Http();
         HttpResponse res = new HttpResponse();
@@ -206,11 +223,14 @@ public class YG_SystemsAPI {
             Id accId = userInformation.Contact.AccountId;
             
             //get the project using system id
-            List<Project__c> existingProjList = [Select Id, Plant__c, Plant__r.Plant_Code__c, Project_Code__c, Last_System_Update_Date__c From Project__c Where 
-                                         		 Plant__r.Plant_Code__c =: plantCodeList];
+          /*  List<Project__c> existingProjList = [Select Id, Plant__c, Plant__r.Plant_Code__c, Project_Code__c, Last_System_Update_Date__c From Project__c Where 
+                                         		 Plant__r.Plant_Code__c =: plantCodeList];*/
+            List<Project__c> existingProjList = [Select Id, Account__c, PlantAccount__r.AccountNumber, Project_Code__c, Last_System_Update_Date__c From Project__c Where 
+                                         		 PlantAccount__r.AccountNumber =: plantCodeList];
             //get the list of system id from map
             for(Project__c p: existingProjList){
-                plantSystemIdMap.put(p.Project_Code__c,p.Plant__r.Plant_Code__c);
+              /*  plantSystemIdMap.put(p.Project_Code__c,p.Plant__r.Plant_Code__c);*/
+                plantSystemIdMap.put(p.Project_Code__c,p.PlantAccount__r.AccountNumber);
                 systemIdList.add(p.Project_Code__c);
             }
             
@@ -270,7 +290,7 @@ public class YG_SystemsAPI {
                         proj.Account__c = accId;
                         proj.Name = d.ProductName;
                         proj.Last_System_Update_Date__c = date.valueOf(d.RevInfGenerationDate);
-                        proj.Plant__c = plantMap.get(plantCode);
+                        proj.PlantAccount__c = plantMap.get(plantCode);
                         proj.Project_Code__c = d.SystemID;
                         
                         //Get the highest revision number of HIS 
@@ -320,7 +340,7 @@ public class YG_SystemsAPI {
                                 asst.Product_Name__c = stn.ProductName;
                                 asst.Station_Number__c = decimal.valueOf(stn.VnetStationNumber);
                                 asst.Revision_No__c = stn.RevisionNumber;
-                                asst.Plant__c = plantMap.get(plantCode);
+                                asst.PlantAccount__c = plantMap.get(plantCode);
                                 asst.Project__c = projMap.get(da.SystemID);
                                 asst.AccountId = accId;
                                 if(prodMap.get(stn.ModelCode) != null){
@@ -338,9 +358,10 @@ public class YG_SystemsAPI {
                 
                 if(plantCodeList.size()>0){
                     for(String str: plantCodeList){
-                        Plant__c plt = new Plant__c();
+                       /* Plant__c plt = new Plant__c();*/
+                         Account plt = new Account();
                         plt.Id = plantMap.get(str);
-                        plt.API_Last_Executed_Date__c = DateTime.now(); //store the GMT TimeZone
+                        plt.System_API_Last_Sync_Date__c = DateTime.now(); //store the GMT TimeZone
                         pltList.add(plt);
                     }
                     if(pltList.size() > 0){
@@ -365,7 +386,7 @@ public class YG_SystemsAPI {
      * Method input - deiverableNoSystemMap - deliverable no as Key and system id as value
 	*/
     @AuraEnabled
-    public static Boolean getDeliverableAssetDetails(Map<String,String> plantdeliverableNoMap, Map<String,String> plantMap, Map<String,String> deiverableNoSystemMap, List<Project__c> projList){
+    public static Boolean getDeliverableAssetDetails(Map<String,String> plantdeliverableNoMap, Map<String,String> plantMap, Map<String,String> deiverableNoSystemMap, List<Project__c> projList, Boolean ifAcc){
         
         Boolean isSuccess = false;
         List<String> modelCodeList = new List<String>(); //List to store the model code
@@ -438,7 +459,9 @@ public class YG_SystemsAPI {
                 }
                 
                 //get the existing system asset using plant code
-                List<Asset> existList = [Select id,Name From Asset Where Plant__r.Plant_Code__c =: plantMap.keyset()
+               /* List<Asset> existList = [Select id,Name From Asset Where Plant__r.Plant_Code__c =: plantMap.keyset()
+                                         OR Name = :delAsstIdList];*/
+                List<Asset> existList = [Select id,Name From Asset Where PlantAccount__r.AccountNumber =: plantMap.keyset()
                                          OR Name = :delAsstIdList];
                 system.debug('existList::'+existList);
                 
@@ -454,7 +477,7 @@ public class YG_SystemsAPI {
                         }	
                         asst.Name = deliProd.id;
                         asst.Revision_No__c = deliProd.softwareRevisionCrm;
-                        asst.Plant__c = plantMap.get(pltCode);
+                        asst.PlantAccount__c = plantMap.get(pltCode);
                         for(Project__c proj: projList){
                             if(proj.Project_Code__c == projCode){
                                 asst.Project__c = proj.Id;
@@ -471,6 +494,12 @@ public class YG_SystemsAPI {
                 }
                 
                 if(asstList.size() > 0){
+                    if(ifAcc){
+                        Account acc = new Account();
+                        acc.Id = accId;
+                        acc.Has_Asset__c = true;
+                        update acc;
+                    }
                     upsert asstList;
                     isSuccess = true;
                 }

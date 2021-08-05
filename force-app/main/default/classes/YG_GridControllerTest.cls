@@ -13,7 +13,7 @@
 *
 *  Change History:
 *  MM/DD/YYYY			Developer Name			Comments
-*
+*  04/22/2021			Vinod					Improved code coverage adding getCategoryHierarchies()
 *
 */
 
@@ -127,7 +127,7 @@ public class YG_GridControllerTest {
         prod1.Name = 'ADMAG AXG: Magnetic Flow Meter';
         prod1.Model_Code__c = 'AX01C';
         prod1.Category__c = catg6.Id;
-        prod1.Production_Date__c = Date.newInstance(2014, 12, 17);
+        //prod1.Production_Date__c = Date.newInstance(2014, 12, 17);
         insert prod1;
         System.debug('prod1::'+prod1.Id);
         
@@ -138,21 +138,21 @@ public class YG_GridControllerTest {
         prod2.Name = 'Device Smart Communicators BT200';
         prod2.Model_Code__c = 'BT200';
         prod2.Category__c = catg3.Id;
-        prod2.Production_Date__c = Date.newInstance(2014, 12, 17);
+       // prod2.Production_Date__c = Date.newInstance(2014, 12, 17);
         prodList.add(prod2);
         
         Product2 prod3=new Product2();
         prod3.Name = 'Vortex Flow Meters';
         prod3.Model_Code__c = 'DY015';
         prod3.Category__c = catg7.Id;
-        prod3.Production_Date__c = Date.newInstance(2014, 12, 17);
+       // prod3.Production_Date__c = Date.newInstance(2014, 12, 17);
         prodList.add(prod3);
         
         Product2 prod4=new Product2();
         prod4.Name = 'YHC5150X';
         prod4.Model_Code__c = 'YHC51';
         prod4.Category__c = catg4.Id;
-        prod4.Production_Date__c = Date.newInstance(2014, 12, 17);
+       // prod4.Production_Date__c = Date.newInstance(2014, 12, 17);
         prodList.add(prod4);
         
         Insert prodList;
@@ -265,6 +265,9 @@ public class YG_GridControllerTest {
             
             YG_GridController.productWrapper prodWrap5 = new YG_GridController.productWrapper();
             prodWrap5 = YG_GridController.getProductDetails(emptyList, 'Exception', 10, 0, '');
+            
+            String catHierarchy = YG_GridController.getCategoryHierarchies('33000033/22000022', 'EN');
+            System.assertEquals('Oscilloscopes/Mixed Signal Oscilloscope', catHierarchy);
             
             test.stopTest();
         }

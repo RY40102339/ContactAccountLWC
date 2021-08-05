@@ -119,7 +119,7 @@ public class YG_OverviewGridControllerTest {
         prod1.Name = 'Device Smart Communicators BT200';
         prod1.Model_Code__c = 'BT200';
         prod1.Category__c = catg3.Id;
-        prod1.Production_Date__c = Date.newInstance(2014, 12, 17);
+       // prod1.Production_Date__c = Date.newInstance(2014, 12, 17);
         prod1.Lang_Code__c = 'EN';
         prodList.add(prod1);
         
@@ -127,7 +127,7 @@ public class YG_OverviewGridControllerTest {
         prod2.Name = 'DCS';
         prod2.Model_Code__c = 'AFV10D';
         prod2.Category__c = catg5.Id;
-        prod2.Production_Date__c = Date.newInstance(2014, 12, 17);
+        //prod2.Production_Date__c = Date.newInstance(2014, 12, 17);
         prod2.Lang_Code__c = 'EN';
         prodList.add(prod2);
         
@@ -394,7 +394,7 @@ public class YG_OverviewGridControllerTest {
         prod1.Name = 'Device Smart Communicators BT200';
         prod1.Model_Code__c = 'BT200';
         prod1.Category__c = catg3.Id;
-        prod1.Production_Date__c = Date.newInstance(2014, 12, 17);
+        //prod1.Production_Date__c = Date.newInstance(2014, 12, 17);
         prod1.Lang_Code__c = 'EN';
         prodList.add(prod1);
         
@@ -402,7 +402,7 @@ public class YG_OverviewGridControllerTest {
         prod2.Name = 'DCS';
         prod2.Model_Code__c = 'AFV10D';
         prod2.Category__c = catg5.Id;
-        prod2.Production_Date__c = Date.newInstance(2014, 12, 17);
+       // prod2.Production_Date__c = Date.newInstance(2014, 12, 17);
         prod2.Lang_Code__c = 'EN';
         prodList.add(prod2);
         

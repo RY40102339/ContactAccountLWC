@@ -44,7 +44,7 @@ public class YG_HeaderControllerTest {
                              TimeZoneSidKey='America/Los_Angeles', UserName='yg.qa167@gmail.com');
         insert user;
             
-        string accLogo = YG_HeaderController.getAccountLogo();
+        Account accLogo = YG_HeaderController.getAccountData();
         system.assertEquals(null, accLogo);
         
     }

@@ -1,11 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
-    <validationRules>
-        <errorMessage></errorMessage>
-        <name>aecm__Complete_to_Update_Score_Status_Check</name>
-    </validationRules>
-    <validationRules>
-        <errorMessage></errorMessage>
-        <name>aecm__Update_Score_to_Complete_Status_Check</name>
-    </validationRules>
-</CustomObjectTranslation>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata"/>

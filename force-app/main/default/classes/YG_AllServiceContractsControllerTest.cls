@@ -12,7 +12,8 @@
 *
 *  Change History:
 *  MM/DD/YYYY			Developer Name			Comments
-*
+*  04/21/2021           Kavya 					Removed Plant__c Object and replaced with Account Object also removed Customer_Plant__c Object and replaced with AccountContactRelation Object.
+*												Removed Plant__c(Plant) Lookup field from Asset and Project Objects and newly added PlantAccount__c(Account) Lookup field in Asset  and Project Object.
 *
 */
 
@@ -24,7 +25,8 @@ public class YG_AllServiceContractsControllerTest {
         
         //Insert test account record
         Account acc = new account();
-        acc.name='Sample Account';        
+        acc.name='Sample Account';   
+        acc.Type = 'Customer';
         //acc.DUNS_Number__c=107906668; 
         insert acc;
         
@@ -48,20 +50,38 @@ public class YG_AllServiceContractsControllerTest {
         
         //Insert test plant record
         //List<Plant__c> plantList=new List<Plant__c>();
-        Plant__c plant1=new Plant__c();
+     /*   Plant__c plant1=new Plant__c();
         plant1.Name = 'TestPlant';
         plant1.Account__c = acc.Id;  
         plant1.Plant_Code__c = '300000142';
         plant1.Lang_Code__c = 'EN';
         //plantList.add(plant1);
+        insert plant1;*/
+        
+        //Insert test plant record
+        //List<Plant__c> plantList=new List<Plant__c>();
+         Account plant1=new Account();
+        plant1.Name = 'TestPlant';
+        plant1.ParentId = acc.Id;  
+        plant1.AccountNumber = '300000142';
+         plant1.Type = 'Plant';
+        //plantList.add(plant1);
         insert plant1;
         //insert plantList;
         
         //Insert test customer plant record
-        List<Customer_Plant__c> cusPlantList=new List<Customer_Plant__c>();
+       /* List<Customer_Plant__c> cusPlantList=new List<Customer_Plant__c>();
         Customer_Plant__c cusPlant1=new Customer_Plant__c();
         cusPlant1.Contact__c = con.Id;
         cusPlant1.Plant__c = plant1.Id;
+        cusPlantList.add(cusPlant1);
+        insert cusPlantList;*/
+        
+        //Insert test customer plant record
+        List<AccountContactRelation> cusPlantList=new List<AccountContactRelation>();
+        AccountContactRelation cusPlant1=new AccountContactRelation();
+        cusPlant1.ContactId = con.Id;
+        cusPlant1.AccountId = plant1.Id;
         cusPlantList.add(cusPlant1);
         insert cusPlantList;
         
@@ -69,7 +89,7 @@ public class YG_AllServiceContractsControllerTest {
         List<Project__c> projectList=new List<Project__c>();
         Project__c proj1=new Project__c();
         proj1.Account__c = acc.Id;
-        proj1.Plant__c = plant1.Id;
+       	proj1.PlantAccount__c = plant1.Id;
         proj1.Project_Code__c = 'VP700250';
         projectList.add(proj1);
         insert projectList;
@@ -114,7 +134,7 @@ public class YG_AllServiceContractsControllerTest {
         prod2.Name = 'Device Smart Communicators BT200';
         prod2.Model_Code__c = 'BT200';
         prod2.Category__c = catg3.Id;
-        prod2.Production_Date__c = Date.newInstance(2014, 12, 17);
+       // prod2.Production_Date__c = Date.newInstance(2014, 12, 17);
         prod2.Lang_Code__c = 'EN';
         prodList.add(prod2);
         
@@ -129,7 +149,7 @@ public class YG_AllServiceContractsControllerTest {
         ass1.AccountId = acc.Id;
         ass1.ContactId = con.Id;
         ass1.SerialNumber = 'SU1234567';
-        ass1.Plant__c = plant1.Id;
+       	ass1.PlantAccount__c = plant1.Id;
         ass1.MS_Code__c = 'AAI543-H50';
         //ass1.Shipping_Date__c = Date.newInstance(2019, 7, 28);
         ass1.Lang_Code__c = 'EN';
@@ -143,7 +163,7 @@ public class YG_AllServiceContractsControllerTest {
         ass2.AccountId = acc.Id;
         ass2.ContactId = con.Id;
         ass2.SerialNumber = 'SU1234568';
-        ass2.Plant__c = plant1.Id;
+        ass2.PlantAccount__c = plant1.Id;
         ass2.MS_Code__c = 'AAI543-H50';
         ass2.Lang_Code__c = 'EN';
         //ass2.Shipping_Date__c = Date.newInstance(2014, 12, 28);
@@ -157,7 +177,7 @@ public class YG_AllServiceContractsControllerTest {
         ass3.AccountId = acc.Id;
         ass3.ContactId = con.Id;
         ass3.SerialNumber = 'SU1234569';
-        ass3.Plant__c = plant1.Id;
+        ass3.PlantAccount__c = plant1.Id;
         ass3.MS_Code__c = 'AAI543-H50';
         //ass3.Shipping_Date__c = Date.newInstance(2014, 12, 28);
         ass3.Status = 'Installed';
@@ -171,7 +191,7 @@ public class YG_AllServiceContractsControllerTest {
         ass4.AccountId = acc.Id;
         ass4.ContactId = con.Id;
         ass4.SerialNumber = 'SU1234579';
-        ass4.Plant__c = plant1.Id;
+        ass4.PlantAccount__c = plant1.Id;
         ass4.MS_Code__c = 'AAI543-H50';
         //ass4.Shipping_Date__c = Date.newInstance(2014, 12, 28);
         ass4.Status = 'Installed';
@@ -185,7 +205,7 @@ public class YG_AllServiceContractsControllerTest {
         ass5.AccountId = acc.Id;
         ass5.ContactId = con.Id;
         ass5.SerialNumber = 'SU1234589';
-        ass5.Plant__c = plant1.Id;
+        ass5.PlantAccount__c = plant1.Id;
         ass5.MS_Code__c = 'AAI543-H50';
         //ass5.Shipping_Date__c = Date.newInstance(2014, 12, 28);
         ass5.Status = 'Installed';
@@ -404,6 +424,7 @@ public class YG_AllServiceContractsControllerTest {
 //Insert test account record
         Account acc = new account();
         acc.name='Sample Account';        
+        acc.Type = 'Customer';
         //acc.DUNS_Number__c=107906668; 
         insert acc;
         
@@ -427,20 +448,31 @@ public class YG_AllServiceContractsControllerTest {
         
         //Insert test plant record
         //List<Plant__c> plantList=new List<Plant__c>();
-        Plant__c plant1=new Plant__c();
+       /* Plant__c plant1=new Plant__c();
         plant1.Name = 'TestPlant';
         plant1.Account__c = acc.Id;  
         plant1.Plant_Code__c = '300000142';
-        plant1.Lang_Code__c = 'EN';
+        plant1.Lang_Code__c = 'EN';*/
+         Account plant1=new Account();
+        plant1.Name = 'TestPlant';
+        plant1.ParentId = acc.Id;  
+        plant1.AccountNumber = '300000142';
+         plant1.Type = 'Plant';
+       // plant1.Lang_Code__c = 'EN';
         //plantList.add(plant1);
         insert plant1;
         //insert plantList;
         
         //Insert test customer plant record
-        List<Customer_Plant__c> cusPlantList=new List<Customer_Plant__c>();
+      /*  List<Customer_Plant__c> cusPlantList=new List<Customer_Plant__c>();
         Customer_Plant__c cusPlant1=new Customer_Plant__c();
         cusPlant1.Contact__c = con.Id;
-        cusPlant1.Plant__c = plant1.Id;
+        cusPlant1.Plant__c = plant1.Id;*/
+          //Insert test customer plant record
+        List<AccountContactRelation> cusPlantList=new List<AccountContactRelation>();
+        AccountContactRelation cusPlant1=new AccountContactRelation();
+        cusPlant1.ContactId = con.Id;
+        cusPlant1.AccountId = plant1.Id;
         cusPlantList.add(cusPlant1);
         insert cusPlantList;
         
@@ -448,7 +480,7 @@ public class YG_AllServiceContractsControllerTest {
         List<Project__c> projectList=new List<Project__c>();
         Project__c proj1=new Project__c();
         proj1.Account__c = acc.Id;
-        proj1.Plant__c = plant1.Id;
+        proj1.PlantAccount__c = plant1.Id;
         proj1.Project_Code__c = 'VP700250';
         projectList.add(proj1);
         insert projectList;
@@ -493,7 +525,7 @@ public class YG_AllServiceContractsControllerTest {
         prod2.Name = 'Device Smart Communicators BT200';
         prod2.Model_Code__c = 'BT200';
         prod2.Category__c = catg3.Id;
-        prod2.Production_Date__c = Date.newInstance(2014, 12, 17);
+       // prod2.Production_Date__c = Date.newInstance(2014, 12, 17);
         prod2.Lang_Code__c = 'EN';
         prodList.add(prod2);
         
@@ -508,7 +540,7 @@ public class YG_AllServiceContractsControllerTest {
         ass1.AccountId = acc.Id;
         ass1.ContactId = con.Id;
         ass1.SerialNumber = 'SU1234567';
-        ass1.Plant__c = plant1.Id;
+        ass1.PlantAccount__c = plant1.Id;
         ass1.MS_Code__c = 'AAI543-H50';
         //ass1.Shipping_Date__c = Date.newInstance(2019, 7, 28);
         ass1.Lang_Code__c = 'EN';
@@ -522,7 +554,7 @@ public class YG_AllServiceContractsControllerTest {
         ass2.AccountId = acc.Id;
         ass2.ContactId = con.Id;
         ass2.SerialNumber = 'SU1234568';
-        ass2.Plant__c = plant1.Id;
+        ass2.PlantAccount__c = plant1.Id;
         ass2.MS_Code__c = 'AAI543-H50';
         ass2.Lang_Code__c = 'EN';
         //ass2.Shipping_Date__c = Date.newInstance(2014, 12, 28);
@@ -536,7 +568,7 @@ public class YG_AllServiceContractsControllerTest {
         ass3.AccountId = acc.Id;
         ass3.ContactId = con.Id;
         ass3.SerialNumber = 'SU1234569';
-        ass3.Plant__c = plant1.Id;
+        ass3.PlantAccount__c = plant1.Id;
         ass3.MS_Code__c = 'AAI543-H50';
         //ass3.Shipping_Date__c = Date.newInstance(2014, 12, 28);
         ass3.Status = 'Installed';
@@ -550,7 +582,7 @@ public class YG_AllServiceContractsControllerTest {
         ass4.AccountId = acc.Id;
         ass4.ContactId = con.Id;
         ass4.SerialNumber = 'SU1234579';
-        ass4.Plant__c = plant1.Id;
+        ass4.PlantAccount__c = plant1.Id;
         ass4.MS_Code__c = 'AAI543-H50';
         //ass4.Shipping_Date__c = Date.newInstance(2014, 12, 28);
         ass4.Status = 'Installed';
@@ -564,7 +596,7 @@ public class YG_AllServiceContractsControllerTest {
         ass5.AccountId = acc.Id;
         ass5.ContactId = con.Id;
         ass5.SerialNumber = 'SU1234589';
-        ass5.Plant__c = plant1.Id;
+        ass5.PlantAccount__c = plant1.Id;
         ass5.MS_Code__c = 'AAI543-H50';
         //ass5.Shipping_Date__c = Date.newInstance(2014, 12, 28);
         ass5.Status = 'Installed';
@@ -740,6 +772,24 @@ public class YG_AllServiceContractsControllerTest {
         sop1.Asset__c = ass1.Id;
         insert sop1;
         
+        //Expired contract
+        ServiceContract servCont5=new ServiceContract();
+        servCont5.Name = 'Best Condition Plan expired';
+        servCont5.AccountId = acc.Id;
+        servCont5.Contract_No__c = 'BC6782J';
+        servCont5.Description = 'BC6782J OTDR MULTI FIELD TESTER';
+        servCont5.ContactId = con.Id;
+        servCont5.Contract_categories__c = 'Test & Measurement';
+        servCont5.Contract_Type__c = 'BCP';
+        servCont5.Language_Code__c = 'EN';
+        servCont5.YG_Sales_Manager_Name__c = 'Rob Bush';
+        servCont5.StartDate = date.today() - 30;
+        servCont5.EndDate = date.today() -15;
+        servCont5.YG_Sales_Manager_contact_no__c = '909090909';
+        servCont5.YG_Sales_Manager_Email__c = 'ygManager@gmail.com';
+        insert servCont5;
+        System.debug('servCont4::*'+servCont5);
+        
         User userRecord = [select id from user where UserName='testclient@chevron.com'];
         System.runAs(userRecord) {
             Test.startTest();
@@ -763,7 +813,8 @@ public class YG_AllServiceContractsControllerTest {
             //System.assertEquals(1, result.activeContract);
             
             Integer resultCnt = YG_AllServiceContractsController.getTotalContractSize('300000142');
-            System.assertEquals(4, resultCnt);
+             System.debug('resultCnt::'+resultCnt);
+            System.assertEquals(5, resultCnt);
             YG_AllServiceContractsController.ContractInfoWrapper contWrap=new YG_AllServiceContractsController.ContractInfoWrapper();
             contWrap = YG_AllServiceContractsController.getContractInfo('YEA-L0001-1901-01');
             System.assertEquals('YEA-L0001-1901-01', contWrap.contractNum);
@@ -794,6 +845,7 @@ public class YG_AllServiceContractsControllerTest {
         Account acc = new account();
         acc.name='Sample Account';  
         acc.AccountNumber = '200124172';
+        acc.Type = 'Customer';
         //acc.DUNS_Number__c=107906668; 
         insert acc;
         
@@ -806,18 +858,29 @@ public class YG_AllServiceContractsControllerTest {
         insert con;
         
         //Insert test plant record
-        Plant__c plant1=new Plant__c();
+       /* Plant__c plant1=new Plant__c();
         plant1.Name = 'TestPlant';
         plant1.Account__c = acc.Id;  
         plant1.Plant_Code__c = '300000142';
         plant1.Lang_Code__c = 'EN';
+        insert plant1;*/
+        //Insert test plant record
+        Account plant1=new Account();
+        plant1.Name = 'TestPlant';
+        plant1.ParentId = acc.Id;  
+        plant1.AccountNumber = '300000142';
+         plant1.Type = 'Plant';
         insert plant1;
         
         //Insert test customer plant record
-        List<Customer_Plant__c> cusPlantList=new List<Customer_Plant__c>();
+       /* List<Customer_Plant__c> cusPlantList=new List<Customer_Plant__c>();
         Customer_Plant__c cusPlant1=new Customer_Plant__c();
         cusPlant1.Contact__c = con.Id;
-        cusPlant1.Plant__c = plant1.Id;
+        cusPlant1.Plant__c = plant1.Id;*/
+        List<AccountContactRelation> cusPlantList=new List<AccountContactRelation>();
+        AccountContactRelation cusPlant1=new AccountContactRelation();
+        cusPlant1.ContactId = con.Id;
+        cusPlant1.AccountId = plant1.Id;
         cusPlantList.add(cusPlant1);
         insert cusPlantList;
         
@@ -884,7 +947,7 @@ public class YG_AllServiceContractsControllerTest {
         ass1.Name = '6393FCAF-D39C-11E9-94D1-0AE1E5432EEC';
         ass1.Product2Id = prod1.Id;
         ass1.AccountId = acc.Id;
-        ass1.Plant__c = plant1.Id;
+        ass1.PlantAccount__c = plant1.Id;
         ass1.Lang_Code__c = 'EN';
         Insert ass1;
         
@@ -931,7 +994,7 @@ public class YG_AllServiceContractsControllerTest {
         ass2.Name = '6393FCAF';
         ass2.Product2Id = prod1.Id;
         ass2.AccountId = acc.Id;
-        ass2.Plant__c = plant1.Id;
+        ass2.PlantAccount__c = plant1.Id;
         ass2.Lang_Code__c = 'EN';
         Insert ass2;
         

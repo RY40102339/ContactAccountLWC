@@ -12,8 +12,8 @@
 *
 *  Change History:
 *  MM/DD/YYYY			Developer Name			Comments
-*  
-*  
+*  04/21/2021 			Kavya 					Removed Plant__c Object and replaced with Account Object also removed Customer_Plant__c Object and replaced with AccountContactRelation Object.
+*												Removed Plant__c(Plant) Lookup field from Asset and newly added PlantAccount__c(Account) Lookup field in Asset Object.
 *
 */
 
@@ -30,6 +30,7 @@ public class YG_ContractAPIHandlerTest {
         Account acc = new account();
         acc.name='XYZ Account';   
         acc.AccountNumber = '200086397';
+          acc.Type = 'Customer';
         //acc.DUNS_Number__c=102224533; 
         insert acc; 
         
@@ -42,25 +43,47 @@ public class YG_ContractAPIHandlerTest {
         insert con;
         
         //Inserting test plant record
-        List<Plant__c> plantList=new List<Plant__c>();
+        /*List<Plant__c> plantList=new List<Plant__c>();
         Plant__c plant1=new Plant__c();
         plant1.Name = 'TestPlant';
         plant1.Account__c = acc.Id;  
         plant1.Plant_Code__c = '300000123';
         plant1.Lang_Code__c = 'EN';
         plantList.add(plant1);
+        insert plant1;*/
+        
+        //Inserting test plant record
+        List<Account> plantList=new List<Account>();
+        Account plant1=new Account();
+        plant1.Name = 'TestPlant';
+        plant1.ParentId = acc.Id;  
+        plant1.AccountNumber = '300000123';
+        plant1.Type = 'Plant';
+        plantList.add(plant1);
         insert plant1;
         
         List<String> pltList=new List<String>();
-        for(Plant__c plt: plantList){
+        /*for(Plant__c plt: plantList){
             pltList.add(plt.Plant_Code__c);
+        }*/
+        for(Account plt: plantList){
+            pltList.add(plt.AccountNumber);
         }
         
         //Inserting test customer plant record
-        List<Customer_Plant__c> cusPlantList=new List<Customer_Plant__c>();
+       /* List<Customer_Plant__c> cusPlantList=new List<Customer_Plant__c>();
         Customer_Plant__c cusPlant1=new Customer_Plant__c();
         cusPlant1.Contact__c = con.Id;
         cusPlant1.Plant__c = plant1.Id;
+        cusPlant1.Status__c = 'Approved site access';
+        cusPlantList.add(cusPlant1);
+        insert cusPlant1;*/
+        
+        //Inserting test customer plant record
+        List<AccountContactRelation> cusPlantList=new List<AccountContactRelation>();
+        AccountContactRelation cusPlant1=new AccountContactRelation();
+        cusPlant1.ContactId = con.Id;
+        cusPlant1.AccountId = plant1.Id;
         cusPlant1.Status__c = 'Approved site access';
         cusPlantList.add(cusPlant1);
         insert cusPlant1;
@@ -68,7 +91,7 @@ public class YG_ContractAPIHandlerTest {
         Asset ass=new Asset();
         ass.Name = '0A74B68F-D39C-11E9-94D1-0AE1E5432EEC';
         ass.AccountId = acc.Id;
-        ass.Plant__c = plant1.Id;
+        ass.PlantAccount__c = plant1.Id;
         insert ass;
         
         ServiceContract servCont=new ServiceContract();
@@ -167,6 +190,7 @@ public class YG_ContractAPIHandlerTest {
         Account acc = new account();
         acc.name='XYZ Account';   
         acc.AccountNumber = '200086397';
+         acc.Type = 'Customer';
         //acc.DUNS_Number__c=102224533; 
         insert acc; 
         
@@ -179,25 +203,47 @@ public class YG_ContractAPIHandlerTest {
         insert con;
         
         //Inserting test plant record
-        List<Plant__c> plantList=new List<Plant__c>();
+       /* List<Plant__c> plantList=new List<Plant__c>();
         Plant__c plant1=new Plant__c();
         plant1.Name = 'TestPlant';
         plant1.Account__c = acc.Id;  
         plant1.Plant_Code__c = '300000123';
         plant1.Lang_Code__c = 'EN';
         plantList.add(plant1);
+        insert plant1;*/
+        
+        //Inserting test plant record
+       List<Account> plantList=new List<Account>();
+        Account plant1=new Account();
+        plant1.Name = 'TestPlant';
+        plant1.ParentId = acc.Id;  
+        plant1.AccountNumber = '300000123';
+        plant1.Type = 'Plant';
+        plantList.add(plant1);
         insert plant1;
         
         List<String> pltList=new List<String>();
-        for(Plant__c plt: plantList){
+        /*for(Plant__c plt: plantList){
             pltList.add(plt.Plant_Code__c);
+        }*/
+        for(Account plt: plantList){
+            pltList.add(plt.AccountNumber);
         }
         
         //Inserting test customer plant record
-        List<Customer_Plant__c> cusPlantList=new List<Customer_Plant__c>();
+        /*List<Customer_Plant__c> cusPlantList=new List<Customer_Plant__c>();
         Customer_Plant__c cusPlant1=new Customer_Plant__c();
         cusPlant1.Contact__c = con.Id;
         cusPlant1.Plant__c = plant1.Id;
+        cusPlant1.Status__c = 'Approved site access';
+        cusPlantList.add(cusPlant1);
+        insert cusPlant1;*/
+        
+        //Inserting test customer plant record
+        List<AccountContactRelation> cusPlantList=new List<AccountContactRelation>();
+        AccountContactRelation cusPlant1=new AccountContactRelation();
+        cusPlant1.ContactId = con.Id;
+        cusPlant1.AccountId = plant1.Id;
         cusPlant1.Status__c = 'Approved site access';
         cusPlantList.add(cusPlant1);
         insert cusPlant1;
@@ -205,7 +251,7 @@ public class YG_ContractAPIHandlerTest {
         Asset ass=new Asset();
         ass.Name = '0A74B68F-D39C-11E9-94D1-0AE1E5432EEC';
         ass.AccountId = acc.Id;
-        ass.Plant__c = plant1.Id;
+        ass.PlantAccount__c = plant1.Id;
         insert ass;
         
         ServiceContract servCont=new ServiceContract();
@@ -286,6 +332,7 @@ public class YG_ContractAPIHandlerTest {
         Account acc = new account();
         acc.name='XYZ Account';   
         acc.AccountNumber = '200086397';
+        acc.Type = 'Customer';
         //acc.DUNS_Number__c=102224533; 
         insert acc; 
         
@@ -298,25 +345,47 @@ public class YG_ContractAPIHandlerTest {
         insert con;
         
         //Inserting test plant record
-        List<Plant__c> plantList=new List<Plant__c>();
+       /* List<Plant__c> plantList=new List<Plant__c>();
         Plant__c plant1=new Plant__c();
         plant1.Name = 'TestPlant';
         plant1.Account__c = acc.Id;  
         plant1.Plant_Code__c = '300000123';
         plant1.Lang_Code__c = 'EN';
         plantList.add(plant1);
+        insert plant1;*/
+        
+        //Inserting test plant record
+       List<Account> plantList=new List<Account>();
+        Account plant1=new Account();
+        plant1.Name = 'TestPlant';
+        plant1.ParentId = acc.Id;  
+        plant1.AccountNumber = '300000123';
+        plant1.Type = 'Plant';
+        plantList.add(plant1);
         insert plant1;
         
         List<String> pltList=new List<String>();
-        for(Plant__c plt: plantList){
+        /*for(Plant__c plt: plantList){
             pltList.add(plt.Plant_Code__c);
+        }*/
+        for(Account plt: plantList){
+            pltList.add(plt.AccountNumber);
         }
         
         //Inserting test customer plant record
-        List<Customer_Plant__c> cusPlantList=new List<Customer_Plant__c>();
+       /* List<Customer_Plant__c> cusPlantList=new List<Customer_Plant__c>();
         Customer_Plant__c cusPlant1=new Customer_Plant__c();
         cusPlant1.Contact__c = con.Id;
         cusPlant1.Plant__c = plant1.Id;
+        cusPlant1.Status__c = 'Approved site access';
+        cusPlantList.add(cusPlant1);
+        insert cusPlant1;*/
+        
+        //Inserting test customer plant record
+        List<AccountContactRelation> cusPlantList=new List<AccountContactRelation>();
+        AccountContactRelation cusPlant1=new AccountContactRelation();
+        cusPlant1.ContactId = con.Id;
+        cusPlant1.AccountId = plant1.Id;
         cusPlant1.Status__c = 'Approved site access';
         cusPlantList.add(cusPlant1);
         insert cusPlant1;
@@ -324,7 +393,7 @@ public class YG_ContractAPIHandlerTest {
         Asset ass=new Asset();
         ass.Name = '0A74B68F-D39C-11E9-94D1-0AE1E5432EEC';
         ass.AccountId = acc.Id;
-        ass.Plant__c = plant1.Id;
+        ass.PlantAccount__c = plant1.Id;
         insert ass;
         
         ServiceContract servCont=new ServiceContract();
@@ -389,6 +458,7 @@ public class YG_ContractAPIHandlerTest {
         Account acc = new account();
         acc.name='XYZ Account';   
         acc.AccountNumber = '200086397';
+        acc.Type = 'Customer';
         //acc.DUNS_Number__c=102224533; 
         insert acc; 
         
@@ -401,25 +471,47 @@ public class YG_ContractAPIHandlerTest {
         insert con;
         
         //Inserting test plant record
-        List<Plant__c> plantList=new List<Plant__c>();
+       /* List<Plant__c> plantList=new List<Plant__c>();
         Plant__c plant1=new Plant__c();
         plant1.Name = 'TestPlant';
         plant1.Account__c = acc.Id;  
         plant1.Plant_Code__c = '300000123';
         plant1.Lang_Code__c = 'EN';
         plantList.add(plant1);
+        insert plant1;*/
+        
+        //Inserting test plant record
+        List<Account> plantList=new List<Account>();
+        Account plant1=new Account();
+        plant1.Name = 'TestPlant';
+        plant1.ParentId = acc.Id;  
+        plant1.AccountNumber = '300000123';
+         plant1.Type = 'Plant';
+        plantList.add(plant1);
         insert plant1;
         
         List<String> pltList=new List<String>();
-        for(Plant__c plt: plantList){
+       /* for(Plant__c plt: plantList){
             pltList.add(plt.Plant_Code__c);
+        }*/
+        for(Account plt: plantList){
+            pltList.add(plt.AccountNumber);
         }
         
         //Inserting test customer plant record
-        List<Customer_Plant__c> cusPlantList=new List<Customer_Plant__c>();
+        /*List<Customer_Plant__c> cusPlantList=new List<Customer_Plant__c>();
         Customer_Plant__c cusPlant1=new Customer_Plant__c();
         cusPlant1.Contact__c = con.Id;
         cusPlant1.Plant__c = plant1.Id;
+        cusPlant1.Status__c = 'Approved site access';
+        cusPlantList.add(cusPlant1);
+        insert cusPlant1;*/
+        
+         //Inserting test customer plant record
+        List<AccountContactRelation> cusPlantList=new List<AccountContactRelation>();
+        AccountContactRelation cusPlant1=new AccountContactRelation();
+        cusPlant1.ContactId = con.Id;
+        cusPlant1.AccountId = plant1.Id;
         cusPlant1.Status__c = 'Approved site access';
         cusPlantList.add(cusPlant1);
         insert cusPlant1;
@@ -427,7 +519,7 @@ public class YG_ContractAPIHandlerTest {
         Asset ass=new Asset();
         ass.Name = '0A74B68F-D39C-11E9-94D1-0AE1E5432EEC';
         ass.AccountId = acc.Id;
-        ass.Plant__c = plant1.Id;
+        ass.PlantAccount__c = plant1.Id;
         insert ass;
         
         ServiceContract servCont=new ServiceContract();
@@ -481,6 +573,7 @@ public class YG_ContractAPIHandlerTest {
         Account acc = new account();
         acc.name='XYZ Account';   
         acc.AccountNumber = '200086397';
+        acc.Type = 'Customer';
         //acc.DUNS_Number__c=102224533; 
         insert acc; 
         
@@ -492,7 +585,7 @@ public class YG_ContractAPIHandlerTest {
         con.accountid=acc.id; 
         insert con;
         
-        //Inserting test plant record
+        /*//Inserting test plant record
         List<Plant__c> plantList=new List<Plant__c>();
         Plant__c plant1=new Plant__c();
         plant1.Name = 'TestPlant';
@@ -500,18 +593,40 @@ public class YG_ContractAPIHandlerTest {
         plant1.Plant_Code__c = '300000123';
         plant1.Lang_Code__c = 'EN';
         plantList.add(plant1);
-        insert plant1;
+        insert plant1;*/
         
+         //Inserting test plant record
+        List<Account> plantList=new List<Account>();
+        Account plant1=new Account();
+        plant1.Name = 'TestPlant';
+        plant1.ParentId = acc.Id;  
+        plant1.AccountNumber = '300000123';
+         plant1.Type = 'Plant';
+        plantList.add(plant1);
+        insert plant1;
+         
         List<String> pltList=new List<String>();
-        for(Plant__c plt: plantList){
+       /* for(Plant__c plt: plantList){
             pltList.add(plt.Plant_Code__c);
+        }*/
+         for(Account plt: plantList){
+            pltList.add(plt.AccountNumber);
         }
         
-        //Inserting test customer plant record
+       /* //Inserting test customer plant record
         List<Customer_Plant__c> cusPlantList=new List<Customer_Plant__c>();
         Customer_Plant__c cusPlant1=new Customer_Plant__c();
         cusPlant1.Contact__c = con.Id;
         cusPlant1.Plant__c = plant1.Id;
+        cusPlant1.Status__c = 'Approved site access';
+        cusPlantList.add(cusPlant1);
+        insert cusPlant1;*/
+         
+         //Inserting test customer plant record
+        List<AccountContactRelation> cusPlantList=new List<AccountContactRelation>();
+        AccountContactRelation cusPlant1=new AccountContactRelation();
+        cusPlant1.ContactId = con.Id;
+        cusPlant1.AccountId = plant1.Id;
         cusPlant1.Status__c = 'Approved site access';
         cusPlantList.add(cusPlant1);
         insert cusPlant1;
@@ -519,7 +634,7 @@ public class YG_ContractAPIHandlerTest {
         Asset ass=new Asset();
         ass.Name = '0A74B68F-D39C-11E9-94D1-0AE1E5432EEC';
         ass.AccountId = acc.Id;
-        ass.Plant__c = plant1.Id;
+        ass.PlantAccount__c = plant1.Id;
         insert ass;
         
         ServiceContract servCont=new ServiceContract();

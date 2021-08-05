@@ -16,7 +16,8 @@
 *  Change History:
 *  MM/DD/YYYY			Developer Name			Comments
 *  09/08/2020           Jayaprasath             Updated the Status__c in Customer_Plant__c query 
-*
+*  04/20/2021           Vinod 					Removed Plant__c Object and replaced with Account Object also removed Customer_Plant__c Object and replaced with AccountContactRelation Object.
+*												Removed Plant__c(Plant) Lookup field from Asset and newly added PlantAccount__c(Account) Lookup field in Asset.
 */
 
 
@@ -177,18 +178,24 @@ public class YG_ServiceRequestAndInquiries {
             System.debug('assetIds::'+assetIds);
             
             //get customer plant
-            List<Customer_Plant__c> cstPlantIds=new List<Customer_Plant__c>();
+            /*List<Customer_Plant__c> cstPlantIds=new List<Customer_Plant__c>();
             List<Id> plantIds=new List<Id>();     
             cstPlantIds = YG_HelperClass.getCusPlantInfo(contactId,langCode);
             for(Customer_Plant__c p : cstPlantIds){
                 system.debug('plantIds'+p.Plant__c);
                 plantIds.add(p.Plant__c);
+            }*/
+            List<AccountContactRelation> cstPlantIds=new List<AccountContactRelation>();
+            List<Id> plantIds=new List<Id>();     
+            cstPlantIds = YG_HelperClass.getCusPlantInfo(contactId,langCode);
+            for(AccountContactRelation p : cstPlantIds){
+                system.debug('plantIds'+p.AccountId);
+                plantIds.add(p.AccountId);
             }
             
             //Search using Product Name
             sQueryProd = 'Select Product2.Id, Product2.Name from Asset where Product2.Name LIKE : searchKey '+
-                ' AND (Id IN:assetIds OR Plant__r.Id IN: plantIds) AND Lang_Code__c=:langCode AND Product2.Id NOT IN :lstExcludeitems GROUP BY Product2.Id,Product2.Name';
-            
+                ' AND (Id IN:assetIds OR PlantAccount__r.Id IN: plantIds) AND Lang_Code__c=:langCode AND Product2.Id NOT IN :lstExcludeitems GROUP BY Product2.Id,Product2.Name';
             List<sObject> lstOfProdRecords = Database.query(sQueryProd);
             
             for (sObject obj: lstOfProdRecords) {
@@ -198,7 +205,7 @@ public class YG_ServiceRequestAndInquiries {
             
             //Search using Product Model Code
             sQueryProdModel = 'Select Product2.Id, Product2.Model_Code__c from Asset where Product2.Model_Code__c LIKE : searchKey '+
-                ' AND (Id IN:assetIds OR Plant__r.Id IN: plantIds) AND Lang_Code__c=:langCode AND Product2.Model_Code__c NOT IN :lstExcludeitems GROUP BY Product2.Id,Product2.Model_Code__c';
+                ' AND (Id IN:assetIds OR PlantAccount__r.Id IN: plantIds) AND Lang_Code__c=:langCode AND Product2.Model_Code__c NOT IN :lstExcludeitems GROUP BY Product2.Id,Product2.Model_Code__c';
             
             List<sObject> lstOfProdModelRecords = Database.query(sQueryProdModel);
             
@@ -209,7 +216,7 @@ public class YG_ServiceRequestAndInquiries {
             
             //Search using SerialNumber
             sQueryAsset = 'Select Id, Name from Asset where Name LIKE : searchKey '+
-                'AND (Id IN:assetIds OR Plant__r.Id IN: plantIds) AND Lang_Code__c=:langCode AND Id NOT IN :lstExcludeitems';
+                'AND (Id IN:assetIds OR PlantAccount__r.Id IN: plantIds) AND Lang_Code__c=:langCode AND Id NOT IN :lstExcludeitems';
             
             List<sObject> lstOfAssRecords = Database.query(sQueryAsset);
             
@@ -362,7 +369,11 @@ public class YG_ServiceRequestAndInquiries {
                 //call API if service org is IA-PS & IA-SS
                 if(serviceIns !=null && (servorgCase.Product.Category__r.Service_Org__c == 'IA-PS' || servorgCase.Product.Category__r.Service_Org__c == 'IA-SS'|| servorgCase.Asset.Product2.Category__r.Service_Org__c == 'IA-SS'|| servorgCase.Asset.Product2.Category__r.Service_Org__c == 'IA-PS'))
                 {
+                    System.debug('caseid::'+ caseList[0].id);
                     YG_CaseRegistrationAPIController.callCaseRegistrationAPI(caseList[0].id);
+                	//for case documentAPI
+                	//YG_CaseDocumentAPI.callCaseDocumentAPI(caseList[0].id);
+ 
                 } 
                 
             }
@@ -420,7 +431,8 @@ public class YG_ServiceRequestAndInquiries {
             String classificationCode = allValues.get('Classification_Code').Text_1__c;
             String officeType = allValues.get('Office_Type').Text_1__c;            
             
-            Schema.DescribeFieldResult fieldResult = Plant__c.Country__c.getDescribe();
+            /*Schema.DescribeFieldResult fieldResult = Plant__c.Country__c.getDescribe();*/
+            Schema.DescribeFieldResult fieldResult = Account.Country__c.getDescribe();
             List<Schema.PicklistEntry> countryList = fieldResult.getPicklistValues();
             
             for(Schema.PicklistEntry ctry : countryList){

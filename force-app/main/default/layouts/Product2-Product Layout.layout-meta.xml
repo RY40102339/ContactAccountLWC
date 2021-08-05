@@ -20,10 +20,6 @@
                 <field>Product_Type__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Production_Date__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Required</behavior>
                 <field>Category__c</field>
             </layoutItems>
@@ -99,13 +95,18 @@
         </platformActionListItems>
     </platformActionList>
     <relatedLists>
-        <relatedList>RelatedStandardPriceList</relatedList>
-    </relatedLists>
-    <relatedLists>
         <fields>NAME</fields>
         <fields>Item__c</fields>
         <fields>Sub_Item__c</fields>
+        <fields>Lifecycle_No__c</fields>
+        <fields>Sales_Phase_End_Date__c</fields>
+        <fields>Maintenance_Phase1_End_Date__c</fields>
+        <fields>Maintenance_Phase2_End_Date__c</fields>
+        <fields>Ext_Maintenance_End_Date__c</fields>
         <relatedList>Maintenance_Phase__c.Product__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <relatedList>RelatedStandardPriceList</relatedList>
     </relatedLists>
     <relatedLists>
         <relatedList>RelatedPricebookEntryList</relatedList>

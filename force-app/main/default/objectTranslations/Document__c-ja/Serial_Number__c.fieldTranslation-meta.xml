@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
-    <help></help>
-    <label></label>
+    <help><!-- Please dont use this field for Build 1(This is for the future reference) --></help>
+    <label><!-- Serial Number --></label>
     <name>Serial_Number__c</name>
-    <relationshipLabel></relationshipLabel>
+    <relationshipLabel><!-- Document (Serial Number) --></relationshipLabel>
 </CustomFieldTranslation>

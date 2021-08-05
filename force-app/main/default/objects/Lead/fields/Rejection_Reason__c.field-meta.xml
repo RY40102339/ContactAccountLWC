@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Rejection_Reason__c</fullName>
+    <externalId>false</externalId>
+    <label>Rejection Reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Incorrectly assigned</fullName>
+                <default>false</default>
+                <label>Incorrectly assigned</label>
+            </value>
+            <value>
+                <fullName>Incomplete/Inaccurate</fullName>
+                <default>false</default>
+                <label>Incomplete/Inaccurate</label>
+            </value>
+            <value>
+                <fullName>No interest by sales</fullName>
+                <default>false</default>
+                <label>No interest by sales</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

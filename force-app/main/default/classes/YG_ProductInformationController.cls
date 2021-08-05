@@ -15,7 +15,8 @@
 *  Change History:
 *  MM/DD/YYYY			Developer Name			Comments
 *  08/13/2020			Vinod A					Logic modified for Production date should be captured at the Asset level.
-*  09/22/2020			Selvaraj T				Added new methods for ordering instructions and product availability
+*  09/22/2020			Selvaraj T				Added new methods for ordering instructions and product availability.
+*  04/21/2021           Vinod                   Removed Plant__c(Plant) Lookup field from Asset  and newly added PlantAccount__c(Account) Lookup field in Asset.
 *
 */
 public class YG_ProductInformationController  {
@@ -53,13 +54,17 @@ public class YG_ProductInformationController  {
             }
             
             //get asset details based on the serial number
-            for(Asset ass : [SELECT Id,Name,AccountId,MS_Code__c,Order_Date__c,ParentId,Plant__c,Product2Id,Product_Carrier__c,Project__c, Production_Date__c,
+           /* for(Asset ass : [SELECT Id,Name,AccountId,MS_Code__c,Order_Date__c,ParentId,PlantAccount__c,Product2Id,Product_Carrier__c,Project__c, Production_Date__c,
                              SerialNumber,Status,Tokuchu_no__c,Xj_no__c, Product2.name, Product2.Type__c, Product2.Model_Code__c,
-                             Product2.Top_Category__c, Product2.Production_Date__c, Product2.Category__r.Name  FROM Asset Where SerialNumber=:serialNo]){
+                             Product2.Top_Category__c, Product2.Production_Date__c, Product2.Category__r.Name  FROM Asset Where SerialNumber=:serialNo]){*/
+            for(Asset ass : [SELECT Id,Name,AccountId,MS_Code__c,Order_Date__c,ParentId,PlantAccount__c,Product2Id,Product_Carrier__c,Project__c, Production_Date__c,
+                             SerialNumber,Status,Tokuchu_no__c,Xj_no__c, Product2.name, Product2.Type__c, Product2.Model_Code__c,
+                             Product2.Top_Category__c, Product2.Category__r.Name  FROM Asset Where SerialNumber=:serialNo]){
+            
                                  topCatCode = ass.Product2.Top_Category__c;
                                  System.debug('ass::'+ass);
                                  if(ass != null){
-                                     System.debug('ass.Production_Date__c::'+ass.Product2.Production_Date__c);
+                                    // System.debug('ass.Production_Date__c::'+ass.Product2.Production_Date__c);
                                      if(ass.Production_Date__c != null ){
                                          Datetime dt = Datetime.newInstance(ass.Production_Date__c.year(),ass.Production_Date__c.month(),ass.Production_Date__c.day());
                                          prodInfoWrap.productionDate = dt.format('dd MMMM YYYY');

@@ -14,7 +14,8 @@
 * @test class name - 
 *  Change History:
 *  MM/DD/YYYY			Developer Name			Comments
-*  
+*  04/21/2021 			Kavya 					Removed Plant__c Object and replaced with Account Object.
+*												Removed Plant__c(Plant) Lookup field from Asset and newly added PlantAccount__c(Account) Lookup field in Asset Object.
 */
 
 @isTest
@@ -25,7 +26,8 @@ public class YG_CaseAPITest {
         //Insert test account record
         Account acc = new account();
         acc.name='XYZ Account'; 
-        insert acc;    
+         acc.Type = 'Customer';
+        insert acc;
 
         //Insert test contact record        
         Contact con = new Contact();   
@@ -36,12 +38,22 @@ public class YG_CaseAPITest {
         insert con;
 
         //Inserting test plant record
-        List<Plant__c> plantList=new List<Plant__c>();
+       /* List<Plant__c> plantList=new List<Plant__c>();
         Plant__c plant1=new Plant__c();
         plant1.Name = 'TestPlantDoc';
         plant1.Account__c = acc.Id;  
         plant1.Plant_Code__c = '300000142';
         plant1.Lang_Code__c = 'EN';
+        plantList.add(plant1);
+        insert plantList;*/
+        
+        //Inserting test plant record
+        List<Account> plantList=new List<Account>();
+        Account plant1=new Account();
+        plant1.Name = 'TestPlantDoc';
+        plant1.ParentId = acc.Id;  
+        plant1.AccountNumber = '300000142';
+        plant1.Type = 'Plant';
         plantList.add(plant1);
         insert plantList;
         
@@ -84,7 +96,7 @@ public class YG_CaseAPITest {
         prod2.Name = 'Device Smart Communicators BT200';
         prod2.Model_Code__c = 'BT200';
         prod2.Category__c = catg3.Id;
-        prod2.Production_Date__c = Date.newInstance(2014, 12, 17);
+       //prod2.Production_Date__c = Date.newInstance(2014, 12, 17);
         prod2.Lang_Code__c = 'EN';
         prodList.add(prod2);
         
@@ -98,7 +110,7 @@ public class YG_CaseAPITest {
         ass1.AccountId = acc.Id;
         ass1.ContactId = con.Id;
         ass1.SerialNumber = 'SU1234567';
-        ass1.Plant__c = plant1.Id;
+        ass1.PlantAccount__c = plant1.Id;
         ass1.MS_Code__c = 'AAI543-H50';
         //ass1.Shipping_Date__c = Date.newInstance(2019, 7, 28);
         ass1.Lang_Code__c = 'EN';
@@ -162,10 +174,12 @@ public class YG_CaseAPITest {
             HttpResponse  response = New HttpResponse();
             
             List<String> plantCodeList= new List<String>();
-            for(Plant__c plantObj:plantList){
+           /* for(Plant__c plantObj:plantList){
                 plantCodeList.add(plantObj.Plant_Code__c);
+            }*/
+            for(Account plantObj:plantList){
+                plantCodeList.add(plantObj.AccountNumber);
             }
-            
             
             YG_CaseAPI.callCaseAPIInfo();
                 

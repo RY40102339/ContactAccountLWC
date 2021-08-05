@@ -29,7 +29,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Plant__c</field>
+                <field>PlantAccount__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

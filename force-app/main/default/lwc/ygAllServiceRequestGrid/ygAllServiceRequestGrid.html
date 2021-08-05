@@ -72,6 +72,9 @@
                     </div>
                 </fieldset>
             </div>
+            <div class="col-lg-12 d-sm-none p-0">
+                <c-yg-all-service-request-chart></c-yg-all-service-request-chart>
+            </div>
             <div class="col-lg-12">
                 <div class="row">
                     <div class="col-lg-12 pt-2 download-csv">
@@ -106,7 +109,7 @@
         </div>
     </div>
     <template if:true={showLoadMore}>
-        <div class="row">
+        <div class="row mb-5">
             <div class="col-lg-12 text-center mt-3 mb-1 loading-icon d-none">
                 <div class="spinner-border text-dark"></div>
                 <div class="txt-load">{label.loadingLbl}</div>
@@ -192,18 +195,16 @@
                                         <span class="row pl-3 f12 pb-1 grey-dark-1">{label.caseNumLbl}</span>
                                         <span class="row pl-3 grey-darkest f14 fbold">{caseDetails.caseNum}</span>
                                     </div>
-                                </div>
-                                <div class="row mt-4 mb-4">
                                     <div class="col-6 col-md-6">
                                         <span class="row pl-3 f12 pb-1 grey-dark-1">{label.serialNoLbl}</span>
                                         <span class="row pl-3 grey-darkest f14 fbold">{caseDetails.serialNumber}</span>
                                     </div>
+                                </div>
+                                <div class="row mt-4 mb-4">
                                     <div class="col-6 col-md-6">
                                         <span class="row pl-3 f12 pb-1 grey-dark-1">{label.servTypeLbl}</span>
                                         <span class="row pl-3 grey-darkest f14 fbold">{caseDetails.serviceType}</span>
                                     </div>
-                                </div>
-                                <div class="row mt-4 mb-4">
                                     <div class="col-6 col-md-6">
                                         <span class="row pl-3 f12 pb-1 grey-dark-1">{label.contractLbl}</span>
                                         <template if:true={showContractType}>
@@ -216,16 +217,18 @@
                                             <span class="row pl-3 grey-darkest f14 fbold">-</span>
                                         </template>
                                     </div>
-                                    <div class="col-6 col-md-6">
-                                        <span class="row pl-3 f12 pb-1 grey-dark-1">{label.dateSubmittedLbl}</span>
-                                        <span class="row pl-3 grey-darkest f14 fbold">{caseDetails.submittedDate}</span>
-                                    </div>
                                 </div>
                                 <div class="row mt-4 mb-4">
                                     <div class="col-6 col-md-6">
                                         <span class="row pl-3 f12 pb-1 grey-dark-1">{label.subByLbl}</span>
                                         <span class="row pl-3 grey-darkest f14 fbold">{caseDetails.caseCreatedBy}</span>
                                     </div>
+                                    <div class="col-6 col-md-6">
+                                        <span class="row pl-3 f12 pb-1 grey-dark-1">{label.dateSubmittedLbl}</span>
+                                        <span class="row pl-3 grey-darkest f14 fbold">{caseDetails.submittedDate}</span>
+                                    </div>
+                                </div>
+                                <div class="row mt-4 mb-4">
                                     <div class="col-6 col-md-6">
                                         <span class="row pl-3 f12 pb-1 grey-dark-1">{label.assignToLbl}</span>
                                         <span
@@ -236,7 +239,7 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="notes" class="row pl-3 f12 grey-dark-1">{label.notesLbl}</label>
-                                            <span class="desc fbold grey-darkest f14 pre">
+                                            <span class="desc fbold grey-darkest f14 pre pl-1">
                                                 {caseDetails.description}
                                             </span>
                                         </div>

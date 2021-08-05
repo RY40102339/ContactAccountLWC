@@ -1,10 +1,13 @@
-import { LightningElement, track } from 'lwc';
+import { LightningElement, track, wire } from 'lwc';
+import { CurrentPageReference } from 'lightning/navigation';
 import { loadScript } from "lightning/platformResourceLoader";
+import { registerListener, unregisterAllListeners } from 'c/pubSub';
 import YG_CustomerPortal from "@salesforce/resourceUrl/YG_CustomerPortal";
 import getChartDetails from '@salesforce/apex/YG_AllServiceRequestController.getServiceRequestChartDetails';
 
 export default class YgAllServiceRequestChart extends LightningElement {
 
+    @wire(CurrentPageReference) pageRef;
     @track productData = [];
     @track systemData = [];
     @track inquiriesData = [];
@@ -14,8 +17,66 @@ export default class YgAllServiceRequestChart extends LightningElement {
     constructor() {
         super();
         this.screenWidth = window.innerWidth;
+        /*
+                getChartDetails({ caseStatus: '' })
+                    .then((result) => {
+                        this.productData = result.prodChartDataList;
+                        this.systemData = result.sysChartDataList;
+                        this.inquiriesData = result.inqChartDataList;
+        
+                    }).then(() => {
+                        this.loadExternalLibraries();
+                    }).catch((error) => {
+                        this.error = error.body;
+                    });*/
+        //this.loadExternalLibraries();
+    }
 
-        getChartDetails()
+    connectedCallback() {
+        registerListener("serviceRequestChart", this.updateServiceRequestChart, this);
+        registerListener("showRequestChart", this.showServiceRequestChart, this);
+    }
+
+    disconnectedCallback() {
+        unregisterAllListeners(this);
+    }
+
+    showServiceRequestChart(param) {
+
+        let splitParam = param.split("~");
+        const chartSection = this.template.querySelector('.row');
+
+        if (splitParam[0] == 'System') {
+
+            $('.system, .system-software-chart', chartSection).removeClass('d-none');
+            $('.product, .product-chart', chartSection).addClass('d-none');
+            $('.inquiry, .inquiries-chart', chartSection).addClass('d-none');
+
+        } else if (splitParam[0] == 'Product') {
+            $('.product, .product-chart', chartSection).removeClass('d-none');
+            $('.system, .system-software-chart', chartSection).addClass('d-none');
+            $('.inquiry, .inquiries-chart', chartSection).addClass('d-none');
+
+        } else if (splitParam[0] == 'Inquiry') {
+
+            $('.inquiry, .inquiries-chart', chartSection).removeClass('d-none');
+            $('.product, .product-chart', chartSection).addClass('d-none');
+            $('.system, .system-software-chart', chartSection).addClass('d-none');
+
+        } else {
+            $('.system, .system-software-chart', chartSection).removeClass('d-none');
+            $('.product, .product-chart', chartSection).removeClass('d-none');
+            $('.inquiry, .inquiries-chart', chartSection).removeClass('d-none');
+        }
+
+        this.updateServiceRequestChart(param);
+    }
+
+    updateServiceRequestChart(param) {
+
+        let splitParam = param.split("~");
+
+        getChartDetails({ caseType: splitParam[0], caseStatus: splitParam[1] })
             .then((result) => {
                 this.productData = result.prodChartDataList;
                 this.systemData = result.sysChartDataList;
@@ -26,7 +87,6 @@ export default class YgAllServiceRequestChart extends LightningElement {
             }).catch((error) => {
                 this.error = error.body;
             });
-
     }
 
     async loadExternalLibraries() {

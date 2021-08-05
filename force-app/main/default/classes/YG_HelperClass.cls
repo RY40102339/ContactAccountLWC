@@ -20,6 +20,8 @@
 *  09/09/2020           Jayaprasath				Included getPlantList() & getCusPlantList() to get the Plant List from Logged Acc.
 *  10/13/2020			Selvaraj T				Commented the phase date fields in product object
 *  10/22/2020       	Jayaprasath				Removed Shipping_Date__c field from this class and commented toCalculateAssetWarrent
+*  04/19/2021			Vinod 					Removed Plant__c Object and replaced with Account Object also removed Customer_Plant__c Object and replaced with AccountContactRelation Object.
+*                                               Removed Plant__c(Plant) Lookup field from Asset and Project Objects and newly added PlantAccount__c(Account) Lookup field in Asset and Project Objects.
 */
 
 public class YG_HelperClass {
@@ -28,15 +30,17 @@ public class YG_HelperClass {
     
     //This method is used to get customer plant of the logged in user based on contact id.
     @AuraEnabled
-    public static List<Customer_Plant__c> getCusPlantInfo(Id conId){
-        
+    //public static List<Customer_Plant__c> getCusPlantInfo(Id conId){
+      public static List<AccountContactRelation> getCusPlantInfo(Id conId){  
         system.debug('conId::'+conId); 
-        List<Customer_Plant__c> cusPlant = new List<Customer_Plant__c>();
-        
+        //List<Customer_Plant__c> cusPlant = new List<Customer_Plant__c>();
+        List<AccountContactRelation> cusPlant = new List<AccountContactRelation>();
         try{
             
-            cusPlant = [SELECT Contact__c,Plant__c,Plant__r.Name,Plant__r.Account__c,Plant__r.Plant_Code__c,Plant__r.Plant_Name__c 
-                        FROM Customer_Plant__c WHERE Contact__c =: conId and Status__c = 'Approved site access'];
+            /*cusPlant = [SELECT Contact__c,Plant__c,Plant__r.Name,Plant__r.Account__c,Plant__r.Plant_Code__c,Plant__r.Plant_Name__c 
+                        FROM Customer_Plant__c WHERE Contact__c =: conId and Status__c = 'Approved site access'];*/
+            cusPlant = [SELECT ContactId,AccountId,Account.Name,Account.AccountNumber ,Account.ParentId
+                        FROM AccountContactRelation WHERE ContactId =: conId and Status__c = 'Approved site access' and IsDirect = false];
             
             system.debug('cusPlant::'+cusPlant);            
             
@@ -56,19 +60,30 @@ public class YG_HelperClass {
     
     //This method is used to get customer plant of the logged in user based on contact id and lang code.
     @AuraEnabled
-    public static List<Customer_Plant__c> getCusPlantInfo(Id conId,String langCode){
+    //public static List<Customer_Plant__c> getCusPlantInfo(Id conId,String langCode){
+    public static List<AccountContactRelation> getCusPlantInfo(Id conId,String langCode){
         
         system.debug('conId::'+conId); 
-        List<Customer_Plant__c> cusPlant = new List<Customer_Plant__c>();
+        //List<Customer_Plant__c> cusPlant = new List<Customer_Plant__c>();
+        List<AccountContactRelation> cusPlant = new List<AccountContactRelation>();
         
         try{
             
-            cusPlant = [SELECT Contact__c,Plant__c,Plant__r.Name,Plant__r.Account__c,Plant__r.Plant_Code__c,Plant__r.Plant_Name__c 
+            /*cusPlant = [SELECT Contact__c,Plant__c,Plant__r.Name,Plant__r.Account__c,Plant__r.Plant_Code__c,Plant__r.Plant_Name__c 
                         FROM Customer_Plant__c WHERE Contact__c =: conId AND Plant__r.Lang_Code__c =:langCode and Status__c = 'Approved site access' 
-                        ORDER BY Plant__r.Name ASC];
+                        ORDER BY Plant__r.Name ASC];*/
+            Boolean hasAsset = userInformation.Contact.Account.Has_Asset__c;
             
+            if(hasAsset){
+                cusPlant = [SELECT ContactId,AccountId,Account.Name,Account.ParentId,Account.AccountNumber 
+                        FROM AccountContactRelation WHERE ContactId =: conId and Status__c = 'Approved site access' 
+                        ORDER BY Account.Name ASC];
+            }else{
+                cusPlant = [SELECT ContactId,AccountId,Account.Name,Account.ParentId,Account.AccountNumber 
+                        FROM AccountContactRelation WHERE ContactId =: conId and Status__c = 'Approved site access' and Account.Type= 'Plant' 
+                        ORDER BY Account.Name ASC];
+            }
             system.debug('cusPlant::'+cusPlant);            
-            
         }catch(Exception e){
             system.debug('Exception Cause::'+e.getCause());
             system.debug('Exception LineNumber::'+e.getLineNumber());
@@ -92,7 +107,8 @@ public class YG_HelperClass {
         
         try{
             
-            conPlant = [select name,Profile_Image__c, (select Plant__c,Plant__r.Name,Status__c,Plant__r.Plant_Name__c from Customer_Plant__r) from contact where accountid =: accId and status__c=:true];
+            //conPlant = [select name,Profile_Image__c, (select Plant__c,Plant__r.Name,Status__c,Plant__r.Plant_Name__c from Customer_Plant__r) from contact where accountid =: accId and status__c=:true];
+			conPlant = [select name,Profile_Image__c, (select AccountId,Status__c,Account.Name from AccountContactRelations) from contact where accountid =: accId and status__c=:true];            
             
             system.debug('conPlant::'+conPlant);            
             
@@ -112,17 +128,20 @@ public class YG_HelperClass {
     
     //This method is used to get plant of the logged in user based on plan code and lang code.
     @AuraEnabled
-    public static Plant__c getPlantID(String plantCode,String langCode){
+    //public static Plant__c getPlantID(String plantCode,String langCode){
+    public static Account getPlantID(String plantCode,String langCode){
         
         system.debug('plantCode::'+plantCode); 
-        Plant__c plant=null;        
-        
+        //Plant__c plant=null;        
+        Account plant = null;
         try{
             
             Id accId = userInformation.Contact.AccountId;
             
-            plant = [SELECT ID,Name,Plant_Code__c,Lang_Code__c,Plant_Name__c FROM Plant__c WHERE Plant_Code__c =: plantCode 
-                     AND Lang_Code__c =:langCode AND Account__c = :accId];
+            /*plant = [SELECT ID,Name,Plant_Code__c,Lang_Code__c,Plant_Name__c FROM Plant__c WHERE Plant_Code__c =: plantCode 
+                     AND Lang_Code__c =:langCode AND Account__c = :accId];*/
+            plant = [SELECT Id, Name, AccountNumber, ParentId FROM Account WHERE (AccountNumber =: plantCode 
+                     AND ParentId = :accId And Type = 'Plant') OR (AccountNumber =: plantCode AND Has_Asset__c = True)];
             
             system.debug('plant::'+plant);            
             
@@ -143,14 +162,16 @@ public class YG_HelperClass {
     
     //This method is used to get plant list of the logged in user based on account.
     @AuraEnabled
-    public static List<Plant__c> getPlantList(Id accId,String langCode){
-        
+    //public static List<Plant__c> getPlantList(Id accId,String langCode){
+      public static List<Account> getPlantList(Id accId,String langCode){
+          
         system.debug('Account ID::'+accId); 
-        List<Plant__c> plantList = new List<Plant__c>();
+        List<Account> plantList = new List<Account>();
         
         try{
             
-            plantList = [SELECT ID,Name,Plant_Code__c,Lang_Code__c,Plant_Name__c FROM Plant__c WHERE Account__c =: accId AND Lang_Code__c =:langCode];
+            //plantList = [SELECT ID,Name,Plant_Code__c,Lang_Code__c,Plant_Name__c FROM Plant__c WHERE Account__c =: accId AND Lang_Code__c =:langCode];
+            plantList = [SELECT Id, Name, AccountNumber, ParentId FROM Account WHERE (ParentId =: accId And Type = 'Plant') OR (Id =: accId And Has_Asset__c = True) /*AND Lang_Code__c =:langCode*/ ];
             
             system.debug('plant::'+plantList);            
             
@@ -220,10 +241,11 @@ public class YG_HelperClass {
             
             if(prodType == 'Product'){
                 if(topCatCode != ''){
-                    assetList = [SELECT Id,Name,AccountId,MS_Code__c,Order_Date__c,ParentId,Plant__c,Product2Id,Product_Carrier__c,Project__c,
+                        assetList = [SELECT Id,Name,AccountId,MS_Code__c,Order_Date__c,ParentId,PlantAccount__c,Product2Id,Product_Carrier__c,Project__c,
                                  SerialNumber,Status,Tokuchu_no__c,Xj_no__c,Product2.Name,Product2.Model_Code__c,Product2.Product_Type__c, 
-                                 Product2.Top_Category__c, Product2.Product_Categories__c, Project__r.Project_Code__c FROM Asset WHERE ID IN :filterId AND Product2.Category__r.Category_Type__c = :prodType 
+                                 Product2.Top_Category__c, /*Product2.Product_Categories__c,*/ Project__r.Project_Code__c FROM Asset WHERE ID IN :filterId AND Product2.Category__r.Category_Type__c = :prodType 
                                  AND Product2.Top_Category__c = :topCatCode AND Lang_Code__c=:langCode];
+                    
                 }else{
                     assetList = [SELECT Product2Id, Product2.Top_Category__c FROM Asset WHERE ID IN :filterId AND 
                                  Product2.Category__r.Category_Type__c = :prodType AND Lang_Code__c=:langCode];
@@ -231,9 +253,10 @@ public class YG_HelperClass {
             }
             
             if(prodType == 'System'){
-                assetList = [SELECT Id,Name,AccountId,MS_Code__c,Order_Date__c,ParentId,Plant__c,Product2Id,Product_Carrier__c,Project__c,
+                assetList = [SELECT Id,Name,AccountId,MS_Code__c,Order_Date__c,ParentId,PlantAccount__c,Product2Id,Product_Carrier__c,Project__c,
                              SerialNumber,Status,Tokuchu_no__c,Xj_no__c,Product2.Name,Product2.Model_Code__c,Product2.Product_Type__c, Project__r.Project_Code__c FROM Asset 
                              WHERE Project__c IN :filterId AND Product2.Category__r.Category_Type__c = :prodType AND Lang_Code__c=:langCode Order By Name];
+                
             }
             system.debug('assetList::'+assetList);            
             
@@ -251,7 +274,7 @@ public class YG_HelperClass {
         return assetList;
     }
     
-    //This method is used to get the AssetandProductInfo details for csv
+//This method is used to get the AssetandProductInfo details for csv
     public static List<Asset> getAssetsandProductInfo(List<Id> assetIds, String prodType, 
                                                       String topCatCode,String langCode, List<Id> prodIds){
         List<Asset> assetProductList = new List<Asset>();
@@ -263,27 +286,29 @@ public class YG_HelperClass {
             System.debug('Inside');
             if(topCatCode != ''){
                 if(prodIds != null && prodIds.size() > 0 && !prodIds.isEmpty()){
-                	assetProductList = [SELECT Id,Name,AccountId,MS_Code__c,Order_Date__c,ParentId,Plant__c,Product2Id,Product_Carrier__c,Project__c,
+                	assetProductList = [SELECT Id,Name,AccountId,MS_Code__c,Order_Date__c,ParentId,PlantAccount__c,Product2Id,Product_Carrier__c,Project__c,
                                     SerialNumber,Status,Tokuchu_no__c,Xj_no__c,Product2.Name,Product2.Model_Code__c,Product2.Product_Type__c, 
-                                    Product2.Top_Category__c, Product2.Product_Categories__c FROM Asset WHERE ID IN :assetIds AND Product2.Category__r.Category_Type__c = :prodType 
+                                    Product2.Top_Category__c, Product2.Category__r.Category_Hierarchy__r.CategoryHierarchyCodes__c /*,Product2.Product_Categories__c*/ FROM Asset WHERE ID IN :assetIds AND Product2.Category__r.Category_Type__c = :prodType 
                                     AND Product2.Top_Category__c = :topCatCode AND Lang_Code__c=:langCode AND Product2.Id IN :prodIds];
                 }else{
-                    assetProductList = [SELECT Id,Name,AccountId,MS_Code__c,Order_Date__c,ParentId,Plant__c,Product2Id,Product_Carrier__c,Project__c,
+                    assetProductList = [SELECT Id,Name,AccountId,MS_Code__c,Order_Date__c,ParentId,PlantAccount__c,Product2Id,Product_Carrier__c,Project__c,
                                     SerialNumber,Status,Tokuchu_no__c,Xj_no__c,Product2.Name,Product2.Model_Code__c,Product2.Product_Type__c, 
-                                    Product2.Top_Category__c, Product2.Product_Categories__c FROM Asset WHERE ID IN :assetIds AND Product2.Category__r.Category_Type__c = :prodType 
+                                    Product2.Top_Category__c, Product2.Category__r.Category_Hierarchy__r.CategoryHierarchyCodes__c /*,Product2.Product_Categories__c*/ FROM Asset WHERE ID IN :assetIds AND Product2.Category__r.Category_Type__c = :prodType 
                                     AND Product2.Top_Category__c = :topCatCode AND Lang_Code__c=:langCode];
                 }
                 
             }else{
                 if(prodIds != null && prodIds.size() > 0 && !prodIds.isEmpty()){
-                assetProductList = [SELECT Id,Name,AccountId,MS_Code__c,Order_Date__c,ParentId,Plant__c,Product2Id,Product_Carrier__c,Project__c,
-                                    SerialNumber,Status,Tokuchu_no__c,Xj_no__c,Product2.Name,Product2.Model_Code__c,Product2.Product_Type__c,
-                                    Product2.Product_Categories__c FROM Asset WHERE ID IN :assetIds AND Product2.Category__r.Category_Type__c = :prodType AND Lang_Code__c=:langCode
+                assetProductList = [SELECT Id,Name,AccountId,MS_Code__c,Order_Date__c,ParentId,PlantAccount__c,Product2Id,Product_Carrier__c,Project__c,
+                                    SerialNumber,Status,Tokuchu_no__c,Xj_no__c,Product2.Name,Product2.Model_Code__c,Product2.Product_Type__c
+                                    ,Product2.Category__r.Category_Hierarchy__r.CategoryHierarchyCodes__c/*,Product2.Product_Categories__c*/ FROM Asset WHERE ID IN :assetIds AND Product2.Category__r.Category_Type__c = :prodType AND Lang_Code__c=:langCode
                                     AND Product2.Id IN :prodIds];
+                    
                 }else{
-                    assetProductList = [SELECT Id,Name,AccountId,MS_Code__c,Order_Date__c,ParentId,Plant__c,Product2Id,Product_Carrier__c,Project__c,
-                                    SerialNumber,Status,Tokuchu_no__c,Xj_no__c,Product2.Name,Product2.Model_Code__c,Product2.Product_Type__c,
-                                    Product2.Product_Categories__c FROM Asset WHERE ID IN :assetIds AND Product2.Category__r.Category_Type__c = :prodType AND Lang_Code__c=:langCode];
+                    assetProductList = [SELECT Id,Name,AccountId,MS_Code__c,Order_Date__c,ParentId,PlantAccount__c,Product2Id,Product_Carrier__c,Project__c,
+                                    SerialNumber,Status,Tokuchu_no__c,Xj_no__c,Product2.Name,Product2.Model_Code__c,Product2.Product_Type__c
+                                    ,Product2.Category__r.Category_Hierarchy__r.CategoryHierarchyCodes__c/*,Product2.Product_Categories__c*/ FROM Asset WHERE ID IN :assetIds AND Product2.Category__r.Category_Type__c = :prodType AND Lang_Code__c=:langCode];
+                    
                 }
                 
             }
@@ -313,15 +338,15 @@ public class YG_HelperClass {
         
         try{
             if(prodType != 'Hardware'){
-                productList = [SELECT Id,Name,Model_Code__c,Production_Date__c,Product_Type__c,
-                               Type__c, Product_Categories__c, Category__r.Id, Category__r.Name, Category__r.Category_Type__c, Category__r.Category_Hierarchy__r.Category_Level__c,
+                productList = [SELECT Id,Name,Model_Code__c/*,Production_Date__c*/,Product_Type__c,
+                               Type__c, /*Product_Categories__c,*/ Category__r.Id, Category__r.Category_Hierarchy__r.CategoryHierarchyCodes__c, Category__r.Name, Category__r.Category_Type__c, Category__r.Category_Hierarchy__r.Category_Level__c,
                                Category__r.Category_Hierarchy__r.Upper_Category_Code__c,Category__r.Category_Hierarchy__r.Category_Code__c 
                                FROM Product2 WHERE Id IN :productId and Category__r.Category_Type__c = :prodType AND Lang_Code__c=:langCode];// and language_code];
             }
             if(prodType == 'Hardware'){
                 System.debug('Inside product info hardware');
-                productList = [SELECT Id,Name,Model_Code__c,Production_Date__c,Product_Type__c,
-                               Type__c, Product_Categories__c, Category__r.Id, Category__r.Name, Category__r.Category_Type__c, Category__r.Category_Hierarchy__r.Category_Level__c,
+                productList = [SELECT Id,Name,Model_Code__c/*,Production_Date__c*/,Product_Type__c,
+                               Type__c, /*Product_Categories__c,*/ Category__r.Id, Category__r.Category_Hierarchy__r.CategoryHierarchyCodes__c, Category__r.Name, Category__r.Category_Type__c, Category__r.Category_Hierarchy__r.Category_Level__c,
                                Category__r.Category_Hierarchy__r.Upper_Category_Code__c,Category__r.Category_Hierarchy__r.Category_Code__c 
                                FROM Product2 WHERE Id IN :productId and Category__r.Category_Type__c = 'System' AND Lang_Code__c=:langCode AND Product_Type__c=:prodType];// and language_code];
             }
@@ -586,8 +611,10 @@ public class YG_HelperClass {
 	@AuraEnabled
     public static List<Asset> getAssetBySerialNumber(String serialNo,  String languageCode){    
         
-        List<Asset> assetList =[Select Id,name,SerialNumber, MS_Code__c, Product2.Name, Product2.Model_Code__c,Account.Id, Plant__c, Production_Date__c  from Asset 
-                            where SerialNumber=:serialNo and lang_Code__c =: languageCode]; 
+        /*List<Asset> assetList =[Select Id,name,SerialNumber, MS_Code__c, Product2.Name, Product2.Model_Code__c,Account.Id, Plant__c, Production_Date__c  from Asset 
+                            where SerialNumber=:serialNo and lang_Code__c =: languageCode];*/
+        List<Asset> assetList =[Select Id,name,SerialNumber, MS_Code__c, Product2.Name, Product2.Model_Code__c,Account.Id, PlantAccount__c, Production_Date__c  from Asset 
+                            where SerialNumber=:serialNo and lang_Code__c =: languageCode];
         
         return assetList;
     
@@ -814,40 +841,40 @@ public class YG_HelperClass {
             if(days != 0){
                 if(month == 1){
                     if(days == 1){
-                        noOfMonths=' Expires in '+String.valueOf(month) + ' month ' + String.valueOf(days)+ ' day'; 
+                        noOfMonths=Label.YG_Expires_in+' '+String.valueOf(month) + Label.YG_m +' '+ String.valueOf(days)+Label.YG_d; 
                     }
                     else{
-                        noOfMonths=' Expires in '+String.valueOf(month) + ' month ' + String.valueOf(days)+ ' days'; 
+                        noOfMonths=Label.YG_Expires_in+' '+String.valueOf(month) + Label.YG_m +' ' + String.valueOf(days)+Label.YG_d; 
                     }
                 }else{
                     if(days == 1){
-                        noOfMonths=' Expires in '+String.valueOf(month) + ' months ' + String.valueOf(days)+ ' day'; 
+                        noOfMonths=Label.YG_Expires_in+' '+String.valueOf(month) + Label.YG_m +' ' + String.valueOf(days)+Label.YG_d; 
                     }else{
-                        noOfMonths=' Expires in '+String.valueOf(month) + ' months ' + String.valueOf(days)+ ' days'; 
+                        noOfMonths=Label.YG_Expires_in+' '+String.valueOf(month) + Label.YG_m +' ' + String.valueOf(days)+Label.YG_d; 
                     }
                 }
                 
             }else{
                 if(month == 1 && days == 0){
-                    noOfMonths =' Expires in '+String.valueOf(month) + ' month';
+                    noOfMonths =+Label.YG_Expires_in+' '+String.valueOf(month) + Label.YG_m;
                 }else{
                     if(month != 1 && days == 0){
-                    noOfMonths =' Expires in '+String.valueOf(month) + ' months';
+                    noOfMonths =Label.YG_Expires_in+' '+String.valueOf(month) + Label.YG_m;
                         }
                 }
                 //noOfMonths =' expires in '+String.valueOf(month) + ' months';
             }
             if(month == 0){
                 if(days == 1 && days != 0){
-                    noOfMonths=' Expires in '+ String.valueOf(days)+ ' day';
+                    noOfMonths=Label.YG_Expires_in+' '+ String.valueOf(days)+Label.YG_d;
                 }else{
                     if(days != 0){
-                        noOfMonths=' Expires in '+ String.valueOf(days)+ ' days'; 
+                        noOfMonths=Label.YG_Expires_in+' '+ String.valueOf(days)+Label.YG_d; 
                     }
                 }
             }
             if(days == 0  && month == 0){
-                noOfMonths=' Expires today'; 
+                noOfMonths=Label.YG_Expires_today; 
             }
             System.debug('noOfMonths:::'+noOfMonths);
             //notiCont.contractExpiry = noOfMonths;
@@ -885,7 +912,8 @@ public class YG_HelperClass {
         
         
         //Query to get the list for LCA based on system Assets on plant selection
-        assetList = [SELECT Id,Name,AccountId,MS_Code__c FROM Asset WHERE Plant__r.Plant_Code__c=:plantCode And AccountId=: accId];
+        /*assetList = [SELECT Id,Name,AccountId,MS_Code__c FROM Asset WHERE Plant__r.Plant_Code__c=:plantCode And AccountId=: accId];*/
+        assetList = [SELECT Id,Name,AccountId,MS_Code__c FROM Asset WHERE PlantAccount__r.AccountNumber=:plantCode And AccountId=: accId /*And Account.Type='Plant'*/];
         System.debug('assetList::'+assetList);
         System.debug('assetList::'+assetList.size());
         for(Asset ass:assetList){

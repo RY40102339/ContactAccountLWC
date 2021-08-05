@@ -162,17 +162,13 @@
     </nameField>
     <searchLayouts>
         <customTabListAdditionalFields>Project_Code__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Plant__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Account__c</customTabListAdditionalFields>
         <lookupDialogsAdditionalFields>Project_Code__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Account__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Plant__c</lookupDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>Project_Code__c</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>Account__c</lookupPhoneDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>Plant__c</lookupPhoneDialogsAdditionalFields>
         <searchResultsAdditionalFields>Project_Code__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Account__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Plant__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <visibility>Public</visibility>

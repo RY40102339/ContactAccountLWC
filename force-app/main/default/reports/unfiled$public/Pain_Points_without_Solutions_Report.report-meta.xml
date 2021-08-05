@@ -20,7 +20,7 @@ mpb</description>
             <columnToColumn>false</columnToColumn>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
-            <value></value>
+            <value/>
         </criteriaItems>
     </filter>
     <format>Tabular</format>

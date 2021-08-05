@@ -16,7 +16,7 @@
 *  Change History:
 *  MM/DD/YYYY			Developer Name			Comments
 *  12/04/2020			Jayaprasath				Added getMenuInfo()
-*  
+*  04/19/2021			Kavya					Removed Customer_Plant__c Object and replaced with AccountContactRelation Object
 *
 */
 
@@ -39,14 +39,22 @@ public class YG_CommonController {
             
             system.debug('userInformation.ContactId :::'+userInformation.ContactId);
             // Retrieve logged in user's plants info
-            List<Customer_Plant__c> cusPlantList = YG_HelperClass.getCusPlantInfo(userInformation.ContactId,langCode);
+            /*List<Customer_Plant__c> cusPlantList = YG_HelperClass.getCusPlantInfo(userInformation.ContactId,langCode);*/
+        List<AccountContactRelation> cusPlantList = YG_HelperClass.getCusPlantInfo(userInformation.ContactId,langCode);
             
             system.debug('cusPlantList::'+cusPlantList);
             
-            for(Customer_Plant__c cusPlant: cusPlantList){
+            /*for(Customer_Plant__c cusPlant: cusPlantList){
                 DataWrapper wrapper = new DataWrapper();
                 wrapper.plantCode = cusPlant.Plant__r.Plant_Code__c;
                 wrapper.plantName = cusPlant.Plant__r.Plant_Name__c;                
+                wrapperList.add(wrapper);
+                
+            }*/
+        for(AccountContactRelation cusPlant: cusPlantList){
+                DataWrapper wrapper = new DataWrapper();
+                wrapper.plantCode = cusPlant.Account.AccountNumber;
+                wrapper.plantName = cusPlant.Account.Name;                
                 wrapperList.add(wrapper);
                 
             }
@@ -106,7 +114,8 @@ public class YG_CommonController {
         try{
             
             List<Customer_Asset__c> custAsst = [Select Id from Customer_Asset__c where Contact__c =: conId ];
-        	List<Customer_Plant__c> custPlnt = [Select Id,Contact__r.Account.AccountNumber,status__c from Customer_Plant__c where Contact__c = : conId ];
+        	/*List<Customer_Plant__c> custPlnt = [Select Id,Contact__r.Account.AccountNumber,status__c from Customer_Plant__c where Contact__c = : conId ];*/
+            List<AccountContactRelation> custPlnt = [Select Id,Contact.Account.AccountNumber,status__c from AccountContactRelation where ContactId = : conId ];
             Map<String, YG_Community_Configuration__c> allValues = new Map<String, YG_Community_Configuration__c>();        
         	allValues = YG_Community_Configuration__c.getAll();
             Id selfRegAccId = allValues.get('YGSelfRegisterAccountId').Text_1__c;
@@ -126,9 +135,12 @@ public class YG_CommonController {
                 menu.productCount =  custAsst.size(); 
             }
             else{
-                For(Customer_Plant__c cp :custPlnt){ 
+              /*  For(Customer_Plant__c cp :custPlnt){ 
                     myset.add(cp.status__c); 
-                }                
+                }*/
+                 For(AccountContactRelation cp :custPlnt){ 
+                    myset.add(cp.status__c); 
+                }
                 if(myset.contains('Approved site access'))
                 {
                     menu.systemCount =  custPlnt.size(); 

@@ -1,23 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
-    <validationRules>
-        <errorMessage></errorMessage>
-        <name>aecm__Complete_update_score_Validation</name>
-    </validationRules>
-    <validationRules>
-        <errorMessage></errorMessage>
-        <name>aecm__Completed_Status_Validation</name>
-    </validationRules>
-    <validationRules>
-        <errorMessage></errorMessage>
-        <name>aecm__Program_Project_Check</name>
-    </validationRules>
-    <validationRules>
-        <errorMessage></errorMessage>
-        <name>aecm__Project_Completed_PPS_Check</name>
-    </validationRules>
-    <validationRules>
-        <errorMessage></errorMessage>
-        <name>aecm__QA_Complete_PPS_Check</name>
-    </validationRules>
-</CustomObjectTranslation>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata"/>
