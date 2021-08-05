@@ -2297,6 +2297,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Lead.Is_Tele_Qualified__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Lead.Kana_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
