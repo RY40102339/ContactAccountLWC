@@ -8,57 +8,47 @@
     <customValue>
         <fullName>YCA</fullName>
         <default>false</default>
-        <label>YCA</label>
+        <label>North America</label>
     </customValue>
     <customValue>
         <fullName>YCN</fullName>
         <default>false</default>
-        <label>YCN</label>
+        <label>China</label>
     </customValue>
     <customValue>
         <fullName>YEA</fullName>
         <default>false</default>
-        <label>YEA</label>
+        <label>ASEAN &amp; Oceania</label>
     </customValue>
     <customValue>
         <fullName>YEF</fullName>
         <default>false</default>
-        <label>YEF</label>
-    </customValue>
-    <customValue>
-        <fullName>YIL</fullName>
-        <default>false</default>
-        <label>YIL</label>
+        <label>Europe</label>
     </customValue>
     <customValue>
         <fullName>YKO</fullName>
         <default>false</default>
-        <label>YKO</label>
+        <label>Korea</label>
     </customValue>
     <customValue>
         <fullName>YMA</fullName>
         <default>false</default>
-        <label>YMA</label>
+        <label>Middle East &amp; Africa</label>
     </customValue>
     <customValue>
         <fullName>YRU</fullName>
         <default>false</default>
-        <label>YRU</label>
+        <label>Russia &amp; CIS</label>
     </customValue>
     <customValue>
         <fullName>YSA</fullName>
         <default>false</default>
-        <label>YSA</label>
-    </customValue>
-    <customValue>
-        <fullName>YHQ</fullName>
-        <default>false</default>
-        <label>YHQ</label>
+        <label>South America</label>
     </customValue>
     <customValue>
         <fullName>YJP</fullName>
         <default>false</default>
-        <label>YJP</label>
+        <label>Japan</label>
     </customValue>
     <description>RHQ Regions for Yokogawa</description>
     <masterLabel>Region</masterLabel>
