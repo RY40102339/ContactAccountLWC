@@ -2386,6 +2386,11 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.Forwarded_Lead__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Lead.HasOptedOutOfEmail</field>
         <readable>true</readable>
@@ -2422,6 +2427,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Lead.Is_Tele_Qualified__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Lead.Kana_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2443,6 +2453,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead.Lead_Accepted_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.Lead_Forwarded_To__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2558,6 +2573,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead.Subscription__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead.Tele_Qualified_Reason__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

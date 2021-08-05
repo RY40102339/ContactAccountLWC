@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Chanel Managers forward Lead information to Channel Reps</description>
+    <flowDefinition>YODA_Lead_Forward_to_Channel_Reps</flowDefinition>
+    <label>Forward Lead</label>
+    <optionsCreateFeedItem>false</optionsCreateFeedItem>
+    <type>Flow</type>
+</QuickAction>
