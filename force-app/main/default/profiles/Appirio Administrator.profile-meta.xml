@@ -2351,6 +2351,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Lead.Forwarded_Lead__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Lead.HasOptedOutOfEmail</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2407,6 +2412,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead.Lead_Accepted_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead.Lead_Forwarded_To__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

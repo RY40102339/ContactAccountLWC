@@ -22,6 +22,16 @@
                             <value>Lead.Reject</value>
                         </valueListItems>
                         <valueListItems>
+                            <value>Lead.Forward_Lead</value>
+                            <visibilityRule>
+                                <criteria>
+                                    <leftValue>{!$Permission.CustomPermission.YODA_Lead_Forwarded_to_Rep}</leftValue>
+                                    <operator>EQUAL</operator>
+                                    <rightValue>true</rightValue>
+                                </criteria>
+                            </visibilityRule>
+                        </valueListItems>
+                        <valueListItems>
                             <value>Global.NewTask</value>
                         </valueListItems>
                         <valueListItems>
