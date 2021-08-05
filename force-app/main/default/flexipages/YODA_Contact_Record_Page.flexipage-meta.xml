@@ -4,11 +4,62 @@
         <itemInstances>
             <componentInstance>
                 <componentInstanceProperties>
+                    <name>actionNames</name>
+                    <valueList>
+                        <valueListItems>
+                            <value>Edit</value>
+                        </valueListItems>
+                        <valueListItems>
+                            <value>Global.NewCase</value>
+                        </valueListItems>
+                        <valueListItems>
+                            <value>Clone</value>
+                        </valueListItems>
+                        <valueListItems>
+                            <value>Global.LogACall</value>
+                        </valueListItems>
+                        <valueListItems>
+                            <value>Global.NewTask</value>
+                        </valueListItems>
+                        <valueListItems>
+                            <value>Global.NewEvent</value>
+                        </valueListItems>
+                        <valueListItems>
+                            <value>AddToList</value>
+                        </valueListItems>
+                        <valueListItems>
+                            <value>Contact.pi__Add_to_Nurture_List</value>
+                        </valueListItems>
+                        <valueListItems>
+                            <value>AddToNurtureList</value>
+                        </valueListItems>
+                        <valueListItems>
+                            <value>CustomButton.Contact.pi__Send_Pardot_Email</value>
+                        </valueListItems>
+                        <valueListItems>
+                            <value>CustomButton.Contact.pi__Send_to_Prospect_Insight</value>
+                        </valueListItems>
+                        <valueListItems>
+                            <value>Global.New_Product_Opportunity</value>
+                        </valueListItems>
+                        <valueListItems>
+                            <value>Global.New_Project_Opportunity</value>
+                        </valueListItems>
+                        <valueListItems>
+                            <value>Global.New_Recurring_Business_Opportunity</value>
+                        </valueListItems>
+                    </valueList>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
                     <name>collapsed</name>
                     <value>false</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>enableActionsConfiguration</name>
+                    <value>true</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>enableActionsInNative</name>
                     <value>false</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
