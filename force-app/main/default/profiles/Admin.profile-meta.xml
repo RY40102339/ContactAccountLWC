@@ -2330,6 +2330,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Lead.Tele_Qualified_Reason__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Lead.Tele_Queue_Accepted_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
