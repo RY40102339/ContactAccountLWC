@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ListView xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>YMA_T_M_Case</fullName>
+    <fullName>YEF_Case</fullName>
     <columns>CASES.CASE_NUMBER</columns>
     <columns>CASES.SUBJECT</columns>
     <columns>CASES.CREATED_DATE</columns>
@@ -11,9 +11,9 @@
     <columns>CASES.TYPE</columns>
     <columns>CASES.LAST_UPDATE_DATE_ONLY</columns>
     <filterScope>Queue</filterScope>
-    <label>YMA T&amp;M</label>
+    <label>YEF</label>
     <language>en_US</language>
-    <queue>YMA_T_M</queue>
+    <queue>YEF</queue>
     <sharedTo>
         <allInternalUsers></allInternalUsers>
     </sharedTo>

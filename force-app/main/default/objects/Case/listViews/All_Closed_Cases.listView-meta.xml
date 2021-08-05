@@ -3,7 +3,7 @@
     <fullName>All_Closed_Cases</fullName>
     <columns>CASES.CASE_NUMBER</columns>
     <columns>CASES.SUBJECT</columns>
-    <columns>CASES.CREATED_DATE_DATE_ONLY</columns>
+    <columns>CASES.CREATED_DATE</columns>
     <columns>ACCOUNT.NAME</columns>
     <columns>NAME</columns>
     <columns>OWNER_NAME</columns>
@@ -17,4 +17,5 @@
         <value>Close case,Closed,Closed-Resolved,Closed-Canceled</value>
     </filters>
     <label>All Closed Cases</label>
+    <language>en_US</language>
 </ListView>
