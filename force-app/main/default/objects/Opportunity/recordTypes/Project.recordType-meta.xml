@@ -354,7 +354,7 @@
         </values>
     </picklistValues>
     <picklistValues>
-        <picklist>Business_Unit_c</picklist>
+        <picklist>Business_Unit__c</picklist> 
         <values>
             <fullName>Digital Solutions HQ</fullName>
             <default>false</default>
