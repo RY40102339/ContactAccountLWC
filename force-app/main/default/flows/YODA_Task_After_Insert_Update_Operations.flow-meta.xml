@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>52.0</apiVersion>
+    <assignments>
+        <name>Set_Lead_Changed_Date</name>
+        <label>Set Lead Changed Date</label>
+        <locationX>50</locationX>
+        <locationY>671</locationY>
+        <assignmentItems>
+            <assignToReference>Fetch_Lead_Info.Status_Changed_DateTime__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>StatusChangeDateTime</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>Fetch_Lead_Info.Recent_Status_Changed_Date__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Flow.InterviewStartTime</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Lead_record</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>Check_Has_Lead_Record</name>
+        <label>Check Has Lead Record</label>
+        <locationX>182</locationX>
+        <locationY>551</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Has_Lead_Record</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Fetch_Lead_Info</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>Fetch_Lead_Info.Id</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue/>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Lead_Changed_Date</targetReference>
+            </connector>
+            <label>Has Lead Record</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Check if Task.Type = Call.</description>
+        <name>Check_Type_Call</name>
+        <label>Check Type Call</label>
+        <locationX>380</locationX>
+        <locationY>311</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Call_Task</name>
+            <conditionLogic>(1 OR 3 OR 4) AND 2</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Type</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Call</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.WhoId</leftValueReference>
+                <operator>StartsWith</operator>
+                <rightValue>
+                    <stringValue>00Q</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.TaskSubtype</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Email</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.TaskSubtype</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Call</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Fetch_Lead_Info</targetReference>
+            </connector>
+            <label>Call Task</label>
+        </rules>
+    </decisions>
+    <description>Set the Values for Status and recent status in Lead Record.</description>
+    <formulas>
+        <name>FetchLeadStatusChangeDateTime</name>
+        <dataType>DateTime</dataType>
+        <expression>{!Fetch_Lead_Info.Status_Changed_DateTime__c}</expression>
+    </formulas>
+    <formulas>
+        <name>StatusChangeDateTime</name>
+        <dataType>DateTime</dataType>
+        <expression>IF(
+        ISNULL({!FetchLeadStatusChangeDateTime}) ,
+    {!$Flow.InterviewStartTime},
+    FetchLeadStatusChangeDateTime
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Todaydate</name>
+        <dataType>Date</dataType>
+        <expression>{!$Flow.CurrentDate}</expression>
+    </formulas>
+    <interviewLabel>YODA Task After Insert/Update Operations {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>YODA Task After Insert/Update Operations</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Fetch_Lead_Info</name>
+        <label>Fetch Lead Info</label>
+        <locationX>182</locationX>
+        <locationY>431</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Check_Has_Lead_Record</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.WhoId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Lead</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_Lead_record</name>
+        <label>Update Lead record</label>
+        <locationX>50</locationX>
+        <locationY>791</locationY>
+        <inputReference>Fetch_Lead_Info</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>254</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Check_Type_Call</targetReference>
+        </connector>
+        <object>Task</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>Lead</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Lead</objectType>
+    </variables>
+</Flow>

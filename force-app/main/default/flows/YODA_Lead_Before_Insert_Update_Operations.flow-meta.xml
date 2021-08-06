@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>52.0</apiVersion>
     <assignments>
         <name>Lead_Field_Updates</name>
         <label>Lead Field Updates</label>
-        <locationX>176</locationX>
-        <locationY>311</locationY>
+        <locationX>50</locationX>
+        <locationY>431</locationY>
         <assignmentItems>
             <assignToReference>$Record.Lead_Accepted_Date__c</assignToReference>
             <operator>Assign</operator>
@@ -76,6 +77,28 @@
             </value>
         </assignmentItems>
     </assignments>
+    <decisions>
+        <name>Bypass_Setting</name>
+        <label>Bypass Setting</label>
+        <locationX>182</locationX>
+        <locationY>311</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Bypass_False</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Setup.Bypass_Settings__c.Bypass_Flow_Rules__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Lead_Field_Updates</targetReference>
+            </connector>
+            <label>Bypass False</label>
+        </rules>
+    </decisions>
     <description>Executes before a lead is created/updated.
 Strictly no cross object manipulations involved.</description>
     <formulas>
@@ -272,10 +295,10 @@ Strictly no cross object manipulations involved {!$Flow.CurrentDateTime}</interv
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
     <start>
-        <locationX>50</locationX>
+        <locationX>56</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>Lead_Field_Updates</targetReference>
+            <targetReference>Bypass_Setting</targetReference>
         </connector>
         <object>Lead</object>
         <recordTriggerType>CreateAndUpdate</recordTriggerType>
