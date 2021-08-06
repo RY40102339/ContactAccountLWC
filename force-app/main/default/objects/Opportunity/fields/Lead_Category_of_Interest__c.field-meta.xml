@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>Category_of_interest__c</fullName>
+    <fullName>Lead_Category_of_Interest__c</fullName>
     <externalId>false</externalId>
-    <label>Category of Interest</label>
+    <inlineHelpText>Reflects the category selected in the webform registration</inlineHelpText>
+    <label>Lead Category of Interest</label>
     <required>false</required>
     <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>false</trackHistory>
@@ -10,13 +11,6 @@
     <type>Picklist</type>
     <valueSet>
         <restricted>true</restricted>
-        <valueSetDefinition>
-            <sorted>false</sorted>
-            <value>
-                <fullName>To be Provided</fullName>
-                <default>false</default>
-                <label>To be Provided</label>
-            </value>
-        </valueSetDefinition>
+        <valueSetName>Category_of_Interest</valueSetName>
     </valueSet>
 </CustomField>
