@@ -45,7 +45,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Category_of_interest__c</field>
+                <field>Category_of_Interest__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>

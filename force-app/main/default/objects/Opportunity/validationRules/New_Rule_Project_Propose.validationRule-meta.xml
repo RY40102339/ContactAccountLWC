@@ -12,7 +12,7 @@ ISBLANK( RFQ_Received_Date__c),
 NOT(X3rd_Party_Buyouts_Required__c),
 ISPICKVAL(Non_standard_Products_Approved__c,&quot;&quot;),
 ISBLANK(Application__c),
-ISPICKVAL(Category_of_interest__c,&quot;&quot;),
+ISPICKVAL(Category_of_Interest__c,&quot;&quot;),
 ISBLANK( End_User__c),
 ISPICKVAL(Project_Type__c,&quot;&quot;),
 ISBLANK(Amount)

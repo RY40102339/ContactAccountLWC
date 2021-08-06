@@ -15,7 +15,7 @@ NOT(Proposal_price_Authorized__c),
 ISPICKVAL(Competition_Positioning__c,&quot;&quot;),
 ISBLANK( RFQ_Received_Date__c),
 ISBLANK(Application__c),
-ISPICKVAL(Category_of_interest__c,&quot;&quot;),
+ISPICKVAL(Category_of_Interest__c,&quot;&quot;),
 ISBLANK( End_User__c),
 ISBLANK(Amount)
 )

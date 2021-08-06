@@ -7,7 +7,7 @@ NOT( $Setup.Bypass_Settings__c.Bypass_Validation_Rules__c ),
 RecordType.DeveloperName = &apos;Project&apos;,
 ISPICKVAL(StageName,&apos;Develop&apos;),
 OR (
-ISPICKVAL(Category_of_interest__c,&quot;&quot;),
+ISPICKVAL(Category_of_Interest__c,&quot;&quot;),
 ISBLANK( End_User__c),
 ISPICKVAL(Project_Type__c,&quot;&quot;),
 ISBLANK(Amount)

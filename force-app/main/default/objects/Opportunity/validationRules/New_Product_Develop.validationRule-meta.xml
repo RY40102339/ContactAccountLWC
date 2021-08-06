@@ -10,7 +10,7 @@ OR(
 ISPICKVAL(StageName,&apos;Develop&apos;)
 ), 
 OR (
-ISPICKVAL(Category_of_interest__c,&quot;&quot;),
+ISPICKVAL(Category_of_Interest__c,&quot;&quot;),
 ISBLANK( End_User__c),
 ISBLANK(Amount)
 )

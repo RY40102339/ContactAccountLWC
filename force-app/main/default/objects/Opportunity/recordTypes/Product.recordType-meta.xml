@@ -377,7 +377,7 @@
         </values>
     </picklistValues>
     <picklistValues>
-        <picklist>Category_of_interest__c</picklist>
+        <picklist>Category_of_Interest__c</picklist>
         <values>
             <fullName>To be Provided</fullName>
             <default>false</default>
