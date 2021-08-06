@@ -2,18 +2,18 @@
 <AssignmentRules xmlns="http://soap.sforce.com/2006/04/metadata">
     <assignmentRule>
         <fullName>YODA Case Assignment Rules</fullName>
-        <active>true</active>
+        <active>false</active>
         <ruleEntry>
             <assignedTo>YMI_T_M</assignedTo>
             <assignedToType>Queue</assignedToType>
             <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) , 
 
-CONTAINS(&quot;AF,AQ,TL,FK,GE,IR,KI,MH,FM,NR,NU,KP,PW,PS,WS,SB,TW,TO,TV,VU&quot;,TEXT(Web_Country__c)),
+CONTAINS(&quot;AF,AQ,TL,FK,GE,IR,KI,MH,FM,NR,NU,KP,PW,PS,WS,SB,TW,TO,TV,VU&quot;,TEXT(Web_Country_tobedeleted__c)),
 
 
  
 
-CONTAINS(&quot;Afghanistan,Antarctica,Timor-Leste,Falkland Islands (Malvinas),Georgia,Iran, Islamic Republic of,Kiribati,,Nauru,Niue,Korea, Democratic People’s Republic of,Palestine,Samoa,Solomon Islands,Taiwan,Tonga,Tuvalu,Vanuatu&quot;, Contact.MailingCountry )
+CONTAINS(&quot;Afghanistan,Antarctica,Timor-Leste,Falkland Islands (Malvinas),Georgia,Iran, Islamic Republic of,Kiribati,Nauru,Niue,Korea, Democratic People’s Republic of,Palestine,Samoa,Solomon Islands,Taiwan,Tonga,Tuvalu,Vanuatu&quot;, Contact.MailingCountry )
 
 ),
 
@@ -25,7 +25,7 @@ CONTAINS(&quot;Afghanistan,Antarctica,Timor-Leste,Falkland Islands (Malvinas),Ge
             <assignedToType>Queue</assignedToType>
             <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
 
-CONTAINS(&quot;JA&quot;,TEXT(Web_Country__c)),
+CONTAINS(&quot;JA&quot;,TEXT(Web_Country_tobedeleted__c)),
 
 
 
@@ -42,7 +42,7 @@ ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
             <assignedToType>Queue</assignedToType>
             <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
 
-CONTAINS(&quot;AW,VI,BS,BB,BZ,CR,DM,DO,SV,GD,GP,GU,GT,HT,HN,JM,UM,NI,MP,PA,PR,LC,VC,KN,AS,TT,US&quot;,TEXT(Web_Country__c)),
+CONTAINS(&quot;AW,VI,BS,BB,BZ,CR,DM,DO,SV,GD,GP,GU,GT,HT,HN,JM,UM,NI,MP,PA,PR,LC,VC,KN,AS,TT,US&quot;,TEXT(Web_Country_tobedeleted__c)),
 
 
 
@@ -59,7 +59,7 @@ ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
             <assignedToType>Queue</assignedToType>
             <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
 
-CONTAINS(&quot;CA&quot;,TEXT(Web_Country__c)),
+CONTAINS(&quot;Canada&quot;,Web_Country__c),
 
 
 
@@ -76,7 +76,7 @@ ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
             <assignedToType>Queue</assignedToType>
             <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
 
-CONTAINS(&quot;MX&quot;,TEXT(Web_Country__c)),
+CONTAINS(&quot;MX&quot;,TEXT(Web_Country_tobedeleted__c)),
 
 
 
@@ -93,7 +93,7 @@ ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
             <assignedToType>Queue</assignedToType>
             <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
 
-CONTAINS(&quot; AL,AD,AT,BA,BG,HR,CZ,FR,PF,GF,TF,HU,IE,MK,MQ,YT,MC,ME,NC,NO,PL,PT,RE,RO,RS,SK,SI,ES,PM,CH,TR,WF,BV,DK,EE,FO,FI,GL,IS,IL,LV,LT,NL,SJ,SE&quot;,TEXT(Web_Country__c)),
+CONTAINS(&quot; AL,AD,AT,BA,BG,HR,CZ,FR,PF,GF,TF,HU,IE,MK,MQ,YT,MC,ME,NC,NO,PL,PT,RE,RO,RS,SK,SI,ES,PM,CH,TR,WF,BV,DK,EE,FO,FI,GL,IS,IL,LV,LT,NL,SJ,SE&quot;,TEXT(Web_Country_tobedeleted__c)),
 
 
 
@@ -110,7 +110,7 @@ ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
             <assignedToType>Queue</assignedToType>
             <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
 
-CONTAINS(&quot; BE,LU&quot;,TEXT(Web_Country__c)),
+CONTAINS(&quot; BE,LU&quot;,TEXT(Web_Country_tobedeleted__c)),
 
 
 
@@ -127,7 +127,7 @@ ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
             <assignedToType>Queue</assignedToType>
             <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
 
-CONTAINS(&quot; BM,IO,VG,KY,GI,MS,PN,SH,GS,TC,GB&quot;,TEXT(Web_Country__c)),
+CONTAINS(&quot; BM,IO,VG,KY,GI,MS,PN,SH,GS,TC,GB&quot;,TEXT(Web_Country_tobedeleted__c)),
 
 
 
@@ -144,7 +144,7 @@ ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
             <assignedToType>Queue</assignedToType>
             <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
 
-CONTAINS(&quot; DE,LI&quot;,TEXT(Web_Country__c)),
+CONTAINS(&quot; DE,LI&quot;,TEXT(Web_Country_tobedeleted__c)),
 
 
 
@@ -161,7 +161,7 @@ ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
             <assignedToType>Queue</assignedToType>
             <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
 
-CONTAINS(&quot; CY,GR,IT,MT,SM,VA&quot;,TEXT(Web_Country__c)),
+CONTAINS(&quot; CY,GR,IT,MT,SM,VA&quot;,TEXT(Web_Country_tobedeleted__c)),
 
 
 
@@ -178,7 +178,7 @@ ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
             <assignedToType>Queue</assignedToType>
             <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
 
-CONTAINS(&quot; CN,HK,MO,MN&quot;,TEXT(Web_Country__c)),
+CONTAINS(&quot; CN,HK,MO,MN&quot;,TEXT(Web_Country_tobedeleted__c)),
 
 
 
@@ -195,7 +195,7 @@ ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
             <assignedToType>Queue</assignedToType>
             <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
 
-CONTAINS( &quot;AU,CC,CX,FJ,HM,ID,NF,PG,MV,SG&quot; ,TEXT(Web_Country__c)),
+CONTAINS( &quot;AU,CC,CX,FJ,HM,ID,NF,PG,MV,SG&quot; ,TEXT(Web_Country_tobedeleted__c)),
 
 
 
@@ -212,7 +212,7 @@ ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
             <assignedToType>Queue</assignedToType>
             <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
 
-CONTAINS(&quot; BN,MY&quot;,TEXT(Web_Country__c)),
+CONTAINS(&quot; BN,MY&quot;,TEXT(Web_Country_tobedeleted__c)),
 
 
 
@@ -229,7 +229,7 @@ ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
             <assignedToType>Queue</assignedToType>
             <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
 
-CONTAINS(&quot; CK,NZ,TK&quot;,TEXT(Web_Country__c)),
+CONTAINS(&quot; CK,NZ,TK&quot;,TEXT(Web_Country_tobedeleted__c)),
 
 
 
@@ -246,7 +246,7 @@ ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
             <assignedToType>Queue</assignedToType>
             <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
 
-CONTAINS(&quot; PH&quot;,TEXT(Web_Country__c)),
+CONTAINS(&quot; PH&quot;,TEXT(Web_Country_tobedeleted__c)),
 
 
 
@@ -263,7 +263,7 @@ ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
             <assignedToType>Queue</assignedToType>
             <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
 
-CONTAINS(&quot; KH,LA,MM,TH&quot;,TEXT(Web_Country__c)),
+CONTAINS(&quot; KH,LA,MM,TH&quot;,TEXT(Web_Country_tobedeleted__c)),
 
 
 
@@ -280,7 +280,7 @@ ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
             <assignedToType>Queue</assignedToType>
             <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
 
-CONTAINS(&quot; VN&quot;,TEXT(Web_Country__c)),
+CONTAINS(&quot; VN&quot;,TEXT(Web_Country_tobedeleted__c)),
 
 
 
@@ -297,7 +297,7 @@ ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
             <assignedToType>Queue</assignedToType>
             <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
 
-CONTAINS(&quot; KR&quot;,TEXT(Web_Country__c)),
+CONTAINS(&quot; KR&quot;,TEXT(Web_Country_tobedeleted__c)),
 
 
 
@@ -314,7 +314,7 @@ ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
             <assignedToType>Queue</assignedToType>
             <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
 
-CONTAINS(&quot; DZ,AO,BH,BJ,BW,BF,BI,CM,CV,CF,TD,KM,CD,CI,DJ,EG,GQ,ER,ET,PK,GA,GM,GH,GN,GW,IQ,JO,KE,KW,LB,LS,LR,LY,MG,MW,ML,MU,MR,MA,MZ,NA,NE,NG,OM,QA,RW,CG,ST,SA,SN,SC,SL,SO,ZA,SD,SS,SZ,SY,TZ,TG,TN,AE,UG,EH,YE,ZM,ZW&quot;,TEXT(Web_Country__c)),
+CONTAINS(&quot; DZ,AO,BH,BJ,BW,BF,BI,CM,CV,CF,TD,KM,CD,CI,DJ,EG,GQ,ER,ET,PK,GA,GM,GH,GN,GW,IQ,JO,KE,KW,LB,LS,LR,LY,MG,MW,ML,MU,MR,MA,MZ,NA,NE,NG,OM,QA,RW,CG,ST,SA,SN,SC,SL,SO,ZA,SD,SS,SZ,SY,TZ,TG,TN,AE,UG,EH,YE,ZM,ZW&quot;,TEXT(Web_Country_tobedeleted__c)),
 
 
 
@@ -331,7 +331,7 @@ ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
             <assignedToType>Queue</assignedToType>
             <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
 
-CONTAINS(&quot; AM,AZ,BY,KZ,KG,MD,RU,TJ,TM,UA,UZ&quot;,TEXT(Web_Country__c)),
+CONTAINS(&quot; AM,AZ,BY,KZ,KG,MD,RU,TJ,TM,UA,UZ&quot;,TEXT(Web_Country_tobedeleted__c)),
 
 
 
@@ -348,7 +348,7 @@ ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
             <assignedToType>Queue</assignedToType>
             <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
 
-CONTAINS(&quot; AR,BO,BR,CL,CO,CU,EC,GY,PY,PE,SR,UY,VE&quot;,TEXT(Web_Country__c)),
+CONTAINS(&quot; AR,BO,BR,CL,CO,CU,EC,GY,PY,PE,SR,UY,VE&quot;,TEXT(Web_Country_tobedeleted__c)),
 
 
 
@@ -360,15 +360,305 @@ CONTAINS(&quot; Argentina,Bolivia, Plurinational State of,Brazil,Chile,Colombia,
 ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
 )</formula>
         </ruleEntry>
+    </assignmentRule>
+    <assignmentRule>
+        <fullName>YODA_Case_Assignment_Rules_V1</fullName>
+        <active>true</active>
         <ruleEntry>
-            <assignedTo>Default_Case_Queue</assignedTo>
+            <assignedTo>YMI_T_M</assignedTo>
             <assignedToType>Queue</assignedToType>
-            <criteriaItems>
-                <field>Case.Origin</field>
-                <operation>equals</operation>
-                <value>Web</value>
-            </criteriaItems>
-            <template>SupportEmails/WIP_YODA_Case_assigned_to_a_queue_1619786748377</template>
+            <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
+
+CONTAINS(&quot;Afghanistan,Antarctica,Timor-Leste,Falkland Islands,Georgia,Iran,Kiribati,Marshall Islands,Micronesia,Nauru,Niue,Korea (the Democratic People&apos;s Republic of),Palau,Palestine, State of,Samoa,Solomon Islands,Taiwan,Tonga,Tuvalu,Vanuatu&quot;, Web_Country__c),
+
+
+CONTAINS(&quot;Afghanistan,Antarctica,Timor-Leste,Falkland Islands,Georgia,Iran,Kiribati,Marshall Islands,Micronesia,Nauru,Niue,Korea (the Democratic People&apos;s Republic of),Palau,Palestine, State of,Samoa,Solomon Islands,Taiwan,Tonga,Tuvalu,Vanuatu&quot;, Contact.MailingCountry )
+
+),
+
+ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
+)</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Japan_T_M</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
+
+CONTAINS(&quot;Japan&quot;,Web_Country__c),
+
+
+
+
+CONTAINS(&quot;Japan&quot;, Contact.MailingCountry )
+
+),
+
+ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
+)</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>YCA_T_M</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
+
+CONTAINS(&quot;Aruba,Virgin Islands (U.S.),Bahamas,Barbados,Belize,Costa Rica,Dominica,Dominican Republic,El Salvador,Grenada,Guadeloupe,Guam,Guatemala,Haiti,Honduras,Jamaica,United States Minor Outlying Islands,Nicaragua,Northern Mariana Islands,Panama,Puerto Rico,Saint Lucia,Saint Vincent and the Grenadines,Saint Kitts and Nevis,American Samoa,Trinidad and Tobago,United States of America&quot;, Web_Country__c),
+
+
+
+
+CONTAINS(&quot;Aruba,Virgin Islands (U.S.),Bahamas,Barbados,Belize,Costa Rica,Dominica,Dominican Republic,El Salvador,Grenada,Guadeloupe,Guam,Guatemala,Haiti,Honduras,Jamaica,United States Minor Outlying Islands,Nicaragua,Northern Mariana Islands,Panama,Puerto Rico,Saint Lucia,Saint Vincent and the Grenadines,Saint Kitts and Nevis,American Samoa,Trinidad and Tobago,United States of America&quot;, Contact.MailingCountry)
+
+),
+
+ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
+)</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>YCA_CA_T_M</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
+
+CONTAINS(&quot;Canada&quot;,Web_Country__c),
+
+CONTAINS(&quot;Canada&quot;, Contact.MailingCountry )
+
+),
+
+ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
+)</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>YCA_MX_T_M</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
+
+CONTAINS(&quot;Mexico&quot;, Web_Country__c),
+
+CONTAINS(&quot;Mexico&quot;, Contact.MailingCountry )
+
+),
+
+ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
+)</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>YIL_T_M</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
+
+CONTAINS(&quot;Albania,Andorra,Austria,Bosnia and Herzegovina,Bulgaria,Croatia,Czechia,France,French Guiana,French Polynesia,French Southern Territories,Hungary,Ireland,Macedonia,Martinique,Mayotte,Monaco,Montenegro,New Caledonia,Norway,Poland,Portugal,Réunion,Romania,Serbia,Slovakia,Slovenia,Spain,Saint Pierre and Miquelon,Switzerland,Turkey,Wallis and Futuna,Bouvet Island,Denmark,Estonia,Faroe Islands,Finland,Greenland,Iceland,Israel,Latvia,Lithuania,Netherlands,Svalbard and Jan Mayen,Sweden&quot;, Web_Country__c),
+
+CONTAINS(&quot;Albania,Andorra,Austria,Bosnia and Herzegovina,Bulgaria,Croatia,Czechia,France,French Guiana,French Polynesia,French Southern Territories,Hungary,Ireland,Macedonia,Martinique,Mayotte,Monaco,Montenegro,New Caledonia,Norway,Poland,Portugal,Réunion,Romania,Serbia,Slovakia,Slovenia,Spain,Saint Pierre and Miquelon,Switzerland,Turkey,Wallis and Futuna,Bouvet Island,Denmark,Estonia,Faroe Islands,Finland,Greenland,Iceland,Israel,Latvia,Lithuania,Netherlands,Svalbard and Jan Mayen,Sweden&quot;, Contact.MailingCountry)
+
+),
+
+ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
+)</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>YEF_B_T_M</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
+
+CONTAINS(&quot;Belgium,Luxembourg&quot;, Web_Country__c),
+
+CONTAINS(&quot;Belgium,Luxembourg&quot;, Contact.MailingCountry )
+
+),
+
+ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
+)</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>YEF_GB_T_M</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(IF(ISPICKVAL(Origin, &quot;Web&quot;),
+
+CONTAINS(&quot;Bermuda,British Indian Ocean Territory,Virgin Islands (British),Cayman Islands,Gibraltar,Montserrat,Pitcairn,Saint Helena, Ascension and Tristan da Cunha,South Georgia and the South Sandwich Islands,Turks and Caicos Islands,United Kingdom of Great Britain and Northern Ireland&quot;, Web_Country__c),
+
+
+CONTAINS(&quot;Bermuda,British Indian Ocean Territory,Virgin Islands (British),Cayman Islands,Gibraltar,Montserrat,Pitcairn,Saint Helena, Ascension and Tristan da Cunha,South Georgia and the South Sandwich Islands,Turks and Caicos Islands,United Kingdom of Great Britain and Northern Ireland&quot;, Contact.MailingCountry)
+
+),
+
+ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
+)</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>YEF_G_T_M</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
+
+CONTAINS(&quot;Germany,Liechtenstein&quot;, Web_Country__c),
+
+
+CONTAINS(&quot;Germany,Liechtenstein&quot;, Contact.MailingCountry)
+
+),
+
+ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
+)</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>YEF_I_T_M</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
+
+CONTAINS(&quot;Cyprus,Greece,Italy,Malta,San Marino,Holy See&quot;, Web_Country__c),
+
+CONTAINS(&quot;Cyprus,Greece,Italy,Malta,San Marino,Holy See&quot;, Contact.MailingCountry )
+
+),
+
+ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
+)</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>YSH_T_M</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
+
+CONTAINS(&quot;China,Hong Kong,Macao,Mongolia&quot;, Web_Country__c),
+
+
+CONTAINS(&quot;China,Hong Kong,Macao,Mongolia&quot;, Contact.MailingCountry )
+
+),
+
+ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
+)</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>YEA_T_M</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
+
+CONTAINS(&quot;Australia,Cocos Islands,Christmas Island,Fiji,Heard Island and McDonald Islands,Indonesia,Norfolk Island,Papua New Guinea,Maldives,Singapore&quot;, Web_Country__c),
+
+CONTAINS(&quot;Australia,Cocos Islands,Christmas Island,Fiji,Heard Island and McDonald Islands,Indonesia,Norfolk Island,Papua New Guinea,Maldives,Singapore&quot;, Contact.MailingCountry)
+
+),
+
+ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
+)</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>YEM_T_M</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
+
+CONTAINS(&quot;Brunei Darussalam,Malaysia&quot;, Web_Country__c),
+
+CONTAINS(&quot;Brunei Darussalam,Malaysia&quot;, Contact.MailingCountry )
+
+),
+
+ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
+)</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>YNZ_T_M</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
+
+CONTAINS(&quot;Cook Islands,New Zealand,Tokelau&quot;, Web_Country__c),
+
+CONTAINS(&quot;Cook Islands,New Zealand,Tokelau&quot;, Contact.MailingCountry)
+
+),
+
+ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
+)</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>YPI_T_M</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
+
+CONTAINS(&quot;Philippines&quot;, Web_Country__c),
+
+
+CONTAINS(&quot;Philippines&quot;, Contact.MailingCountry )
+
+),
+
+ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
+)</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>YTH_T_M</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
+
+CONTAINS(&quot;Cambodia,Lao People&apos;s Democratic Republic, Myanmar,Thailand&quot;, Web_Country__c),
+
+CONTAINS(&quot; Cambodia,Lao People’s Democratic Republic,Myanmar,Thailand&quot;, Contact.MailingCountry )
+
+),
+
+ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
+)</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>YVN_T_M</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
+
+CONTAINS(&quot;Vietnam&quot;, Web_Country__c),
+
+
+CONTAINS(&quot;Vietnam&quot;, Contact.MailingCountry )
+
+),
+
+ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
+)</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>YKO_T_M</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
+
+CONTAINS(&quot;Korea (the Republic of)&quot;, Web_Country__c),
+
+CONTAINS(&quot;Korea (the Republic of)&quot;, Contact.MailingCountry )
+
+),
+
+ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
+)</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>YMA_T_M</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
+
+CONTAINS(&quot;Armenia,Azerbaijan,Belarus,Kazakhstan,Kyrgyzstan,Moldova,Russian Federation, Tajikistan,Turkmenistan,Ukraine,Uzbekistan&quot;, Web_Country__c),
+
+
+CONTAINS(&quot;Armenia,Azerbaijan,Belarus,Kazakhstan,Kyrgyzstan,Moldova,Russian Federation, Tajikistan,Turkmenistan,Ukraine,Uzbekistan&quot;, Contact.MailingCountry)
+
+),
+
+ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
+)</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>YSA_T_M</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
+
+CONTAINS(&quot;Argentina,Bolivia,Brazil,Chile,Colombia,Cuba,Ecuador,Guyana,Paraguay,Peru,Suriname,Uruguay,Venezuela&quot;, Web_Country__c),
+
+
+
+
+CONTAINS(&quot;Argentina,Bolivia,Brazil,Chile,Colombia,Cuba,Ecuador,Guyana,Paraguay,Peru,Suriname,Uruguay,Venezuela&quot;, Contact.MailingCountry )
+
+),
+
+ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
+)</formula>
         </ruleEntry>
     </assignmentRule>
 </AssignmentRules>
