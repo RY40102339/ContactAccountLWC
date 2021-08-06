@@ -373,29 +373,6 @@
         </values>
         <values>
             <fullName>YMI SBU</fullName>
-            <default>true</default>
-        </values>
-    </picklistValues>
-    <picklistValues>
-        <picklist>Business_Unit__c</picklist>
-        <values>
-            <fullName>Digital Solutions HQ</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Life SBU</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Material SBU</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Products HQ</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>YMI SBU</fullName>
             <default>false</default>
         </values>
     </picklistValues>

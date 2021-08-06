@@ -354,30 +354,7 @@
         </values>
     </picklistValues>
     <picklistValues>
-        <picklist>Business_Unit__c</picklist>
-        <values>
-            <fullName>Digital Solutions HQ</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Life SBU</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Material SBU</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Products HQ</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>YMI SBU</fullName>
-            <default>true</default>
-        </values>
-    </picklistValues>
-    <picklistValues>
-        <picklist>Business_Unit_deleted__c</picklist>
+        <picklist>Business_Unit_c</picklist>
         <values>
             <fullName>Digital Solutions HQ</fullName>
             <default>false</default>
@@ -400,7 +377,7 @@
         </values>
     </picklistValues>
     <picklistValues>
-        <picklist>Category_of_interest__c</picklist>
+        <picklist>Category_of_Interest__c</picklist>
         <values>
             <fullName>To be Provided</fullName>
             <default>false</default>
