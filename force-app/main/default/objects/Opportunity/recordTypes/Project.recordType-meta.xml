@@ -6,7 +6,7 @@
     <compactLayoutAssignment>YODA_Opportunity_Compact_Layout</compactLayoutAssignment>
     <description>A combination of products and/or paid services with a fixed scope and cost, such as control systems, analytical shelters, engineered solutions, and consulting projects.</description>
     <label>Project</label>
-    <picklistValues>
+    <picklistValues> 
         <picklist>Affiliates_to_receive_PO__c</picklist>
         <values>
             <fullName>KBC-PT</fullName>
