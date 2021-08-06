@@ -6,11 +6,12 @@
     <errorConditionFormula>AND(
   NOT( $Setup.Bypass_Settings__c.Bypass_Validation_Rules__c),
   ISCHANGED(StageName),
-  TEXT(StageName) = &apos;Develop&apos;,
+  TEXT(StageName) = &apos;Propose / Quote&apos;,
   OR (
     ISPICKVAL(Account.Status__c, &apos;Closed&apos;),
-    ISPICKVAL( Account.Credit_Rating__c , &apos;Blocked&apos;)
+    ISPICKVAL(Account.Status__c, &apos;Pending&apos;),
+    ISPICKVAL(Account.Credit_Rating__c , &apos;Blocked&apos;)
   )
 )</errorConditionFormula>
-    <errorMessage>An opportunity cannot move out of the &quot;Qualify&quot; stage while the account&apos;s status is closed or the credit rating is blocked. Please reach out to sales operations.</errorMessage>
+    <errorMessage>An opportunity cannot move out of the &quot;Develop&quot; stage while the account&apos;s status is Pending or Closed or the credit rating is Blocked. Please reach out to sales operations.</errorMessage>
 </ValidationRule>

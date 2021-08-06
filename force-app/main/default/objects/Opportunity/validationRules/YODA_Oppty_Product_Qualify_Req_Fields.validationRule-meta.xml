@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>YODA_Oppty_Product_Qualify_Req_Fields</fullName>
-    <active>true</active>
+    <active>false</active>
     <description>Created for YODA.
 Fields that are required for the &quot;Qualify&quot; stage of Opportunities in the &quot;Product&quot; record type.</description>
     <errorConditionFormula>AND(
 NOT( $Setup.Bypass_Settings__c.Bypass_Validation_Rules__c ), 
-ISPICKVAL(StageName,&apos;Qualify(SQL)&apos;),
-
+RecordType.DeveloperName = &apos;Product&apos;,
+OR(
+/* ISPICKVAL(StageName,&apos;Qualify(SQL)&apos;),*/
+ISPICKVAL(StageName,&apos;Qualify(SQL)&apos;)
+), 
 OR (
-ISPICKVAL(Category_of_Interest__c,&quot;&quot;),
+ISPICKVAL(Category_of_interest__c,&quot;&quot;),
 ISBLANK( End_User__c),
 ISBLANK(Amount)
 )
 )</errorConditionFormula>
-    <errorMessage>To mark &apos;Qualify&apos; stage as complete, please ensure below key fields are populated:
-• Category of Interest
-• End User
-• End User Country
-• Amount</errorMessage>
+    <errorMessage>To move to &apos;Qualify&apos; stage, please ensure these key fields are populated:
+Category of Interest, End User, End User Country and Amount</errorMessage>
 </ValidationRule>

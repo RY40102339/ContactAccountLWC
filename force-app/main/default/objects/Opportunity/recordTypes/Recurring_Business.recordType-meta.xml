@@ -379,35 +379,7 @@
     <picklistValues>
         <picklist>Category_of_Interest__c</picklist>
         <values>
-            <fullName>Data Acquisition %28DAQ%29</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Optical Test Equipment</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Oscilloscopes</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Other Test %26 Measurement Instruments</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Portable and Handheld Instruments</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Power Analyzers and Power Meters</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Signal Generators%2C Sources and Supplies</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Test %26 Measurement Accessories</fullName>
+            <fullName>To be Provided</fullName>
             <default>false</default>
         </values>
     </picklistValues>
@@ -469,7 +441,7 @@
         <picklist>Competition_Positioning__c</picklist>
         <values>
             <fullName>Front Runner</fullName>
-            <default>false</default>
+            <default>true</default>
         </values>
         <values>
             <fullName>Only Alternative</fullName>
@@ -665,6 +637,41 @@
         </values>
     </picklistValues>
     <picklistValues>
+        <picklist>Lead_Category_of_Interest__c</picklist>
+        <values>
+            <fullName>Data Acquisition %28DAQ%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Optical Test Equipment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Oscilloscopes</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other Test %26 Measurement Instruments</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Portable and Handheld Instruments</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Power Analyzers and Power Meters</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Signal Generators%2C Sources and Supplies</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Test %26 Measurement Accessories</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
         <picklist>Non_standard_Products_Approved__c</picklist>
         <values>
             <fullName>No</fullName>
@@ -730,10 +737,6 @@
         </values>
         <values>
             <fullName>YEF</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>YHQ</fullName>
             <default>false</default>
         </values>
         <values>

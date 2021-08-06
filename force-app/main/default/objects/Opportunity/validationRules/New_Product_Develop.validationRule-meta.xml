@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>New_Product_Develop</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+NOT( $Setup.Bypass_Settings__c.Bypass_Validation_Rules__c ), 
+RecordType.DeveloperName = &apos;Product&apos;,
+OR(
+/* ISPICKVAL(StageName,&apos;Develop&apos;),*/
+ISPICKVAL(StageName,&apos;Develop&apos;)
+), 
+OR (
+ISPICKVAL(Category_of_Interest__c,&quot;&quot;),
+ISBLANK( End_User__c),
+ISBLANK(Amount)
+)
+)</errorConditionFormula>
+    <errorMessage>Category of Interest,
+End User and 
+Amount 
+are mandatory fields to move to the Develop stage</errorMessage>
+</ValidationRule>

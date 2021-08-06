@@ -379,58 +379,30 @@
     <picklistValues>
         <picklist>Category_of_Interest__c</picklist>
         <values>
-            <fullName>Data Acquisition %28DAQ%29</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Optical Test Equipment</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Oscilloscopes</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Other Test %26 Measurement Instruments</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Portable and Handheld Instruments</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Power Analyzers and Power Meters</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Signal Generators%2C Sources and Supplies</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Test %26 Measurement Accessories</fullName>
+            <fullName>To be Provided</fullName>
             <default>false</default>
         </values>
     </picklistValues>
     <picklistValues>
         <picklist>Close_Lost_Reason__c</picklist>
         <values>
-            <fullName>Feature / product performance</fullName>
+            <fullName>Blocked %28export control or credit status%29</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Price</fullName>
+            <fullName>Customer has lost %28EPC%2CSI%2Cetc%29</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Delivery capability / reputation</fullName>
+            <fullName>Delivery capability %2F reputation</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Service capability / reputation</fullName>
+            <fullName>Duplicate opportunity %28mark for delete%29</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Customer has lost (EPC,SI,etc)</fullName>
+            <fullName>Feature %2F product performance</fullName>
             <default>false</default>
         </values>
         <values>
@@ -438,11 +410,11 @@
             <default>false</default>
         </values>
         <values>
-            <fullName>Duplicate opportunity (mark for delete)</fullName>
+            <fullName>Price</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Blocked (export control or credit status)</fullName>
+            <fullName>Service capability %2F reputation</fullName>
             <default>false</default>
         </values>
     </picklistValues>
@@ -465,7 +437,7 @@
         <picklist>Competition_Positioning__c</picklist>
         <values>
             <fullName>Front Runner</fullName>
-            <default>false</default>
+            <default>true</default>
         </values>
         <values>
             <fullName>Only Alternative</fullName>
@@ -488,7 +460,7 @@
         </values>
         <values>
             <fullName>2</fullName>
-            <default>false</default> 
+            <default>false</default>
         </values>
         <values>
             <fullName>3</fullName>
@@ -661,6 +633,41 @@
         </values>
     </picklistValues>
     <picklistValues>
+        <picklist>Lead_Category_of_Interest__c</picklist>
+        <values>
+            <fullName>Data Acquisition %28DAQ%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Optical Test Equipment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Oscilloscopes</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other Test %26 Measurement Instruments</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Portable and Handheld Instruments</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Power Analyzers and Power Meters</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Signal Generators%2C Sources and Supplies</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Test %26 Measurement Accessories</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
         <picklist>Non_standard_Products_Approved__c</picklist>
         <values>
             <fullName>No</fullName>
@@ -726,10 +733,6 @@
         </values>
         <values>
             <fullName>YEF</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>YHQ</fullName>
             <default>false</default>
         </values>
         <values>
