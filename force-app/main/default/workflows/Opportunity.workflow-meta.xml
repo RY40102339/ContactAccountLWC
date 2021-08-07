@@ -8,7 +8,7 @@
             <type>owner</type>
         </recipients>
         <senderType>CurrentUser</senderType>
-        <template>Sales_Emails/YODA_Opportunity_Closed_Lost_1620972924312</template>
+        <template>SalesEmails/YODA_Opportunity_Closed_Lost_1620972924312</template>
     </alerts>
     <alerts>
         <fullName>Opportunity_Notification_Closed_Won</fullName>
@@ -18,6 +18,6 @@
             <type>owner</type>
         </recipients>
         <senderType>CurrentUser</senderType>
-        <template>Sales_Emails/YODA_Opportunity_Closed_WON_1620973341550</template>
+        <template>SalesEmails/YODA_Opportunity_Closed_WON_1620973341550</template>
     </alerts>
 </Workflow>
