@@ -2,27 +2,21 @@
 <StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
     <sorted>false</sorted>
     <standardValue>
-        <fullName>Unqualified</fullName>
-        <default>false</default>
-        <label>Unqualified</label>
-        <converted>false</converted>
-    </standardValue>
-    <standardValue>
         <fullName>New</fullName>
         <default>true</default>
         <label>New</label>
         <converted>false</converted>
     </standardValue>
     <standardValue>
-        <fullName>Working</fullName>
+        <fullName>Contacting</fullName>
         <default>false</default>
-        <label>Working</label>
+        <label>Contacting</label>
         <converted>false</converted>
     </standardValue>
     <standardValue>
-        <fullName>Nurturing</fullName>
+        <fullName>Tele-Qualified</fullName>
         <default>false</default>
-        <label>Nurturing</label>
+        <label>Tele-Qualified</label>
         <converted>false</converted>
     </standardValue>
     <standardValue>
@@ -30,5 +24,11 @@
         <default>false</default>
         <label>Qualified</label>
         <converted>true</converted>
+    </standardValue>
+    <standardValue>
+        <fullName>Rejected</fullName>
+        <default>false</default>
+        <label>Rejected</label>
+        <converted>false</converted>
     </standardValue>
 </StandardValueSet>

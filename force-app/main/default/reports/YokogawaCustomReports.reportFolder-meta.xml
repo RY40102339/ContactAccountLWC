@@ -2,8 +2,8 @@
 <ReportFolder xmlns="http://soap.sforce.com/2006/04/metadata">
     <folderShares>
         <accessLevel>Manage</accessLevel>
-        <sharedTo>sailaja.kunchala@wipro.com.yokogawa.yodaqa1</sharedTo>
-        <sharedToType>User</sharedToType>
+        <sharedTo>Yoda_Sales_Report_Pub_Group</sharedTo>
+        <sharedToType>Group</sharedToType>
     </folderShares>
     <name>Yokogawa Custom Reports</name>
 </ReportFolder>
