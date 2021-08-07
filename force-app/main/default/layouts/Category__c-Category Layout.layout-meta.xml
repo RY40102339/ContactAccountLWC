@@ -113,13 +113,12 @@
         <fields>PRODUCT2.DESCRIPTION</fields>
         <relatedList>Product2.Category__c</relatedList>
     </relatedLists>
+    <!--I-422016: Partial Deployment Issues - Aug 7th
     <relatedLists>
         <fields>NAME</fields>
-        <!--I-422016: Partial Deployment Issues - Aug 7th-->
-        <!--<relatedList>Category__c.Category__c</relatedList>-->
-        <relatedList>Category__c.Name</relatedList>
-        <!--I-422016: Partial Deployment Issues - Aug 7th-->
+        <relatedList>Category__c.Category__c</relatedList>
     </relatedLists>
+    I-422016: Partial Deployment Issues - Aug 7th-->
     <relatedLists>
         <fields>TITLE</fields>
         <fields>ARTICLE_NUMBER</fields>
