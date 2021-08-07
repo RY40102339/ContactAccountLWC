@@ -8,7 +8,7 @@
             <type>owner</type>
         </recipients>
         <senderType>CurrentUser</senderType>
-        <template>Sales_Emails/YODA_Lead_3_Day_Alert_Sales</template>
+        <template>SalesEmails/YODA_Lead_3_Day_Alert_Sales</template>
     </alerts>
     <alerts>
         <fullName>YODA_2nd_Reminder_to_Owner_of_Lead</fullName>
@@ -18,6 +18,6 @@
             <type>owner</type>
         </recipients>
         <senderType>CurrentUser</senderType>
-        <template>Sales_Emails/YODA_Lead_5_Day_Alert_Sales</template>
+        <template>SalesEmails/YODA_Lead_5_Day_Alert_Sales</template>
     </alerts>
 </Workflow>
