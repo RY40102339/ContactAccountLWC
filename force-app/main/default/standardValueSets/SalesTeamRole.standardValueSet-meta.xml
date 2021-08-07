@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Executive/Management</fullName>
+        <default>false</default>
+        <label>Executive/Management</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Business Unit HQ</fullName>
+        <default>false</default>
+        <label>Business Unit HQ</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Product Management /PMK</fullName>
+        <default>false</default>
+        <label>Product Management /PMK</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Inside Sales</fullName>
+        <default>false</default>
+        <label>Inside Sales</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Account Managers (Direct)</fullName>
+        <default>false</default>
+        <label>Account Managers (Direct)</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Channel Managers (Indirect)</fullName>
+        <default>false</default>
+        <label>Channel Managers (Indirect)</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Consultant</fullName>
+        <default>false</default>
+        <label>Consultant</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Subject Matter Expert (SME)</fullName>
+        <default>false</default>
+        <label>Subject Matter Expert (SME)</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Proposals</fullName>
+        <default>false</default>
+        <label>Proposals</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Project Manager</fullName>
+        <default>false</default>
+        <label>Project Manager</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Delivery Engineer</fullName>
+        <default>false</default>
+        <label>Delivery Engineer</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Service Engineer</fullName>
+        <default>false</default>
+        <label>Service Engineer</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Service Coordinator</fullName>
+        <default>false</default>
+        <label>Service Coordinator</label>
+    </standardValue>
+</StandardValueSet>

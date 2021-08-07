@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Portal_User_Roles__c</fullName>
+    <description>This field is used to store the Portal User Roles</description>
     <externalId>false</externalId>
     <label>Portal User Roles</label>
     <required>false</required>

@@ -1,0 +1,8 @@
+<html><head>
+	<title></title>
+</head>
+<body style="height: auto; min-height: auto;">Opportunity:&nbsp;{{{Opportunity.Name}}} was Closed and Lost<br />
+Redirect here for details: {{{Opportunity.Link}}}<br />
+<br />
+Lost Reason:&nbsp;<br />
+{{{Opportunity.Close_Lost_Reason__c}}}</body></html>

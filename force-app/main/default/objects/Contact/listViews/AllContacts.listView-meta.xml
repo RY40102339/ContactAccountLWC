@@ -6,10 +6,11 @@
     <columns>CONTACT.TITLE</columns>
     <columns>CONTACT.PHONE1</columns>
     <columns>CONTACT.EMAIL</columns>
-    <columns>Gigya_UID__c</columns>
     <columns>CORE.USERS.FIRST_NAME</columns>
     <columns>CORE.USERS.LAST_NAME</columns>
-    <columns>CONTACT.LAST_UPDATE</columns>
+    <columns>CONTACT.CREATED_DATE</columns>
+    <columns>CREATEDBY_USER.ALIAS</columns>
     <filterScope>Everything</filterScope>
     <label>All Contacts</label>
+    <language>en_US</language>
 </ListView>

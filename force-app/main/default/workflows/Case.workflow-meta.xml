@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>YODA_Case_Closed</fullName>
+        <description>YODA Case Closed</description>
+        <protected>false</protected>
+        <recipients>
+            <field>ContactEmail</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <field>SuppliedEmail</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>SupportEmails/Case_Close_1620263827495</template>
+    </alerts>
+    <alerts>
+        <fullName>YODA_Case_Escalated</fullName>
+        <description>YODA Case Escalated</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>Customer Service Manager</recipient>
+            <type>caseTeam</type>
+        </recipients>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>SupportEmails/Case_Escalated_1619777111004</template>
+    </alerts>
+    <alerts>
+        <fullName>YODA_Notify_Requester_about_new_Case_creation</fullName>
+        <description>YODA Notify Requester about new Case creation</description>
+        <protected>false</protected>
+        <recipients>
+            <field>SuppliedEmail</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>SupportEmails/YODA_Web_to_Case_Default_Response_1619787114241</template>
+    </alerts>
+    <alerts>
+        <fullName>YODA_Remind_Case_Owner_to_Update_Status</fullName>
+        <description>YODA_Remind Case Owner to Update Status</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Service_Emails/YODA_Reminder_to_Change_Case_Status</template>
+    </alerts>
+</Workflow>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Category1__c</fullName>
+    <description>This field is used to store the category</description>
+    <externalId>false</externalId>
+    <label>Category</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Software 32bit</fullName>
+                <default>false</default>
+                <label>Software 32bit</label>
+            </value>
+            <value>
+                <fullName>Software 64bit</fullName>
+                <default>false</default>
+                <label>Software 64bit</label>
+            </value>
+            <value>
+                <fullName>Service pack</fullName>
+                <default>false</default>
+                <label>Service pack</label>
+            </value>
+            <value>
+                <fullName>Service release</fullName>
+                <default>false</default>
+                <label>Service release</label>
+            </value>
+            <value>
+                <fullName>Firmware</fullName>
+                <default>false</default>
+                <label>Firmware</label>
+            </value>
+            <value>
+                <fullName>Driver</fullName>
+                <default>false</default>
+                <label>Driver</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

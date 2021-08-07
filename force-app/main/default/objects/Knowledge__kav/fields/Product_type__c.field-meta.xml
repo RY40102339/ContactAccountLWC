@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Product_type__c</fullName>
+    <externalId>false</externalId>
+    <label>Product type</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Process Control PLC/RTU (STARDOM)</fullName>
+                <default>false</default>
+                <label>Process Control PLC/RTU (STARDOM)</label>
+            </value>
+            <value>
+                <fullName>Controllers &amp; Indicators</fullName>
+                <default>false</default>
+                <label>Controllers &amp; Indicators</label>
+            </value>
+            <value>
+                <fullName>Field Instruments</fullName>
+                <default>false</default>
+                <label>Field Instruments</label>
+            </value>
+            <value>
+                <fullName>Analytical Products</fullName>
+                <default>false</default>
+                <label>Analytical Products</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

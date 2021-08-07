@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSetGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Permission Set Group for the &quot;Account Manager&quot; persona of the YODA program.</description>
+    <label>YODA Account Manager</label>
+    <permissionSets>Account_Create</permissionSets>
+    <permissionSets>Account_Edit</permissionSets>
+    <permissionSets>Campaign_Influence_Read</permissionSets>
+    <permissionSets>Contact_Create</permissionSets>
+    <permissionSets>Contact_Edit</permissionSets>
+    <permissionSets>Lead_Edit</permissionSets>
+    <permissionSets>Opportunity_Create</permissionSets>
+    <permissionSets>Opportunity_Edit</permissionSets>
+    <permissionSets>System_Create_and_Customize_List_Views</permissionSets>
+    <permissionSets>System_Create_and_Customize_Reports_and_Dashboards</permissionSets>
+    <status>Updated</status>
+</PermissionSetGroup>

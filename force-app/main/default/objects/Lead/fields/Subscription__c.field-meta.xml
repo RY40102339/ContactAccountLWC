@@ -5,11 +5,12 @@
     <label>Subscription</label>
     <required>false</required>
     <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
     <type>MultiselectPicklist</type>
     <valueSet>
         <restricted>true</restricted>
         <valueSetDefinition>
-            <sorted>false</sorted>
+            <sorted>true</sorted>
             <value>
                 <fullName>Calibration Subscription</fullName>
                 <default>false</default>
@@ -19,6 +20,21 @@
                 <fullName>Contract Subscription</fullName>
                 <default>false</default>
                 <label>Contract Subscription</label>
+            </value>
+            <value>
+                <fullName>IA</fullName>
+                <default>false</default>
+                <label>IA</label>
+            </value>
+            <value>
+                <fullName>KBC</fullName>
+                <default>false</default>
+                <label>KBC</label>
+            </value>
+            <value>
+                <fullName>Life Innovations</fullName>
+                <default>false</default>
+                <label>Life Innovations</label>
             </value>
             <value>
                 <fullName>May we offer you more information on our products &amp; services</fullName>
@@ -56,29 +72,14 @@
                 <label>Software Request Subscription</label>
             </value>
             <value>
-                <fullName>What prompted your interest for this query?</fullName>
-                <default>false</default>
-                <label>What prompted your interest for this query?</label>
-            </value>
-            <value>
-                <fullName>IA</fullName>
-                <default>false</default>
-                <label>IA</label>
-            </value>
-            <value>
-                <fullName>KBC</fullName>
-                <default>false</default>
-                <label>KBC</label>
-            </value>
-            <value>
                 <fullName>T&amp;M</fullName>
                 <default>false</default>
                 <label>T&amp;M</label>
             </value>
             <value>
-                <fullName>Life Innovations</fullName>
+                <fullName>What prompted your interest for this query?</fullName>
                 <default>false</default>
-                <label>Life Innovations</label>
+                <label>What prompted your interest for this query?</label>
             </value>
         </valueSetDefinition>
     </valueSet>

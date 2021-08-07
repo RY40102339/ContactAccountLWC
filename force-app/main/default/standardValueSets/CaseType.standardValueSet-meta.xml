@@ -2,13 +2,13 @@
 <StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
     <sorted>false</sorted>
     <standardValue>
-        <fullName>Request For Service</fullName>
-        <default>false</default>
-        <label>Request For Service</label>
-    </standardValue>
-    <standardValue>
         <fullName>Submit An Inquiry</fullName>
         <default>false</default>
         <label>Submit An Inquiry</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Request For Service</fullName>
+        <default>false</default>
+        <label>Request For Service</label>
     </standardValue>
 </StandardValueSet>

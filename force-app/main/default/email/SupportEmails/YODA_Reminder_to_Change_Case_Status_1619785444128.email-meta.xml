@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>When a new case has been in status=new for more than a week, send a reminder (email/chatter) to the case owner to take action.</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>YODA  Reminder to Change Case Status</name>
+    <relatedEntityType>Case</relatedEntityType>
+    <style>none</style>
+    <subject>[YODA] The case status has not been changed - Case #: {{{Case.CaseNumber}}}({{{Case.Account}}})</subject>
+    <type>custom</type>
+    <uiType>SFX</uiType>
+</EmailTemplate>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Role xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseAccessLevel>Read</caseAccessLevel>
+    <contactAccessLevel>Edit</contactAccessLevel>
+    <description>Technical Support Engineer (AE)</description>
+    <mayForecastManagerShare>false</mayForecastManagerShare>
+    <name>Technical Support Engineer (AE)</name>
+    <opportunityAccessLevel>Read</opportunityAccessLevel>
+    <parentRole>T_M_Biz_Operation_Manager</parentRole>
+</Role>

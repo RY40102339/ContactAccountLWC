@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReportFolder xmlns="http://soap.sforce.com/2006/04/metadata">
+    <folderShares>
+        <accessLevel>View</accessLevel>
+        <sharedTo>Yoda_Sales_Report_Pub_Group</sharedTo>
+        <sharedToType>Group</sharedToType>
+    </folderShares>
+    <name>YODA Sales Reports</name>
+</ReportFolder>

@@ -241,7 +241,7 @@
     <actionOverrides>
         <actionName>View</actionName>
         <comment>Action override created by Lightning App Builder during activation.</comment>
-        <content>Lead_Record_Page</content>
+        <content>YODA_Lead_Record_Page</content>
         <formFactor>Large</formFactor>
         <skipRecordTypeSelect>false</skipRecordTypeSelect>
         <type>Flexipage</type>
@@ -255,28 +255,143 @@
         <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
-    <compactLayoutAssignment>Leads_Custom_Compact_Layout</compactLayoutAssignment>
+    <compactLayoutAssignment>YODA_Lead_Compact_Layout</compactLayoutAssignment>
     <enableFeeds>true</enableFeeds>
-    <enableHistory>false</enableHistory>
-    <externalSharingModel>Private</externalSharingModel>
+    <enableHistory>true</enableHistory>
+    <externalSharingModel>Read</externalSharingModel>
+    <profileSearchLayouts>
+        <fields>FULL_NAME</fields>
+        <fields>LEAD.COMPANY</fields>
+        <fields>LEAD.RATING</fields>
+        <fields>LEAD.STATUS</fields>
+        <fields>LEAD.LEAD_SOURCE</fields>
+        <fields>CORE.USERS.FIRST_NAME</fields>
+        <fields>CORE.USERS.LAST_NAME</fields>
+        <fields>LEAD.CREATED_DATE</fields>
+        <fields>LEAD.LAST_ACTIVITY</fields>
+        <fields>LEAD.COUNTRY_CODE</fields>
+        <profileName>YODA Marketing</profileName>
+    </profileSearchLayouts>
+    <profileSearchLayouts>
+        <fields>FULL_NAME</fields>
+        <fields>LEAD.COMPANY</fields>
+        <fields>LEAD.RATING</fields>
+        <fields>LEAD.STATUS</fields>
+        <fields>LEAD.LEAD_SOURCE</fields>
+        <fields>CORE.USERS.FIRST_NAME</fields>
+        <fields>CORE.USERS.LAST_NAME</fields>
+        <fields>LEAD.CREATED_DATE</fields>
+        <fields>LEAD.LAST_ACTIVITY</fields>
+        <fields>LEAD.COUNTRY_CODE</fields>
+        <profileName>YODA IT Solutions</profileName>
+    </profileSearchLayouts>
+    <profileSearchLayouts>
+        <fields>FULL_NAME</fields>
+        <fields>LEAD.COMPANY</fields>
+        <fields>LEAD.RATING</fields>
+        <fields>LEAD.STATUS</fields>
+        <fields>LEAD.LEAD_SOURCE</fields>
+        <fields>CORE.USERS.FIRST_NAME</fields>
+        <fields>CORE.USERS.LAST_NAME</fields>
+        <fields>LEAD.CREATED_DATE</fields>
+        <fields>LEAD.LAST_ACTIVITY</fields>
+        <fields>LEAD.COUNTRY_CODE</fields>
+        <profileName>System Administrator</profileName>
+    </profileSearchLayouts>
+    <profileSearchLayouts>
+        <fields>FULL_NAME</fields>
+        <fields>LEAD.COMPANY</fields>
+        <fields>LEAD.RATING</fields>
+        <fields>LEAD.STATUS</fields>
+        <fields>LEAD.LEAD_SOURCE</fields>
+        <fields>CORE.USERS.FIRST_NAME</fields>
+        <fields>CORE.USERS.LAST_NAME</fields>
+        <fields>LEAD.CREATED_DATE</fields>
+        <fields>LEAD.LAST_ACTIVITY</fields>
+        <fields>LEAD.COUNTRY_CODE</fields>
+        <profileName>YODA Sales Operations</profileName>
+    </profileSearchLayouts>
+    <profileSearchLayouts>
+        <fields>FULL_NAME</fields>
+        <fields>LEAD.COMPANY</fields>
+        <fields>LEAD.RATING</fields>
+        <fields>LEAD.STATUS</fields>
+        <fields>LEAD.LEAD_SOURCE</fields>
+        <fields>CORE.USERS.FIRST_NAME</fields>
+        <fields>CORE.USERS.LAST_NAME</fields>
+        <fields>LEAD.CREATED_DATE</fields>
+        <fields>LEAD.LAST_ACTIVITY</fields>
+        <fields>LEAD.COUNTRY_CODE</fields>
+        <profileName>YHQ Administrator</profileName>
+    </profileSearchLayouts>
+    <profileSearchLayouts>
+        <fields>FULL_NAME</fields>
+        <fields>LEAD.COMPANY</fields>
+        <fields>LEAD.RATING</fields>
+        <fields>LEAD.STATUS</fields>
+        <fields>LEAD.LEAD_SOURCE</fields>
+        <fields>CORE.USERS.FIRST_NAME</fields>
+        <fields>CORE.USERS.LAST_NAME</fields>
+        <fields>LEAD.CREATED_DATE</fields>
+        <fields>LEAD.LAST_ACTIVITY</fields>
+        <fields>LEAD.COUNTRY_CODE</fields>
+        <profileName>YODA Leadership</profileName>
+    </profileSearchLayouts>
+    <profileSearchLayouts>
+        <fields>FULL_NAME</fields>
+        <fields>LEAD.COMPANY</fields>
+        <fields>LEAD.RATING</fields>
+        <fields>LEAD.STATUS</fields>
+        <fields>LEAD.LEAD_SOURCE</fields>
+        <fields>CORE.USERS.FIRST_NAME</fields>
+        <fields>CORE.USERS.LAST_NAME</fields>
+        <fields>LEAD.CREATED_DATE</fields>
+        <fields>LEAD.LAST_ACTIVITY</fields>
+        <fields>LEAD.COUNTRY_CODE</fields>
+        <profileName>YODA Sales</profileName>
+    </profileSearchLayouts>
     <searchLayouts>
         <customTabListAdditionalFields>FULL_NAME</customTabListAdditionalFields>
         <customTabListAdditionalFields>LEAD.COMPANY</customTabListAdditionalFields>
-        <customTabListAdditionalFields>LEAD.PHONE</customTabListAdditionalFields>
+        <customTabListAdditionalFields>LEAD.RATING</customTabListAdditionalFields>
+        <customTabListAdditionalFields>LEAD.STATUS</customTabListAdditionalFields>
+        <customTabListAdditionalFields>LEAD.LEAD_SOURCE</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CORE.USERS.FIRST_NAME</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CORE.USERS.LAST_NAME</customTabListAdditionalFields>
+        <customTabListAdditionalFields>LEAD.CREATED_DATE</customTabListAdditionalFields>
+        <customTabListAdditionalFields>LEAD.LAST_ACTIVITY</customTabListAdditionalFields>
+        <customTabListAdditionalFields>LEAD.COUNTRY_CODE</customTabListAdditionalFields>
+        <excludedStandardButtons>PrintableListView</excludedStandardButtons>
         <lookupDialogsAdditionalFields>FULL_NAME</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>LEAD.COMPANY</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>LEAD.RATING</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>LEAD.STATUS</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>LEAD.LEAD_SOURCE</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>CORE.USERS.FIRST_NAME</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>CORE.USERS.LAST_NAME</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>LEAD.CREATED_DATE</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>LEAD.LAST_ACTIVITY</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>LEAD.COUNTRY_CODE</lookupDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>FULL_NAME</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>LEAD.COMPANY</lookupPhoneDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>LEAD.PHONE</lookupPhoneDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>LEAD.MOBILE_PHONE</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>LEAD.RATING</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>LEAD.STATUS</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>LEAD.LEAD_SOURCE</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CORE.USERS.FIRST_NAME</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CORE.USERS.LAST_NAME</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>LEAD.CREATED_DATE</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>LEAD.LAST_ACTIVITY</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>LEAD.COUNTRY_CODE</lookupPhoneDialogsAdditionalFields>
         <searchResultsAdditionalFields>FULL_NAME</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>LEAD.TITLE</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>LEAD.COMPANY</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>LEAD.PHONE</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>LEAD.MOBILE_PHONE</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>LEAD.EMAIL</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>LEAD.RATING</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>LEAD.STATUS</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>CORE.USERS.ALIAS</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>LEAD.LEAD_SOURCE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CORE.USERS.FIRST_NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CORE.USERS.LAST_NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>LEAD.CREATED_DATE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>LEAD.LAST_ACTIVITY</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>LEAD.COUNTRY_CODE</searchResultsAdditionalFields>
     </searchLayouts>
-    <sharingModel>ReadWriteTransfer</sharingModel>
+    <sharingModel>Read</sharingModel>
 </CustomObject>

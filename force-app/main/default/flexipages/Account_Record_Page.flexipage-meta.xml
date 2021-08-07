@@ -189,8 +189,7 @@
                 </componentInstanceProperties>
                 <componentName>flexipage:tabset</componentName>
             </componentInstance>
-        </itemInstances>
-        <mode>Replace</mode>
+        </itemInstances>        <mode>Replace</mode>
         <name>sidebar</name>
         <type>Region</type>
     </flexiPageRegions>

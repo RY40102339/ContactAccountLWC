@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>WorkOrderType__c</fullName>
+    <description>Describes the type of the WO</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Describes the type of the WO</inlineHelpText>
+    <label>Work Order Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value>
+                <fullName>Annual Maintenance</fullName>
+                <default>false</default>
+                <label>Annual Maintenance</label>
+            </value>
+            <value>
+                <fullName>Calibration</fullName>
+                <default>false</default>
+                <label>Calibration</label>
+            </value>
+            <value>
+                <fullName>Factory Calibration</fullName>
+                <default>false</default>
+                <label>Factory Calibration</label>
+            </value>
+            <value>
+                <fullName>Factory Modification</fullName>
+                <default>false</default>
+                <label>Factory Modification</label>
+            </value>
+            <value>
+                <fullName>Factory Repair</fullName>
+                <default>false</default>
+                <label>Factory Repair</label>
+            </value>
+            <value>
+                <fullName>Factory Update</fullName>
+                <default>false</default>
+                <label>Factory Update</label>
+            </value>
+            <value>
+                <fullName>Modification</fullName>
+                <default>false</default>
+                <label>Modification</label>
+            </value>
+            <value>
+                <fullName>On-site Calibration</fullName>
+                <default>false</default>
+                <label>On-site Calibration</label>
+            </value>
+            <value>
+                <fullName>On-site Modification</fullName>
+                <default>false</default>
+                <label>On-site Modification</label>
+            </value>
+            <value>
+                <fullName>On-site Repair</fullName>
+                <default>false</default>
+                <label>On-site Repair</label>
+            </value>
+            <value>
+                <fullName>On-site Update</fullName>
+                <default>false</default>
+                <label>On-site Update</label>
+            </value>
+            <value>
+                <fullName>Others</fullName>
+                <default>false</default>
+                <label>Others</label>
+            </value>
+            <value>
+                <fullName>Periodical Check</fullName>
+                <default>false</default>
+                <label>Periodical Check</label>
+            </value>
+            <value>
+                <fullName>Repair</fullName>
+                <default>false</default>
+                <label>Repair</label>
+            </value>
+            <value>
+                <fullName>Service Note</fullName>
+                <default>false</default>
+                <label>Service Note</label>
+            </value>
+            <value>
+                <fullName>Start-up</fullName>
+                <default>false</default>
+                <label>Start-up</label>
+            </value>
+            <value>
+                <fullName>Warranty Service</fullName>
+                <default>false</default>
+                <label>Warranty Service</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

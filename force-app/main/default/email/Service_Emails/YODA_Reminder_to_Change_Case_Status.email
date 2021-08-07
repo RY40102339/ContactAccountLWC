@@ -1,0 +1,29 @@
+The following case needs your attention. The status has not been changed for more than one week. Please check the status of the case.
+
+ 
+
+ Case #: {!Case.CaseNumber}
+
+ Case Owner: {!}
+
+ Company: {!Account.Name}
+
+ Contact: {!Contact.Name}
+
+ Product: {!Case.Product__c}
+
+ Subject: {!Case.Subject}
+
+ URL:{!URL}
+
+ Description: {!Case.Description}
+
+ 
+
+ YODA Administrator
+
+ 
+
+ This is an automatically generated email from YODA.
+
+ Please DO NOT REPLY to this email address as your email will not be delivered or read.

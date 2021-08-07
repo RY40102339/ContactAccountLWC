@@ -52,6 +52,36 @@
         <label>Other</label>
     </standardValue>
     <standardValue>
+        <fullName>GMA</fullName>
+        <default>false</default>
+        <label>GMA</label>
+    </standardValue>
+    <standardValue>
+        <fullName>LMA</fullName>
+        <default>false</default>
+        <label>LMA</label>
+    </standardValue>
+    <standardValue>
+        <fullName>EPC/System Integrator</fullName>
+        <default>false</default>
+        <label>EPC/System Integrator</label>
+    </standardValue>
+    <standardValue>
+        <fullName>J-Account</fullName>
+        <default>false</default>
+        <label>J-Account</label>
+    </standardValue>
+    <standardValue>
+        <fullName>OEM/VAR</fullName>
+        <default>false</default>
+        <label>OEM/VAR</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Sales Partner/Reps</fullName>
+        <default>false</default>
+        <label>Sales Partner/Reps</label>
+    </standardValue>
+    <standardValue>
         <fullName>Plant</fullName>
         <default>false</default>
         <label>Plant</label>

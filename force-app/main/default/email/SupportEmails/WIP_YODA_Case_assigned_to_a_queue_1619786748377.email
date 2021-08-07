@@ -1,0 +1,19 @@
+<html><head>
+	<title></title>
+</head>
+<body style="height: auto; min-height: auto;">The following case has been assigned to queue.<br />
+<br />
+Case #: {{{Case.CaseNumber}}}<br />
+Company: {{{Case.Account}}}<br />
+Contact: {{{Case.Contact}}}<br />
+Product: {{{Case.Product}}}<br />
+Subject: {{{Case.Subject}}}<br />
+Description: {{{Case.Description}}}<br />
+<br />
+Click on the link to access the case: <a href="{{{Case.Link}}}">{{{Case.Link}}}</a><br />
+<br />
+<br />
+YODA Administrator<br />
+<br />
+This is an automatically generated email from YODA.<br />
+Please DO NOT REPLY to this email address as your email will not be delivered or read.</body></html>

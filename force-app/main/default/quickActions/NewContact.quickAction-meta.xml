@@ -34,5 +34,6 @@
     </quickActionLayout>
     <standardLabel>New</standardLabel>
     <targetObject>Contact</targetObject>
+    <targetRecordType>Contact.Customer_Contact</targetRecordType>
     <type>Create</type>
 </QuickAction>

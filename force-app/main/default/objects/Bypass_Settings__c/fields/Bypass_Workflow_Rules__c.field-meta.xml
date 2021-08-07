@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Bypass_Workflow_Rules__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Specify if validation rules should be bypassed. Created as part of YODA</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Set this checkbox to true if the workflow rules should not run for a given user/profile</inlineHelpText>
+    <label>Bypass Workflow Rules</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

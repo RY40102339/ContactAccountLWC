@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>YODA_Price_Book_Entry_Compact_Layout</fullName>
+    <fields>Product2Id</fields>
+    <fields>IsActive</fields>
+    <fields>Pricebook2Id</fields>
+    <label>YODA Price Book Entry Compact Layout</label>
+</CompactLayout>

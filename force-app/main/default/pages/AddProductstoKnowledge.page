@@ -1,0 +1,66 @@
+<apex:page controller="AddProductstoKnowledgeController" standardStylesheets="false" lightningStylesheets="true">
+    <head>
+        <apex:includescript value="//code.jquery.com/jquery-1.11.1.min.js"/>
+        <apex:includescript value="//cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js"/>
+        <apex:stylesheet value="//cdn.datatables.net/1.10.4/css/jquery.dataTables.css"/>
+    </head>
+    <script>
+        j$ = jQuery.noConflict();
+        j$(document).ready( function () {
+            var accTable = j$('[id$="accTable"]').DataTable({
+                 
+            });
+        });
+    </script>
+    <apex:slds />
+    <apex:form >
+    <div class="slds-grid slds-gutters">
+      <div class="slds-col">
+        <div class="slds-text-heading_medium">Please select product</div>
+      </div>
+      <div class="slds-col">
+        <apex:commandButton styleClass="slds-button slds-button_neutral" action="{!Cancel}" Value="Cancel" style="float:right"/>
+        <apex:commandButton styleClass="slds-button slds-button_neutral" action="{!Submit}" Value="Submit" style="float:right; margin-right:1%;"/>
+      </div>
+     
+    </div>
+    <br/>
+    <div class="slds-table--header-fixed_container" style="height:450px;">
+    <div class="slds-scrollable_y" style="height:100%;">
+            <table id="accTable" class="slds-table slds-table_bordered slds-table_cell-buffer" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th>
+                            Select
+                        </th>
+                        <th>
+                            Product Name
+                        </th>
+                        <th>
+                           Product Code
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <apex:repeat value="{!listWrapper}" var="lw">
+                    <tr>
+                      <td>
+                        <apex:inputCheckbox value="{!lw.isSelected}"/>
+                      </td>
+                      <td>
+                        {!lw.product.Name}
+                      </td>
+                      <td>
+                        {!lw.product.ProductCode}
+                      </td>
+                      </tr>
+                      </apex:repeat>
+                </tbody>
+            </table>
+
+
+    </div>
+</div>
+</apex:form> 
+    
+</apex:page>

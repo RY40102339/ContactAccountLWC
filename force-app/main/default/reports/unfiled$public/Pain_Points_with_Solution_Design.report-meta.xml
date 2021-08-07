@@ -18,6 +18,7 @@
     <columns>
         <field>aecm__Capability_Pain_Point__c.aecm__Pain_Points_Solutions__r$aecm__Pain_Point_Solution_Title__c</field>
     </columns>
+    <currency>JPY</currency>
     <description>Pain Points Mapped to Capabilities. 
 Capabilities mapped to Solution Design. 
 Solution Design = Epic Name in CMC. Epics can be traced to User Stories in CMC.</description>
@@ -29,6 +30,7 @@ Solution Design = Epic Name in CMC. Epics can be traced to User Stories in CMC.<
             <operator>notEqual</operator>
             <value/>
         </criteriaItems>
+        <language>en_US</language>
     </filter>
     <format>Tabular</format>
     <name>Pain Points with Solution Design</name>

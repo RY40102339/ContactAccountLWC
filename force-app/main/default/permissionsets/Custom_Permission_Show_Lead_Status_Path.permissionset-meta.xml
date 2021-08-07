@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>YODA_Show_Lead_Status_Path</name>
+    </customPermissions>
+    <description>Custom Permission: &quot;Show Lead Status Path&quot;</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Custom Permission Show Lead Status Path</label>
+</PermissionSet>

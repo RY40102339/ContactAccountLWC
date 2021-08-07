@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <assignments>
+        <description>Assign Region Probability and Industry
+Region - from Record&apos;s Owner region
+Probability - As per Matrix
+Industry - From Account&apos;s record</description>
+        <name>Assign_Region_Probability_and_Industry</name>
+        <label>Assign Region Probability and Industry</label>
+        <locationX>50</locationX>
+        <locationY>431</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Region__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Process_Region</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Industry__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Process_Industry</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Probability</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Probability</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <decisions>
+        <name>Bypass_flow_rules</name>
+        <label>Bypass flow rules</label>
+        <locationX>182</locationX>
+        <locationY>311</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>bypass_false</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Setup.Bypass_Settings__c.Bypass_Flow_Rules__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Region_Probability_and_Industry</targetReference>
+            </connector>
+            <label>bypass false</label>
+        </rules>
+    </decisions>
+    <description>Populate fields before Opportunity record is created. Industry, Region. 
+Added Probability Matrix logic.
+StageName automation formula is defined, but not in use.</description>
+    <formulas>
+        <name>Probability</name>
+        <dataType>Number</dataType>
+        <expression>IF(
+ ISPICKVAL({!$Record.StageName}, &apos;Identify (SAL)&apos;), 0,
+IF(
+ ISPICKVAL({!$Record.StageName}, &apos;Qualify(SQL)&apos;),
+IF(
+ISPICKVAL({!$Record.Competition_Positioning__c}, &apos;&apos;), 0, 10
+) ,
+IF(
+ ISPICKVAL({!$Record.StageName}, &apos;Develop&apos;), 
+IF(
+ ISPICKVAL({!$Record.Competition_Positioning__c}, &apos;Only Alternative&apos;), 50,
+IF(
+ ISPICKVAL({!$Record.Competition_Positioning__c}, &apos;Front Runner&apos;), 30,
+IF(
+ ISPICKVAL({!$Record.Competition_Positioning__c}, &apos;Shared&apos;), 20,
+IF(
+ ISPICKVAL({!$Record.Competition_Positioning__c}, &apos;Zero&apos;), 15, 0
+)
+)
+)
+),
+IF(
+ ISPICKVAL({!$Record.StageName}, &apos;Propose / Quote&apos;), 
+IF(
+ ISPICKVAL({!$Record.Competition_Positioning__c}, &apos;Only Alternative&apos;), 75,
+IF(
+ ISPICKVAL({!$Record.Competition_Positioning__c}, &apos;Front Runner&apos;), 50,
+IF(
+ ISPICKVAL({!$Record.Competition_Positioning__c}, &apos;Shared&apos;), 30,
+IF(
+ ISPICKVAL({!$Record.Competition_Positioning__c}, &apos;Zero&apos;), 20, 0
+)
+)
+)
+),
+IF(
+ ISPICKVAL({!$Record.StageName}, &apos;Negotiate&apos;), 
+IF(
+ ISPICKVAL({!$Record.Competition_Positioning__c}, &apos;Only Alternative&apos;), 90,
+IF(
+ ISPICKVAL({!$Record.Competition_Positioning__c}, &apos;Front Runner&apos;), 75,
+IF(
+ ISPICKVAL({!$Record.Competition_Positioning__c}, &apos;Shared&apos;), 50,
+IF(
+ ISPICKVAL({!$Record.Competition_Positioning__c}, &apos;Zero&apos;), 25, 0
+)
+)
+)
+),
+IF(
+ ISPICKVAL({!$Record.StageName}, &apos;Closed Won&apos;), 100, 0
+)
+)
+)
+)
+)
+)</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <name>Process_Industry</name>
+        <dataType>String</dataType>
+        <expression>IF(
+AND(
+{!$Record.Industry__c} = NULL,
+{!$Setup.Bypass_Settings__c.Bypass_Flow_Rules__c} = false
+),
+{!$Record.End_User__r.Industry__c}, {!$Record.Industry__c} 
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Process_Region</name>
+        <dataType>String</dataType>
+        <expression>IF(
+AND(
+{!$Record__Prior.Id} = NULL,
+{!$Setup.Bypass_Settings__c.Bypass_Flow_Rules__c} = false
+),
+TEXT({!$Record.Region__c}),
+TEXT({!$Record.Owner.Region__c})
+)</expression>
+    </formulas>
+    <formulas>
+        <description>Update Stage name based on key fields in Opportunity  Product RecordType.</description>
+        <name>StageName</name>
+        <dataType>String</dataType>
+        <expression>CASE(
+ IF(NOT(ISPICKVAL({!$Record.StageName},&quot;Closed Won&quot;)),    &quot;1&quot;, &quot;0&quot;) + 
+ IF(NOT(ISPICKVAL({!$Record.StageName},&quot;Closed Lost&quot;)),    &quot;1&quot;, &quot;0&quot;) + 
+ IF(NOT(ISPICKVAL({!$Record.StageName},&quot;Disqualify&quot;)),    &quot;1&quot;, &quot;0&quot;) + 
+ IF(NOT(ISPICKVAL({!$Record.Category_of_Interest__c},&quot;&quot;)),    &quot;1&quot;, &quot;0&quot;) +
+    IF(NOT(ISBLANK( {!$Record.End_User__c})),&quot;1&quot;, &quot;0&quot;) +
+    IF(NOT(ISBLANK({!$Record.Amount})),&quot;1&quot;, &quot;0&quot;)+
+    IF(NOT(ISBLANK( {!$Record.RFQ_Received_Date__c})),&quot;1&quot;, &quot;0&quot;) +
+    IF(NOT(ISBLANK({!$Record.Application__c})),&quot;1&quot;, &quot;0&quot;)+
+    IF(NOT(ISBLANK({!$Record.Quotation_Issued__c})),    &quot;1&quot;, &quot;0&quot;) +
+    IF({!$Record.Export_Control_Check__c},&quot;1&quot;, &quot;0&quot;) +
+    IF(NOT(ISBLANK({!$Record.Quotation_Number__c})),&quot;1&quot;, &quot;0&quot;)+
+    IF({!$Record.Proposal_price_Authorized__c},&quot;1&quot;,&quot;0&quot;)+
+    IF(NOT(ISBLANK({!$Record.Customer_PO_Received__c})),    &quot;1&quot;, &quot;0&quot;) +
+    IF({!$Record.PO_Approved__c},&quot;1&quot;, &quot;0&quot;) +
+    IF({!$Record.Order_Entry_Approved__c},&quot;1&quot;, &quot;0&quot;)+
+    IF(NOT(ISBLANK({!$Record.Order_Entry_Date__c})),&quot;1&quot;,&quot;0&quot;)+
+    IF(NOT(ISBLANK({!$Record.SO_Number__c})),&quot;1&quot;,&quot;0&quot;),
+&quot;11111111111111111&quot;, &quot;Negotiate&quot;,
+&quot;11111111111100000&quot;, &quot;Propose / Quote&quot;,
+&quot;11111111000000000&quot;, &quot;Develop&quot;,
+&quot;11111100000000000&quot;, &quot;Qualify(SQL)&quot;,
+Text({!$Record.StageName})
+)</expression>
+    </formulas>
+    <interviewLabel>YODA Opportunity Populate Fields Before Create {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>YODA Opportunity - Populate Fields Before Create</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Bypass_flow_rules</targetReference>
+        </connector>
+        <object>Opportunity</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>Errormessage</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+        <value>
+            <stringValue>User is not allowed to create Opportunity.</stringValue>
+        </value>
+    </variables>
+    <variables>
+        <name>PriorStageName</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <elementReference>$Record.StageName</elementReference>
+        </value>
+    </variables>
+</Flow>

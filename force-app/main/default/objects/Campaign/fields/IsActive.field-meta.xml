@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>IsActive</fullName>
+    <description>Active campaigns are considered &apos;influential&apos; towards the opportunity revenue that Leads/Contacts are added to.</description>
+    <inlineHelpText>Check to consider Campaign influential towards opportunity revenue.</inlineHelpText>
+    <trackFeedHistory>false</trackFeedHistory>
 </CustomField>

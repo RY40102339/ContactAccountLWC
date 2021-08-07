@@ -2,10 +2,13 @@
 <ListView xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>AllAssets</fullName>
     <columns>ASSET.NAME</columns>
-    <columns>ASSET.SERIAL_NUMBER</columns>
+    <columns>Station_Type__c</columns>
     <columns>ACCOUNT.NAME</columns>
     <columns>PRODUCT2.NAME</columns>
-    <columns>Station_Type__c</columns>
+    <columns>MS_Code__c</columns>
+    <columns>ASSET.SERIAL_NUMBER</columns>
+    <columns>Production_Date__c</columns>
+    <columns>CONTACT.NAME</columns>
     <filterScope>Everything</filterScope>
     <filters>
         <field>ASSET.SERIAL_NUMBER</field>

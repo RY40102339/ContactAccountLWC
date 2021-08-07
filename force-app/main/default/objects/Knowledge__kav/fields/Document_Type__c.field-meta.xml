@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Document_Type__c</fullName>
+    <description>This field is used to store the document type.</description>
+    <externalId>false</externalId>
+    <label>Document Type</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Instruction Manuals</fullName>
+                <default>false</default>
+                <label>Instruction Manuals</label>
+            </value>
+            <value>
+                <fullName>Technical Information</fullName>
+                <default>false</default>
+                <label>Technical Information</label>
+            </value>
+            <value>
+                <fullName>Certificates</fullName>
+                <default>false</default>
+                <label>Certificates</label>
+            </value>
+            <value>
+                <fullName>Software</fullName>
+                <default>false</default>
+                <label>Software</label>
+            </value>
+            <value>
+                <fullName>General Specifications</fullName>
+                <default>false</default>
+                <label>General Specifications</label>
+            </value>
+            <value>
+                <fullName>Drawings</fullName>
+                <default>false</default>
+                <label>Drawings</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

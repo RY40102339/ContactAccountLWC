@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Close_Lost_Reason__c</fullName>
+    <externalId>false</externalId>
+    <label>Closed Lost Reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>StageName</controllingField>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Feature / product performance</fullName>
+                <default>false</default>
+                <label>Feature / product performance</label>
+            </value>
+            <value>
+                <fullName>Price</fullName>
+                <default>false</default>
+                <label>Price</label>
+            </value>
+            <value>
+                <fullName>Delivery capability / reputation</fullName>
+                <default>false</default>
+                <label>Delivery capability / reputation</label>
+            </value>
+            <value>
+                <fullName>Service capability / reputation</fullName>
+                <default>false</default>
+                <label>Service capability / reputation</label>
+            </value>
+            <value>
+                <fullName>Customer has lost (EPC,SI,etc)</fullName>
+                <default>false</default>
+                <label>Customer has lost (EPC,SI,etc)</label>
+            </value>
+            <value>
+                <fullName>On indefinite hold</fullName>
+                <default>false</default>
+                <label>On indefinite hold</label>
+            </value>
+            <value>
+                <fullName>Duplicate opportunity (mark for delete)</fullName>
+                <default>false</default>
+                <label>Duplicate opportunity (mark for delete)</label>
+            </value>
+            <value>
+                <fullName>Blocked (export control or credit status)</fullName>
+                <default>false</default>
+                <label>Blocked (export control or credit status)</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Closed Lost</controllingFieldValue>
+            <valueName>Feature / product performance</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed Lost</controllingFieldValue>
+            <valueName>Price</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed Lost</controllingFieldValue>
+            <valueName>Delivery capability / reputation</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed Lost</controllingFieldValue>
+            <valueName>Service capability / reputation</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed Lost</controllingFieldValue>
+            <valueName>Customer has lost (EPC,SI,etc)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed Lost</controllingFieldValue>
+            <valueName>On indefinite hold</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed Lost</controllingFieldValue>
+            <valueName>Duplicate opportunity (mark for delete)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Closed Lost</controllingFieldValue>
+            <valueName>Blocked (export control or credit status)</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

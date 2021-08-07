@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Language_Code__c</fullName>
+    <defaultValue>&quot;EN&quot;</defaultValue>
+    <description>Default Communication Language of a Company</description>
     <externalId>false</externalId>
     <label>Language Code</label>
     <length>255</length>

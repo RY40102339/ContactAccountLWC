@@ -43,6 +43,7 @@
     <columns>
         <field>FlowInterviewLog$CreatedBy</field>
     </columns>
+    <currency>JPY</currency>
     <description>実行されているフロー、各インタビューの状況、ユーザが画面を完了するまでの時間は?</description>
     <format>Summary</format>
     <groupingsDown>

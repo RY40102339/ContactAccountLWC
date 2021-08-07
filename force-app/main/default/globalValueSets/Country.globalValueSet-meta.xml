@@ -1205,7 +1205,7 @@
         <default>false</default>
         <label>Zimbabwe</label>
     </customValue>
-    <description>This field is used to store the county name.</description>
+    <description>This field is used to store the country name. Used on Case...</description>
     <masterLabel>Country</masterLabel>
-    <sorted>false</sorted>
+    <sorted>true</sorted>
 </GlobalValueSet>

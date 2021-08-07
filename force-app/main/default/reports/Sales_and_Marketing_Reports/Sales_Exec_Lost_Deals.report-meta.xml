@@ -50,6 +50,7 @@
             <operator>equals</operator>
             <value>Closed Lost</value>
         </criteriaItems>
+        <language>en_US</language>
     </filter>
     <format>Matrix</format>
     <groupingsAcross>

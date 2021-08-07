@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Global</fullName>
+        <default>false</default>
+        <label>Global</label>
+    </customValue>
+    <customValue>
+        <fullName>YCA</fullName>
+        <default>false</default>
+        <label>North America</label>
+    </customValue>
+    <customValue>
+        <fullName>YCN</fullName>
+        <default>false</default>
+        <label>China</label>
+    </customValue>
+    <customValue>
+        <fullName>YEA</fullName>
+        <default>false</default>
+        <label>ASEAN &amp; Oceania</label>
+    </customValue>
+    <customValue>
+        <fullName>YEF</fullName>
+        <default>false</default>
+        <label>Europe</label>
+    </customValue>
+    <customValue>
+        <fullName>YKO</fullName>
+        <default>false</default>
+        <label>Korea</label>
+    </customValue>
+    <customValue>
+        <fullName>YMA</fullName>
+        <default>false</default>
+        <label>Middle East &amp; Africa</label>
+    </customValue>
+    <customValue>
+        <fullName>YRU</fullName>
+        <default>false</default>
+        <label>Russia &amp; CIS</label>
+    </customValue>
+    <customValue>
+        <fullName>YSA</fullName>
+        <default>false</default>
+        <label>South America</label>
+    </customValue>
+    <customValue>
+        <fullName>YJP</fullName>
+        <default>false</default>
+        <label>Japan</label>
+    </customValue>
+    <description>RHQ Regions for Yokogawa</description>
+    <masterLabel>Region</masterLabel>
+    <sorted>true</sorted>
+</GlobalValueSet>

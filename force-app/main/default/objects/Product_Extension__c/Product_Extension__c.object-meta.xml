@@ -159,6 +159,7 @@
         <label>Product Extension Name</label>
         <type>Text</type>
     </nameField>
+    <pluralLabel>Projects</pluralLabel>
     <searchLayouts>
         <customTabListAdditionalFields>Asset__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Description__c</customTabListAdditionalFields>

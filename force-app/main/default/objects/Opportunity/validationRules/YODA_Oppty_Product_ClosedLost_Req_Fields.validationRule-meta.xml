@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>YODA_Oppty_Product_ClosedLost_Req_Fields</fullName>
+    <active>true</active>
+    <description>Created for YODA.
+Fields that are required for the &quot;Closed Lost&quot; stage of Opportunities in the &quot;Product&quot; record type.</description>
+    <errorConditionFormula>AND(
+NOT( $Setup.Bypass_Settings__c.Bypass_Validation_Rules__c ),
+ISPICKVAL(StageName,&apos;Closed Lost&apos;),
+OR (
+ISPICKVAL(StageName,&quot;&quot;),
+ISPICKVAL(Close_Lost_Reason__c,&quot;&quot;)
+)
+)</errorConditionFormula>
+    <errorMessage>To mark &apos;Closed Lost&apos; stage as complete, please ensure below key field is populated:
+Closed Lost Reason.</errorMessage>
+</ValidationRule>

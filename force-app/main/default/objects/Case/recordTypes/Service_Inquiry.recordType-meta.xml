@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Service_Inquiry</fullName>
-    <active>true</active>
+    <active>false</active>
     <businessProcess>Default</businessProcess>
     <description>This record type will handle the service Inquiry</description>
     <label>Service Inquiry</label>
@@ -33,21 +33,6 @@
         <values>
             <fullName>Medium</fullName>
             <default>true</default>
-        </values>
-    </picklistValues>
-    <picklistValues>
-        <picklist>Reason</picklist>
-        <values>
-            <fullName>Others</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Sales and Quote</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Technical Support</fullName>
-            <default>false</default>
         </values>
     </picklistValues>
     <picklistValues>

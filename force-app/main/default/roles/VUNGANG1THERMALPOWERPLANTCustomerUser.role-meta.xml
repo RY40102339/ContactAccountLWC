@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Role xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseAccessLevel>Edit</caseAccessLevel>
+    <contactAccessLevel>Edit</contactAccessLevel>
+    <description>VUNG ANG 1 THERMAL POWER PLANT Customer User</description>
+    <mayForecastManagerShare>false</mayForecastManagerShare>
+    <name>VUNG ANG 1 THERMAL POWER PLANT Customer User</name>
+    <opportunityAccessLevel>None</opportunityAccessLevel>
+    <parentRole>VUNGANG1THERMALPOWERPLANTCustomerManager</parentRole>
+</Role>

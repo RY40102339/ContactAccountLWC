@@ -5,94 +5,10 @@
     <label>Category of Interest</label>
     <required>false</required>
     <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
     <type>Picklist</type>
     <valueSet>
         <restricted>true</restricted>
-        <valueSetDefinition>
-            <sorted>false</sorted>
-            <value>
-                <fullName>Oscilloscopes</fullName>
-                <default>false</default>
-                <label>Oscilloscopes</label>
-            </value>
-            <value>
-                <fullName>Acquisition de Données</fullName>
-                <default>false</default>
-                <label>Acquisition de Données</label>
-            </value>
-            <value>
-                <fullName>Analyseurs de Puissance Numériques</fullName>
-                <default>false</default>
-                <label>Analyseurs de Puissance Numériques</label>
-            </value>
-            <value>
-                <fullName>Générateurs/Sources/Calibrateurs/Manomètres</fullName>
-                <default>false</default>
-                <label>Générateurs/Sources/Calibrateurs/Manomètres</label>
-            </value>
-            <value>
-                <fullName>Instruments de Mesure Optique</fullName>
-                <default>false</default>
-                <label>Instruments de Mesure Optique</label>
-            </value>
-            <value>
-                <fullName>Instruments de Test Portables</fullName>
-                <default>false</default>
-                <label>Instruments de Test Portables</label>
-            </value>
-            <value>
-                <fullName>Autres</fullName>
-                <default>false</default>
-                <label>Autres</label>
-            </value>
-            <value>
-                <fullName>Data Acquisition</fullName>
-                <default>false</default>
-                <label>Data Acquisition</label>
-            </value>
-            <value>
-                <fullName>Digital Power Analyzers</fullName>
-                <default>false</default>
-                <label>Digital Power Analyzers</label>
-            </value>
-            <value>
-                <fullName>Generators/Sources/Calibrators/Manometers</fullName>
-                <default>false</default>
-                <label>Generators/Sources/Calibrators/Manometers</label>
-            </value>
-            <value>
-                <fullName>Optical Measuring Instruments</fullName>
-                <default>false</default>
-                <label>Optical Measuring Instruments</label>
-            </value>
-            <value>
-                <fullName>Portable Test Instruments</fullName>
-                <default>false</default>
-                <label>Portable Test Instruments</label>
-            </value>
-            <value>
-                <fullName>Others</fullName>
-                <default>false</default>
-                <label>Others</label>
-            </value>
-            <value>
-                <fullName>Optical field testers</fullName>
-                <default>false</default>
-                <isActive>false</isActive>
-                <label>Optical field testers</label>
-            </value>
-            <value>
-                <fullName>Optical spectrum analyzers</fullName>
-                <default>false</default>
-                <isActive>false</isActive>
-                <label>Optical spectrum analyzers</label>
-            </value>
-            <value>
-                <fullName>Optical test equipment</fullName>
-                <default>false</default>
-                <isActive>false</isActive>
-                <label>Optical test equipment</label>
-            </value>
-        </valueSetDefinition>
+        <valueSetName>Category_of_Interest</valueSetName>
     </valueSet>
 </CustomField>

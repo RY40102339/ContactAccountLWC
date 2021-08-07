@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>YODA_Lead_Forwarded_to_Rep</name>
+    </customPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.Forwarded_Lead__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.Lead_Forwarded_To__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Custom Permission YODA Lead Forwarded to Rep</label>
+</PermissionSet>

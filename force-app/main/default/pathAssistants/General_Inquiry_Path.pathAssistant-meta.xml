@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>Case</entityName>
+    <fieldName>Status</fieldName>
+    <masterLabel>General Inquiry Path</masterLabel>
+    <pathAssistantSteps>
+        <fieldNames>Escalation_Reason__c</fieldNames>
+        <info>&lt;p&gt;Next: Kindly add a YODA user under Case Teams&lt;/p&gt;&lt;p&gt;Steps:&lt;/p&gt;&lt;p&gt;Related&amp;gt;Case Team&amp;gt;Add User &lt;/p&gt;&lt;p&gt;If user not available in YODA, kindly email the user using the Email option&lt;/p&gt;</info>
+        <picklistValueName>Escalated</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>General_Inquiry</recordTypeName>
+</PathAssistant>

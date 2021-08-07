@@ -21,6 +21,7 @@
     <columns>
         <field>aecm__Capability_Pain_Point__c.aecm__Persona__c</field>
     </columns>
+    <currency>JPY</currency>
     <description>PP Grouped by Capability</description>
     <filter>
         <criteriaItems>
@@ -30,6 +31,7 @@
             <operator>notEqual</operator>
             <value>**placeholder**</value>
         </criteriaItems>
+        <language>en_US</language>
     </filter>
     <format>Summary</format>
     <groupingsDown>

@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Stage__c</fullName>
+    <description>Stage of Lead</description>
     <externalId>false</externalId>
     <label>Stage</label>
     <required>false</required>
     <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
     <type>Picklist</type>
     <valueSet>
         <restricted>true</restricted>
@@ -12,7 +14,7 @@
             <sorted>false</sorted>
             <value>
                 <fullName>Auto-qualified Lead (AQL)</fullName>
-                <default>false</default>
+                <default>true</default>
                 <label>Auto-qualified Lead (AQL)</label>
             </value>
             <value>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>YODA_OPPTY_Control_Backward_Path</fullName>
+    <active>true</active>
+    <description>YODA Validation to strictly control Back ward Sales path for all Record types</description>
+    <errorConditionFormula>CASE(
+  TEXT(PRIORVALUE(StageName)),
+  &apos;Identify (SAL)&apos;, 1,
+  &apos;Qualify(SQL)&apos;, 2,
+  &apos;Develop&apos;, 3,
+  &apos;Propose / Quote&apos;, 4,
+  &apos;Negotiate&apos;, 5,
+  &apos;Closed Won&apos;, 6,
+  &apos;Closed Lost&apos;, 7,
+  &apos;Disqualify&apos;, 8, 0
+) &gt; 
+CASE(
+  TEXT(StageName),
+  &apos;Identify (SAL)&apos;, 1,
+  &apos;Qualify(SQL)&apos;, 2,
+  &apos;Develop&apos;, 3,
+  &apos;Propose / Quote&apos;, 4,
+  &apos;Negotiate&apos;, 5,
+  &apos;Closed Won&apos;, 6,
+  &apos;Closed Lost&apos;, 7,
+  &apos;Disqualify&apos;, 8, 0
+)</errorConditionFormula>
+    <errorDisplayField>StageName</errorDisplayField>
+    <errorMessage>Sales path does not allow Backward stages.</errorMessage>
+</ValidationRule>

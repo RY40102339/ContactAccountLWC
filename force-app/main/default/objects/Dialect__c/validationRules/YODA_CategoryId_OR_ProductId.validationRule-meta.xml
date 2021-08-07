@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>YODA_CategoryId_OR_ProductId</fullName>
+    <active>true</active>
+    <description>Either Category Id or Product Id is required. Both cannot be null.</description>
+    <errorConditionFormula>AND( ISBLANK( Category_ID__c  ),
+ISBLANK( Product_ID__c  ) )</errorConditionFormula>
+    <errorMessage>Please ensure either Category Id or Product Id is updated.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>YODA_Closed_Lost_Stage_Requires_Reason</fullName>
+    <active>false</active>
+    <description>Enforce &quot;Closed Lost Reason&quot; to understand reasons why opportunities are lost</description>
+    <errorConditionFormula>AND (
+  ISPICKVAL(  StageName , &quot;Closed Lost&quot;),
+  ISPICKVAL(Close_Lost_Reason__c, &quot;&quot; ),
+  NOT($Setup.Bypass_Settings__c.Bypass_Validation_Rules__c)
+)</errorConditionFormula>
+    <errorDisplayField>Close_Lost_Reason__c</errorDisplayField>
+    <errorMessage>Select one reason from the field Closed Lost Reason when selecting the Closed Lost Stage in an Opportunity.</errorMessage>
+</ValidationRule>

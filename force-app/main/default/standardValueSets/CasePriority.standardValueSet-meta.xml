@@ -16,4 +16,9 @@
         <default>false</default>
         <label>Low</label>
     </standardValue>
+    <standardValue>
+        <fullName>Emergency</fullName>
+        <default>false</default>
+        <label>Emergency</label>
+    </standardValue>
 </StandardValueSet>

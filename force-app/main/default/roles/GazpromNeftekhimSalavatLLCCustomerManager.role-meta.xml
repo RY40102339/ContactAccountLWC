@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Role xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseAccessLevel>Edit</caseAccessLevel>
+    <contactAccessLevel>Edit</contactAccessLevel>
+    <description>Gazprom Neftekhim Salavat LLC Customer Manager</description>
+    <mayForecastManagerShare>false</mayForecastManagerShare>
+    <name>Gazprom Neftekhim Salavat LLC Customer Manager</name>
+    <opportunityAccessLevel>None</opportunityAccessLevel>
+    <parentRole>Customer_Portal_Developer</parentRole>
+</Role>

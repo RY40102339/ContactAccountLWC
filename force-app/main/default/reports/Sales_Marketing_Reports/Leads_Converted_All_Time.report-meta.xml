@@ -37,6 +37,7 @@
     <columns>
         <field>CLOSE_DATE</field>
     </columns>
+    <currency>JPY</currency>
     <format>Summary</format>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
