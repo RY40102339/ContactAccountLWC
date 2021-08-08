@@ -16,7 +16,6 @@
         <connector>
             <targetReference>myWaitEvent_myWait_myRule_1_event_0_postWaitExecutionAssignment</targetReference>
         </connector>
-        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
             <name>SObjectRowId</name>
             <value>
@@ -40,7 +39,6 @@
         <connector>
             <targetReference>myWaitEvent_myWait_myRule_3_event_0_postWaitExecutionAssignment</targetReference>
         </connector>
-        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
             <name>SObjectRowId</name>
             <value>
