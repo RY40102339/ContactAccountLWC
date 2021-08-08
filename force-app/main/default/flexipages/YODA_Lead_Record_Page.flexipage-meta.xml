@@ -67,9 +67,6 @@
                         <valueListItems>
                             <value>CustomButton.Lead.pi__Send_Pardot_Email</value>
                         </valueListItems>
-                        <valueListItems>
-                            <value>Lead.Convert_to_Case</value>
-                        </valueListItems>
                     </valueList>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
