@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>51.0</apiVersion>
     <decisions>
         <processMetadataValues>
             <name>index</name>
@@ -43,7 +44,7 @@
                 <leftValueReference>myVariable_current.EndDate</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
-                    <elementReference>formula_2_myRule_1_7132227576</elementReference>
+                    <elementReference>formula_2_myRule_1_6924974807</elementReference>
                 </rightValue>
             </conditions>
             <conditions>
@@ -74,7 +75,7 @@
                 <leftValueReference>myVariable_current.Type</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
-                    <stringValue>Evergreen</stringValue>
+                    <stringValue>Web Inquiry</stringValue>
                 </rightValue>
             </conditions>
             <connector>
@@ -90,7 +91,7 @@
                 <stringValue>TODAY() </stringValue>
             </value>
         </processMetadataValues>
-        <name>formula_2_myRule_1_7132227576</name>
+        <name>formula_2_myRule_1_6924974807</name>
         <dataType>Date</dataType>
         <expression>TODAY()</expression>
     </formulas>
@@ -101,7 +102,7 @@
                 <stringValue>TODAY() + 365</stringValue>
             </value>
         </processMetadataValues>
-        <name>formula_3_myRule_1_A1_2181661185</name>
+        <name>formula_3_myRule_1_A1_3356227457</name>
         <dataType>Date</dataType>
         <expression>TODAY() + 365</expression>
     </formulas>
@@ -112,11 +113,11 @@
                 <stringValue>TODAY() +1</stringValue>
             </value>
         </processMetadataValues>
-        <name>formula_4_myRule_1_A1_5249993225</name>
+        <name>formula_4_myRule_1_A1_9192728257</name>
         <dataType>Date</dataType>
         <expression>TODAY() +1</expression>
     </formulas>
-    <interviewLabel>Campaign_Auto_Renew_Evergreen-3_InterviewLabel</interviewLabel>
+    <interviewLabel>Campaign_Auto_Renew_Evergreen-5_InterviewLabel</interviewLabel>
     <label>Campaign Auto-Renew Evergreen</label>
     <processMetadataValues>
         <name>ObjectType</name>
@@ -209,7 +210,7 @@
             <processMetadataValues>
                 <name>leftHandSideReferenceTo</name>
                 <value>
-                    <stringValue></stringValue>
+                    <stringValue/>
                 </value>
             </processMetadataValues>
             <processMetadataValues>
@@ -245,7 +246,7 @@
             <processMetadataValues>
                 <name>leftHandSideReferenceTo</name>
                 <value>
-                    <stringValue></stringValue>
+                    <stringValue/>
                 </value>
             </processMetadataValues>
             <processMetadataValues>
@@ -281,7 +282,7 @@
             <processMetadataValues>
                 <name>leftHandSideReferenceTo</name>
                 <value>
-                    <stringValue></stringValue>
+                    <stringValue/>
                 </value>
             </processMetadataValues>
             <processMetadataValues>
@@ -292,7 +293,7 @@
             </processMetadataValues>
             <field>EndDate</field>
             <value>
-                <elementReference>formula_3_myRule_1_A1_2181661185</elementReference>
+                <elementReference>formula_3_myRule_1_A1_3356227457</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -317,7 +318,7 @@
             <processMetadataValues>
                 <name>leftHandSideReferenceTo</name>
                 <value>
-                    <stringValue></stringValue>
+                    <stringValue/>
                 </value>
             </processMetadataValues>
             <processMetadataValues>
@@ -353,7 +354,7 @@
             <processMetadataValues>
                 <name>leftHandSideReferenceTo</name>
                 <value>
-                    <stringValue></stringValue>
+                    <stringValue/>
                 </value>
             </processMetadataValues>
             <processMetadataValues>
@@ -419,7 +420,7 @@
             <processMetadataValues>
                 <name>leftHandSideReferenceTo</name>
                 <value>
-                    <stringValue></stringValue>
+                    <stringValue/>
                 </value>
             </processMetadataValues>
             <processMetadataValues>
@@ -430,7 +431,7 @@
             </processMetadataValues>
             <field>StartDate</field>
             <value>
-                <elementReference>formula_4_myRule_1_A1_5249993225</elementReference>
+                <elementReference>formula_4_myRule_1_A1_9192728257</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -455,7 +456,7 @@
             <processMetadataValues>
                 <name>leftHandSideReferenceTo</name>
                 <value>
-                    <stringValue></stringValue>
+                    <stringValue/>
                 </value>
             </processMetadataValues>
             <processMetadataValues>
@@ -491,7 +492,7 @@
             <processMetadataValues>
                 <name>leftHandSideReferenceTo</name>
                 <value>
-                    <stringValue></stringValue>
+                    <stringValue/>
                 </value>
             </processMetadataValues>
             <processMetadataValues>
@@ -502,7 +503,7 @@
             </processMetadataValues>
             <field>Type</field>
             <value>
-                <stringValue>Evergreen</stringValue>
+                <stringValue>Web Inquiry</stringValue>
             </value>
         </inputAssignments>
         <object>Campaign</object>
@@ -536,6 +537,7 @@
         <label>Deactivate Campaign</label>
         <locationX>100</locationX>
         <locationY>300</locationY>
+        <filterLogic>and</filterLogic>
         <filters>
             <processMetadataValues>
                 <name>implicit</name>
@@ -571,7 +573,7 @@
             <processMetadataValues>
                 <name>leftHandSideReferenceTo</name>
                 <value>
-                    <stringValue></stringValue>
+                    <stringValue/>
                 </value>
             </processMetadataValues>
             <processMetadataValues>
@@ -607,7 +609,7 @@
             <processMetadataValues>
                 <name>leftHandSideReferenceTo</name>
                 <value>
-                    <stringValue></stringValue>
+                    <stringValue/>
                 </value>
             </processMetadataValues>
             <processMetadataValues>
@@ -624,7 +626,7 @@
         <object>Campaign</object>
     </recordUpdates>
     <startElementReference>myDecision</startElementReference>
-    <status>Active</status>
+    <status>Draft</status>
     <variables>
         <name>myVariable_current</name>
         <dataType>SObject</dataType>
