@@ -46,7 +46,7 @@
             </value>
         </inputParameters>
     </actionCalls>
-    <apiVersion>52.0</apiVersion>
+    <apiVersion>50.0</apiVersion>
     <assignments>
         <name>myWaitAssignment_myWait_myRule_1</name>
         <label>myWaitAssignment_myWait_myRule_1</label>
@@ -732,7 +732,7 @@
         </value>
     </processMetadataValues>
     <processMetadataValues>
-        <name>TriggerType</name>
+        <name>TriggerType</name> 
         <value>
             <stringValue>onAllChanges</stringValue>
         </value>
