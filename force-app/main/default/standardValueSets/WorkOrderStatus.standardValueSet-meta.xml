@@ -3,48 +3,6 @@
     <groupingStringEnum>WorkStatusCategory</groupingStringEnum>
     <sorted>false</sorted>
     <standardValue>
-        <fullName>新規</fullName>
-        <default>false</default>
-        <label>新規</label>
-        <groupingString>New</groupingString>
-    </standardValue>
-    <standardValue>
-        <fullName>進行中</fullName>
-        <default>false</default>
-        <label>進行中</label>
-        <groupingString>InProgress</groupingString>
-    </standardValue>
-    <standardValue>
-        <fullName>保留中</fullName>
-        <default>false</default>
-        <label>保留中</label>
-        <groupingString>OnHold</groupingString>
-    </standardValue>
-    <standardValue>
-        <fullName>完了</fullName>
-        <default>false</default>
-        <label>完了</label>
-        <groupingString>Completed</groupingString>
-    </standardValue>
-    <standardValue>
-        <fullName>クローズ済み</fullName>
-        <default>false</default>
-        <label>クローズ済み</label>
-        <groupingString>Closed</groupingString>
-    </standardValue>
-    <standardValue>
-        <fullName>完了できません</fullName>
-        <default>false</default>
-        <label>完了できません</label>
-        <groupingString>CannotComplete</groupingString>
-    </standardValue>
-    <standardValue>
-        <fullName>キャンセル</fullName>
-        <default>false</default>
-        <label>キャンセル</label>
-        <groupingString>Canceled</groupingString>
-    </standardValue>
-    <standardValue>
         <fullName>Inspection Created</fullName>
         <default>true</default>
         <label>Inspection Created</label>
@@ -67,5 +25,71 @@
         <default>false</default>
         <label>Completed</label>
         <groupingString>Completed</groupingString>
+    </standardValue>
+    <standardValue>
+        <fullName>New</fullName>
+        <default>false</default>
+        <label>New</label>
+        <groupingString>New</groupingString>
+    </standardValue>
+    <standardValue>
+        <fullName>Servicing</fullName>
+        <default>false</default>
+        <label>Servicing</label>
+        <groupingString>InProgress</groupingString>
+    </standardValue>
+    <standardValue>
+        <fullName>Deliver</fullName>
+        <default>false</default>
+        <label>Deliver</label>
+        <groupingString>Completed</groupingString>
+    </standardValue>
+    <standardValue>
+        <fullName>Closed</fullName>
+        <default>false</default>
+        <label>Closed</label>
+        <groupingString>Closed</groupingString>
+    </standardValue>
+    <standardValue>
+        <fullName>Planning</fullName>
+        <default>false</default>
+        <label>Planning</label>
+        <groupingString>New</groupingString>
+    </standardValue>
+    <standardValue>
+        <fullName>Work Requested</fullName>
+        <default>false</default>
+        <label>Work Requested</label>
+        <groupingString>New</groupingString>
+    </standardValue>
+    <standardValue>
+        <fullName>Plan Completed</fullName>
+        <default>false</default>
+        <label>Plan Completed</label>
+        <groupingString>InProgress</groupingString>
+    </standardValue>
+    <standardValue>
+        <fullName>Work Started</fullName>
+        <default>false</default>
+        <label>Work Started</label>
+        <groupingString>InProgress</groupingString>
+    </standardValue>
+    <standardValue>
+        <fullName>Waiting For Approval</fullName>
+        <default>false</default>
+        <label>Waiting For Approval</label>
+        <groupingString>OnHold</groupingString>
+    </standardValue>
+    <standardValue>
+        <fullName>Work Approved</fullName>
+        <default>false</default>
+        <label>Work Approved</label>
+        <groupingString>Completed</groupingString>
+    </standardValue>
+    <standardValue>
+        <fullName>Work Completed</fullName>
+        <default>false</default>
+        <label>Work Completed</label>
+        <groupingString>Closed</groupingString>
     </standardValue>
 </StandardValueSet>
