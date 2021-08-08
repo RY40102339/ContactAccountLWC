@@ -113,10 +113,6 @@
                 <behavior>Edit</behavior>
                 <field>System_API_Last_Sync_Date__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>System_API_Last_Sync_Date__c</field>
-            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
