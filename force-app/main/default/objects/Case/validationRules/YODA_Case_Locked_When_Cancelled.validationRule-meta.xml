@@ -4,9 +4,9 @@
     <active>true</active>
     <description>Once the Case status is set to Close-Canceled then only admin users (System Admin, YODA Admin) should be able to edit the case. All other users should not be able to edit the case.</description>
     <errorConditionFormula>AND(
-  ISPICKVAL(Status, &quot;Closed-Canceled&quot;),
-  CONTAINS($Profile.Name , &quot;YODA&quot;),
-  NOT( $Setup.Bypass_Settings__c.Bypass_Validation_Rules__c )
+  ISPICKVAL(PRIORVALUE(Close_Reason__c),&apos;Case Canceled&apos;),
+  NOT(OR(CONTAINS($Profile.Name, &quot;System Administrator&quot;),CONTAINS($Profile.Name, &quot;YHQ Administrator&quot;))),
+  NOT($Setup.Bypass_Settings__c.Bypass_Validation_Rules__c )
 )</errorConditionFormula>
     <errorMessage>This case is locked​</errorMessage>
 </ValidationRule>
