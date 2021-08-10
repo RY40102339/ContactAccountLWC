@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSetGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>YODA Knowledge Manager</label>
+    <permissionSets>Knowledge_Manager</permissionSets>
+    <permissionSets>System_Archive_Articles</permissionSets>
+    <permissionSets>System_Manage_Articles</permissionSets>
+    <permissionSets>System_Publish_Articles</permissionSets>
+    <permissionSets>System_View_Archived_Articles</permissionSets>
+    <permissionSets>System_View_Draft_articles</permissionSets>
+    <status>Updated</status>
+</PermissionSetGroup>
