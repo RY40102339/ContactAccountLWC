@@ -3,15 +3,16 @@
     <fullName>YODA_Case_Owner_Change_Match_BU</fullName>
     <active>true</active>
     <errorConditionFormula>AND(
-  TEXT( $User.Business_Unit__c )&lt;&gt;TEXT( Owner:User.Business_Unit__c ),
-  OR(
-    RecordType.DeveloperName = &quot;General_Inquiry&quot;,
-    RecordType.DeveloperName =&quot;Sales_Request&quot;,
-    RecordType.DeveloperName =&quot;Service_Request&quot;,
-    RecordType.DeveloperName =&quot;Technical_Support&quot;
-  ),
-  ISCHANGED( OwnerId ),
-  NOT( $Setup.Bypass_Settings__c.Bypass_Validation_Rules__c )
+TEXT( $User.Business_Unit__c )&lt;&gt; TEXT(Owner:User.Business_Unit__c),
+IsClosed=false,
+ISCHANGED( OwnerId ),
+OR(
+RecordType.DeveloperName =&apos;General_Inquiry&apos;,
+RecordType.DeveloperName =&apos;Sales_Request&apos;,
+RecordType.DeveloperName =&apos;Service_Request&apos;,
+RecordType.DeveloperName =&apos;Technical_Support&apos;
+),
+NOT( $Setup.Bypass_Settings__c.Bypass_Validation_Rules__c)
 )</errorConditionFormula>
     <errorMessage>Case Owner can only be changed by User with same Business Unit.</errorMessage>
 </ValidationRule>
