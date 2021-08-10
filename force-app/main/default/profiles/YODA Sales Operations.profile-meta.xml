@@ -3557,6 +3557,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>User.G1SMS_user_ID__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Workato_Integrations_Tracking__c.Error_Message__c</field>
         <readable>false</readable>
     </fieldPermissions>
