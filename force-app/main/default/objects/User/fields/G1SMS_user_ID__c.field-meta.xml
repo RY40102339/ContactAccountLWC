@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>G1SMS_user_ID__c</fullName>
+    <caseSensitive>false</caseSensitive>
+    <description>This field will be used to as lookup to assign opportunity ownership to G1SMS users. G1SMS doesn&apos;t have employee id and emails may be different.</description>
+    <externalId>true</externalId>
+    <label>G1SMS user ID</label>
+    <length>100</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Text</type>
+    <unique>true</unique>
+</CustomField>
