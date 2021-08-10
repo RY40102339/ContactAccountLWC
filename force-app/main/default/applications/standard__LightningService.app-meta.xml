@@ -3,6 +3,24 @@
     <actionOverrides>
         <actionName>View</actionName>
         <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>YODA_Case_Lightning_page</content>
+        <formFactor>Small</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>YODA_Case_Lightning_page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
         <content>YODA_Order_Record_Page</content>
         <formFactor>Small</formFactor>
         <skipRecordTypeSelect>false</skipRecordTypeSelect>
@@ -43,6 +61,546 @@
     <label>Service Console</label>
     <navType>Console</navType>
     <profileActionOverrides>
+        <actionName>Tab</actionName>
+        <content>YODA_Service_Home_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>standard-home</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>Tab</actionName>
+        <content>YODA_Service_Home_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>standard-home</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>YHQ Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>Tab</actionName>
+        <content>YODA_Service_Home_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>standard-home</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>YODA Customer Service</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Work_Order_Line_Item_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>WorkOrderLineItem</pageOrSobjectType>
+        <recordType>WorkOrderLineItem.IA</recordType>
+        <type>Flexipage</type>
+        <profile>YODA Customer Service</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Work_Order_Line_Item_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WorkOrderLineItem</pageOrSobjectType>
+        <recordType>WorkOrderLineItem.IA</recordType>
+        <type>Flexipage</type>
+        <profile>YODA Customer Service</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Work_Order_Line_Item_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>WorkOrderLineItem</pageOrSobjectType>
+        <recordType>WorkOrderLineItem.IA</recordType>
+        <type>Flexipage</type>
+        <profile>Appirio Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Work_Order_Line_Item_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WorkOrderLineItem</pageOrSobjectType>
+        <recordType>WorkOrderLineItem.IA</recordType>
+        <type>Flexipage</type>
+        <profile>Appirio Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Work_Order_Line_Item_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>WorkOrderLineItem</pageOrSobjectType>
+        <recordType>WorkOrderLineItem.Life</recordType>
+        <type>Flexipage</type>
+        <profile>YODA Customer Service</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Work_Order_Line_Item_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WorkOrderLineItem</pageOrSobjectType>
+        <recordType>WorkOrderLineItem.Life</recordType>
+        <type>Flexipage</type>
+        <profile>YODA Customer Service</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Work_Order_Line_Item_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>WorkOrderLineItem</pageOrSobjectType>
+        <recordType>WorkOrderLineItem.Life</recordType>
+        <type>Flexipage</type>
+        <profile>Appirio Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Work_Order_Line_Item_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WorkOrderLineItem</pageOrSobjectType>
+        <recordType>WorkOrderLineItem.Life</recordType>
+        <type>Flexipage</type>
+        <profile>Appirio Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Work_Order_Line_Item_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>WorkOrderLineItem</pageOrSobjectType>
+        <recordType>WorkOrderLineItem.T_M</recordType>
+        <type>Flexipage</type>
+        <profile>YODA Customer Service</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Work_Order_Line_Item_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WorkOrderLineItem</pageOrSobjectType>
+        <recordType>WorkOrderLineItem.T_M</recordType>
+        <type>Flexipage</type>
+        <profile>YODA Customer Service</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Work_Order_Line_Item_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WorkOrderLineItem</pageOrSobjectType>
+        <recordType>WorkOrderLineItem.YEF_T_M_Service</recordType>
+        <type>Flexipage</type>
+        <profile>Appirio Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Work_Order_Line_Item_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>WorkOrderLineItem</pageOrSobjectType>
+        <recordType>WorkOrderLineItem.T_M</recordType>
+        <type>Flexipage</type>
+        <profile>Appirio Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Work_Order_Line_Item_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WorkOrderLineItem</pageOrSobjectType>
+        <recordType>WorkOrderLineItem.T_M</recordType>
+        <type>Flexipage</type>
+        <profile>Appirio Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Work_Order_Line_Item_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>WorkOrderLineItem</pageOrSobjectType>
+        <recordType>WorkOrderLineItem.YEF_T_M_Service</recordType>
+        <type>Flexipage</type>
+        <profile>YODA Customer Service</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Work_Order_Line_Item_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WorkOrderLineItem</pageOrSobjectType>
+        <recordType>WorkOrderLineItem.YEF_T_M_Service</recordType>
+        <type>Flexipage</type>
+        <profile>YODA Customer Service</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Work_Order_Line_Item_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>WorkOrderLineItem</pageOrSobjectType>
+        <recordType>WorkOrderLineItem.YEF_T_M_Service</recordType>
+        <type>Flexipage</type>
+        <profile>Appirio Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Knowledge_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Knowledge__kav</pageOrSobjectType>
+        <recordType>Knowledge__kav.Bug_report</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Knowledge_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Knowledge__kav</pageOrSobjectType>
+        <recordType>Knowledge__kav.Bug_report</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Knowledge_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Knowledge__kav</pageOrSobjectType>
+        <recordType>Knowledge__kav.Administrative</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Knowledge_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Knowledge__kav</pageOrSobjectType>
+        <recordType>Knowledge__kav.Technical_article</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Knowledge_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Knowledge__kav</pageOrSobjectType>
+        <recordType>Knowledge__kav.Technical_article</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Knowledge_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Knowledge__kav</pageOrSobjectType>
+        <recordType>Knowledge__kav.Feature_request</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Knowledge_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Knowledge__kav</pageOrSobjectType>
+        <recordType>Knowledge__kav.Feature_request</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Knowledge_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Knowledge__kav</pageOrSobjectType>
+        <recordType>Knowledge__kav.Market_Competitor_info</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Knowledge_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Knowledge__kav</pageOrSobjectType>
+        <recordType>Knowledge__kav.Market_Competitor_info</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Knowledge_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Knowledge__kav</pageOrSobjectType>
+        <recordType>Knowledge__kav.FAQ</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Knowledge_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Knowledge__kav</pageOrSobjectType>
+        <recordType>Knowledge__kav.FAQ</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Knowledge_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Knowledge__kav</pageOrSobjectType>
+        <recordType>Knowledge__kav.Administrative</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Work_Order_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>WorkOrder</pageOrSobjectType>
+        <recordType>WorkOrder.IA</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Work_Order_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WorkOrder</pageOrSobjectType>
+        <recordType>WorkOrder.IA</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Work_Order_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>WorkOrder</pageOrSobjectType>
+        <recordType>WorkOrder.IA</recordType>
+        <type>Flexipage</type>
+        <profile>YHQ Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Work_Order_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WorkOrder</pageOrSobjectType>
+        <recordType>WorkOrder.IA</recordType>
+        <type>Flexipage</type>
+        <profile>YHQ Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Work_Order_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>WorkOrder</pageOrSobjectType>
+        <recordType>WorkOrder.IA</recordType>
+        <type>Flexipage</type>
+        <profile>YODA Customer Service</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Work_Order_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WorkOrder</pageOrSobjectType>
+        <recordType>WorkOrder.IA</recordType>
+        <type>Flexipage</type>
+        <profile>YODA Customer Service</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Work_Order_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>WorkOrder</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Work_Order_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WorkOrder</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Work_Order_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>WorkOrder</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>YHQ Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Work_Order_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WorkOrder</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>YHQ Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Work_Order_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>WorkOrder</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>YODA Customer Service</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Work_Order_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WorkOrder</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>YODA Customer Service</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Work_Order_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>WorkOrder</pageOrSobjectType>
+        <recordType>WorkOrder.Life</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Work_Order_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WorkOrder</pageOrSobjectType>
+        <recordType>WorkOrder.Life</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Work_Order_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>WorkOrder</pageOrSobjectType>
+        <recordType>WorkOrder.Life</recordType>
+        <type>Flexipage</type>
+        <profile>YHQ Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Work_Order_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WorkOrder</pageOrSobjectType>
+        <recordType>WorkOrder.Life</recordType>
+        <type>Flexipage</type>
+        <profile>YHQ Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Work_Order_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>WorkOrder</pageOrSobjectType>
+        <recordType>WorkOrder.Life</recordType>
+        <type>Flexipage</type>
+        <profile>YODA Customer Service</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Work_Order_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WorkOrder</pageOrSobjectType>
+        <recordType>WorkOrder.Life</recordType>
+        <type>Flexipage</type>
+        <profile>YODA Customer Service</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Work_Order_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>WorkOrder</pageOrSobjectType>
+        <recordType>WorkOrder.T_M</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Work_Order_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WorkOrder</pageOrSobjectType>
+        <recordType>WorkOrder.T_M</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Work_Order_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WorkOrder</pageOrSobjectType>
+        <recordType>WorkOrder.YEF_T_M_Service</recordType>
+        <type>Flexipage</type>
+        <profile>YHQ Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Work_Order_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>WorkOrder</pageOrSobjectType>
+        <recordType>WorkOrder.T_M</recordType>
+        <type>Flexipage</type>
+        <profile>YHQ Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Work_Order_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WorkOrder</pageOrSobjectType>
+        <recordType>WorkOrder.T_M</recordType>
+        <type>Flexipage</type>
+        <profile>YHQ Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Work_Order_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>WorkOrder</pageOrSobjectType>
+        <recordType>WorkOrder.T_M</recordType>
+        <type>Flexipage</type>
+        <profile>YODA Customer Service</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Work_Order_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WorkOrder</pageOrSobjectType>
+        <recordType>WorkOrder.T_M</recordType>
+        <type>Flexipage</type>
+        <profile>YODA Customer Service</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Work_Order_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>WorkOrder</pageOrSobjectType>
+        <recordType>WorkOrder.YEF_T_M_Service</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Work_Order_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WorkOrder</pageOrSobjectType>
+        <recordType>WorkOrder.YEF_T_M_Service</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Work_Order_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>WorkOrder</pageOrSobjectType>
+        <recordType>WorkOrder.YEF_T_M_Service</recordType>
+        <type>Flexipage</type>
+        <profile>YHQ Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Work_Order_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>WorkOrder</pageOrSobjectType>
+        <recordType>WorkOrder.YEF_T_M_Service</recordType>
+        <type>Flexipage</type>
+        <profile>YODA Customer Service</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Work_Order_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WorkOrder</pageOrSobjectType>
+        <recordType>WorkOrder.YEF_T_M_Service</recordType>
+        <type>Flexipage</type>
+        <profile>YODA Customer Service</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
         <actionName>View</actionName>
         <content>YODA_Case_Lightning_page</content>
         <formFactor>Small</formFactor>
@@ -471,6 +1029,134 @@
         <formFactor>Large</formFactor>
         <pageOrSobjectType>Case</pageOrSobjectType>
         <recordType>Case.Sales_Request</recordType>
+        <type>Flexipage</type>
+        <profile>YODA Sales Operations</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Work_Order_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>WorkOrder</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Standard</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Work_Order_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WorkOrder</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Standard</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Work_Order_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WorkOrder</pageOrSobjectType>
+        <recordType>WorkOrder.Life</recordType>
+        <type>Flexipage</type>
+        <profile>Standard</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Work_Order_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>WorkOrder</pageOrSobjectType>
+        <recordType>WorkOrder.YEF_T_M_Service</recordType>
+        <type>Flexipage</type>
+        <profile>Standard</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Work_Order_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WorkOrder</pageOrSobjectType>
+        <recordType>WorkOrder.YEF_T_M_Service</recordType>
+        <type>Flexipage</type>
+        <profile>Standard</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Work_Order_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>WorkOrder</pageOrSobjectType>
+        <recordType>WorkOrder.IA</recordType>
+        <type>Flexipage</type>
+        <profile>Standard</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Work_Order_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WorkOrder</pageOrSobjectType>
+        <recordType>WorkOrder.IA</recordType>
+        <type>Flexipage</type>
+        <profile>Standard</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Work_Order_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>WorkOrder</pageOrSobjectType>
+        <recordType>WorkOrder.T_M</recordType>
+        <type>Flexipage</type>
+        <profile>Standard</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Work_Order_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>WorkOrder</pageOrSobjectType>
+        <recordType>WorkOrder.T_M</recordType>
+        <type>Flexipage</type>
+        <profile>Standard</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>YODA_Work_Order_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>WorkOrder</pageOrSobjectType>
+        <recordType>WorkOrder.Life</recordType>
+        <type>Flexipage</type>
+        <profile>Standard</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>Tab</actionName>
+        <content>YODA_Service_Home_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>standard-home</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>YODA IT Solutions</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>Tab</actionName>
+        <content>YODA_Service_Home_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>standard-home</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>YODA Leadership</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>Tab</actionName>
+        <content>YODA_Service_Home_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>standard-home</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>YODA Marketing</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>Tab</actionName>
+        <content>YODA_Service_Home_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>standard-home</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>YODA Sales</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>Tab</actionName>
+        <content>YODA_Service_Home_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>standard-home</pageOrSobjectType>
         <type>Flexipage</type>
         <profile>YODA Sales Operations</profile>
     </profileActionOverrides>
@@ -748,23 +1434,28 @@
     </profileActionOverrides>
     <setupExperience>service</setupExperience>
     <tabs>standard-home</tabs>
-    <tabs>standard-Lead</tabs>
     <tabs>standard-Account</tabs>
     <tabs>standard-Contact</tabs>
     <tabs>standard-Case</tabs>
     <tabs>standard-Task</tabs>
     <tabs>standard-Feed</tabs>
+    <tabs>standard-Asset</tabs>
+    <tabs>Knowledge__kav</tabs>
+    <tabs>standard-Product2</tabs>
+    <tabs>standard-WorkOrder</tabs>
     <tabs>standard-report</tabs>
     <tabs>standard-Dashboard</tabs>
-    <tabs>Industry_Code__c</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>LightningService_UtilityBar</utilityBar>
     <workspaceConfig>
         <mappings>
-            <tab>Industry_Code__c</tab>
+            <tab>Knowledge__kav</tab>
         </mappings>
         <mappings>
             <tab>standard-Account</tab>
+        </mappings>
+        <mappings>
+            <tab>standard-Asset</tab>
         </mappings>
         <mappings>
             <fieldName>AccountId</fieldName>
@@ -780,11 +1471,13 @@
             <tab>standard-Feed</tab>
         </mappings>
         <mappings>
-            <tab>standard-Lead</tab>
+            <tab>standard-Product2</tab>
         </mappings>
         <mappings>
-            <fieldName>Product__c</fieldName>
             <tab>standard-Task</tab>
+        </mappings>
+        <mappings>
+            <tab>standard-WorkOrder</tab>
         </mappings>
         <mappings>
             <tab>standard-home</tab>
