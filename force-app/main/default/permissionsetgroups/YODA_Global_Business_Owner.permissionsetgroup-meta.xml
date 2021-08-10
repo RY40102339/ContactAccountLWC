@@ -5,9 +5,15 @@
     <permissionSets>Account_Edit</permissionSets>
     <permissionSets>Asset_Edit</permissionSets>
     <permissionSets>Case_Edit</permissionSets>
+    <permissionSets>Competitor_Create</permissionSets>
+    <permissionSets>Competitor_Edit</permissionSets>
     <permissionSets>Contact_Edit</permissionSets>
     <permissionSets>Lead_Edit</permissionSets>
     <permissionSets>Opportunity_Edit</permissionSets>
+    <permissionSets>System_Create_and_Customize_List_Views</permissionSets>
     <permissionSets>System_Create_and_Customize_Reports_and_Dashboards</permissionSets>
+    <permissionSets>System_Manage_Reports_and_Dashboards_in_Public_Folders</permissionSets>
+    <permissionSets>Yokogawa_Competitor_Create</permissionSets>
+    <permissionSets>Yokogawa_Competitor_Edit</permissionSets>
     <status>Updated</status>
 </PermissionSetGroup>

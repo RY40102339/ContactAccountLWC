@@ -4,12 +4,17 @@
     <label>YODA Sales Support Admin</label>
     <permissionSets>Account_Create</permissionSets>
     <permissionSets>Account_Edit</permissionSets>
+    <permissionSets>Competitor_Create</permissionSets>
+    <permissionSets>Competitor_Edit</permissionSets>
     <permissionSets>Contact_Create</permissionSets>
     <permissionSets>Contact_Edit</permissionSets>
     <permissionSets>Lead_Edit</permissionSets>
     <permissionSets>Opportunity_Create</permissionSets>
     <permissionSets>Opportunity_Edit</permissionSets>
+    <permissionSets>System_Create_and_Customize_List_Views</permissionSets>
     <permissionSets>System_Create_and_Customize_Reports_and_Dashboards</permissionSets>
     <permissionSets>System_Manage_Public_List_Views</permissionSets>
+    <permissionSets>Yokogawa_Competitor_Create</permissionSets>
+    <permissionSets>Yokogawa_Competitor_Edit</permissionSets>
     <status>Updated</status>
 </PermissionSetGroup>
