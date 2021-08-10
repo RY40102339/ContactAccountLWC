@@ -6,6 +6,6 @@
     <permissionSets>System_Manage_Articles</permissionSets>
     <permissionSets>System_Publish_Articles</permissionSets>
     <permissionSets>System_View_Archived_Articles</permissionSets>
-    <permissionSets>System_View_Draft_articles</permissionSets>
+    <permissionSets>System_View_Draft_Articles</permissionSets>
     <status>Updated</status>
 </PermissionSetGroup>
