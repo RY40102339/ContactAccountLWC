@@ -6,7 +6,7 @@
     <compactLayoutAssignment>YODA_Opportunity_Compact_Layout</compactLayoutAssignment>
     <description>A combination of products and/or paid services with a fixed scope and cost, such as control systems, analytical shelters, engineered solutions, and consulting projects.</description>
     <label>Project</label>
-    <picklistValues> 
+    <picklistValues>
         <picklist>Affiliates_to_receive_PO__c</picklist>
         <values>
             <fullName>KBC-PT</fullName>
@@ -354,9 +354,17 @@
         </values>
     </picklistValues>
     <picklistValues>
-        <picklist>Business_Unit__c</picklist> 
+        <picklist>Business_Unit__c</picklist>
         <values>
             <fullName>Digital Solutions HQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Energy %26 Sustainable Business HQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>KBC</fullName>
             <default>false</default>
         </values>
         <values>
@@ -373,14 +381,7 @@
         </values>
         <values>
             <fullName>YMI SBU</fullName>
-            <default>false</default>
-        </values>
-    </picklistValues>
-    <picklistValues>
-        <picklist>Category_of_Interest__c</picklist>
-        <values>
-            <fullName>To be Provided</fullName>
-            <default>false</default>
+            <default>true</default>
         </values>
     </picklistValues>
     <picklistValues>

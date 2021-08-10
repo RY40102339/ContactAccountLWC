@@ -3,23 +3,23 @@
     <active>true</active>
     <entityName>Opportunity</entityName>
     <fieldName>StageName</fieldName>
-    <masterLabel>Opp Project Sales Path</masterLabel>
+    <masterLabel>Opp Recurring Business Sales Path</masterLabel>
     <pathAssistantSteps>
         <fieldNames>StageName</fieldNames>
         <fieldNames>Close_Lost_Reason__c</fieldNames>
-        <info>&lt;p&gt;&lt;span style=&quot;font-size: 13px;&quot;&gt;If an opportunity is closed as lost, you will be asked to select a reason from a picklist. Please select the main reason from the list. This will help to make every opportunity a shared learning experience, improve our offerings and chances to win in the future. &lt;/span&gt;&lt;/p&gt;</info>
+        <info>&lt;p&gt;&lt;span style=&quot;font-size: 13px;&quot;&gt;Please select a reason why this opportunity was lost and if you selected Other please complete the field Lost Reason Details&lt;/span&gt;&lt;/p&gt;</info>
         <picklistValueName>Closed Lost</picklistValueName>
     </pathAssistantSteps>
     <pathAssistantSteps>
-        <info>&lt;p&gt;&lt;span style=&quot;font-size: 13px;&quot;&gt;In that case there is no need to fill in any additional information.&lt;/span&gt;&lt;/p&gt;</info>
+        <info>&lt;p&gt;Please complete Key fields before successfully closing your opportunity&lt;/p&gt;</info>
         <picklistValueName>Closed Won</picklistValueName>
     </pathAssistantSteps>
     <pathAssistantSteps>
-        <fieldNames>Competition_Positioning__c</fieldNames>
-        <fieldNames>RFQ_Received_Date__c</fieldNames>
         <fieldNames>X3rd_Party_Buyouts_Required__c</fieldNames>
+        <fieldNames>Category_Authorized__c</fieldNames>
         <fieldNames>Non_standard_Products_Approved__c</fieldNames>
-        <fieldNames>Application__c</fieldNames>
+        <fieldNames>RFQ_Received_Date__c</fieldNames>
+        <fieldNames>Bid_Due_Date__c</fieldNames>
         <info>&lt;p&gt;The “Develop” stage represents the heart of the sales development process with the customer, including meetings, demonstrations, workshops, high level solutioning and feasibility, pursuit teams, developing customer champions, and consultative selling.&lt;/p&gt;&lt;p&gt;Here you can establish an opportunity team, map contact roles, identify competitors, track activities, tasks, notes, store related collateral, and collaborate with colleagues.&lt;/p&gt;&lt;p&gt;The develop stage is complete when the customer has requested a concrete proposal or quotation (not budgetary).&lt;/p&gt;</info>
         <picklistValueName>Develop</picklistValueName>
     </pathAssistantSteps>
@@ -28,35 +28,34 @@
     </pathAssistantSteps>
     <pathAssistantSteps>
         <fieldNames>Description_Notes__c</fieldNames>
+        <fieldNames>Project_Scope__c</fieldNames>
         <info>&lt;p&gt;The “Identify” stage of your Opportunity Flow is the start of new potential business with your customer.&lt;/p&gt;&lt;p&gt;In this stage, you have become aware of a potential opportunity for the first time, and start to track related information, including the account and contact. You may or advance to the next stage at any time, and may also “disqualify” any opportunities in this stage to indicate stop of all sales actions.&lt;/p&gt;&lt;p&gt;Selecting “Disqualify” doesn´t mean that you lost the opportunity; it means there is no business opportunity for Yokogawa. &lt;/p&gt;</info>
         <picklistValueName>Identify (SAL)</picklistValueName>
     </pathAssistantSteps>
     <pathAssistantSteps>
-        <fieldNames>Commitment_Received__c</fieldNames>
         <fieldNames>Customer_PO_Received__c</fieldNames>
-        <fieldNames>Order_Entry_Approved__c</fieldNames>
-        <fieldNames>PO_Approved__c</fieldNames>
         <fieldNames>SO_Number__c</fieldNames>
+        <fieldNames>Order_Entry_Date__c</fieldNames>
+        <fieldNames>PO_Approved__c</fieldNames>
+        <fieldNames>All_Authorization_re_Confirmed__c</fieldNames>
         <info>&lt;p&gt;The customer has received our quotation, and follow up from your side is actively ongoing.&lt;/p&gt;&lt;p&gt;During this phase, revisions may need to be created, new prices will be agreed or specifications in the customers requirements may be adjusted.&lt;/p&gt;&lt;p&gt;Make sure that you enter any details that are important to share with the opportunity team.&lt;/p&gt;&lt;p&gt;To advance beyond a successful negotiation, you should be able to fill in details including the Order details and close the opportunity. &lt;/p&gt;</info>
         <picklistValueName>Negotiate</picklistValueName>
     </pathAssistantSteps>
     <pathAssistantSteps>
         <fieldNames>Quotation_Issued__c</fieldNames>
-        <fieldNames>Export_Control_Check__c</fieldNames>
         <fieldNames>Quotation_Number__c</fieldNames>
         <fieldNames>Proposal_price_Authorized__c</fieldNames>
-        <fieldNames>Sequence_of_Events__c</fieldNames>
-        <info>&lt;p&gt;In this stage it´s time to create a quotation or proposal. A request has been received, and we know all requirements from the customer.&lt;/p&gt;&lt;p&gt;In this stage you may use your local proposal tool or for some products, launch the CPQ process to create a quotation and send it to the customer.&lt;/p&gt;&lt;p&gt;By adding opportunity products items in the Pricebook, a detailed record of the quoted items and the correct amount will be possible.&lt;/p&gt;&lt;p&gt;Please confirm export compliance and quotation / proposal issuance date to complete this stage.&lt;/p&gt;</info>
+        <info>&lt;p&gt;In this stage it´s time to create a quotation or proposal. A request has been received, and we know all requirements from the customer.&lt;/p&gt;&lt;p&gt;By adding opportunity products items in the Pricebook, a detailed record of the quoted items and the correct amount will be possible.&lt;/p&gt;&lt;p&gt;Please confirm export compliance and quotation / proposal issuance date to complete this stage.&lt;/p&gt;</info>
         <picklistValueName>Propose / Quote</picklistValueName>
     </pathAssistantSteps>
     <pathAssistantSteps>
+        <fieldNames>Export_Control_Check__c</fieldNames>
+        <fieldNames>Nuclear_Industry_Compliant__c</fieldNames>
         <fieldNames>Category_of_Interest__c</fieldNames>
-        <fieldNames>End_User__c</fieldNames>
-        <fieldNames>End_User_Country__c</fieldNames>
-        <fieldNames>Project_Type__c</fieldNames>
+        <fieldNames>System_Id_License_Numer__c</fieldNames>
         <fieldNames>Amount</fieldNames>
         <info>&lt;p&gt;During the further processing of the opportunity you will reach the stage of “Qualify”.&lt;/p&gt;&lt;p&gt;In this stage, you make contact with your customer and collect more details about their needs, especially the potential product or solution category, end user if different than the opportunity account, and rough estimate of opportunity value and timing.&lt;/p&gt;&lt;p&gt;The Key fields will help you to understand what information is needed to continue the process with the customer.&lt;/p&gt;&lt;p&gt;The qualification stage is complete when you expect to pursue this opportunity fully.&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-family: Calibri, sans-serif; font-size: 11pt;&quot;&gt;In this stage you have again the option to “disqualify” your opportunity.&lt;/span&gt;&lt;/p&gt;</info>
         <picklistValueName>Qualify(SQL)</picklistValueName>
     </pathAssistantSteps>
-    <recordTypeName>Project</recordTypeName>
+    <recordTypeName>Recurring_Business</recordTypeName>
 </PathAssistant>

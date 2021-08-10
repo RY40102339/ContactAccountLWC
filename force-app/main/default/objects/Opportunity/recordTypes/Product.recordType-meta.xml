@@ -358,6 +358,9 @@
         <values>
             <fullName>Digital Solutions HQ</fullName>
             <default>false</default>
+        </values><values>
+            <fullName>Energy  %26 Sustainable Business HQ</fullName>
+            <default>false</default>
         </values>
         <values>
             <fullName>Life SBU</fullName>
@@ -373,13 +376,10 @@
         </values>
         <values>
             <fullName>YMI SBU</fullName>
-            <default>false</default>
+            <default>true</default>
         </values>
-    </picklistValues>
-    <picklistValues>
-        <picklist>Category_of_Interest__c</picklist>
         <values>
-            <fullName>To be Provided</fullName>
+            <fullName>KBC</fullName>
             <default>false</default>
         </values>
     </picklistValues>
