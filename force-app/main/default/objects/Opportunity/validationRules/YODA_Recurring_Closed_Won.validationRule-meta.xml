@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>YODA_Recurring_Closed_Won</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+NOT( $Setup.Bypass_Settings__c.Bypass_Validation_Rules__c ),
+RecordType.DeveloperName = &apos;Recurring_Business&apos;,
+ISPICKVAL(StageName,&apos;Closed Won&apos;),
+OR (
+ISBLANK(Customer_PO_Received__c),
+ISBLANK(SO_Number__c),
+ISBLANK( Order_Entry_Date__c),
+NOT(PO_Approved__c),
+NOT(All_Authorization_re_Confirmed__c))
+)</errorConditionFormula>
+    <errorMessage>To mark &apos;Closed Won&apos; stage as complete, please ensure below key fields are populated:
+• Customer PO Received
+• SO Number
+• Order Entry Date
+• PO Approved
+• All Authorization re-confirmed</errorMessage>
+</ValidationRule>

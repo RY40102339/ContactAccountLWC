@@ -373,13 +373,10 @@
         </values>
         <values>
             <fullName>YMI SBU</fullName>
-            <default>false</default>
+            <default>true</default>
         </values>
-    </picklistValues>
-    <picklistValues>
-        <picklist>Category_of_Interest__c</picklist>
         <values>
-            <fullName>To be Provided</fullName>
+            <fullName>KBC</fullName>
             <default>false</default>
         </values>
     </picklistValues>

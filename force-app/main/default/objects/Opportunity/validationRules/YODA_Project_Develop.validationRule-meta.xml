@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>YODA_Project_Develop</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+NOT( $Setup.Bypass_Settings__c.Bypass_Validation_Rules__c ),
+RecordType.DeveloperName = &apos;Project&apos;,
+ISPICKVAL(StageName,&apos;Develop&apos;),
+OR (
+ISBLANK(Category_of_Interest__c),
+ISBLANK( End_User__c),
+ISPICKVAL(Project_Type__c,&quot;&quot;),
+ISBLANK(Amount)
+)
+)</errorConditionFormula>
+    <errorMessage>• Category of Interest • End User • Project Type and Amount
+are mandatory fields to move to Develop stage.</errorMessage>
+</ValidationRule>

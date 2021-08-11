@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>YODA_Recurring_Negotiate</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+NOT( $Setup.Bypass_Settings__c.Bypass_Validation_Rules__c ),
+RecordType.DeveloperName = &apos;Recurring_Business&apos;,
+ISPICKVAL(StageName,&apos;Negotiate&apos;),
+OR (
+ISBLANK( Quotation_Issued__c),
+ISBLANK(Quotation_Number__c),
+NOT(Proposal_price_Authorized__c)
+)
+)</errorConditionFormula>
+    <errorMessage>To mark &apos;Negotiate&apos; stage, fill in these fields:
+• Quotation Issued
+• Quotation Number
+• Proposal Price Authorized</errorMessage>
+</ValidationRule>

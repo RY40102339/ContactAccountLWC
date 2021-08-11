@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>YODA_Recurring_Develop</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+NOT( $Setup.Bypass_Settings__c.Bypass_Validation_Rules__c ),
+RecordType.DeveloperName = &apos;Recurring_Business&apos;,
+ISPICKVAL(StageName,&apos;Develop&apos;),
+OR (
+NOT(Export_Control_Check__c),
+NOT(Nuclear_Industry_Compliant__c),
+ISBLANK(Category_of_Interest__c),
+ISBLANK( System_Id_License_Numer__c),
+ISBLANK(Amount)
+)
+)</errorConditionFormula>
+    <errorMessage>To move to &apos;Develop&apos; stage, please ensure below key fields are populated:
+• Export Control
+• Nuclear Industry Compliant
+• Category of Interest
+• System Id/License Number
+• Amount</errorMessage>
+</ValidationRule>
