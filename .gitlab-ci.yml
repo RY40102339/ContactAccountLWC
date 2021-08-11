@@ -38,6 +38,17 @@ deploy_to_QA:
       --targetalias QA
   only:
     - QA
+validate_against_ygpartial:
+  stage: validate
+  cache: *ref_0
+  except: *ref_1
+  script:
+    - >-
+      adx deploy:source --sourcepath
+      force-app/main/default
+      --checkonly --targetalias ygpartial
+  only:
+    - ygpartial
 validate_against_PROD:
   stage: validate
   cache: *ref_0
