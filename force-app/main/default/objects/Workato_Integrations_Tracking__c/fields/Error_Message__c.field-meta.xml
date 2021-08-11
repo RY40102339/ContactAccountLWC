@@ -3,7 +3,8 @@
     <fullName>Error_Message__c</fullName>
     <externalId>false</externalId>
     <label>Error Message</label>
-    <required>false</required>
+    <length>3500</length>
     <trackTrending>false</trackTrending>
-    <type>TextArea</type>
+    <type>LongTextArea</type>
+    <visibleLines>4</visibleLines>
 </CustomField>

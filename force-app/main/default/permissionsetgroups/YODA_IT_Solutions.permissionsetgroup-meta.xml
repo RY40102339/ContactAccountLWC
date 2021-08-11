@@ -29,6 +29,7 @@
     <permissionSets>Product_Create</permissionSets>
     <permissionSets>Product_Delete</permissionSets>
     <permissionSets>Product_Edit</permissionSets>
+    <permissionSets>System_Create_and_Customize_List_Views</permissionSets>
     <permissionSets>System_Manage_Public_List_Views</permissionSets>
     <permissionSets>System_Transfer_Records</permissionSets>
     <permissionSets>Work_Order_Create</permissionSets>

@@ -2,6 +2,7 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Functional_Unit__c</fullName>
     <externalId>false</externalId>
+    <inlineHelpText>Comparable to Sales Office in YGS</inlineHelpText>
     <label>Functional Unit</label>
     <required>false</required>
     <trackFeedHistory>false</trackFeedHistory>

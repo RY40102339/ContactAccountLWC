@@ -9,5 +9,6 @@
     <permissionSets>Custom_Permission_Show_Lead_Status_Path</permissionSets>
     <permissionSets>Lead_Create</permissionSets>
     <permissionSets>System_Create_and_Customize_Reports_and_Dashboards</permissionSets>
+    <permissionSets>System_Manage_Public_List_Views</permissionSets>
     <status>Updated</status>
 </PermissionSetGroup>

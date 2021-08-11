@@ -360,6 +360,10 @@
             <default>false</default>
         </values>
         <values>
+            <fullName>KBC</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>Life SBU</fullName>
             <default>false</default>
         </values>
@@ -373,14 +377,7 @@
         </values>
         <values>
             <fullName>YMI SBU</fullName>
-            <default>false</default>
-        </values>
-    </picklistValues>
-    <picklistValues>
-        <picklist>Category_of_Interest__c</picklist>
-        <values>
-            <fullName>To be Provided</fullName>
-            <default>false</default>
+            <default>true</default>
         </values>
     </picklistValues>
     <picklistValues>

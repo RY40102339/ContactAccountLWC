@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>YODA_Product_Negotiate</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+NOT( $Setup.Bypass_Settings__c.Bypass_Validation_Rules__c ),
+RecordType.DeveloperName = &apos;Product&apos;,
+OR(
+ISPICKVAL(StageName,&apos;Negotiate&apos;)),
+/* ISPICKVAL(PRIORVALUE(StageName),&apos;Negotiate&apos;), */
+
+OR (
+
+ISBLANK( Quotation_Issued__c),
+NOT(Export_Control_Check__c),
+ISBLANK(Quotation_Number__c),
+NOT(Proposal_price_Authorized__c),
+ISPICKVAL(Competition_Positioning__c,&quot;&quot;),
+ISBLANK( RFQ_Received_Date__c),
+ISBLANK(Application__c),
+ISBLANK(Category_of_Interest__c),
+ISBLANK( End_User__c),
+ISBLANK(Amount)
+)
+)</errorConditionFormula>
+    <errorMessage>Quotation Issued,
+Export Control Check,
+Quotation Number and 
+Proposal price Authorized
+are mandatory fields to move to Negotiate stage.</errorMessage>
+</ValidationRule>

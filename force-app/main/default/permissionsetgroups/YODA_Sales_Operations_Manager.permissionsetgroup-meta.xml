@@ -3,6 +3,8 @@
     <description>Permission Set Group for the &quot;Sales Operations Manager&quot; persona of the YODA program.</description>
     <label>YODA Sales Operations Manager</label>
     <permissionSets>Account_Edit</permissionSets>
+    <permissionSets>Competitor_Create</permissionSets>
+    <permissionSets>Competitor_Edit</permissionSets>
     <permissionSets>Contact_Edit</permissionSets>
     <permissionSets>Lead_Edit</permissionSets>
     <permissionSets>Opportunity_Edit</permissionSets>
@@ -13,5 +15,7 @@
     <permissionSets>System_Import_Custom_Objects</permissionSets>
     <permissionSets>System_Manage_Reports_and_Dashboards_in_Public_Folders</permissionSets>
     <permissionSets>System_View_Setup_and_Configuration</permissionSets>
+    <permissionSets>Yokogawa_Competitor_Create</permissionSets>
+    <permissionSets>Yokogawa_Competitor_Edit</permissionSets>
     <status>Updated</status>
 </PermissionSetGroup>

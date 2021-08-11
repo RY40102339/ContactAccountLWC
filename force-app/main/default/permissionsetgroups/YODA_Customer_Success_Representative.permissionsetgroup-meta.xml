@@ -6,6 +6,8 @@
     <permissionSets>Asset_Edit</permissionSets>
     <permissionSets>Case_Create</permissionSets>
     <permissionSets>Case_Edit</permissionSets>
+    <permissionSets>Category_Edit</permissionSets>
+    <permissionSets>Change_Ownership</permissionSets>
     <permissionSets>Contact_Create</permissionSets>
     <permissionSets>Contact_Edit</permissionSets>
     <permissionSets>Lead_Create</permissionSets>
