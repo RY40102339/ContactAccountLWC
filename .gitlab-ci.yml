@@ -45,10 +45,10 @@ validate_against_ygpartial:
   script:
     - >-
       adx deploy:source --sourcepath
-      force-app/main/default
+      force-app/main/default --testlevel NoTestRun
       --checkonly --targetalias ygpartial
   only:
-    - ygpartial
+    - QA
 validate_against_PROD:
   stage: validate
   cache: *ref_0
