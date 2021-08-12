@@ -8,6 +8,10 @@
         <apexClass>YODA_Account_OptyRltdLstCls_Test</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+    <classAccesses>
+        <apexClass>YODA_RunAssignmentRules</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
     <custom>true</custom>
     <description>Profile for Marketing team of the YODA program. Most permissions revolve around Lead, Campaign, Account, Contact, and other user permission to perform marketing tasks</description>
     <fieldPermissions>
@@ -2367,6 +2371,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Lead.Multiple_Inquiry__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Lead.NumberOfEmployees</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2383,6 +2392,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead.Phone</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead.Preference__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2453,11 +2467,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead.Status_Changed_DateTime__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Lead.Subscription__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
