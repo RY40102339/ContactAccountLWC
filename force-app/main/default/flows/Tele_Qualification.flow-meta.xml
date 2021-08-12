@@ -1,61 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
-    <actionCalls>
-        <processMetadataValues>
-            <name>apexSelection</name>
-            <value>
-                <stringValue>RunAssignmentRules</stringValue>
-            </value>
-        </processMetadataValues>
-        <name>myRule_1_A2</name>
-        <label>RunAssignmentRules_TQL</label>
-        <locationX>100</locationX>
-        <locationY>300</locationY>
-        <actionName>RunAssignmentRules</actionName>
-        <actionType>apex</actionType>
-        <inputParameters>
-            <processMetadataValues>
-                <name>dataType</name>
-                <value>
-                    <stringValue>ID</stringValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>isRequired</name>
-                <value>
-                    <booleanValue>false</booleanValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>leftHandSideLabel</name>
-                <value>
-                    <stringValue>leadIds</stringValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>maxOccurs</name>
-                <value>
-                    <numberValue>1.0</numberValue>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>objectType</name>
-                <value>
-                    <stringValue/>
-                </value>
-            </processMetadataValues>
-            <processMetadataValues>
-                <name>rightHandSideType</name>
-                <value>
-                    <stringValue>Reference</stringValue>
-                </value>
-            </processMetadataValues>
-            <name>leadIds</name>
-            <value>
-                <elementReference>myVariable_current.Id</elementReference>
-            </value>
-        </inputParameters>
-    </actionCalls>
     <apiVersion>52.0</apiVersion>
     <decisions>
         <processMetadataValues>
@@ -140,7 +84,8 @@
             <label>Tele-Qualified</label>
         </rules>
     </decisions>
-    <interviewLabel>Tele_Qualification-1_InterviewLabel</interviewLabel>
+    <description>Update fields when status is Tele-Qualified</description>
+    <interviewLabel>Tele_Qualification-2_InterviewLabel</interviewLabel>
     <label>Tele-Qualification</label>
     <processMetadataValues>
         <name>ObjectType</name>
@@ -196,9 +141,6 @@
         <label>Is Tele-Qualified</label>
         <locationX>100</locationX>
         <locationY>200</locationY>
-        <connector>
-            <targetReference>myRule_1_A2</targetReference>
-        </connector>
         <filterLogic>and</filterLogic>
         <filters>
             <processMetadataValues>
