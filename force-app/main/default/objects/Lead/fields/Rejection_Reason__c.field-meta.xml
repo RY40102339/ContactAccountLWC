@@ -10,24 +10,91 @@
     <trackHistory>true</trackHistory>
     <type>Picklist</type>
     <valueSet>
+        <controllingField>Status</controllingField>
         <restricted>true</restricted>
         <valueSetDefinition>
             <sorted>false</sorted>
             <value>
-                <fullName>Incorrectly assigned</fullName>
+                <fullName>Incorrect data</fullName>
                 <default>false</default>
-                <label>Incorrectly assigned</label>
+                <label>Incorrect data</label>
+            </value>
+            <value>
+                <fullName>No response</fullName>
+                <default>false</default>
+                <label>No response</label>
+            </value>
+            <value>
+                <fullName>Duplicate inquiry</fullName>
+                <default>false</default>
+                <label>Duplicate inquiry</label>
+            </value>
+            <value>
+                <fullName>Sales already working</fullName>
+                <default>false</default>
+                <label>Sales already working</label>
+            </value>
+            <value>
+                <fullName>Yokogawa employee</fullName>
+                <default>false</default>
+                <label>Yokogawa employee</label>
+            </value>
+            <value>
+                <fullName>Vendor</fullName>
+                <default>false</default>
+                <label>Vendor</label>
+            </value>
+            <value>
+                <fullName>Not interested</fullName>
+                <default>false</default>
+                <label>Not interested</label>
             </value>
             <value>
                 <fullName>Incomplete/Inaccurate</fullName>
                 <default>false</default>
+                <isActive>false</isActive>
                 <label>Incomplete/Inaccurate</label>
+            </value>
+            <value>
+                <fullName>Incorrectly assigned</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Incorrectly assigned</label>
             </value>
             <value>
                 <fullName>No interest by sales</fullName>
                 <default>false</default>
+                <isActive>false</isActive>
                 <label>No interest by sales</label>
             </value>
         </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Rejected</controllingFieldValue>
+            <valueName>Incorrect data</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Rejected</controllingFieldValue>
+            <valueName>No response</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Rejected</controllingFieldValue>
+            <valueName>Duplicate inquiry</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Rejected</controllingFieldValue>
+            <valueName>Sales already working</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Rejected</controllingFieldValue>
+            <valueName>Yokogawa employee</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Rejected</controllingFieldValue>
+            <valueName>Vendor</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Rejected</controllingFieldValue>
+            <valueName>Not interested</valueName>
+        </valueSettings>
     </valueSet>
 </CustomField>

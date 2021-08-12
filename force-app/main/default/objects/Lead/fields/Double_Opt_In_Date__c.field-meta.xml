@@ -6,6 +6,6 @@
     <label>Double Opt-In Date</label>
     <required>false</required>
     <trackFeedHistory>false</trackFeedHistory>
-    <trackHistory>false</trackHistory>
+    <trackHistory>true</trackHistory>
     <type>Date</type>
 </CustomField>
