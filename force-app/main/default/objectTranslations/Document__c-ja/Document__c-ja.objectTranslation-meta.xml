@@ -4,4 +4,11 @@
         <plural>false</plural>
         <value>Document</value>
     </caseValues>
+    <layouts>
+        <layout>Document Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
 </CustomObjectTranslation>

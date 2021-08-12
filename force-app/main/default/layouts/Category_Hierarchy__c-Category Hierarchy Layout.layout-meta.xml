@@ -30,6 +30,10 @@
                 <behavior>Edit</behavior>
                 <field>Category_Hierarchy__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>CategoryHierarchyCodes__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -69,6 +73,20 @@
         <style>CustomLinks</style>
     </layoutSections>
     <relatedLists>
+        <fields>NAME</fields>
+        <fields>Language_Code__c</fields>
+        <fields>Category_Type__c</fields>
+        <fields>Start_Date__c</fields>
+        <relatedList>Category__c.Category_Hierarchy__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>Category_Code__c</fields>
+        <fields>Category_Level__c</fields>
+        <fields>Display_Sequence__c</fields>
+        <relatedList>Category_Hierarchy__c.Category_Hierarchy__c</relatedList>
+    </relatedLists>
+    <relatedLists>
         <fields>TASK.SUBJECT</fields>
         <fields>TASK.WHO_NAME</fields>
         <fields>ACTIVITY.TASK</fields>
@@ -90,20 +108,13 @@
     <relatedLists>
         <relatedList>RelatedNoteList</relatedList>
     </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <fields>Language_Code__c</fields>
-        <fields>Category_Type__c</fields>
-        <fields>Start_Date__c</fields>
-        <relatedList>Category__c.Category_Hierarchy__c</relatedList>
-    </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>
     <showInteractionLogPanel>false</showInteractionLogPanel>
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00hp0000000jlBo</masterLabel>
+        <masterLabel>00h2w000004xpks</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

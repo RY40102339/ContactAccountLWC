@@ -4,11 +4,6 @@
     <active>false</active>
     <description>Community moderators review posts and comments containing banned keywords</description>
     <entitiesAndFields>
-        <entityName>FeedPollChoice</entityName>
-        <fieldName>ChoiceBody</fieldName>
-        <keywordList>Yokogawa ICRM Production.Banned</keywordList>
-    </entitiesAndFields>
-    <entitiesAndFields>
         <entityName>FeedComment</entityName>
         <fieldName>RawCommentBody</fieldName>
         <keywordList>Yokogawa ICRM Production.Banned</keywordList>
@@ -26,6 +21,11 @@
     <entitiesAndFields>
         <entityName>FeedItem</entityName>
         <fieldName>Title</fieldName>
+        <keywordList>Yokogawa ICRM Production.Banned</keywordList>
+    </entitiesAndFields>
+    <entitiesAndFields>
+        <entityName>FeedPollChoice</entityName>
+        <fieldName>ChoiceBody</fieldName>
         <keywordList>Yokogawa ICRM Production.Banned</keywordList>
     </entitiesAndFields>
     <masterLabel>Flag posts or comments containing banned keywords</masterLabel>

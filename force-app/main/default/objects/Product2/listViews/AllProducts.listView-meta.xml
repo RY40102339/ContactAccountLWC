@@ -4,8 +4,14 @@
     <columns>PRODUCT2.NAME</columns>
     <columns>BU__c</columns>
     <columns>Model_Code__c</columns>
+    <columns>Product_Type__c</columns>
     <columns>Category__c</columns>
     <columns>PRODUCT2.DESCRIPTION</columns>
     <filterScope>Everything</filterScope>
+    <filters>
+        <field>Model_Code__c</field>
+        <operation>contains</operation>
+        <value>ALE111</value>
+    </filters>
     <label>All Products</label>
 </ListView>

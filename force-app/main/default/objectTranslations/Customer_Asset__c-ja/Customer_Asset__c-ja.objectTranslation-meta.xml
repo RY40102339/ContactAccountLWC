@@ -4,4 +4,11 @@
         <plural>false</plural>
         <value>Customer Asset</value>
     </caseValues>
+    <layouts>
+        <layout>Customer Asset Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
 </CustomObjectTranslation>

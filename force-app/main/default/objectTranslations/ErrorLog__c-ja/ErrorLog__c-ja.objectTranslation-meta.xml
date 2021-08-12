@@ -4,4 +4,11 @@
         <plural>false</plural>
         <value>ErrorLog</value>
     </caseValues>
+    <layouts>
+        <layout>ErrorLog Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
 </CustomObjectTranslation>

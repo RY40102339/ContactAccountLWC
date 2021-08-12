@@ -4,4 +4,11 @@
         <plural>false</plural>
         <value>User Locale Settings</value>
     </caseValues>
+    <layouts>
+        <layout>User Locale Settings Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
 </CustomObjectTranslation>

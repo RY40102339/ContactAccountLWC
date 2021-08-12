@@ -5,10 +5,71 @@
     <label>Region</label>
     <required>false</required>
     <trackFeedHistory>false</trackFeedHistory>
-    <trackHistory>false</trackHistory>
     <type>Picklist</type>
     <valueSet>
         <restricted>true</restricted>
-        <valueSetName>Region</valueSetName>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Global</fullName>
+                <default>false</default>
+                <label>Global</label>
+            </value>
+            <value>
+                <fullName>YCA</fullName>
+                <default>false</default>
+                <label>YCA</label>
+            </value>
+            <value>
+                <fullName>YCN</fullName>
+                <default>false</default>
+                <label>YCN</label>
+            </value>
+            <value>
+                <fullName>YEA</fullName>
+                <default>false</default>
+                <label>YEA</label>
+            </value>
+            <value>
+                <fullName>YEF</fullName>
+                <default>false</default>
+                <label>YEF</label>
+            </value>
+            <value>
+                <fullName>YKO</fullName>
+                <default>false</default>
+                <label>YKO</label>
+            </value>
+            <value>
+                <fullName>YMA</fullName>
+                <default>false</default>
+                <label>YMA</label>
+            </value>
+            <value>
+                <fullName>YRU</fullName>
+                <default>false</default>
+                <label>YRU</label>
+            </value>
+            <value>
+                <fullName>YSA</fullName>
+                <default>false</default>
+                <label>YSA</label>
+            </value>
+            <value>
+                <fullName>YHQ</fullName>
+                <default>false</default>
+                <label>YHQ</label>
+            </value>
+            <value>
+                <fullName>YJP</fullName>
+                <default>false</default>
+                <label>YJP</label>
+            </value>
+            <value>
+                <fullName>YSH</fullName>
+                <default>false</default>
+                <label>YSH</label>
+            </value>
+        </valueSetDefinition>
     </valueSet>
 </CustomField>

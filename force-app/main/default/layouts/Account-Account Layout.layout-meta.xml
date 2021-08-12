@@ -103,10 +103,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>DUNS_Account_Name__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Legal_Entity_Before__c</field>
             </layoutItems>
             <layoutItems>
@@ -187,11 +183,27 @@
         <label>System Information</label>
         <layoutColumns>
             <layoutItems>
+                <behavior>Edit</behavior>
+                <field>DNBoptimizer__DnBCompanyRecord__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>DNBoptimizer__DNB_D_U_N_S_Number__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>CreatedById</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>DUNS_Location_Type__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>DUNS_Account_Name__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>LastModifiedById</field>
@@ -389,6 +401,11 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
+        <fields>PlantAccount__c</fields>
+        <fields>Parent_Project__c</fields>
+        <fields>Project_Code__c</fields>
+        <fields>Revision_No__c</fields>
+        <fields>LAST_UPDATE</fields>
         <relatedList>Project__c.Account__c</relatedList>
     </relatedLists>
     <relatedLists>

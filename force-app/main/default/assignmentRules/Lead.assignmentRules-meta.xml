@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <AssignmentRules xmlns="http://soap.sforce.com/2006/04/metadata">
     <assignmentRule>
+        <fullName>FY21_TM_YCA_ConsultingOffer_Educationoff</fullName>
+        <active>false</active>
+    </assignmentRule>
+    <assignmentRule>
         <fullName>YODA Lead Assignment Rules</fullName>
         <active>true</active>
         <ruleEntry>

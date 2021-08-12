@@ -156,6 +156,6 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>true</enableFeeds>
-    <searchLayouts></searchLayouts>
+    <searchLayouts/>
     <sharingModel>Private</sharingModel>
 </CustomObject>

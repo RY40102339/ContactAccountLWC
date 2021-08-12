@@ -15,5 +15,5 @@
     <permissionSets>System_View_Draft_Articles</permissionSets>
     <permissionSets>Work_Order_Create</permissionSets>
     <permissionSets>Work_Order_Edit</permissionSets>
-    <status>Updated</status>
+    <status>Updated</status> 
 </PermissionSetGroup>
