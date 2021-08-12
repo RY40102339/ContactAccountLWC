@@ -96,7 +96,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Business_Unit__c</field> 
+                <field>Business_Unit__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
