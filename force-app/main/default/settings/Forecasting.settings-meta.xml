@@ -162,10 +162,6 @@
             <label>Owner Last Name</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>ACCOUNT.NAME_LOCAL</field>
-            <label>Account Name (Local)</label>
-        </opportunityListFieldsLabelMappings>
-        <opportunityListFieldsLabelMappings>
             <field>DESCRIPTION</field>
             <label>Description</label>
         </opportunityListFieldsLabelMappings>
@@ -273,7 +269,6 @@
             <field>CORE.USERS.ALIAS</field>
             <field>CORE.USERS.FIRST_NAME</field>
             <field>CORE.USERS.LAST_NAME</field>
-            <field>ACCOUNT.NAME_LOCAL</field>
             <field>DESCRIPTION</field>
             <field>OPPORTUNITY.EXP_AMOUNT</field>
             <field>OPPORTUNITY.LEAD_SOURCE</field>
@@ -392,10 +387,6 @@
             <label>Owner Last Name</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>ACCOUNT.NAME_LOCAL</field>
-            <label>Account Name (Local)</label>
-        </opportunityListFieldsLabelMappings>
-        <opportunityListFieldsLabelMappings>
             <field>DESCRIPTION</field>
             <label>Description</label>
         </opportunityListFieldsLabelMappings>
@@ -500,7 +491,6 @@
             <field>CORE.USERS.ALIAS</field>
             <field>CORE.USERS.FIRST_NAME</field>
             <field>CORE.USERS.LAST_NAME</field>
-            <field>ACCOUNT.NAME_LOCAL</field>
             <field>DESCRIPTION</field>
             <field>OPPORTUNITY.EXP_AMOUNT</field>
             <field>OPPORTUNITY.LEAD_SOURCE</field>
@@ -618,10 +608,6 @@
             <label>Owner Last Name</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>ACCOUNT.NAME_LOCAL</field>
-            <label>Account Name (Local)</label>
-        </opportunityListFieldsLabelMappings>
-        <opportunityListFieldsLabelMappings>
             <field>DESCRIPTION</field>
             <label>Description</label>
         </opportunityListFieldsLabelMappings>
@@ -730,7 +716,6 @@
             <field>CORE.USERS.ALIAS</field>
             <field>CORE.USERS.FIRST_NAME</field>
             <field>CORE.USERS.LAST_NAME</field>
-            <field>ACCOUNT.NAME_LOCAL</field>
             <field>DESCRIPTION</field>
             <field>OPPORTUNITY.EXP_AMOUNT</field>
             <field>OPPORTUNITY.LEAD_SOURCE</field>
@@ -849,10 +834,6 @@
             <label>Owner Last Name</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>ACCOUNT.NAME_LOCAL</field>
-            <label>Account Name (Local)</label>
-        </opportunityListFieldsLabelMappings>
-        <opportunityListFieldsLabelMappings>
             <field>DESCRIPTION</field>
             <label>Description</label>
         </opportunityListFieldsLabelMappings>
@@ -957,7 +938,6 @@
             <field>CORE.USERS.ALIAS</field>
             <field>CORE.USERS.FIRST_NAME</field>
             <field>CORE.USERS.LAST_NAME</field>
-            <field>ACCOUNT.NAME_LOCAL</field>
             <field>DESCRIPTION</field>
             <field>OPPORTUNITY.EXP_AMOUNT</field>
             <field>OPPORTUNITY.LEAD_SOURCE</field>
@@ -1075,10 +1055,6 @@
             <label>Owner Last Name</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>ACCOUNT.NAME_LOCAL</field>
-            <label>Account Name (Local)</label>
-        </opportunityListFieldsLabelMappings>
-        <opportunityListFieldsLabelMappings>
             <field>DESCRIPTION</field>
             <label>Description</label>
         </opportunityListFieldsLabelMappings>
@@ -1187,7 +1163,6 @@
             <field>CORE.USERS.ALIAS</field>
             <field>CORE.USERS.FIRST_NAME</field>
             <field>CORE.USERS.LAST_NAME</field>
-            <field>ACCOUNT.NAME_LOCAL</field>
             <field>DESCRIPTION</field>
             <field>OPPORTUNITY.EXP_AMOUNT</field>
             <field>OPPORTUNITY.LEAD_SOURCE</field>
@@ -1306,10 +1281,6 @@
             <label>Owner Last Name</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>ACCOUNT.NAME_LOCAL</field>
-            <label>Account Name (Local)</label>
-        </opportunityListFieldsLabelMappings>
-        <opportunityListFieldsLabelMappings>
             <field>DESCRIPTION</field>
             <label>Description</label>
         </opportunityListFieldsLabelMappings>
@@ -1414,7 +1385,6 @@
             <field>CORE.USERS.ALIAS</field>
             <field>CORE.USERS.FIRST_NAME</field>
             <field>CORE.USERS.LAST_NAME</field>
-            <field>ACCOUNT.NAME_LOCAL</field>
             <field>DESCRIPTION</field>
             <field>OPPORTUNITY.EXP_AMOUNT</field>
             <field>OPPORTUNITY.LEAD_SOURCE</field>
@@ -1532,10 +1502,6 @@
             <label>Owner Last Name</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>ACCOUNT.NAME_LOCAL</field>
-            <label>Account Name (Local)</label>
-        </opportunityListFieldsLabelMappings>
-        <opportunityListFieldsLabelMappings>
             <field>DESCRIPTION</field>
             <label>Description</label>
         </opportunityListFieldsLabelMappings>
@@ -1644,7 +1610,6 @@
             <field>CORE.USERS.ALIAS</field>
             <field>CORE.USERS.FIRST_NAME</field>
             <field>CORE.USERS.LAST_NAME</field>
-            <field>ACCOUNT.NAME_LOCAL</field>
             <field>DESCRIPTION</field>
             <field>OPPORTUNITY.EXP_AMOUNT</field>
             <field>OPPORTUNITY.LEAD_SOURCE</field>
@@ -1763,10 +1728,6 @@
             <label>Owner Last Name</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>ACCOUNT.NAME_LOCAL</field>
-            <label>Account Name (Local)</label>
-        </opportunityListFieldsLabelMappings>
-        <opportunityListFieldsLabelMappings>
             <field>DESCRIPTION</field>
             <label>Description</label>
         </opportunityListFieldsLabelMappings>
@@ -1871,7 +1832,6 @@
             <field>CORE.USERS.ALIAS</field>
             <field>CORE.USERS.FIRST_NAME</field>
             <field>CORE.USERS.LAST_NAME</field>
-            <field>ACCOUNT.NAME_LOCAL</field>
             <field>DESCRIPTION</field>
             <field>OPPORTUNITY.EXP_AMOUNT</field>
             <field>OPPORTUNITY.LEAD_SOURCE</field>
@@ -1989,10 +1949,6 @@
             <label>Owner Last Name</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>ACCOUNT.NAME_LOCAL</field>
-            <label>Account Name (Local)</label>
-        </opportunityListFieldsLabelMappings>
-        <opportunityListFieldsLabelMappings>
             <field>DESCRIPTION</field>
             <label>Description</label>
         </opportunityListFieldsLabelMappings>
@@ -2101,7 +2057,6 @@
             <field>CORE.USERS.ALIAS</field>
             <field>CORE.USERS.FIRST_NAME</field>
             <field>CORE.USERS.LAST_NAME</field>
-            <field>ACCOUNT.NAME_LOCAL</field>
             <field>DESCRIPTION</field>
             <field>OPPORTUNITY.EXP_AMOUNT</field>
             <field>OPPORTUNITY.LEAD_SOURCE</field>
@@ -2220,10 +2175,6 @@
             <label>Owner Last Name</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>ACCOUNT.NAME_LOCAL</field>
-            <label>Account Name (Local)</label>
-        </opportunityListFieldsLabelMappings>
-        <opportunityListFieldsLabelMappings>
             <field>DESCRIPTION</field>
             <label>Description</label>
         </opportunityListFieldsLabelMappings>
@@ -2328,7 +2279,6 @@
             <field>CORE.USERS.ALIAS</field>
             <field>CORE.USERS.FIRST_NAME</field>
             <field>CORE.USERS.LAST_NAME</field>
-            <field>ACCOUNT.NAME_LOCAL</field>
             <field>DESCRIPTION</field>
             <field>OPPORTUNITY.EXP_AMOUNT</field>
             <field>OPPORTUNITY.LEAD_SOURCE</field>
@@ -2446,10 +2396,6 @@
             <label>Owner Last Name</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>ACCOUNT.NAME_LOCAL</field>
-            <label>Account Name (Local)</label>
-        </opportunityListFieldsLabelMappings>
-        <opportunityListFieldsLabelMappings>
             <field>DESCRIPTION</field>
             <label>Description</label>
         </opportunityListFieldsLabelMappings>
@@ -2558,7 +2504,6 @@
             <field>CORE.USERS.ALIAS</field>
             <field>CORE.USERS.FIRST_NAME</field>
             <field>CORE.USERS.LAST_NAME</field>
-            <field>ACCOUNT.NAME_LOCAL</field>
             <field>DESCRIPTION</field>
             <field>OPPORTUNITY.EXP_AMOUNT</field>
             <field>OPPORTUNITY.LEAD_SOURCE</field>
@@ -2677,10 +2622,6 @@
             <label>Owner Last Name</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>ACCOUNT.NAME_LOCAL</field>
-            <label>Account Name (Local)</label>
-        </opportunityListFieldsLabelMappings>
-        <opportunityListFieldsLabelMappings>
             <field>DESCRIPTION</field>
             <label>Description</label>
         </opportunityListFieldsLabelMappings>
@@ -2785,7 +2726,6 @@
             <field>CORE.USERS.ALIAS</field>
             <field>CORE.USERS.FIRST_NAME</field>
             <field>CORE.USERS.LAST_NAME</field>
-            <field>ACCOUNT.NAME_LOCAL</field>
             <field>DESCRIPTION</field>
             <field>OPPORTUNITY.EXP_AMOUNT</field>
             <field>OPPORTUNITY.LEAD_SOURCE</field>

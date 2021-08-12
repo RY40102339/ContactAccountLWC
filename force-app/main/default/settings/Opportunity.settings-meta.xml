@@ -3,11 +3,9 @@
     <autoActivateNewReminders>true</autoActivateNewReminders>
     <customizableProductSchedulesEnabled>false</customizableProductSchedulesEnabled>
     <doesEnforceStandardOpportunitySaveLogic>true</doesEnforceStandardOpportunitySaveLogic>
-    <enableExpandedPipelineInspectionSetup>false</enableExpandedPipelineInspectionSetup>
     <enableFindSimilarOpportunities>false</enableFindSimilarOpportunities>
     <enableOpportunityFieldHistoryTracking>false</enableOpportunityFieldHistoryTracking>
     <enableOpportunityTeam>false</enableOpportunityTeam>
-    <enablePipelineInspection>false</enablePipelineInspection>
     <enableUpdateReminders>true</enableUpdateReminders>
     <oppAmountDealMotionEnabled>true</oppAmountDealMotionEnabled>
     <oppCloseDateDealMotionEnabled>true</oppCloseDateDealMotionEnabled>

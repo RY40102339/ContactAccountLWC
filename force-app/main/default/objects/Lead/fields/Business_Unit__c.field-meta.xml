@@ -5,46 +5,10 @@
     <label>Business Unit</label>
     <required>false</required>
     <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
     <type>Picklist</type>
     <valueSet>
         <restricted>true</restricted>
-        <valueSetDefinition>
-            <sorted>false</sorted>
-            <value>
-                <fullName>Material SBU</fullName>
-                <default>false</default>
-                <label>Material SBU</label>
-            </value>
-            <value>
-                <fullName>Life SBU</fullName>
-                <default>false</default>
-                <label>Life SBU</label>
-            </value>
-            <value>
-                <fullName>Products HQ</fullName>
-                <default>false</default>
-                <label>Products HQ</label>
-            </value>
-            <value>
-                <fullName>Digital Solutions HQ</fullName>
-                <default>false</default>
-                <label>Digital Solutions HQ</label>
-            </value>
-            <value>
-                <fullName>YMI SBU</fullName>
-                <default>false</default>
-                <label>YMI SBU</label>
-            </value>
-            <value>
-                <fullName>Energy &amp; Sustainable Business HQ</fullName>
-                <default>false</default>
-                <label>Energy &amp; Sustainable Business HQ</label>
-            </value>
-            <value>
-                <fullName>KBC</fullName>
-                <default>false</default>
-                <label>KBC</label>
-            </value>
-        </valueSetDefinition>
+        <valueSetName>Business_Unit</valueSetName>
     </valueSet>
 </CustomField>

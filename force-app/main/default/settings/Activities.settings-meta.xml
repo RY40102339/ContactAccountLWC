@@ -6,7 +6,6 @@
     <enableClickCreateEvents>true</enableClickCreateEvents>
     <enableDragAndDropScheduling>true</enableDragAndDropScheduling>
     <enableEmailTracking>true</enableEmailTracking>
-    <enableFlowTaskNotifsViaApex>false</enableFlowTaskNotifsViaApex>
     <enableGroupTasks>true</enableGroupTasks>
     <enableHideChildEventsPreference>false</enableHideChildEventsPreference>
     <enableListViewScheduling>true</enableListViewScheduling>

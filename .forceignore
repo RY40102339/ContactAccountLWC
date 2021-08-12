@@ -23,8 +23,6 @@ package.xml
 #  **/WorkBadge*
 #  CustomObjectTranslation/*
 #  Workflow*/*
-# Audience/*
-# ForecastingType/*
 ######################################
 
 # Metadata types excluded by default.

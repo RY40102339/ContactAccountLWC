@@ -10,9 +10,9 @@
     <authorizationRequiredPage>CommunitiesLogin</authorizationRequiredPage>
     <bandwidthExceededPage>BandwidthExceeded</bandwidthExceededPage>
     <browserXssProtection>true</browserXssProtection>
-    <cachePublicVisualforcePagesInProxyServers>true</cachePublicVisualforcePagesInProxyServers>
     <clickjackProtectionLevel>SameOriginOnly</clickjackProtectionLevel>
     <contentSniffingProtection>true</contentSniffingProtection>
+    <cspUpgradeInsecureRequests>true</cspUpgradeInsecureRequests>
     <customWebAddresses>
         <certificate>Customer_portal</certificate>
         <domainName>myportal.yokogawa.com</domainName>
@@ -24,8 +24,8 @@
     <inMaintenancePage>InMaintenance</inMaintenancePage>
     <indexPage>CommunitiesLanding</indexPage>
     <masterLabel>Yokogawa ICRM Production</masterLabel>
-    <redirectToCustomDomain>false</redirectToCustomDomain>
     <referrerPolicyOriginWhenCrossOrigin>true</referrerPolicyOriginWhenCrossOrigin>
+    <requireHttps>true</requireHttps>
     <selfRegPage>CommunitiesSelfReg</selfRegPage>
     <siteAdmin>vinod.anandhan@verticurl.com.icrm</siteAdmin>
     <siteGuestRecordDefaultOwner>hironobu.furuichi@yokogawa.com</siteGuestRecordDefaultOwner>

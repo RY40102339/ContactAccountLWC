@@ -3,5 +3,5 @@
     <fullName>CampaignInfluence</fullName>
     <filterScope>Everything</filterScope>
     <label>CampaignInfluence</label>
-    <sharedTo/>
+    <sharedTo></sharedTo>
 </ListView>
