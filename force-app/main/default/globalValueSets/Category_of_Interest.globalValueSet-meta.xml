@@ -16,7 +16,7 @@
         <label>Optical Test Equipment</label>
     </customValue>
     <customValue>
-        <fullName>Oscilloscopes</fullName>
+        <fullName>Oscilloscopes</fullName> 
         <default>false</default>
         <label>Oscilloscopes</label>
     </customValue>
