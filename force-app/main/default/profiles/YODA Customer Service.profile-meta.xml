@@ -12,10 +12,6 @@
         <apexClass>YODA_Account_OptyRltdLstCls_Test</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-    <classAccesses>
-        <apexClass>YODA_RunAssignmentRules</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
     <custom>true</custom>
     <description>Profile for Support teams of the YODA program. Most permissions revolve around Account, Contact, Cases, and other user/object permission to perform customer service tasks</description>
     <fieldPermissions>
@@ -2879,11 +2875,6 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>Lead.Forwarded_Lead__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>Lead.HasOptedOutOfEmail</field>
         <readable>true</readable>
@@ -2920,11 +2911,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Lead.Is_Tele_Qualified__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Lead.Kana_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2949,11 +2935,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>Lead.Lead_Forwarded_To__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>Lead.Marketing_Suspended__c</field>
         <readable>true</readable>
@@ -2975,11 +2956,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Lead.Multiple_Inquiry__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Lead.NumberOfEmployees</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2996,11 +2972,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead.Phone</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Lead.Preference__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3075,7 +3046,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Lead.Tele_Qualified_Reason__c</field>
+        <field>Lead.Subscription__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

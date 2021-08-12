@@ -2,7 +2,7 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Description</fullName>
     <description>A description or note about the lead</description>
-    <inlineHelpText>Message from the lead</inlineHelpText>
+    <inlineHelpText>A description or note about the lead</inlineHelpText>
     <trackFeedHistory>false</trackFeedHistory>
-    <trackHistory>true</trackHistory>
+    <trackHistory>false</trackHistory>
 </CustomField>

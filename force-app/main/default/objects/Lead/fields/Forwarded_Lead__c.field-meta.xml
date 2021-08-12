@@ -6,6 +6,6 @@
     <externalId>false</externalId>
     <label>Forwarded Lead</label>
     <trackFeedHistory>false</trackFeedHistory>
-    <trackHistory>true</trackHistory>
+    <trackHistory>false</trackHistory>
     <type>Checkbox</type>
 </CustomField>
