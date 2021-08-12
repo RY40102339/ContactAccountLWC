@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>YODA_Lead_Rejection_Requires_Reason</fullName>
+    <active>true</active>
+    <description>Lead Status Rejected requires Rejection Reason.</description>
+    <errorConditionFormula>AND (
+ISPICKVAL( Status , &quot;Rejected&quot;),
+ISPICKVAL(Rejection_Reason__c, &quot;&quot; ),
+NOT($Setup.Bypass_Settings__c.Bypass_Validation_Rules__c)
+)</errorConditionFormula>
+    <errorMessage>Select one reason from the field Rejection Reason when selecting the Rejected Status of Lead.</errorMessage>
+</ValidationRule>
