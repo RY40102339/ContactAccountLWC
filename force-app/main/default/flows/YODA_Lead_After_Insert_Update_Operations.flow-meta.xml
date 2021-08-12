@@ -1,6 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <description>YODA Insert/Update Operations - Testing Close Date formula</description>
+    <actionCalls>
+        <name>RunAssignmentRules</name>
+        <label>RunAssignmentRules</label>
+        <locationX>50</locationX>
+        <locationY>431</locationY>
+        <actionName>YODA_RunAssignmentRules</actionName>
+        <actionType>apex</actionType>
+        <inputParameters>
+            <name>leadIds</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <decisions>
+        <description>Route the lead to sales queue when the rating is changing from warm to hot.</description>
+        <name>Route_to_Sales_Queues</name>
+        <label>Route to Sales Queues</label>
+        <locationX>182</locationX>
+        <locationY>311</locationY>
+        <defaultConnector>
+            <targetReference>IsConverted</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Run_Assignment_Rule</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Rating</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.Rating</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Warm</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Tele-Qualified</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>RunAssignmentRules</targetReference>
+            </connector>
+            <label>Run Assignment Rule</label>
+        </rules>
+    </decisions>
+    <description>YODA Lead After Insert/Update Operations - Testing Close Date formula
+Run assignment rule</description>
     <formulas>
         <name>CloseDate</name>
         <dataType>Date</dataType>
@@ -17,8 +73,8 @@
         <dataType>Date</dataType>
         <expression>{!$Record.CreatedDate}+365</expression>
     </formulas>
-    <interviewLabel>YODA Insert/Update Operations {!$Flow.CurrentDateTime}</interviewLabel>
-    <label>YODA Insert/Update Operations</label>
+    <interviewLabel>YODA Lead After Insert/Update Operations {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>YODA Lead After Insert/Update Operations</label>
     <processMetadataValues>
         <name>BuilderType</name>
         <value>
@@ -41,8 +97,8 @@
     <recordLookups>
         <name>IsConverted</name>
         <label>IsConverted?</label>
-        <locationX>176</locationX>
-        <locationY>311</locationY>
+        <locationX>314</locationX>
+        <locationY>431</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Opportunity_Record</targetReference>
@@ -80,8 +136,8 @@
     <recordLookups>
         <name>Opportunity_Record</name>
         <label>Opportunity Record</label>
-        <locationX>176</locationX>
-        <locationY>431</locationY>
+        <locationX>314</locationX>
+        <locationY>551</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Update_Opportunity</targetReference>
@@ -100,8 +156,8 @@
     <recordUpdates>
         <name>Update_Opportunity</name>
         <label>Update Opportunity</label>
-        <locationX>176</locationX>
-        <locationY>551</locationY>
+        <locationX>314</locationX>
+        <locationY>671</locationY>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
@@ -130,10 +186,10 @@
         <object>Opportunity</object>
     </recordUpdates>
     <start>
-        <locationX>50</locationX>
+        <locationX>56</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>IsConverted</targetReference>
+            <targetReference>Route_to_Sales_Queues</targetReference>
         </connector>
         <object>Lead</object>
         <recordTriggerType>CreateAndUpdate</recordTriggerType>
