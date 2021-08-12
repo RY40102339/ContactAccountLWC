@@ -561,7 +561,7 @@
     <summaryLayout>
         <masterLabel>00h1s000000Gltz</masterLabel>
         <sizeX>4</sizeX>
-        <sizeY>1</sizeY>
+        <sizeY>1</sizeY> 
         <summaryLayoutItems>
             <field>AccountId</field>
             <posX>0</posX>
