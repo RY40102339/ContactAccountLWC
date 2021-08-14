@@ -150,15 +150,6 @@
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
-                <componentName>force:detailPanel</componentName>
-            </componentInstance>
-        </itemInstances>
-        <name>Facet-7cf27799-fd66-4ebf-a20c-3dbe7cb9a441</name>
-        <type>Facet</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
-        <itemInstances>
-            <componentInstance>
                 <componentInstanceProperties>
                     <name>height</name>
                     <value>185</value>
@@ -195,7 +186,16 @@
                 <componentName>force:relatedListContainer</componentName>
             </componentInstance>
         </itemInstances>
-        <name>Facet-f4b08c44-0d55-4d21-9532-b99466649619</name>
+        <name>Facet-7be9022a-fa7a-4258-a5be-446ac53c7dff</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
+                <componentName>force:detailPanel</componentName>
+            </componentInstance>
+        </itemInstances>
+        <name>Facet-d1871f98-a5b5-4ced-bb62-073ec588458d</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
@@ -208,27 +208,10 @@
                 <componentName>wits:newsPanel</componentName>
             </componentInstance>
         </itemInstances>
-        <name>Facet-efe2ee82-7e77-444d-a9ad-62e8b49aa644</name>
+        <name>Facet-ecafc54a-c348-4ed3-af83-3f5291407f8a</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
-                    <name>active</name>
-                    <value>false</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>body</name>
-                    <value>Facet-7cf27799-fd66-4ebf-a20c-3dbe7cb9a441</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>title</name>
-                    <value>Standard.Tab.detail</value>
-                </componentInstanceProperties>
-                <componentName>flexipage:tab</componentName>
-            </componentInstance>
-        </itemInstances>
         <itemInstances>
             <componentInstance>
                 <componentInstanceProperties>
@@ -237,7 +220,7 @@
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>body</name>
-                    <value>Facet-f4b08c44-0d55-4d21-9532-b99466649619</value>
+                    <value>Facet-7be9022a-fa7a-4258-a5be-446ac53c7dff</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>title</name>
@@ -250,7 +233,20 @@
             <componentInstance>
                 <componentInstanceProperties>
                     <name>body</name>
-                    <value>Facet-efe2ee82-7e77-444d-a9ad-62e8b49aa644</value>
+                    <value>Facet-d1871f98-a5b5-4ced-bb62-073ec588458d</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>title</name>
+                    <value>Standard.Tab.detail</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:tab</componentName>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>body</name>
+                    <value>Facet-ecafc54a-c348-4ed3-af83-3f5291407f8a</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>title</name>
@@ -259,15 +255,24 @@
                 <componentName>flexipage:tab</componentName>
             </componentInstance>
         </itemInstances>
-        <name>Facet-f7602bae-2efb-4392-88fe-496354172ca6</name>
+        <name>Facet-d236daff-5368-4517-8fa4-ff1d4d243d3d</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
                 <componentInstanceProperties>
+                    <name>displayOption</name>
+                    <value>BOTH</value>
+                </componentInstanceProperties>
+                <componentName>runtime_sales_merge:mergeCandidatesPreviewCard</componentName>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
                     <name>tabs</name>
-                    <value>Facet-f7602bae-2efb-4392-88fe-496354172ca6</value>
+                    <value>Facet-d236daff-5368-4517-8fa4-ff1d4d243d3d</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:tabset</componentName>
             </componentInstance>
