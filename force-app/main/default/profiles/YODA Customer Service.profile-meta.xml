@@ -2230,7 +2230,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Industry_Code__c.Parentid__c</field>
+        <field>Industry_Code__c.ParentId__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
