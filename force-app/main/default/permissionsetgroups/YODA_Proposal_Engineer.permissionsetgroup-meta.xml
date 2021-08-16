@@ -6,9 +6,11 @@
     <permissionSets>Campaign_Influence_Read</permissionSets>
     <permissionSets>Competitor_Create</permissionSets>
     <permissionSets>Competitor_Edit</permissionSets>
-    <permissionSets>Contact_Edit</permissionSets>
     <permissionSets>Opportunity_Create</permissionSets>
     <permissionSets>Opportunity_Edit</permissionSets>
+    <permissionSets>Order_Read</permissionSets>
+    <permissionSets>Quote_Create</permissionSets>
+    <permissionSets>Quote_Edit</permissionSets>
     <permissionSets>System_Create_and_Customize_List_Views</permissionSets>
     <permissionSets>System_Create_and_Customize_Reports_and_Dashboards</permissionSets>
     <permissionSets>Yokogawa_Competitor_Create</permissionSets>

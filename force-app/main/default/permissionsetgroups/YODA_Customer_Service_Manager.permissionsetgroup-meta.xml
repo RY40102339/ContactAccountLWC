@@ -6,13 +6,11 @@
     <permissionSets>Asset_Edit</permissionSets>
     <permissionSets>Case_Create</permissionSets>
     <permissionSets>Case_Edit</permissionSets>
-    <permissionSets>Contact_Edit</permissionSets>
     <permissionSets>Lead_Create</permissionSets>
     <permissionSets>Lead_Edit</permissionSets>
+    <permissionSets>Order_Read</permissionSets>
     <permissionSets>System_Create_and_Customize_List_Views</permissionSets>
     <permissionSets>System_Create_and_Customize_Reports_and_Dashboards</permissionSets>
-    <permissionSets>System_View_Archived_Articles</permissionSets>
-    <permissionSets>System_View_Draft_Articles</permissionSets>
     <permissionSets>Work_Order_Create</permissionSets>
     <permissionSets>Work_Order_Edit</permissionSets>
     <status>Updated</status>

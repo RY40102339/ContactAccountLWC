@@ -3,6 +3,9 @@
     <description>Permission Set Group for the &quot;Product Marketer&quot; persona of the YODA program.</description>
     <label>YODA Product Marketer</label>
     <permissionSets>Custom_Permission_Show_Lead_Status_Path</permissionSets>
+    <permissionSets>Opportunity_Read</permissionSets>
+    <permissionSets>Order_Read</permissionSets>
+    <permissionSets>Quote_Read</permissionSets>
     <permissionSets>System_Create_and_Customize_List_Views</permissionSets>
     <permissionSets>System_Create_and_Customize_Reports_and_Dashboards</permissionSets>
     <status>Updated</status>
