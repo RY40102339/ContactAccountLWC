@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>YODA_Work_Order_Compact_Layout</fullName>
-    <fields>AccountId</fields>
+    <fields>WorkOrderNumber</fields>
+    <fields>Status</fields>
     <fields>AssetId</fields>
-    <fields>CaseId</fields>
-    <fields>Address</fields>
+    <fields>Asset_Serial_Number__c</fields>
     <label>YODA Work Order Compact Layout</label>
 </CompactLayout>
