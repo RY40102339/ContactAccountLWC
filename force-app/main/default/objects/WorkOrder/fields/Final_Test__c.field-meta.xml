@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Final_Test__c</fullName>
+    <externalId>false</externalId>
+    <label>Final Test</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Final test successful</fullName>
+                <default>false</default>
+                <label>Final test successful</label>
+            </value>
+            <value>
+                <fullName>Final test NOT successful</fullName>
+                <default>false</default>
+                <label>Final test NOT successful</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>
