@@ -1,3 +1,20 @@
+/*
+*******************************************************************************************************
+* (C) Copyright 2021 Yokogawa. All rights reserved.
+* This code is property of Yokogawa. Use, duplication and
+* disclosure in any form without permission of copyright holder is prohibited.
+* 
+******************************************************************************************************* 
+* @author Hemalatha Gorthy
+* @version 1.0
+* @created 16/08/2021
+* @description 
+* This is a Run Assignment Rules class on Lead.
+*
+*  Change History:
+*  MM/DD/YYYY			Developer Name			Comments
+*  08/16/2021           Hemalatha Gorthy        Apex class to run assignment rules on Lead.
+*/
 public class YODA_RunAssignmentRules {
 
     @InvocableMethod
