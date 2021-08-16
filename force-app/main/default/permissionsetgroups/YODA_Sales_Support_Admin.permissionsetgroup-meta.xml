@@ -2,15 +2,18 @@
 <PermissionSetGroup xmlns="http://soap.sforce.com/2006/04/metadata">
     <description>Permission Set Group for the &quot;Sales Support Admin&quot; persona of the YODA program.</description>
     <label>YODA Sales Support Admin</label>
+    <permissionSets>Account_Activate_Pending_Accounts</permissionSets>
     <permissionSets>Account_Create</permissionSets>
     <permissionSets>Account_Edit</permissionSets>
     <permissionSets>Competitor_Create</permissionSets>
     <permissionSets>Competitor_Edit</permissionSets>
     <permissionSets>Contact_Create</permissionSets>
-    <permissionSets>Contact_Edit</permissionSets>
     <permissionSets>Lead_Edit</permissionSets>
     <permissionSets>Opportunity_Create</permissionSets>
     <permissionSets>Opportunity_Edit</permissionSets>
+    <permissionSets>Order_Read</permissionSets>
+    <permissionSets>Quote_Create</permissionSets>
+    <permissionSets>Quote_Edit</permissionSets>
     <permissionSets>System_Create_and_Customize_List_Views</permissionSets>
     <permissionSets>System_Create_and_Customize_Reports_and_Dashboards</permissionSets>
     <permissionSets>System_Manage_Public_List_Views</permissionSets>
