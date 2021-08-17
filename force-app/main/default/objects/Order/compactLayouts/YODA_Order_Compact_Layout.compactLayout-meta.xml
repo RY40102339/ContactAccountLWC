@@ -9,4 +9,4 @@
     <fields>CurrencyIsoCode</fields>
     <fields>Sales_Person__c</fields>
     <label>YODA Order Compact Layout</label>
-</CompactLayout>
+</CompactLayout> 
