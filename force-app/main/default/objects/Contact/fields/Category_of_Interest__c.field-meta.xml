@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>Double_Opt_In_Source__c</fullName>
+    <fullName>Category_of_Interest__c</fullName>
     <externalId>false</externalId>
-    <label>Double Opt-In Source</label>
-    <length>255</length>
+    <label>Category of Interest</label>
     <required>false</required>
     <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>true</trackHistory>
-    <type>Text</type>
-    <unique>false</unique>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Category_of_Interest</valueSetName>
+    </valueSet>
 </CustomField>
