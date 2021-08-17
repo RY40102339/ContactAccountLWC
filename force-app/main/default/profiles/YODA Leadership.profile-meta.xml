@@ -1886,7 +1886,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Contact.ON24_Email_Opt_In__c</field>
+        <field>Contact.On24_Email_Opt_In__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
