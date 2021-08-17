@@ -246,11 +246,6 @@
             <posX>1</posX>
             <posY>0</posY>
         </summaryLayoutItems>
-        <summaryLayoutItems>
-            <field>Total_Order_Amount__c</field>
-            <posX>2</posX>
-            <posY>0</posY>
-        </summaryLayoutItems>
         <summaryLayoutStyle>Default</summaryLayoutStyle>
     </summaryLayout>
 </Layout>
