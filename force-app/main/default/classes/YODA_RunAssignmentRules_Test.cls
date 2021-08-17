@@ -1,3 +1,20 @@
+/*
+*******************************************************************************************************
+* (C) Copyright 2021 Yokogawa. All rights reserved.
+* This code is property of Yokogawa. Use, duplication and
+* disclosure in any form without permission of copyright holder is prohibited.
+* 
+******************************************************************************************************* 
+* @author Hemalatha Gorthy
+* @version 1.0
+* @created 08/17/2021
+* @description 
+* This is a test class to Run assignment rules on Lead.
+*
+*  Change History:
+*  MM/DD/YYYY			Developer Name			Comments
+*  08/17/2021           Hemalatha Gorthy        Test class to Run assignment rules on Lead.
+*/
 @IsTest(SeeAllData = False)
 public class YODA_RunAssignmentRules_Test {
     
