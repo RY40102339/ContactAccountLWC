@@ -47,6 +47,11 @@
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
+                <componentName>cmsContent</componentName>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
                 <componentInstanceProperties>
                     <name>relatedListComponentOverride</name>
                     <value>NONE</value>
@@ -64,6 +69,27 @@
         </itemInstances>
         <mode>Replace</mode>
         <name>relatedTabContent</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>height</name>
+                    <value>880</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>hideOnError</name>
+                    <value>false</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>openLinksInNewWindow</name>
+                    <value>true</value>
+                </componentInstanceProperties>
+                <componentName>runtime_marketing_btobma:embeddedCampaignDashboard</componentName>
+            </componentInstance>
+        </itemInstances>
+        <name>Facet-04b1e81f-5bea-42aa-a6b1-d93c13dede2a</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
@@ -101,6 +127,19 @@
                 <componentName>flexipage:tab</componentName>
             </componentInstance>
         </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>body</name>
+                    <value>Facet-04b1e81f-5bea-42aa-a6b1-d93c13dede2a</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>title</name>
+                    <value>Engagement Dashboard</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:tab</componentName>
+            </componentInstance>
+        </itemInstances>
         <mode>Replace</mode>
         <name>maintabs</name>
         <type>Facet</type>
@@ -122,43 +161,13 @@
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
-                <componentInstanceProperties>
-                    <name>metricTypes</name>
-                    <valueList>
-                        <valueListItems>
-                            <value>emailOpenRate</value>
-                        </valueListItems>
-                        <valueListItems>
-                            <value>emailClickThroughRate</value>
-                        </valueListItems>
-                        <valueListItems>
-                            <value>totalEmailDelivered</value>
-                        </valueListItems>
-                        <valueListItems>
-                            <value>formSubmissionRate</value>
-                        </valueListItems>
-                        <valueListItems>
-                            <value>totalFormView</value>
-                        </valueListItems>
-                        <valueListItems>
-                            <value>uniqueMarketingLinksClicks</value>
-                        </valueListItems>
-                        <valueListItems>
-                            <value>totalLandingPageView</value>
-                        </valueListItems>
-                        <valueListItems>
-                            <value>landingPageSubmissionRate</value>
-                        </valueListItems>
-                    </valueList>
-                </componentInstanceProperties>
-                <componentName>runtime_sales_campaign:metricsPanel</componentName>
-            </componentInstance>
-        </itemInstances>
-        <itemInstances>
-            <componentInstance>
                 <componentName>forceChatter:recordFeedContainer</componentName>
             </componentInstance>
         </itemInstances>
+        <name>Facet-0204a631-c524-4715-af90-6c153b258b14</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
         <itemInstances>
             <componentInstance>
                 <componentInstanceProperties>
@@ -193,7 +202,16 @@
                 <componentName>runtime_sales_campaign:metricsPanel</componentName>
             </componentInstance>
         </itemInstances>
-        <name>Facet-0204a631-c524-4715-af90-6c153b258b14</name>
+        <name>Facet-537c0323-4420-49ef-96cc-7ec9c0b85a58</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
+                <componentName>runtime_sales_insights:campaignInsightsContainer</componentName>
+            </componentInstance>
+        </itemInstances>
+        <name>Facet-n2fgpd83qw</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
@@ -206,6 +224,32 @@
                 <componentInstanceProperties>
                     <name>title</name>
                     <value>Standard.Tab.collaborate</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:tab</componentName>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>body</name>
+                    <value>Facet-537c0323-4420-49ef-96cc-7ec9c0b85a58</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>title</name>
+                    <value>Standard.Tab.engagement</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:tab</componentName>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>body</name>
+                    <value>Facet-n2fgpd83qw</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>title</name>
+                    <value>Standard.Tab.insights</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:tab</componentName>
             </componentInstance>
