@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>UTF-8</encodingKey>
+    <name>YODA Web-to-Case Default Response</name>
+    <style>none</style>
+    <subject>Place Holder Subject</subject>
+    <textOnly>Hi {!Case.SuppliedName},
+
+Your case has been created with Case Number {!Case.CaseNumber}
+
+Place Holder Body
+
+Thanks,</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>
