@@ -184,11 +184,6 @@
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
-        <itemInstances>
-            <componentInstance>
-                <componentName>runtime_sales_insights:campaignInsightsContainer</componentName>
-            </componentInstance>
-        </itemInstances>
         <name>Facet-n2fgpd83qw</name>
         <type>Facet</type>
     </flexiPageRegions>
