@@ -3,22 +3,7 @@
     <autoResponseRule>
         <fullName>YODA Case Auto-Response</fullName>
         <active>true</active>
-        <ruleEntry>
-            <criteriaItems>
-                <field>Case.Language</field>
-                <operation>equals</operation>
-                <value>Japanese</value>
-            </criteriaItems>
-            <criteriaItems>
-                <field>Case.Origin</field>
-                <operation>notEqual</operation>
-                <value>Email</value>
-            </criteriaItems>
-            <notifyCcRecipients>false</notifyCcRecipients>
-            <senderEmail>pedro.martins2@appirio.com</senderEmail>
-            <senderName>Place Holder</senderName>
-            <template>SupportEmails/YODA_Web_to_Case_Response_Japanese_1619786906672</template>
-        </ruleEntry>
+        
         <ruleEntry>
             <criteriaItems>
                 <field>Case.Language</field>
