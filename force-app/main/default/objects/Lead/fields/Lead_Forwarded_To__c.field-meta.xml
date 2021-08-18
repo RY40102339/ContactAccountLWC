@@ -5,7 +5,7 @@
     <externalId>false</externalId>
     <label>Lead Forwarded To</label>
     <required>false</required>
-    <trackFeedHistory>false</trackFeedHistory>
+    <trackFeedHistory>true</trackFeedHistory>
     <trackHistory>true</trackHistory>
     <type>Email</type>
     <unique>false</unique>

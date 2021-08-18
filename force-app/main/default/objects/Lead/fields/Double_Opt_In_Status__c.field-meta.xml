@@ -4,7 +4,7 @@
     <externalId>false</externalId>
     <label>Double Opt-In Status</label>
     <required>false</required>
-    <trackFeedHistory>false</trackFeedHistory>
+    <trackFeedHistory>true</trackFeedHistory>
     <trackHistory>true</trackHistory>
     <type>Picklist</type>
     <valueSet>
