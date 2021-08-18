@@ -16,7 +16,6 @@
         <connector>
             <targetReference>myDecision4</targetReference>
         </connector>
-        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
             <name>SObjectRowId</name>
             <value>
@@ -37,7 +36,6 @@
         <locationY>200</locationY>
         <actionName>Case.YODA_Case_Owner_Assignment_Notification</actionName>
         <actionType>emailAlert</actionType>
-        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
             <name>SObjectRowId</name>
             <value>
@@ -58,7 +56,6 @@
         <locationY>200</locationY>
         <actionName>Case.YODA_Case_Escalated</actionName>
         <actionType>emailAlert</actionType>
-        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
             <name>SObjectRowId</name>
             <value>
@@ -82,7 +79,6 @@
         <connector>
             <targetReference>myAssignment_myRule_9_A2</targetReference>
         </connector>
-        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
             <name>SObjectRowId</name>
             <value>
@@ -115,7 +111,6 @@
         <locationY>300</locationY>
         <actionName>customNotificationAction</actionName>
         <actionType>customNotificationAction</actionType>
-        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
             <name>customNotifTypeId</name>
             <value>
@@ -205,7 +200,6 @@
         <connector>
             <targetReference>myWaitEvent_myWait_myRule_12_event_0_postWaitExecutionAssignment</targetReference>
         </connector>
-        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
             <name>SObjectRowId</name>
             <value>
@@ -213,7 +207,6 @@
             </value>
         </inputParameters>
     </actionCalls>
-    <apiVersion>51.0</apiVersion>
     <assignments>
         <name>myAssignment_myRule_9_A2</name>
         <label>myAssignment_myRule_9_A2</label>
@@ -934,7 +927,6 @@
         <label>No_Action</label>
         <locationX>100</locationX>
         <locationY>200</locationY>
-        <filterLogic>and</filterLogic>
         <filters>
             <processMetadataValues>
                 <name>implicit</name>
