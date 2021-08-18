@@ -4,7 +4,7 @@
     <externalId>false</externalId>
     <label>Preference</label>
     <required>false</required>
-    <trackFeedHistory>false</trackFeedHistory>
+    <trackFeedHistory>true</trackFeedHistory>
     <trackHistory>true</trackHistory>
     <type>MultiselectPicklist</type>
     <valueSet>

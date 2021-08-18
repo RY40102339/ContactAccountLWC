@@ -13,7 +13,7 @@
     </standardValue>
     <standardValue>
         <fullName>Cold</fullName>
-        <default>false</default>
+        <default>true</default>
         <label>Cold</label>
     </standardValue>
 </StandardValueSet>

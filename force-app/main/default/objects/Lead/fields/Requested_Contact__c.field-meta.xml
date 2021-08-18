@@ -4,8 +4,9 @@
     <defaultValue>false</defaultValue>
     <description>If a prospect checks a box on the form that they want Yokogawa to contact them, the value should flow from Pardot to Sales cloud.</description>
     <externalId>false</externalId>
+    <inlineHelpText>Lead requested contact from Yokogawa</inlineHelpText>
     <label>Requested Contact</label>
-    <trackFeedHistory>false</trackFeedHistory>
+    <trackFeedHistory>true</trackFeedHistory>
     <trackHistory>true</trackHistory>
     <type>Checkbox</type>
 </CustomField>

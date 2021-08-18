@@ -6,7 +6,7 @@
     <inlineHelpText>Reason why Sales has rejected a Lead</inlineHelpText>
     <label>Rejection Reason</label>
     <required>false</required>
-    <trackFeedHistory>false</trackFeedHistory>
+    <trackFeedHistory>true</trackFeedHistory>
     <trackHistory>true</trackHistory>
     <type>Picklist</type>
     <valueSet>

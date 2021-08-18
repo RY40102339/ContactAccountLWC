@@ -5,7 +5,7 @@
     <externalId>false</externalId>
     <label>Double Opt-In Date</label>
     <required>false</required>
-    <trackFeedHistory>false</trackFeedHistory>
+    <trackFeedHistory>true</trackFeedHistory>
     <trackHistory>true</trackHistory>
     <type>Date</type>
 </CustomField>
