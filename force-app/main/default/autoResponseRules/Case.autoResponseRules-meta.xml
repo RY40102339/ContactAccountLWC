@@ -1,3 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<AutoResponseRules xmlns="http://soap.sforce.com/2006/04/metadata"/>
-
+<AutoResponseRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <autoResponseRule>
+        <fullName>YODA Case Auto-Response</fullName>
+        <active>true</active>
+        <ruleEntry>
+            <criteriaItems>
+                <field>Case.Language</field>
+                <operation>equals</operation>
+                <value>Japanese</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Origin</field>
+                <operation>notEqual</operation>
+                <value>Email</value>
+            </criteriaItems>
+            <notifyCcRecipients>false</notifyCcRecipients>
+            <senderEmail>pedro.martins2@appirio.com</senderEmail>
+            <senderName>Place Holder</senderName>
+            <template>SupportEmails/YODA_Web_to_Case_Response_Japanese_1619786906672</template>
+        </ruleEntry>
+        <ruleEntry>
+            <criteriaItems>
+                <field>Case.Language</field>
+                <operation>equals</operation>
+                <value>English</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Origin</field>
+                <operation>notEqual</operation>
+                <value>Email</value>
+            </criteriaItems>
+            <notifyCcRecipients>false</notifyCcRecipients>
+            <senderEmail>pedro.martins2@appirio.com</senderEmail>
+            <senderName>Place Holder</senderName>
+            <template>SupportEmails/YODA_Web_to_Case_Default_Response_1619787114241</template>
+        </ruleEntry>
+    </autoResponseRule>
+</AutoResponseRules>

@@ -1,0 +1,15 @@
+The following case has been assigned to you. <br/><br/>
+
+Company: {!Case.Account} <br/><br/>
+
+Contact Name: {!Case.Contact} <br/><br/>
+
+Case #: {!Case.CaseNumber} <br/><br/>
+
+Subject: {!Case.Subject} <br/><br/>
+
+Description: {!Case.Description} <br/><br/>
+
+ <br/><br/>
+
+Click on the link to access the case: {!Case.Link}

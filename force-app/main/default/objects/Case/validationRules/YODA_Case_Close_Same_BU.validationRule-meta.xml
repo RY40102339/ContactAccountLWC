@@ -7,11 +7,11 @@ TEXT( $User.Business_Unit__c )&lt;&gt;TEXT(Owner:User.Business_Unit__c),
 IsClosed=true,
 ISCHANGED( Status ),
 OR(
-    RecordType.DeveloperName=&quot;General_Inquiry&quot;,
-    RecordType.DeveloperName =&quot;Sales_Request&quot;,  
-    RecordType.DeveloperName =&quot;Service_Request&quot;,
-    RecordType.DeveloperName =&quot;Technical_Support&quot;
-    ),
+RecordType.DeveloperName=&quot;General_Inquiry&quot;,
+RecordType.DeveloperName =&quot;Sales_Request&quot;,
+RecordType.DeveloperName =&quot;Service_Request&quot;,
+RecordType.DeveloperName =&quot;Technical_Support&quot;
+),
 NOT( $Setup.Bypass_Settings__c.Bypass_Validation_Rules__c)
 )</errorConditionFormula>
     <errorMessage>Case Owner Business Unit must match User Business Unit to Close Case.</errorMessage>
