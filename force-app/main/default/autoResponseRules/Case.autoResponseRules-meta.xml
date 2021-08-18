@@ -3,7 +3,7 @@
     <autoResponseRule>
         <fullName>YODA Case Auto-Response</fullName>
         <active>true</active>
-        
+       
         <ruleEntry>
             <criteriaItems>
                 <field>Case.Language</field>
@@ -16,7 +16,7 @@
                 <value>Email</value>
             </criteriaItems>
             <notifyCcRecipients>false</notifyCcRecipients>
-            <senderEmail>dhruv.mahajan1@wipro.com</senderEmail>
+            <senderEmail>sahdeo.hulge@wipro.com</senderEmail>
             <senderName>Place Holder</senderName>
             <template>SupportEmails/YODA_Web_to_Case_Default_Response_1619787114241</template>
         </ruleEntry>
