@@ -16,7 +16,7 @@
                 <value>Email</value>
             </criteriaItems>
             <notifyCcRecipients>false</notifyCcRecipients>
-            <senderEmail>pedro.martins2@appirio.com</senderEmail>
+            <senderEmail>dhruv.mahajan1@wipro.com</senderEmail>
             <senderName>Place Holder</senderName>
             <template>SupportEmails/YODA_Web_to_Case_Default_Response_1619787114241</template>
         </ruleEntry>
