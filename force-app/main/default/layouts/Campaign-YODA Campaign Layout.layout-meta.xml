@@ -369,12 +369,6 @@
         <relatedList>RelatedCampaignMemberStatusList</relatedList>
     </relatedLists>
     <relatedLists>
-        <fields>CONTACT.NAME</fields>
-        <fields>REVENUE_SHARE</fields>
-        <fields>OPPORTUNITY.AMOUNT</fields>
-        <relatedList>RelatedCampaignInfluence2CampaignList</relatedList>
-    </relatedLists>
-    <relatedLists>
         <fields>TASK.SUBJECT</fields>
         <fields>TASK.WHO_NAME</fields>
         <fields>ACTIVITY.TASK</fields>
