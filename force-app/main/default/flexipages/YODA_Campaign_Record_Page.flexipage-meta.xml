@@ -47,11 +47,6 @@
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
-                <componentName>cmsContent</componentName>
-            </componentInstance>
-        </itemInstances>
-        <itemInstances>
-            <componentInstance>
                 <componentInstanceProperties>
                     <name>relatedListComponentOverride</name>
                     <value>NONE</value>

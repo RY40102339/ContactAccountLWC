@@ -369,7 +369,6 @@
         <relatedList>RelatedCampaignMemberStatusList</relatedList>
     </relatedLists>
     <relatedLists>
-        <fields>OPPORTUNITY.NAME</fields>
         <fields>CONTACT.NAME</fields>
         <fields>REVENUE_SHARE</fields>
         <fields>OPPORTUNITY.AMOUNT</fields>
