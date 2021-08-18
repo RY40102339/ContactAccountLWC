@@ -1,0 +1,8 @@
+Hi {!Case.SuppliedName}, <br/>
+<br/>
+Your case has been created with Case Number {!Case.CaseNumber}<br/>
+<br/>
+Place Holder Body<br/><br/>
+
+
+Thanks,
