@@ -3019,6 +3019,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Workato_Integrations_Tracking__c.YODA_Record__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Workato_Integrations_Tracking__c.YODA_Record_ID__c</field>
         <readable>true</readable>

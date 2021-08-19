@@ -3,9 +3,8 @@
     <fullName>Source_Data_ID__c</fullName>
     <externalId>false</externalId>
     <label>Source Data ID</label>
-    <length>100</length>
-    <required>false</required>
+    <length>32768</length>
     <trackTrending>false</trackTrending>
-    <type>Text</type>
-    <unique>false</unique>
+    <type>LongTextArea</type>
+    <visibleLines>5</visibleLines>
 </CustomField>
