@@ -19,6 +19,11 @@
     <custom>false</custom>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Account.Integration_YHQSA_Id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Account.Migration_Id__c</field>
         <readable>true</readable>
     </fieldPermissions>
