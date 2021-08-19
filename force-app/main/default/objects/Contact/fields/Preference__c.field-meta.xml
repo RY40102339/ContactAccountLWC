@@ -12,56 +12,6 @@
         <valueSetDefinition>
             <sorted>false</sorted>
             <value>
-                <fullName>Calibration Subscription</fullName>
-                <default>false</default>
-                <label>Calibration Subscription</label>
-            </value>
-            <value>
-                <fullName>Contract Subscription</fullName>
-                <default>false</default>
-                <label>Contract Subscription</label>
-            </value>
-            <value>
-                <fullName>May we offer you more information on our products &amp; services</fullName>
-                <default>false</default>
-                <label>May we offer you more information on our products &amp; services</label>
-            </value>
-            <value>
-                <fullName>Newsletter 1 Subscription</fullName>
-                <default>false</default>
-                <label>Newsletter 1 Subscription</label>
-            </value>
-            <value>
-                <fullName>Newsletter 2 Subscription</fullName>
-                <default>false</default>
-                <label>Newsletter 2 Subscription</label>
-            </value>
-            <value>
-                <fullName>Newsletter 3 Subscription</fullName>
-                <default>false</default>
-                <label>Newsletter 3 Subscription</label>
-            </value>
-            <value>
-                <fullName>Profile Update Subscription</fullName>
-                <default>false</default>
-                <label>Profile Update Subscription</label>
-            </value>
-            <value>
-                <fullName>Service Request Subscription</fullName>
-                <default>false</default>
-                <label>Service Request Subscription</label>
-            </value>
-            <value>
-                <fullName>Software Request Subscription</fullName>
-                <default>false</default>
-                <label>Software Request Subscription</label>
-            </value>
-            <value>
-                <fullName>What prompted your interest for this query?</fullName>
-                <default>false</default>
-                <label>What prompted your interest for this query?</label>
-            </value>
-            <value>
                 <fullName>Industrial Automation Updates</fullName>
                 <default>false</default>
                 <label>Industrial Automation Updates</label>
@@ -75,6 +25,66 @@
                 <fullName>Life Science Updates</fullName>
                 <default>false</default>
                 <label>Life Science Updates</label>
+            </value>
+            <value>
+                <fullName>Calibration Subscription</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Calibration Subscription</label>
+            </value>
+            <value>
+                <fullName>Contract Subscription</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Contract Subscription</label>
+            </value>
+            <value>
+                <fullName>May we offer you more information on our products &amp; services</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>May we offer you more information on our products &amp; services</label>
+            </value>
+            <value>
+                <fullName>Newsletter 1 Subscription</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Newsletter 1 Subscription</label>
+            </value>
+            <value>
+                <fullName>Newsletter 2 Subscription</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Newsletter 2 Subscription</label>
+            </value>
+            <value>
+                <fullName>Newsletter 3 Subscription</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Newsletter 3 Subscription</label>
+            </value>
+            <value>
+                <fullName>Profile Update Subscription</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Profile Update Subscription</label>
+            </value>
+            <value>
+                <fullName>Service Request Subscription</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Service Request Subscription</label>
+            </value>
+            <value>
+                <fullName>Software Request Subscription</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Software Request Subscription</label>
+            </value>
+            <value>
+                <fullName>What prompted your interest for this query?</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>What prompted your interest for this query?</label>
             </value>
         </valueSetDefinition>
     </valueSet>

@@ -12,8 +12,40 @@
     <objectMapping>
         <inputObject>Lead</inputObject>
         <mappingFields>
+            <inputField>Preference__c</inputField>
+            <outputField>Preference__c</outputField>
+        </mappingFields>
+        <mappingFields>
+            <inputField>Product_of_Interest__c</inputField>
+            <outputField>Product_of_Interest__c</outputField>
+        </mappingFields>
+        <mappingFields>
+            <inputField>Requested_Contact__c</inputField>
+            <outputField>Requested_Contact__c</outputField>
+        </mappingFields>
+        <mappingFields>
+            <inputField>Category_of_Interest__c</inputField>
+            <outputField>Category_of_Interest__c</outputField>
+        </mappingFields>
+        <mappingFields>
+            <inputField>Double_Opt_In_Date__c</inputField>
+            <outputField>Double_Opt_In_Date__c</outputField>
+        </mappingFields>
+        <mappingFields>
+            <inputField>Double_Opt_In_Source__c</inputField>
+            <outputField>Double_Opt_In_Source__c</outputField>
+        </mappingFields>
+        <mappingFields>
+            <inputField>Double_Opt_In_Status__c</inputField>
+            <outputField>Double_Opt_In_Status__c</outputField>
+        </mappingFields>
+        <mappingFields>
             <inputField>Industry__c</inputField>
             <outputField>Industry__c</outputField>
+        </mappingFields>
+        <mappingFields>
+            <inputField>Multiple_Inquiry__c</inputField>
+            <outputField>Multiple_Inquiry__c</outputField>
         </mappingFields>
         <outputObject>Contact</outputObject>
     </objectMapping>
@@ -25,7 +57,7 @@
         </mappingFields>
         <mappingFields>
             <inputField>Category_of_Interest__c</inputField>
-            <outputField>Interest_Area_Product_Business_Line__c</outputField>
+            <outputField>Lead_Category_of_Interest__c</outputField>
         </mappingFields>
         <mappingFields>
             <inputField>Industry__c</inputField>
