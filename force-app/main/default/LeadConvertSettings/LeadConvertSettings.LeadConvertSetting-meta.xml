@@ -53,7 +53,7 @@
         <inputObject>Lead</inputObject>
         <mappingFields>
             <inputField>Business_Unit__c</inputField>
-            <outputField>Business_Unit_deleted__c</outputField>
+            <outputField>Business_Unit__c</outputField>
         </mappingFields>
         <mappingFields>
             <inputField>Category_of_Interest__c</inputField>
