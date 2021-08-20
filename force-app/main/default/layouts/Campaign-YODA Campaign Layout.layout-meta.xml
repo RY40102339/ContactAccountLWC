@@ -175,7 +175,7 @@
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
-        <label>Campaign Hierarchy Staticstics</label>
+        <label>Campaign Hierarchy Statistics</label>
         <layoutColumns>
             <layoutItems>
                 <behavior>Readonly</behavior>
