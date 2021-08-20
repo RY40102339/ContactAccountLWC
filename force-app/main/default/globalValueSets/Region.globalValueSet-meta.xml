@@ -50,7 +50,12 @@
         <default>false</default>
         <label>Japan</label>
     </customValue>
-    <description>RHQ Regions for Yokogawa</description>
+    <customValue>
+        <fullName>YIL</fullName>
+        <default>false</default>
+        <label>India</label>
+    </customValue>
+    <description>Used by User, Account, Opportunity, Lead and Order.</description>
     <masterLabel>Region</masterLabel>
     <sorted>true</sorted>
 </GlobalValueSet>
