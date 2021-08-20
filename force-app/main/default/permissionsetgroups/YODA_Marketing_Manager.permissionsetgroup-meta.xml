@@ -3,7 +3,6 @@
     <description>Permission Set Group for the &quot;Marketing Manager&quot; persona of the YODA program.</description>
     <label>YODA Marketing Manager</label>
     <permissionSets>Account_Create</permissionSets>
-    <permissionSets>App_Sales_Import_Leads</permissionSets>
     <permissionSets>Campaign_Create</permissionSets>
     <permissionSets>Campaign_Edit</permissionSets>
     <permissionSets>Case_Read</permissionSets>
