@@ -469,12 +469,6 @@
         <isActive>false</isActive>
         <label>YHQ</label>
     </customValue>
-    <customValue>
-        <fullName>India</fullName>
-        <default>false</default>
-        <isActive>false</isActive>
-        <label>India</label>
-    </customValue>
     <description>Used by User, Account, Opportunity, Lead and Order.</description>
     <masterLabel>Region</masterLabel>
     <sorted>true</sorted>
