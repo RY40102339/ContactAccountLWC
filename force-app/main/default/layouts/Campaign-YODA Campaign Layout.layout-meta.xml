@@ -349,6 +349,7 @@
         <fields>CAMPAIGN.NAME</fields>
         <fields>CAMPAIGN.TOT_NUM_RESPONSES</fields>
         <fields>CAMPAIGN.TOTAL_NUM_LEADS</fields>
+        <fields>CAMPAIGN.TOT_CONTACTS</fields>
         <fields>TOT_AMOUNT_ALL</fields>
         <relatedList>RelatedCampaignHierarchyList</relatedList>
     </relatedLists>
