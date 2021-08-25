@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
     <customValue>
+        <fullName>Oscilloscopes</fullName>
+        <default>false</default>
+        <label>Oscilloscopes</label>
+    </customValue>
+    <customValue>
         <fullName>Digital Power Analyzers</fullName>
         <default>false</default>
         <label>Digital Power Analyzers</label>
@@ -14,11 +19,6 @@
         <fullName>Optical Measuring Instruments</fullName>
         <default>false</default>
         <label>Optical Measuring Instruments</label>
-    </customValue>
-    <customValue>
-        <fullName>Oscilloscopes</fullName>
-        <default>false</default>
-        <label>Oscilloscopes</label>
     </customValue>
     <customValue>
         <fullName>Generators/Sources/Calibrators/Manometers</fullName>
