@@ -207,6 +207,7 @@
             </value>
         </inputParameters>
     </actionCalls>
+    <apiVersion>50.0</apiVersion>
     <assignments>
         <name>myAssignment_myRule_9_A2</name>
         <label>myAssignment_myRule_9_A2</label>
@@ -927,6 +928,7 @@
         <label>No_Action</label>
         <locationX>100</locationX>
         <locationY>200</locationY>
+        <filterLogic>and</filterLogic>
         <filters>
             <processMetadataValues>
                 <name>implicit</name>
