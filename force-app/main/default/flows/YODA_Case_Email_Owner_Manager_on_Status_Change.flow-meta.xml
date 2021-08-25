@@ -207,7 +207,7 @@
             </value>
         </inputParameters>
     </actionCalls>
-    <apiVersion>50.0</apiVersion>
+    <apiVersion>51.0</apiVersion>
     <assignments>
         <name>myAssignment_myRule_9_A2</name>
         <label>myAssignment_myRule_9_A2</label>

@@ -152,7 +152,7 @@
                     <name>operatorDataType</name>
                     <value>
                         <stringValue>String</stringValue>
-                    </value>
+                    </value> 
                 </processMetadataValues>
                 <processMetadataValues>
                     <name>rightHandSideType</name>

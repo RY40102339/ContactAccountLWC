@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>50.0</apiVersion>
     <assignments>
         <description>Assign Region Probability and Industry
 Region - from Record&apos;s Owner region
@@ -139,35 +140,6 @@ AND(
 ),
 TEXT({!$Record.Region__c}),
 TEXT({!$Record.Owner.Region__c})
-)</expression>
-    </formulas>
-    <formulas>
-        <description>Update Stage name based on key fields in Opportunity  Product RecordType.</description>
-        <name>StageName</name>
-        <dataType>String</dataType>
-        <expression>CASE(
- IF(NOT(ISPICKVAL({!$Record.StageName},&quot;Closed Won&quot;)),    &quot;1&quot;, &quot;0&quot;) + 
- IF(NOT(ISPICKVAL({!$Record.StageName},&quot;Closed Lost&quot;)),    &quot;1&quot;, &quot;0&quot;) + 
- IF(NOT(ISPICKVAL({!$Record.StageName},&quot;Disqualify&quot;)),    &quot;1&quot;, &quot;0&quot;) + 
- IF(NOT(ISPICKVAL({!$Record.Category_of_Interest__c},&quot;&quot;)),    &quot;1&quot;, &quot;0&quot;) +
-    IF(NOT(ISBLANK( {!$Record.End_User__c})),&quot;1&quot;, &quot;0&quot;) +
-    IF(NOT(ISBLANK({!$Record.Amount})),&quot;1&quot;, &quot;0&quot;)+
-    IF(NOT(ISBLANK( {!$Record.RFQ_Received_Date__c})),&quot;1&quot;, &quot;0&quot;) +
-    IF(NOT(ISBLANK({!$Record.Application__c})),&quot;1&quot;, &quot;0&quot;)+
-    IF(NOT(ISBLANK({!$Record.Quotation_Issued__c})),    &quot;1&quot;, &quot;0&quot;) +
-    IF({!$Record.Export_Control_Check__c},&quot;1&quot;, &quot;0&quot;) +
-    IF(NOT(ISBLANK({!$Record.Quotation_Number__c})),&quot;1&quot;, &quot;0&quot;)+
-    IF({!$Record.Proposal_price_Authorized__c},&quot;1&quot;,&quot;0&quot;)+
-    IF(NOT(ISBLANK({!$Record.Customer_PO_Received__c})),    &quot;1&quot;, &quot;0&quot;) +
-    IF({!$Record.PO_Approved__c},&quot;1&quot;, &quot;0&quot;) +
-    IF({!$Record.Order_Entry_Approved__c},&quot;1&quot;, &quot;0&quot;)+
-    IF(NOT(ISBLANK({!$Record.Order_Entry_Date__c})),&quot;1&quot;,&quot;0&quot;)+
-    IF(NOT(ISBLANK({!$Record.SO_Number__c})),&quot;1&quot;,&quot;0&quot;),
-&quot;11111111111111111&quot;, &quot;Negotiate&quot;,
-&quot;11111111111100000&quot;, &quot;Propose / Quote&quot;,
-&quot;11111111000000000&quot;, &quot;Develop&quot;,
-&quot;11111100000000000&quot;, &quot;Qualify(SQL)&quot;,
-Text({!$Record.StageName})
 )</expression>
     </formulas>
     <interviewLabel>YODA Opportunity Populate Fields Before Create {!$Flow.CurrentDateTime}</interviewLabel>
