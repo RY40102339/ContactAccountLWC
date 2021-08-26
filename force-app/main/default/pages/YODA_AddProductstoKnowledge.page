@@ -1,4 +1,4 @@
-<apex:page controller="AddProductstoKnowledgeController" standardStylesheets="false" lightningStylesheets="true">
+<apex:page controller="YODA_AddProductstoKnowledgeCtlr" standardStylesheets="false" lightningStylesheets="true">
     <head>
         <apex:includescript value="//code.jquery.com/jquery-1.11.1.min.js"/>
         <apex:includescript value="//cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js"/>
@@ -8,12 +8,25 @@
         j$ = jQuery.noConflict();
         j$(document).ready( function () {
             var accTable = j$('[id$="accTable"]').DataTable({
-                 
+                "dom": 'lrtip'
             });
         });
     </script>
     <apex:slds />
-    <apex:form >
+    <apex:form id="fm">
+    
+      <apex:actionstatus id="sts">
+            <apex:facet name="start">
+                <div class="slds-spinner_container">
+                    <div id="mySpinner" role="status" class="slds-spinner slds-spinner_medium">
+                        <span class="slds-assistive-text">Loading</span>
+                        <div class="slds-spinner__dot-a"></div>
+                        <div class="slds-spinner__dot-b"></div>
+                    </div>
+                </div>
+            </apex:facet>
+        </apex:actionstatus>
+
     <div class="slds-grid slds-gutters">
       <div class="slds-col">
         <div class="slds-text-heading_medium">Please select product</div>
@@ -24,9 +37,11 @@
       </div>
      
     </div>
-    <br/>
     <div class="slds-table--header-fixed_container" style="height:450px;">
     <div class="slds-scrollable_y" style="height:100%;">
+            <apex:outputText styleClass="slds-text-heading_medium" value="List of products"></apex:outputText>
+            <apex:commandButton styleClass="slds-button slds-button_neutral" action="{!search}" Value="Search" style="float:right"/>
+            <apex:inputText label="Search" value="{!search}" style="float:right; margin-right:1%;"/>
             <table id="accTable" class="slds-table slds-table_bordered slds-table_cell-buffer" cellspacing="0" width="100%">
                 <thead>
                     <tr>
@@ -39,28 +54,33 @@
                         <th>
                            Product Code
                         </th>
+                        <th>
+                           Category
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
-                    <apex:repeat value="{!listWrapper}" var="lw">
+                    <apex:repeat value="{!mapWrapper}" var="i">
                     <tr>
                       <td>
-                        <apex:inputCheckbox value="{!lw.isSelected}"/>
+                        <apex:inputCheckbox value="{!mapWrapper[i].isSelected}"/>
                       </td>
                       <td>
-                        {!lw.product.Name}
+                        {!mapWrapper[i].product.Name}
                       </td>
                       <td>
-                        {!lw.product.ProductCode}
+                        {!mapWrapper[i].product.ProductCode}
+                      </td>
+                      <td>
+                        {!mapWrapper[i].product.Category__r.Name}
                       </td>
                       </tr>
                       </apex:repeat>
                 </tbody>
             </table>
 
-
     </div>
 </div>
-</apex:form> 
+</apex:form>  
     
 </apex:page>
