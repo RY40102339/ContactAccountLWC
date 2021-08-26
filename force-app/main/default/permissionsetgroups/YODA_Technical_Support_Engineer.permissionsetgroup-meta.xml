@@ -7,11 +7,14 @@
     <permissionSets>Case_Create</permissionSets>
     <permissionSets>Case_Edit</permissionSets>
     <permissionSets>Category_Edit</permissionSets>
+    <permissionSets>Category_Read</permissionSets>
     <permissionSets>Change_Ownership</permissionSets>
     <permissionSets>Contact_Edit</permissionSets>
+    <permissionSets>Dialect_Read</permissionSets>
     <permissionSets>Lead_Create</permissionSets>
     <permissionSets>Lead_Edit</permissionSets>
     <permissionSets>Order_Read</permissionSets>
+    <permissionSets>Parent_Category_Read</permissionSets>
     <permissionSets>System_Create_and_Customize_List_Views</permissionSets>
     <permissionSets>System_Create_and_Customize_Reports_and_Dashboards</permissionSets>
     <permissionSets>Work_Order_Create</permissionSets>

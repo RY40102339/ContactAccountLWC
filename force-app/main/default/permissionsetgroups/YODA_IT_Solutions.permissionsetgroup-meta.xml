@@ -1,22 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PermissionSetGroup xmlns="http://soap.sforce.com/2006/04/metadata">
-    <description>Permission Set Group for the &quot;Customer Success Representative&quot; persona of the YODA program.</description>
-    <label>YODA Customer Success Representative</label>
+    <description>Permission Set Group for the &quot;IT Solutions&quot; persona of the YODA program.</description>
+    <label>YODA IT Solutions</label>
+    <permissionSets>Account_Create</permissionSets>
     <permissionSets>Account_Edit</permissionSets>
+    <permissionSets>Asset_Create</permissionSets>
     <permissionSets>Asset_Edit</permissionSets>
+    <permissionSets>Campaign_Create</permissionSets>
+    <permissionSets>Campaign_Edit</permissionSets>
     <permissionSets>Case_Create</permissionSets>
     <permissionSets>Case_Edit</permissionSets>
     <permissionSets>Category_Edit</permissionSets>
     <permissionSets>Category_Read</permissionSets>
-    <permissionSets>Change_Ownership</permissionSets>
     <permissionSets>Contact_Create</permissionSets>
     <permissionSets>Dialect_Read</permissionSets>
-    <permissionSets>Lead_Create</permissionSets>
     <permissionSets>Lead_Edit</permissionSets>
-    <permissionSets>Order_Read</permissionSets>
+    <permissionSets>Opportunity_Create</permissionSets>
+    <permissionSets>Opportunity_Edit</permissionSets>
+    <permissionSets>Order_Create</permissionSets>
+    <permissionSets>Order_Edit</permissionSets>
     <permissionSets>Parent_Category_Read</permissionSets>
+    <permissionSets>Product_Create</permissionSets>
+    <permissionSets>Product_Edit</permissionSets>
     <permissionSets>System_Create_and_Customize_List_Views</permissionSets>
-    <permissionSets>System_Create_and_Customize_Reports_and_Dashboards</permissionSets>
+    <permissionSets>System_Manage_Public_List_Views</permissionSets>
+    <permissionSets>System_Transfer_Records</permissionSets>
     <permissionSets>Work_Order_Create</permissionSets>
     <permissionSets>Work_Order_Edit</permissionSets>
     <status>Updated</status>
