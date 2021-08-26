@@ -29,6 +29,14 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Account_Logo__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>AccountNumber</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Short_Name_Local__c</field>
             </layoutItems>
             <layoutItems>
@@ -153,6 +161,10 @@
         <editHeading>true</editHeading>
         <label>Account Summary</label>
         <layoutColumns>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Migration_Id__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Industry_Code__c</field>

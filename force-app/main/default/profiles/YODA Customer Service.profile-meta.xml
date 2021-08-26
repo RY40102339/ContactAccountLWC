@@ -19,9 +19,9 @@
     <custom>true</custom>
     <description>Profile for Support teams of the YODA program. Most permissions revolve around Account, Contact, Cases, and other user/object permission to perform customer service tasks</description>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Account.AccountNumber</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -29,9 +29,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Account.Account_Logo__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -151,7 +151,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Migration_Id__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
