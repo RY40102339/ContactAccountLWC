@@ -5,11 +5,14 @@
     <permissionSets>Account_Edit</permissionSets>
     <permissionSets>Asset_Edit</permissionSets>
     <permissionSets>Case_Edit</permissionSets>
+    <permissionSets>Category_Read</permissionSets>
     <permissionSets>Competitor_Create</permissionSets>
     <permissionSets>Competitor_Edit</permissionSets>
+    <permissionSets>Dialect_Read</permissionSets>
     <permissionSets>Lead_Edit</permissionSets>
     <permissionSets>Opportunity_Edit</permissionSets>
     <permissionSets>Order_Edit</permissionSets>
+    <permissionSets>Parent_Category_Read</permissionSets>
     <permissionSets>Quote_Edit</permissionSets>
     <permissionSets>System_Create_and_Customize_List_Views</permissionSets>
     <permissionSets>System_Create_and_Customize_Reports_and_Dashboards</permissionSets>

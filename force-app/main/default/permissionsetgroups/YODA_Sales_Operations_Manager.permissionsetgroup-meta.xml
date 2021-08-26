@@ -4,11 +4,14 @@
     <label>YODA Sales Operations Manager</label>
     <permissionSets>Account_Activate_Pending_Accounts</permissionSets>
     <permissionSets>Account_Edit</permissionSets>
+    <permissionSets>Category_Read</permissionSets>
     <permissionSets>Competitor_Create</permissionSets>
     <permissionSets>Competitor_Edit</permissionSets>
+    <permissionSets>Dialect_Read</permissionSets>
     <permissionSets>Lead_Edit</permissionSets>
     <permissionSets>Opportunity_Edit</permissionSets>
     <permissionSets>Order_Read</permissionSets>
+    <permissionSets>Parent_Category_Read</permissionSets>
     <permissionSets>Quote_Read</permissionSets>
     <permissionSets>System_Convert_Leads</permissionSets>
     <permissionSets>System_Create_and_Customize_List_Views</permissionSets>
