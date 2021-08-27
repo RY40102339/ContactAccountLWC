@@ -2,9 +2,9 @@
 <Role xmlns="http://soap.sforce.com/2006/04/metadata">
     <caseAccessLevel>Read</caseAccessLevel>
     <contactAccessLevel>Edit</contactAccessLevel>
-    <description>Marketing Specialist</description>
+    <description>Busan Office Sales Person</description>
     <mayForecastManagerShare>false</mayForecastManagerShare>
-    <name>Marketing Specialist</name>
+    <name>Busan Office Sales Person</name>
     <opportunityAccessLevel>Read</opportunityAccessLevel>
-    <parentRole>YCA_T_M_Head</parentRole>
+    <parentRole>Busan_Office_Leader</parentRole>
 </Role>

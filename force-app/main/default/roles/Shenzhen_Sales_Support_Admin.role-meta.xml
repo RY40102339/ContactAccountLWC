@@ -2,9 +2,9 @@
 <Role xmlns="http://soap.sforce.com/2006/04/metadata">
     <caseAccessLevel>Read</caseAccessLevel>
     <contactAccessLevel>Edit</contactAccessLevel>
-    <description>YMI Sales Operations and Support</description>
+    <description>Shenzhen Sales Support Admin</description>
     <mayForecastManagerShare>false</mayForecastManagerShare>
-    <name>YMI Sales Operations and Support</name>
+    <name>Shenzhen Sales Support Admin</name>
     <opportunityAccessLevel>Read</opportunityAccessLevel>
-    <parentRole>YMI_Head</parentRole>
-</Role> 
+    <parentRole>South_Area_Sales_Manager</parentRole>
+</Role>

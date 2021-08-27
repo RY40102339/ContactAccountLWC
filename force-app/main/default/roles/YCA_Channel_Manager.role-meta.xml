@@ -2,8 +2,9 @@
 <Role xmlns="http://soap.sforce.com/2006/04/metadata">
     <caseAccessLevel>Read</caseAccessLevel>
     <contactAccessLevel>Edit</contactAccessLevel>
+    <description>YCA Channel Manager</description>
     <mayForecastManagerShare>false</mayForecastManagerShare>
-    <name>Sales Assistant</name>
+    <name>YCA Channel Manager</name>
     <opportunityAccessLevel>Read</opportunityAccessLevel>
-    <parentRole>Sales_Operation_Leader</parentRole>
+    <parentRole>T_M_Sales_Manager</parentRole>
 </Role>
