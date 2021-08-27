@@ -9,7 +9,7 @@ ISPICKVAL(StageName,&apos;Develop&apos;),
 OR (
 ISBLANK(Category_of_Interest__c),
 ISBLANK( End_User__c),
-ISPICKVAL(Project_Type__c,&quot;&quot;),
+ISPICKVAL(Project_Type__c,&quot;&quot;), 
 ISBLANK(Amount)
 )
 )</errorConditionFormula>

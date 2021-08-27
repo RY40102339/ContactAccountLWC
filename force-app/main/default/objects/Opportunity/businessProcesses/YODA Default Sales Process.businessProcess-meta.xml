@@ -3,23 +3,7 @@
     <fullName>YODA Default Sales Process</fullName>
     <isActive>true</isActive>
     <values>
-        <fullName>Identify %28SAL%29</fullName>
-        <default>false</default>
-    </values>
-    <values>
-        <fullName>Qualify%28SQL%29</fullName>
-        <default>false</default>
-    </values>
-    <values>
-        <fullName>Develop</fullName>
-        <default>false</default>
-    </values>
-    <values>
-        <fullName>Propose %2F Quote</fullName>
-        <default>false</default>
-    </values>
-    <values>
-        <fullName>Negotiate</fullName>
+        <fullName>Closed Lost</fullName>
         <default>false</default>
     </values>
     <values>
@@ -27,11 +11,27 @@
         <default>false</default>
     </values>
     <values>
-        <fullName>Closed Lost</fullName>
+        <fullName>Develop</fullName>
         <default>false</default>
     </values>
     <values>
         <fullName>Disqualify</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Identify %28SAL%29</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Negotiate</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Propose %2F Quote</fullName>
+        <default>false</default>
+    </values>
+    <values>
+        <fullName>Qualify%28SQL%29</fullName>
         <default>false</default>
     </values>
 </BusinessProcess>

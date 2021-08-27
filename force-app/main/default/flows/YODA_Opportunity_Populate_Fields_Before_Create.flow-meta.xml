@@ -56,7 +56,7 @@ Industry - From Account&apos;s record</description>
     </decisions>
     <description>Populate fields before Opportunity record is created. Industry, Region. 
 Added Probability Matrix logic.
-StageName automation formula is defined, but not in use.</description>
+Added Bypass Check</description>
     <formulas>
         <name>Probability</name>
         <dataType>Number</dataType>
@@ -182,16 +182,6 @@ TEXT({!$Record.Owner.Region__c})
         <isOutput>true</isOutput>
         <value>
             <stringValue>User is not allowed to create Opportunity.</stringValue>
-        </value>
-    </variables>
-    <variables>
-        <name>PriorStageName</name>
-        <dataType>String</dataType>
-        <isCollection>false</isCollection>
-        <isInput>false</isInput>
-        <isOutput>false</isOutput>
-        <value>
-            <elementReference>$Record.StageName</elementReference>
         </value>
     </variables>
 </Flow>

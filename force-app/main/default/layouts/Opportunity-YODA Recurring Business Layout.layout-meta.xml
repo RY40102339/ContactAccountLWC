@@ -22,7 +22,7 @@
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>Contact__c</field>
-            </layoutItems>
+            </layoutItems> 
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Parent_Opportunity_Program__c</field>

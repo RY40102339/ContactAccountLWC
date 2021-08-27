@@ -13,7 +13,7 @@ ISPICKVAL(Competition_Positioning__c,&quot;&quot;),
 ISBLANK( RFQ_Received_Date__c),
 ISBLANK(Application__c),
 ISBLANK(Category_of_Interest__c),
-ISBLANK( End_User__c),
+ISBLANK( End_User__c), 
 ISBLANK(Amount)
 )
 )</errorConditionFormula>
