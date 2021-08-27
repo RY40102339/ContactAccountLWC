@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>YODA_OPPTY_Control_Backward_Path</fullName>
-    <active>true</active>
-    <description>YODA Validation to strictly control Back ward Sales path for all Record types</description>
+    <active>false</active>
+    <description>YODA Validation to strictly control Back ward Sales path for all Record types
+Deactivate as per - I-422449</description>
     <errorConditionFormula>CASE(
   TEXT(PRIORVALUE(StageName)),
   &apos;Identify (SAL)&apos;, 1,
