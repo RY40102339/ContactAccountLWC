@@ -2,9 +2,9 @@
 <Role xmlns="http://soap.sforce.com/2006/04/metadata">
     <caseAccessLevel>Read</caseAccessLevel>
     <contactAccessLevel>Edit</contactAccessLevel>
-    <description>Channel Manager</description>
+    <description>YEF Channel Manager</description>
     <mayForecastManagerShare>false</mayForecastManagerShare>
-    <name>Channel Manager</name>
+    <name>YEF Channel Manager</name>
     <opportunityAccessLevel>Read</opportunityAccessLevel>
-    <parentRole>Distributors_Sales_Manager</parentRole>
+    <parentRole>Distribution_Sales_Manager</parentRole>
 </Role>

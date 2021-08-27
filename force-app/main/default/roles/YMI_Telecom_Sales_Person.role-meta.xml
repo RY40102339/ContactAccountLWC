@@ -6,5 +6,5 @@
     <mayForecastManagerShare>false</mayForecastManagerShare>
     <name>YMI Telecom Sales Person</name>
     <opportunityAccessLevel>Read</opportunityAccessLevel>
-    <parentRole>YMI_Head</parentRole>
+    <parentRole>YMI_Telecom_Sales_Manager</parentRole>
 </Role>
