@@ -5,6 +5,36 @@
     <description>For Life Science, Bioprocess, Pharmaceutical, Food &amp; Beverage, Water</description>
     <label>Life</label>
     <picklistValues>
+        <picklist>Close_Status__c</picklist>
+        <values>
+            <fullName>Calibrated</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cancelled</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Repaired</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unrepaired</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Final_Test__c</picklist>
+        <values>
+            <fullName>Final test NOT successful</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Final test successful</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
         <picklist>Inspection_Category__c</picklist>
         <values>
             <fullName>On-Spot</fullName>
@@ -35,22 +65,21 @@
         </values>
     </picklistValues>
     <picklistValues>
+        <picklist>Quote_required__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
         <picklist>Status</picklist>
         <values>
-            <fullName>Case Created</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Completed</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Inspection Created</fullName>
+            <fullName>New</fullName>
             <default>true</default>
-        </values>
-        <values>
-            <fullName>Partially Completed</fullName>
-            <default>false</default>
         </values>
         <values>
             <fullName>Plan Completed</fullName>
@@ -78,6 +107,70 @@
         </values>
         <values>
             <fullName>Work Started</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Sub_status__c</picklist>
+        <values>
+            <fullName>Goods Receipt</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PO Receipt</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Quoted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Waiting For Good</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Waiting for Parts</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Waiting for Third Party</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type__c</picklist>
+        <values>
+            <fullName>Callibration</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Modification</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Repair</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Warranty_Claimed__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Warranty_Granted__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
             <default>false</default>
         </values>
     </picklistValues>
@@ -121,6 +214,25 @@
         </values>
         <values>
             <fullName>Warranty Service</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Work_Order_Origin__c</picklist>
+        <values>
+            <fullName>Email</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Phone</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Warehouse</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Web</fullName>
             <default>false</default>
         </values>
     </picklistValues>

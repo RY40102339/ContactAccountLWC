@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>YODA_UNCHECK_SEND_NOTI_CHECKBOX</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(ISCHANGED( Send_Case_Confirmation_Email__c ),Send_Case_Confirmation_Email__c = FALSE, NOT( $Setup.Bypass_Settings__c.Bypass_Validation_Rules__c )
+)</errorConditionFormula>
+    <errorDisplayField>Send_Case_Confirmation_Email__c</errorDisplayField>
+    <errorMessage>Once checked, can&apos;t remove</errorMessage>
+</ValidationRule>
