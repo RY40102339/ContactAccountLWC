@@ -16,7 +16,7 @@ ISBLANK(Amount)
 )</errorConditionFormula>
     <errorMessage>To move to &apos;Develop&apos; stage, please ensure below key fields are populated:
 • Export Control
-• Nuclear Industry Compliant
+• Nuclear Industry Compliant 
 • Category of Interest
 • System Id/License Number
 • Amount</errorMessage>

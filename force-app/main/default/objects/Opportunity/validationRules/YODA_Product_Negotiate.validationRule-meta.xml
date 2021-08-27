@@ -12,7 +12,7 @@ ISPICKVAL(StageName,&apos;Negotiate&apos;)),
 OR (
 
 ISBLANK( Quotation_Issued__c),
-NOT(Export_Control_Check__c),
+NOT(Export_Control_Check__c), 
 ISBLANK(Quotation_Number__c),
 NOT(Proposal_price_Authorized__c),
 ISPICKVAL(Competition_Positioning__c,&quot;&quot;),
