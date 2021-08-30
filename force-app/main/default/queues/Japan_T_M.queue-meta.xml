@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Queue xmlns="http://soap.sforce.com/2006/04/metadata">
     <doesSendEmailToMembers>true</doesSendEmailToMembers>
+    <email>support_yoda@ml.jp.yokogawa.com</email>
     <name>Japan T&amp;M</name>
+    <queueMembers>
+        <roles>
+            <role>Chubu_Team_Leader</role>
+            <role>Domestic_Sales_Dept_Head</role>
+            <role>Higashi_Nippon_Team_1_Leader</role>
+            <role>Higashi_Nippon_Team_2_Leader</role>
+            <role>Kanasai_Shikoku_Team_Leader</role>
+            <role>Kyushu_Chugoku_Team_Leader</role>
+            <role>YMI_Telecom_Sales_Manager</role>
+            <role>YMI_Telecom_Sales_Person</role>
+        </roles>
+    </queueMembers>
+    <queueRoutingConfig>Priority_Cases</queueRoutingConfig>
     <queueSobject>
         <sobjectType>Case</sobjectType>
     </queueSobject>

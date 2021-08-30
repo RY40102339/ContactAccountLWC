@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Queue xmlns="http://soap.sforce.com/2006/04/metadata">
     <doesSendEmailToMembers>true</doesSendEmailToMembers>
+    <email>support_yoda@ml.jp.yokogawa.com</email>
     <name>YSH T&amp;M</name>
+    <queueMembers>
+        <roles>
+            <role>Beijing_Area_Sales_Manager</role>
+            <role>Shanghai_Area_Sales_Manager</role>
+            <role>South_Area_Sales_Manager</role>
+        </roles>
+    </queueMembers>
     <queueSobject>
         <sobjectType>Case</sobjectType>
     </queueSobject>

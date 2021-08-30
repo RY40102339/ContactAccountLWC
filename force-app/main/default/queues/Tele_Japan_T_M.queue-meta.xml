@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Queue xmlns="http://soap.sforce.com/2006/04/metadata">
     <doesSendEmailToMembers>true</doesSendEmailToMembers>
-    <email>no-reply@salesforce.com.donotsend</email>
+    <email>support_yoda@ml.jp.yokogawa.com</email>
     <name>Tele Japan T&amp;M</name>
+    <queueMembers>
+        <roles>
+            <role>YMI_Sales_Operations_and_Support</role>
+        </roles>
+    </queueMembers>
     <queueSobject>
         <sobjectType>Lead</sobjectType>
     </queueSobject>
