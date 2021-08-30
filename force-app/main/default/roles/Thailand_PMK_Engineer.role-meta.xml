@@ -2,9 +2,9 @@
 <Role xmlns="http://soap.sforce.com/2006/04/metadata">
     <caseAccessLevel>Read</caseAccessLevel>
     <contactAccessLevel>Edit</contactAccessLevel>
-    <description>YEA Thailand PMK Engineer</description>
+    <description>Thailand PMK Engineer</description>
     <mayForecastManagerShare>false</mayForecastManagerShare>
-    <name>YEA Thailand PMK Engineer</name>
+    <name>Thailand PMK Engineer</name>
     <opportunityAccessLevel>Read</opportunityAccessLevel>
     <parentRole>Thailand_Sales_Manager</parentRole>
 </Role>
