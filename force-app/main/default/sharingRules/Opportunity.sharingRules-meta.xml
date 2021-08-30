@@ -29,6 +29,20 @@
         </criteriaItems>
     </sharingCriteriaRules>
     <sharingCriteriaRules>
+        <fullName>YODA_Opportunity_Japan_Edit_Rule</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Share (Edit )all domestic Opportunities (Japan) with Sales Operations &amp; Support. - this includes YMI telecom sales person and manager opportunities.</description>
+        <label>YODA Opportunity Japan Edit Rule</label>
+        <sharedTo>
+            <group>YODA_Opportunity_Japan_Edit_View</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Region__c</field>
+            <operation>equals</operation>
+            <value>Japan</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
         <fullName>YODA_Opportunity_Life_SBU_Public_View</fullName>
         <accessLevel>Read</accessLevel>
         <description>YODA Opportunity Digital SBU Public View</description>
@@ -95,6 +109,25 @@
             <field>Business_Unit__c</field>
             <operation>equals</operation>
             <value>Energy &amp; Sustainable Business HQ,Material SBU,Life SBU,Products HQ,Digital Solutions HQ,YMI SBU</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>YODA_Opportunity_YIL_View</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>YODA View all Opportunities  where BU= YMI SBU and region = YIL (India) with Comm./Optical Sales Manager, Business Development Manager, YIL PMK Engineer and  Customer Contact Center Customer Service Representative.</description>
+        <label>YODA Opportunity YIL View</label>
+        <sharedTo>
+            <group>YODA_Opportunity_YIL_View</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Region__c</field>
+            <operation>equals</operation>
+            <value>India</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Business_Unit__c</field>
+            <operation>equals</operation>
+            <value>YMI SBU</value>
         </criteriaItems>
     </sharingCriteriaRules>
     <sharingCriteriaRules>
@@ -188,6 +221,25 @@
             <field>Region__c</field>
             <operation>equals</operation>
             <value>Japan</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>YODA_Opportunity_YMI_SBU_YEA_View</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>View all Opportunities where BU=YMI SBU and Region=YEA with YEA Deputy Head, YEA PMK Engineer and YEA Marketing Manager.</description>
+        <label>YODA Opportunity YMI SBU YEA View</label>
+        <sharedTo>
+            <group>YODA_Opportunity_YEA_View</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Business_Unit__c</field>
+            <operation>equals</operation>
+            <value>YMI SBU</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Region__c</field>
+            <operation>equals</operation>
+            <value>ASEAN &amp; Oceania</value>
         </criteriaItems>
     </sharingCriteriaRules>
     <sharingOwnerRules>
