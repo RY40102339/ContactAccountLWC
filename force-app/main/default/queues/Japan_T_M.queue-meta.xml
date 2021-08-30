@@ -15,7 +15,6 @@
             <role>YMI_Telecom_Sales_Person</role>
         </roles>
     </queueMembers>
-    <queueRoutingConfig>Priority_Cases</queueRoutingConfig>
     <queueSobject>
         <sobjectType>Case</sobjectType>
     </queueSobject>
