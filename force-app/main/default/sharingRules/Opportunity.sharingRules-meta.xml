@@ -1,3 +1,301 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata"/>
-
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>YODA_Opportunity_Digital_SBU_Public_View</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>YODA Opportunity Digital SBU Public View</description>
+        <label>YODA Opportunity Digital SBU Public View</label>
+        <sharedTo>
+            <role>Digital_Solutions_GBO</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>Business_Unit__c</field>
+            <operation>equals</operation>
+            <value>Digital Solutions HQ</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>YODA_Opportunity_Energy_SBU_Public_View</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>YODA Opportunity Energy SBU Public View</description>
+        <label>YODA Opportunity Energy SBU Public View</label>
+        <sharedTo>
+            <role>Energy_Sustainable_Business_GBO</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>Business_Unit__c</field>
+            <operation>equals</operation>
+            <value>Energy &amp; Sustainable Business HQ</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>YODA_Opportunity_Life_SBU_Public_View</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>YODA Opportunity Digital SBU Public View</description>
+        <label>YODA Opportunity Life SBU Public View</label>
+        <sharedTo>
+            <role>Life_Business_GBO</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>Business_Unit__c</field>
+            <operation>equals</operation>
+            <value>Life SBU</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>YODA_Opportunity_Materials_SBU_Public_View</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>YODA Opportunity Materials SBU Public View</description>
+        <label>YODA Opportunity Materials SBU Public View</label>
+        <sharedTo>
+            <role>Material_Business_GBO</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>Business_Unit__c</field>
+            <operation>equals</operation>
+            <value>Material SBU</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>YODA_Opportunity_Products_SBU_Public_View</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>YODA Opportunity Products SBU Public View</description>
+        <label>YODA Opportunity Products SBU Public View</label>
+        <sharedTo>
+            <role>Products_GBO</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>Business_Unit__c</field>
+            <operation>equals</operation>
+            <value>Products HQ</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>YODA_Opportunity_Public_View</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>YODA Opportunity Public View</label>
+        <sharedTo>
+            <group>YODA_Opportunity_YMI_SBU_View</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Business_Unit__c</field>
+            <operation>equals</operation>
+            <value>YMI SBU</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>YODA_Opportunity_Public_View_All_BUs</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>YODA Opportunity Public View All BUs</description>
+        <label>YODA Opportunity Public View All BUs</label>
+        <sharedTo>
+            <role>Global_Sales_Headquarters</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>Business_Unit__c</field>
+            <operation>equals</operation>
+            <value>Energy &amp; Sustainable Business HQ,Material SBU,Life SBU,Products HQ,Digital Solutions HQ,YMI SBU</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>YODA_Opportunity_YMISBU_YCA_Public_View</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>View all Opportunities where BU= YMI SBU and region = YCA (North America) with themselves.</description>
+        <label>YODA Opportunity YMISBU - YCA Public View</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>YCA_T_M_Head</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>Business_Unit__c</field>
+            <operation>equals</operation>
+            <value>YMI SBU</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Region__c</field>
+            <operation>equals</operation>
+            <value>North America</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>YODA_Opportunity_YMISBU_YEF_Public_View</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>YODA Opportunity YMISBU - YEF Public View</label>
+        <sharedTo>
+            <group>YODA_Opportunity_YMI_SBU_YEF_View</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Business_Unit__c</field>
+            <operation>equals</operation>
+            <value>YMI SBU</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Region__c</field>
+            <operation>equals</operation>
+            <value>Europe</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>YODA_Opportunity_YMISBU_YKO_Public_View</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>View all Opportunities  where BU= YMI SBU and region = YKO (Korea) with themselves.</description>
+        <label>YODA Opportunity YMISBU - YKO Public View</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>YKO_T_M_Head</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>Business_Unit__c</field>
+            <operation>equals</operation>
+            <value>YMI SBU</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Region__c</field>
+            <operation>equals</operation>
+            <value>Korea</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>YODA_Opportunity_YMISBU_YSH_Public_View</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>YODA Opportunity YMISBU - YSH Public View</description>
+        <label>YODA Opportunity YMISBU - YSH Public View</label>
+        <sharedTo>
+            <group>YODA_Opportunity_YMI_SBU_China_View</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Business_Unit__c</field>
+            <operation>equals</operation>
+            <value>YMI SBU</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Region__c</field>
+            <operation>equals</operation>
+            <value>China</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>YODA_Opportunity_YMI_SBU_Japan_Public_View</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>YODA Opportunity YMI SBU Japan Public View</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Domestic_Sales_Dept_Head</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>Business_Unit__c</field>
+            <operation>equals</operation>
+            <value>YMI SBU</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Region__c</field>
+            <operation>equals</operation>
+            <value>Japan</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingOwnerRules>
+        <fullName>YODA_Opportunity_Beijing_Edit</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Share (Edit) Opportunities owned by all members under Beijing Area Sales Manager with Beijing Sales Support Admin.</description>
+        <label>YODA Opportunity Beijing Edit</label>
+        <sharedTo>
+            <role>Beijing_Sales_Support_Admin</role>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinatesInternal>Beijing_Area_Sales_Manager</roleAndSubordinatesInternal>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>YODA_Opportunity_Germany_View</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>Share (view ) Opportunities owned by Sales Person based in Germany with the roles of Germany Sales Support Admin, Germany Marketing Manager, Germany PMK Engineer and Germany Marketing Specialist.</description>
+        <label>YODA Opportunity Germany View</label>
+        <sharedTo>
+            <group>YODA_Opportunity_Germany_View</group>
+        </sharedTo>
+        <sharedFrom>
+            <role>Germany_Sales_Person</role>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>YODA_Opportunity_Italy_Edit</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Share (Edit) Opportunities owned by Italy Sales Manager and Italy Sales Person with Italy Sales Support Admin</description>
+        <label>YODA Opportunity Italy Edit</label>
+        <sharedTo>
+            <role>Italy_Sales_Support_Admin</role>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinatesInternal>Italy_Sales_Manager</roleAndSubordinatesInternal>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>YODA_Opportunity_Malaysia</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Share (Edit) Opportunities owned by Malaysia Sales Manager and Malaysia Sales Person with Malaysia Sales Support Admin.</description>
+        <label>YODA Opportunity Malaysia</label>
+        <sharedTo>
+            <role>Malaysia_Sales_Support_Admin</role>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinatesInternal>Malaysia_Sales_Manager</roleAndSubordinatesInternal>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>YODA_Opportunity_Netherlands_Edit</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Share (Edit) all Netherlands Sales Person Opportunities with Netherlands Sales Support Admin</description>
+        <label>YODA Opportunity Netherlands Edit</label>
+        <sharedTo>
+            <role>Netherlands_Sales_Support_Admin</role>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinatesInternal>Netherlands_Sales_Person</roleAndSubordinatesInternal>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>YODA_Opportunity_Shanghai_Edit</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Share (Edit) Opportunities owned by all members under Shanghai Area Sales Manager with Shanghai Sales Support Admin.</description>
+        <label>YODA Opportunity Shanghai Edit</label>
+        <sharedTo>
+            <role>Shanghai_Sales_Support_Admin</role>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinatesInternal>Shanghai_Area_Sales_Manager</roleAndSubordinatesInternal>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>YODA_Opportunity_SouthArea_Manager_Edit</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Share (Edit) Opportunities owned by all members under South Area Sales Manager with Shenzhen Sales Support Admin</description>
+        <label>YODA Opportunity SouthArea Manager Edit</label>
+        <sharedTo>
+            <role>Shenzhen_Sales_Support_Admin</role>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinatesInternal>South_Area_Sales_Manager</roleAndSubordinatesInternal>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>YODA_Opportunity_Thailand_View</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>Share(View) Opportunities owned by Thailand Sales Manager, Thailand Direct Sales Person and Thailand Distributors Channel Manager with Thailand PMK Engineer.</description>
+        <label>YODA Opportunity Thailand View</label>
+        <sharedTo>
+            <role>Thailand_PMK_Engineer</role>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinatesInternal>Thailand_Sales_Manager</roleAndSubordinatesInternal>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>YODA_Opportunity_YSH_Sales_ManagerEdit</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Share (Edit) Opportunities owned by all members under Sales Division Country Manager in YSH region with Sales Division Sales Support Admin in YSH region.</description>
+        <label>YODA Opportunity YSH Sales ManagerEdit</label>
+        <sharedTo>
+            <role>Sales_Division_Sales_Support_Admin</role>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinatesInternal>Sales_Division_Country_Sales_Manager</roleAndSubordinatesInternal>
+        </sharedFrom>
+    </sharingOwnerRules>
+</SharingRules>
