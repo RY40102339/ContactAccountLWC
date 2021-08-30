@@ -4,7 +4,6 @@
     <columns>FULL_NAME</columns>
     <columns>LEAD.COMPANY</columns>
     <columns>LEAD.RATING</columns>
-    <columns>pi__score__c</columns>
     <columns>LEAD.STATUS</columns>
     <columns>LEAD.LEAD_SOURCE</columns>
     <columns>CORE.USERS.ALIAS</columns>
