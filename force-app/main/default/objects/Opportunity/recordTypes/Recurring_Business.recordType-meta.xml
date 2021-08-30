@@ -356,6 +356,10 @@
     <picklistValues>
         <picklist>Business_Unit__c</picklist>
         <values>
+            <fullName>Energy &amp; Sustainable Business HQ</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>Digital Solutions HQ</fullName>
             <default>false</default>
         </values>
