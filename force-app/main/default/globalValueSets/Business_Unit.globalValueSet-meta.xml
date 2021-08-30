@@ -31,9 +31,9 @@
         <label>KBC</label>
     </customValue>
     <customValue>
-        <fullName>Energy &amp; Sustainable SBU</fullName>
+        <fullName>Energy &amp; Sustainable Business HQ</fullName>
         <default>false</default>
-        <label>Energy &amp; Sustainable SBU</label>
+        <label>Energy &amp; Sustainable Business HQ</label>
     </customValue>
     <description>Business Units for Yokogawa</description>
     <masterLabel>Business Unit</masterLabel>
