@@ -3806,7 +3806,7 @@
         <visible>true</visible>
     </recordTypeVisibilities>
     <layoutAssignments>
-        <layout>Account-YODA Account Support Layout</layout>
+        <layout>Account-YODA Account Layout</layout>
         <recordType>Account.Account</recordType>
     </layoutAssignments>
     <layoutAssignments>
