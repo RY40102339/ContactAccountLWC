@@ -3488,10 +3488,6 @@
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <pageAccesses>
-        <apexPage>AddProductstoKnowledge</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
-    <pageAccesses>
         <apexPage>YODA_Account_OpptyRelatedLstVfp</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
