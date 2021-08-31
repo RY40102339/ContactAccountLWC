@@ -2230,6 +2230,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Event.Migration_Id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Event.Type</field>
         <readable>true</readable>
@@ -3601,6 +3606,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Task.Migration_Id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Task.Type</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -3796,7 +3806,7 @@
         <visible>true</visible>
     </recordTypeVisibilities>
     <layoutAssignments>
-        <layout>Account-YODA Account Support Layout</layout>
+        <layout>Account-YODA Account Layout</layout>
         <recordType>Account.Account</recordType>
     </layoutAssignments>
     <layoutAssignments>
