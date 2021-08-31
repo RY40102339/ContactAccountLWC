@@ -2205,6 +2205,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Event.Migration_Id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Industry_Code__c.Full_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -3518,6 +3523,11 @@
         <field>Product2.Warranty_Period__c</field>
         <readable>true</readable>
     </fieldPermissions>  
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Task.Migration_Id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>User.G1SMS_user_ID__c</field>

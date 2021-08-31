@@ -1930,6 +1930,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Event.Migration_Id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Industry_Code__c.Full_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2966,6 +2971,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Opportunity.X3rd_Party_Buyouts_Required__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Task.Migration_Id__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

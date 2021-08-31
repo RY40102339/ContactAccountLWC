@@ -3,7 +3,7 @@
     <fullName>Migration_Id__c</fullName>
     <externalId>false</externalId>
     <label>Migration Id</label>
-    <length>255</length>
+    <length>50</length>
     <required>false</required>
     <trackTrending>false</trackTrending>
     <type>Text</type>
