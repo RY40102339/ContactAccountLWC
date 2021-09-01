@@ -126,7 +126,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Account.Jigsaw</field>
+        <field>Account.Jigsaw</field> 
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

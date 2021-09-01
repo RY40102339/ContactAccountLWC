@@ -753,7 +753,7 @@
         <field>Campaign.HierarchyTotalFormViews</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
+    <fieldPermissions> 
         <editable>false</editable>
         <field>Campaign.HierarchyTotalLandingPageFormSubmissions</field>
         <readable>true</readable>

@@ -55,12 +55,13 @@ Industry - From Account&apos;s record</description>
         </rules>
     </decisions>
     <description>Populate fields before Opportunity record is created. Industry, Region. 
-Added Probability Matrix logic.
+Added Probability Matrix logic only for Product record type.
 Added Bypass Check</description>
     <formulas>
         <name>Probability</name>
         <dataType>Number</dataType>
-        <expression>IF(
+        <expression>IF({!$Record.RecordType.DeveloperName} = &apos;Product&apos;, 
+IF(
  ISPICKVAL({!$Record.StageName}, &apos;Identify (SAL)&apos;), 0,
 IF(
  ISPICKVAL({!$Record.StageName}, &apos;Qualify(SQL)&apos;),
@@ -116,7 +117,7 @@ IF(
 )
 )
 )
-)</expression>
+) ,0)</expression>
         <scale>0</scale>
     </formulas>
     <formulas>
