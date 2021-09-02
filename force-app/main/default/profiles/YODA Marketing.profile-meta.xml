@@ -3748,6 +3748,9 @@
         <recordType>Opportunity.Recurring_Business</recordType>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Order-YODA Order Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>OrderItem-Order Product Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
