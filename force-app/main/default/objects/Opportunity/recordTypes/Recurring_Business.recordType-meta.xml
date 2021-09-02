@@ -442,7 +442,7 @@
         <picklist>Competition_Positioning__c</picklist>
         <values>
             <fullName>Front Runner</fullName>
-            <default>true</default>
+            <default>true</default> 
         </values>
         <values>
             <fullName>Only Alternative</fullName>

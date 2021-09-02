@@ -123,7 +123,7 @@
         <editable>false</editable>
         <field>Account.Integration_YHQSA_Id__c</field>
         <readable>true</readable>
-    </fieldPermissions>
+    </fieldPermissions> 
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Jigsaw</field>

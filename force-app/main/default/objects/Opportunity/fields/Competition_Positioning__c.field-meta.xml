@@ -16,22 +16,22 @@
             <value>
                 <fullName>Only Alternative</fullName>
                 <default>false</default>
-                <label>Only Alternative</label>
+                <label>A = Only Alternative</label>
             </value>
             <value>
                 <fullName>Front Runner</fullName>
                 <default>true</default>
-                <label>Front Runner</label>
+                <label>B = Front Runner</label>
             </value>
             <value>
                 <fullName>Shared</fullName>
                 <default>false</default>
-                <label>Shared</label>
+                <label>C = Shared</label>
             </value>
             <value>
                 <fullName>Zero</fullName>
                 <default>false</default>
-                <label>Zero</label>
+                <label>D = Zero</label>
             </value>
         </valueSetDefinition>
     </valueSet>

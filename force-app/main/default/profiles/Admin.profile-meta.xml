@@ -2998,7 +2998,7 @@
         <field>Opportunity.System_Id_License_Numer__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
+    <fieldPermissions> 
         <editable>true</editable>
         <field>Opportunity.TCAS_Confirmed__c</field>
         <readable>true</readable>
