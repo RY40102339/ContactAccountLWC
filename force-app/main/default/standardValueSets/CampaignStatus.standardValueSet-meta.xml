@@ -3,7 +3,7 @@
     <sorted>false</sorted>
     <standardValue>
         <fullName>In Progress</fullName>
-        <default>false</default>
+        <default>true</default>
         <label>In Progress</label>
     </standardValue>
     <standardValue>
@@ -18,7 +18,7 @@
     </standardValue>
     <standardValue>
         <fullName>Planned</fullName>
-        <default>true</default>
+        <default>false</default>
         <label>Planned</label>
     </standardValue>
 </StandardValueSet>
