@@ -3,7 +3,7 @@
     <classAccesses>
         <apexClass>YODA_Account_OptyRltdLstCls</apexClass>
         <enabled>true</enabled>
-    </classAccesses>
+    </classAccesses> 
     <classAccesses>
         <apexClass>YODA_Account_OptyRltdLstCls_Test</apexClass>
         <enabled>true</enabled>
