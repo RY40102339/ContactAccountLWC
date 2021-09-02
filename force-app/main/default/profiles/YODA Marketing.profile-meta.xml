@@ -171,6 +171,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Account.ParentId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Account.Payment_Mode__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2061,6 +2066,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Dialect__c.Category_ID__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Dialect__c.Description__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -3374,6 +3384,26 @@
         <field>OrderItem.Migration_Id__c</field>
         <readable>true</readable>
     </fieldPermissions>    
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Parent_Category__c.Child_Category__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Parent_Category__c.Parent_Category_Id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Parent_Product__c.Child_Model_Code__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Parent_Product__c.Parent_Model_Code__c</field>
+        <readable>true</readable>
+    </fieldPermissions>  
     <fieldPermissions>
         <editable>false</editable>
         <field>Product2.BU__c</field>
