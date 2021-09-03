@@ -506,6 +506,10 @@
     <picklistValues>
         <picklist>Functional_Unit__c</picklist>
         <values>
+            <fullName>11B02 - Project Sales</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>11B03 - Y-Product - PCI sales</fullName>
             <default>false</default>
         </values>
@@ -650,6 +654,10 @@
             <default>false</default>
         </values>
         <values>
+            <fullName>12A01 - EPC %26 Outside EU</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>12A02 - E%26S - Systems Sales</fullName>
             <default>false</default>
         </values>
@@ -715,6 +723,10 @@
         </values>
         <values>
             <fullName>12B04 - ESOS - ASI-E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>12B05 - Service</fullName>
             <default>false</default>
         </values>
         <values>
@@ -866,6 +878,14 @@
             <default>false</default>
         </values>
         <values>
+            <fullName>16J02 - Analytical</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>16J03 - Combustion One</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>16J04 - ESOS - C1</fullName>
             <default>false</default>
         </values>
@@ -939,6 +959,10 @@
         </values>
         <values>
             <fullName>16R01 - Y-Product - Sales</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>16R02 - Analytical</fullName>
             <default>false</default>
         </values>
         <values>
