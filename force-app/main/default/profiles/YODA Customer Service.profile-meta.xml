@@ -4434,12 +4434,12 @@
         <default>false</default>
         <recordType>WorkOrderLineItem.T_M</recordType>
         <visible>true</visible>
-    </recordTypeVisibilities>-->
+    </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>WorkOrderLineItem.YEF_T_M_Service</recordType>
         <visible>true</visible>
-    </recordTypeVisibilities>
+    </recordTypeVisibilities>-->
     <layoutAssignments>
         <layout>Account-YODA Account Layout</layout>
         <recordType>Account.Account</recordType>
