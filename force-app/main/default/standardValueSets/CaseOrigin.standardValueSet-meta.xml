@@ -21,4 +21,9 @@
         <default>false</default>
         <label>Portal</label>
     </standardValue>
+    <standardValue>
+        <fullName>In Person</fullName>
+        <default>false</default>
+        <label>In Person</label>
+    </standardValue>
 </StandardValueSet>
