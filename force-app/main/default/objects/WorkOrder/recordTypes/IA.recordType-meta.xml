@@ -46,7 +46,7 @@
         </values>
     </picklistValues>
     <picklistValues>
-        <picklist>Priority</picklist>
+    <picklist>Priority</picklist>
         <values>
             <fullName>Critical</fullName>
             <default>false</default>
@@ -78,16 +78,12 @@
     <picklistValues>
         <picklist>Status</picklist>
         <values>
-            <fullName>New</fullName>
-            <default>true</default>
-        </values>
-        <values>
             <fullName>Plan Completed</fullName>
             <default>false</default>
         </values>
         <values>
             <fullName>Planning</fullName>
-            <default>false</default>
+            <default>true</default>
         </values>
         <values>
             <fullName>Waiting For Approval</fullName>
