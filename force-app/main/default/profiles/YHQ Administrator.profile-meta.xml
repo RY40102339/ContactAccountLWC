@@ -3329,12 +3329,12 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>User.G1SMS_user_ID__c</field>
+        <editable>false</editable>
+        <field>User.Business_Unit__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>User.Region__c</field>
         <readable>true</readable>
     </fieldPermissions>
