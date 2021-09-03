@@ -121,11 +121,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Integration_YHQSA_Id__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>Account.Jigsaw</field>
         <readable>true</readable> 
@@ -4424,6 +4419,7 @@
         <recordType>WorkOrder.YEF_T_M_Service</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
+    <!-- 0903 - Hema - Removing as error "recordType - no RecordType named WorkOrderLineItem.IA found" I-422856
     <recordTypeVisibilities>
         <default>true</default>
         <recordType>WorkOrderLineItem.IA</recordType>
@@ -4443,7 +4439,7 @@
         <default>false</default>
         <recordType>WorkOrderLineItem.YEF_T_M_Service</recordType>
         <visible>true</visible>
-    </recordTypeVisibilities>
+    </recordTypeVisibilities>-->
     <layoutAssignments>
         <layout>Account-YODA Account Layout</layout>
         <recordType>Account.Account</recordType>
@@ -4544,6 +4540,7 @@
         <layout>WorkOrder-YODA YEF Work Order Layout</layout>
         <recordType>WorkOrder.YEF_T_M_Service</recordType>
     </layoutAssignments>
+    <!-- 0903 - Hema - Removing as error "recordType - no RecordType named WorkOrderLineItem.IA found" I-422856
     <layoutAssignments>
         <layout>WorkOrderLineItem-YEF T%26M Service</layout>
         <recordType>WorkOrderLineItem.YEF_T_M_Service</recordType>
@@ -4559,7 +4556,7 @@
     <layoutAssignments>
         <layout>WorkOrderLineItem-YODA Work Order Line Item Layout</layout>
         <recordType>WorkOrderLineItem.T_M</recordType>
-    </layoutAssignments>
+    </layoutAssignments>-->
     <layoutAssignments>
         <layout>Yokogawa_Competitor__c-Master Competitor Layout</layout>
     </layoutAssignments>
