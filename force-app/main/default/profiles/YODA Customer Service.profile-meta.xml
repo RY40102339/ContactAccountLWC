@@ -4419,11 +4419,17 @@
         <recordType>WorkOrder.YEF_T_M_Service</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
+    <!-- 0903 - Hema - Removing as error "recordType - no RecordType named WorkOrderLineItem.IA found" I-422856
+    <recordTypeVisibilities>
+        <default>true</default>
+        <recordType>WorkOrderLineItem.IA</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>WorkOrderLineItem.Life</recordType>
         <visible>true</visible>
-    </recordTypeVisibilities>
+    </recordTypeVisibilities>-->
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>WorkOrderLineItem.T_M</recordType>
