@@ -738,6 +738,36 @@
                 <default>false</default>
                 <label>UUS</label>
             </value>
+            <value>
+                <fullName>12B05 - Service</fullName>
+                <default>false</default>
+                <label>12B05 - Service</label>
+            </value>
+            <value>
+                <fullName>11B02 - Project Sales</fullName>
+                <default>false</default>
+                <label>11B02 - Project Sales</label>
+            </value>
+            <value>
+                <fullName>12A01 - EPC &amp; Outside EU</fullName>
+                <default>false</default>
+                <label>12A01 - EPC &amp; Outside EU</label>
+            </value>
+            <value>
+                <fullName>16J02 - Analytical</fullName>
+                <default>false</default>
+                <label>16J02 - Analytical</label>
+            </value>
+            <value>
+                <fullName>16J03 - Combustion One</fullName>
+                <default>false</default>
+                <label>16J03 - Combustion One</label>
+            </value>
+            <value>
+                <fullName>16R02 - Analytical</fullName>
+                <default>false</default>
+                <label>16R02 - Analytical</label>
+            </value>
         </valueSetDefinition>
     </valueSet>
 </CustomField>
