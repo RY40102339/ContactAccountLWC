@@ -5,6 +5,7 @@
     <externalId>false</externalId>
     <label>Supporting Operating Systems (optional)</label>
     <length>32768</length>
+    <trackHistory>false</trackHistory>
     <type>LongTextArea</type>
     <visibleLines>3</visibleLines>
 </CustomField>

@@ -135,6 +135,13 @@
         <itemInstances>
             <componentInstance>
                 <componentName>forceKnowledge:articleMasterVersion</componentName>
+                <visibilityRule>
+                    <criteria>
+                        <leftValue>{!Record.IsMasterLanguage}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>true</rightValue>
+                    </criteria>
+                </visibilityRule>
             </componentInstance>
         </itemInstances>
         <itemInstances>

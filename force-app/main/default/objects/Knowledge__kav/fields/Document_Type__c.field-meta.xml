@@ -5,6 +5,7 @@
     <externalId>false</externalId>
     <label>Document Type</label>
     <required>false</required>
+    <trackHistory>false</trackHistory>
     <type>Picklist</type>
     <valueSet>
         <restricted>true</restricted>
