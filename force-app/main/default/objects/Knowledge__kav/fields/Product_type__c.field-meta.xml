@@ -4,6 +4,7 @@
     <externalId>false</externalId>
     <label>Product type</label>
     <required>false</required>
+    <trackHistory>false</trackHistory>
     <type>Picklist</type>
     <valueSet>
         <restricted>true</restricted>

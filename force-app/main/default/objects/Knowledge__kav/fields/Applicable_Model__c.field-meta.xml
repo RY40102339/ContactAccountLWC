@@ -4,6 +4,7 @@
     <externalId>false</externalId>
     <label>Applicable Model</label>
     <length>32768</length>
+    <trackHistory>false</trackHistory>
     <type>LongTextArea</type>
     <visibleLines>3</visibleLines>
 </CustomField>

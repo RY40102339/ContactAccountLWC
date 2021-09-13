@@ -4,6 +4,7 @@
     <externalId>false</externalId>
     <label>Question(Internal)</label>
     <length>32768</length>
+    <trackHistory>false</trackHistory>
     <type>Html</type>
     <visibleLines>25</visibleLines>
 </CustomField>
