@@ -4294,7 +4294,7 @@
         <editable>false</editable>
         <field>Knowledge__kav.Answer__c</field>
         <readable>false</readable>
-    </fieldPermissions>
+    </fieldPermissions> 
     <fieldPermissions>
         <editable>true</editable>
         <field>Knowledge__kav.Applicable_Model__c</field>

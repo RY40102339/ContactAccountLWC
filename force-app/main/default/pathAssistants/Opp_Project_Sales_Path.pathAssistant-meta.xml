@@ -50,7 +50,7 @@
         <picklistValueName>Propose / Quote</picklistValueName>
     </pathAssistantSteps>
     <pathAssistantSteps>
-        <fieldNames>Category_of_Interest__c</fieldNames>
+        <fieldNames>Category_of_Interest__c</fieldNames>  
         <fieldNames>End_User__c</fieldNames>
         <fieldNames>End_User_Country__c</fieldNames>
         <fieldNames>Project_Type__c</fieldNames>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Recurring_Business</fullName>
-    <active>true</active>
+    <active>true</active> 
     <businessProcess>YODA Default Sales Process</businessProcess>
     <compactLayoutAssignment>YODA_Opportunity_Compact_Layout</compactLayoutAssignment>
     <description>A recurring financial arrangement, such as subscription based software and hardware, or renewable contract such as maintenance and lifecycle care agreements.</description>

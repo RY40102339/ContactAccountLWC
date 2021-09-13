@@ -2,6 +2,8 @@
 <ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>YODA_Project_Propose</fullName>
     <active>true</active>
+    <description>Created for YODA.
+Fields that are required for the &quot;Propose&quot; stage of Opportunities in the &quot;Project&quot; record type.</description>
     <errorConditionFormula>AND(
 NOT( $Setup.Bypass_Settings__c.Bypass_Validation_Rules__c ),
 RecordType.DeveloperName = &apos;Project&apos;,

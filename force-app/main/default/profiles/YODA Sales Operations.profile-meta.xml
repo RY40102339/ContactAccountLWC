@@ -2,7 +2,7 @@
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
     <classAccesses>
         <apexClass>YODA_Account_OptyRltdLstCls</apexClass>
-        <enabled>true</enabled>
+        <enabled>true</enabled> 
     </classAccesses> 
     <classAccesses>
         <apexClass>YODA_Account_OptyRltdLstCls_Test</apexClass>
