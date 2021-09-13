@@ -582,7 +582,7 @@
         <summaryLayoutItems>
             <field>CloseDate</field>
             <posX>1</posX>
-            <posY>0</posY>
+            <posY>0</posY> 
         </summaryLayoutItems>
         <summaryLayoutItems>
             <field>Amount</field>
