@@ -5,7 +5,7 @@
     <description>This is used to store the active or inactive values.</description>
     <externalId>false</externalId>
     <label>Is_Active</label>
-    <required>true</required>
+    <required>false</required>
     <type>Picklist</type>
     <valueSet>
         <restricted>true</restricted>

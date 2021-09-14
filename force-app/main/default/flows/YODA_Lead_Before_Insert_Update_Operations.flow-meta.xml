@@ -4,8 +4,8 @@
     <assignments>
         <name>Lead_Field_Updates</name>
         <label>Lead Field Updates</label>
-        <locationX>50</locationX>
-        <locationY>431</locationY>
+        <locationX>182</locationX>
+        <locationY>767</locationY>
         <assignmentItems>
             <assignToReference>$Record.Lead_Accepted_Date__c</assignToReference>
             <operator>Assign</operator>
@@ -77,10 +77,40 @@
             </value>
         </assignmentItems>
     </assignments>
+    <assignments>
+        <name>Tele_Qualified_Lead</name>
+        <label>Tele Qualified Lead</label>
+        <locationX>50</locationX>
+        <locationY>551</locationY>
+        <assignmentItems>
+            <assignToReference>$Record.Is_Tele_Qualified__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Rating</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Hot</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Stage__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Marketing Qualified Lead (MQL)</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Lead_Field_Updates</targetReference>
+        </connector>
+    </assignments>
     <decisions>
         <name>Bypass_Setting</name>
         <label>Bypass Setting</label>
-        <locationX>182</locationX>
+        <locationX>336</locationX>
         <locationY>311</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -94,13 +124,46 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Lead_Field_Updates</targetReference>
+                <targetReference>Tele_Qualified</targetReference>
             </connector>
             <label>Bypass False</label>
         </rules>
     </decisions>
+    <decisions>
+        <name>Tele_Qualified</name>
+        <label>Tele-Qualified</label>
+        <locationX>182</locationX>
+        <locationY>431</locationY>
+        <defaultConnector>
+            <targetReference>Lead_Field_Updates</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>TeleQualified_Lead</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Tele-Qualified</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Rating</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Warm</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Tele_Qualified_Lead</targetReference>
+            </connector>
+            <label>TeleQualified Lead</label>
+        </rules>
+    </decisions>
     <description>Executes before a lead is created/updated.
-Strictly no cross object manipulations involved.</description>
+Strictly no cross object manipulations involved.
+Tele-Qualified Lead field assignments.</description>
     <formulas>
         <name>Conversion_Rejection_Date</name>
         <dataType>Date</dataType>
@@ -199,13 +262,12 @@ NOW()-{!$Record.LastmodifiedDate}, 0
         <expression>IF(
 OR(
 ISPICKVAL({!$Record.Category_of_Interest__c},&apos;Oscilloscopes&apos;),
-ISPICKVAL({!$Record.Category_of_Interest__c},&apos;Power Analyzer and Power Meters&apos;),
-ISPICKVAL({!$Record.Category_of_Interest__c},&apos;Data Acquisition (DAQ)&apos;),
-ISPICKVAL({!$Record.Category_of_Interest__c},&apos;Optical Test Equipment&apos;),
-ISPICKVAL({!$Record.Category_of_Interest__c},&apos;Signal Generators, Sources and Supplies&apos;),
-ISPICKVAL({!$Record.Category_of_Interest__c},&apos;Portal and Handheld Instruments&apos;),
-ISPICKVAL({!$Record.Category_of_Interest__c},&apos;Other Test &amp; Measurement Instruments&apos;),
-ISPICKVAL({!$Record.Category_of_Interest__c},&apos;Test &amp; Measurement Accessories&apos;)
+ISPICKVAL({!$Record.Category_of_Interest__c},&apos;Digital Power Analyzers&apos;),
+ISPICKVAL({!$Record.Category_of_Interest__c},&apos;Data Acquisition&apos;),
+ISPICKVAL({!$Record.Category_of_Interest__c},&apos;Optical Measuring Instruments&apos;),
+ISPICKVAL({!$Record.Category_of_Interest__c},&apos;Generators/Sources/Calibrators/Manometers&apos;),
+ISPICKVAL({!$Record.Category_of_Interest__c},&apos;Portable Test Instruments&apos;),
+ISPICKVAL({!$Record.Category_of_Interest__c},&apos;Others&apos;)
 ),
 &apos;YMI SBU&apos;, TEXT({!$Record.Business_Unit__c})
 )</expression>
@@ -295,7 +357,7 @@ Strictly no cross object manipulations involved {!$Flow.CurrentDateTime}</interv
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
     <start>
-        <locationX>56</locationX>
+        <locationX>210</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Bypass_Setting</targetReference>
