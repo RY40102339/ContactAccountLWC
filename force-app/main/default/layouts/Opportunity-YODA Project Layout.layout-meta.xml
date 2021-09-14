@@ -41,7 +41,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Parent_Opportunity_Program__c</field>
+                <field>Parent_Opportunity_Program__c</field> 
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
