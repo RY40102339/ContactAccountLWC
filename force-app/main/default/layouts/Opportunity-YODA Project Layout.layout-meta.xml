@@ -361,7 +361,7 @@
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
-        <label>System Information</label>
+        <label>System Information</label> 
         <layoutColumns>
             <layoutItems>
                 <behavior>Readonly</behavior>
