@@ -1,4 +1,4 @@
-<apex:page controller="YODA_AddProductstoKnowledgeCtlr" standardStylesheets="false" lightningStylesheets="true">
+<apex:page Controller="YODA_AddProductstoKnowledgeCtlr" standardStylesheets="false" lightningStylesheets="true">
     <head>
         <apex:includescript value="//code.jquery.com/jquery-1.11.1.min.js"/>
         <apex:includescript value="//cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js"/>

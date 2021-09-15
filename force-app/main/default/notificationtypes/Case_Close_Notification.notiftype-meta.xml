@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomNotificationType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customNotifTypeName>Case Close Notification</customNotifTypeName>
+    <desktop>true</desktop>
+    <masterLabel>Case Close Notification</masterLabel>
+    <mobile>true</mobile>
+</CustomNotificationType>
