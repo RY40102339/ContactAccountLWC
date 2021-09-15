@@ -5,7 +5,7 @@
     <description>Once the Case status is set to Closed then only admin users (System Admin, YODA Admin) can edit the case. All other users should not be able to close the case again.</description>
     <errorConditionFormula>AND(
   ISPICKVAL(PRIORVALUE(Status),&apos;Closed&apos;),
-  NOT(OR(CONTAINS($Profile.Name, &quot;System Administrator&quot;),CONTAINS($Profile.Name, &quot;YHQ Administrator&quot;))),
+  NOT(OR(OwnerId = $User.Id, CONTAINS($Profile.Name, &quot;System Administrator&quot;),CONTAINS($Profile.Name, &quot;YHQ Administrator&quot;))),
   NOT($Setup.Bypass_Settings__c.Bypass_Validation_Rules__c )
 )</errorConditionFormula>
     <errorMessage>This case is already in closed state</errorMessage>

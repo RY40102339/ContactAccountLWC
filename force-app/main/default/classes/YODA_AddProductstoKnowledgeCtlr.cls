@@ -16,7 +16,7 @@ public class YODA_AddProductstoKnowledgeCtlr{
         for(Applicable_Model__c am : [select Product__c from Applicable_Model__c where Knowledge__c = :knowledgeId]){
             setAppModel.add(am.Product__c);
         }
-        for(Product2 p : [Select Id, Name, ProductCode, Category__r.Name from Product2 where Id not in :setappModel Limit 10000]){
+        for(Product2 p : [Select Id, Name, ProductCode, Category__r.Name from Product2 where Id not in :setappModel Limit 1000]){
             //listWrapper.add(new wrapperAppModel(false, p));
             mapWrapper.put(p.Id, new wrapperAppModel(false, p));
         }
@@ -33,14 +33,14 @@ public class YODA_AddProductstoKnowledgeCtlr{
     public void search(){
         mapWrapper = new map<string, wrapperAppModel>();
         if(search == '' || search == null){
-            for(Product2 p : [Select Id, Name, ProductCode, Category__r.Name from Product2 where Id not in :setappModel Limit 10000]){
+            for(Product2 p : [Select Id, Name, ProductCode, Category__r.Name from Product2 where Id not in :setappModel Limit 1000]){
             //listWrapper.add(new wrapperAppModel(false, p));
             mapWrapper.put(p.Id, new wrapperAppModel(false, p));
             }
         }
         else{
             string inpSearch = '%'+search+'%';
-            for(Product2 p : [Select Id, Name, ProductCode, Category__r.Name from Product2 where Id not in :setappModel and (Name like :inpSearch or ProductCode like :inpSearch or Category__r.Name like :inpSearch) Limit 10000]){
+            for(Product2 p : [Select Id, Name, ProductCode, Category__r.Name from Product2 where Id not in :setappModel and (Name like :inpSearch or ProductCode like :inpSearch or Category__r.Name like :inpSearch) Limit 1000]){
             //listWrapper.add(new wrapperAppModel(false, p));
             mapWrapper.put(p.Id, new wrapperAppModel(false, p));
             }
