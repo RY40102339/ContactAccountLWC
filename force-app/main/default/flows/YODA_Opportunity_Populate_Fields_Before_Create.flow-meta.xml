@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
-    <apiVersion>50.0</apiVersion>
+    <apiVersion>52.0</apiVersion>
     <assignments>
-        <description>Assign Region Probability and Industry
+        <description>Assign, Region, Probability and Industry
 Region - from Record&apos;s Owner region
 Probability - As per Matrix
 Industry - From Account&apos;s record</description>
         <name>Assign_Region_Probability_and_Industry</name>
         <label>Assign Region Probability and Industry</label>
-        <locationX>50</locationX>
+        <locationX>182</locationX>
         <locationY>431</locationY>
         <assignmentItems>
             <assignToReference>$Record.Region__c</assignToReference>
@@ -24,6 +24,15 @@ Industry - From Account&apos;s record</description>
                 <elementReference>Process_Industry</elementReference>
             </value>
         </assignmentItems>
+        <connector>
+            <targetReference>Product_RT</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Update_Probability</name>
+        <label>Update Probability</label>
+        <locationX>50</locationX>
+        <locationY>671</locationY>
         <assignmentItems>
             <assignToReference>$Record.Probability</assignToReference>
             <operator>Assign</operator>
@@ -35,7 +44,7 @@ Industry - From Account&apos;s record</description>
     <decisions>
         <name>Bypass_flow_rules</name>
         <label>Bypass flow rules</label>
-        <locationX>182</locationX>
+        <locationX>380</locationX>
         <locationY>311</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -54,14 +63,36 @@ Industry - From Account&apos;s record</description>
             <label>bypass false</label>
         </rules>
     </decisions>
+    <decisions>
+        <description>Update Probability only for Product record type.</description>
+        <name>Product_RT</name>
+        <label>Product RT</label>
+        <locationX>182</locationX>
+        <locationY>551</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Product_Probability</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Product</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Probability</targetReference>
+            </connector>
+            <label>Product Probability</label>
+        </rules>
+    </decisions>
     <description>Populate fields before Opportunity record is created. Industry, Region. 
-Added Probability Matrix logic only for Product record type.
+Added Probability Matrix logic only for Product record type (Probability for Project and Recurring as OOTB. 9/9)
 Added Bypass Check</description>
     <formulas>
         <name>Probability</name>
         <dataType>Number</dataType>
-        <expression>IF({!$Record.RecordType.DeveloperName} = &apos;Product&apos;, 
-IF(
+        <expression>IF(
  ISPICKVAL({!$Record.StageName}, &apos;Identify (SAL)&apos;), 0,
 IF(
  ISPICKVAL({!$Record.StageName}, &apos;Qualify(SQL)&apos;),
@@ -117,7 +148,7 @@ IF(
 )
 )
 )
-) ,0)</expression>
+)</expression>
         <scale>0</scale>
     </formulas>
     <formulas>
@@ -165,7 +196,7 @@ TEXT({!$Record.Owner.Region__c})
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
     <start>
-        <locationX>56</locationX>
+        <locationX>254</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Bypass_flow_rules</targetReference>
