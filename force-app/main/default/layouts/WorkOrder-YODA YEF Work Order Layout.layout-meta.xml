@@ -327,11 +327,7 @@
             <actionType>QuickAction</actionType>
             <sortOrder>5</sortOrder>
         </platformActionListItems>
-        <platformActionListItems>
-            <actionName>WorkOrder.Email</actionName>
-            <actionType>QuickAction</actionType>
-            <sortOrder>6</sortOrder>
-        </platformActionListItems>
+        
     </platformActionList>
     <quickActionList>
         <quickActionListItems>
