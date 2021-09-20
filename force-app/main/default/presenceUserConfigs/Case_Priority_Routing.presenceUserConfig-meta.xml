@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PresenceUserConfig xmlns="http://soap.sforce.com/2006/04/metadata">
+    <assignments>
+        <profiles>
+            <profile>admin</profile>
+            <profile>yoda customer service</profile>
+        </profiles>
+    </assignments>
+    <capacity>5</capacity>
+    <declineReasons>Case_assigned_to_wrong_queue_different_territory_or_BU</declineReasons>
+    <declineReasons>Lack_of_expertise</declineReasons>
+    <declineReasons>Logged_in_by_accident</declineReasons>
+    <declineReasons>Too_many_cases_overload</declineReasons>
+    <enableAutoAccept>false</enableAutoAccept>
+    <enableDecline>true</enableDecline>
+    <enableDeclineReason>true</enableDeclineReason>
+    <enableDisconnectSound>true</enableDisconnectSound>
+    <enableRequestSound>true</enableRequestSound>
+    <label>Case Priority Routing</label>
+    <presenceStatusOnDecline>Away</presenceStatusOnDecline>
+</PresenceUserConfig>
