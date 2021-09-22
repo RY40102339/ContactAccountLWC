@@ -13,8 +13,6 @@
     <permissionSets>Opportunity_Edit</permissionSets>
     <permissionSets>Order_Read</permissionSets>
     <permissionSets>Parent_Category_Read</permissionSets>
-    <permissionSets>Quote_Edit</permissionSets>
-    <permissionSets>Quote_Read</permissionSets>
     <permissionSets>System_Create_and_Customize_List_Views</permissionSets>
     <permissionSets>System_Create_and_Customize_Reports_and_Dashboards</permissionSets>
     <permissionSets>System_Manage_Reports_and_Dashboards_in_Public_Folders</permissionSets>

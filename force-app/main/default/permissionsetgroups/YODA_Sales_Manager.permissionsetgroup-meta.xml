@@ -23,8 +23,6 @@
     <permissionSets>Parent_Category_Read</permissionSets>
     <permissionSets>Price_Book_Read</permissionSets>
     <permissionSets>Product_Read</permissionSets>
-    <permissionSets>Quote_Create</permissionSets>
-    <permissionSets>Quote_Edit</permissionSets>
     <permissionSets>Scope_of_Product_Read</permissionSets>
     <permissionSets>System_Convert_Leads</permissionSets>
     <permissionSets>System_Create_and_Customize_List_Views</permissionSets>
