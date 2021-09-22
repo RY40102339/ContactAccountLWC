@@ -4,19 +4,28 @@
     <label>YODA Sales Manager</label>
     <permissionSets>Account_Create</permissionSets>
     <permissionSets>Account_Edit</permissionSets>
+    <permissionSets>Asset_Read</permissionSets>
     <permissionSets>Campaign_Influence_Read</permissionSets>
+    <permissionSets>Campaign_Read</permissionSets>
+    <permissionSets>Case_Read</permissionSets>
     <permissionSets>Category_Read</permissionSets>
     <permissionSets>Competitor_Create</permissionSets>
     <permissionSets>Competitor_Edit</permissionSets>
     <permissionSets>Contact_Create</permissionSets>
+    <permissionSets>Contact_Edit</permissionSets>
     <permissionSets>Dialect_Read</permissionSets>
+    <permissionSets>Industry_Code_Read</permissionSets>
     <permissionSets>Lead_Edit</permissionSets>
+    <permissionSets>Maintenance_Phase_Read</permissionSets>
     <permissionSets>Opportunity_Create</permissionSets>
     <permissionSets>Opportunity_Edit</permissionSets>
     <permissionSets>Order_Read</permissionSets>
     <permissionSets>Parent_Category_Read</permissionSets>
+    <permissionSets>Price_Book_Read</permissionSets>
+    <permissionSets>Product_Read</permissionSets>
     <permissionSets>Quote_Create</permissionSets>
     <permissionSets>Quote_Edit</permissionSets>
+    <permissionSets>Scope_of_Product_Read</permissionSets>
     <permissionSets>System_Convert_Leads</permissionSets>
     <permissionSets>System_Create_and_Customize_List_Views</permissionSets>
     <permissionSets>System_Create_and_Customize_Reports_and_Dashboards</permissionSets>
