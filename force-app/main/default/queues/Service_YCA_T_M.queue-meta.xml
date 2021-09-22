@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <email>support_yoda@ml.jp.yokogawa.com</email>
+    <name>Service YCA T&amp;M</name>
+    <queueMembers>
+        
+    </queueMembers>
+    <queueRoutingConfig>QueueRouting</queueRoutingConfig>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>
