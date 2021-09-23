@@ -1,0 +1,53 @@
+<!--*
+*******************************************************************************************************
+* (C) Copyright 2021 Yokogawa. All rights reserved.
+* This code is property of Yokogawa. Use, duplication and
+* disclosure in any form without permission of copyright holder is prohibited.
+* 
+******************************************************************************************************* 
+* @author Kameron F
+* @version 1.0
+* @created 9/10/2021
+* @description  
+* This component is used for displaying Opportunities that are related to an Account, if the user owns
+* the account or is an Account Team Member
+*
+* @test class name - YODA_Contact_TriggerHelper_Test
+*  Change History:
+*  MM/DD/YYYY			Developer Name			Comments
+*  9/10/2021             Kameron F.             Created LWC
+*  9/15/2021             Kameron F.             Added Spinner + No records display 
+*  9/17/2021             Kameron F.             Changed new Opportunity creation button
+*-->
+<template>
+    <lightning-layout>
+        
+        <lightning-card title={size} class="slds-card_boundary" style="width:100%;" icon-name="custom:custom63">
+            <div style="text-align:right;padding:7px;">
+                <div class="slds-button slds-button_neutral">
+                    <lightning-formatted-url value={instanceURL} label="New" target="_self"></lightning-formatted-url>
+                </div>
+            </div>
+            <div class="slds-m-left_large" >
+                <template if:true={isLoading}>
+                    <lightning-spinner alternative-text="Loading" variant="brand"></lightning-spinner>
+                </template>
+                <template if:false={isLoading}>
+                    <div class="slds-scrollable" style="max-height:200px;overflow-x:auto;">
+                        <template if:true={hasOpps}>
+                            <template if:true={IsAccountTeamMember}>
+                                <lightning-datatable class="slds-table" key-field="id" data={Opportunities} columns={columns} onsave={handleSave} hide-checkbox-column="true" onrowaction={handleRowAction}></lightning-datatable>
+                            </template>
+                            <template if:false={IsAccountTeamMember}>
+                                <lightning-datatable class="slds-table" key-field="id" data={Opportunities} columns={columns2} onsave={handleSave} hide-checkbox-column="true"></lightning-datatable>
+                            </template>
+                        </template>
+                        <template if:false={hasOpps}>
+                            No Opportunity records to display
+                        </template>
+                    </div>
+                </template>
+            </div>
+        </lightning-card>
+    </lightning-layout>
+</template>
