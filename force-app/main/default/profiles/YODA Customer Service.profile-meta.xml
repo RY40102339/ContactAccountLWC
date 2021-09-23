@@ -25,14 +25,14 @@
         <apexClass>YODA_Contact_TriggerHelper_Test</apexClass>
         <enabled>false</enabled>
     </classAccesses>
-    <classAccesses>
+    <!--<classAccesses>
         <apexClass>YODA_Opportunity_TriggerHelper</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>YODA_Opportunity_TriggerHelper_Test</apexClass>
         <enabled>false</enabled>
-    </classAccesses>
+    </classAccesses>-->
     <classAccesses>
         <apexClass>YODA_RunAssignmentRules</apexClass>
         <enabled>true</enabled>
