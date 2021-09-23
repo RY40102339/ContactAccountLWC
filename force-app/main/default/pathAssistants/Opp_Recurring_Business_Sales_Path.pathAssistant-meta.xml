@@ -53,7 +53,7 @@
         <fieldNames>Nuclear_Industry_Compliant__c</fieldNames>
         <fieldNames>Category_of_Interest__c</fieldNames>
         <fieldNames>System_Id_License_Numer__c</fieldNames>
-        <fieldNames>Amount</fieldNames>
+        <fieldNames>Amount</fieldNames> 
         <info>&lt;p&gt;During the further processing of the opportunity you will reach the stage of “Qualify”.&lt;/p&gt;&lt;p&gt;In this stage, you make contact with your customer and collect more details about their needs, especially the potential product or solution category, end user if different than the opportunity account, and rough estimate of opportunity value and timing.&lt;/p&gt;&lt;p&gt;The Key fields will help you to understand what information is needed to continue the process with the customer.&lt;/p&gt;&lt;p&gt;The qualification stage is complete when you expect to pursue this opportunity fully.&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-family: Calibri, sans-serif; font-size: 11pt;&quot;&gt;In this stage you have again the option to “disqualify” your opportunity.&lt;/span&gt;&lt;/p&gt;</info>
         <picklistValueName>Qualify(SQL)</picklistValueName>
     </pathAssistantSteps>
