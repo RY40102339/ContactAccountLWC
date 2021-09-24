@@ -25,13 +25,16 @@
                             <value>ChangeOwnerOne</value>
                         </valueListItems>
                         <valueListItems>
+                            <value>Edit</value>
+                        </valueListItems>
+                        <valueListItems>
                             <value>Clone</value>
                         </valueListItems>
                         <valueListItems>
-                            <value>MergeCase</value>
+                            <value>Delete</value>
                         </valueListItems>
                         <valueListItems>
-                            <value>Edit</value>
+                            <value>MergeCase</value>
                         </valueListItems>
                         <valueListItems>
                             <value>Case.Escalate</value>
