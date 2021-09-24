@@ -12,7 +12,7 @@
     <valueSet>
         <restricted>true</restricted>
         <valueSetDefinition>
-            <sorted>true</sorted>
+            <sorted>false</sorted>
             <value>
                 <fullName>Annual Maintenance</fullName>
                 <default>false</default>
@@ -24,24 +24,9 @@
                 <label>Calibration</label>
             </value>
             <value>
-                <fullName>Factory Calibration</fullName>
-                <default>false</default>
-                <label>Factory Calibration</label>
-            </value>
-            <value>
-                <fullName>Factory Modification</fullName>
-                <default>false</default>
-                <label>Factory Modification</label>
-            </value>
-            <value>
                 <fullName>Factory Repair</fullName>
                 <default>false</default>
                 <label>Factory Repair</label>
-            </value>
-            <value>
-                <fullName>Factory Update</fullName>
-                <default>false</default>
-                <label>Factory Update</label>
             </value>
             <value>
                 <fullName>Modification</fullName>
@@ -49,24 +34,9 @@
                 <label>Modification</label>
             </value>
             <value>
-                <fullName>On-site Calibration</fullName>
-                <default>false</default>
-                <label>On-site Calibration</label>
-            </value>
-            <value>
-                <fullName>On-site Modification</fullName>
-                <default>false</default>
-                <label>On-site Modification</label>
-            </value>
-            <value>
                 <fullName>On-site Repair</fullName>
                 <default>false</default>
                 <label>On-site Repair</label>
-            </value>
-            <value>
-                <fullName>On-site Update</fullName>
-                <default>false</default>
-                <label>On-site Update</label>
             </value>
             <value>
                 <fullName>Others</fullName>
@@ -97,6 +67,36 @@
                 <fullName>Warranty Service</fullName>
                 <default>false</default>
                 <label>Warranty Service</label>
+            </value>
+            <value>
+                <fullName>On-site Modification</fullName>
+                <default>false</default>
+                <label>On-site Modification</label>
+            </value>
+            <value>
+                <fullName>On-site Update</fullName>
+                <default>false</default>
+                <label>On-site Update</label>
+            </value>
+            <value>
+                <fullName>On-site Calibration</fullName>
+                <default>false</default>
+                <label>On-site Calibration</label>
+            </value>
+            <value>
+                <fullName>Factory Update</fullName>
+                <default>false</default>
+                <label>Factory Update</label>
+            </value>
+            <value>
+                <fullName>Factory Calibration</fullName>
+                <default>false</default>
+                <label>Factory Calibration</label>
+            </value>
+            <value>
+                <fullName>Factory Modification</fullName>
+                <default>false</default>
+                <label>Factory Modification</label>
             </value>
         </valueSetDefinition>
     </valueSet>
