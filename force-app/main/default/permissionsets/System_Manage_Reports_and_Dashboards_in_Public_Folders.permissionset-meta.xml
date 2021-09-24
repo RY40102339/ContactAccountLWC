@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>System Permissions -&gt; Below checkboxes checked.
+Create and Customize Dashboards/Reports
+Create Dashboard/Report Folders
+Edit My Dashboards/Reports
+Manage Dashboards/Reports in Public Folders
+Run Reports
+View Dashboards/Reports in Public Folders</description>
     <hasActivationRequired>false</hasActivationRequired>
     <label>System - Manage Reports and Dashboards in Public Folders</label>
     <userPermissions>
