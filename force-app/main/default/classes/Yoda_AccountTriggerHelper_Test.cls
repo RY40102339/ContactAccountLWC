@@ -27,7 +27,7 @@ public class Yoda_AccountTriggerHelper_Test {
             //List of Currencies in the order of Countries listed above.
             List<String> currList = New List<String> {'EUR', 'USD', 'CNY', 'GBP', 'KRW', 'SGD', 'INR'};
             //Create test data of accounts with shipping country listed above.
-            List<Account> acs = new List<Account>();
+            List<Account> acs = new List<Account>(); 
         	//Loop through each country to create Accounts.
             for(Integer i=0;i<countryList.size();i++) {
                 Account a = new Account(Name='TestAccount' + i, ShippingCountry = countryList[i]);
