@@ -16,34 +16,50 @@
 *  MM/DD/YYYY			Developer Name			Comments
 *  9/9/2021             Kameron F.              Created Class
 *  9/23/2021            Kameron F.              Updated API names for region
+*  9/24/2021            Kameron F.              Fixed MailingCountry
 */
-
 @isTest
 public class YODA_Contact_TriggerHelper_Test {
     // Main test class for Region updates from the Contact Trigger Helper class
     // Kam 9/9/2021
 	@isTest
     static void regionTest(){
-        Contact con = new Contact(LastName='Tester',MailingCountry='Korea, Democratic People\'s Republic of');
+        // How to create an account in test class when state country code is enabld
+        Profile p = [SELECT Id FROM Profile WHERE Name='Standard User'];
+        Integer RandomId=Integer.valueOf(Math.rint(Math.random()*1000000)); 
+        User u = new User(Alias = 'standt', Email='standarduser@testorg.com', 
+            EmailEncodingKey='UTF-8', LastName='Testing', LanguageLocaleKey='en_US',
+            LocaleSidKey='en_US', ProfileId = p.Id, 
+            TimeZoneSidKey='America/Los_Angeles', UserName='standarduser@testorg.com'+RandomId,Region__c='YEF');
+        insert u;
+        Test.startTest();
+        Account acc = new Account(Name='TestAccount1010101');
+        insert acc;
+        
+        List<Contact> con = new List<Contact>();
+        con.add(new Contact(LastName='Tester01010101',MailingCountry='Andorra',Email='TestEmail00001@Email.com',AccountId=acc.id,OwnerId=u.id));
+        System.debug(con);
         insert con;
-        
-        con = [SELECT Region__c FROM Contact WHERE LastName = 'Tester'];
-        
-        System.assertEquals('YKO', con.Region__c);
+ 		
+        //YODA_Contact_TriggerHelper.UpdateRegion(con);
+        Contact indcon = [SELECT MailingCountry, Region__c,OwnerId FROM Contact WHERE Email = 'TestEmail00001@Email.com'];
+        System.debug(indcon);
+        System.assertEquals('YEF', indcon.Region__c);
+        Test.stopTest();
         
         // Test that updating contact does not change region
-        con.LastName = 'Tester01';
-        con.MailingCountry = 'China';
+        indcon.LastName = 'Tester0010101011';
+        indcon.MailingCountry = 'China';
         
         update con;
         
-        con = [SELECT Region__c FROM Contact WHERE LastName = 'Tester01'];
+        con = [SELECT Region__c FROM Contact WHERE LastName = 'Tester0010101011'];
         
         
-        System.assertNotEquals('YCN', con.Region__c);
+        System.assertNotEquals('YCN', indcon.Region__c);
         
         // Check each possible outcome from the getRegion method 
-        System.assertEquals('YEF',YODA_Contact_TriggerHelper.getRegion('Austria'));
+        System.assertEquals('YKO',YODA_Contact_TriggerHelper.getRegion('Korea, Republic of'));
         System.assertEquals('YCA',YODA_Contact_TriggerHelper.getRegion('Canada'));
         System.assertEquals('YCN',YODA_Contact_TriggerHelper.getRegion('Macao'));
         System.assertEquals('YEA',YODA_Contact_TriggerHelper.getRegion('Fiji'));
@@ -52,6 +68,6 @@ public class YODA_Contact_TriggerHelper_Test {
         System.assertEquals('YSA',YODA_Contact_TriggerHelper.getRegion('Chile'));
         System.assertEquals('YJP',YODA_Contact_TriggerHelper.getRegion('Japan'));
         System.assertEquals('Global',YODA_Contact_TriggerHelper.getRegion('Antarctica'));
-        System.assertEquals('None',YODA_Contact_TriggerHelper.getRegion('AUSTRIA'));
+        System.assertEquals('',YODA_Contact_TriggerHelper.getRegion('AUSTRIA'));
     }
 }
