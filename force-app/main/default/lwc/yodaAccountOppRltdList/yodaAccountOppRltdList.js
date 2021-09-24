@@ -182,8 +182,8 @@ export default class YODAAccountOppRltdList extends NavigationMixin(LightningEle
         if(data){
             // URL changes that bring up record type, leave opened account in background, and auto fills
             // Kam 9/17/2021
-            this.instanceURL = 'https://yg--yodadev1.lightning.force.com/lightning/o/Opportunity/new?nooverride=1&useRecordTypeCheck=1&backgroundContext=%2Flightning%2Fr%2FAccount%2F0011s000001xpe3AAA%2Fview&ws=%2Flightning%2Fr%2FAccount%2F0011s000001xpe3AAA%2Fview&count=9';
-            //this.instanceURL = data+'/lightning/o/Opportunity/new?nooverride=1&useRecordTypeCheck=1&defaultFieldValues=AccountId='+this.recordId+'&backgroundContext=%2Flightning%2Fr%2FAccount%2F'+this.recordId+'%2Fview';
+            //this.instanceURL = 'https://yg--yodadev1.lightning.force.com/lightning/o/Opportunity/new?nooverride=1&useRecordTypeCheck=1&backgroundContext=%2Flightning%2Fr%2FAccount%2F0011s000001xpe3AAA%2Fview&ws=%2Flightning%2Fr%2FAccount%2F0011s000001xpe3AAA%2Fview&count=9';
+            this.instanceURL = data+'/lightning/o/Opportunity/new?nooverride=1&useRecordTypeCheck=1&defaultFieldValues=AccountId='+this.recordId+'&backgroundContext=%2Flightning%2Fr%2FAccount%2F'+this.recordId+'%2Fview';
         }
     }
 
