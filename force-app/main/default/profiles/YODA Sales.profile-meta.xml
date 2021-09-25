@@ -85,7 +85,7 @@
         <editable>false</editable>
         <field>Account.Credit_Rating__c</field>
         <readable>true</readable>
-    </fieldPermissions>
+    </fieldPermissions> 
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Credit_Term__c</field>
