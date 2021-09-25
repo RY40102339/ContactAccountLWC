@@ -95,7 +95,7 @@
         <editable>false</editable>
         <field>Account.DUNS_Number__c</field>
         <readable>false</readable>
-    </fieldPermissions>
+    </fieldPermissions> 
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Description</field>

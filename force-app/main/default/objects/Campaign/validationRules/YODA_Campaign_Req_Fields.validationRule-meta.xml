@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>YODA_Campaign_Req_Fields</fullName>
+    <active>true</active>
+    <description>Campaign fields required on creation:
+
+All Fields in Campaign Information (Description, Parent Campaign, Business Owner, Type, Business, Start Date, End Date and Language)
+Expected Revenue in Campaign and Budgeted Cost in Campaign</description>
+    <errorConditionFormula>AND(
+   NOT( $Setup.Bypass_Settings__c.Bypass_Validation_Rules__c ),
+OR(
+   ISBLANK(Description),
+   ISBLANK(ParentId),
+   ISBLANK(Business_Owner__c),
+   ISPICKVAL(Type,&apos;&apos;),
+   ISPICKVAL(Business__c,&apos;&apos;),
+   ISBLANK(StartDate),
+   ISBLANK(EndDate),
+   ISPICKVAL(Language__c,&apos;&apos;),
+   ISBLANK(ExpectedRevenue),
+   ISBLANK(BudgetedCost)
+)
+)</errorConditionFormula>
+    <errorMessage>Required Fields in Campaign:
+Description,
+Parent Campaign,
+Business Owner,
+Type,
+Business,
+Start Date,
+End Date,
+Language,
+Expected Revenue in Campaign and 
+Budgeted Cost in Campaign</errorMessage>
+</ValidationRule>
