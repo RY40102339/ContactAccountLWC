@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <description>Send email with the &apos;To address&apos; populated from user input.</description>
+        <name>Send_Email</name>
+        <label>Send Email</label>
+        <locationX>50</locationX>
+        <locationY>758</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <connector>
+            <targetReference>Update_Lead_Record</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Email_Error</targetReference>
+        </faultConnector>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>EmailTemplate</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>To_Address</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderAddress</name>
+            <value>
+                <stringValue>noreply@yokogawa.com</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>You have a new lead from Yokogawa! {!Get_Lead_Record.Company}​ &amp; {!Get_Lead_Record.Category_of_Interest__c}</stringValue>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <apiVersion>52.0</apiVersion>
+    <decisions>
+        <name>Valid_Email</name>
+        <label>Valid Email</label>
+        <locationX>314</locationX>
+        <locationY>638</locationY>
+        <defaultConnector>
+            <targetReference>Not_a_valid_Email</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>ValidEmailID</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>emailvalidation</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Send_Email</targetReference>
+            </connector>
+            <label>ValidEmailID</label>
+        </rules>
+    </decisions>
+    <description>Yoda Channel Managers Forward Lead information to External Channel Reps.
+Updated to choose fields and let salesforce do the rest in get lead record.</description>
+    <formulas>
+        <name>CustomPermissionforEmailsolution</name>
+        <dataType>Boolean</dataType>
+        <expression>{!$Permission.YODA_Lead_Forwarded_to_Rep}</expression>
+    </formulas>
+    <formulas>
+        <name>emailvalidation</name>
+        <dataType>Boolean</dataType>
+        <expression>REGEX({!To_Address},&quot;[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}&quot;)</expression>
+    </formulas>
+    <interviewLabel>YODA Lead Forward to External Reps {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>YODA Lead Forward to External Reps</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <recordLookups>
+        <description>Get the lead record that triggered this flow using Lead ID = recordId variable.</description>
+        <name>Get_Lead_Record</name>
+        <label>Get Lead Record</label>
+        <locationX>314</locationX>
+        <locationY>158</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Get_User_Record</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Lead</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_User_Record</name>
+        <label>Get User Record</label>
+        <locationX>314</locationX>
+        <locationY>278</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Confirmation</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Lead_Record.OwnerId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>User</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <description>Update Lead record with the check box and email ID.</description>
+        <name>Update_Lead_Record</name>
+        <label>Update Lead Record</label>
+        <locationX>50</locationX>
+        <locationY>878</locationY>
+        <connector>
+            <targetReference>Email_confirmation</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Lead_Record.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Forwarded_Lead__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Lead_Forwarded_To__c</field>
+            <value>
+                <elementReference>To_Address</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Lead</object>
+    </recordUpdates>
+    <screens>
+        <description>Are you sure to send email?</description>
+        <name>Confirmation</name>
+        <label>Confirmation</label>
+        <locationX>314</locationX>
+        <locationY>398</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>Email_ID</targetReference>
+        </connector>
+        <fields>
+            <name>Are_you_sure_to_send_email</name>
+            <dataType>Boolean</dataType>
+            <defaultValue>
+                <booleanValue>false</booleanValue>
+            </defaultValue>
+            <fieldText>Are you sure to send email?</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Email_confirmation</name>
+        <label>Email confirmation</label>
+        <locationX>50</locationX>
+        <locationY>998</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>Emailconfirmsent</name>
+            <fieldText>&lt;p&gt;Email is sent.&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Email_Error</name>
+        <label>Email Error</label>
+        <locationX>314</locationX>
+        <locationY>878</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>ErrorScreen</name>
+            <fieldText>&lt;p&gt;Error: Email not sent.&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <description>Enter email address to send email.</description>
+        <name>Email_ID</name>
+        <label>Email ID</label>
+        <locationX>314</locationX>
+        <locationY>518</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>Valid_Email</targetReference>
+        </connector>
+        <fields>
+            <name>To_Address</name>
+            <dataType>String</dataType>
+            <fieldText>To Address:</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Not_a_valid_Email</name>
+        <label>Not a valid Email</label>
+        <locationX>578</locationX>
+        <locationY>758</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>Not_Valid_Email</name>
+            <fieldText>&lt;p&gt;Not a valid email address.&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <start>
+        <locationX>188</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Lead_Record</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <textTemplates>
+        <name>EmailTemplate</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;Dear Sales,&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;The following is a lead from {!Get_Lead_Record.pi__campaign__c} and has been assigned to you and your company to follow up.&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;Here is the lead information:&lt;/p&gt;&lt;p&gt;&lt;b&gt;Lead Creation Date:&lt;/b&gt;&amp;nbsp;{!Get_Lead_Record.CreatedDate}&lt;/p&gt;&lt;p&gt;&lt;b&gt;Lead Name:&lt;/b&gt;&amp;nbsp;{!Get_Lead_Record.FirstName} {!Get_Lead_Record.LastName}&lt;/p&gt;&lt;p&gt;&lt;b&gt;Lead Title:&lt;/b&gt;&amp;nbsp;{!Get_Lead_Record.Title}&lt;/p&gt;&lt;p&gt;&lt;b&gt;Company:&lt;/b&gt;&amp;nbsp;{!Get_Lead_Record.Company}&lt;/p&gt;&lt;p&gt;&lt;b&gt;Email:&lt;/b&gt;&amp;nbsp;{!Get_Lead_Record.Email}&lt;/p&gt;&lt;p&gt;&lt;b&gt;Phone:&lt;/b&gt;&amp;nbsp;{!Get_Lead_Record.Phone}&lt;/p&gt;&lt;p&gt;&lt;b&gt;Source Campaign:&lt;/b&gt;&amp;nbsp;{!Get_Lead_Record.pi__campaign__c}&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description:&amp;nbsp;{!Get_Lead_Record.Description}&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Category of Interest:&lt;/b&gt;&amp;nbsp;{!Get_Lead_Record.Category_of_Interest__c}&lt;/p&gt;&lt;p&gt;&lt;b&gt;Product of Interest:&lt;/b&gt;&amp;nbsp;{!Get_Lead_Record.Product_of_Interest__c}&lt;/p&gt;&lt;p&gt;&lt;b&gt;Country:&lt;/b&gt;&amp;nbsp;{!Get_Lead_Record.Country}&lt;/p&gt;&lt;p&gt;&lt;b&gt;State:&amp;nbsp;{!Get_Lead_Record.State}&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Postal Code:&lt;/b&gt;&amp;nbsp;{!Get_Lead_Record.StateCode}&lt;/p&gt;&lt;p&gt;&lt;b&gt;City:&lt;/b&gt;&amp;nbsp;{!Get_Lead_Record.City}&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;Please follow up with this lead as soon as possible.&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;b&gt;If and when this lead turns&amp;nbsp;into an opportunity, please let me know.&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;Sincerely,&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;{!Get_Lead_Record.Owner:User.Name}&lt;/p&gt;&lt;p&gt;&lt;b&gt;Yokogawa&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;{!Get_Lead_Record.Owner:User.Phone}&lt;/p&gt;&lt;p&gt;{!Get_Lead_Record.Owner:User.Email}&lt;/p&gt;</text>
+    </textTemplates>
+    <variables>
+        <name>EmailConfirmation</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description>Stores the current Lead record&apos;s Id that launched this flow.</description>
+        <name>recordId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>
