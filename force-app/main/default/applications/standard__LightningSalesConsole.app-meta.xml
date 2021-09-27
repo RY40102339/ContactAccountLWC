@@ -1419,6 +1419,7 @@
     <tabs>standard-Dashboard</tabs>
     <tabs>standard-Feed</tabs>
     <tabs>standard-File</tabs>
+    <tabs>standard-Order</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>LightningSalesConsole_UtilityBar</utilityBar>
     <workspaceConfig>
@@ -1451,6 +1452,9 @@
         </mappings>
         <mappings>
             <tab>standard-Opportunity</tab>
+        </mappings>
+        <mappings>
+            <tab>standard-Order</tab>
         </mappings>
         <mappings>
             <tab>standard-Task</tab>
