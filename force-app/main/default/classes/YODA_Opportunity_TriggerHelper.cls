@@ -34,7 +34,6 @@ public class YODA_Opportunity_TriggerHelper {
                 EventBus.publish(refreshRecordEvents);
             }
         }catch(Exception e){
-            System.debug('Exception during publishing of refresh platform events-->'+e.getMessage());
             YODA_Utility.logError('Backend Process Error','Class:YODA_Opportunity_TriggerHelper; Method: refreshOpps(); Line #:'+e.getLineNumber()
                                 +'; Message:'+e.getMessage(), e.getStackTraceString(), UserInfo.getUserId());
         }
