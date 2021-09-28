@@ -6,7 +6,7 @@
 * 
 ******************************************************************************************************* 
 * @author Hemalatha Gorthy
-* @version 1.0
+* @version 1.0 
 * @created 9/24/2021
 * @description  
 * This test class is used for the YODA_AccountTriggerHelper apex class
@@ -53,7 +53,7 @@ public class Yoda_AccountTriggerHelper_Test {
                 }
             }
             //Validate currency.
-            System.assertEquals(true, validateCurr, 'Verify Currency in list of available currencies.');
+            System.assertEquals(true, validateCurr, 'Currency in list of available currencies.');
 
         //Negative test case
             //Retrieve user.currency and compare with Account.CurrencyIsoCode for Shipping Country as Japan.
