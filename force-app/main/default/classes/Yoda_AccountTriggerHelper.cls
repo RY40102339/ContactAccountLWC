@@ -35,6 +35,10 @@ public without sharing class Yoda_AccountTriggerHelper {
                     update newAcList;
                 }catch(DmlException ex){
                     system.debug('DML Exception: '+ex.getMessage());
+                    YODA_Utility.logError('','Backend Process Error',e.getStackTraceString(),
+                                    'Class:YODA_AccountTriggerHelper ; Method: updateAccount(); Line #:'+e.getLineNumber()
+                                    +'; Message:'+e.getMessage(),
+                                    UserInfo.getUserId());
                 }
             //}
     }
