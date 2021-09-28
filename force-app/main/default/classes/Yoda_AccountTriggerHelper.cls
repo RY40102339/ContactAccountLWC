@@ -14,12 +14,13 @@
 * @class name - YODA_AccountTriggerHelper
 *  Change History:
 *  MM/DD/YYYY			Developer Name			Comments
-*  9/9/2021             Hemalatha Gorthy        Created Class
+*  9/9/2021             Hemalatha Gorthy        Created Class.
+*  9/27/2021            Hemalatha Gorthy        Updated to include JPY.
 */
 public without sharing class Yoda_AccountTriggerHelper {
 	// Only used in after insert; 
 	// Self updates Currency picklist based on Shipping Country.
-    public static void updateCurrency(List<Account> acs){
+    public static void updateAccount(List<Account> acs){
             List<Account> newAcList = [SELECT ShippingCountry, CurrencyIsoCode FROM Account WHERE ID IN :acs WITH SECURITY_ENFORCED];
             //loop through each record to update currency
             for(Account ac: newAcList){
@@ -33,7 +34,7 @@ public without sharing class Yoda_AccountTriggerHelper {
                try{
                     update newAcList;
                 }catch(DmlException ex){
-                    system.debug('Exception while Inserting an Account with updated currency: '+ex.getMessage());
+                    system.debug('DML Exception: '+ex.getMessage());
                 }
             //}
     }
@@ -62,6 +63,9 @@ public without sharing class Yoda_AccountTriggerHelper {
             when 'India'{
                 newCurr = 'INR';
             }//ends when 'INR' condition.
+            when 'Japan'{
+                newCurr = 'JPY';
+            }//ends when 'JPY' condition.
             }//ends swtich case.
         return newCurr;
 	}
