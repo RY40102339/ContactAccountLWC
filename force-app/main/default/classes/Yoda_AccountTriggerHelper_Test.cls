@@ -6,7 +6,7 @@
 * 
 ******************************************************************************************************* 
 * @author Hemalatha Gorthy
-* @version 1.0
+* @version 1.0 
 * @created 9/24/2021
 * @description  
 * This test class is used for the YODA_AccountTriggerHelper apex class
@@ -15,17 +15,18 @@
 *  Change History:
 *  MM/DD/YYYY			Developer Name			Comments
 *  9/9/2021             Hemalatha Gorthy        Created Test Class
+*  9/27/2021            Hemalatha Gorthy        Updated to include JPY.
 */
 
 @isTest
 public class Yoda_AccountTriggerHelper_Test {
 	@isTest
-    static void accCurrencyTest(){
+    static void accAccountTest(){
         //Positive test cases
             //List of Countries to test.
-            List<String> countryList = New List<String> {'Belgium', 'United States', 'China', 'United Kingdom', 'Korea, Republic of', 'Singapore', 'India'};
+            List<String> countryList = New List<String> {'Belgium', 'United States', 'China', 'United Kingdom', 'Korea, Republic of', 'Singapore', 'India', 'Japan'};
             //List of Currencies in the order of Countries listed above.
-            List<String> currList = New List<String> {'EUR', 'USD', 'CNY', 'GBP', 'KRW', 'SGD', 'INR'};
+            List<String> currList = New List<String> {'EUR', 'USD', 'CNY', 'GBP', 'KRW', 'SGD', 'INR', 'JPY'};
             //Create test data of accounts with shipping country listed above.
             List<Account> acs = new List<Account>(); 
         	//Loop through each country to create Accounts.
@@ -33,13 +34,14 @@ public class Yoda_AccountTriggerHelper_Test {
                 Account a = new Account(Name='TestAccount' + i, ShippingCountry = countryList[i]);
                 acs.add(a);
             }
-        	//Insert test account with country Japan.
-            Account ac1 = new Account(Name='TesterAccount',ShippingCountry='Japan');
-            //Insert Account with shippingcountry as Japan.
+        	//Insert test account with country Fiji.
+            Account ac1 = new Account(Name='TesterAccount',ShippingCountry='Fiji');
             acs.add(ac1);
             //Test starts here
             Test.StartTest();  
             insert acs;
+            //Test stops here
+            Test.StopTest();  
             //Retrieve created Accounts to verify Currency.
             Boolean validateCurr = true;
             List<String> verifyCurr = new List<String>();
