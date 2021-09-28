@@ -24,6 +24,7 @@ public class YODA_Opportunity_TriggerHelper_Test {
         Date Start = Date.newInstance(2021, 12, 25);
         List<Opportunity> oppList = new List<Opportunity>();
         Opportunity opp = new Opportunity(Name='Tester',CloseDate=Start,StageName='Qualification');
+        Opportunity oppBad = new Opportunity(Name='Tester',CloseDate=Start,StageName='Qualification');
         
         Test.startTest();
         
@@ -35,6 +36,6 @@ public class YODA_Opportunity_TriggerHelper_Test {
           
         Test.stopTest();
         
-        System.assertEquals(false, sr.isSuccess());
+        System.assertEquals(false, sr.isSuccess(),'Platform event failed to publish');
     }
 }
