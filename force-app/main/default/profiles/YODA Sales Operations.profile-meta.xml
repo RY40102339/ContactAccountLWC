@@ -44,6 +44,10 @@
         <apexClass>YODA_RunAssignmentRules</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+    <classAccesses>
+        <apexClass>YODA_Utility</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <custom>true</custom>
     <description>Profile for Sales Operations teams of the YODA program. Most permissions revolve around Account, Contact, Lead, Opportunity, and other user/object permission to support sales teams and processes</description>
     <fieldPermissions>
@@ -3743,6 +3747,26 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Yoda_Error_log__c.Error_Brief__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Yoda_Error_log__c.Error_Description__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Yoda_Error_log__c.Error_Generated_By__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Yoda_Error_log__c.Error_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Yokogawa_Competitor__c.Website__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -3816,6 +3840,15 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>Product2</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Yoda_Error_log__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <pageAccesses>
