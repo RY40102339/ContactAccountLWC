@@ -33,12 +33,9 @@ public without sharing class Yoda_AccountTriggerHelper {
             //if (!Schema.sObjectType.Account.fields.ShippingCountry.isUpdateable()){
                try{
                     update newAcList;
-                }catch(DmlException ex){
-                    system.debug('DML Exception: '+ex.getMessage());
-                    YODA_Utility.logError('','Backend Process Error',e.getStackTraceString(),
-                                    'Class:YODA_AccountTriggerHelper ; Method: updateAccount(); Line #:'+e.getLineNumber()
-                                    +'; Message:'+e.getMessage(),
-                                    UserInfo.getUserId());
+                }catch(Exception e);
+                    YODA_Utility.logError('Backend Process Error','Class:YODA_AccountTriggerHelper; Method: updateAccount(); Line #:'+e.getLineNumber()
+                                +'; Message:'+e.getMessage(), e.getStackTraceString(), UserInfo.getUserId());
                 }
             //}
     }
