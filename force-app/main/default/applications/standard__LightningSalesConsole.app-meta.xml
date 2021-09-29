@@ -4,7 +4,7 @@
         <actionName>View</actionName>
         <comment>Action override created by Lightning App Builder during activation.</comment>
         <content>YODA_Product_Record_Page</content>
-        <formFactor>Small</formFactor>
+        <formFactor>Small</formFactor> 
         <skipRecordTypeSelect>false</skipRecordTypeSelect>
         <type>Flexipage</type>
         <pageOrSobjectType>Product2</pageOrSobjectType>
