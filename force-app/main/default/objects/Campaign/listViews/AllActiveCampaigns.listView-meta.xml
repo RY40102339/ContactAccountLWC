@@ -8,6 +8,7 @@
     <columns>CAMPAIGN.END_DATE</columns>
     <columns>CAMPAIGN.NUM_RESPONSES</columns>
     <columns>Business_Unit__c</columns>
+    <columns>Region__c</columns>
     <columns>CORE.USERS.FIRST_NAME</columns>
     <columns>CORE.USERS.LAST_NAME</columns>
     <filterScope>Everything</filterScope>
