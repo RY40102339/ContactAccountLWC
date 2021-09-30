@@ -5,6 +5,16 @@
         <name>YODA_Lead_Forwarded_to_Rep</name>
     </customPermissions>
     <description>Custom Permission: &apos;YODA Lead Forwarded to Rep&apos;</description>
+     <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead.Lead_Forwarded_To__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+      <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead.Forwarded_Lead__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <hasActivationRequired>false</hasActivationRequired>
     <label>Custom Permission YODA Lead Forwarded to Rep</label>
 </PermissionSet>
