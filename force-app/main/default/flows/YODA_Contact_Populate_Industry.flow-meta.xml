@@ -43,20 +43,6 @@
             </value>
         </assignmentItems>
         <assignmentItems>
-            <assignToReference>$Record.MailingCountryCode</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Get_Account_Record.ShippingCountryCode</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>$Record.MailingStreet</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Get_Account_Record.ShippingStreet</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
             <assignToReference>$Record.MailingState</assignToReference>
             <operator>Assign</operator>
             <value>
@@ -64,10 +50,10 @@
             </value>
         </assignmentItems>
         <assignmentItems>
-            <assignToReference>$Record.MailingStateCode</assignToReference>
+            <assignToReference>$Record.MailingStreet</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>Get_Account_Record.ShippingStateCode</elementReference>
+                <elementReference>Get_Account_Record.ShippingStreet</elementReference>
             </value>
         </assignmentItems>
     </assignments>
@@ -95,8 +81,7 @@
     </decisions>
     <description>YODA Flow. Populates the Contact&apos;s Industry if it is not entered by user, by bringing over the value from Account
 Add bypass setting.
-Contact to Inherit Main Address from Account Mailing Address - SR 9/23
-Removed Mailing Address from Account and added HasOptedOutOfEmail = true Assignments. - Hema 9/28</description>
+Contact to Inherit Main Address from Account Mailing Address - SR 9/23</description>
     <formulas>
         <description>Assign Industry</description>
         <name>ProcessIndustry</name>
@@ -162,5 +147,5 @@ AND(
         <recordTriggerType>Create</recordTriggerType>
         <triggerType>RecordBeforeSave</triggerType>
     </start>
-    <status>Obsolete</status>
+    <status>Active</status>
 </Flow>
