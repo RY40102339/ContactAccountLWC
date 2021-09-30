@@ -21,41 +21,6 @@
                 <booleanValue>true</booleanValue>
             </value>
         </assignmentItems>
-        <assignmentItems>
-            <assignToReference>$Record.MailingCity</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Get_Account_Record.ShippingCity</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>$Record.MailingCountry</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Get_Account_Record.ShippingCountry</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>$Record.MailingPostalCode</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Get_Account_Record.ShippingPostalCode</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>$Record.MailingState</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Get_Account_Record.ShippingState</elementReference>
-            </value>
-        </assignmentItems>
-        <assignmentItems>
-            <assignToReference>$Record.MailingStreet</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>Get_Account_Record.ShippingStreet</elementReference>
-            </value>
-        </assignmentItems>
     </assignments>
     <decisions>
         <name>Bypass_setting</name>
