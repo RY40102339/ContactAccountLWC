@@ -14,17 +14,19 @@
 * @test class name - YODA_Contact_TriggerHelper_Test
 *  Change History:
 *  MM/DD/YYYY			Developer Name			Comments
-*  9/9/2021             Kameron F.              Created Trigger
+*  9/9/2021             Kameron F.              Created Trigger to update Region__c
+*  9/27/2021            Hemalatha Gorthy        Update Mailing address from Account Billing/Shipping
 */
 
 trigger YODA_Contact_Trigger on Contact (after insert) {
     //Check for bypass setting on User record <Mandatory for all Triggers>
-    if(Bypass_Settings__c.getinstance().Bypass_Flow_Rules__c)
+    if(Bypass_Settings__c.getinstance().Bypass_Flow_Rules__c){
         return;
+    }
     if(Trigger.isAfter){
         if(Trigger.isInsert){
-            // Main handler for updating Region__c
-        	YODA_Contact_TriggerHelper.UpdateRegion(Trigger.New);
+            // Main handler for updating Contact
+        	YODA_Contact_TriggerHelper.updateContact(Trigger.New);
         }
     }
 }

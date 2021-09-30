@@ -17,38 +17,69 @@
 *  9/9/2021             Kameron F.              Created Class
 *  9/24/2021			Kameron F.				Added log error
 *  9/27/2021            Kameron F.              Update MailingCountry List
+*  9/27/2021            Hemalatha Gorthy        Added MailingAddress logic
+*  9/30/2021			Kameron F.				Fixed bulk insert issue
 */
 
 public with sharing class YODA_Contact_TriggerHelper {
     // Only used in after insert; Self-updates the region field to get around the MailCountry picklist/String issue
     // Kam 9/9/2021
-    public static void UpdateRegion(List<Contact> Cons){
-        // Ensures that method only runs when the Region is null
-        if(Cons[0].Region__c == Null){
-            
-            List<Contact> newConList = [SELECT AccountID,Email,MailingCountry, Region__c,OwnerID FROM Contact WHERE ID IN :Cons];
-            
-            for(Contact Con: newConList){
-                Con.Region__c = getRegion(Con.MailingCountry, Con.OwnerId);
-                System.debug(Con);
-            }
+    public static void updateContact(List<Contact> cons){
+        List<Contact> newConList = [SELECT AccountID, Email, MailingAddress, MailingCity, MailingCountry, 
+                                    MailingPostalCode, MailingState, MailingStreet, Region__c, OwnerID,
+                                    Account.BillingCity, Account.BillingCountry, Account.BillingPostalCode, Account.BillingState, Account.BillingStreet,
+                                    Account.ShippingCity, Account.ShippingCountry, Account.ShippingPostalCode, Account.ShippingState, Account.ShippingStreet
+                                    FROM Contact 
+                                    WHERE ID IN :cons WITH SECURITY_ENFORCED];
 
-            // Self-updating to update Contact
-            try{
-                update newConList;
-            }catch(Exception e){
-                system.debug('Exception : '+e.getMessage());
-                /*
-                YODA_Utility.logError('','Backend Process Error',e.getStackTraceString(),
-                               'Class:YODA_Contact_TriggerHelper; Method: UpdateRegion(); Line #:'+e.getLineNumber()
-                                +'; Message:'+e.getMessage(),
-                               UserInfo.getUserId());*/
+		
+        for(Contact con: newConList){
+            con = updateMailingAddress(con);
+                
+            // Ensures that method only runs when the Region is null
+            if(con.Region__c == Null){
+                con.Region__c = getRegion(con.MailingCountry, con.OwnerId);
             }
         }
-    }
 
-    public static String regionSwitch(String MailingCountry, String finstring){
-        switch on MailingCountry {
+        // Self-updating to update Contact
+        try{
+            update newConList;
+        }catch(Exception e){
+            YODA_Utility.logError('Backend Process Error','Class:YODA_Contact_TriggerHelper; Method: updateContact(); Line #:'+e.getLineNumber()
+                                +'; Message:'+e.getMessage(), e.getStackTraceString(), UserInfo.getUserId());
+        }
+	}
+    
+    // Moved Hema's logic here. If Contact Mailing Address is null, then use Account Billing Address
+    // If Account Billing Address is null, then use Account Shipping Address.
+    // Kam 9/30/2021
+    public static Contact updateMailingAddress(Contact con){
+        If (con.MailingCity==null && con.MailingCountry==null && con.MailingPostalCode==null && 
+            con.MailingState==null && con.MailingStreet==null){
+                If (con.Account.BillingCity==null && con.Account.BillingCountry==null && 
+                    con.Account.BillingPostalCode==null && con.Account.BillingState==null && 
+                    con.Account.BillingStreet==null){
+                        con.MailingCity = con.Account.ShippingCity;
+                        con.MailingCountry = con.Account.ShippingCountry;
+                        con.MailingPostalCode = con.Account.ShippingPostalCode;
+                        con.MailingState = con.Account.ShippingState;
+                        con.MailingStreet = con.Account.ShippingStreet;
+                    } else{
+                        con.MailingCity = con.Account.BillingCity;
+                        con.MailingCountry = con.Account.BillingCountry;
+                        con.MailingPostalCode = con.Account.BillingPostalCode;
+                        con.MailingState = con.Account.BillingState;
+                        con.MailingStreet = con.Account.BillingStreet;
+                    }
+            }
+        return con;
+    }
+    
+    // Uses value from client to assign a region value based on the MailingCountry
+    // Kam 9/27/2021
+    public static String regionSwitch(String mailingCountry, String finstring){
+        switch on mailingCountry {
             when 'Aruba','Anguilla','Netherlands Antilles','Antigua and Barbuda','Bahamas','Belize','Bermuda','Barbados','Canada','Costa Rica','Cayman Islands','Dominica','Dominican Republic','Guadeloupe','Grenada','Guatemala','Honduras','Haiti','Jamaica','Saint Kitts AND Nevis','Mexico','Northern Mariana Islands', 'Martinique','Nicaragua','Panama','Puerto Rico','El Salvador','Turks and Caicos Islands','Trinidad and Tobago','United States Minor Outlying Islands','United States','Saint Vincent and the Grenadines','Virgin Islands, British','Virgin Islands (British)','Virgin Islands (U.S.)s','Virgin Islands (U.S.)','Saint Lucia'{
                 finString = 'YCA';//'North America';
             }
@@ -85,22 +116,22 @@ public with sharing class YODA_Contact_TriggerHelper {
     
     // Based on the MailingCountry field on Contact, return the relevant region (Case-sensitive);
     // Kam 9/9/2021
-    public static String getRegion(String MailingCountry){
+    public static String getRegion(String mailingCountry){
         // Based on MailingCountry, return the appropriate Region
         String finString = '';
         
-        finString = regionSwitch(MailingCountry, finString);
+        finString = regionSwitch(mailingCountry, finString);
 
         return finString;
     }
     
     // Based on the MailingCountry field on Contact, return the relevant region (Case-sensitive);
     // Kam 9/9/2021
-    public static String getRegion(String MailingCountry, ID Owner){
-        String finString = [SELECT Region__c From User Where Id = :Owner].Region__c; // Default case
+    public static String getRegion(String mailingCountry, ID owner){
+        String finString = [SELECT Region__c From User Where Id = :owner WITH SECURITY_ENFORCED].Region__c; // Default case
         // Based on MailingCountry, return the appropriate Region
         
-        finString = regionSwitch(MailingCountry, finString);
+        finString = regionSwitch(mailingCountry, finString);
 
         return finString;
     }
