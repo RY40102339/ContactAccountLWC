@@ -2,12 +2,13 @@
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>52.0</apiVersion>
     <assignments>
-        <description>Assign, Region, Probability and Industry
+        <description>Assign BU, Region, Probability and Industry
 Region - from Record&apos;s Owner region
 Probability - As per Matrix
-Industry - From Account&apos;s record</description>
-        <name>Assign_Region_Probability_and_Industry</name>
-        <label>Assign Region Probability and Industry</label>
+Industry - From Account&apos;s record
+Business Unit - From User&apos;s BU</description>
+        <name>Assign_Calculated_Values</name>
+        <label>Assign Calculated Values</label>
         <locationX>182</locationX>
         <locationY>431</locationY>
         <assignmentItems>
@@ -22,6 +23,13 @@ Industry - From Account&apos;s record</description>
             <operator>Assign</operator>
             <value>
                 <elementReference>Process_Industry</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Business_Unit__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Process_Business_Unit</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -58,7 +66,7 @@ Industry - From Account&apos;s record</description>
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Assign_Region_Probability_and_Industry</targetReference>
+                <targetReference>Assign_Calculated_Values</targetReference>
             </connector>
             <label>bypass false</label>
         </rules>
@@ -86,9 +94,10 @@ Industry - From Account&apos;s record</description>
             <label>Product Probability</label>
         </rules>
     </decisions>
-    <description>Populate fields before Opportunity record is created. Industry, Region. 
+    <description>Populate fields before Opportunity record is created. Industry, Region, Business Unit. 
 Added Probability Matrix logic only for Product record type (Probability for Project and Recurring as OOTB. 9/9)
-Added Bypass Check</description>
+Added Bypass Check
+Added BSU (10/1)</description>
     <formulas>
         <name>Probability</name>
         <dataType>Number</dataType>
@@ -150,6 +159,18 @@ IF(
 )
 )</expression>
         <scale>0</scale>
+    </formulas>
+    <formulas>
+        <description>If user does not fill in Business Unit on Opportunity record, then use that user&apos;s Business Unit.</description>
+        <name>Process_Business_Unit</name>
+        <dataType>String</dataType>
+        <expression>IF(
+AND(
+ISPICKVAL({!$Record.Business_Unit__c}, &quot;&quot;),
+{!$Setup.Bypass_Settings__c.Bypass_Flow_Rules__c} = false
+),
+TEXT({!$User.Business_Unit__c}),TEXT({!$Record.Business_Unit__c})
+)</expression>
     </formulas>
     <formulas>
         <name>Process_Industry</name>
@@ -216,4 +237,4 @@ TEXT({!$Record.Owner.Region__c})
             <stringValue>User is not allowed to create Opportunity.</stringValue>
         </value>
     </variables>
-</Flow>
+</Flow> 
