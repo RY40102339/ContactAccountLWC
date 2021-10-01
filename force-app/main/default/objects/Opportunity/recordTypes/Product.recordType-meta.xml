@@ -377,7 +377,7 @@
         </values>
         <values>
             <fullName>YMI SBU</fullName>
-            <default>true</default>
+            <default>false</default>
         </values>
         <values>
             <fullName>KBC</fullName>

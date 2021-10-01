@@ -4,7 +4,7 @@
         <name>RunAssignmentRules</name>
         <label>RunAssignmentRules</label>
         <locationX>50</locationX>
-        <locationY>431</locationY>
+        <locationY>455</locationY>
         <actionName>YODA_RunAssignmentRules</actionName>
         <actionType>apex</actionType>
         <inputParameters>
@@ -14,12 +14,13 @@
             </value>
         </inputParameters>
     </actionCalls>
+    <apiVersion>52.0</apiVersion>
     <decisions>
         <description>Route the lead to sales queue when the rating is changing from warm to hot.</description>
         <name>Route_to_Sales_Queues</name>
         <label>Route to Sales Queues</label>
         <locationX>182</locationX>
-        <locationY>311</locationY>
+        <locationY>335</locationY>
         <defaultConnector>
             <targetReference>IsConverted</targetReference>
         </defaultConnector>
@@ -54,8 +55,9 @@
             <label>Run Assignment Rule</label>
         </rules>
     </decisions>
-    <description>YODA Lead After Insert/Update Operations - Testing Close Date formula
-Run assignment rule</description>
+    <description>YODA Lead After Insert/Update Operations - Update Opportunity Close Date
+Run assignment rule
+Update Opportunity with BSU (Kam 10/1/2021)</description>
     <formulas>
         <name>CloseDate</name>
         <dataType>Date</dataType>
@@ -97,11 +99,12 @@ Run assignment rule</description>
         <name>IsConverted</name>
         <label>IsConverted?</label>
         <locationX>314</locationX>
-        <locationY>431</locationY>
+        <locationY>455</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Opportunity_Record</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>IsConverted</field>
             <operator>EqualTo</operator>
@@ -130,17 +133,19 @@ Run assignment rule</description>
         <queriedFields>ConvertedContactId</queriedFields>
         <queriedFields>CreatedDate</queriedFields>
         <queriedFields>Description</queriedFields>
+        <queriedFields>Business_Unit__c</queriedFields>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
         <name>Opportunity_Record</name>
         <label>Opportunity Record</label>
         <locationX>314</locationX>
-        <locationY>551</locationY>
+        <locationY>575</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Update_Opportunity</targetReference>
         </connector>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
@@ -156,7 +161,8 @@ Run assignment rule</description>
         <name>Update_Opportunity</name>
         <label>Update Opportunity</label>
         <locationX>314</locationX>
-        <locationY>671</locationY>
+        <locationY>695</locationY>
+        <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
@@ -164,6 +170,12 @@ Run assignment rule</description>
                 <elementReference>$Record.ConvertedOpportunityId</elementReference>
             </value>
         </filters>
+        <inputAssignments>
+            <field>Business_Unit__c</field>
+            <value>
+                <elementReference>IsConverted.Business_Unit__c</elementReference>
+            </value>
+        </inputAssignments>
         <inputAssignments>
             <field>CloseDate</field>
             <value>
