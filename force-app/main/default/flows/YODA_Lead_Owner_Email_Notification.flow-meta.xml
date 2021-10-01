@@ -46,7 +46,7 @@
             </value>
         </inputParameters>
     </actionCalls>
-    <apiVersion>50.0</apiVersion>
+    <apiVersion>52.0</apiVersion>
     <assignments>
         <name>myWaitAssignment_myWait_myRule_1</name>
         <label>myWaitAssignment_myWait_myRule_1</label>
@@ -739,7 +739,7 @@
     </processMetadataValues>
     <processType>Workflow</processType>
     <startElementReference>myPreWaitDecision_myWait_myRule_3</startElementReference>
-    <status>Active</status>
+    <status>Obsolete</status>
     <variables>
         <name>cancelWaits</name>
         <dataType>String</dataType>
