@@ -7,7 +7,6 @@
         <locationY>455</locationY>
         <actionName>YODA_RunAssignmentRules</actionName>
         <actionType>apex</actionType>
-        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
             <name>leadIds</name>
             <value>
