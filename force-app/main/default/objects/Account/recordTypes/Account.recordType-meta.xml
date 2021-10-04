@@ -48,6 +48,17 @@
         </values>
     </picklistValues>
     <picklistValues>
+        <picklist>Credit_Rating__c</picklist>
+        <values>
+            <fullName>Blocked</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Good</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
         <picklist>Industry</picklist>
         <values>
             <fullName>Agriculture</fullName>
@@ -213,6 +224,173 @@
         </values>
     </picklistValues>
     <picklistValues>
+        <picklist>Preferred_Language__c</picklist>
+        <values>
+            <fullName>Arabic</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bulgarian</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Catalan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Chinese</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Chinese trad%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Croatian</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Customer reserve</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Czech</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Danish</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dutch</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EN</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Estonian</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Finnish</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>French</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>German</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Greek</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hebrew</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hungarian</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Icelandic</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Indonesian</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Italian</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>JA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Korean</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Latvian</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lithuanian</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Malay</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Norwegian</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Polish</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Portuguese</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Romanian</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Russian</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Serbian</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Serbian %28Latin%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Slovak</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Slovenian</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Spanish</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Swedish</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Thai</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Turkish</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ukrainian</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vietnamese</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
         <picklist>Rating</picklist>
         <values>
             <fullName>Cold</fullName>
@@ -224,6 +402,53 @@
         </values>
         <values>
             <fullName>Warm</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Region__c</picklist>
+        <values>
+            <fullName>Global</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YCA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YCN</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YEA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YEF</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YIL</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YJP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YKO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YMA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YRU</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YSA</fullName>
             <default>false</default>
         </values>
     </picklistValues>

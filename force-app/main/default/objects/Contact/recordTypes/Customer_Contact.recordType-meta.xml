@@ -397,4 +397,51 @@
             <default>false</default>
         </values>
     </picklistValues>
+    <picklistValues>
+        <picklist>Region__c</picklist>
+        <values>
+            <fullName>Global</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YCA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YCN</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YEA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YEF</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YIL</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YJP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YKO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YMA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YRU</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YSA</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
 </RecordType>
