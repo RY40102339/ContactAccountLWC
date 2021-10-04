@@ -1,0 +1,37 @@
+<apex:page standardController="Account" extensions="YG_SAP_AccountRegistrationForm" lightningStylesheets="true" showQuickActionVfHeader="false">
+    
+    <apex:form >
+        <apex:pageBlock >
+            <apex:PageblockSection title="SAP Account Registration Form" collapsible="false">
+                <apex:pageBlockSectionItem >
+                    <apex:OutputLabel >Request Type</apex:OutputLabel>
+                    <apex:actionRegion >
+                        <apex:selectList value="{!selectedRequestType}" label="Request Type" multiselect="false" size="1">
+                    
+                            <apex:selectOption itemValue="Insert" itemLabel="Insert"/>
+                            <apex:selectOption itemValue="Update" itemLabel="Update"/>
+                            <apex:selectOption itemValue="Delete" itemLabel="Delete"/>
+                            <apex:actionSupport event="onchange" rerender="requestType"/>
+                    
+                        </apex:selectList>
+                    </apex:actionRegion>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:OutputLabel >Customer Type</apex:OutputLabel>
+                    <apex:actionRegion > 
+                        <apex:selectList value="{!selectedCustomerType}" label="Customer Type" multiselect="false" size="1">
+                            <apex:selectOption itemValue="Sold-to" itemLabel="Sold-to"/>
+                            <apex:selectOption itemValue="End User" itemLabel="End User"/>
+                            <apex:actionSupport event="onchange" rerender="customerType"/>
+                        </apex:selectList>
+                    </apex:actionRegion>
+                </apex:pageBlockSectionItem>
+            </apex:PageblockSection>
+            
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton action="{!saveAndRedirect}" value="Generate SAP Account Registration Form"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+           
+    </apex:form>
+</apex:page>

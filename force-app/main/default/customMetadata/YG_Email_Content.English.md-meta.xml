@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>English</label>
+    <protected>false</protected>
+    <values>
+        <field>Email_Content__c</field>
+        <value xsi:type="xsd:string">Deal Customer `Thank you for your recent service request to our Service Organization. `I am pleased to inform you that Case ID has been assigned to your inquiry and this ID should be referenced whenever you have any future communication with us. ` Please note the Case ID. `The investigation of your instrument will approximately be done until the. `For your convenience and for call tracking purposes, please use the “Reply to all” button when using email to correspond on this inquiry. `We have finalized the service request and closed the Case `To maintain and review our and your customer satisfaction we would like you to inform us about your experience with our services `Excellent`Good`Acceptable`Dissatisfied`Have you any remarks or proposal for us? `kind Regards,</value>
+    </values>
+    <values>
+        <field>Language_Code__c</field>
+        <value xsi:type="xsd:string">EN</value>
+    </values>
+    <values>
+        <field>Table_Content__c</field>
+        <value xsi:type="xsd:string">Customer :`Your reference number :`Our reference number :`Model :`Serial number :`Problem details / your request :`Notes :`End of the working :`Solution :</value>
+    </values>
+</CustomMetadata>

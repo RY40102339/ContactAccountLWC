@@ -1,0 +1,125 @@
+<apex:page docType="html" sidebar="false" showHeader="false" standardStylesheets="false" applyHtmlTag="false" applyBodyTag="false" >
+	<html>
+		<!-- Default PDF Template. Basis for stationary templates -->
+
+		<head>
+			<meta charset="utf-8" />
+<!--
+			<link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.normalize)}"/>
+-->
+			<style>
+				@page {
+					size: A4;
+					width: 210mm;
+					height: 297mm;
+
+					@top-left {
+						content: element(page-top-left);
+					}
+					@top-center {
+						width: 100%;
+						content: element(page-top-center);
+					}
+					@top-right {
+						content: element(page-top-right);
+					}
+					@bottom-left {
+						content: element(page-bottom-left);
+					}
+					@bottom-center {
+						content: element(page-bottom-center);
+					}
+					@bottom-right {
+						content: element(page-bottom-right);
+					}
+				}
+
+				@media print {
+					header.onlyprint, footer.onlyprint
+					{
+						display: block;
+					}
+
+					.backPage.page-top-left,
+					.backPage.page-top-center,
+					.backPage.page-top-right,
+					.backPage.page-bottom-left,
+					.backPage.page-bottom-center,
+					.backPage.page-bottom-right
+					{
+						display: none;
+					}
+
+					.page-top-left
+					{
+						position: running(page-top-left);
+					}
+
+					.page-top-center
+					{
+						position: running(page-top-center);
+					}
+
+					.page-top-right
+					{
+						position: running(page-top-right);
+					}
+
+					.page-bottom-left
+					{
+						display: block;
+						position: running(page-bottom-left);
+					}
+
+					.page-bottom-center
+					{
+						display: block;
+						position: running(page-bottom-center);
+					}
+
+					.page-bottom-right
+					{
+						display: block;
+						position: running(page-bottom-right);
+					}
+				}
+
+				.currentPage:before { content: counter(page); }
+				.totalPages:before { content: counter(pages); }
+
+				hr {
+					border: none;
+					border-top: 1px solid black;
+				}
+
+				.endPage
+				{
+					page-break-after: always;
+				}
+
+				.resetPageCounter {-fs-page-sequence: start;}
+
+			</style>
+
+			<apex:insert name="htmlheadPdf" />
+
+		</head>
+		<body>
+			<apex:insert name="frontPagePdf" />
+
+			<apex:insert name="headerPdf" />
+
+			<div class="pagebody">
+				<apex:insert name="bodyPdf" />
+			</div>
+
+			<apex:insert name="footerPdf" />
+
+			<div class="backPage">
+				<apex:insert name="backPagePdf" />
+			</div>
+
+		</body>
+	</html>
+
+</apex:page>

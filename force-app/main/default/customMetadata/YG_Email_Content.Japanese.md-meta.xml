@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Japanese</label>
+    <protected>false</protected>
+    <values>
+        <field>Email_Content__c</field>
+        <value xsi:type="xsd:string">ディールカスタマー `サービス組織への最近のサービスリクエストをありがとうございます。 `お問い合わせにはケースIDが割り当てられており、今後連絡があればいつでもこのIDを参照する必要があります。 `ケースIDをメモしてください。 `お使いの機器の調査は、おおよそまで行われます。 `あなたの便宜と通話追跡の目的で、この問い合わせに対応するために電子メールを使用するときは、「全員に返信」ボタンを使用してください。 `サービスリクエストを確定し、ケースをクローズしました`当社とお客様の満足度を維持および確認するために、当社のサービスの経験についてお知らせください `優秀な` 良い`許容できる`不満`ご意見やご提案をお寄せください我ら? `敬具、</value>
+    </values>
+    <values>
+        <field>Language_Code__c</field>
+        <value xsi:type="xsd:string">JA</value>
+    </values>
+    <values>
+        <field>Table_Content__c</field>
+        <value xsi:type="xsd:string">顧客： `あなたの参照番号：`私たちの参照番号： `モデル：`シリアル番号： `問題の詳細/あなたの要求：`メモ： `作業の終了：`解決策</value>
+    </values>
+</CustomMetadata>

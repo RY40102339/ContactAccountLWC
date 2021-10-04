@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Quick Action to generate SAP Account Registration Form.</description>
+    <height>250</height>
+    <label>SAP Account Registration Form</label>
+    <optionsCreateFeedItem>false</optionsCreateFeedItem>
+    <page>YG_SAP_AccountRegistrationForm</page>
+    <type>VisualforcePage</type>
+    <width>-100</width>
+</QuickAction>

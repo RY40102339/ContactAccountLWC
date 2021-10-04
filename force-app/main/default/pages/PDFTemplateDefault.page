@@ -1,0 +1,178 @@
+<apex:page standardcontroller="WorkOrder" 
+            docType="html" sidebar="false" showHeader="false" standardStylesheets="false" applyHtmlTag="false" applyBodyTag="false" >
+            
+    <apex:variable var="language" value="{!IF(WorkOrder.Contact.Preferred_Language__c = 'German', 'DE', IF(WorkOrder.Contact.Preferred_Language__c = 'Italian', 'IT', 'EN'))}" />
+
+   <apex:composition template="PDFTemplate">
+        <apex:define name="htmlheadPdf">
+            <apex:insert name="htmlhead" />
+            <style>
+                @page
+                {
+                    margin-top: 5cm;
+                    margin-bottom: 2.1cm;
+                    margin-left: 1cm;
+                    margin-right: 1cm;
+                }
+                /* div {
+                    border-style: solid;
+                } */
+                
+                .yokotable {
+                    /* font-family: sans-serif; */
+                    font-family: 'Arial Unicode MS' 'sans-serif';
+                    font-size: 11px;
+                    border-collapse: collapse;
+                    width: 100%;
+                    margin-bottom: 25px;
+                }
+
+                .yokotable td, .yokotable th {
+                    width: 25%;
+                    height: 10px;
+                    padding: 2px;
+                    text-align: left;
+                    vertical-align: top;
+                }
+
+                .yokotable th {
+                    padding: 4px;
+                    background-color: #e6e6e6;
+                    color: black;
+                }
+                .yokotable td{
+                    border: 1px solid #ddd;
+                }
+                .address {
+                    font-size: 10px;
+                    position: absolute; 
+                    margin-left: 8px;
+                    margin-top: 4px;
+                    /* top: 26mm;"
+                    left: 8px; */
+                }
+                .bcontent {
+                    position: absolute;
+                    top: 2cm;
+                }
+                .fcontent{
+                    position: absolute;
+                    width: 100%;
+                    left: 0px;
+                    top: 245mm;
+                }
+                .hrfooter{
+                    border-top:  1px solid #ccc;
+                    margin-bottom: 12px;
+                }
+
+                .parts-table {
+                    /* font-family: sans-serif; */
+                    font-family: 'Arial Unicode MS' 'sans-serif';
+                    font-size: 11px;
+                    border-collapse: collapse;
+                    width: 100%;
+                    margin-bottom: 10px;
+                }
+                .parts-table th {
+                    padding: 4px;
+                    background-color: #e6e6e6;
+                    color: black;
+                }
+
+                .parts-table td {
+                    border: 1px solid #ddd;
+                    height: 10px;
+                    padding: 2px;
+                    text-align: left;
+                    vertical-align: top;
+                }
+
+                .total-table {
+                    border: 1px solid #ddd;
+                    /* font-family: sans-serif; */
+                    font-family: 'Arial Unicode MS' 'sans-serif';
+                    font-size: 11px;
+                    border-collapse: collapse;
+                    width: 100%;
+                    margin-bottom: 10px;
+                }
+
+            </style>
+        </apex:define>
+
+        <apex:define name="frontPagePdf">
+            <apex:insert name="frontPage" />
+        </apex:define>
+
+        <apex:define name="headerPdf">
+            <!--
+                This is the header of the document, it contains markup
+                that should appear on every page, like a company logo
+                and page numbers
+            -->
+
+            <header class="onlyprint page-top-left">
+
+                <div style="position: absolute; top: 10mm; right: 0px;">            
+                    <h1>
+                        Service Report: {!WorkOrder.WorkOrderNumber}
+                    </h1>
+                </div>
+
+                <div style="z-index: -1;height: 100%;width: 100%;position: absolute;overflow: hidden; top: 13mm; margin-left:8px;">
+                    <!--apex:image height="48px" url="/resource/1580901998000/YokogawaLogo?" /-->
+                    <apex:image height="48px" value="{!$Resource.YokogawaLogo}"/>
+                </div>              
+                            
+                <table class="address">
+                    <tbody>
+                        <tr>
+                            <td colspan="2">{!WorkOrder.ServiceLocation__r.OfficeFormalName__c}</td>
+                        </tr>
+                        <tr>
+                            <td>Tel:</td>
+                            <td>{!WorkOrder.ServiceLocation__r.OfficePhone__c}</td>
+                        </tr>
+                        <tr>
+                            <td>Fax:</td>
+                            <td>{!WorkOrder.ServiceLocation__r.OfficeFax__c}</td>
+                        </tr>
+                        <tr>
+                            <td>E-mail:</td>
+                            <td>{!WorkOrder.ServiceLocation__r.OfficeEmail__c}</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">{!WorkOrder.ServiceLocation__r.OfficeWebsiteURL__c}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- </div> -->
+                <div style="position: absolute; top: 275mm; left: 2px; width:100%;">
+                    <hr class="hrfooter"/>
+                    <div style="position:absolute;bottom:0px;left:2px;font-size:11px">{!IF(language='DE','Printed By:',IF(language='IT','Printed By:','Printed By:'))} {!$User.FirstName} {!$User.LastName}</div>
+                    <div style="position:absolute;bottom:0px;right:2px;font-size:11px">{!IF(language='DE','Print Date:',IF(language='IT','Print Date:','Print Date:'))} {!DAY(TODAY())}-{!MONTH(TODAY())}-{!YEAR(TODAY())}</div>
+                </div>
+                <!--<div style="position: absolute; top: 275mm; right: 1cm; height: 1cm; ">
+                    <span class="currentPage"></span> / <span class="totalPages"></span>
+                </div-->
+            </header>
+            <apex:insert name="header" />
+        </apex:define>
+    
+        <apex:define name="bodyPdf">
+            <apex:insert name="body" />
+        </apex:define>
+
+        <apex:define name="footerPdf">
+            <apex:insert name="footer" />
+        </apex:define>
+
+    
+        <!-- <apex:define name="backPagePdf">
+            <header class="onlyprint page-top-left">
+            </header>
+            <apex:insert name="backPage" />
+        </apex:define> -->
+    </apex:composition>
+</apex:page>

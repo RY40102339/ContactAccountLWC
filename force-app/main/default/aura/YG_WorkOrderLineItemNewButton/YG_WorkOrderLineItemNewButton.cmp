@@ -1,0 +1,55 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,force:hasRecordId,lightning:actionOverride,lightning:isUrlAddressable,force:lightningQuickAction,force:hasSObjectName" access="global" controller="YG_FetchRecordtypeHandler">
+	 <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+     <aura:attribute name="objectApliName" type="String" default=""/>
+     <aura:attribute name="recordTypeId" type="String" default=""/>
+     <aura:attribute name="recordTypeName" type="String" default=""/>
+     <aura:attribute name="fields" type="Object[]" access="private" />
+     <aura:attribute name="fieldSet" type="String[]" access="private" default="[]"/>
+     <aura:attribute name="fieldSetR" type="String[]" access="private" default="[]"/>
+     <aura:attribute name="fieldSetL" type="String[]" access="private" default="[]"/>
+     <aura:attribute name="stgNumber" type="Integer" default="1"/>
+     <div class="demo-only" style="height: 640px;">
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="exampleHolder">
+                 <lightning:spinner alternativeText="Loading" size="large"  variant="brand" class="slds-hide"/>                 
+            </div>
+            <div class="slds-modal__container">
+                <lightning:recordEditForm aura:id="test"
+                                              objectApiName="{!v.sObjectName}"
+                                              recordTypeId="{!v.recordTypeId}"
+                                              density="2"
+                                              onsuccess="{!c.redirectBack}">
+                        <lightning:messages />
+                <header class="slds-modal__header">
+                    <lightning:buttonIcon iconName="utility:close" variant="brand" onclick="{! c.redirectBack }"
+                                          alternativeText="Close" class="slds-modal__close" />
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">
+                        {!v.recordTypeName}
+                    </h2>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    
+                        <div class="demo-only demo-only--sizing slds-grid slds-wrap">
+                            <div class="slds-size_1-of-2">
+                                <aura:iteration items="{! v.fieldSetR }" var="field"> 
+                                    <lightning:inputField fieldName="{! field.APIName }" required="{! field.Required }" value="{!if((field.Required &amp;&amp; field.Type eq 'REFERENCE'),v.recordId,'')}" disabled="{!if((field.Required &amp;&amp; field.Type eq 'REFERENCE'),true,false)}"/> 
+                                </aura:iteration>
+                            </div>
+                            <div class="slds-size_1-of-2">
+                               <aura:iteration items="{! v.fieldSetL }" var="field"> 
+                                    <lightning:inputField fieldName="{! field.APIName }" required="{! field.Required }" value="{!if((field.Required &amp;&amp; field.Type eq 'REFERENCE'),v.recordId,'')}" disabled="{!if((field.Required &amp;&amp; field.Type eq 'REFERENCE'),true,false)}"/> 
+                                </aura:iteration>
+                            </div>
+                        </div>
+                        
+                </div>
+                <footer class="slds-modal__footer">
+                    <lightning:button class="slds-m-top_small" variant="Neutral" type="submit" name="save" label="save" />                        
+                    <lightning:button class="slds-m-top_small" variant="Neutral" label="Cancel" title="Remove Me" onclick="{! c.redirectBack }"/>
+                </footer>
+             </lightning:recordEditForm>
+             </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </div>
+</aura:component>
