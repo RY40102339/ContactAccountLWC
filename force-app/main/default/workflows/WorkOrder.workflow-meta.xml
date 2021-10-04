@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>YG_Email_Alerts_for_Work_Order_Creation</fullName>
+        <description>YG_Email Alerts for Work Order Creation</description>
+        <protected>false</protected>
+        <recipients>
+            <field>ContactId</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/SERVICE_Auto_Response_Case</template>
+    </alerts>
+    <alerts>
+        <fullName>YG_Email_Alerts_for_Work_Order_close</fullName>
+        <description>YG Email Alerts for Work Order close</description>
+        <protected>false</protected>
+        <recipients>
+            <field>ContactId</field>
+            <type>contactLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/SERVICE_Auto_Response_Case</template>
+    </alerts>
+    <rules>
+        <fullName>YG WO Email Alert on Creation</fullName>
+        <actions>
+            <name>YG_Email_Alerts_for_Work_Order_Creation</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>1 AND 2 AND 3 AND 4</booleanFilter>
+        <criteriaItems>
+            <field>WorkOrder.Sub_status__c</field>
+            <operation>equals</operation>
+            <value>Goods Receipt</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>WorkOrder.Send_Case_Confirmation_Email__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>WorkOrder.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>YEF T&amp;M Service</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>WorkOrder.IsClosed</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>YG WO Email Alert on close%2E</fullName>
+        <actions>
+            <name>YG_Email_Alerts_for_Work_Order_close</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>WorkOrder.IsClosed</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>WorkOrder.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>YEF T&amp;M Service</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+</Workflow>

@@ -1,0 +1,13 @@
+<apex:component layout="none">
+
+	<!-- Default invoice-specifieke css -->
+	<style>
+
+		body
+		{
+			font-size: 10pt;
+			font-family: Helvetica, sans-serif, Arial, 'Helvetica Neue';
+		}
+
+	</style>
+</apex:component>

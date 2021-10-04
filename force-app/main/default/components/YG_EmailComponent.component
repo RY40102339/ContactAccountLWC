@@ -1,0 +1,80 @@
+<apex:component controller="YG_EmailComponetCtrl" access="global">
+  <apex:attribute name="langType" description="This is language type"  type="String" assignTo="{!languageType}" access="global"/>
+  <apex:attribute name="fName" description="This is language type"  type="String" assignTo="{!firstName}" access="global"/>
+  <apex:attribute name="lName" description="This is language type"  type="String" assignTo="{!lastName}" access="global"/>
+  <apex:attribute name="caseNum" description="This is language type"  type="String" assignTo="{!caseNumber}" access="global"/>
+  <apex:attribute name="caseEDate" description="This is language type"  type="date" assignTo="{!caseEndDate}" access="global"/>
+  
+  <apex:attribute name="tableData1" description="This is language type"  type="String" assignTo="{!caseAccount}" access="global"/>
+  <apex:attribute name="tableData2" description="This is language type"  type="String" assignTo="{!caseCustomRef}" access="global"/>
+  <apex:attribute name="tableData3" description="This is language type"  type="String" assignTo="{!workOrdNum}" access="global"/>
+  <apex:attribute name="tableData4" description="This is language type"  type="String" assignTo="{!caseAsset}" access="global"/>
+  <apex:attribute name="tableData5" description="This is language type"  type="String" assignTo="{!caseAssetSLNum}" access="global"/>
+  <apex:attribute name="tableData6" description="This is language type"  type="String" assignTo="{!caseDesc}" access="global"/>
+  <apex:attribute name="tableData7" description="This is language type"  type="String" assignTo="{!workOrdNote}" access="global"/>
+
+  <!--apex:attribute name="wStatus" description="This is language type"  type="Boolean" assignTo="{!workOrdStatus}" access="global"/-->
+  <apex:attribute name="wStatus" description="This is language type"  type="Boolean" assignTo="{!isClosed}" access="global"/>
+  <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <META name="from" content="Customer Service Administrator <noreply@yokogawa.com>" />
+        <META name="subject" content="Account Activation" />
+    </head>
+    <body style="font-family: Noto Sans; font-size: 14px; line-height: 22px;">
+        <div style="text-align: center">
+            <img src="https://yokogawa-icrm--icpdev1--c.documentforce.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0681s000000lmEP&operationContext=DELIVERY&contentId=05T1s000003fhX2&page=0&d=/a/1s0000008eB6/W3BFWekzOSSI26FOuhHqsb66txo4y.aerUUyBCLGtss&oid=00D1s0000000PAr&dpt=null&viewId="/>   
+            <div style="background: #fff; border-radius: 3px; margin: 0 auto; width: 693px; ">
+                <div style="padding: 30px 60px 29px;margin: 0px auto;font-family:'Noto Sans', sans-serif;font-style: normal;font-weight: 500;font-size: 12px;text-align:left; display:{!IF(isClosed!= true, 'block','none')}" >
+                        {!IF(AND(EmailContent!= null,EmailContent.size>0), EmailContent[0],'Dear')},
+                        <br/><br/>
+                        <p> {!IF(AND(EmailContent!= null,EmailContent.size>0), EmailContent[1],'test')} </p>
+                        <p> {!IF(AND(EmailContent!= null,EmailContent.size>0), EmailContent[2],'test')}</p>
+                        <p> {!IF(AND(EmailContent!= null,EmailContent.size>0), EmailContent[3]+workOrdNum,'test')}</p>
+                        <p> {!IF(AND(EmailContent!= null,EmailContent.size>0), EmailContent[4],'test')}</p> 
+                        <p> {!IF(AND(EmailContent!= null,EmailContent.size>0), EmailContent[5],'test')}</p> 
+                </div>
+                <div style="padding: 30px 60px 29px;margin: 0px auto;font-family:'Noto Sans', sans-serif;font-style: normal;font-weight: 500;font-size: 12px;text-align:left; display:{!IF(isClosed== true, 'block','none')}" >
+                    {!IF(AND(EmailContent!= null,EmailContent.size>0), EmailContent[0],'Dear')},
+                    <br/>
+                    <p> {!IF(AND(EmailContent!= null,EmailContent.size>0), EmailContent[6],'test')} </p>
+                </div>
+                <table style=" margin-left: auto; margin-right: auto; border: 1px solid black;width: auto;text-align: left;">
+                    <apex:repeat value="{!TableContent }" var="key">
+                        <tr><td>{!key}</td><td>{!TableContent[key]}</td></tr>
+                    </apex:repeat>
+                </table><br/>
+                <div style="padding: 30px 60px 29px;margin: 0px auto;font-family:'Noto Sans', sans-serif;font-style: normal;font-weight: 500;font-size: 12px;text-align:left; display:{!IF(isClosed== true, 'block','none')}" >
+                    <p> {!IF(AND(EmailContent!= null,EmailContent.size>0), EmailContent[7],'test')} </p>
+                    <ul>
+                        <li>{!IF(AND(EmailContent!= null,EmailContent.size>0), EmailContent[8],'test')}</li>
+                        <li>{!IF(AND(EmailContent!= null,EmailContent.size>0), EmailContent[9],'test')}</li>
+                        <li>{!IF(AND(EmailContent!= null,EmailContent.size>0), EmailContent[10],'test')}</li>
+                        <li>{!IF(AND(EmailContent!= null,EmailContent.size>0), EmailContent[11],'test')}</li>
+                    </ul> 
+                    <p> {!IF(AND(EmailContent!= null,EmailContent.size>0), EmailContent[12],'test')} </p>
+                </div>
+                <div style="margin-left: 60px;text-align: left;">                  
+                   <div style="font-weight: bold; font-family: Arial, Helvetica, sans-serif;"> {!IF(AND(EmailContent!= null,EmailContent.size>0), EmailContent[13],'test')}</div>
+                   <div style="font-family: Arial, Helvetica, sans-serif;">Harald Ebner Logistics</div>          
+                   <br/>
+                   <br/>
+                </div> 
+                  <hr style="background: #D1D3D7;"/>          
+                <div style="float: left;margin-left: 90px;">
+                   <img src=" https://yokogawa-icrm--icpdev1--c.documentforce.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0681s000000lmGk&operationContext=DELIVERY&contentId=05T1s000003fhap&page=0&d=/a/1s0000008eBB/N7AxH9WrRCotgnjJUMnV_YA09JNaL2fDOYzgVLIc5FM&oid=00D1s0000000PAr&dpt=null&viewId="/><a href="mailto:icp-adm@cs.jp.yokogawa.com" style="text-decoration: auto;color: black;font-weight: normal;font-family: Arial, Helvetica, sans-serif;">icp-adm@cs.jp.yokogawa.com</a>
+                </div>              
+                <div>
+                   <img src="  https://yokogawa-icrm--icpdev1--c.documentforce.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0681s000000lmEU&operationContext=DELIVERY&contentId=05T1s000003fhXC&page=0&d=/a/1s0000008eAw/zRSjB_oKdFQihgxf6UKekSlsth.TztYpy6AFX23UveA&oid=00D1s0000000PAr&dpt=null&viewId="/><a href="https://myportal.yokogawa.com" style="text-decoration: auto;color: black;font-weight: normal;font-family: Arial, Helvetica, sans-serif;">https://myportal.yokogawa.com</a>
+                </div>
+                
+                <div style="margin-left:auto;margin-right:auto;width:640px;font-family: Arial, Helvetica, sans-serif; padding-left: 0px;font-size:small">
+                    <p>
+                    Yokogowa Electric Corporation | 9-32, Nakacho 2-Chome, Mushashino-Shi, Tokyo 180-8750, Japan. <br/>
+                    Copyright © 2021 Yokogowa Electric Corporation
+                    </p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+</apex:component>

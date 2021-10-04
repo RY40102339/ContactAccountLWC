@@ -1,0 +1,859 @@
+<apex:page standardcontroller="WorkOrder" 
+           sidebar="false" docType="html" showHeader="false" standardStylesheets="false"
+           applyHtmlTag="false" applyBodyTag="false" title="Service Report"
+           renderAs="pdf">
+   <apex:variable var="language" value="{!IF(WorkOrder.Contact.Preferred_Language__c = 'German', 'DE', IF(WorkOrder.Contact.Preferred_Language__c  = 'Italian', 'IT', 'EN'))}" />
+
+    <!-- Default PDF Template: A4 + letterhead -->
+    <apex:composition template="PDFTemplateDefault">
+        <apex:define name="documentNumber">
+            <!--
+            Define the document number here, for example:
+            ${!AppfactoryINV1__Invoice__c.AppfactoryINV1__InvoiceNumber__c}
+            -->            
+        </apex:define>
+        
+        <apex:define name="htmlhead">            
+            <c:PDFStyle />
+        </apex:define>
+        
+        <apex:define name="frontPage">   
+        </apex:define>
+        
+        <apex:define name="header">            
+        </apex:define>
+        
+        
+        <apex:define name="body">
+                 
+            <!-- <div class="bcontent"> -->
+
+                <!-- English -->
+                <apex:outputPanel rendered="{!IF(language='EN',true,false)}">
+
+                    <table class="yokotable">
+                        <tbody>
+                            <tr>
+                                <th>Service Information:</th>
+                                <th>&nbsp;</th>
+                                <th>&nbsp;</th>
+                                <th>&nbsp;</th>
+                            </tr>
+                            <tr>
+                                <td>Service Engineer:</td>
+                                <td>{!WorkOrder.Owner.Name}</td>
+                                <td>Status:</td>
+                                <td>{!IF(WorkOrder.Status = 'Servicing',WorkOrder.Sub_status__c,WorkOrder.Status)}</td>
+                            </tr>
+                            <tr>
+                                <td>E-mail:</td>
+                                <td>{!WorkOrder.Owner.Email}</td>
+                                <td>Goods Received:</td>
+                                <td>
+                                    <apex:outputText value="{0, date, d MMMM','  yyyy}">
+                                        <apex:param value="{!WorkOrder.Asset_Receipt_Date__c}" /> 
+                                    </apex:outputText>
+                                </td>                               
+                            </tr>
+                            <tr>
+                                <td>Internal Repair Number:</td>
+                                <td>{!WorkOrder.Internal_Repair_Number__c}</td>
+                                <td>Modified Date:</td>
+                                <td>                                    
+                                    <apex:outputText value="{0, date, d MMMM','  yyyy}">
+                                        <apex:param value="{!WorkOrder.LastModifiedDate}" /> 
+                                    </apex:outputText>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+                    <apex:outputPanel rendered="{!IF(WorkOrder.AccountId = '',true,false)}">
+                        <table class="yokotable">
+                            <tbody>
+                                <tr>
+                                    <th>Customer Company:</th>
+                                    <th>Customer Reference:</th>
+                                    <th>Address:</th>
+                                    <th>Customer Contact</th>
+                                </tr>
+                                <tr>
+                                    <td>{!WorkOrder.Account.Name}<!--<br/>{!WorkOrder.Account.YGSAccountNumber__c}--></td>
+                                    <td>{!WorkOrder.Customer_reference__c}</td>
+                                    <td>{!WorkOrder.Account.BillingStreet}<br/>
+                                        {!WorkOrder.Account.BillingPostalCode} {!WorkOrder.Account.BillingCity}<br/>
+                                        {!WorkOrder.Account.BillingCountry}
+                                    </td>                                    
+                                    <td>{!WorkOrder.Contact.Name} <br/>
+                                        {!WorkOrder.Contact.Email}                            
+                                    </td>
+                                </tr>              
+                            </tbody>
+                        </table>
+                    </apex:outputPanel>
+
+                    <apex:outputPanel rendered="{!IF(WorkOrder.AccountId = '',false,true)}">
+                        <table class="yokotable">
+                            <tbody>
+                                <tr>
+                                    <th>Customer Company:</th>
+                                    <th>Customer Reference:</th>
+                                    <th>Address:</th>
+                                    <th>Customer Contact</th>
+                                </tr>
+                                <tr>                                   
+                                    <td>{!WorkOrder.Account.Name}<!--<br/>{!WorkOrder.Account.YGSAccountNumber__c}--></td>
+                                    <td>{!WorkOrder.Customer_reference__c}</td>
+                                    <td>{!WorkOrder.Account.BillingStreet}<br/>
+                                        {!WorkOrder.Account.BillingPostalCode} {!WorkOrder.Account.BillingCity}<br/>
+                                        {!WorkOrder.Account.BillingCountry}
+                                    </td>                                    
+                                    <td>{!WorkOrder.Contact.Name} <br/>
+                                        {!WorkOrder.Contact.Email}                            
+                                    </td>
+                                </tr>              
+                            </tbody>
+                        </table>
+                    </apex:outputPanel>
+                    
+                    
+                    <table class="yokotable">
+                        <tbody>
+                        <tr>
+                            <th>Product Family:</th>    
+                            <th>Model/MS-Code:</th>
+                            <!-- <th>Qty:</th> -->
+                            <th>Serial Number</th>
+                            <th>Calibration Reference (CCE)</th>
+                        </tr>
+                        <tr>
+                            <td>{!WorkOrder.Asset.Product2.Family}</td>
+                            <td>{!WorkOrder.Asset.Name}</td>
+                            <!-- <td>1</td> -->
+                            <td>{!WorkOrder.Asset.SerialNumber}</td>
+                            <td>{!WorkOrder.Asset.CalibrationReference__c}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+
+                    <table class="yokotable">
+                        <tbody>
+                        <tr>
+                            <th>Problem Details / Request:</th>
+                            <th>&nbsp;</th>
+                            <th>&nbsp;</th>
+                            <th>&nbsp;</th>
+                        </tr>
+                        <tr>
+                            <td colspan="4">
+                                <b>{!WorkOrder.Subject}</b><br/>
+                                {!WorkOrder.Description}
+                            </td>                            
+                        </tr>                      
+                        </tbody>
+                    </table>
+
+                    <apex:outputPanel rendered="{!IF(WorkOrder.sCaseNotesInServiceRepor__c,true,false)}">
+                        <table class="yokotable">
+                            <tbody>
+                            <tr>
+                                <th>Work Order Notes:</th>
+                                <th>&nbsp;</th>
+                                <th>&nbsp;</th>
+                                <th>&nbsp;</th>
+                            </tr>           
+                            <tr>
+                                <td colspan="4">
+                                    <apex:outputField value="{!WorkOrder.Work_Order_Notes__c}"/>
+                                </td>                            
+                            </tr>                      
+                            </tbody>
+                        </table>
+                    </apex:outputPanel>
+                    
+                    <table class="parts-table">
+                        <tbody>
+                            <tr>
+                                <th style="width:20%;">Part No.:</th>
+                                <th style="width:40%;">Description:</th>
+                                <th style="width:5%;">Qty.:</th>
+                                <th style="width:10%;">Type:</th>
+                                <th style="width:10%;">Price:</th>
+                                <th style="width:15%;">Total:</th>
+                            </tr>
+                            
+                            <apex:repeat value="{!WorkOrder.WorkOrderLineItems}" var="sp">                       
+                                <tr>
+                                    <td>{!sp.Part_Number__c}</td>
+                                    <td>{!sp.Description}</td>
+                                    <td>{!sp.Quantity__c}</td>
+                                    <td>{!sp.Type__c}</td>
+                                    <td style="text-align:right;">
+                                        <!-- <apex:outputText value="{0, number,###,##0.00}">
+                                            <apex:param value="{!sp.Price__c}"/>
+                                        </apex:outputText> -->
+                                       
+                                        {!IF(blankvalue(sp.UnitPrice__c,0) < 0, "-", "") & IF(ABS(blankvalue(sp.UnitPrice__c,0)) >= 1000000, TEXT(FLOOR(ABS(blankvalue(sp.UnitPrice__c,0)) / 1000000)) & ".", "") & IF(ABS(blankvalue(sp.UnitPrice__c,0)) >= 1000, RIGHT(TEXT(FLOOR(ABS(blankvalue(sp.UnitPrice__c,0)) / 1000)), 3) & ".", "") & RIGHT(TEXT(FLOOR(ABS(blankvalue(sp.UnitPrice__c,0)))), 3) & "," & IF(MOD(ABS(blankvalue(sp.UnitPrice__c,0)) , 1) * 100 < 10, "0" & TEXT(ROUND(MOD(ABS(blankvalue(sp.UnitPrice__c,0)) , 1), 2) * 100), TEXT(MIN(ROUND(MOD(ABS(blankvalue(sp.UnitPrice__c,0)) , 1), 2) * 100, 99)))}
+                                    </td>
+
+                                    <td style="text-align:right;">
+                                         
+                                        {!IF(blankvalue(sp.Total__c,0) < 0, "-", "") & IF(ABS(blankvalue(sp.Total__c,0)) >= 1000000, TEXT(FLOOR(ABS(blankvalue(sp.Total__c,0)) / 1000000)) & ".", "") & IF(ABS(blankvalue(sp.Total__c,0)) >= 1000, RIGHT(TEXT(FLOOR(ABS(blankvalue(sp.Total__c,0)) / 1000)), 3) & ".", "") & RIGHT(TEXT(FLOOR(ABS(blankvalue(sp.Total__c,0)))), 3) & "," & IF(MOD(ABS(blankvalue(sp.Total__c,0)) , 1) * 100 < 10, "0" & TEXT(ROUND(MOD(ABS(blankvalue(sp.Total__c,0)) , 1), 2) * 100), TEXT(MIN(ROUND(MOD(ABS(blankvalue(sp.Total__c,0)) , 1), 2) * 100, 99)))}
+                                    </td>
+                                </tr>                            
+                            </apex:repeat>    
+                                      
+                        </tbody>
+                    </table>
+        
+                    <table style="width: 100%;border:1px #ddd solid;font-size:11px;margin-bottom:25px;">
+                        <tbody>
+                            <tr>
+                                <td>Total excl. VAT:</td>
+                                <td style="text-align: right;">
+                                    {!IF(WorkOrder.CurrencyIsoCode = 'USD','$',IF(WorkOrder.CurrencyIsoCode = 'GBP','£','€'))}
+                                    
+                                    {!IF(blankvalue(WorkOrder.PartsTotal__c,0) < 0, "-", "") & IF(ABS(blankvalue(WorkOrder.PartsTotal__c,0)) >= 1000000, TEXT(FLOOR(ABS(blankvalue(WorkOrder.PartsTotal__c,0)) / 1000000)) & ".", "") & IF(ABS(blankvalue(WorkOrder.PartsTotal__c,0)) >= 1000, RIGHT(TEXT(FLOOR(ABS(blankvalue(WorkOrder.PartsTotal__c,0)) / 1000)), 3) & ".", "") & RIGHT(TEXT(FLOOR(ABS(blankvalue(WorkOrder.PartsTotal__c,0)))), 3) & "," & IF(MOD(ABS(blankvalue(WorkOrder.PartsTotal__c,0)) , 1) * 100 < 10, "0" & TEXT(ROUND(MOD(ABS(blankvalue(WorkOrder.PartsTotal__c,0)) , 1), 2) * 100), TEXT(MIN(ROUND(MOD(ABS(blankvalue(WorkOrder.PartsTotal__c,0)) , 1), 2) * 100, 99)))}
+                                    
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+        
+        
+                    <table class="yokotable">
+                        <tbody>
+                        <tr>
+                            <th>Service/Action to be Taken:</th>
+                        </tr>
+                        <tr>
+                            <td>{!WorkOrder.Service_Action_To_Be_Taken__c}</td>                            
+                        </tr>                      
+                        </tbody>
+                    </table>
+        
+        
+                    <table class="yokotable">
+                        <tbody>
+                        <tr>
+                            <th>Action Taken:</th>
+                        </tr>
+                        <tr>
+                            <td>{!WorkOrder.Service_Action_Taken__c}</td>                            
+                        </tr>                      
+                        </tbody>
+                    </table>
+        
+                    <!-- <table class="yokotable">
+                        <tbody>
+                        <tr>
+                            <th>Test Specification:</th>
+                        </tr>
+                        <tr>
+                            <td>{!caseRecord.TestSpecification__c}</td>                            
+                        </tr>                      
+                        <tr>
+                            <td>             
+                                {!if(caseRecord.FinalTestOK__c,'Final Test Successful','Final Test Not Successful')}                        
+                            </td>                            
+                        </tr>                      
+                        </tbody>
+                    </table> -->
+
+                    <table class="yokotable">
+                        <tbody>
+                            <tr>
+                                <th>Test Specification:</th>
+                                <th>Final Test</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    {!WorkOrder.Test_Specification__c}
+                                </td>                            
+                                <td>             
+                                    {!WorkOrder.Final_Test__c}                        
+                                </td>                            
+                            </tr>                                        
+                        </tbody>
+                    </table>   
+                 
+        
+                    <table class="yokotable">
+                        <tbody>
+                        <tr>
+                            <th>Final Conclution/Remarks:</th>
+                        </tr>
+                        <tr>
+                            <td>{!WorkOrder.Final_Conclusion__c}</td>                            
+                        </tr>    
+                        </tbody>
+                    </table>
+        
+        
+                    <!-- <apex:outputLabel rendered="{!IF(caseRecord.Status = 'Closed',true,false)}" style="font-size:11px;">
+                        Close Date: 
+                        <apex:outputText value="{0, date, d MMMM','  yyyy}">
+                            <apex:param value="{!caseRecord.AssetReceiptDate__c}" /> 
+                        </apex:outputText>
+                    </apex:outputLabel> -->
+
+                </apex:outputPanel>
+
+                <!-- German -->
+                <apex:outputPanel rendered="{!IF(language='DE',true,false)}">
+
+                    <table class="yokotable">
+                        <tbody>
+                            <tr>
+                                <th>Service Information:</th>
+                                <th>&nbsp;</th>
+                                <th>&nbsp;</th>
+                                <th>&nbsp;</th>
+                            </tr>
+                            <tr>
+                                <td>Servicetechniker:</td>
+                                <td>{!WorkOrder.Owner.Name}</td>
+                                <td>Bearbeitungsstand:</td>
+                                <td>{!IF(WorkOrder.Status = 'Servicing',WorkOrder.Sub_status__c,WorkOrder.Status)}</td>
+                            </tr>
+                            <tr>
+                                <td>E-mail:</td>
+                                <td>{!WorkOrder.Owner.Email}</td>
+                                <td>Wareneingang:</td>
+                                <td>
+                                    <apex:outputText value="{0, date, dd.MM.yyyy}">
+                                        <apex:param value="{!WorkOrder.Asset_Receipt_Date__c}" /> 
+                                    </apex:outputText>
+                                </td>                               
+                            </tr>
+                            <tr>
+                                <td>Interne Reparaturnummer:</td>
+                                <td>{!WorkOrder.Internal_Repair_Number__c}</td>
+                                <td>Aktualisierungsdatum:</td>
+                                <td>                                    
+                                    <apex:outputText value="{0, date, dd.MM.yyyy}">
+                                        <apex:param value="{!WorkOrder.LastModifiedDate}" /> 
+                                    </apex:outputText>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+                    <apex:outputPanel rendered="{!IF(WorkOrder.AccountId = '',true,false)}">
+                        <table class="yokotable">
+                            <tbody>
+                                <tr>
+                                    <th>Kunde:</th>
+                                    <th>Kundenreferenz:</th>
+                                    <th>Adresse:</th>
+                                    <th>Ihr Ansprechpartner:</th>
+                                </tr>
+                                <tr>
+                                    <td>{!WorkOrder.Account.Name}<!--<br/>{!WorkOrder.Account.YGSAccountNumber__c}--></td>
+                                    <td>{!WorkOrder.Customer_reference__c}</td>
+                                    <td>{!WorkOrder.Account.BillingStreet}<br/>
+                                        {!WorkOrder.Account.BillingPostalCode} {!WorkOrder.Account.BillingCity}<br/>
+                                        {!WorkOrder.Account.BillingCountry}
+                                    </td>                                    
+                                    <td>{!WorkOrder.Contact.Name} <br/>
+                                        {!WorkOrder.Contact.Email}                            
+                                    </td>
+                                </tr>              
+                            </tbody>
+                        </table>
+                    </apex:outputPanel>
+
+                    <apex:outputPanel rendered="{!IF(WorkOrder.AccountId = '',false,true)}">
+                        <table class="yokotable">
+                            <tbody>
+                                <tr>
+                                    <th>Kunde:</th>
+                                    <th>Kundenreferenz:</th>
+                                    <th>Adresse:</th>
+                                    <th>Ihr Ansprechpartner:</th>
+                                </tr>
+                                <tr>                                   
+                                    <td>{!WorkOrder.Account.Name}<!--<br/>{!WorkOrder.Account.YGSAccountNumber__c}--></td>
+                                    <td>{!WorkOrder.Customer_reference__c}</td>
+                                    <td>{!WorkOrder.Account.BillingStreet}<br/>
+                                        {!WorkOrder.Account.BillingPostalCode} {!WorkOrder.Account.BillingCity}<br/>
+                                        {!WorkOrder.Account.BillingCountry}
+                                    </td>                                    
+                                    <td>{!WorkOrder.Contact.Name} <br/>
+                                        {!WorkOrder.Contact.Email}                            
+                                    </td>
+                                </tr>              
+                            </tbody>
+                        </table>
+                    </apex:outputPanel>
+                    
+                    
+                    <table class="yokotable">
+                        <tbody>
+                        <tr>
+                            <th>Produktfamilie:</th>    
+                            <th>Modell / MS-Code:</th>
+                            <!-- <th>Qty:</th> -->
+                            <th>Seriennummer:</th>
+                            <th>Referenznummer Kalibrierung(CEE):</th>
+                        </tr>
+                        <tr>
+                            <td>{!WorkOrder.Asset.Product2.Family}</td>
+                            <td>{!WorkOrder.Asset.Name}</td>
+                            <!-- <td>1</td> -->
+                            <td>{!WorkOrder.Asset.SerialNumber}</td>
+                           <!-- <td>{!WorkOrder.Asset.CalibrationReference__c}</td>-->
+                        </tr>
+                        </tbody>
+                    </table>
+
+
+                    <table class="yokotable">
+                        <tbody>
+                        <tr>
+                            <th>Ihre Anforderung / Ihre Anfrage:</th>
+                            <th>&nbsp;</th>
+                            <th>&nbsp;</th>
+                            <th>&nbsp;</th>
+                        </tr>
+                        <tr>
+                            <td colspan="4">
+                                <b>{!WorkOrder.Subject}</b><br/>
+                                {!WorkOrder.Description}
+                            </td>                            
+                        </tr>                      
+                        </tbody>
+                    </table>
+
+          
+
+                    <apex:outputPanel rendered="{!IF(WorkOrder.sCaseNotesInServiceRepor__c,true,false)}">
+                        <table class="yokotable">
+                            <tbody>
+                            <tr>
+                                <th>Hinweise:</th>
+                                <th>&nbsp;</th>
+                                <th>&nbsp;</th>
+                                <th>&nbsp;</th>
+                            </tr>
+                            <tr>
+                                <td colspan="4">
+                                    {!WorkOrder.Work_Order_Notes__c}
+                                </td>                            
+                            </tr>                      
+                            </tbody>
+                        </table>
+                    </apex:outputPanel>
+                    
+                    <table class="parts-table">
+                        <tbody>
+                            <tr>
+                                <th style="width:20%;">Artikelnummer:</th>
+                                <th style="width:40%;">Beschreibung:</th>
+                                <th style="width:5%;">Menge:</th>
+                                <th style="width:10%;">Type:</th>
+                                <th style="width:10%;">Einzelpreis:</th>
+                                <th style="width:15%;">Gesamtpreis:</th>
+                            </tr>
+                            
+                            <apex:repeat value="{!WorkOrder.WorkOrderLineItems}" var="sp">                       
+                                <tr>
+                                    <td>{!sp.Part_Number__c}</td>
+                                    <td>{!sp.Description}</td>
+                                    <td>{!sp.Quantity__c}</td>
+                                    <td>{!sp.Type__c}</td>
+                                    <td style="text-align:right;">
+                                        <!-- <apex:outputText value="{0, number,###,##0.00}">
+                                            <apex:param value="{!sp.ListPrice}"/>
+                                        </apex:outputText> -->
+                                        {!IF(sp.UnitPrice__c < 0, "-", "") & IF(ABS(sp.UnitPrice__c) >= 1000000, TEXT(FLOOR(ABS(sp.UnitPrice__c) / 1000000)) & ".", "") & IF(ABS(sp.UnitPrice__c) >= 1000, RIGHT(TEXT(FLOOR(ABS(sp.UnitPrice__c) / 1000)), 3) & ".", "") & RIGHT(TEXT(FLOOR(ABS(sp.UnitPrice__c))), 3) & "," & IF(MOD(ABS(sp.UnitPrice__c) , 1) * 100 < 10, "0" & TEXT(ROUND(MOD(ABS(sp.UnitPrice__c) , 1), 2) * 100), TEXT(MIN(ROUND(MOD(ABS(sp.UnitPrice__c) , 1), 2) * 100, 99)))}
+                                    </td>
+
+                                    <td style="text-align:right;">
+                                        {!IF(sp.Total__c < 0, "-", "") & IF(ABS(sp.Total__c) >= 1000000, TEXT(FLOOR(ABS(sp.Total__c) / 1000000)) & ".", "") & IF(ABS(sp.Total__c) >= 1000, RIGHT(TEXT(FLOOR(ABS(sp.Total__c) / 1000)), 3) & ".", "") & RIGHT(TEXT(FLOOR(ABS(sp.Total__c))), 3) & "," & IF(MOD(ABS(sp.Total__c) , 1) * 100 < 10, "0" & TEXT(ROUND(MOD(ABS(sp.Total__c) , 1), 2) * 100), TEXT(MIN(ROUND(MOD(ABS(sp.Total__c) , 1), 2) * 100, 99)))}
+                                    </td>
+                                </tr>                            
+                            </apex:repeat>    
+                                      
+                        </tbody>
+                    </table>
+        
+                    <table style="width: 100%;border:1px #ddd solid;font-size:11px;margin-bottom:25px;">
+                        <tbody>
+                            <tr>
+                                <td>Gesamtpreis excl. VAT:</td>
+                                <td style="text-align: right;">{!IF(WorkOrder.CurrencyIsoCode = 'USD','$',IF(WorkOrder.CurrencyIsoCode = 'GBP','£','€'))} 
+                                    {!IF(WorkOrder.PartsTotal__c < 0, "-", "") & IF(ABS(WorkOrder.PartsTotal__c) >= 1000000, TEXT(FLOOR(ABS(WorkOrder.PartsTotal__c) / 1000000)) & ".", "") & IF(ABS(WorkOrder.PartsTotal__c) >= 1000, RIGHT(TEXT(FLOOR(ABS(WorkOrder.PartsTotal__c) / 1000)), 3) & ".", "") & RIGHT(TEXT(FLOOR(ABS(WorkOrder.PartsTotal__c))), 3) & "," & IF(MOD(ABS(WorkOrder.PartsTotal__c) , 1) * 100 < 10, "0" & TEXT(ROUND(MOD(ABS(WorkOrder.PartsTotal__c) , 1), 2) * 100), TEXT(MIN(ROUND(MOD(ABS(WorkOrder.PartsTotal__c) , 1), 2) * 100, 99)))}
+                                    
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+        
+        
+                    <table class="yokotable">
+                        <tbody>
+                        <tr>
+                            <th>Ergebnis der Fehlersuche:</th>
+                        </tr>
+                        <tr>
+                            <td>{!WorkOrder.Service_Action_To_Be_Taken__c}</td>                            
+                        </tr>                      
+                        </tbody>
+                    </table>
+        
+        
+                    <table class="yokotable">
+                        <tbody>
+                        <tr>
+                            <th>Reparaturbeschreibung / Ausgeführte Arbeiten:</th>
+                        </tr>
+                        <tr>
+                            <td>{!WorkOrder.Service_Action_Taken__c}</td>                            
+                        </tr>                      
+                        </tbody>
+                    </table>
+        
+                    <!-- <table class="yokotable">
+                        <tbody>
+                        <tr>
+                            <th>Prüfvorschrift:</th>
+                        </tr>
+                        <tr>
+                            <td>{!WorkOrder.Test_Specification__c}</td>                            
+                        </tr>                      
+                        <tr>
+                            <td>             
+                                {!if(WorkOrder.FinalTestOK__c,'Abschlusstest Erfolgreich','Abschlusstest Nicht Erfolgreich')}                        
+                            </td>                            
+                        </tr>                      
+                        </tbody>
+                    </table> -->
+
+                    <table class="yokotable">
+                        <tbody>
+                            <tr>
+                                <th>Prüfvorschrift:</th>
+                                <th>Abschlusstest</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    {!WorkOrder.Test_Specification__c}
+                                </td>                            
+                                <td>             
+                                    {!if(ISBLANK(WorkOrder.Final_Test__c),'',IF(WorkOrder.Final_Test__c = 'Final test successful','Abschlusstest erfolgreich','Abschlusstest nicht erfolgreich'))}                         
+                                </td>                            
+                            </tr>                                        
+                        </tbody>
+                    </table>   
+                 
+        
+                    <table class="yokotable">
+                        <tbody>
+                        <tr>
+                            <th>Bemerkungen:</th>
+                        </tr>
+                        <tr>
+                            <td>{!WorkOrder.Final_Conclusion__c}</td>                            
+                        </tr>    
+                        </tbody>
+                    </table>
+        
+        
+                    <!-- <apex:outputLabel rendered="{!IF(WorkOrder.Status = 'Closed',true,false)}" style="font-size:11px;">
+                        Close Date: 
+                        <apex:outputText value="{0, date, d MMMM','  yyyy}">
+                            <apex:param value="{!WorkOrder.Asset_Receipt_Date__c}" /> 
+                        </apex:outputText>
+                    </apex:outputLabel>-->
+
+                </apex:outputPanel>
+
+                <!-- Italian -->
+                <apex:outputPanel rendered="{!IF(language='IT',true,false)}">
+
+                    <table class="yokotable">
+                        <tbody>
+                            <tr>
+                                <th>Service Information:</th>
+                                <th>&nbsp;</th>
+                                <th>&nbsp;</th>
+                                <th>&nbsp;</th>
+                            </tr>
+                            <tr>
+                                <td>Service Engineer:</td>
+                                <td>{!WorkOrder.Owner.Name}</td>
+                                <td>Status:</td>
+                                <td>{!IF(WorkOrder.Status = 'Servicing',WorkOrder.Sub_status__c,WorkOrder.Status)}</td>
+                            </tr>
+                            <tr>
+                                <td>E-mail:</td>
+                                <td>{!WorkOrder.Owner.Email}</td>
+                                <td>Goods Received:</td>
+                                <td>
+                                    <apex:outputText value="{0, date, d MMMM','  yyyy}">
+                                        <apex:param value="{!WorkOrder.Asset_Receipt_Date__c}" /> 
+                                    </apex:outputText>
+                                </td>                               
+                            </tr>
+                            <tr>
+                                <td>Internal Repair Number:</td>
+                                <td>{!WorkOrder.Internal_Repair_Number__c}</td>
+                                <td>Modified Date:</td>
+                                <td>                                    
+                                    <apex:outputText value="{0, date, d MMMM','  yyyy}">
+                                        <apex:param value="{!WorkOrder.LastModifiedDate}" /> 
+                                    </apex:outputText>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+                    <apex:outputPanel rendered="{!IF(WorkOrder.AccountId = '',true,false)}">
+                        <table class="yokotable">
+                            <tbody>
+                                <tr>
+                                    <th>Customer Company:</th>
+                                    <th>Customer Reference:</th>
+                                    <th>Address:</th>
+                                    <th>Customer Contact</th>
+                                </tr>
+                                <tr>
+                                    <td>{!WorkOrder.Account.Name}<br/><!--{!WorkOrder.Account.YGSAccountNumber__c}--></td>
+                                    <td>{!WorkOrder.Customer_reference__c}</td>
+                                    <td>{!WorkOrder.Account.BillingStreet}<br/>
+                                        {!WorkOrder.Account.BillingPostalCode} {!WorkOrder.Account.BillingCity}<br/>
+                                        {!WorkOrder.Account.BillingCountry}
+                                    </td>                                    
+                                    <td>{!WorkOrder.Contact.Name} <br/>
+                                        {!WorkOrder.Contact.Email}                            
+                                    </td>
+                                </tr>              
+                            </tbody>
+                        </table>
+                    </apex:outputPanel>
+
+                    <apex:outputPanel rendered="{!IF(WorkOrder.AccountId = '',false,true)}">
+                        <table class="yokotable">
+                            <tbody>
+                                <tr>
+                                    <th>Customer Company:</th>
+                                    <th>Customer Reference:</th>
+                                    <th>Address:</th>
+                                    <th>Customer Contact</th>
+                                </tr>
+                                <tr>                                   
+                                    <td>{!WorkOrder.Account.Name}<!-- <br/>{!WorkOrder.Account.YGSAccountNumber__c}--> </td>
+                                    <td>{!WorkOrder.Customer_reference__c}</td>
+                                    <td>{!WorkOrder.Account.BillingStreet}<br/>
+                                        {!WorkOrder.Account.BillingPostalCode} {!WorkOrder.Account.BillingCity}<br/>
+                                        {!WorkOrder.Account.BillingCountry}
+                                    </td>                                    
+                                    <td>{!WorkOrder.Contact.Name} <br/>
+                                        {!WorkOrder.Contact.Email}                            
+                                    </td>
+                                </tr>              
+                            </tbody>
+                        </table>
+                    </apex:outputPanel>
+                    
+                    
+                    <table class="yokotable">
+                        <tbody>
+                        <tr>
+                            <th>Product Family:</th>    
+                            <th>Model/MS-Code:</th>
+                            <!-- <th>Qty:</th> -->
+                            <th>Serial Number</th>
+                            <th>Calibration Reference (CEE)</th>
+                        </tr>
+                        <tr>
+                            <td>{!WorkOrder.Asset.Product2.Family}</td>
+                            <td>{!WorkOrder.Asset.Name}</td>
+                            <!-- <td>1</td> -->
+                            <td>{!WorkOrder.Asset.SerialNumber}</td>
+                            <!--<td>{!WorkOrder.Asset.CalibrationReference__c}</td>-->
+                        </tr>
+                        </tbody>
+                    </table>
+
+
+                    <table class="yokotable">
+                        <tbody>
+                        <tr>
+                            <th>Problem Details / Request:</th>
+                            <th>&nbsp;</th>
+                            <th>&nbsp;</th>
+                            <th>&nbsp;</th>
+                        </tr>
+                        <tr>
+                            <td colspan="4">
+                                <b>{!WorkOrder.Subject}</b><br/>
+                                {!WorkOrder.Description}
+                            </td>                            
+                        </tr>                      
+                        </tbody>
+                    </table>
+
+                    <apex:outputPanel rendered="{!IF(WorkOrder.sCaseNotesInServiceRepor__c,true,false)}">
+                        <table class="yokotable">
+                            <tbody>
+                            <tr>
+                                <th>Case Notes:</th>
+                                <th>&nbsp;</th>
+                                <th>&nbsp;</th>
+                                <th>&nbsp;</th>
+                            </tr>
+                            <tr>
+                                <td colspan="4">
+                                    {!WorkOrder.Work_Order_Notes__c}
+                                </td>                            
+                            </tr>                      
+                            </tbody>
+                        </table>
+                    </apex:outputPanel>
+                    
+                    <table class="parts-table">
+                        <tbody>
+                            <tr>
+                                <th style="width:20%;">Part No.:</th>
+                                <th style="width:40%;">Description:</th>
+                                <th style="width:5%;">Qty.:</th>
+                                <th style="width:10%;">Type:</th>
+                                <th style="width:10%;">Price:</th>
+                                <th style="width:15%;">Total:</th>
+                            </tr>
+                            
+                            <apex:repeat value="{!WorkOrder.WorkOrderLineItems}" var="sp">                       
+                                <tr>
+                                    <td>{!sp.Part_Number__c}</td>
+                                    <td>{!sp.Description}</td>
+                                    <td>{!sp.Quantity__c}</td>
+                                    <td>{!sp.Type__c}</td>
+                                    <td style="text-align:right;">
+                                        <!-- <apex:outputText value="{0, number,###,##0.00}">
+                                            <apex:param value="{!sp.ListPrice}"/>
+                                        </apex:outputText> -->
+                                        {!IF(sp.UnitPrice__c < 0, "-", "") & IF(ABS(sp.UnitPrice__c) >= 1000000, TEXT(FLOOR(ABS(sp.UnitPrice__c) / 1000000)) & ".", "") & IF(ABS(sp.UnitPrice__c) >= 1000, RIGHT(TEXT(FLOOR(ABS(sp.UnitPrice__c) / 1000)), 3) & ".", "") & RIGHT(TEXT(FLOOR(ABS(sp.UnitPrice__c))), 3) & "," & IF(MOD(ABS(sp.UnitPrice__c) , 1) * 100 < 10, "0" & TEXT(ROUND(MOD(ABS(sp.UnitPrice__c) , 1), 2) * 100), TEXT(MIN(ROUND(MOD(ABS(sp.UnitPrice__c) , 1), 2) * 100, 99)))}
+                                    </td>
+
+                                    <td style="text-align:right;">
+                                        {!IF(sp.Total__c < 0, "-", "") & IF(ABS(sp.Total__c) >= 1000000, TEXT(FLOOR(ABS(sp.Total__c) / 1000000)) & ".", "") & IF(ABS(sp.Total__c) >= 1000, RIGHT(TEXT(FLOOR(ABS(sp.Total__c) / 1000)), 3) & ".", "") & RIGHT(TEXT(FLOOR(ABS(sp.Total__c))), 3) & "," & IF(MOD(ABS(sp.Total__c) , 1) * 100 < 10, "0" & TEXT(ROUND(MOD(ABS(sp.Total__c) , 1), 2) * 100), TEXT(MIN(ROUND(MOD(ABS(sp.Total__c) , 1), 2) * 100, 99)))}
+                                    </td>
+                                </tr>                            
+                            </apex:repeat>    
+                                      
+                        </tbody>
+                    </table>
+        
+                    <table style="width: 100%;border:1px #ddd solid;font-size:11px;margin-bottom:25px;">
+                        <tbody>
+                            <tr>
+                                <td>Total excl. VAT:</td>
+                                <td style="text-align: right;">{!IF(WorkOrder.CurrencyIsoCode = 'USD','$',IF(WorkOrder.CurrencyIsoCode = 'GBP','£','€'))} 
+                                    {!IF(WorkOrder.PartsTotal__c < 0, "-", "") & IF(ABS(WorkOrder.PartsTotal__c) >= 1000000, TEXT(FLOOR(ABS(WorkOrder.PartsTotal__c) / 1000000)) & ".", "") & IF(ABS(WorkOrder.PartsTotal__c) >= 1000, RIGHT(TEXT(FLOOR(ABS(WorkOrder.PartsTotal__c) / 1000)), 3) & ".", "") & RIGHT(TEXT(FLOOR(ABS(WorkOrder.PartsTotal__c))), 3) & "," & IF(MOD(ABS(WorkOrder.PartsTotal__c) , 1) * 100 < 10, "0" & TEXT(ROUND(MOD(ABS(WorkOrder.PartsTotal__c) , 1), 2) * 100), TEXT(MIN(ROUND(MOD(ABS(WorkOrder.PartsTotal__c) , 1), 2) * 100, 99)))}
+                                    
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+        
+        
+                    <table class="yokotable">
+                        <tbody>
+                        <tr>
+                            <th>Service/Action to be Taken:</th>
+                        </tr>
+                        <tr>
+                            <td>{!WorkOrder.Service_Action_To_Be_Taken__c}</td>                            
+                        </tr>                      
+                        </tbody>
+                    </table>
+        
+        
+                    <table class="yokotable">
+                        <tbody>
+                        <tr>
+                            <th>Action Taken:</th>
+                        </tr>
+                        <tr>
+                            <td>{!WorkOrder.Service_Action_Taken__c}</td>                            
+                        </tr>                      
+                        </tbody>
+                    </table>
+        
+                    <!-- <table class="yokotable">
+                        <tbody>
+                        <tr>
+                            <th>Test Specification:</th>
+                        </tr>
+                        <tr>
+                            <td>{!WorkOrder.Test_Specification__c}</td>                            
+                        </tr>                      
+                        <tr>
+                            <td>             
+                                {!if(WorkOrder.FinalTestOK__c,'Final Test Successful','Final Test Not Successful')}                        
+                            </td>                            
+                        </tr>                      
+                        </tbody>
+                    </table> -->
+
+                    <table class="yokotable">
+                        <tbody>
+                            <tr>
+                                <th>Test Specification:</th>
+                                <th>Final Test</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    {!WorkOrder.Test_Specification__c}
+                                </td>                            
+                                <td>             
+                                    {!WorkOrder.Final_Test__c}                        
+                                </td>                            
+                            </tr>                                        
+                        </tbody>
+                    </table>                    
+                 
+        
+                    <table class="yokotable">
+                        <tbody>
+                        <tr>
+                            <th>Final Conclution/Remarks:</th>
+                        </tr>
+                        <tr>
+                            <td>{!WorkOrder.Final_Conclusion__c}</td>                            
+                        </tr>    
+                        </tbody>
+                    </table>
+        
+        
+                    <!-- <apex:outputLabel rendered="{!IF(WorkOrder.Status = 'Closed',true,false)}" style="font-size:11px;">
+                        Close Date: 
+                        <apex:outputText value="{0, date, d MMMM','  yyyy}">
+                            <apex:param value="{!WorkOrder.Asset_Receipt_Date__c}" /> 
+                        </apex:outputText>
+                    </apex:outputLabel>-->
+
+                </apex:outputPanel>
+                        
+            <!-- </div> -->
+          
+    </apex:define>
+
+    <!-- <apex:define name="footer">
+        
+    </apex:define> -->
+
+    <!-- <apex:define name="backPage">
+        <div class="endPage"/>
+        <div class="resetPageCounter"/>
+        <apex:include pageName="FooterPage"/>
+    </apex:define> -->
+    
+    </apex:composition>
+</apex:page>

@@ -1,0 +1,261 @@
+<apex:page standardcontroller="WorkOrder" 
+           docType="html" sidebar="false" showHeader="false" standardStylesheets="false" applyHtmlTag="false" applyBodyTag="false" >
+
+   <apex:composition template="PDFTemplate">
+        <apex:define name="htmlheadPdf">
+            <apex:insert name="htmlhead" />
+            <style>
+                @page
+                {
+                    margin-top: 5cm;
+                    margin-bottom: 3.7cm;
+                    margin-left: 1cm;
+                    margin-right: 1cm;
+                }
+                /* div {
+                    border-style: solid;
+                } */
+
+                p {
+                    font-size: 12px;
+                }
+                
+                .yokotable {
+                    /* font-family: sans-serif;  */
+                    font-family:'Arial Unicode MS' 'sans-serif';
+                    font-size: 12px;
+                    border-collapse: collapse;
+                    width: 100%;
+                    margin-bottom: 25px;
+                }
+
+                .yokotable th {
+                    width: 25%;
+                    height: 10px;
+                    padding: 2px;
+                    text-align: left;
+                    vertical-align: top;
+                }
+
+                .yokotable td.fieldlabel {
+                    width: 15%;
+                    height: 10px;
+                    padding: 4px;
+                    text-align: left;
+                    vertical-align: top;
+                    font-weight: bold;
+                }
+
+                .yokotable td.fieldvalue {
+                    width: 35%;
+                    height: 10px;
+                    padding: 4px;
+                    text-align: left;
+                    vertical-align: top;
+                }
+
+                .yokotable td.fieldlabelbody {
+                    width: 15%;
+                    height: 10px;
+                    padding: 4px 0px;
+                    text-align: left;
+                    vertical-align: top;
+                    font-weight: bold;
+                    border: 0px;
+                }
+
+                .yokotable td.fieldvaluebody {
+                    width: 85%;
+                    height: 10px;
+                    padding: 4px;
+                    text-align: left;
+                    vertical-align: top;
+                    border: 0px;
+                }
+
+                .yokotable td.signature {
+                    /* width: 50%; */
+                    padding: 0px;
+                    border: 0px;
+                    font-size: 14px;
+                }
+
+                .yokotable th {
+                    padding: 4px;
+                    background-color: #e6e6e6;
+                    color: black;
+                }
+                .yokotable td{
+                    border: 1px solid #ddd;
+                }
+                .address {
+                    font-size: 10px;
+                    position: absolute; 
+                    top: 26mm;"
+                    left: 8px;
+                }
+                .bcontent {
+                    position: absolute;
+                    top: 2cm;
+                }
+                .fcontent{
+                    position: absolute;
+                    width: 100%;
+                    left: 0px;
+                    top: 245mm;
+                }
+                .hrfooter{
+                    border-top:  1px solid #ccc;
+                    margin-bottom: 12px;
+                }
+
+                .parts-table {
+                    font-family: 'Arial Unicode MS' 'sans-serif';
+                    font-size: 12px;
+                    border-collapse: collapse;
+                    width: 100%;
+                    margin-bottom: 10px;
+                }
+                .parts-table th {
+                    padding: 4px;
+                    background-color: #e6e6e6;
+                    color: black;
+                }
+
+                .parts-table td {
+                    border: 1px solid #ddd;
+                    height: 10px;
+                    padding: 2px;
+                    text-align: left;
+                    vertical-align: top;
+                }
+
+                .total-table {
+                    border: 1px solid #ddd;
+                    font-family: 'Arial Unicode MS' 'sans-serif';
+                    font-size: 12px;
+                    border-collapse: collapse;
+                    width: 100%;
+                    margin-bottom: 10px;
+                }
+
+
+                
+            </style>
+        </apex:define>
+
+        <apex:define name="frontPagePdf">
+            <apex:insert name="frontPage" />
+        </apex:define>
+
+        <apex:define name="headerPdf">
+            <!--
+                This is the header of the document, it contains markup
+                that should appear on every page, like a company logo
+                and page numbers
+            -->
+
+            <header class="onlyprint page-top-left">
+                <!--
+                    the left/right/center of css @top-left/etc. are ignored by salesforce,
+                    but it will take the content out of the normal document flow and repeat
+                    the content on every page.
+                    The actual positioning is done in the following div using
+                    style="position: absolute;".
+                    Something similar can be done by using style="position: fixed;",
+                    however, if no @top-something is used it's not possible to place the
+                    content in the page margins, so text on the next page will be drawn
+                    over or under the content with position: fixed.
+                    We use this for the watermarks.
+
+                    Note that with position: absolute; the top, right, bottom and left
+                    properties specify offsets from the edges of the element's containing
+                    block. So using bottom: 0cm; in a header to create a footer won't
+                    work if the header is not very high.
+                    Since we use only divs with position: absolute here, the header itself
+                    will have a height of 0.
+                -->
+                <div style="top: 13mm;position: absolute;">
+                    <!--apex:image height="48px" url="/resource/1580901998000/YokogawaLogo?" /-->
+                    <apex:image height="48px" value="{!$Resource.YokogawaLogo}"/>
+                </div>
+
+                <table class="address">
+                    <tbody>
+                        <tr>
+                            <td colspan="2">{!WorkOrder.ServiceLocation__r.OfficeFormalName__c}</td>
+                        </tr>
+                        <tr>
+                            <td>Tel:</td>
+                            <td>{!WorkOrder.ServiceLocation__r.OfficePhone__c}</td>
+                        </tr>
+                        <tr>
+                            <td>Fax:</td>
+                            <td>{!WorkOrder.ServiceLocation__r.OfficeFax__c}</td>
+                        </tr>
+                        <tr>
+                            <td>E-mail:</td>
+                            <td>{!WorkOrder.ServiceLocation__r.OfficeEmail__c}</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">{!WorkOrder.ServiceLocation__r.OfficeWebsiteURL__c}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div style="position: absolute; top: 10mm; right: 0px;">            
+                    <!--
+                        When setting the width on an image Salesforces pdf renderer will first reserve
+                        space for the image and then scale it and place it in the top left corner of
+                        the reserved space, so if you want to set te width of an image, you have to use
+                        a container on which you also set that width.
+
+                        Salesforce appears to use an `optimization' which causes images with the same url
+                        to always be rendered the same, even if the styling differs. So, if you want to
+                        display the same image multiple times with different sizes, you'll have to use
+                        separate static resources for each size you want to use.
+                    -->
+                   <h1>
+                        <!-- Service Report: {!caseRecord.CaseNumber} -->
+                        Calibration Quotation: {!WorkOrder.WorkOrderNumber}
+                    </h1>
+                </div>
+
+                <div style="z-index: -1;height: 100%;top: 255mm;width: 100%;position: absolute;overflow: hidden;">
+                    <hr class="hrfooter"/>
+                    <p>
+                        Yokogawa Europe Solutions B.V. hereby confirms receipt of your service request, which is accepted subject to the Yokogawa general Terms and Conditions of Sales (GTCS). Any provisions in your general conditions of purchase and/or sale or amendments(s) made by Customer to the GTCS are herewith explicitly rejected, unless agreed in writing and duly signed by authorized representatives of both parties. Yokogawa Europe Solutions B.V. is listed and the GTCS are deposited in the Commercial Register of the Chamber of Commerce file number 33241208. A copy of the GTCS can be provided on your request.
+                    </p>
+                    <p style="text-align:center; font-size:9px;">
+                        Yokogawa Europe Solutions B.V., Euroweg 2, 3825 HD Amersfoort, the Netherlands, Chamber of Commerce no. 33241208, VAT no. NL801301749B01<br/>
+                        HSBC France, Amsterdam Branch, IBAN EUR: NL03 HSBC 2038 3807 59 | USD: NL78 HSBC 2038 3807 67 | BIC HSBCNL2A
+                    </p>
+                </div>
+                
+                <!--div style="position: absolute; top: 275mm; left: 8cm; height: 1cm;">
+                    {!$Organization.Name} <apex:insert name="documentNumber" />
+                </div>
+                <div style="position: absolute; top: 275mm; right: 1cm; height: 1cm; ">
+                    <span class="currentPage"></span> / <span class="totalPages"></span>
+                </div-->
+            </header>
+            <apex:insert name="header" />
+        </apex:define>
+    
+        <apex:define name="bodyPdf">
+            <apex:insert name="body" />
+        </apex:define>
+
+        <apex:define name="footerPdf">
+            
+            <apex:insert name="footer" />
+        </apex:define>
+
+    
+        <!-- <apex:define name="backPagePdf">
+            <header class="onlyprint page-top-left">
+            </header>
+            <apex:insert name="backPage" />
+        </apex:define> -->
+    </apex:composition>
+</apex:page>

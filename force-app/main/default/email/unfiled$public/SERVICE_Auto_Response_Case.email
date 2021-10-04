@@ -1,0 +1,15 @@
+<messaging:emailTemplate subject="CaseId" recipientType="Contact" relatedToType="WorkOrder">
+<messaging:plainTextEmailBody >
+</messaging:plainTextEmailBody>
+ <messaging:htmlEmailBody >
+   <c:YG_EmailComponent langType="{!relatedTo.contact.Preferred_Language__c}" caseNum="{!relatedTo.WorkOrderNumber}" caseEDate="{!relatedTo.Planned_End_Date__c}"
+        tableData1="{!relatedTo.Account.Name}"
+        tableData2="{!relatedTo.Customer_reference__c}"
+        tableData3="{!relatedTo.WorkOrderNumber}"
+        tableData4="{!relatedTo.Asset.Name}"
+        tableData5="{!relatedTo.Asset_Serial_Number__c}"
+        tableData6="{!relatedTo.Description}"
+        tableData7="{!relatedTo.Work_Order_Notes__c}"
+        wStatus="{!relatedTo.isClosed}"/>
+ </messaging:htmlEmailBody>
+</messaging:emailTemplate>

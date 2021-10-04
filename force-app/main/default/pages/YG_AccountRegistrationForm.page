@@ -1,0 +1,157 @@
+<apex:page controller="YG_AccountDetail" sidebar="false" docType="html" showHeader="false" standardStylesheets="false" applyHtmlTag="false"
+    applyBodyTag="false" title="SAP Account Registration Form" renderAs="pdf">
+
+
+    <apex:composition template="PDF_TemplateAccount">
+        <apex:define name="body">
+
+            <div class="bcontent">
+                <center>
+                    <p style="font-weight:bold;">SAP Account Registration Form</p>
+                </center>
+
+                <p style="font-weight:bold;">Account Details</p>
+
+                <table class="yokotable">
+                    <tbody>
+                        <tr>
+                            <td class="fieldlabel">Request Type </td>
+                            <td class="fieldvalue">{!selectedRequestType}</td>
+                            <td class="fieldlabel">Customer Type </td>
+                            <td class="fieldvalue">{!selectedCustomerType}</td>
+                        </tr>
+                        <tr>
+                            <td style="height:20px" colspan="4"> </td>
+                        </tr>
+                        <tr>
+                            <td class="fieldlabel">YODA Account Number</td>
+                            <td class="fieldvalue">{!Account.YODA_Account_Number__c}</td>
+                            <td class="fieldlabel">GBPM ID </td>
+                            <td class="fieldvalue">{!Account.Integration_YGSSAP_Id__c}</td>
+                        </tr>
+
+
+                        <tr>
+                            <td class="fieldlabel">Account Name</td>
+                            <td class="fieldvalue">{!Account.Name}</td>
+                            <td class="fieldlabel">Account Name(Local)</td>
+                            <td class="fieldvalue">{!Account.NameLocal}</td>
+                        </tr>
+                        <tr>
+                            <td class="fieldlabel">Short Name</td>
+                            <td class="fieldvalue">{!Account.Short_Name__c}</td>
+                            <td class="fieldlabel">Short Name(Local)</td>
+                            <td class="fieldvalue">{!Account.Short_Name_Local__c}</td>
+                        </tr>
+                        <tr>
+                            <td class="fieldlabel">Region </td>
+                            <td class="fieldvalue">{!Account.Region__c}</td>
+                            <td class="fieldlabel">Industry Code</td>
+                            <td class="fieldvalue">{!Account.Industry_Code__c}</td>
+                        </tr>
+                        <tr>
+                            <td class="fieldlabel">Email </td>
+                            <td class="fieldvaluebody">{!Account.Email__c}</td>
+                            <td class="fieldlabel">Fax </td>
+                            <td class="fieldvaluebody">{!Account.Fax}</td>
+                        </tr>
+                        <tr>
+                            <td class="fieldlabel">Website </td>
+                            <td class="fieldvaluebody">{!Account.Website}</td>
+                            <td class="fieldlabel">Phone </td>
+                            <td class="fieldvaluebody">{!Account.Phone}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p style="font-weight:bold;">Address</p>
+                <table class="yokotable">
+                    <tbody>
+                        <tr>
+                            <td class="fieldlabel">Main Country</td>
+                            <td class="fieldvaluebody">{!Account.ShippingCountry}</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="fieldlabel">Main Street</td>
+                            <td class="fieldvaluebody">{!Account.ShippingStreet }</td>
+                            <td class="fieldlabel">Street (Local)</td>
+                            <td class="fieldvaluebody">{!Account.Street_Local__c }</td>
+                        </tr>
+                        <tr>
+                            <td class="fieldlabel">Main City</td>
+                            <td class="fieldvaluebody">{!Account.ShippingCity}</td>
+                            <td class="fieldlabel">City (Local)</td>
+                            <td class="fieldvaluebody">{!Account.City_Local__c}</td>
+                        </tr>
+                        <tr>
+                            <td class="fieldlabel">Main State/Province</td>
+                            <td class="fieldvaluebody">{!Account.ShippingState }</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="fieldlabel">Main Zip/Postal Code</td>
+                            <td class="fieldvaluebody">{!Account.ShippingPostalCode }</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p style="font-weight:bold;">Sales Information</p>
+
+                <table class="yokotable">
+                    <tbody>
+                        <tr>
+                            <td class="fieldlabel">Sales Organization</td>
+                            <td class="fieldvaluebody">{!Account.Sales_Organization__c}</td>
+                            <td class="fieldlabel">Distribution Channel</td>
+                            <td class="fieldvaluebody">{!Account.Distribution_Channel__c}</td>
+
+                        </tr>
+                        <tr>
+                            <td class="fieldlabel">Payment Mode </td>
+                            <td class="fieldvaluebody">{!Account.Payment_Mode__c}</td>
+                            <td class="fieldlabel">Credit Term </td>
+                            <td class="fieldvaluebody">{!Account.Credit_Term__c}</td>
+                        </tr>
+                        <tr>
+                            <td class="fieldlabel">VAT Number </td>
+                            <td class="fieldvaluebody">{!Account.VAT_Number__c}</td>
+                            <td class="fieldlabel">Tax Reg No </td>
+                            <td class="fieldvaluebody">{!Account.Tax_Reg_No__c}</td>
+                        </tr>
+                        <tr>
+                            <td class="fieldlabel">Payment Terms</td>
+                            <td class="fieldvaluebody">{!Account.Payment_Terms__c}</td>
+                            <td class="fieldlabel">Incoterms </td>
+                            <td class="fieldvaluebody">{!Account.Incoterms__c}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+                <p style="font-weight:bold;">Description</p>
+                <p style="font-family: Arial Unicode MS;font-size: 12px;">{!Account.Description}</p>
+
+                <p style="font-weight:bold;">System Field</p>
+                <table class="yokotable">
+                    <tbody>
+                        <tr>
+                            <td class="fieldlabel">Application Date </td>
+                            <td class="fieldvaluebody">{!Account.LastModifiedDate}</td>
+                            <td class="fieldlabel">Applied By </td>
+                            <td class="fieldvaluebody">{!Account.LastModifiedBy.Name}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </apex:define>
+
+        <apex:define name="footer">
+
+        </apex:define>
+
+    </apex:composition>
+</apex:page>
