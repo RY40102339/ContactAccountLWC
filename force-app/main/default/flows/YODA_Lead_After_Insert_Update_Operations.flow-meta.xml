@@ -57,7 +57,8 @@
     </decisions>
     <description>YODA Lead After Insert/Update Operations - Update Opportunity Close Date
 Run assignment rule
-Update Opportunity with BSU (Kam 10/1/2021)</description>
+Update Contact HasOptedOutOfEmail from converted Lead. - Hema 9/28
+Update Opportunity with BSU - Kam 10/1/2021</description>
     <formulas>
         <name>CloseDate</name>
         <dataType>Date</dataType>
@@ -158,10 +159,34 @@ Update Opportunity with BSU (Kam 10/1/2021)</description>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordUpdates>
+        <name>Update_Contact</name>
+        <label>Update Contact</label>
+        <locationX>314</locationX>
+        <locationY>815</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>IsConverted.ConvertedContactId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>HasOptedOutOfEmail</field>
+            <value>
+                <elementReference>$Record.HasOptedOutOfEmail</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Contact</object>
+    </recordUpdates>
+    <recordUpdates>
         <name>Update_Opportunity</name>
         <label>Update Opportunity</label>
         <locationX>314</locationX>
         <locationY>695</locationY>
+        <connector>
+            <targetReference>Update_Contact</targetReference>
+        </connector>
         <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
