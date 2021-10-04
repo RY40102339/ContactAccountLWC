@@ -332,6 +332,21 @@
         </values>
     </picklistValues>
     <picklistValues>
+        <picklist>Rating</picklist>
+        <values>
+            <fullName>Cold</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hot</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Warm</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
         <picklist>Salutation__c</picklist>
         <values>
             <fullName>Dr%2E</fullName>
@@ -394,6 +409,53 @@
         </values>
         <values>
             <fullName>What prompted your interest for this query%3F</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Region__c</picklist>
+        <values>
+            <fullName>Global</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YCA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YCN</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YEA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YEF</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YIL</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YJP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YKO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YMA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YRU</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>YSA</fullName>
             <default>false</default>
         </values>
     </picklistValues>

@@ -10,7 +10,7 @@
         <default>false</default>
         <label>North America</label>
     </customValue>
-    <customValue> 
+    <customValue>
         <fullName>YCN</fullName>
         <default>false</default>
         <label>China</label>
