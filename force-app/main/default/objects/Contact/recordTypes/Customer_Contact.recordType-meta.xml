@@ -332,21 +332,6 @@
         </values>
     </picklistValues>
     <picklistValues>
-        <picklist>Rating</picklist>
-        <values>
-            <fullName>Cold</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Hot</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Warm</fullName>
-            <default>false</default>
-        </values>
-    </picklistValues>
-    <picklistValues>
         <picklist>Salutation__c</picklist>
         <values>
             <fullName>Dr%2E</fullName>
