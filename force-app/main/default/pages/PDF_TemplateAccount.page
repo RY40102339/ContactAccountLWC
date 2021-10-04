@@ -1,0 +1,69 @@
+<apex:page standardcontroller="Account" docType="html" sidebar="false" showHeader="false" standardStylesheets="false" 
+    applyHtmlTag="false" applyBodyTag="false" >
+			
+	<apex:variable var="language" value="{!IF(Account.Preferred_Language__c = 'German', 'DE', IF(Account.Preferred_Language__c = 'Italian', 'IT', 'EN'))}" />
+
+   <apex:composition template="PDFTemplate">
+		<apex:define name="htmlheadPdf">
+			<apex:insert name="htmlhead" />
+			<style>
+				@page
+				{
+                    margin-top: 2.5cm;
+                    margin-bottom: 1.2cm;
+                    margin-left: 1cm;
+                    margin-right: 1cm;
+                }
+				
+                .yokotable {
+                    font-family: Arial Unicode MS;
+                    font-size: 12px;
+                    border-collapse: collapse;
+                    width: 100%;
+					margin-bottom: 25px;
+                    word-wrap:break-word;
+                }
+
+				.yokotable td, .yokotable th {
+                	width: 25%;
+					height: 10px;
+                  	padding: 2px;
+					text-align: left;
+					vertical-align: top;
+				}
+
+                .yokotable th {
+					padding: 4px;
+                  	background-color: #e6e6e6;
+                  	color: black;
+                }
+				.yokotable td{
+					border: 1px solid #ddd;
+				}
+                .fieldlabel{
+                    font-weight:bold;
+                }
+			</style>
+		</apex:define>
+
+	    <apex:define name="headerPdf">
+			
+			<header class="onlyprint page-top-left">
+                <div style="z-index: -1;height: 100%;width: 100%;position: absolute;overflow: hidden; top: 16mm; margin-left:8px;">
+					<apex:image height="48px" url="/resource/1580901998000/YokogawaLogo?" />
+				</div>				
+				<div style="position: absolute; top: 275mm; left: 2px; width:100%;">
+					<hr class="hrfooter"/>
+					<div style="position:absolute;bottom:-3px;left:2px;font-size:11px">{!IF(language='DE','Printed By:',IF(language='IT','Printed By:','Printed By:'))} {!$User.FirstName} {!$User.LastName}</div>
+					<div style="position:absolute;bottom:-3px;right:2px;font-size:11px">{!IF(language='DE','Print Date:',IF(language='IT','Print Date:','Print Date:'))} {!DAY(TODAY())}-{!MONTH(TODAY())}-{!YEAR(TODAY())}</div>
+				</div>
+				
+			</header>
+			<apex:insert name="header" />
+		</apex:define>
+	
+		<apex:define name="bodyPdf">
+			<apex:insert name="body" />
+		</apex:define>
+    </apex:composition>
+</apex:page>
