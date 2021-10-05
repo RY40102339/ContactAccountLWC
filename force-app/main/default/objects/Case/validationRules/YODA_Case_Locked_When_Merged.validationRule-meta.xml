@@ -4,9 +4,8 @@
     <active>true</active>
     <description>Once the Case status is set to Merged then only admin users (System Admin, YODA Admin) should be able to edit the case. All other users should not be able to edit the case.</description>
     <errorConditionFormula>AND(
-ISPICKVAL(Status, &quot;Merged&quot;),
+IF(AND(ISCHANGED(Status),ISPICKVAL(Status, &quot;Merged&quot;),(PRIORVALUE (Status) &lt;&gt; &quot;Merged&quot;)),FALSE, (ISPICKVAL(Status, &quot;Merged&quot;))),
 CONTAINS($Profile.Name , &quot;YODA&quot;),
-NOT( $Setup.Bypass_Settings__c.Bypass_Validation_Rules__c )
-)</errorConditionFormula>
+NOT($Setup.Bypass_Settings__c.Bypass_Validation_Rules__c ))</errorConditionFormula>
     <errorMessage>This case is locked​</errorMessage>
 </ValidationRule>
