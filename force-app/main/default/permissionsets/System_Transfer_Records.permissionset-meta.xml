@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
-    <description>System Permission &quot;Transfer Records&quot;</description>
+    <description>System Permission - Transfer Record - Change the owner of most records.</description>
     <hasActivationRequired>false</hasActivationRequired>
     <label>System - Transfer Records</label>
     <license>Salesforce</license>

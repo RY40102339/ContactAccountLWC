@@ -24,6 +24,7 @@
     <permissionSets>Scope_of_Product_Read</permissionSets>
     <permissionSets>System_Create_and_Customize_List_Views</permissionSets>
     <permissionSets>System_Create_and_Customize_Reports_and_Dashboards</permissionSets>
+    <permissionSets>System_Transfer_Records</permissionSets>
     <permissionSets>Yokogawa_Competitor_Create</permissionSets>
     <permissionSets>Yokogawa_Competitor_Edit</permissionSets>
     <status>Updated</status>
