@@ -27,6 +27,7 @@
     <permissionSets>System_Customize_Application</permissionSets>
     <permissionSets>System_Import_Custom_Objects</permissionSets>
     <permissionSets>System_Manage_Reports_and_Dashboards_in_Public_Folders</permissionSets>
+    <permissionSets>System_Transfer_Records</permissionSets>
     <permissionSets>System_View_Setup_and_Configuration</permissionSets>
     <permissionSets>Yokogawa_Competitor_Create</permissionSets>
     <permissionSets>Yokogawa_Competitor_Edit</permissionSets>
