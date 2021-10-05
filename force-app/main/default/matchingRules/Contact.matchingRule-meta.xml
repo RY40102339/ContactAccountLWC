@@ -3,6 +3,13 @@
     <matchingRules>
         <fullName>YODA_Contact_Matching_Rule</fullName>
         <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+        <description>Duplicate Rule to check on the following fields
+
+Contact Matching Rule:
+LastName FUZZY
+Company Name FUZZY
+Email EXACT
+Phone EXACT</description>
         <label>YODA Contact Matching Rule</label>
         <matchingRuleItems>
             <blankValueBehavior>NullNotAllowed</blankValueBehavior>
