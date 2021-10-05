@@ -3,7 +3,10 @@
     <actionOnInsert>Allow</actionOnInsert>
     <actionOnUpdate>Allow</actionOnUpdate>
     <alertText>Use one of these records?</alertText>
-    <description xsi:nil="true"/>
+    <description>Duplicate Rule to check on Contact with the following fields Contact: LastNameFUZZY
+Contact: Company NameFUZZY
+Contact: EmailEXACT
+Contact: PhoneEXACT</description>
     <duplicateRuleFilter xsi:nil="true"/>
     <duplicateRuleMatchRules>
         <matchRuleSObjectType>Contact</matchRuleSObjectType>
