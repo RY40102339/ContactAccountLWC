@@ -14,6 +14,7 @@
 *  Change History:
 *  MM/DD/YYYY			Developer Name			Comments
 *  08/17/2021           Hemalatha Gorthy        Run assignment rules on Lead.
+*  10/04/2021           Hemalatha Gorthy        Country field added to fix Lead creation in Test class.
 */
 public class YODA_RunAssignmentRules {
 

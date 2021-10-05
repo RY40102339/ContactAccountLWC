@@ -14,6 +14,7 @@
 *  Change History:
 *  MM/DD/YYYY			Developer Name			Comments
 *  08/17/2021           Hemalatha Gorthy        Test class to Run assignment rules on Lead.
+*  10/04/2021           Hemalatha Gorthy        Country field added to fix Lead creation.
 */
 @IsTest(SeeAllData = False)
 public class YODA_RunAssignmentRules_Test {
@@ -27,6 +28,7 @@ public class YODA_RunAssignmentRules_Test {
                                   LastName = 'Assign',
                                   Email = 'testLead1@yokogawa.com',
                                   Status = 'New',
+                                  Country = 'United States',
                                   Rating = 'Warm');
         
         Insert testLead1;
