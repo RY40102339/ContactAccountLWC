@@ -3,6 +3,9 @@
     <matchingRules>
         <fullName>YODA_Yokogawa_Competitor_Matching_Rule</fullName>
         <booleanFilter>1 OR 2</booleanFilter>
+        <description>Yokogawa Competitor Matching Rule:
+Name EXACT
+Website EXACT</description>
         <label>YODA Yokogawa Competitor Matching Rule</label>
         <matchingRuleItems>
             <blankValueBehavior>MatchBlanks</blankValueBehavior>
