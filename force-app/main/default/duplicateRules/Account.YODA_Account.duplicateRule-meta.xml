@@ -3,7 +3,9 @@
     <actionOnInsert>Allow</actionOnInsert>
     <actionOnUpdate>Allow</actionOnUpdate>
     <alertText>Use one of these records?</alertText>
-    <description xsi:nil="true"/>
+    <description>Duplicate Rule to check on an account with the following fields:
+Account: Name EXACT
+Account: Shipping Country EXACT</description>
     <duplicateRuleFilter xsi:nil="true"/>
     <duplicateRuleMatchRules>
         <matchRuleSObjectType>Account</matchRuleSObjectType>

@@ -3,7 +3,9 @@
     <actionOnInsert>Allow</actionOnInsert>
     <actionOnUpdate>Allow</actionOnUpdate>
     <alertText>Use one of these records?</alertText>
-    <description xsi:nil="true"/>
+    <description>Yokogawa Competitor Matching Rule: 
+Name EXACT
+Website EXACT</description>
     <duplicateRuleFilter xsi:nil="true"/>
     <duplicateRuleMatchRules>
         <matchRuleSObjectType>Yokogawa_Competitor__c</matchRuleSObjectType>
