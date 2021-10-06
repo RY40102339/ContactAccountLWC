@@ -5,7 +5,7 @@
         <name>Send_Email</name>
         <label>Send Email</label>
         <locationX>50</locationX>
-        <locationY>758</locationY>
+        <locationY>878</locationY>
         <actionName>emailSimple</actionName>
         <actionType>emailSimple</actionType>
         <connector>
@@ -50,7 +50,7 @@
         <name>Valid_Email</name>
         <label>Valid Email</label>
         <locationX>314</locationX>
-        <locationY>638</locationY>
+        <locationY>758</locationY>
         <defaultConnector>
             <targetReference>Not_a_valid_Email</targetReference>
         </defaultConnector>
@@ -74,7 +74,8 @@
     <description>Yoda Channel Managers Forward Lead information to External Channel Reps.
 Updated to choose fields and let salesforce do the rest in get lead record.
 Hema - 10/04 - Updated pi_campaign__c to Campaign__c in EmailTemplate.
-Hema - 10/04 - Update Owner FullName and Phone in Email Template.</description>
+Hema - 10/04 - Update Owner FullName and Phone in Email Template.
+Hema - 10/06 - Updated Campaign__c to pull Campaign Name instead of Campaign Id.</description>
     <formulas>
         <name>CustomPermissionforEmailsolution</name>
         <dataType>Boolean</dataType>
@@ -107,6 +108,27 @@ Hema - 10/04 - Update Owner FullName and Phone in Email Template.</description>
     </processMetadataValues>
     <processType>Flow</processType>
     <recordLookups>
+        <name>Get_Campaign_Record</name>
+        <label>Get Campaign Record</label>
+        <locationX>314</locationX>
+        <locationY>398</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Confirmation</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Lead_Record.Campaign__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Campaign</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
         <description>Get the lead record that triggered this flow using Lead ID = recordId variable.</description>
         <name>Get_Lead_Record</name>
         <label>Get Lead Record</label>
@@ -135,7 +157,7 @@ Hema - 10/04 - Update Owner FullName and Phone in Email Template.</description>
         <locationY>278</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Confirmation</targetReference>
+            <targetReference>Get_Campaign_Record</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -154,7 +176,7 @@ Hema - 10/04 - Update Owner FullName and Phone in Email Template.</description>
         <name>Update_Lead_Record</name>
         <label>Update Lead Record</label>
         <locationX>50</locationX>
-        <locationY>878</locationY>
+        <locationY>998</locationY>
         <connector>
             <targetReference>Email_confirmation</targetReference>
         </connector>
@@ -185,7 +207,7 @@ Hema - 10/04 - Update Owner FullName and Phone in Email Template.</description>
         <name>Confirmation</name>
         <label>Confirmation</label>
         <locationX>314</locationX>
-        <locationY>398</locationY>
+        <locationY>518</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -209,7 +231,7 @@ Hema - 10/04 - Update Owner FullName and Phone in Email Template.</description>
         <name>Email_confirmation</name>
         <label>Email confirmation</label>
         <locationX>50</locationX>
-        <locationY>998</locationY>
+        <locationY>1118</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -225,7 +247,7 @@ Hema - 10/04 - Update Owner FullName and Phone in Email Template.</description>
         <name>Email_Error</name>
         <label>Email Error</label>
         <locationX>314</locationX>
-        <locationY>878</locationY>
+        <locationY>998</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -242,7 +264,7 @@ Hema - 10/04 - Update Owner FullName and Phone in Email Template.</description>
         <name>Email_ID</name>
         <label>Email ID</label>
         <locationX>314</locationX>
-        <locationY>518</locationY>
+        <locationY>638</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -263,7 +285,7 @@ Hema - 10/04 - Update Owner FullName and Phone in Email Template.</description>
         <name>Not_a_valid_Email</name>
         <label>Not a valid Email</label>
         <locationX>578</locationX>
-        <locationY>758</locationY>
+        <locationY>878</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -286,7 +308,7 @@ Hema - 10/04 - Update Owner FullName and Phone in Email Template.</description>
     <textTemplates>
         <name>EmailTemplate</name>
         <isViewedAsPlainText>false</isViewedAsPlainText>
-        <text>&lt;p&gt;Dear Sales,&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;The following is a lead from {!Get_Lead_Record.Campaign__c} and has been assigned to you and your company to follow up.&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;Here is the lead information:&lt;/p&gt;&lt;p&gt;&lt;b&gt;Lead Creation Date:&lt;/b&gt;&amp;nbsp;{!Get_Lead_Record.CreatedDate}&lt;/p&gt;&lt;p&gt;&lt;b&gt;Lead Name:&lt;/b&gt;&amp;nbsp;{!Get_Lead_Record.FirstName} {!Get_Lead_Record.LastName}&lt;/p&gt;&lt;p&gt;&lt;b&gt;Lead Title:&lt;/b&gt;&amp;nbsp;{!Get_Lead_Record.Title}&lt;/p&gt;&lt;p&gt;&lt;b&gt;Company:&lt;/b&gt;&amp;nbsp;{!Get_Lead_Record.Company}&lt;/p&gt;&lt;p&gt;&lt;b&gt;Email:&lt;/b&gt;&amp;nbsp;{!Get_Lead_Record.Email}&lt;/p&gt;&lt;p&gt;&lt;b&gt;Phone:&lt;/b&gt;&amp;nbsp;{!Get_Lead_Record.Phone}&lt;/p&gt;&lt;p&gt;&lt;b&gt;Source Campaign:&lt;/b&gt;&amp;nbsp;{!Get_Lead_Record.Campaign__c}&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description:&amp;nbsp;{!Get_Lead_Record.Description}&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Category of Interest:&lt;/b&gt;&amp;nbsp;{!Get_Lead_Record.Category_of_Interest__c}&lt;/p&gt;&lt;p&gt;&lt;b&gt;Product of Interest:&lt;/b&gt;&amp;nbsp;{!Get_Lead_Record.Product_of_Interest__c}&lt;/p&gt;&lt;p&gt;&lt;b&gt;Country:&lt;/b&gt;&amp;nbsp;{!Get_Lead_Record.Country}&lt;/p&gt;&lt;p&gt;&lt;b&gt;State:&amp;nbsp;{!Get_Lead_Record.State}&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Postal Code:&lt;/b&gt;&amp;nbsp;{!Get_Lead_Record.StateCode}&lt;/p&gt;&lt;p&gt;&lt;b&gt;City:&lt;/b&gt;&amp;nbsp;{!Get_Lead_Record.City}&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;Please follow up with this lead as soon as possible.&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;b&gt;If and when this lead turns&amp;nbsp;into an opportunity, please let me know.&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;Sincerely,&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;{!Get_User_Record.Name}&lt;/p&gt;&lt;p&gt;&lt;b&gt;Yokogawa&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;{!Get_User_Record.Phone}&lt;/p&gt;&lt;p&gt;{!Get_Lead_Record.Owner:User.Email}&lt;/p&gt;</text>
+        <text>&lt;p&gt;Dear Sales,&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;The following is a lead from &lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(62, 62, 60);&quot;&gt;{!Get_Campaign_Record.Name}&lt;/span&gt; and has been assigned to you and your company to follow up.&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;Here is the lead information:&lt;/p&gt;&lt;p&gt;&lt;b&gt;Lead Creation Date:&lt;/b&gt;&amp;nbsp;{!Get_Lead_Record.CreatedDate}&lt;/p&gt;&lt;p&gt;&lt;b&gt;Lead Name:&lt;/b&gt;&amp;nbsp;{!Get_Lead_Record.FirstName} {!Get_Lead_Record.LastName}&lt;/p&gt;&lt;p&gt;&lt;b&gt;Lead Title:&lt;/b&gt;&amp;nbsp;{!Get_Lead_Record.Title}&lt;/p&gt;&lt;p&gt;&lt;b&gt;Company:&lt;/b&gt;&amp;nbsp;{!Get_Lead_Record.Company}&lt;/p&gt;&lt;p&gt;&lt;b&gt;Email:&lt;/b&gt;&amp;nbsp;{!Get_Lead_Record.Email}&lt;/p&gt;&lt;p&gt;&lt;b&gt;Phone:&lt;/b&gt;&amp;nbsp;{!Get_Lead_Record.Phone}&lt;/p&gt;&lt;p&gt;&lt;b&gt;Source Campaign:&lt;/b&gt;&amp;nbsp;{!Get_Campaign_Record.Name}&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description:&amp;nbsp;{!Get_Lead_Record.Description}&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Category of Interest:&lt;/b&gt;&amp;nbsp;{!Get_Lead_Record.Category_of_Interest__c}&lt;/p&gt;&lt;p&gt;&lt;b&gt;Product of Interest:&lt;/b&gt;&amp;nbsp;{!Get_Lead_Record.Product_of_Interest__c}&lt;/p&gt;&lt;p&gt;&lt;b&gt;Country:&lt;/b&gt;&amp;nbsp;{!Get_Lead_Record.Country}&lt;/p&gt;&lt;p&gt;&lt;b&gt;State:&amp;nbsp;{!Get_Lead_Record.State}&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Postal Code:&lt;/b&gt;&amp;nbsp;{!Get_Lead_Record.StateCode}&lt;/p&gt;&lt;p&gt;&lt;b&gt;City:&lt;/b&gt;&amp;nbsp;{!Get_Lead_Record.City}&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;Please follow up with this lead as soon as possible.&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;b&gt;If and when this lead turns&amp;nbsp;into an opportunity, please let me know.&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;Sincerely,&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;{!Get_User_Record.Name}&lt;/p&gt;&lt;p&gt;&lt;b&gt;Yokogawa&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;{!Get_User_Record.Phone}&lt;/p&gt;&lt;p&gt;{!Get_Lead_Record.Owner:User.Email}&lt;/p&gt;</text>
     </textTemplates>
     <variables>
         <name>EmailConfirmation</name>
