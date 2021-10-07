@@ -2,9 +2,9 @@
 <Role xmlns="http://soap.sforce.com/2006/04/metadata">
     <caseAccessLevel>Read</caseAccessLevel>
     <contactAccessLevel>Edit</contactAccessLevel>
-    <description>YEA HEAD</description>
+    <description>YJP Head</description>
     <mayForecastManagerShare>false</mayForecastManagerShare>
-    <name>YEA HEAD</name>
+    <name>YJP Head</name>
     <opportunityAccessLevel>Read</opportunityAccessLevel>
-    <parentRole>ASEAN_Pacific_Regional_CEO</parentRole>
+    <parentRole>Japan_Regional_CEO</parentRole>
 </Role>
