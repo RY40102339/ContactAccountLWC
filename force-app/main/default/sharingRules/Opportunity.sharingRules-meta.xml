@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
     <sharingCriteriaRules>
+        <fullName>YODA_Opportunity_YMISBU_YEA_Edit</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>YODA Opportunity YMISBU - YEA Edit</description>
+        <label>YODA Opportunity YMISBU - YEA Edit</label>
+        <sharedTo>
+            <role>YEA_Support_Admin</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>Business_Unit__c</field>
+            <operation>equals</operation>
+            <value>YMI SBU</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Region__c</field>
+            <operation>equals</operation>
+            <value>ASEAN &amp; Oceania</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
         <fullName>YODA_Opportunity_Digital_SBU_Public_View</fullName>
         <accessLevel>Read</accessLevel>
         <description>YODA Opportunity Digital SBU Public View</description>
