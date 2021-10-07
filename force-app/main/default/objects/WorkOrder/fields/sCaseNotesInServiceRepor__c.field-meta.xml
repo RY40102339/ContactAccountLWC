@@ -3,7 +3,7 @@
     <fullName>sCaseNotesInServiceRepor__c</fullName>
     <defaultValue>false</defaultValue>
     <externalId>false</externalId>
-    <label>Include Case Notes in the Service Report</label>
+    <label>Include WO Notes in Service Report</label>
     <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>false</trackHistory>
     <type>Checkbox</type>
