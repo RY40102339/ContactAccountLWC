@@ -3,7 +3,7 @@
     <fullName>Send_Case_Confirmation_Email__c</fullName>
     <defaultValue>false</defaultValue>
     <externalId>false</externalId>
-    <label>Send Case Confirmation Email</label>
+    <label>Send Work Order Confirmation Email</label>
     <trackFeedHistory>false</trackFeedHistory>
     <trackHistory>false</trackHistory>
     <type>Checkbox</type>
