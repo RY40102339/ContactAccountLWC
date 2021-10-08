@@ -3697,7 +3697,7 @@ commenting for dev deploy-->
     <allowEdit>false</allowEdit>
     <allowRead>true</allowRead>
     <modifyAllRecords>false</modifyAllRecords>
-    <object>Competitors</object>
+    <object>Competitor__c</object>
     <viewAllRecords>false</viewAllRecords>
 </objectPermissions>
 <objectPermissions>

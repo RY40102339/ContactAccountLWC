@@ -52,9 +52,6 @@
     <description>Roles:
         Product Marketer
         Solutions Marketer
-        Object permissions:
-        As per config
-        Custom Permission:
         Custom Permission Show Lead Status Path
         System Permissions:
         Create and Customize Reports/Dashboards/List Views</description>
@@ -3697,7 +3694,7 @@
         <allowEdit>false</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
-        <object>Competitors</object>
+        <object>Competitor__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
