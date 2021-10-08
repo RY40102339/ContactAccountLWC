@@ -168,6 +168,30 @@
         <fields>OPPORTUNITY.STAGE_NAME</fields>
         <fields>CORE.USERS.FULL_NAME</fields>
         <fields>OPPORTUNITY.CLOSE_DATE</fields>
+        <profileName>YODA PMK</profileName>
+    </profileSearchLayouts>
+    <!--Hema 10/08 - YODA Marketing Global Admin - not appropriate for object - I-424065-HM-Redo
+    <profileSearchLayouts>
+        <fields>OPPORTUNITY.NAME</fields>
+        <fields>Oppportunity_Id__c</fields>
+        <fields>ACCOUNT.NAME</fields>
+        <fields>OPPORTUNITY.RECORDTYPE</fields>
+        <fields>End_User_Country__c</fields>
+        <fields>OPPORTUNITY.STAGE_NAME</fields>
+        <fields>CORE.USERS.FULL_NAME</fields>
+        <fields>OPPORTUNITY.CLOSE_DATE</fields>
+        <profileName>YODA Marketing Global Admin</profileName>
+    </profileSearchLayouts>
+    Hema 10/08 - YODA Marketing Global Admin - not appropriate for object - I-424065-HM-Redo-->
+    <profileSearchLayouts>
+        <fields>OPPORTUNITY.NAME</fields>
+        <fields>Oppportunity_Id__c</fields>
+        <fields>ACCOUNT.NAME</fields>
+        <fields>OPPORTUNITY.RECORDTYPE</fields>
+        <fields>End_User_Country__c</fields>
+        <fields>OPPORTUNITY.STAGE_NAME</fields>
+        <fields>CORE.USERS.FULL_NAME</fields>
+        <fields>OPPORTUNITY.CLOSE_DATE</fields>
         <profileName>YODA IT Solutions</profileName>
     </profileSearchLayouts>
     <profileSearchLayouts>

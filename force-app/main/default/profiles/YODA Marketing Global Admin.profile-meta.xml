@@ -50,11 +50,10 @@
     </classAccesses>
     <custom>true</custom>
     <description>Roles:
-        Product Marketer
-        Solutions Marketer
+        Marketing Administrator
         Custom Permission Show Lead Status Path
         System Permissions:
-        Create and Customize Reports/Dashboards/List Views</description>
+        Create and Customize Reports/Dashboards/List Views and Transfer Records</description>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.AccountNumber</field>
@@ -95,7 +94,7 @@
         <field>Account.Credit_Rating__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions> 
+    <fieldPermissions>
         <editable>true</editable>
         <field>Account.Credit_Term__c</field>
         <readable>true</readable>
@@ -339,7 +338,7 @@
         <editable>true</editable>
         <field>Asset.Order_Date__c</field>
         <readable>true</readable>
-    </fieldPermissions> 
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Asset.Product_Carrier__c</field>
@@ -3653,9 +3652,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <objectPermissions>
-        <allowCreate>false</allowCreate>
+        <allowCreate>true</allowCreate>
         <allowDelete>false</allowDelete>
-        <allowEdit>false</allowEdit>
+        <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>Account</object>
@@ -3671,9 +3670,9 @@
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
-        <allowCreate>false</allowCreate>
+        <allowCreate>true</allowCreate>
         <allowDelete>false</allowDelete>
-        <allowEdit>false</allowEdit>
+        <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>Campaign</object>
@@ -3698,7 +3697,7 @@
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
-        <allowCreate>false</allowCreate>
+        <allowCreate>true</allowCreate>
         <allowDelete>false</allowDelete>
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
@@ -3734,9 +3733,9 @@
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
-        <allowCreate>false</allowCreate>
+        <allowCreate>true</allowCreate>
         <allowDelete>false</allowDelete>
-        <allowEdit>false</allowEdit>
+        <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>Lead</object>

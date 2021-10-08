@@ -182,6 +182,34 @@
         <fields>Region__c</fields>
         <fields>CORE.USERS.FIRST_NAME</fields>
         <fields>CORE.USERS.LAST_NAME</fields>
+        <profileName>YODA PMK</profileName>
+    </profileSearchLayouts>
+    <!--Hema 10/08 - YODA Marketing Global Admin - not appropriate for object - I-424065-HM-Redo
+    <profileSearchLayouts>
+        <fields>CAMPAIGN.NAME</fields>
+        <fields>CAMPAIGN.CAMPAIGN_TYPE</fields>
+        <fields>CAMPAIGN.STATUS</fields>
+        <fields>CAMPAIGN.START_DATE</fields>
+        <fields>CAMPAIGN.END_DATE</fields>
+        <fields>CAMPAIGN.NUM_RESPONSES</fields>
+        <fields>Business_Unit__c</fields>
+        <fields>Region__c</fields>
+        <fields>CORE.USERS.FIRST_NAME</fields>
+        <fields>CORE.USERS.LAST_NAME</fields>
+        <profileName>YODA Marketing Global Admin</profileName>
+    </profileSearchLayouts>
+    Hema 10/08 - YODA Marketing Global Admin - not appropriate for object - I-424065-HM-Redo-->
+    <profileSearchLayouts>
+        <fields>CAMPAIGN.NAME</fields>
+        <fields>CAMPAIGN.CAMPAIGN_TYPE</fields>
+        <fields>CAMPAIGN.STATUS</fields>
+        <fields>CAMPAIGN.START_DATE</fields>
+        <fields>CAMPAIGN.END_DATE</fields>
+        <fields>CAMPAIGN.NUM_RESPONSES</fields>
+        <fields>Business_Unit__c</fields>
+        <fields>Region__c</fields>
+        <fields>CORE.USERS.FIRST_NAME</fields>
+        <fields>CORE.USERS.LAST_NAME</fields>
         <profileName>YODA IT Solutions</profileName>
     </profileSearchLayouts>
     <profileSearchLayouts>
