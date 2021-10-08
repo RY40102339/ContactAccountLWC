@@ -9,9 +9,6 @@
         </roles>
     </queueMembers>
     <queueSobject>
-        <sobjectType>Case</sobjectType>
-    </queueSobject>
-    <queueSobject>
         <sobjectType>Lead</sobjectType>
     </queueSobject>
 </Queue>
