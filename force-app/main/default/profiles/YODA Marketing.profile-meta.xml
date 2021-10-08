@@ -3712,6 +3712,15 @@ commenting for dev deploy-->
     <allowEdit>false</allowEdit>
     <allowRead>true</allowRead>
     <modifyAllRecords>false</modifyAllRecords>
+    <object>Contract</object>
+    <viewAllRecords>false</viewAllRecords>
+</objectPermissions>
+<objectPermissions>
+    <allowCreate>false</allowCreate>
+    <allowDelete>false</allowDelete>
+    <allowEdit>false</allowEdit>
+    <allowRead>true</allowRead>
+    <modifyAllRecords>false</modifyAllRecords>
     <object>Dialect__c</object>
     <viewAllRecords>false</viewAllRecords>
 </objectPermissions>
@@ -3785,6 +3794,15 @@ commenting for dev deploy-->
     <allowRead>true</allowRead>
     <modifyAllRecords>false</modifyAllRecords>
     <object>Product2</object>
+    <viewAllRecords>false</viewAllRecords>
+</objectPermissions>
+<objectPermissions>
+    <allowCreate>false</allowCreate>
+    <allowDelete>false</allowDelete>
+    <allowEdit>false</allowEdit>
+    <allowRead>true</allowRead>
+    <modifyAllRecords>false</modifyAllRecords>
+    <object>Quote</object>
     <viewAllRecords>false</viewAllRecords>
 </objectPermissions>
 <objectPermissions>
