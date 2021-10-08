@@ -4,7 +4,7 @@
         <fullName>YODA Case Assignment Rules</fullName>
         <active>false</active>
         <ruleEntry>
-            <assignedTo>YMI_T_M</assignedTo>
+            <assignedTo>Service_YMI_T_M</assignedTo>
             <assignedToType>Queue</assignedToType>
             <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) , 
 
@@ -21,7 +21,7 @@ CONTAINS(&quot;Afghanistan,Antarctica,Timor-Leste,Falkland Islands (Malvinas),Ge
 )</formula>
         </ruleEntry>
         <ruleEntry>
-            <assignedTo>Japan_T_M</assignedTo>
+            <assignedTo>Service_Japan_T_M</assignedTo>
             <assignedToType>Queue</assignedToType>
             <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
 
@@ -38,7 +38,7 @@ ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
 )</formula>
         </ruleEntry>
         <ruleEntry>
-            <assignedTo>YCA_T_M</assignedTo>
+            <assignedTo>Service_YCA_T_M</assignedTo>
             <assignedToType>Queue</assignedToType>
             <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
 
@@ -55,7 +55,7 @@ ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
 )</formula>
         </ruleEntry>
         <ruleEntry>
-            <assignedTo>YCA_CA_T_M</assignedTo>
+            <assignedTo>Service_YCA_CA_T_M</assignedTo>
             <assignedToType>Queue</assignedToType>
             <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
 
@@ -72,7 +72,7 @@ ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
 )</formula>
         </ruleEntry>
         <ruleEntry>
-            <assignedTo>YCA_MX_T_M</assignedTo>
+            <assignedTo>Service_YCA_MX_T_M</assignedTo>
             <assignedToType>Queue</assignedToType>
             <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
 
@@ -89,7 +89,7 @@ ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
 )</formula>
         </ruleEntry>
         <ruleEntry>
-            <assignedTo>YIL_T_M</assignedTo>
+            <assignedTo>Service_YIL_T_M</assignedTo>
             <assignedToType>Queue</assignedToType>
             <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
 
@@ -106,7 +106,7 @@ ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
 )</formula>
         </ruleEntry>
         <ruleEntry>
-            <assignedTo>YEF_B_T_M</assignedTo>
+            <assignedTo>Service_YEF_B_T_M</assignedTo>
             <assignedToType>Queue</assignedToType>
             <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
 
@@ -123,7 +123,7 @@ ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
 )</formula>
         </ruleEntry>
         <ruleEntry>
-            <assignedTo>YEF_GB_T_M</assignedTo>
+            <assignedTo>Service_YEF_GB_T_M</assignedTo>
             <assignedToType>Queue</assignedToType>
             <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
 
@@ -140,7 +140,7 @@ ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
 )</formula>
         </ruleEntry>
         <ruleEntry>
-            <assignedTo>YEF_G_T_M</assignedTo>
+            <assignedTo>Service_YEF_G_T_M</assignedTo>
             <assignedToType>Queue</assignedToType>
             <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
 
@@ -157,7 +157,7 @@ ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
 )</formula>
         </ruleEntry>
         <ruleEntry>
-            <assignedTo>YEF_I_T_M</assignedTo>
+            <assignedTo>Service_YEF_I_T_M</assignedTo>
             <assignedToType>Queue</assignedToType>
             <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
 
@@ -174,7 +174,7 @@ ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
 )</formula>
         </ruleEntry>
         <ruleEntry>
-            <assignedTo>YSH_T_M</assignedTo>
+            <assignedTo>Service_YSH_T_M</assignedTo>
             <assignedToType>Queue</assignedToType>
             <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
 
@@ -191,7 +191,7 @@ ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
 )</formula>
         </ruleEntry>
         <ruleEntry>
-            <assignedTo>YEA_T_M</assignedTo>
+            <assignedTo>Service_YEA_T_M</assignedTo>
             <assignedToType>Queue</assignedToType>
             <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
 
@@ -208,7 +208,7 @@ ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
 )</formula>
         </ruleEntry>
         <ruleEntry>
-            <assignedTo>YEM_T_M</assignedTo>
+            <assignedTo>Service_YEM_T_M</assignedTo>
             <assignedToType>Queue</assignedToType>
             <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
 
@@ -225,7 +225,7 @@ ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
 )</formula>
         </ruleEntry>
         <ruleEntry>
-            <assignedTo>YNZ_T_M</assignedTo>
+            <assignedTo>Service_YNZ_T_M</assignedTo>
             <assignedToType>Queue</assignedToType>
             <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
 
@@ -242,7 +242,7 @@ ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
 )</formula>
         </ruleEntry>
         <ruleEntry>
-            <assignedTo>YPI_T_M</assignedTo>
+            <assignedTo>Service_YPI_T_M</assignedTo>
             <assignedToType>Queue</assignedToType>
             <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
 
@@ -259,7 +259,7 @@ ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
 )</formula>
         </ruleEntry>
         <ruleEntry>
-            <assignedTo>YVN_T_M</assignedTo>
+            <assignedTo>Service_YVN_T_M</assignedTo>
             <assignedToType>Queue</assignedToType>
             <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
 
@@ -276,7 +276,7 @@ ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
 )</formula>
         </ruleEntry>
         <ruleEntry>
-            <assignedTo>YTH_T_M</assignedTo>
+            <assignedTo>Service_YTH_T_M</assignedTo>
             <assignedToType>Queue</assignedToType>
             <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
 
@@ -293,7 +293,7 @@ ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
 )</formula>
         </ruleEntry>
         <ruleEntry>
-            <assignedTo>YKO_T_M</assignedTo>
+            <assignedTo>Service_YKO_T_M</assignedTo>
             <assignedToType>Queue</assignedToType>
             <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
 
@@ -310,7 +310,7 @@ ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
 )</formula>
         </ruleEntry>
         <ruleEntry>
-            <assignedTo>YMA_T_M</assignedTo>
+            <assignedTo>Service_YMA_T_M</assignedTo>
             <assignedToType>Queue</assignedToType>
             <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
 
@@ -327,7 +327,7 @@ ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
 )</formula>
         </ruleEntry>
         <ruleEntry>
-            <assignedTo>YRU_T_M</assignedTo>
+            <assignedTo>Service_YRU_T_M</assignedTo>
             <assignedToType>Queue</assignedToType>
             <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
 
@@ -344,7 +344,7 @@ ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
 )</formula>
         </ruleEntry>
         <ruleEntry>
-            <assignedTo>YSA_T_M</assignedTo>
+            <assignedTo>Service_YSA_T_M</assignedTo>
             <assignedToType>Queue</assignedToType>
             <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
 
