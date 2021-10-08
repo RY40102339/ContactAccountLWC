@@ -285,7 +285,6 @@
         <fields>LEAD.COUNTRY_CODE</fields>
         <profileName>YODA PMK</profileName>
     </profileSearchLayouts>
-    <!--Hema 10/08 - YODA Marketing Global Admin - not appropriate for object - I-424065-HM-Redo
     <profileSearchLayouts>
         <fields>FULL_NAME</fields>
         <fields>LEAD.COMPANY</fields>
@@ -299,7 +298,6 @@
         <fields>LEAD.COUNTRY_CODE</fields>
         <profileName>YODA Marketing Global Admin</profileName>
     </profileSearchLayouts>
-    Hema 10/08 - YODA Marketing Global Admin - not appropriate for object - I-424065-HM-Redo-->
     <profileSearchLayouts>
         <fields>FULL_NAME</fields>
         <fields>LEAD.COMPANY</fields>
