@@ -253,6 +253,30 @@
         <fields>CORE.USERS.FIRST_NAME</fields>
         <fields>CORE.USERS.LAST_NAME</fields>
         <fields>Status__c</fields>
+        <fields>ACCOUNT.INDUSTRY</fields>
+        <profileName>YODA PMK</profileName>
+    </profileSearchLayouts>
+    <profileSearchLayouts>
+        <fields>ACCOUNT.NAME</fields>
+        <fields>ACCOUNT.PHONE1</fields>
+        <fields>ACCOUNT.ADDRESS2_CITY</fields>
+        <fields>ACCOUNT.ADDRESS2_ZIP</fields>
+        <fields>ACCOUNT.ADDRESS2_COUNTRY_CODE</fields>
+        <fields>CORE.USERS.FIRST_NAME</fields>
+        <fields>CORE.USERS.LAST_NAME</fields>
+        <fields>Status__c</fields>
+        <fields>ACCOUNT.INDUSTRY</fields>
+        <profileName>YODA Marketing Global Admin</profileName>
+    </profileSearchLayouts>
+    <profileSearchLayouts>
+        <fields>ACCOUNT.NAME</fields>
+        <fields>ACCOUNT.PHONE1</fields>
+        <fields>ACCOUNT.ADDRESS2_CITY</fields>
+        <fields>ACCOUNT.ADDRESS2_ZIP</fields>
+        <fields>ACCOUNT.ADDRESS2_COUNTRY_CODE</fields>
+        <fields>CORE.USERS.FIRST_NAME</fields>
+        <fields>CORE.USERS.LAST_NAME</fields>
+        <fields>Status__c</fields>
         <fields>Industry__c</fields>
         <profileName>YODA IT Solutions</profileName>
     </profileSearchLayouts>
