@@ -4,9 +4,6 @@
     <email>support_yoda@ml.jp.yokogawa.com</email>
     <name>YSA T&amp;M</name>
     <queueSobject>
-        <sobjectType>Case</sobjectType>
-    </queueSobject>
-    <queueSobject>
         <sobjectType>Lead</sobjectType>
     </queueSobject>
 </Queue>
