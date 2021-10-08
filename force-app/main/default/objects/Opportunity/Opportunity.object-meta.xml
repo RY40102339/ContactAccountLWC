@@ -170,6 +170,7 @@
         <fields>OPPORTUNITY.CLOSE_DATE</fields>
         <profileName>YODA PMK</profileName>
     </profileSearchLayouts>
+    <!--Hema 10/08 - YODA Marketing Global Admin - not appropriate for object - I-424065-HM-Redo
     <profileSearchLayouts>
         <fields>OPPORTUNITY.NAME</fields>
         <fields>Oppportunity_Id__c</fields>
@@ -181,6 +182,7 @@
         <fields>OPPORTUNITY.CLOSE_DATE</fields>
         <profileName>YODA Marketing Global Admin</profileName>
     </profileSearchLayouts>
+    Hema 10/08 - YODA Marketing Global Admin - not appropriate for object - I-424065-HM-Redo-->
     <profileSearchLayouts>
         <fields>OPPORTUNITY.NAME</fields>
         <fields>Oppportunity_Id__c</fields>

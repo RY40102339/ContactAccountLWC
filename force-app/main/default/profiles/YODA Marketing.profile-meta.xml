@@ -3691,6 +3691,7 @@ commenting for dev deploy-->
     <object>Case</object>
     <viewAllRecords>false</viewAllRecords>
 </objectPermissions>
+<!--Hema 10/08 - no CustomObject named Competitors found - I-424065-HM-Redo
 <objectPermissions>
     <allowCreate>false</allowCreate>
     <allowDelete>false</allowDelete>
@@ -3700,6 +3701,7 @@ commenting for dev deploy-->
     <object>Competitors</object>
     <viewAllRecords>false</viewAllRecords>
 </objectPermissions>
+Hema 10/08 - no CustomObject named Competitors found - I-424065-HM-Redo-->
 <objectPermissions>
     <allowCreate>false</allowCreate>
     <allowDelete>false</allowDelete>

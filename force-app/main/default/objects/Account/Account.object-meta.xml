@@ -256,6 +256,7 @@
         <fields>ACCOUNT.INDUSTRY</fields>
         <profileName>YODA PMK</profileName>
     </profileSearchLayouts>
+    <!--Hema 10/08 - YODA Marketing Global Admin - not appropriate for object - I-424065-HM-Redo
     <profileSearchLayouts>
         <fields>ACCOUNT.NAME</fields>
         <fields>ACCOUNT.PHONE1</fields>
@@ -268,6 +269,7 @@
         <fields>ACCOUNT.INDUSTRY</fields>
         <profileName>YODA Marketing Global Admin</profileName>
     </profileSearchLayouts>
+    Hema 10/08 - YODA Marketing Global Admin - not appropriate for object - I-424065-HM-Redo-->
     <profileSearchLayouts>
         <fields>ACCOUNT.NAME</fields>
         <fields>ACCOUNT.PHONE1</fields>
