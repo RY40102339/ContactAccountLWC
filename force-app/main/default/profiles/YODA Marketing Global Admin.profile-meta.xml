@@ -51,9 +51,6 @@
     <custom>true</custom>
     <description>Roles:
         Marketing Administrator
-        Object permissions:
-        As per config
-        Custom Permission:
         Custom Permission Show Lead Status Path
         System Permissions:
         Create and Customize Reports/Dashboards/List Views and Transfer Records</description>
