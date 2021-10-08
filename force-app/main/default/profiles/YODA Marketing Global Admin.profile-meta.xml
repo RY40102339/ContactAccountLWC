@@ -50,8 +50,7 @@
     </classAccesses>
     <custom>true</custom>
     <description>Roles:
-        Marketing Manager
-        Marketing Specialist
+        Marketing Administrator
         Object permissions:
         As per config
         Custom Permission:
@@ -3805,7 +3804,7 @@
         <allowEdit>false</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
-        <object>Yokogawa Competitors</object>
+        <object>Yokogawa_Competitor__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <recordTypeVisibilities>
