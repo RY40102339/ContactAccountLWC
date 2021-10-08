@@ -224,7 +224,6 @@
         <fields>CASES.PRIORITY</fields>
         <profileName>YODA PMK</profileName>
     </profileSearchLayouts>
-    <!--Hema 10/08 - YODA Marketing Global Admin - not appropriate for object - I-424065-HM-Redo
     <profileSearchLayouts>
         <fields>CASES.CASE_NUMBER</fields>
         <fields>CASES.SUBJECT</fields>
@@ -236,7 +235,6 @@
         <fields>CASES.PRIORITY</fields>
         <profileName>YODA Marketing Global Admin</profileName>
     </profileSearchLayouts>
-    Hema 10/08 - YODA Marketing Global Admin - not appropriate for object - I-424065-HM-Redo-->
     <profileSearchLayouts>
         <fields>CASES.CASE_NUMBER</fields>
         <fields>CASES.SUBJECT</fields>

@@ -356,7 +356,6 @@
         <fields>CONTACT_LAST_NAME_LOCAL</fields>
         <profileName>YODA PMK</profileName>
     </profileSearchLayouts>
-    <!--Hema 10/08 - YODA Marketing Global Admin - not appropriate for object - I-424065-HM-Redo
     <profileSearchLayouts>
         <fields>FULL_NAME</fields>
         <fields>ACCOUNT.NAME</fields>
@@ -370,7 +369,6 @@
         <fields>CONTACT_LAST_NAME_LOCAL</fields>
         <profileName>YODA Marketing Global Admin</profileName>
     </profileSearchLayouts>
-    Hema 10/08 - YODA Marketing Global Admin - not appropriate for object - I-424065-HM-Redo-->
     <profileSearchLayouts>
         <fields>FULL_NAME</fields>
         <fields>ACCOUNT.NAME</fields>
