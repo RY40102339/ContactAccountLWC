@@ -14,9 +14,10 @@
 * @test class name - YODA_Account_OppRltdListControllerTest
 *  Change History:
 *  MM/DD/YYYY			Developer Name			Comments
-*  9/10/2021             Kameron F.             Created class
+*  9/10/2021            Kameron F.              Created class
+*. 10/12/2021			Kameron F.				Updated to without sharing
 */
-public  class YODA_Account_OppRltdListController {
+public without sharing class YODA_Account_OppRltdListController {
     // Returns opportunities for the account
     // Kam 9/10/2021
     @AuraEnabled(cacheable=true)
