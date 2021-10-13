@@ -21,12 +21,13 @@
         <lightning-card class="slds-card_boundary" style="width:100%;" icon-name="standard:orders">
             <h1 slot="title" style="font-size: 14px;">{size}</h1>
             <!--<h2 slot="header" style="background=color: #999999;"></h2>-->
-            <div slot="actions">
-                <div class="slds-button slds-button_neutral">
-                    <lightning-formatted-url value={instanceURL} label="New" target="_self"></lightning-formatted-url>
+            <template if:true={IsAccountTeamMember}>
+                <div slot="actions">
+                    <div class="slds-button slds-button_neutral">
+                        <lightning-formatted-url value={instanceURL} label="New" target="_self"></lightning-formatted-url>
+                    </div>
                 </div>
-            </div>
-            
+            </template>
             <!-- Delete Confirmation Modal Box -->
             <template if:true={showConfirmDialog}>
                 <div role="dialog" class="slds-modal slds-fade-in-open ">
