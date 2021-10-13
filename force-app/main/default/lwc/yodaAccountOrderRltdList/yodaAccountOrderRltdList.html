@@ -1,0 +1,76 @@
+<!--*
+*******************************************************************************************************
+* (C) Copyright 2021 Yokogawa. All rights reserved.
+* This code is property of Yokogawa. Use, duplication and
+* disclosure in any form without permission of copyright holder is prohibited.
+* 
+******************************************************************************************************* 
+* @author Kameron F
+* @version 1.0
+* @created 10/13/2021
+* @description  
+* This file is used on for the yODAAccountOrderRltdList component 
+*
+* @test class name - YODA_Account_OrderRltdListControllerTest
+*  Change History:
+*  MM/DD/YYYY			Developer Name			Comments
+*  10/13/2021             Kameron F.             Created LWC
+*-->
+<template>
+    <lightning-layout>
+        <lightning-card class="slds-card_boundary" style="width:100%;" icon-name="standard:orders">
+            <h1 slot="title" style="font-size: 14px;">{size}</h1>
+            <!--<h2 slot="header" style="background=color: #999999;"></h2>-->
+            <div slot="actions">
+                <div class="slds-button slds-button_neutral">
+                    <lightning-formatted-url value={instanceURL} label="New" target="_self"></lightning-formatted-url>
+                </div>
+            </div>
+            
+            <!-- Delete Confirmation Modal Box -->
+            <template if:true={showConfirmDialog}>
+                <div role="dialog" class="slds-modal slds-fade-in-open ">
+                    <div class="slds-modal__container">
+                        <header class="slds-modal__header">
+                            <h1 class="slds-text-heading--medium">Delete Order</h1>
+                        </header>
+                        <div class="slds-modal__content slds-p-around--medium">
+                            <p class="slds-align_absolute-center">Are you sure you want to delete this order?</p>
+                        </div>
+                        <footer class="slds-modal__footer">
+                            <lightning-button name='No' label='Cancel' onclick='{confirmCancel}'></lightning-button>
+                            <lightning-button class="slds-m-left_x-small" variant="brand" label='Delete' name='Delete' onclick='{confirmDelete}'></lightning-button>
+                        </footer>
+                    </div>
+                </div>
+                <div class="slds-backdrop slds-backdrop--open"></div>            
+            </template>
+
+            <template if:true={isLoading}>
+                <lightning-spinner alternative-text="Loading" variant="brand"></lightning-spinner>
+            </template>
+            <template if:false={isLoading}>
+                <div class="slds-scrollable" style="max-height:200px;overflow-x:auto;">
+                    <template if:true={hasOrders}>
+                        <template if:true={IsAccountTeamMember}>
+                            <lightning-datatable class="slds-table" key-field="id" data={Orders} columns={columns} onsave={handleSave} hide-checkbox-column="true" onrowaction={handleRowAction} draft-values={draftValues}></lightning-datatable>
+                        </template>
+
+                        <template if:false={IsAccountTeamMember}>
+                            <lightning-datatable class="slds-table" key-field="id" data={Orders} columns={columns2} onsave={handleSave} hide-checkbox-column="true"></lightning-datatable>
+                        </template>
+
+                        
+                    </template>
+                    <template if:false={hasOrders}>
+                        &emsp;No Order records to display
+                    </template>
+                </div>
+                <!-- Leaving this in case we find a solution later on
+                    <div class="slds-border_top slds-p-top_x-small slds-align_absolute-center">
+                    <lightning-formatted-url value={viewAllURL} label="View All" target="_self"></lightning-formatted-url>
+                </div>-->
+            </template>
+        </lightning-card>
+    </lightning-layout>
+</template>

@@ -167,6 +167,11 @@
                 <componentName>force:relatedListContainer</componentName>
             </componentInstance>
         </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentName>yodaAccountOrderRltdList</componentName>
+            </componentInstance>
+        </itemInstances>
         <name>Facet-7be9022a-fa7a-4258-a5be-446ac53c7dff</name>
         <type>Facet</type>
     </flexiPageRegions>

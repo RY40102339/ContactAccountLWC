@@ -367,14 +367,6 @@
         <relatedList>RelatedAccountSalesTeam</relatedList>
     </relatedLists>
     <relatedLists>
-        <fields>ORDERS.ORDER_NUMBER</fields>
-        <fields>Account_End_User__c</fields>
-        <fields>ORDER.PO_NUMBER</fields>
-        <fields>ORDERS.TOTAL_AMOUNT</fields>
-        <fields>Sales_Person__c</fields>
-        <relatedList>RelatedOrderList</relatedList>
-    </relatedLists>
-    <relatedLists>
         <relatedList>RelatedFileList</relatedList>
     </relatedLists>
     <relatedLists>
