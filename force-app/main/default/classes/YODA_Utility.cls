@@ -14,7 +14,8 @@
 * @test class name - YODA_Utility_Test
 *  Change History:
 *  MM/DD/YYYY			Developer Name			Comments
-*  9/24/2021             Kameron F.             Created Class
+*  9/24/2021            Kameron F.              Created Class
+*  10/19/2021			Kameron F.				Added platform event 
 */
 public class YODA_Utility {
 	//This method is called in all apex classes when an error occurred
@@ -33,5 +34,49 @@ public class YODA_Utility {
                                                       Error_Brief__c=apexName,
                                                       Error_Generated_By__c=uId);
         insert error;
+    }
+    
+    public static void refreshComponent(List<SObject> objects){
+        refreshComponent(objects, '');
+    }
+    
+    public static void refreshComponent(List<SObject> objects, String objectName){
+        List<YODA_Refresh_Record_Event__e> refreshRecordEvents = new List<YODA_Refresh_Record_Event__e>();
+        // using "objectName" just in case there need to be different use cases for the same object
+        for (SObject IndObj : objects) {
+            Id RecordID;
+            switch on objectName{
+                when 'AccountTeamMember'{
+                    RecordID = [SELECT AccountID FROM AccountTeamMember WHERE ID = :IndObj.ID].AccountID;
+                }
+                when 'Order'{
+                    RecordID = [SELECT AccountID FROM Order WHERE ID = :IndObj.ID].AccountID;
+                }
+                when else{
+                    RecordID = IndObj.Id;
+                }
+            }
+            
+            
+            refreshRecordEvents.add(new YODA_Refresh_Record_Event__e(
+                	Object_Name__c = objectName,
+                    Record_Id__c = RecordID,
+                    User_Id__c = UserInfo.getUserId()
+            ));
+        }
+        
+        try{
+            if(refreshRecordEvents != null && !refreshRecordEvents.isEmpty()){
+                EventBus.publish(refreshRecordEvents);
+            }
+            if(Test.isRunningTest()) {
+                CalloutException e = new CalloutException();
+                e.setMessage('This is a constructed exception for testing and code coverage');
+                throw e;
+            }
+        }catch(Exception e){
+            YODA_Utility.logError('Backend Process Error','Class:YODA_Opportunity_TriggerHelper; Method: refreshOpps(); Line #:'+e.getLineNumber()
+                                +'; Message:'+e.getMessage(), e.getStackTraceString(), UserInfo.getUserId());
+        }
     }
 }

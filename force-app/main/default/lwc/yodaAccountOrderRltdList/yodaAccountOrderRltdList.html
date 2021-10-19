@@ -14,20 +14,23 @@
 * @test class name - YODA_Account_OrderRltdListControllerTest
 *  Change History:
 *  MM/DD/YYYY			Developer Name			Comments
-*  10/13/2021             Kameron F.             Created LWC
+*  10/13/2021           Kameron F.              Created LWC
+*  10/19/2021           Kameron F.              Added view
 *-->
 <template>
     <lightning-layout>
         <lightning-card class="slds-card_boundary" style="width:100%;" icon-name="standard:orders">
             <h1 slot="title" style="font-size: 14px;">{size}</h1>
             <!--<h2 slot="header" style="background=color: #999999;"></h2>-->
-            <template if:true={IsAccountTeamMember}>
+            <!-- Also leaving this just in case requirements revert
+                <template if:true={IsAccountTeamMember}>
                 <div slot="actions">
                     <div class="slds-button slds-button_neutral">
                         <lightning-formatted-url value={instanceURL} label="New" target="_self"></lightning-formatted-url>
                     </div>
                 </div>
-            </template>
+            </template>-->
+            
             <!-- Delete Confirmation Modal Box -->
             <template if:true={showConfirmDialog}>
                 <div role="dialog" class="slds-modal slds-fade-in-open ">
@@ -47,6 +50,127 @@
                 <div class="slds-backdrop slds-backdrop--open"></div>            
             </template>
 
+            <template if:true={showViewRecord}>
+                <div role="dialog" class="slds-modal slds-fade-in-open ">
+                    <div class="slds-modal__container">
+                        <header class="slds-modal__header">
+                            <h1 class="slds-text-heading--medium">View {individualOrder.OrderNumber}</h1>
+                        </header>
+                        <div class="slds-modal__content slds-p-around--medium">
+                            <div class="slds-box" style="background-color: #f2f2f2;padding-top:8px;padding-bottom:8px;margin-bottom:8px;">
+                                Order Information
+                            </div>
+                            <div class="slds-grid slds-gutters_small slds-m-horizontal_x-small">
+                                <div class={FieldStyle}>
+                                    Order Number<br><br>
+                                    SO Number<br><br> 
+                                    PO Number<br><br>
+                                    Account Name<br><br>
+                                    Account (End User)<br><br>
+                                    Account (Ship To)<br><br>
+                                    Requested Delivery Date<br><br>
+                                    Planned Delivery Date<br><br>
+                                    Sales Organization<br><br>
+                                </div>
+                                <div class={ValueStyle}>
+                                    {individualOrder.OrderNumber}<br><br>
+                                    {individualOrder.SO_Number__c}<br><br>
+                                    {individualOrder.PoNumber}<br><br>
+                                    <lightning-formatted-url value={individualOrder.Account_NameURL} label={individualOrder.Account_Name} target="_self"></lightning-formatted-url><br><br>
+                                    <lightning-formatted-url value={individualOrder.Account_End_User_URL} label={individualOrder.Account_End_User_Name} target="_self"></lightning-formatted-url><br><br>
+                                    {individualOrder.Account_Ship_To_Name}<br><br>
+                                    <lightning-formatted-date-time year="numeric"
+                                    month="2-digit"
+                                    day="2-digit"
+                                    time-zone={timeZone} value={individualOrder.Requested_Delivery_Date__c}></lightning-formatted-date-time><br><br>
+                                    <lightning-formatted-date-time year="numeric"
+                                    month="2-digit"
+                                    day="2-digit"
+                                    time-zone={timeZone} value={individualOrder.Planned_Delivery_Date__c}></lightning-formatted-date-time><br><br>
+                                    {individualOrder.Sales_Organization__c}<br><br>
+                                </div>
+                                <div class={FieldStyle}>
+                                    Order Amount<br><br> 
+                                    Order Currency<br><br>
+                                    Company Currency<br><br> 
+                                    PO Date<br><br>
+                                    Sales Person<br><br>
+                                    Sales Office<br><br> 
+                                    Terms of Payment<br><br>
+                                </div>
+                                <div class={ValueStyle}>
+                                    {individualOrder.TotalAmount}<br><br> 
+                                    {individualOrder.CurrencyIsoCode}<br><br>
+                                    {individualOrder.Company_Currency__c}<br><br>
+                                    <lightning-formatted-date-time year="numeric"
+                                    month="2-digit"
+                                    day="2-digit"
+                                    time-zone={timeZone} value={individualOrder.PoDate}></lightning-formatted-date-time><br><br>
+                                    <lightning-formatted-url value={individualOrder.SalesPersonUrl} label={individualOrder.SalesPerson} target="_self"></lightning-formatted-url><br><br>
+                                    {individualOrder.Sales_Office__c}<br><br> 
+                                    {individualOrder.Terms_of_Payment__c}<br><br>
+                                </div>
+                            </div>
+                            <div class="slds-box" style="background-color: #f2f2f2;padding-top:8px;padding-bottom:8px;margin-bottom:8px;">
+                                System Information
+                            </div>
+                            <div class="slds-grid slds-gutters_small slds-m-horizontal_x-small">
+                                <div class={FieldStyle}>
+                                    Order Owner<br><br> 
+                                    Created By<br><br>
+                                </div>
+                                <div class={ValueStyle}>
+                                    <!--<lightning-formatted-url value={individualOrder.OwnerURL} label={individualOrder.Owner} target="_self"></lightning-formatted-url><br><br>-->
+                                    <!--<lightning-formatted-url value={individualOrder.CreatedByURL} label={individualOrder.CreatedBy} target="_self"></lightning-formatted-url><br><br>-->
+                                    {individualOrder.Owner}<br><br>
+                                    {individualOrder.CreatedBy}, <lightning-formatted-date-time year="numeric"
+                                    month="2-digit"
+                                    day="2-digit"
+                                    hour="2-digit"
+                                    minute="2-digit" time-zone={timeZone} value={individualOrder.CreatedDate}></lightning-formatted-date-time><br><br>
+                                </div>
+                                <div class={FieldStyle}>
+                                    Last Modified By<br><br>
+                                </div>
+                                <div class={ValueStyle}>
+                                    <!--<lightning-formatted-url value={individualOrder.LastModifiedByURL} label={individualOrder.LastModifiedBy} target="_self"></lightning-formatted-url><br><br>-->
+                                    {individualOrder.LastModifiedBy}, <lightning-formatted-date-time year="numeric"
+                                    month="2-digit"
+                                    day="2-digit"
+                                    hour="2-digit"
+                                    minute="2-digit" time-zone={timeZone} value={individualOrder.LastModifiedDate}></lightning-formatted-date-time><br><br>
+                                </div>
+                            </div>
+                            <div class="slds-box" style="background-color: #f2f2f2;padding-top:8px;padding-bottom:8px;margin-bottom:8px;">
+                                Description Information
+                            </div>
+                            <div class="slds-grid slds-gutters_small slds-m-horizontal_x-small">
+                                <div class={FieldStyle}>
+                                    Description<br><br>
+                                </div>
+                                <div class={ValueStyleDescription}>
+                                    {individualOrder.Description}<br><br>
+                                </div>
+                                <div class={FieldStyle}>
+                                    Status<br><br>
+                                    Order Start Date<br><br>
+                                </div>
+                                <div class={ValueStyle}>
+                                    {individualOrder.Status}<br><br>
+                                    <lightning-formatted-date-time year="numeric"
+                                    month="2-digit"
+                                    day="2-digit"
+                                    time-zone={timeZone} value={individualOrder.EffectiveDate}></lightning-formatted-date-time><br><br>
+                                </div>
+                            </div>
+                        </div>
+                        <footer class="slds-modal__footer">
+                            <lightning-button name='No' label='Cancel' onclick='{confirmCancelView}'></lightning-button>
+                        </footer>
+                    </div>
+                </div>
+                <div class="slds-backdrop slds-backdrop--open"></div>            
+            </template>
             <template if:true={isLoading}>
                 <lightning-spinner alternative-text="Loading" variant="brand"></lightning-spinner>
             </template>
@@ -54,7 +178,51 @@
                 <div class="slds-scrollable" style="max-height:200px;overflow-x:auto;">
                     <template if:true={hasOrders}>
                         <template if:true={IsAccountTeamMember}>
-                            <lightning-datatable class="slds-table" key-field="id" data={Orders} columns={columns} onsave={handleSave} hide-checkbox-column="true" onrowaction={handleRowAction} draft-values={draftValues}></lightning-datatable>
+                            <!--<lightning-datatable class="slds-table" key-field="id" data={Orders} columns={columns} onsave={handleSave} hide-checkbox-column="true" onrowaction={handleRowAction}></lightning-datatable>-->
+                            <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-label="Example default base table of Opportunities">
+                                <thead>
+                                  <tr class="slds-line-height_reset">
+                                    <th class="" scope="col">
+                                      <div class="slds-truncate" title="Order Name">Order Name</div>
+                                    </th>
+                                    <th class="" scope="col">
+                                      <div class="slds-truncate" title="End User">End User</div>
+                                    </th>
+                                    <th class="" scope="col">
+                                      <div class="slds-truncate" title="Order Amount">Order Amount</div>
+                                    </th>
+                                    <th class="" scope="col">
+                                      <div class="slds-truncate" title="SO Number">SO Number</div>
+                                    </th>
+                                    <th class="" scope="col">
+                                      <div class="slds-truncate" title="Sales Person">Sales Person</div>
+                                    </th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                    <template for:each={Orders} for:item="order">
+                                        <tr key={order.Id} class="slds-hint-parent">
+                                            <th data-label="Order Name" scope="row">
+                                              <div class="slds-truncate" title={order.Name}>
+                                                <a data-id={order.Id} onclick={viewClicked} tabindex="-1">{order.Name}</a>
+                                              </div>
+                                            </th>
+                                            <td data-label="End User">
+                                            <lightning-formatted-url value={order.EndUserUrl} label={order.EndUser} target="_self"></lightning-formatted-url>
+                                            </td>
+                                            <td data-label="Order Amount">
+                                              <div class="slds-truncate" title={order.TotalAmount}>{order.TotalAmount}</div>
+                                            </td>
+                                            <td data-label="SO Number">
+                                              <div class="slds-truncate" title={order.SoNumber}>{order.SoNumber}</div>
+                                            </td>
+                                            <td data-label="Sales Person">
+                                                <lightning-formatted-url value={order.SalesPersonUrl} label={order.SalesPerson} target="_self"></lightning-formatted-url>
+                                            </td>
+                                          </tr>
+                                    </template>
+                                </tbody>
+                              </table>
                         </template>
 
                         <template if:false={IsAccountTeamMember}>
