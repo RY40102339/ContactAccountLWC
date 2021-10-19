@@ -9,14 +9,15 @@
 * @version 1.0
 * @created 10/13/2021
 * @description  
+
 * This file is used for handling Order trigger operations
-*
-* @test class name - YODA_Order_TriggerHelper_Test
+* @test class name - YODA_AccountTeamMemberTriggerHelper_Test
 *  Change History:
 *  MM/DD/YYYY			Developer Name			Comments
-*  10/13/2021             Kameron F.            Created Class
+*  10/19/2021           Kameron F.              Created Trigger
 */
-public with sharing class YODA_Order_TriggerHelper {
+
+public class YODA_Order_TriggerHelper {
     public static void refreshOrders(List<Order> Orders){
         List<YODA_Refresh_Record_Event__e> refreshRecordEvents = new List<YODA_Refresh_Record_Event__e>();
         for (Order IndOrder : Orders) {

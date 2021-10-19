@@ -15,13 +15,27 @@
 *  Change History:
 *  MM/DD/YYYY			Developer Name			Comments
 *  10/13/2021           Kameron F.              Created Class
+*  10/19/2021			Kameron F.				Added individual order method
 */
 
 public without sharing class YODA_Account_OrderRltdListController {
     // returns list of orders for controller
     @AuraEnabled(cacheable=true)
     public static List<Order> getOrders(Id recordId){
-        return [SELECT OrderNumber, Account_End_User__r.Name, PoNumber, TotalAmount, Sales_Person__r.Name FROM Order WHERE AccountID = :recordId]; 
+        return [SELECT OrderNumber, Account_End_User__r.Name, SO_Number__c, TotalAmount, Sales_Person__r.Name FROM Order WHERE AccountID = :recordId]; 
+    }
+    @AuraEnabled(cacheable=true)
+    public static Order getIndividualOrder(Id recordId){
+        return [SELECT OrderNumber , SO_Number__c, PoNumber, AccountId, Account.Name,
+                Account_End_User__r.Name, Account_Ship_To__r.Name,
+                Requested_Delivery_Date__c, Planned_Delivery_Date__c, // first column
+                TotalAmount, CurrencyIsoCode, Company_Currency__c, PoDate, 
+                Sales_Person__r.Name, Sales_Office__c, Terms_of_Payment__c,// second column
+                OwnerId, Owner.Name, CreatedById, CreatedBy.Name,CreatedDate, // first column
+                LastModifiedById, LastModifiedBy.Name,LastModifiedDate, // second
+                Description, // first
+                Status, EffectiveDate //second
+                FROM Order WHERE ID = :recordId];
     }
     // Leaving this as it will likely be necessary in the future
     // Kameron 10/7/2021

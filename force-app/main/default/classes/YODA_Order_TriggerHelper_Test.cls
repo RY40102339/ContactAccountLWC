@@ -21,9 +21,11 @@
 public class YODA_Order_TriggerHelper_Test {
 	@isTest
     static void platformEventTest(){
+        Account acc = new Account(Name='Test Acc');
+        insert acc;
         Date Start = Date.newInstance(2021, 12, 25);
         List<Order> oppList = new List<Order>();
-        Order ord = new Order(EffectiveDate=Start);
+        Order ord = new Order(EffectiveDate=Start,AccountID = acc.id, Status='Draft');
         
         Test.startTest();
         
@@ -36,5 +38,11 @@ public class YODA_Order_TriggerHelper_Test {
         Test.stopTest();
         
         System.assertEquals(false, sr.isSuccess(),'Platform event failed to publish');
+        
+        Bypass_Settings__c setToAdd = new Bypass_Settings__c(Bypass_Flow_Rules__c=true);
+        insert setToAdd;
+        
+        ord = new Order(EffectiveDate=Start,AccountID = acc.id, Status='Draft');
+        insert ord;
     }
 }
