@@ -28,7 +28,7 @@ public without sharing class YODA_Account_OrderRltdListController {
     public static Order getIndividualOrder(Id recordId){
         return [SELECT OrderNumber , SO_Number__c, PoNumber, AccountId, Account.Name,
                 Account_End_User__r.Name, Account_Ship_To__r.Name,
-                Requested_Delivery_Date__c, Planned_Delivery_Date__c, Sales_Organization__c, // first column
+                Requested_Delivery_Date__c, Planned_Delivery_Date__c, // first column
                 TotalAmount, CurrencyIsoCode, Company_Currency__c, PoDate, 
                 Sales_Person__r.Name, Sales_Office__c, Terms_of_Payment__c,// second column
                 OwnerId, Owner.Name, CreatedById, CreatedBy.Name,CreatedDate, // first column

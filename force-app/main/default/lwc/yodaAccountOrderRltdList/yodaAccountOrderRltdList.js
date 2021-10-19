@@ -164,7 +164,7 @@ export default class YodaAccountOrderRltdList extends NavigationMixin(LightningE
 
             finElement.Requested_Delivery_Date__c = this.individualOrder.Requested_Delivery_Date__c;
             finElement.Planned_Delivery_Date__c = this.individualOrder.Planned_Delivery_Date__c;
-            finElement.Sales_Organization__c = this.individualOrder.Sales_Organization__c;
+            //finElement.Sales_Organization__c = this.individualOrder.Sales_Organization__c;
             finElement.TotalAmount = this.individualOrder.TotalAmount;
             finElement.CurrencyIsoCode = this.individualOrder.CurrencyIsoCode;
             finElement.Company_Currency__c = this.individualOrder.Company_Currency__c;
