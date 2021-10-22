@@ -3,8 +3,8 @@
     <actionCalls>
         <name>leadRunAssignmentRule</name>
         <label>leadRunAssignmentRule</label>
-        <locationX>1164</locationX>
-        <locationY>277</locationY>
+        <locationX>314</locationX>
+        <locationY>878</locationY>
         <actionName>YODA_RunAssignmentRules</actionName>
         <actionType>apex</actionType>
         <connector>
@@ -21,8 +21,8 @@
     <decisions>
         <name>Checkallfieldsshouldbefilled</name>
         <label>Checkallfieldsshouldbefilled</label>
-        <locationX>550</locationX>
-        <locationY>277</locationY>
+        <locationX>182</locationX>
+        <locationY>398</locationY>
         <defaultConnector>
             <targetReference>GetCampaign</targetReference>
         </defaultConnector>
@@ -74,15 +74,15 @@
     <decisions>
         <name>Checkifcaseclosed</name>
         <label>Checkifcaseclosed</label>
-        <locationX>360</locationX>
-        <locationY>265</locationY>
+        <locationX>512</locationX>
+        <locationY>278</locationY>
         <defaultConnector>
-            <targetReference>Case_is_Open</targetReference>
+            <targetReference>Case_is_not_closed</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>checkcaseclosed</name>
-            <conditionLogic>1 AND (2 OR 3 OR 4 OR 5 OR 6)</conditionLogic>
+            <conditionLogic>1 AND 7 AND (2 OR 3 OR 4 OR 5 OR 6)</conditionLogic>
             <conditions>
                 <leftValueReference>GetCases.Status</leftValueReference>
                 <operator>EqualTo</operator>
@@ -125,6 +125,13 @@
                     <stringValue>In Person</stringValue>
                 </rightValue>
             </conditions>
+            <conditions>
+                <leftValueReference>GetCases.Origin</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
             <connector>
                 <targetReference>Checkallfieldsshouldbefilled</targetReference>
             </connector>
@@ -132,7 +139,8 @@
         </rules>
     </decisions>
     <description>It converts closed Case into Lead and it copy fields from contact and case object to lead object
-Hema 10/20/21 - Removed Mailing address validation.</description>
+Hema 10/20/21 - Removed Mailing address validation.
+Hema 10/22/21 - Added null check for Case Origin on Case.</description>
     <interviewLabel>YODA Case to Lead {!$Flow.CurrentDateTime}</interviewLabel>
     <label>YODA Case to Lead</label>
     <processMetadataValues>
@@ -144,7 +152,7 @@ Hema 10/20/21 - Removed Mailing address validation.</description>
     <processMetadataValues>
         <name>CanvasMode</name>
         <value>
-            <stringValue>FREE_FORM_CANVAS</stringValue>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
         </value>
     </processMetadataValues>
     <processMetadataValues>
@@ -157,8 +165,8 @@ Hema 10/20/21 - Removed Mailing address validation.</description>
     <recordCreates>
         <name>Create_a_Record_on_Lead</name>
         <label>Create a Record on Lead</label>
-        <locationX>853</locationX>
-        <locationY>277</locationY>
+        <locationX>314</locationX>
+        <locationY>638</locationY>
         <assignRecordIdToReference>DestinationId</assignRecordIdToReference>
         <connector>
             <targetReference>GetLead</targetReference>
@@ -279,8 +287,8 @@ Hema 10/20/21 - Removed Mailing address validation.</description>
     <recordLookups>
         <name>GetCampaign</name>
         <label>GetCampaign</label>
-        <locationX>716</locationX>
-        <locationY>274</locationY>
+        <locationX>314</locationX>
+        <locationY>518</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Create_a_Record_on_Lead</targetReference>
@@ -300,8 +308,8 @@ Hema 10/20/21 - Removed Mailing address validation.</description>
     <recordLookups>
         <name>GetCases</name>
         <label>GetCases</label>
-        <locationX>176</locationX>
-        <locationY>264</locationY>
+        <locationX>512</locationX>
+        <locationY>158</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Checkifcaseclosed</targetReference>
@@ -321,8 +329,8 @@ Hema 10/20/21 - Removed Mailing address validation.</description>
     <recordLookups>
         <name>GetLead</name>
         <label>GetLead</label>
-        <locationX>1004</locationX>
-        <locationY>279</locationY>
+        <locationX>314</locationX>
+        <locationY>758</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>leadRunAssignmentRule</targetReference>
@@ -342,8 +350,8 @@ Hema 10/20/21 - Removed Mailing address validation.</description>
     <screens>
         <name>Already_Case_is_Converted</name>
         <label>Already Case is Converted</label>
-        <locationX>854</locationX>
-        <locationY>492</locationY>
+        <locationX>578</locationX>
+        <locationY>758</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -356,17 +364,42 @@ Hema 10/20/21 - Removed Mailing address validation.</description>
         <showHeader>true</showHeader>
     </screens>
     <screens>
-        <name>Case_is_Open</name>
-        <label>Case is Open</label>
-        <locationX>377</locationX>
-        <locationY>87</locationY>
+        <name>Case_is_not_closed</name>
+        <label>Case is not closed</label>
+        <locationX>842</locationX>
+        <locationY>398</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
         <fields>
             <name>casenotclosed</name>
-            <fieldText>&lt;p&gt;&lt;b&gt;Case is open&lt;/b&gt;.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Please select closed case to convert or close this open case before conversion.&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;&lt;b&gt;Case is not closed&lt;/b&gt;.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Please select closed case to convert or close this open case before conversion.&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>GetCases.Status</leftValueReference>
+                    <operator>NotEqualTo</operator>
+                    <rightValue>
+                        <stringValue>Closed</stringValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
+        <fields>
+            <name>CaseOriginNull</name>
+            <fieldText>&lt;p&gt;Case Origin is missing on Case record.&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>GetCases.Origin</leftValueReference>
+                    <operator>IsNull</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
         </fields>
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>
@@ -374,8 +407,8 @@ Hema 10/20/21 - Removed Mailing address validation.</description>
     <screens>
         <name>Field_Validation_on_case_and_contact</name>
         <label>Field Validation on case and contact</label>
-        <locationX>548</locationX>
-        <locationY>94</locationY>
+        <locationX>50</locationX>
+        <locationY>518</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -460,8 +493,8 @@ Hema 10/20/21 - Removed Mailing address validation.</description>
     <screens>
         <name>Success_Screen</name>
         <label>Success Screen</label>
-        <locationX>1164</locationX>
-        <locationY>124</locationY>
+        <locationX>314</locationX>
+        <locationY>998</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>true</allowPause>
@@ -474,8 +507,8 @@ Hema 10/20/21 - Removed Mailing address validation.</description>
         <showHeader>true</showHeader>
     </screens>
     <start>
-        <locationX>50</locationX>
-        <locationY>50</locationY>
+        <locationX>386</locationX>
+        <locationY>0</locationY>
         <connector>
             <targetReference>GetCases</targetReference>
         </connector>
