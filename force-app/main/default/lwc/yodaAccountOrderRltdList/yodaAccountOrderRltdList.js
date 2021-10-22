@@ -76,7 +76,7 @@ export default class YodaAccountOrderRltdList extends NavigationMixin(LightningE
     // Table shown if not record Owner or if not on the Account Team
     columns2 = [
         {label:'Order Name',fieldName:'Name',editable:false,type:'text'},
-        {label: 'Order Amount', fieldName:'TotalAmount',editable:false,type:'text'}
+        {label: 'Order Owner', fieldName:'Owner',editable:false,type:'text'}
     ];
 
     @wire(getUrl)
@@ -115,7 +115,8 @@ export default class YodaAccountOrderRltdList extends NavigationMixin(LightningE
                 finElement.Name = element.OrderNumber;
                 //finElement.NameUrl = '/'+element.Id;
                 finElement.Id = element.Id;
-
+                if(element.OwnerId)
+                    finElement.Owner = element.Owner.Name;
                 if(element.TotalAmount!=null)
                     finElement.TotalAmount = element.TotalAmount;
                 if(element.PoNumber!=null)

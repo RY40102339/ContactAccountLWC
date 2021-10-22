@@ -22,7 +22,7 @@ public without sharing class YODA_Account_OrderRltdListController {
     // returns list of orders for controller
     @AuraEnabled(cacheable=true)
     public static List<Order> getOrders(Id recordId){
-        return [SELECT OrderNumber, Account_End_User__r.Name, SO_Number__c, TotalAmount, Sales_Person__r.Name FROM Order WHERE AccountID = :recordId]; 
+        return [SELECT OrderNumber, Account_End_User__r.Name, SO_Number__c, Owner.Name, TotalAmount, Sales_Person__r.Name FROM Order WHERE AccountID = :recordId]; 
     }
     @AuraEnabled(cacheable=true)
     public static Order getIndividualOrder(Id recordId){
