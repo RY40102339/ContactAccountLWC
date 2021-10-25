@@ -49,12 +49,6 @@
         <apexClass>YODA_Utility</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-    <custom>true</custom>
-    <description>Roles:
-        Marketing Administrator
-        Custom Permission Show Lead Status Path
-        System Permissions:
-        Create and Customize Reports/Dashboards/List Views and Transfer Records</description>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.AccountNumber</field>
