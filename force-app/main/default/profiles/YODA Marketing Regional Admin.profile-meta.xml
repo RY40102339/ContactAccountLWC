@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
     <custom>true</custom>
-    <description>Roles:
-        Marketing Administrator
-        Custom Permission Show Lead Status Path
-        System Permissions:
-        Create and Customize Reports/Dashboards/List Views and Transfer Records</description>
     <classAccesses>
         <apexClass>YODA_AccountTeamMemberTriggerHelper_Test</apexClass>
         <enabled>true</enabled>
@@ -3990,10 +3985,6 @@
         <tab>standard-report</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
-    <userLicense>Salesforce</userLicense>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>ActivitiesAccess</name>
     <userLicense>Salesforce</userLicense>
     <userPermissions>
         <enabled>true</enabled>
