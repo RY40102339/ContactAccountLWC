@@ -6,7 +6,7 @@
     <name>YODA Case Escalated Notification</name>
     <relatedEntityType>Case</relatedEntityType>
     <style>none</style>
-    <subject>[YODA] The case is escalated - Case #: {{{Case.CaseNumber}}} ({{{Case.Account}}})</subject>
+    <subject>[YODA] The case is escalated - Case #: {{{Case.CaseNumber}}} {{{Case.Account}}}</subject>
     <type>custom</type>
     <uiType>SFX</uiType>
 </EmailTemplate>
