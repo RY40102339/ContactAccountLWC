@@ -8,9 +8,12 @@ Company: {{{Case.Account}}}<br />
 Contact: {{{Case.Contact}}}<br />
 Product: {{{Case.Product}}}<br />
 Subject: {{{Case.Subject}}}<br />
-Description: {{{Case.Description}}}<br />
+Description: {{{Case.Description}}}
+<p>View the details of the case here:&nbsp;<a href="{{{Case.Record_Link__c}}}">{{{Case.CaseNumber}}}</a></p>
+<br />
 <br />
 YODA Administrator<br />
 <br />
 This is an automatically generated email from YODA.<br />
-Please DO NOT REPLY to this email address as your email will not be delivered or read.</body></html>
+Please DO NOT REPLY to this email address as your email will not be delivered or read.
+</body></html>
