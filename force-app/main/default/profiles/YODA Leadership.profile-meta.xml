@@ -9,10 +9,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>YODA_Account_OptyRltdLstCls</apexClass>
-        <enabled>true</enabled>
-    </classAccesses> 
-    <classAccesses>
         <apexClass>YODA_Account_OppRltdListController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -3873,10 +3869,6 @@
         <object>Yoda_Error_log__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
-    <pageAccesses>
-        <apexPage>YODA_Account_OpptyRelatedLstVfp</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
     <recordTypeVisibilities>
         <default>true</default>
         <recordType>Account.Account</recordType>
