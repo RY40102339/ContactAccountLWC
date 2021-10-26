@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ApexPage xmlns="http://soap.sforce.com/2006/04/metadata">
-    <apiVersion>52.0</apiVersion>
-    <availableInTouch>true</availableInTouch>
-    <confirmationTokenRequired>false</confirmationTokenRequired>
-    <description>User should be able to view the number of opportunities in the Opportunity related list and also view Opportunity Name and Owner.
-User should be able to click on the Opportunity owner&apos;s name and view their profile.</description>
-    <label>YODA_Account_OpptyRelatedLstVfp</label>
-</ApexPage>

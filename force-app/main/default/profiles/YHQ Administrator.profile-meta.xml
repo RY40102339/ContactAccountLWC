@@ -12,14 +12,6 @@
         <apexClass>Yoda_AccountTriggerHelper_Test</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-    <classAccesses> 
-        <apexClass>YODA_Account_OptyRltdLstCls</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>YODA_Account_OptyRltdLstCls_Test</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
     <classAccesses>
         <apexClass>YODA_Account_OppRltdListController</apexClass>
         <enabled>true</enabled>
@@ -3849,10 +3841,6 @@
         <object>Yokogawa_Competitor__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
-    <pageAccesses>
-        <apexPage>YODA_Account_OpptyRelatedLstVfp</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
     <recordTypeVisibilities>
         <default>true</default>
         <recordType>Account.Account</recordType>
