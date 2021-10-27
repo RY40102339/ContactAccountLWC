@@ -14,6 +14,20 @@
                 <elementReference>Set_Region</elementReference>
             </value>
         </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.NameLocal</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Set_AccountNameLocal</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>$Record.Short_Name_Local__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Set_ShortNameLocal</elementReference>
+            </value>
+        </assignmentItems>
     </assignments>
     <decisions>
         <name>Bypass_flow_rules</name>
@@ -38,17 +52,34 @@
         </rules>
     </decisions>
     <description>Bypass flow rules.
-Populate Account Region based on Owner/User region.</description>
+Populate Account Region based on Owner/User region.
+Hema - 26/10/2021 - Populate Account Name Local when null from Account Name.
+Hema - 27/10/2021 - Populate Short Name Local when null from Account Name.</description>
+    <formulas>
+        <name>Set_AccountNameLocal</name>
+        <dataType>String</dataType>
+        <expression>IF(
+{!$Record.NameLocal}  = NULL,
+{!$Record.Name},
+{!$Record.NameLocal}
+)</expression>
+    </formulas>
     <formulas>
         <name>Set_Region</name>
         <dataType>String</dataType>
         <expression>IF(
-AND(
 TEXT({!$Record.Region__c}) = NULL,
-{!$Setup.Bypass_Settings__c.Bypass_Flow_Rules__c} = false
-),
 TEXT({!$Record.Owner.Region__c}),
 TEXT({!$User.Region__c})
+)</expression>
+    </formulas>
+    <formulas>
+        <name>Set_ShortNameLocal</name>
+        <dataType>String</dataType>
+        <expression>IF(
+{!$Record.Short_Name_Local__c}  = NULL,
+{!$Record.Name},
+{!$Record.Short_Name_Local__c}
 )</expression>
     </formulas>
     <interviewLabel>YODA Account Before Insert/Update Operations {!$Flow.CurrentDateTime}</interviewLabel>
