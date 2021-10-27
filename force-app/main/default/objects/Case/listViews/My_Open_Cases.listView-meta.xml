@@ -13,8 +13,8 @@
     <filterScope>Mine</filterScope>
     <filters>
         <field>CASES.STATUS</field>
-        <operation>notEqual</operation>
-        <value>Close case,Closed,Merged,Closed-Resolved,Closed-Canceled</value>
+        <operation>equals</operation>
+        <value>Active,New,In Progress,Escalated,Merged</value>
     </filters>
     <label>My Open Cases</label>
     <language>en_US</language>
