@@ -54,7 +54,7 @@
     <description>Bypass flow rules.
 Populate Account Region based on Owner/User region.
 Hema - 26/10/2021 - Populate Account Name Local when null from Account Name.
-Hema - 27/10/2021 - Populate Short Name Local when null from Account Name.</description>
+Hema - 27/10/2021 - Populate Short Name Local when null from Short Name.</description>
     <formulas>
         <name>Set_AccountNameLocal</name>
         <dataType>String</dataType>
@@ -78,7 +78,7 @@ TEXT({!$User.Region__c})
         <dataType>String</dataType>
         <expression>IF(
 {!$Record.Short_Name_Local__c}  = NULL,
-{!$Record.Name},
+{!$Record.Short_Name__c},
 {!$Record.Short_Name_Local__c}
 )</expression>
     </formulas>
