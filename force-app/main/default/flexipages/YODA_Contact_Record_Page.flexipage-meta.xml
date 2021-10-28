@@ -34,9 +34,6 @@
                             <value>AddToNurtureList</value>
                         </valueListItems>
                         <valueListItems>
-                            <value>Contact.Contact_To_Lead</value>
-                        </valueListItems>
-                        <valueListItems>
                             <value>CustomButton.Contact.pi__Send_Pardot_Email</value>
                         </valueListItems>
                         <valueListItems>
