@@ -13,7 +13,6 @@
         <faultConnector>
             <targetReference>Failure_Message_Header</targetReference>
         </faultConnector>
-        <flowTransactionModel>Automatic</flowTransactionModel>
         <inputParameters>
             <name>accountName</name>
             <value>
