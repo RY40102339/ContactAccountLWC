@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sync_With_Pardot__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Controls if the record can sync with Pardot. For Lead, it should be always unchecked.</description>
+    <externalId>false</externalId>
+    <label>Sync With Pardot</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

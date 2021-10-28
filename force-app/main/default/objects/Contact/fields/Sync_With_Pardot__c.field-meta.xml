@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sync_With_Pardot__c</fullName>
+    <defaultValue>true</defaultValue>
+    <description>Indicates if Contact record is syncing with Pardot. For Contact, sync is required and should be checked by default.</description>
+    <externalId>false</externalId>
+    <label>Sync With Pardot</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>
