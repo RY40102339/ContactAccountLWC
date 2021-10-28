@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
     <custom>false</custom>
+    <classAccesses>
+        <apexClass>YODA_Contact_TriggerHelper</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <fieldPermissions> 
         <editable>true</editable>
         <field>Contact.Active_Status__c</field>
