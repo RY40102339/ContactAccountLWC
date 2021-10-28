@@ -18,7 +18,7 @@
 *  9/27/2021            Hemalatha Gorthy        Update Mailing address from Account Billing/Shipping
 */
 
-trigger YODA_Contact_Trigger on Contact (after insert) {
+trigger YODA_Contact_Trigger on Contact (before update, after insert, after update) {
     //Check for bypass setting on User record <Mandatory for all Triggers>
     if(Bypass_Settings__c.getinstance().Bypass_Flow_Rules__c){
         return;
@@ -27,6 +27,10 @@ trigger YODA_Contact_Trigger on Contact (after insert) {
         if(Trigger.isInsert){
             // Main handler for updating Contact
         	YODA_Contact_TriggerHelper.updateContact(Trigger.New);
+        }
+        if(Trigger.isUpdate){
+            YODA_Contact_TriggerHelper.CloneRecord(Trigger.New,Trigger.oldMap);
+            YODA_Contact_TriggerHelper.DeleteDummyAccounts(Trigger.newMap.keySet());
         }
     }
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
-    <custom>true</custom> 
+    <custom>true</custom>
     <classAccesses>
         <apexClass>YODA_AccountTeamMemberTriggerHelper_Test</apexClass>
         <enabled>true</enabled>
@@ -24,6 +24,14 @@
     <classAccesses>
         <apexClass>YODA_Contact_TriggerHelper</apexClass>
         <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>YODA_LeadAccountDummyController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>YODA_LeadAccountDummyController_Test</apexClass>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>YODA_Opportunity_TriggerHelper</apexClass>
@@ -1571,6 +1579,11 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.Campaign__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Contact.Campaign_Code__c</field>
         <readable>true</readable>
@@ -1761,9 +1774,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Contact.Multiple_Inquiry__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -1793,6 +1806,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Contact.On24_Email_Opt_In__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Contact.Orphan_Contact__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1856,6 +1874,11 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.Rating__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Contact.Region__c</field>
         <readable>true</readable>
@@ -1878,6 +1901,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Contact.Salutation__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.Self_Registered_Company__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2436,9 +2464,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Lead.Multiple_Inquiry__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -2502,6 +2530,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Lead.Related_Contact__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Lead.Role__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2518,6 +2551,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead.Salutation__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.Self_Registered_Company__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2542,6 +2580,11 @@
         <readable>true</readable>
     </fieldPermissions>
     commenting for dev deploy-->
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Contact.Sync_With_Pardot__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead.Tele_Qualified_Reason__c</field>
@@ -2741,7 +2784,12 @@
         <editable>false</editable>
         <field>Lead.std9__c</field>
         <readable>true</readable>
-    </fieldPermissions>    
+    </fieldPermissions>  
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.Sync_With_Pardot__c</field>
+        <readable>false</readable>
+    </fieldPermissions>  
     <fieldPermissions>
         <editable>true</editable>
         <field>Opportunity.AccountId</field>
