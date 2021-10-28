@@ -17,6 +17,11 @@
         <operation>equals</operation>
         <value>1</value>
     </filters>
+    <filters>
+        <field>CASES.STATUS</field>
+        <operation>equals</operation>
+        <value>Active,New,In Progress,Escalated,Merged</value>
+    </filters>
     <label>Reopen Cases</label>
     <language>en_US</language>
 </ListView>

@@ -11,6 +11,11 @@
     <columns>CASES.RECORDTYPE</columns>
     <columns>CASES.LAST_UPDATE_DATE_ONLY</columns>
     <filterScope>Queue</filterScope>
+    <filters>
+        <field>CASES.STATUS</field>
+        <operation>equals</operation>
+        <value>Active,New,In Progress,Escalated,Merged</value>
+    </filters>
     <label>Service YEF G T&amp;M</label>
     <queue>Service_YEF_G_T_M</queue>
     <sharedTo>
