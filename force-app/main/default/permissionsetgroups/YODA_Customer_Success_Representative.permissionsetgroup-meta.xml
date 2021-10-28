@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PermissionSetGroup xmlns="http://soap.sforce.com/2006/04/metadata">
     <description>Permission Set Group for the &quot;Customer Success Representative&quot; persona of the YODA program.</description>
-    <label>YODA Customer Success Representative</label>
+    <label>YODA Customer Service Representative</label>
     <permissionSets>Account_Edit</permissionSets>
     <permissionSets>Asset_Edit</permissionSets>
     <permissionSets>Case_Create</permissionSets>
