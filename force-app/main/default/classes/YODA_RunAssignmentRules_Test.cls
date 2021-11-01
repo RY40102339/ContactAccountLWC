@@ -52,7 +52,7 @@ public class YODA_RunAssignmentRules_Test {
         ldList.add(myLead);*/
         Test.StartTest();
         //call invocable method
-        YODA_RunAssignmentRules.reRunAssignmentRules(idList);
+        YODA_RunAssignmentRules.assignLeads(idList);
         //YODA_RunAssignmentRules.reRunAssignmentRules(ldList);
         // Hema 10/20/21 - Prod deployment fix
         //Update status to 'Tele-Qualified'
