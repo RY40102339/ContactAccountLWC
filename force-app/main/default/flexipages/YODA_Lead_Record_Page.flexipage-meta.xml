@@ -16,14 +16,15 @@
                             <value>FeedItem.LinkPost</value>
                         </valueListItems>
                         <valueListItems>
-                            <value>Lead.Convert_Dummy</value>
+                            <value>Convert</value>
+                            <!--<value>Lead.Convert_Dummy</value>
                             <visibilityRule>
                                 <criteria>
                                     <leftValue>{!$Permission.StandardPermission.ConvertLeads}</leftValue>
                                     <operator>EQUAL</operator>
                                     <rightValue>true</rightValue>
                                 </criteria>
-                            </visibilityRule>
+                            </visibilityRule>-->
                         </valueListItems>
                         <valueListItems>
                             <value>Lead.Reject</value>

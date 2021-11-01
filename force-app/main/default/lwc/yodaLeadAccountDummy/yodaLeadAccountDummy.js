@@ -17,16 +17,19 @@
 *  MM/DD/YYYY			Developer Name			Comments
 *  10/26/2021           Kameron F.              Created LWC
 */
-import { track, api, LightningElement, wire } from 'lwc';
+
+import {LightningElement} from 'lwc';
+import {NavigationMixin} from 'lightning/navigation';
+
+/*import { track, api, LightningElement, wire } from 'lwc';
 import { CloseActionScreenEvent } from 'lightning/actions';
 import dummy from '@salesforce/apex/YODA_LeadAccountDummyController.CreateAccount'
 import checkAccount from '@salesforce/apex/YODA_LeadAccountDummyController.MissingAccount';
 import {NavigationMixin} from 'lightning/navigation';
 import getUrl from '@salesforce/apex/YODA_Account_OppRltdListController.getUrl';
-import hasRelatedContact from '@salesforce/apex/YODA_LeadAccountDummyController.hasRelatedContact';
-
+import hasRelatedContact from '@salesforce/apex/YODA_LeadAccountDummyController.hasRelatedContact';*/
 export default class YodaLeadAccountDummy extends NavigationMixin(LightningElement) {
-    _recordId;
+    /*_recordId;
     @track
     isMissingAccount = false;
     divIsVisible = false;
@@ -34,16 +37,20 @@ export default class YodaLeadAccountDummy extends NavigationMixin(LightningEleme
     URL;
     @track
     leadHasContact = false;
-    //https://yg--yodadev1.lightning.force.com/lightning/cmp/runtime_sales_lead__convertDesktopConsole?leadConvert__leadId=00Q1s00000169UdEAI&uid=1635365753667&ws=%2Flightning%2Fr%2FLead%2F00Q1s00000169UdEAI%2Fview
-    //https://yg--yodadev1.lightning.force.com/lightning/cmp/runtime_sales_lead__convertDesktopConsole?leadConvert__leadId=00Q1s00000169UdEAI&uid=1635365782260
+    clickedURLAlready = false;
+    isLoading = true;
+    
     // this insures that recordid is not null
     @api set recordId(value) {
         this._recordId = value;  
         getUrl().then(result=>{
-            this.URL = result+'/lightning/cmp/runtime_sales_lead__convertDesktopConsole?leadConvert__leadId='+this.recordId+'&ws=%2Flightning%2Fr%2FLead%2F'+this.recordId+'%2Fview';
+            if(result){
+                this.URL = result+'/lightning/cmp/runtime_sales_lead__convertDesktopConsole?leadConvert__leadId='+this.recordId+'&ws=%2Flightning%2Fr%2FLead%2F'+this.recordId+'%2Fview';
+                this.checkAccountMethod();
+                //this.relatedContact();
+            }
         })
-        this.relatedContact();
-        this.checkAccountMethod();
+        
         
     }
     get recordId() {
@@ -56,22 +63,29 @@ export default class YodaLeadAccountDummy extends NavigationMixin(LightningEleme
     relatedContact(){
         hasRelatedContact({recordId: this.recordId})
         .then(result=>{
-            console.log('has contact check')
-            console.log(result);
+            this.isMissingAccount = true;
             this.leadHasContact = result;
+            this.isLoading = false;
+            //this.checkAccountMethod();
             this.continueAction();
         })
         .catch(error=>{
+           // this.checkAccountMethod();
             console.log(error);
         })
     }
 
     continueAction(){
-        if(this.leadHasContact&&!this.isMissingAccount){
-            let target = this.template.querySelector('[data-id=URLToGoTO]');
-            target.click();
-            this.createdDummyAccount();
-            this.cancelAction();
+        if(this.leadHasContact==true){
+            if(this.isMissingAccount!=null&&this.isMissingAccount!=true&&this.isMissingAccount!=undefined){
+                if(!this.clickedURLAlready){
+                    this.clickedURLAlready = true;
+                    let target = this.template.querySelector('[data-id=URLToGoTO]');
+                    target.click();
+                    this.createdDummyAccount();
+                    this.cancelAction();
+                }
+            }
         }
     }
 
@@ -93,9 +107,11 @@ export default class YodaLeadAccountDummy extends NavigationMixin(LightningEleme
     checkAccountMethod(){
         checkAccount({recordId: this.recordId})
         .then(result=>{
+            console.log('Checkout Missing Account Result:' +result);
             if(result==true){
-                this.isMissingAccount = true;
+                this.relatedContact();
             }else{
+                this.leadHasContact = true;
                 this.continueAction();
             }
                 
@@ -103,5 +119,5 @@ export default class YodaLeadAccountDummy extends NavigationMixin(LightningEleme
         .catch(error=>{
             console.log(error);
         })
-    }
+    }*/
 }

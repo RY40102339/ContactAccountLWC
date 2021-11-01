@@ -18,47 +18,53 @@
 *  10/26/2021           Kameron F.              Created LWC
 *-->
 <template>
-    <div class="slds-hidden">
-        <lightning-formatted-url data-id="URLToGoTO" value={URL} target="_self"></lightning-formatted-url>
-    </div>
-    <template if:true={isMissingAccount}>
-        <template if:false={leadHasContact}>
-            <div slot="header" class="slds-text-align_center slds-text-heading_medium ">
-                <b>Convert Lead</b>
-            </div>
-            <br>
-            <p class="slds-text-align_center slds-text-heading_small">Please add related Contact to Lead.</p>
-            <br>
-            <div slot="footer">
-                <div style="text-align:right;padding:7px;">
-                    <div class='slds-button slds-button_neutral' onclick={cancelAction}>
-                        Cancel
-                    </div>
-                </div>
+        <!--<div class="slds-hidden">
+            <lightning-formatted-url data-id="URLToGoTO" value={URL} target="_self"></lightning-formatted-url>
+        </div>
+        <template if:true={isLoading}>
+            <div class="slds-is-relative slds-m-bottom_large">
+                <lightning-spinner class="slds-m-bottom_large" alternative-text="Loading" variant="brand"></lightning-spinner>
             </div>
         </template>
-   
-       
-       
-        
-        <template if:true={leadHasContact}>
-            <div slot="header" class="slds-text-align_center slds-text-heading_medium ">
-                <b>Convert Lead</b>
-            </div>
-            <br>
-            <p class="slds-text-align_center slds-text-heading_small">Related Contact is missing an Account. Dummy Account will be created to allow conversion. Please create a new account or associate an existing account in next step.</p>
-            <br>
-            <div slot="footer">
-                <div style="text-align:right;padding:7px;">
-                    <div class='slds-button slds-button_neutral' onclick={cancelAction}>
-                        Cancel
+        <template if:false={isLoading}>
+            <template if:true={isMissingAccount}>
+                <template if:false={leadHasContact}>
+                    <div slot="header" class="slds-text-align_center slds-text-heading_medium ">
+                        <b>Convert Lead</b>
                     </div>
-                    <div class='slds-button slds-button_brand' onclick={continueAction}>
-                        Continue
+                    <br>
+                    <p class="slds-text-align_center slds-text-heading_small">Please add related Contact to Lead.</p>
+                    <br>
+                    <div slot="footer">
+                        <div style="text-align:right;padding:7px;">
+                            <div class='slds-button slds-button_neutral' onclick={cancelAction}>
+                                Cancel
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </template>
-    </template>
-    
+                </template>
+
+            
+            
+                
+                <template if:true={leadHasContact}>
+                    <div slot="header" class="slds-text-align_center slds-text-heading_medium ">
+                        <b>Convert Lead</b>
+                    </div>
+                    <br>
+                    <p class="slds-text-align_center slds-text-heading_small">Please create a new account or associate an existing account in next step.</p>
+                    <br>
+                    <div slot="footer">
+                        <div style="text-align:right;padding:7px;">
+                            <div class='slds-button slds-button_neutral' onclick={cancelAction}>
+                                Cancel
+                            </div>
+                            <div class='slds-button slds-button_brand' onclick={continueAction}>
+                                Continue
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </template>
+        </template>-->
 </template>

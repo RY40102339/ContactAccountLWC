@@ -11,7 +11,7 @@
             <operation>equals</operation>
             <valueField>Contact.AccountId</valueField>
         </filterItems>
-        <isOptional>false</isOptional>
+        <isOptional>true</isOptional>
     </lookupFilter>
     <referenceTo>Contact</referenceTo>
     <relationshipLabel>Opportunities</relationshipLabel>

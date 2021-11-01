@@ -18,7 +18,7 @@
 *  10/26/2021           Kameron F.              Created Class
 */
 public class YODA_LeadAccountDummyController {
-	@AuraEnabled(cacheable=false)
+	/*@AuraEnabled(cacheable=false)
     public static void CreateAccount(ID recordId){
         Lead ld = [SELECT Related_Contact__c FROM Lead WHERE ID = :recordId LIMIT 1];
         Contact con = [SELECT AccountID FROM Contact WHERE ID=:ld.Related_Contact__c LIMIT 1];
@@ -48,5 +48,5 @@ public class YODA_LeadAccountDummyController {
         }catch(Exception e){}
         return false;
         
-    }
+    }*/
 }
