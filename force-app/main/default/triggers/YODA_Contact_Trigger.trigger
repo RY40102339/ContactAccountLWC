@@ -29,8 +29,8 @@ trigger YODA_Contact_Trigger on Contact (before update, after insert, after upda
         	YODA_Contact_TriggerHelper.updateContact(Trigger.New);
         }
         if(Trigger.isUpdate){
-            YODA_Contact_TriggerHelper.CloneRecord(Trigger.New,Trigger.oldMap);
-            YODA_Contact_TriggerHelper.DeleteDummyAccounts(Trigger.newMap.keySet());
+            //YODA_Contact_TriggerHelper.CloneRecord(Trigger.New,Trigger.oldMap);
+            //YODA_Contact_TriggerHelper.DeleteDummyAccounts(Trigger.newMap.keySet());
         }
     }
 }

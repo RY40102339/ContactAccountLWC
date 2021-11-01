@@ -24,7 +24,7 @@
 */
 
 public with sharing class YODA_Contact_TriggerHelper {
-    // Flows only allow one parameter, so have to use this to get around that
+    /*// Flows only allow one parameter, so have to use this to get around that
     public class CloneRecordFlowVariable{
         @InvocableVariable(label='Account Name')
         public String accountName;
@@ -72,8 +72,6 @@ public with sharing class YODA_Contact_TriggerHelper {
     // If Multiple_Inquiry__c is set to true on a lead, then a duplicate lead is created.
     // Kam 10/12/2021
     public static void CloneRecord(List<Contact> newList, Map<Id,Contact> oldMap){
-		/*String profileName=[Select Id,Name from Profile where Id=:userinfo.getProfileId()].Name;
-        if(profileName == 'B2BMA Integration User'||profileName == 'System Administrator'||profileName == 'YHQ Administrator'){*/
             List<Lead> clonedLeads = new List<Lead>(); // leads to be created
             Set<Id> updateSet = new Set<Id>(); // leads to be updated
             
@@ -202,7 +200,7 @@ public with sharing class YODA_Contact_TriggerHelper {
                 
             }
         }
-    }
+    }*/
     
     // Only used in after insert; Self-updates the region field to get around the MailCountry picklist/String issue
     // Kam 9/9/2021

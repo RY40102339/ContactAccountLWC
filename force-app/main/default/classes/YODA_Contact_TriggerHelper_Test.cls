@@ -33,7 +33,7 @@ public class YODA_Contact_TriggerHelper_Test {
         
         delete setToAdd;
     }
-    @isTest 
+    /*@isTest 
     static void testMultipleInquiry(){
         Account acc = new Account(Name='TestAccount');
         insert acc;
@@ -130,7 +130,7 @@ public class YODA_Contact_TriggerHelper_Test {
             update ldList;
         }
         
-    }
+    }*/
     // Main test class for Region updates from the Contact Trigger Helper class
     // Kam 9/9/2021
   	@isTest

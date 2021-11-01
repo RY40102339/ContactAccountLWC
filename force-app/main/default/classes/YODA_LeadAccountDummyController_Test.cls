@@ -19,7 +19,7 @@
 */
 @isTest
 public class YODA_LeadAccountDummyController_Test {
-    @testSetup
+    /*@testSetup
     static void setuptest(){
         Bypass_Settings__c setToAdd = new Bypass_Settings__c(Bypass_Validation_Rules__c =true);
         insert setToAdd;
@@ -39,7 +39,6 @@ public class YODA_LeadAccountDummyController_Test {
                           EmailEncodingKey='UTF-8', LastName='Testing', LanguageLocaleKey='en_US', 
                           LocaleSidKey='en_US', ProfileId = p.Id, 
                           TimeZoneSidKey='America/Los_Angeles', UserName='standarduser@testorg.com'+RandomId);
-        /*insert u;*/
         
         Contact con;
         //
@@ -73,9 +72,6 @@ public class YODA_LeadAccountDummyController_Test {
         Account finalAcc = new Account(Name='RealAccount');
         insert finalAcc;
         
-        /*AccountContactRelation ACR = new AccountContactRelation(AccountID=finalAcc.id,ContactID=con.id);
-        insert ACR;*/
-        
         Test.startTest();
         con.AccountId = finalAcc.id;
         update con;
@@ -96,5 +92,5 @@ public class YODA_LeadAccountDummyController_Test {
         System.assertEquals(null, acc);
         
         
-    }
+    }*/
 }

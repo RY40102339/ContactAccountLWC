@@ -50,6 +50,7 @@ public class YODA_RunAssignmentRules_Test {
         Lead myLead = [SELECT Id, OwnerId
                        FROM Lead];
         ldList.add(myLead);
+        Test.StartTest();
         //call invocable method
         YODA_RunAssignmentRules.reRunAssignmentRules(ldList);
         // Hema 10/20/21 - Prod deployment fix
@@ -58,7 +59,7 @@ public class YODA_RunAssignmentRules_Test {
         myLead.Status = 'Tele-Qualified';
         myLead.Tele_Qualified_Reason__c = 'Test Lead Assignment Rules';
         //Test starts here
-        Test.StartTest();
+        
         Update myLead;
         Test.StopTest(); 
         // Owner is changed to 'Lead Queue'
