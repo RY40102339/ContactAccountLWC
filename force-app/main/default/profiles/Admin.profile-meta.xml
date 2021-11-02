@@ -3125,6 +3125,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Opportunity.GMP_Category__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Opportunity.In_Budget__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -3326,6 +3331,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Opportunity.SSTP_Number__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.Sales_Partner__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

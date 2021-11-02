@@ -13,7 +13,8 @@ ISPICKVAL(Competition_Positioning__c,&quot;&quot;),
 ISBLANK( RFQ_Received_Date__c),
 NOT(X3rd_Party_Buyouts_Required__c),
 ISPICKVAL(Non_standard_Products_Approved__c,&quot;&quot;),
-ISBLANK(Application__c), 
+/*ISBLANK(Application__c),*/
+ISPICKVAL(GMP_Category__c,&quot;&quot;),
 ISBLANK(Category_of_Interest__c),
 ISBLANK( End_User__c),
 ISPICKVAL(Project_Type__c,&quot;&quot;),
@@ -24,6 +25,6 @@ ISBLANK(Amount)
 RFQ Received Date,
 3rd Party Buyouts Required,
 Non-standard Products Approved and
-Application
+GMP Category
 are mandatory fields to move to the Propose/Quote stage</errorMessage>
 </ValidationRule>
