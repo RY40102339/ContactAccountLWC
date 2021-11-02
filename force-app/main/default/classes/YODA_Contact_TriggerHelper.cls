@@ -11,7 +11,7 @@
 * @description  
 * This class is used for updating the Region__c field on Contact based on MailingCountry
 *
-* @test class name - YODA_Contact_TriggerHelper_Test
+* @test class names - YODA_Contact_TriggerHelper_Test + YODA_LeadAccountDummyController_Test
 *  Change History:
 *  MM/DD/YYYY			Developer Name			Comments
 *  9/9/2021             Kameron F.              Created Class
@@ -24,7 +24,7 @@
 */
 
 public with sharing class YODA_Contact_TriggerHelper {
-    /*// Flows only allow one parameter, so have to use this to get around that
+    // Flows only allow one parameter, so have to use this to get around that
     public class CloneRecordFlowVariable{
         @InvocableVariable(label='Account Name')
         public String accountName;
@@ -72,6 +72,8 @@ public with sharing class YODA_Contact_TriggerHelper {
     // If Multiple_Inquiry__c is set to true on a lead, then a duplicate lead is created.
     // Kam 10/12/2021
     public static void CloneRecord(List<Contact> newList, Map<Id,Contact> oldMap){
+		String profileName=[Select Id,Name from Profile where Id=:userinfo.getProfileId()].Name;
+        if(profileName == 'B2BMA Integration User'||profileName == 'System Administrator'){
             List<Lead> clonedLeads = new List<Lead>(); // leads to be created
             Set<Id> updateSet = new Set<Id>(); // leads to be updated
             
@@ -116,7 +118,7 @@ public with sharing class YODA_Contact_TriggerHelper {
                 }
                 update updateList;
             }
-       // }
+       }
     }
     
     // Creats a lead based on the provided contact
@@ -169,7 +171,7 @@ public with sharing class YODA_Contact_TriggerHelper {
     // Attempting to limit actions happening all at once from this trigger
     @future
     public static void DeleteDummyAccounts(Set<ID> ContactList){
-        String DummyAccountName = 'DummyAccount';
+        String DummyAccountName = 'Pardot';
         // DummyAccount = '- Dummy'
         List<ID> accIdList = new List<ID>();
         for(ID con:ContactList){
@@ -183,8 +185,10 @@ public with sharing class YODA_Contact_TriggerHelper {
             }
         }
         
+        DummyAccountName +='%';
+        
         // Change criteria to match dummy account indicator
-        List<Account> accList = [SELECT ID, Name FROM Account WHERE Name = :DummyAccountName AND ID in :accIdList];
+        List<Account> accList = [SELECT ID, Name FROM Account WHERE Name LIKE :DummyAccountName AND ID in :accIdList];
         
         if(accList.size()>0){
             try{
@@ -200,7 +204,7 @@ public with sharing class YODA_Contact_TriggerHelper {
                 
             }
         }
-    }*/
+    }
     
     // Only used in after insert; Self-updates the region field to get around the MailCountry picklist/String issue
     // Kam 9/9/2021

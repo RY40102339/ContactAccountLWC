@@ -57,8 +57,8 @@
     </decisions>
     <description>YODA Lead After Insert/Update Operations - Update Opportunity Close Date
 Run assignment rule
-Update Contact HasOptedOutOfEmail from converted Lead. - Hema 9/28
-Update Opportunity with BSU - Kam 10/1/2021</description>
+Update Contact HasOptedOutOfEmail &amp; AccountID from converted Lead. - Hema 9/28
+Update Opportunity with BSU &amp; Campaign - Kam 10/1/2021</description>
     <formulas>
         <name>CloseDate</name>
         <dataType>Date</dataType>
@@ -74,6 +74,13 @@ Update Opportunity with BSU - Kam 10/1/2021</description>
         <name>CloseDate_Add_365</name>
         <dataType>Date</dataType>
         <expression>{!$Record.CreatedDate}+365</expression>
+    </formulas>
+    <formulas>
+        <description>Get campaign from duplicated Lead record</description>
+        <name>GetCampaign</name>
+        <dataType>String</dataType>
+        <expression>IF({!IsConverted.Multiple_Inquiry__c},
+{!IsConverted.Campaign__r.Id},null)</expression>
     </formulas>
     <interviewLabel>YODA Lead After Insert/Update Operations {!$Flow.CurrentDateTime}</interviewLabel>
     <label>YODA Lead After Insert/Update Operations</label>
@@ -135,6 +142,8 @@ Update Opportunity with BSU - Kam 10/1/2021</description>
         <queriedFields>CreatedDate</queriedFields>
         <queriedFields>Description</queriedFields>
         <queriedFields>Business_Unit__c</queriedFields>
+        <queriedFields>Campaign__c</queriedFields>
+        <queriedFields>Multiple_Inquiry__c</queriedFields>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
@@ -172,6 +181,12 @@ Update Opportunity with BSU - Kam 10/1/2021</description>
             </value>
         </filters>
         <inputAssignments>
+            <field>AccountId</field>
+            <value>
+                <elementReference>$Record.ConvertedAccountId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>HasOptedOutOfEmail</field>
             <value>
                 <elementReference>$Record.HasOptedOutOfEmail</elementReference>
@@ -199,6 +214,12 @@ Update Opportunity with BSU - Kam 10/1/2021</description>
             <field>Business_Unit__c</field>
             <value>
                 <elementReference>IsConverted.Business_Unit__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>CampaignId</field>
+            <value>
+                <elementReference>GetCampaign</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>

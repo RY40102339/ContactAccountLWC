@@ -18,11 +18,12 @@
 *  10/26/2021           Kameron F.              Created LWC
 *-->
 <template>
-        <!--<div class="slds-hidden">
+    <div style="min-height: 25px;">
+        <div class="slds-hide">
             <lightning-formatted-url data-id="URLToGoTO" value={URL} target="_self"></lightning-formatted-url>
         </div>
         <template if:true={isLoading}>
-            <div class="slds-is-relative slds-m-bottom_large">
+            <div class="slds-is-relative slds-m-bottom_large" style="max-height: 25px;">
                 <lightning-spinner class="slds-m-bottom_large" alternative-text="Loading" variant="brand"></lightning-spinner>
             </div>
         </template>
@@ -59,12 +60,13 @@
                             <div class='slds-button slds-button_neutral' onclick={cancelAction}>
                                 Cancel
                             </div>
-                            <div class='slds-button slds-button_brand' onclick={continueAction}>
+                            <div class='slds-button slds-button_brand' onclick={continueButton}>
                                 Continue
                             </div>
                         </div>
                     </div>
                 </template>
             </template>
-        </template>-->
+        </template>
+    </div>
 </template>

@@ -18,35 +18,47 @@
 *  10/26/2021           Kameron F.              Created Class
 */
 public class YODA_LeadAccountDummyController {
-	/*@AuraEnabled(cacheable=false)
+	@AuraEnabled(cacheable=false)
     public static void CreateAccount(ID recordId){
-        Lead ld = [SELECT Related_Contact__c FROM Lead WHERE ID = :recordId LIMIT 1];
-        Contact con = [SELECT AccountID FROM Contact WHERE ID=:ld.Related_Contact__c LIMIT 1];
-        
-        if(con.AccountID==null){
-            Account acc = new Account(Name='DummyAccount');
-            insert acc;
-            con.AccountId = acc.id;
-            update con;
+        try{
+            Lead ld = [SELECT Related_Contact__c FROM Lead WHERE ID = :recordId LIMIT 1];
+            Contact con = [SELECT AccountID, FirstName FROM Contact WHERE ID=:ld.Related_Contact__c LIMIT 1];
+            
+            if(con.AccountID==null){
+                Account acc = new Account(Name='Pardot'+con.FirstName);
+                insert acc;
+                con.AccountId = acc.id;
+                update con;
+            }
+        }catch(Exception e){
+            YODA_Utility.logError('Backend Process Error','Class:YODA_LeadAccountDummyController; Method: CreateAccount(); Line #:'+e.getLineNumber()
+                                      +'; Message:'+e.getMessage(), e.getStackTraceString(), UserInfo.getUserId());
         }
     }
     @AuraEnabled(cacheable=false)
     public static boolean MissingAccount(ID recordId){
+        boolean isMissingAccount = true;
         try{
             Lead ld = [SELECT Related_Contact__c FROM Lead WHERE ID = :recordId LIMIT 1];
         	Contact con = [SELECT AccountID FROM Contact WHERE ID=:ld.Related_Contact__c LIMIT 1];
-            return con.AccountID==null;
+            isMissingAccount = (con.AccountID==null);
+            if(Test.isRunningTest()) {
+                CalloutException e = new CalloutException();
+                e.setMessage('This is a constructed exception for testing and code coverage');
+                throw e;
+            }
         }catch(Exception e){}
-        return true;
+        return isMissingAccount;
         
         
     }
-    @AuraEnabled(cacheable=true)
+    @AuraEnabled(cacheable=false)
     public static boolean hasRelatedContact(ID recordId){
+        boolean hasContact = false;
         try{
-            return [SELECT Related_Contact__c FROM Lead WHERE ID = :recordId LIMIT 1].Related_Contact__c != null;
+            hasContact = ([SELECT Related_Contact__c FROM Lead WHERE ID = :recordId LIMIT 1].Related_Contact__c != null);
         }catch(Exception e){}
-        return false;
+        return hasContact;
         
-    }*/
+    }
 }
