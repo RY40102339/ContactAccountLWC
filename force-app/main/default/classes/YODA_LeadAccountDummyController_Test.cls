@@ -19,7 +19,7 @@
 */
 @isTest
 public class YODA_LeadAccountDummyController_Test {
-    /*@testSetup
+    @testSetup
     static void setuptest(){
         Bypass_Settings__c setToAdd = new Bypass_Settings__c(Bypass_Validation_Rules__c =true);
         insert setToAdd;
@@ -33,17 +33,21 @@ public class YODA_LeadAccountDummyController_Test {
 	@isTest
     public static void DeleteDummyAccount(){
         
-        Profile p = [SELECT Id FROM Profile WHERE Name='YHQ Administrator'];
+        Profile p = [SELECT Id FROM Profile WHERE Name='B2BMA Integration User'];
         Integer RandomId=Integer.valueOf(Math.rint(Math.random()*1000000)); 
         User u = new User(Alias = 'standt', Email='standarduser@testorg.com', 
                           EmailEncodingKey='UTF-8', LastName='Testing', LanguageLocaleKey='en_US', 
                           LocaleSidKey='en_US', ProfileId = p.Id, 
                           TimeZoneSidKey='America/Los_Angeles', UserName='standarduser@testorg.com'+RandomId);
+        /*insert u;*/
         
         Contact con;
         //
 		//run as B2B due to profile requirements on multiple inquiry
         System.runAs(u){
+            // Intetionally attempt to cause an exception
+            YODA_LeadAccountDummyController.CreateAccount('00Q1s0000016WWVWA2');
+            
             Campaign cmp = [SELECT Name FROM Campaign WHERE Name='Test Campaign'];
             
             con = new Contact (OwnerID=u.id,Campaign__c=cmp.id,FirstName='Test', LastName='Tester',Email='test@test.com',MailingCountry='Aruba',Self_registered_company__c='Test co');
@@ -66,11 +70,14 @@ public class YODA_LeadAccountDummyController_Test {
             update ld; 
             
         }
-        Account acc = [SELECT Name FROM Account WHERE Name ='DummyAccount'];
+        Account acc = [SELECT Name FROM Account WHERE Name LIKE'Pardot%'];
         
         System.assertNotEquals(null, acc);
         Account finalAcc = new Account(Name='RealAccount');
         insert finalAcc;
+        
+        /*AccountContactRelation ACR = new AccountContactRelation(AccountID=finalAcc.id,ContactID=con.id);
+        insert ACR;*/
         
         Test.startTest();
         con.AccountId = finalAcc.id;
@@ -92,5 +99,5 @@ public class YODA_LeadAccountDummyController_Test {
         System.assertEquals(null, acc);
         
         
-    }*/
+    }
 }

@@ -428,7 +428,7 @@
             <targetReference>GetContact</targetReference>
         </connector>
     </start>
-    <status>Obsolete</status>
+    <status>Active</status>
     <variables>
         <name>AccountName</name>
         <dataType>String</dataType>

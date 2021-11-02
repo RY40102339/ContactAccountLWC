@@ -11,9 +11,9 @@
 * @description  
 * This test class is used for the YODA_Contact_TriggerHelper apex class
 *
-* @test class name - YODA_Contact_TriggerHelper_Test
+* @test class names - YODA_Contact_TriggerHelper_Test + YODA_LeadAccountDummyController_Test
 *  Change History:
-*  MM/DD/YYYY      Developer Name      Comments
+*  MM/DD/YYYY           Developer Name          Comments
 *  9/9/2021             Kameron F.              Created Class
 *  9/23/2021            Kameron F.              Updated API names for region
 *  9/24/2021            Kameron F.              Fixed MailingCountry
@@ -33,7 +33,7 @@ public class YODA_Contact_TriggerHelper_Test {
         
         delete setToAdd;
     }
-    /*@isTest 
+    @isTest 
     static void testMultipleInquiry(){
         Account acc = new Account(Name='TestAccount');
         insert acc;
@@ -78,7 +78,7 @@ public class YODA_Contact_TriggerHelper_Test {
         insert cmpMemList;
         Test.stopTest();
         
-        Profile p = [SELECT Id FROM Profile WHERE Name='YHQ Administrator'];
+        Profile p = [SELECT Id FROM Profile WHERE Name='B2BMA Integration User'];
         Integer RandomId=Integer.valueOf(Math.rint(Math.random()*1000000)); 
         User u = new User(Alias = 'standt', Email='standarduser@testorg.com', 
                           EmailEncodingKey='UTF-8', LastName='Testing', LanguageLocaleKey='en_US', 
@@ -130,7 +130,7 @@ public class YODA_Contact_TriggerHelper_Test {
             update ldList;
         }
         
-    }*/
+    }
     // Main test class for Region updates from the Contact Trigger Helper class
     // Kam 9/9/2021
   	@isTest

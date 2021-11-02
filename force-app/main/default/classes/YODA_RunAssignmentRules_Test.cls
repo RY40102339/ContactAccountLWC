@@ -41,26 +41,24 @@ public class YODA_RunAssignmentRules_Test {
         
         // Get the Lead that is inserted above
         // Hema 10/20/21 - Prod deployment fix
-        List<id> idList = New List<id>();
-        Lead myLead = [SELECT Id, firstname, lastname, OwnerId, Owner.Name, Rating, Country, Business_Unit__c  
-                       FROM Lead LIMIT 1];
-        idList.add(myLead.id);
-        /*List<Lead> ldList = New List<Lead>();
+        // List<id> idList = New List<id>();
+        //Lead myLead = [SELECT Id, firstname, lastname, OwnerId, Owner.Name, Rating, Country, Business_Unit__c  
+        //               FROM Lead LIMIT 1];
+        //idList.add(myLead.id);
+        List<Lead> ldList = New List<Lead>();
         //Query for test data and add to list
         Lead myLead = [SELECT Id, OwnerId
                        FROM Lead];
-        ldList.add(myLead);*/
-        Test.StartTest();
+        ldList.add(myLead);
         //call invocable method
-        YODA_RunAssignmentRules.assignLeads(idList);
-        //YODA_RunAssignmentRules.reRunAssignmentRules(ldList);
+        YODA_RunAssignmentRules.reRunAssignmentRules(ldList);
         // Hema 10/20/21 - Prod deployment fix
         //Update status to 'Tele-Qualified'
         myLead.Rating = 'Warm';
         myLead.Status = 'Tele-Qualified';
         myLead.Tele_Qualified_Reason__c = 'Test Lead Assignment Rules';
         //Test starts here
-        
+        Test.StartTest();
         Update myLead;
         Test.StopTest(); 
         // Owner is changed to 'Lead Queue'

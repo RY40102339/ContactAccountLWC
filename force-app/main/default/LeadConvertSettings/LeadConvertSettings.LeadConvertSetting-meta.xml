@@ -64,6 +64,10 @@
             <outputField>Industry__c</outputField>
         </mappingFields>
         <mappingFields>
+            <inputField>Lead_Forwarded_To__c</inputField>
+            <outputField>Lead_Forwarded_To__c</outputField>
+        </mappingFields>
+        <mappingFields>
             <inputField>Product_of_Interest__c</inputField>
             <outputField>Lead_Product_of_Interest__c</outputField>
         </mappingFields>
