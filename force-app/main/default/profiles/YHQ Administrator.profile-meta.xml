@@ -30,11 +30,11 @@
     </classAccesses>
     <classAccesses>
         <apexClass>YODA_Contact_TriggerHelper</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>YODA_Contact_TriggerHelper_Test</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>YODA_LeadAccountDummyController</apexClass>
@@ -46,11 +46,11 @@
     </classAccesses>
     <classAccesses>
         <apexClass>YODA_Opportunity_TriggerHelper</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>YODA_Opportunity_TriggerHelper_Test</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>YODA_Order_TriggerHelper</apexClass>
