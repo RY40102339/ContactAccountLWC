@@ -73,7 +73,7 @@ public with sharing class YODA_Contact_TriggerHelper {
     // Kam 10/12/2021
     public static void CloneRecord(List<Contact> newList, Map<Id,Contact> oldMap){
 		String profileName=[Select Id,Name from Profile where Id=:userinfo.getProfileId()].Name;
-        if(profileName == 'B2BMA Integration User'||profileName == 'System Administrator'){
+        if(profileName == 'B2BMA Integration User'){
             List<Lead> clonedLeads = new List<Lead>(); // leads to be created
             Set<Id> updateSet = new Set<Id>(); // leads to be updated
             
