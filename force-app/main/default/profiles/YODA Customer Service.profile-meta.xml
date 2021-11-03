@@ -2306,6 +2306,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Industry_Code__c.Business_Unit__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Industry_Code__c.Full_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2495,6 +2500,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.Estimated_Close_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Opportunity.End_User_Country__c</field>
         <readable>true</readable>
@@ -2630,6 +2640,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.OneSMS_Opportunity_Number__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Opportunity.Opportunity_Product_Count__c</field>
         <readable>true</readable>
@@ -2662,6 +2677,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Opportunity.Payment_Milestones__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.Project_Probability__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2807,6 +2827,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>OpportunityLineItem.Integration_G1SMS_Id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.YMA_CRM_Number__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
