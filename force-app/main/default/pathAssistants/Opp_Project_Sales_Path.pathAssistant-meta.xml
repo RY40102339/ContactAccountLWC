@@ -19,7 +19,7 @@
         <fieldNames>RFQ_Received_Date__c</fieldNames>
         <fieldNames>X3rd_Party_Buyouts_Required__c</fieldNames>
         <fieldNames>Non_standard_Products_Approved__c</fieldNames>
-        <fieldNames>Application__c</fieldNames>
+        <fieldNames>GMP_Category__c</fieldNames>
         <info>&lt;p&gt;The “Develop” stage represents the heart of the sales development process with the customer, including meetings, demonstrations, workshops, high level solutioning and feasibility, pursuit teams, developing customer champions, and consultative selling.&lt;/p&gt;&lt;p&gt;Here you can establish an opportunity team, map contact roles, identify competitors, track activities, tasks, notes, store related collateral, and collaborate with colleagues.&lt;/p&gt;&lt;p&gt;The develop stage is complete when the customer has requested a concrete proposal or quotation (not budgetary).&lt;/p&gt;</info>
         <picklistValueName>Develop</picklistValueName>
     </pathAssistantSteps>

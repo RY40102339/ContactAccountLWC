@@ -45,6 +45,7 @@
         <fieldNames>Quotation_Issued__c</fieldNames>
         <fieldNames>Quotation_Number__c</fieldNames>
         <fieldNames>Proposal_price_Authorized__c</fieldNames>
+        <fieldNames>GMP_Category__c</fieldNames>
         <info>&lt;p&gt;In this stage it´s time to create a quotation or proposal. A request has been received, and we know all requirements from the customer.&lt;/p&gt;&lt;p&gt;By adding opportunity products items in the Pricebook, a detailed record of the quoted items and the correct amount will be possible.&lt;/p&gt;&lt;p&gt;Please confirm export compliance and quotation / proposal issuance date to complete this stage.&lt;/p&gt;</info>
         <picklistValueName>Propose / Quote</picklistValueName>
     </pathAssistantSteps>

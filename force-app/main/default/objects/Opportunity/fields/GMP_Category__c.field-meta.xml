@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>GMP_Category__c</fullName>
+    <description>Identifies the Global Major Project (GMP) Category for this opportunity. If CAT2 or 4, GMP report is necessary. If CAT2, 3, or 4, YHQ Approval (Develop stage) is needed.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Global One SMS GMP Category. Added to support reporting</inlineHelpText>
+    <label>GMP Category</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>CAT0</fullName>
+                <default>false</default>
+                <label>CAT0</label>
+            </value>
+            <value>
+                <fullName>CAT1</fullName>
+                <default>false</default>
+                <label>CAT1</label>
+            </value>
+            <value>
+                <fullName>CAT2</fullName>
+                <default>false</default>
+                <label>CAT2</label>
+            </value>
+            <value>
+                <fullName>CAT3</fullName>
+                <default>false</default>
+                <label>CAT3</label>
+            </value>
+            <value>
+                <fullName>CAT4</fullName>
+                <default>false</default>
+                <label>CAT4</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

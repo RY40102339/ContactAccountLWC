@@ -9,6 +9,7 @@ NOT( $Setup.Bypass_Settings__c.Bypass_Validation_Rules__c ),
 RecordType.DeveloperName = &apos;Recurring_Business&apos;,
 ISPICKVAL(StageName,&apos;Negotiate&apos;),
 OR (
+ISPICKVAL(GMP_Category__c,&apos;&apos;),
 ISBLANK( Quotation_Issued__c),
 ISBLANK(Quotation_Number__c),
 NOT(Proposal_price_Authorized__c)
@@ -17,5 +18,6 @@ NOT(Proposal_price_Authorized__c)
     <errorMessage>To mark &apos;Negotiate&apos; stage, fill in these fields:
 • Quotation Issued
 • Quotation Number
-• Proposal Price Authorized</errorMessage>
+• Proposal Price Authorized
+• GMP Category</errorMessage>
 </ValidationRule>
