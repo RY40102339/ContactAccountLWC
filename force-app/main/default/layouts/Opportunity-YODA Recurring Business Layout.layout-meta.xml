@@ -22,7 +22,7 @@
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>Contact__c</field>
-            </layoutItems> 
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Parent_Opportunity_Program__c</field>
@@ -75,10 +75,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>GMP_Category__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Sales_Partner__c</field>
             </layoutItems>
         </layoutColumns>
@@ -127,6 +123,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Pricebook2Id</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>GMP_Category__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -573,7 +573,7 @@
     <summaryLayout>
         <masterLabel>00h1s000000Gltz</masterLabel>
         <sizeX>4</sizeX>
-        <sizeY>1</sizeY> 
+        <sizeY>1</sizeY>
         <summaryLayoutItems>
             <field>AccountId</field>
             <posX>0</posX>
