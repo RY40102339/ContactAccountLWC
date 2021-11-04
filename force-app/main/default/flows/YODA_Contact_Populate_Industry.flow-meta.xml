@@ -5,7 +5,7 @@
         <description>Bring over the Account&apos;s Industry to the Contact&apos;s Industry while creating contact.</description>
         <name>Assign_Industry_from_Account</name>
         <label>Assign Industry from Account</label>
-        <locationX>50</locationX>
+        <locationX>182</locationX>
         <locationY>551</locationY>
         <assignmentItems>
             <assignToReference>$Record.Industry__c</assignToReference>
@@ -14,6 +14,15 @@
                 <elementReference>ProcessIndustry</elementReference>
             </value>
         </assignmentItems>
+        <connector>
+            <targetReference>Profile_Check</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Opt_In</name>
+        <label>Assign Opt In</label>
+        <locationX>50</locationX>
+        <locationY>791</locationY>
         <assignmentItems>
             <assignToReference>$Record.HasOptedOutOfEmail</assignToReference>
             <operator>Assign</operator>
@@ -25,7 +34,7 @@
     <decisions>
         <name>Bypass_setting</name>
         <label>Bypass setting</label>
-        <locationX>182</locationX>
+        <locationX>336</locationX>
         <locationY>311</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
@@ -42,6 +51,28 @@
                 <targetReference>Get_Account_Record</targetReference>
             </connector>
             <label>Bypass false</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Profile_Check</name>
+        <label>Profile Check</label>
+        <locationX>182</locationX>
+        <locationY>671</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Not_B2B</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Profile.Name</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>B2BMA Integration User</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Opt_In</targetReference>
+            </connector>
+            <label>Not B2B</label>
         </rules>
     </decisions>
     <description>YODA Flow. Populates the Contact&apos;s Industry if it is not entered by user, by bringing over the value from Account
@@ -84,7 +115,7 @@ AND(
         <description>Save Account record to Collect industry value</description>
         <name>Get_Account_Record</name>
         <label>Get Account Record</label>
-        <locationX>50</locationX>
+        <locationX>182</locationX>
         <locationY>431</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -103,7 +134,7 @@ AND(
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <start>
-        <locationX>56</locationX>
+        <locationX>210</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Bypass_setting</targetReference>
