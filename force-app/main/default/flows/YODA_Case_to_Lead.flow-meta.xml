@@ -140,7 +140,8 @@
     </decisions>
     <description>It converts closed Case into Lead and it copy fields from contact and case object to lead object
 Hema 10/20/21 - Removed Mailing address validation.
-Hema 10/22/21 - Added null check for Case Origin on Case.</description>
+Hema 10/22/21 - Added null check for Case Origin on Case.
+Hema 11/04/21 - Updated error validation on Description field on Case.</description>
     <interviewLabel>YODA Case to Lead {!$Flow.CurrentDateTime}</interviewLabel>
     <label>YODA Case to Lead</label>
     <processMetadataValues>
@@ -449,7 +450,7 @@ Hema 10/22/21 - Added null check for Case Origin on Case.</description>
             <visibilityRule>
                 <conditionLogic>and</conditionLogic>
                 <conditions>
-                    <leftValueReference>GetCases.Contact.MailingCountry</leftValueReference>
+                    <leftValueReference>GetCases.Description</leftValueReference>
                     <operator>IsNull</operator>
                     <rightValue>
                         <booleanValue>true</booleanValue>
