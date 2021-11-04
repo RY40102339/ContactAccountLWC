@@ -41,7 +41,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Parent_Opportunity_Program__c</field> 
+                <field>Parent_Opportunity_Program__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -72,10 +72,6 @@
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>CloseDate</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>GMP_Category__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -123,6 +119,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Pricebook2Id</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>GMP_Category__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -373,7 +373,7 @@
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
-        <label>System Information</label> 
+        <label>System Information</label>
         <layoutColumns>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -594,7 +594,7 @@
         <summaryLayoutItems>
             <field>CloseDate</field>
             <posX>1</posX>
-            <posY>0</posY> 
+            <posY>0</posY>
         </summaryLayoutItems>
         <summaryLayoutItems>
             <field>Amount</field>
