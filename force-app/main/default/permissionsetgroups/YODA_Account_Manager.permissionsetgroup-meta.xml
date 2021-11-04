@@ -24,6 +24,7 @@
     <permissionSets>Price_Book_Read</permissionSets>
     <permissionSets>Product_Read</permissionSets> 
     <permissionSets>Scope_of_Product_Read</permissionSets>
+    <permissionSets>System_Convert_Leads</permissionSets>
     <permissionSets>System_Create_and_Customize_List_Views</permissionSets>
     <permissionSets>System_Create_and_Customize_Reports_and_Dashboards</permissionSets>
     <permissionSets>System_Transfer_Records</permissionSets>
