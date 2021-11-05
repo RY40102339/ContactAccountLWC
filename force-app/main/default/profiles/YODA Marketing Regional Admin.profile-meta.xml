@@ -3057,7 +3057,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Opportunity.Lead_Forwarded_To__c</field>
         <readable>true</readable>
     </fieldPermissions>
