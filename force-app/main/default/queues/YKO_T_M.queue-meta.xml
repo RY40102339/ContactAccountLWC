@@ -5,13 +5,10 @@
     <name>YKO T&amp;M</name>
     <queueMembers>
         <roles>
-            <role>Busan_Office_Leader</role>
-            <role>Daegu_Office_Leader</role>
-            <role>Daejeon_Office_Leader</role>
-            <role>MA_1_P_T_Leader</role>
-            <role>MA_2_P_T_Leader</role>
+            <role>PMK_Pre_Sales_P_T_Leader</role>
             <role>Sales_Department_1_Manager</role>
             <role>Sales_Department_2_Manager</role>
+            <role>YKO_PMK_Engineer</role>
         </roles>
     </queueMembers>
     <queueSobject>
