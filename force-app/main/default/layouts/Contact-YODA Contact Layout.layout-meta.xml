@@ -570,13 +570,6 @@
         <relatedList>RelatedHistoryList</relatedList>
     </relatedLists>
     <relatedLists>
-        <fields>WhatName</fields>
-        <fields>WhatType</fields>
-        <fields>ActivityType</fields>
-        <fields>ActivityDate</fields>
-        <relatedList>RelatedEngagementHistoryVirtualList</relatedList>
-    </relatedLists>
-    <relatedLists>
         <relatedList>RelatedFileList</relatedList>
     </relatedLists>
     <relatedLists>
