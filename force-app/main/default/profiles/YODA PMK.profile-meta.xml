@@ -346,6 +346,11 @@
         <readable>true</readable>
     </fieldPermissions> 
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Asset.PlantAccount__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Asset.Product_Carrier__c</field>
         <readable>true</readable>
