@@ -91,6 +91,10 @@
                 <behavior>Edit</behavior>
                 <field>Region__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Salutation__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -296,10 +300,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>pi__last_activity__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>pi__conversion_object_type__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
