@@ -81,6 +81,10 @@
                 <behavior>Edit</behavior>
                 <field>Internal_Comments__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Case_Number__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
@@ -281,10 +285,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Business_Unit__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Case_Number__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
