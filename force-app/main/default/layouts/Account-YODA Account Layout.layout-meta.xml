@@ -397,7 +397,7 @@
         <fields>CONTACT.NAME</fields>
         <fields>PRODUCT2.NAME</fields>
         <relatedList>Asset.Ship_To_Party_Customer__c</relatedList>
-    </relatedLists>-->
+    </relatedLists>
     <relatedLists>
         <fields>ASSET.NAME</fields>
         <fields>ASSET.SERIAL_NUMBER</fields>
@@ -406,7 +406,7 @@
         <fields>CONTACT.NAME</fields>
         <fields>PRODUCT2.NAME</fields>
         <relatedList>Asset.Sold_To_Party2_Customer__c</relatedList>
-    </relatedLists>
+    </relatedLists>-->
     <relatedLists>
         <fields>ASSET.NAME</fields>
         <fields>ASSET.SERIAL_NUMBER</fields>
