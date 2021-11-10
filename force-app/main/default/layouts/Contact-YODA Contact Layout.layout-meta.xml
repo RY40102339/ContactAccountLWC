@@ -4,7 +4,7 @@
     <customButtons>pi__Send_to_Prospect_Insight</customButtons>
     <excludeButtons>ChangeOwnerOne</excludeButtons>
     <excludeButtons>ChangeRecordType</excludeButtons>
-    <excludeButtons>Clone</excludeButtons> 
+    <excludeButtons>Clone</excludeButtons>
     <excludeButtons>ContactHierarchy</excludeButtons>
     <excludeButtons>CreateCallList</excludeButtons>
     <excludeButtons>CreateSurveyInvitation</excludeButtons>
@@ -123,6 +123,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Fax</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Self_Registered_Company__c</field>
             </layoutItems>
         </layoutColumns>
@@ -234,11 +238,11 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>HasOptedOutOfEmail</field>
+                <field>DoNotCall</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>DoNotCall</field>
+                <field>HasOptedOutOfEmail</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -291,6 +295,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>pi__conversion_object_type__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>pi__created_date__c</field>
             </layoutItems>
             <layoutItems>
@@ -325,7 +333,15 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>pi__Pardot_Last_Scored_At__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>pi__url__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>pi__Needs_Score_Synced__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -407,6 +423,11 @@
     <platformActionList>
         <actionListContext>Record</actionListContext>
         <platformActionListItems>
+            <actionName>Edit</actionName>
+            <actionType>StandardButton</actionType>
+            <sortOrder>0</sortOrder>
+        </platformActionListItems>
+        <platformActionListItems>
             <actionName>NewCase</actionName>
             <actionType>QuickAction</actionType>
             <sortOrder>1</sortOrder>
@@ -445,11 +466,6 @@
             <actionName>Contact.pi__Add_to_Nurture_List</actionName>
             <actionType>QuickAction</actionType>
             <sortOrder>8</sortOrder>
-        </platformActionListItems>
-        <platformActionListItems>
-            <actionName>Edit</actionName>
-            <actionType>StandardButton</actionType>
-            <sortOrder>0</sortOrder>
         </platformActionListItems>
         <platformActionListItems>
             <actionName>AddToNurtureList</actionName>
@@ -552,6 +568,13 @@
         <fields>CORE.USERS.FULL_NAME</fields>
         <fields>TASK.LAST_UPDATE</fields>
         <relatedList>RelatedHistoryList</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>WhatName</fields>
+        <fields>WhatType</fields>
+        <fields>ActivityType</fields>
+        <fields>ActivityDate</fields>
+        <relatedList>RelatedEngagementHistoryVirtualList</relatedList>
     </relatedLists>
     <relatedLists>
         <relatedList>RelatedFileList</relatedList>

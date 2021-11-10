@@ -62,18 +62,6 @@
                         <valueListItems>
                             <value>EmailHighlightAction</value>
                         </valueListItems>
-                        <valueListItems>
-                            <value>AddToList</value>
-                        </valueListItems>
-                        <valueListItems>
-                            <value>AddToNurtureList</value>
-                        </valueListItems>
-                        <valueListItems>
-                            <value>CustomButton.Lead.pi__Send_to_Prospect_Insight</value>
-                        </valueListItems>
-                        <valueListItems>
-                            <value>CustomButton.Lead.pi__Send_Pardot_Email</value>
-                        </valueListItems>
                     </valueList>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
