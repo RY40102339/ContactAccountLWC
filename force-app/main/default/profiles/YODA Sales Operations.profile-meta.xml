@@ -406,6 +406,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Asset.PlantAccount__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Asset.Price</field>
         <readable>true</readable>
@@ -475,6 +480,11 @@
         <field>Asset.Shipping_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <!--<fieldPermissions>
+        <editable>false</editable>
+        <field>Asset.Ship_To_Party_Customer__c</field>
+        <readable>false</readable>
+    </fieldPermissions>-->
     <fieldPermissions>
         <editable>true</editable>
         <field>Asset.Software_License_Expiry__c</field>
