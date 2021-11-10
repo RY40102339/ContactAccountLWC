@@ -496,6 +496,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Asset.Ship_To_Party_Customer__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Asset.Software_License_Expiry__c</field>
         <readable>true</readable>
     </fieldPermissions>
