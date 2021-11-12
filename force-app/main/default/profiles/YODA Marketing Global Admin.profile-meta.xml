@@ -4037,6 +4037,22 @@
         <layout>Industry_Code__c-Industry Code Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Knowledge__kav-YODA Knowledge Article Layout</layout>
+        <recordType>Knowledge__kav.Administrative</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Knowledge__kav-YODA Knowledge Article Layout</layout>
+        <recordType>Knowledge__kav.Bug_report</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Knowledge__kav-YODA Knowledge Article Layout</layout>
+        <recordType>Knowledge__kav.Feature_request</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Knowledge__kav-YODA Knowledge Article Layout</layout>
+        <recordType>Knowledge__kav.Technical_article</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Lead-YODA Lead Page Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
