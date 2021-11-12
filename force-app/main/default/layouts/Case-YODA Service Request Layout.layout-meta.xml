@@ -365,6 +365,9 @@
         </relatedContentItems>
     </relatedContent>
     <relatedLists>
+        <relatedList>RelatedCommentsList</relatedList>
+    </relatedLists>
+    <relatedLists>
         <fields>Name</fields>
         <fields>Subject</fields>
         <fields>Account</fields>
