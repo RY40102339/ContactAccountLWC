@@ -378,15 +378,15 @@
     </relatedLists>
     <relatedLists>
         <fields>ASSET.NAME</fields>
+        <fields>PRODUCT2.NAME</fields>
         <fields>ASSET.SERIAL_NUMBER</fields>
+        <fields>ASSET.INSTALL_DATE</fields>
+        <fields>MS_Code__c</fields>
+        <fields>Production_Date__c</fields>
         <fields>ASSET.QUANTITY</fields>
         <fields>CONTACT.NAME</fields>
         <fields>ASSET.STATUS</fields>
-        <fields>PlantAccount__c</fields>
-        <fields>PRODUCT2.CUSTOMER_PRODUCT_ID</fields>
-        <fields>Project__c</fields>
-        <fields>ASSET.CREATED_DATE</fields>
-        <fields>ASSET.LAST_UPDATE</fields>
+        <fields>ASSET.IS_COMPETITOR_PRODUCT</fields>
         <relatedList>RelatedAssetList</relatedList>
     </relatedLists>
     <!--<relatedLists>
