@@ -57,6 +57,10 @@ public class YODA_Contact_TriggerHelper_Test {
                                             Email='Test@test.com',MailingCountry=countryList[Math.mod(i,20)],Multiple_Inquiry__c=false));
                     
                 }
+        conList[0].MailingCountry = 'United Kingdom';
+        conList[0].MailingStreet = '221 Baker Street';
+        conList[0].MailingPostalCode = 'NW1 6XE';
+        conList[0].MailingCity = 'London';
         insert conList;
         
         List<YODA_Contact_TriggerHelper.CloneRecordFlowVariable> FlowList = new List<YODA_Contact_TriggerHelper.CloneRecordFlowVariable>();
