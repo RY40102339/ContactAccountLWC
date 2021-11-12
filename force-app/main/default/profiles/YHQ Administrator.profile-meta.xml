@@ -3989,6 +3989,22 @@
         <layout>Competitor__c-YODA Competitor Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Case-YODA General Inquiry</layout>
+        <recordType>Case.General_Inquiry</recordType>
+    </layoutAssignments>
+     <layoutAssignments>
+        <layout>Case-YODA Sales Request Layout</layout>
+        <recordType>Case.Sales_Request</recordType>
+    </layoutAssignments>
+     <layoutAssignments>
+        <layout>Case-YODA Service Request Layout</layout>
+        <recordType>Case.Service_Request</recordType>
+    </layoutAssignments>
+     <layoutAssignments>
+        <layout>Case-YODA Technical Support Layout</layout>
+        <recordType>Case.Technical_Support</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Contact-YODA Contact Layout</layout>
         <recordType>Contact.Customer_Contact</recordType>
     </layoutAssignments>
