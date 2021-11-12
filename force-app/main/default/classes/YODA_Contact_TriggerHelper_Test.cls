@@ -20,6 +20,7 @@
 *  9/27/2021            Hemalatha Gorthy        Added Account address
 *  9/30/2021			Kameron F.				Add coverage for Bypass
 *  10/22/2021			Kameron F.				Added test for multiple inquiries
+*  11/12/2021           Kameron F.              Added Test for Contact to Lead Address mapping
 */
 @isTest
 public class YODA_Contact_TriggerHelper_Test {
@@ -56,6 +57,10 @@ public class YODA_Contact_TriggerHelper_Test {
                                             Email='Test@test.com',MailingCountry=countryList[Math.mod(i,20)],Multiple_Inquiry__c=false));
                     
                 }
+        conList[0].MailingCountry = 'United Kingdom';
+        conList[0].MailingStreet = '221 Baker Street';
+        conList[0].MailingPostalCode = 'NW1 6XE';
+        conList[0].MailingCity = 'London';
         insert conList;
         
         List<YODA_Contact_TriggerHelper.CloneRecordFlowVariable> FlowList = new List<YODA_Contact_TriggerHelper.CloneRecordFlowVariable>();
@@ -96,17 +101,23 @@ public class YODA_Contact_TriggerHelper_Test {
             }catch(Exception e){}
             
             
-            List<Lead> ldList = [SELECT Id, OwnerId, Owner.Name, LastName FROM Lead];
+            List<Lead> ldList = [SELECT Id, Country, Street, PostalCode, City, OwnerId, Owner.Name, LastName FROM Lead];
             Integer count = 0;
             String ownerList = '';
             System.debug(ldList);
+            Lead addressLead;
             for(Lead ld:ldList){
                 if(Group.SObjectType==ld.OwnerId.getSobjectType()){
                     count++;
                 }
+                if(ld.Street==conList[0].MailingStreet&&ld.Country==conList[0].MailingCountry&&
+                    ld.PostalCode == conList[0].MailingPostalCode && ld.City==conList[0].MailingCity){
+                    addressLead = ld;
+                }
                 ownerList += ld.Owner.Name+' ';  
             }
         
+			System.assertNotEquals(null, addressLead);
             System.debug(ownerList);        
             System.assertEquals(40, count, 'Owner is changed to Lead Queue');
             
