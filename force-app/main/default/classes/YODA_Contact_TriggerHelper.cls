@@ -21,6 +21,7 @@
 *  9/30/2021			Kameron F.				Fixed bulk insert issue
 *  10/12/2021			Kameron F.				Added Multiple Inquiry
 *  10/27/2021			Kameron F.				Added Contact to Lead & Delete Dummy Account 
+*  11/12/2021           Kameron F.              Enhancement issue to include add all address fields map from contact to Lead as part of I-425040
 */
 
 public with sharing class YODA_Contact_TriggerHelper {
