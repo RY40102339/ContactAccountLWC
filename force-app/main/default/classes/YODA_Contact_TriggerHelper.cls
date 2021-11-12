@@ -123,13 +123,13 @@ public with sharing class YODA_Contact_TriggerHelper {
     
     // Creats a lead based on the provided contact
     public static Lead createLead(Contact con, String accName, Id camp,String ratingStr){
-        Lead newLd = new Lead(Campaign__c= camp,Category_Of_Interest__c=con.Category_of_Interest__c,
+        Lead newLd = new Lead(Campaign__c= camp,Category_Of_Interest__c=con.Category_of_Interest__c, City = con.MailingCity,
                                      Company = accName, Related_Contact__c = con.id, Country=con.MailingCountry,Department__c = con.Department,Description= con.Description,
                                      DoNotCall = con.DoNotCall, Double_Opt_In_Date__c = con.Double_Opt_In_Date__c, Double_Opt_In_Source__c = con.Double_Opt_In_Source__c, 
                               		 Double_Opt_In_Status__c = con.Double_Opt_In_Status__c, Email = con.Email,FirstName = con.FirstName,HasOptedOutOfEmail = con.HasOptedOutOfEmail,
                                      Internal_Comments__c = con.Internal_Comments__c, Kana_Name__c = con.Kana_Name__c, LastName = con.LastName, MobilePhone = con.MobilePhone, Multiple_Inquiry__c = true, 
-                                     Phone = con.Phone, Preference__c = con.Preference__c,Product_of_Interest__c = con.Product_of_Interest__c,
-                                     Rating = ratingStr, Requested_Contact__c = con.Requested_Contact__c, Status = 'New', Title = con.Title);    
+                                     Phone = con.Phone, PostalCode = con.MailingPostalCode,Preference__c = con.Preference__c,Product_of_Interest__c = con.Product_of_Interest__c,
+                                     Rating = ratingStr, Requested_Contact__c = con.Requested_Contact__c, State = con.MailingState, Status = 'New', Street = con.MailingStreet,Title = con.Title);    
         
         
         if(newLd.Category_of_Interest__c =='Oscilloscopes' ||
