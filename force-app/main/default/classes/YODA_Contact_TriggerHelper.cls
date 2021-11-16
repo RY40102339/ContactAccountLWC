@@ -22,6 +22,7 @@
 *  10/12/2021			Kameron F.				Added Multiple Inquiry
 *  10/27/2021			Kameron F.				Added Contact to Lead & Delete Dummy Account 
 *  11/12/2021           Kameron F.              Enhancement issue to include add all address fields map from contact to Lead as part of I-425040
+*  11/16/2021           Kameron F.              Tweaked query to avoid governance issue
 */
 
 public with sharing class YODA_Contact_TriggerHelper {
@@ -175,10 +176,22 @@ public with sharing class YODA_Contact_TriggerHelper {
         String DummyAccountName = 'Pardot';
         // DummyAccount = '- Dummy'
         List<ID> accIdList = new List<ID>();
+        
+        List<AccountContactRelation> ACRList = [SELECT AccountID, Account.Name, ContactID FROM AccountContactRelation WHERE ContactID in :ContactList];
+        Map<Id,List<AccountContactRelation>> ACRMap = new Map<Id,List<AccountContactRelation>>();
+        
+        for(AccountContactRelation ACR:ACRList){
+            // if map value exist, then get it. If not, then create new one
+            List<AccountContactRelation> tempACRList = ACRMap.get(ACR.ContactID)==null ? new List<AccountContactRelation>() : ACRMap.get(ACR.ContactID);
+            tempACRList.add(ACR);
+            ACRMap.put(ACR.ContactID, tempACRList);
+        }
+		System.debug(ACRMap);        
         for(ID con:ContactList){
-            List<AccountContactRelation> ACR = [SELECT AccountID, Account.Name, ContactID FROM AccountContactRelation WHERE ContactID = :con];
-            if(ACR.size()>1){
-                for(AccountContactRelation indACR : ACR){
+            List<AccountContactRelation> tempACRList = ACRMap.get(con)==null ? new List<AccountContactRelation>() : ACRMap.get(con);
+            
+            if(tempACRList.size()>1){
+                for(AccountContactRelation indACR : tempACRList){
                     if(indACR.Account.Name.contains(DummyAccountName)){
                         accIdList.add(indACR.AccountID);
                     }
