@@ -3,6 +3,7 @@
     <doesSendEmailToMembers>true</doesSendEmailToMembers>
     <email>support_yoda@ml.jp.yokogawa.com</email>
     <name>Service YIL T&amp;M</name>
+    <queueRoutingConfig>QueueRouting</queueRoutingConfig>
     <queueSobject>
         <sobjectType>Case</sobjectType>
     </queueSobject>

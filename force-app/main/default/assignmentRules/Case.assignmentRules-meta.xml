@@ -419,10 +419,18 @@ AND(NOT(ISBLANK(Contact.MailingCountry)),CONTAINS(&quot;Mexico&quot;, Contact.Ma
         <ruleEntry>
             <assignedTo>Service_YIL_T_M</assignedTo>
             <assignedToType>Queue</assignedToType>
-            <formula>IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
+            <formula>IF( ISPICKVAL(Origin, &quot;Web&quot;) ,  
 
-AND(NOT(ISBLANK(Web_Country__c)),
-CONTAINS(&quot;Albania,Andorra,Austria,Bosnia and Herzegovina,Bulgaria,Croatia,Czechia,France,French Guiana,French Polynesia,French Southern Territories,Hungary,Ireland,Macedonia,Martinique,Mayotte,Monaco,Montenegro,New Caledonia,Norway,Poland,Portugal,Réunion,Romania,Serbia,Slovakia,Slovenia,Spain,Saint Pierre and Miquelon,Switzerland,Turkey,Wallis and Futuna,Bouvet Island,Denmark,Estonia,Faroe Islands,Finland,Greenland,Iceland,Israel,Latvia,Lithuania,Netherlands,Svalbard and Jan Mayen,Sweden&quot;, Web_Country__c)),
+AND(NOT(ISBLANK(Web_Country__c)), CONTAINS(&apos;Bangladesh,Bhutan,India,Nepal,Sri Lanka&apos;, Web_Country__c)),
+
+AND(NOT(ISBLANK(Contact.MailingCountry)), CONTAINS(&apos;Bangladesh,Bhutan,India,Nepal,Sri Lanka&apos;, Contact.MailingCountry)))</formula>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Service_YEF_NL_T_M</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <formula>IF( ISPICKVAL(Origin, &quot;Web&quot;) ,  
+
+AND(NOT(ISBLANK(Web_Country__c)), CONTAINS(&quot;Albania,Andorra,Austria,Bosnia and Herzegovina,Bulgaria,Croatia,Czechia,France,French Guiana,French Polynesia,French Southern Territories,Hungary,Ireland,Macedonia,Martinique,Mayotte,Monaco,Montenegro,New Caledonia,Norway,Poland,Portugal,Réunion,Romania,Serbia,Slovakia,Slovenia,Spain,Saint Pierre and Miquelon,Switzerland,Turkey,Wallis and Futuna,Bouvet Island,Denmark,Estonia,Faroe Islands,Finland,Greenland,Iceland,Israel,Latvia,Lithuania,Netherlands,Svalbard and Jan Mayen,Sweden&quot;, Web_Country__c)), 
 
 AND(NOT(ISBLANK(Contact.MailingCountry)),CONTAINS(&quot;Albania,Andorra,Austria,Bosnia and Herzegovina,Bulgaria,Croatia,Czechia,France,French Guiana,French Polynesia,French Southern Territories,Hungary,Ireland,Macedonia,Martinique,Mayotte,Monaco,Montenegro,New Caledonia,Norway,Poland,Portugal,Réunion,Romania,Serbia,Slovakia,Slovenia,Spain,Saint Pierre and Miquelon,Switzerland,Turkey,Wallis and Futuna,Bouvet Island,Denmark,Estonia,Faroe Islands,Finland,Greenland,Iceland,Israel,Latvia,Lithuania,Netherlands,Svalbard and Jan Mayen,Sweden&quot;, Contact.MailingCountry)))</formula>
         </ruleEntry>
