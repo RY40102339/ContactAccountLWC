@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Queue xmlns="http://soap.sforce.com/2006/04/metadata">
     <doesSendEmailToMembers>true</doesSendEmailToMembers>
+    <email>support_yoda@ml.jp.yokogawa.com</email>
     <name>YMI T&amp;M</name>
     <queueSobject>
         <sobjectType>Lead</sobjectType>
     </queueSobject>
 </Queue>
+<!-- I-425199-KF-REDO  -->
