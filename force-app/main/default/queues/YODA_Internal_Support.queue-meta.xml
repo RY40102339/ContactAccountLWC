@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Queue xmlns="http://soap.sforce.com/2006/04/metadata">
     <doesSendEmailToMembers>true</doesSendEmailToMembers>
-    <email>support_yoda@ml.jp.yokogawa.com</email>
-    <name>Service YEF NL T&amp;M</name>
-    <queueRoutingConfig>QueueRouting</queueRoutingConfig>
+    <email>support.yoda@ml.jp.yokogawa.com</email>
+    <name>YODA Internal Support</name>
     <queueSobject>
         <sobjectType>Case</sobjectType>
     </queueSobject>
