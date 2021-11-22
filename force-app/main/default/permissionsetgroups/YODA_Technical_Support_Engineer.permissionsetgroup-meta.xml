@@ -3,11 +3,14 @@
     <description>Permission Set Group for the &quot;Technical Support Engineer&quot; persona of the YODA program.</description>
     <label>YODA Technical Support Engineer</label>
     <permissionSets>Account_Edit</permissionSets>
+    <permissionSets>Asset_Create</permissionSets>
     <permissionSets>Asset_Edit</permissionSets>
     <permissionSets>Case_Create</permissionSets>
     <permissionSets>Case_Edit</permissionSets>
     <permissionSets>Category_Edit</permissionSets>
+    <permissionSets>Category_Read</permissionSets>
     <permissionSets>Change_Ownership</permissionSets>
+    <permissionSets>Contact_Create</permissionSets>
     <permissionSets>Contact_Edit</permissionSets>
     <permissionSets>Dialect_Read</permissionSets>
     <permissionSets>Industry_Code_Read</permissionSets>

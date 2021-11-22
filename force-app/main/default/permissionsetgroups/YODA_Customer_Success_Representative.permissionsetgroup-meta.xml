@@ -3,6 +3,7 @@
     <description>Permission Set Group for the &quot;Customer Success Representative&quot; persona of the YODA program.</description>
     <label>YODA Customer Service Representative</label>
     <permissionSets>Account_Edit</permissionSets>
+    <permissionSets>Asset_Create</permissionSets>
     <permissionSets>Asset_Edit</permissionSets>
     <permissionSets>Case_Create</permissionSets>
     <permissionSets>Case_Edit</permissionSets>
