@@ -9,6 +9,7 @@
     <permissionSets>Category_Read</permissionSets>
     <permissionSets>Competitor_Create</permissionSets>
     <permissionSets>Competitor_Edit</permissionSets>
+    <permissionSets>Contact_Create</permissionSets>
     <permissionSets>Contact_Edit</permissionSets>
     <permissionSets>Dialect_Read</permissionSets>
     <permissionSets>Industry_Code_Read</permissionSets>
