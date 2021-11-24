@@ -1,0 +1,20 @@
+<p>The following case has entered your territory's queue: </p>
+
+<p>Company:  {!Account.Name} </p>
+					
+<p>Contact Name:  {!Contact.Name} </p>
+
+<p>Case #:  {!Case.CaseNumber} </p>
+
+<p>Subject:  {!Case.Subject} </p>
+
+<p>Description: {!Case.Description}  </p>
+
+<br>
+<br>
+
+<p>
+                                         
+<b>Click on the link to access the case:  {!Case.Link}   </b>
+
+</p>
