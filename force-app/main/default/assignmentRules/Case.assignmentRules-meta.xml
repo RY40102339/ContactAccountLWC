@@ -492,7 +492,7 @@ AND(NOT(ISBLANK(Web_Country__c)),CONTAINS(&quot;China,Hong Kong,Macao,Mongolia&q
 
 
 AND(NOT(ISBLANK(Contact.MailingCountry)),CONTAINS(&quot;China,Hong Kong,Macao,Mongolia&quot;, Contact.MailingCountry)))</formula>
-            <template>Support_Emails/SUPPORT_New_Queue_Assignment_Notification</template>
+            <template>Service_Emails/YODA_Case_added_to_queue_notification</template>
         </ruleEntry>
         <ruleEntry>
             <assignedTo>Service_YEA_T_M</assignedTo>
