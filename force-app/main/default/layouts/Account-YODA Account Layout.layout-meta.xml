@@ -380,9 +380,9 @@
         <fields>ASSET.NAME</fields>
         <fields>PRODUCT2.NAME</fields>
         <fields>ASSET.SERIAL_NUMBER</fields>
-        <fields>ASSET.INSTALL_DATE</fields>
         <fields>MS_Code__c</fields>
         <fields>Production_Date__c</fields>
+        <fields>ASSET.INSTALL_DATE</fields>
         <fields>ASSET.QUANTITY</fields>
         <fields>CONTACT.NAME</fields>
         <fields>ASSET.STATUS</fields>
