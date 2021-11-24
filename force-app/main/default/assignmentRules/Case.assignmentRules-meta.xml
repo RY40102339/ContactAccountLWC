@@ -595,7 +595,6 @@ AND(NOT(ISBLANK(Contact.MailingCountry)),CONTAINS(&quot;Argentina,Bolivia,Brazil
                     <operation>equals</operation>
                     <value>YODA Internal Support</value>
                 </criteriaItems>
-                <template>unfiled$public/SUPPORT_New_assignment_notification</template>
         </ruleEntry>
     </assignmentRule>
 </AssignmentRules>
