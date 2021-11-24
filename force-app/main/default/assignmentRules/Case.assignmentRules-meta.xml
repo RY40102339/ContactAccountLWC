@@ -6,565 +6,247 @@
         <ruleEntry>
             <assignedTo>Service_YMI_T_M</assignedTo>
             <assignedToType>Queue</assignedToType>
-            <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) , 
-
-CONTAINS(&quot;AF,AQ,TL,FK,GE,IR,KI,MH,FM,NR,NU,KP,PW,PS,WS,SB,TW,TO,TV,VU&quot;,TEXT(Web_Country_tobedeleted__c)),
-
-
- 
-
-CONTAINS(&quot;Afghanistan,Antarctica,Timor-Leste,Falkland Islands (Malvinas),Georgia,Iran, Islamic Republic of,Kiribati,Nauru,Niue,Korea, Democratic People’s Republic of,Palestine,Samoa,Solomon Islands,Taiwan,Tonga,Tuvalu,Vanuatu&quot;, Contact.MailingCountry )
-
-),
-
- ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
-)</formula>
+            <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,  CONTAINS(&quot;AF,AQ,TL,FK,GE,IR,KI,MH,FM,NR,NU,KP,PW,PS,WS,SB,TW,TO,TV,VU&quot;,TEXT(Web_Country_tobedeleted__c)),     CONTAINS(&quot;Afghanistan,Antarctica,Timor-Leste,Falkland Islands (Malvinas),Georgia,Iran, Islamic Republic of,Kiribati,Nauru,Niue,Korea, Democratic People’s Republic of,Palestine,Samoa,Solomon Islands,Taiwan,Tonga,Tuvalu,Vanuatu&quot;, Contact.MailingCountry )  ),   ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;) )</formula>
         </ruleEntry>
         <ruleEntry>
             <assignedTo>Service_Japan_T_M</assignedTo>
             <assignedToType>Queue</assignedToType>
-            <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
-
-CONTAINS(&quot;JA&quot;,TEXT(Web_Country_tobedeleted__c)),
-
-
-
-
-CONTAINS(&quot;Japan&quot;, Contact.MailingCountry )
-
-),
-
-ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
-)</formula>
+            <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,  CONTAINS(&quot;JA&quot;,TEXT(Web_Country_tobedeleted__c)),     CONTAINS(&quot;Japan&quot;, Contact.MailingCountry )  ),  ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;) )</formula>
         </ruleEntry>
         <ruleEntry>
             <assignedTo>Service_YCA_T_M</assignedTo>
             <assignedToType>Queue</assignedToType>
-            <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
-
-CONTAINS(&quot;AW,VI,BS,BB,BZ,CR,DM,DO,SV,GD,GP,GU,GT,HT,HN,JM,UM,NI,MP,PA,PR,LC,VC,KN,AS,TT,US&quot;,TEXT(Web_Country_tobedeleted__c)),
-
-
-
-
-CONTAINS(&quot;Aruba,Virgin Islands, British,Bahamas,Barbados,Belize,Costa Rica,Dominica,Dominican Republic,El Salvador,Grenada,Guadeloupe,Guatemala,Haiti,Honduras,Jamaica,Nicaragua,Panama,Saint Lucia,Saint Vincent and the Grenadines,Saint Kitts and Nevis,Trinidad and Tobago,United States&quot;, Contact.MailingCountry )
-
-),
-
-ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
-)</formula>
+            <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,  CONTAINS(&quot;AW,VI,BS,BB,BZ,CR,DM,DO,SV,GD,GP,GU,GT,HT,HN,JM,UM,NI,MP,PA,PR,LC,VC,KN,AS,TT,US&quot;,TEXT(Web_Country_tobedeleted__c)),     CONTAINS(&quot;Aruba,Virgin Islands, British,Bahamas,Barbados,Belize,Costa Rica,Dominica,Dominican Republic,El Salvador,Grenada,Guadeloupe,Guatemala,Haiti,Honduras,Jamaica,Nicaragua,Panama,Saint Lucia,Saint Vincent and the Grenadines,Saint Kitts and Nevis,Trinidad and Tobago,United States&quot;, Contact.MailingCountry )  ),  ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;) )</formula>
         </ruleEntry>
         <ruleEntry>
             <assignedTo>Service_YCA_CA_T_M</assignedTo>
             <assignedToType>Queue</assignedToType>
-            <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
-
-CONTAINS(&quot;Canada&quot;,Web_Country__c),
-
-
-
-
-CONTAINS(&quot;Canada&quot;, Contact.MailingCountry )
-
-),
-
-ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
-)</formula>
+            <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,  CONTAINS(&quot;Canada&quot;,Web_Country__c),     CONTAINS(&quot;Canada&quot;, Contact.MailingCountry )  ),  ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;) )</formula>
         </ruleEntry>
         <ruleEntry>
             <assignedTo>Service_YCA_MX_T_M</assignedTo>
             <assignedToType>Queue</assignedToType>
-            <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
-
-CONTAINS(&quot;MX&quot;,TEXT(Web_Country_tobedeleted__c)),
-
-
-
-
-CONTAINS(&quot;Mexico&quot;, Contact.MailingCountry )
-
-),
-
-ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
-)</formula>
+            <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,  CONTAINS(&quot;MX&quot;,TEXT(Web_Country_tobedeleted__c)),     CONTAINS(&quot;Mexico&quot;, Contact.MailingCountry )  ),  ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;) )</formula>
         </ruleEntry>
         <ruleEntry>
             <assignedTo>Service_YIL_T_M</assignedTo>
             <assignedToType>Queue</assignedToType>
-            <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
-
-CONTAINS(&quot; AL,AD,AT,BA,BG,HR,CZ,FR,PF,GF,TF,HU,IE,MK,MQ,YT,MC,ME,NC,NO,PL,PT,RE,RO,RS,SK,SI,ES,PM,CH,TR,WF,BV,DK,EE,FO,FI,GL,IS,IL,LV,LT,NL,SJ,SE&quot;,TEXT(Web_Country_tobedeleted__c)),
-
-
-
-
-CONTAINS(&quot; Albania,Andorra,Austria,Bosnia and Herzegovina,Bulgaria,Croatia,Czech Republic,France,French Polynesia,French Guiana,French Southern Territories,Hungary,Ireland,Macedonia, the former Yugoslav Republic of,Martinique,Mayotte,Monaco,Montenegro,New Caledonia,Norway,Poland,Portugal,Reunion,Romania,Serbia,Slovakia,Slovenia,Spain,Saint Pierre and Miquelon,Switzerland,Turkey,Wallis and Futuna,Bouvet Island,Denmark,Estonia,Faroe Islands,Finland,Greenland,Iceland,Israel,Latvia,Lithuania,Netherlands,Svalbard and Jan Mayen,Sweden&quot;, Contact.MailingCountry )
-
-),
-
-ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
-)</formula>
+            <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,  CONTAINS(&quot; AL,AD,AT,BA,BG,HR,CZ,FR,PF,GF,TF,HU,IE,MK,MQ,YT,MC,ME,NC,NO,PL,PT,RE,RO,RS,SK,SI,ES,PM,CH,TR,WF,BV,DK,EE,FO,FI,GL,IS,IL,LV,LT,NL,SJ,SE&quot;,TEXT(Web_Country_tobedeleted__c)),     CONTAINS(&quot; Albania,Andorra,Austria,Bosnia and Herzegovina,Bulgaria,Croatia,Czech Republic,France,French Polynesia,French Guiana,French Southern Territories,Hungary,Ireland,Macedonia, the former Yugoslav Republic of,Martinique,Mayotte,Monaco,Montenegro,New Caledonia,Norway,Poland,Portugal,Reunion,Romania,Serbia,Slovakia,Slovenia,Spain,Saint Pierre and Miquelon,Switzerland,Turkey,Wallis and Futuna,Bouvet Island,Denmark,Estonia,Faroe Islands,Finland,Greenland,Iceland,Israel,Latvia,Lithuania,Netherlands,Svalbard and Jan Mayen,Sweden&quot;, Contact.MailingCountry )  ),  ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;) )</formula>
         </ruleEntry>
         <ruleEntry>
             <assignedTo>Service_YEF_B_T_M</assignedTo>
             <assignedToType>Queue</assignedToType>
-            <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
-
-CONTAINS(&quot; BE,LU&quot;,TEXT(Web_Country_tobedeleted__c)),
-
-
-
-
-CONTAINS(&quot; Belgium,Luxembourg&quot;, Contact.MailingCountry )
-
-),
-
-ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
-)</formula>
+            <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,  CONTAINS(&quot; BE,LU&quot;,TEXT(Web_Country_tobedeleted__c)),     CONTAINS(&quot; Belgium,Luxembourg&quot;, Contact.MailingCountry )  ),  ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;) )</formula>
         </ruleEntry>
         <ruleEntry>
             <assignedTo>Service_YEF_GB_T_M</assignedTo>
             <assignedToType>Queue</assignedToType>
-            <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
-
-CONTAINS(&quot; BM,IO,VG,KY,GI,MS,PN,SH,GS,TC,GB&quot;,TEXT(Web_Country_tobedeleted__c)),
-
-
-
-
-CONTAINS(&quot; Bermuda,British Indian Ocean Territory,Virgin Islands, British,Cayman Islands,Gibraltar,Montserrat,Pitcairn,Saint Helena, Ascension and Tristan da Cunha,South Georgia and the South Sandwich Islands,Turks and Caicos Islands,United Kingdom&quot;, Contact.MailingCountry )
-
-),
-
-ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
-)</formula>
+            <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,  CONTAINS(&quot; BM,IO,VG,KY,GI,MS,PN,SH,GS,TC,GB&quot;,TEXT(Web_Country_tobedeleted__c)),     CONTAINS(&quot; Bermuda,British Indian Ocean Territory,Virgin Islands, British,Cayman Islands,Gibraltar,Montserrat,Pitcairn,Saint Helena, Ascension and Tristan da Cunha,South Georgia and the South Sandwich Islands,Turks and Caicos Islands,United Kingdom&quot;, Contact.MailingCountry )  ),  ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;) )</formula>
         </ruleEntry>
         <ruleEntry>
             <assignedTo>Service_YEF_G_T_M</assignedTo>
             <assignedToType>Queue</assignedToType>
-            <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
-
-CONTAINS(&quot; DE,LI&quot;,TEXT(Web_Country_tobedeleted__c)),
-
-
-
-
-CONTAINS(&quot; Germany,Liechtenstein&quot;, Contact.MailingCountry )
-
-),
-
-ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
-)</formula>
+            <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,  CONTAINS(&quot; DE,LI&quot;,TEXT(Web_Country_tobedeleted__c)),     CONTAINS(&quot; Germany,Liechtenstein&quot;, Contact.MailingCountry )  ),  ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;) )</formula>
         </ruleEntry>
         <ruleEntry>
             <assignedTo>Service_YEF_I_T_M</assignedTo>
             <assignedToType>Queue</assignedToType>
-            <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
-
-CONTAINS(&quot; CY,GR,IT,MT,SM,VA&quot;,TEXT(Web_Country_tobedeleted__c)),
-
-
-
-
-CONTAINS(&quot; Cyprus,Greece,Italy,Malta,San Marino,Holy See (Vatican City State)&quot;, Contact.MailingCountry )
-
-),
-
-ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
-)</formula>
+            <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,  CONTAINS(&quot; CY,GR,IT,MT,SM,VA&quot;,TEXT(Web_Country_tobedeleted__c)),     CONTAINS(&quot; Cyprus,Greece,Italy,Malta,San Marino,Holy See (Vatican City State)&quot;, Contact.MailingCountry )  ),  ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;) )</formula>
         </ruleEntry>
         <ruleEntry>
             <assignedTo>Service_YSH_T_M</assignedTo>
             <assignedToType>Queue</assignedToType>
-            <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
-
-CONTAINS(&quot; CN,HK,MO,MN&quot;,TEXT(Web_Country_tobedeleted__c)),
-
-
-
-
-CONTAINS(&quot; China,Macao,Mongolia&quot;, Contact.MailingCountry )
-
-),
-
-ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
-)</formula>
+            <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,  CONTAINS(&quot; CN,HK,MO,MN&quot;,TEXT(Web_Country_tobedeleted__c)),     CONTAINS(&quot; China,Macao,Mongolia&quot;, Contact.MailingCountry )  ),  ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;) )</formula>
         </ruleEntry>
         <ruleEntry>
             <assignedTo>Service_YEA_T_M</assignedTo>
             <assignedToType>Queue</assignedToType>
-            <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
-
-CONTAINS( &quot;AU,CC,CX,FJ,HM,ID,NF,PG,MV,SG&quot; ,TEXT(Web_Country_tobedeleted__c)),
-
-
-
-
-CONTAINS( &quot;Australia,Cocos (Keeling) Islands,Christmas Island,Fiji,Heard Island and McDonald Islands,Indonesia,Norfolk Island,Papua New Guinea,Maldives,Singapore&quot; , Contact.MailingCountry )
-
-),
-
-ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
-)</formula>
+            <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,  CONTAINS( &quot;AU,CC,CX,FJ,HM,ID,NF,PG,MV,SG&quot; ,TEXT(Web_Country_tobedeleted__c)),     CONTAINS( &quot;Australia,Cocos (Keeling) Islands,Christmas Island,Fiji,Heard Island and McDonald Islands,Indonesia,Norfolk Island,Papua New Guinea,Maldives,Singapore&quot; , Contact.MailingCountry )  ),  ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;) )</formula>
         </ruleEntry>
         <ruleEntry>
             <assignedTo>Service_YEM_T_M</assignedTo>
             <assignedToType>Queue</assignedToType>
-            <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
-
-CONTAINS(&quot; BN,MY&quot;,TEXT(Web_Country_tobedeleted__c)),
-
-
-
-
-CONTAINS(&quot; Brunei Darussalam,Malaysia&quot;, Contact.MailingCountry )
-
-),
-
-ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
-)</formula>
+            <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,  CONTAINS(&quot; BN,MY&quot;,TEXT(Web_Country_tobedeleted__c)),     CONTAINS(&quot; Brunei Darussalam,Malaysia&quot;, Contact.MailingCountry )  ),  ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;) )</formula>
         </ruleEntry>
         <ruleEntry>
             <assignedTo>Service_YNZ_T_M</assignedTo>
             <assignedToType>Queue</assignedToType>
-            <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
-
-CONTAINS(&quot; CK,NZ,TK&quot;,TEXT(Web_Country_tobedeleted__c)),
-
-
-
-
-CONTAINS(&quot; Cook Islands,New Zealand,Tokelau&quot;, Contact.MailingCountry )
-
-),
-
-ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
-)</formula>
+            <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,  CONTAINS(&quot; CK,NZ,TK&quot;,TEXT(Web_Country_tobedeleted__c)),     CONTAINS(&quot; Cook Islands,New Zealand,Tokelau&quot;, Contact.MailingCountry )  ),  ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;) )</formula>
         </ruleEntry>
         <ruleEntry>
             <assignedTo>Service_YPI_T_M</assignedTo>
             <assignedToType>Queue</assignedToType>
-            <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
-
-CONTAINS(&quot; PH&quot;,TEXT(Web_Country_tobedeleted__c)),
-
-
-
-
-CONTAINS(&quot; Philippines&quot;, Contact.MailingCountry )
-
-),
-
-ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
-)</formula>
+            <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,  CONTAINS(&quot; PH&quot;,TEXT(Web_Country_tobedeleted__c)),     CONTAINS(&quot; Philippines&quot;, Contact.MailingCountry )  ),  ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;) )</formula>
         </ruleEntry>
         <ruleEntry>
             <assignedTo>Service_YVN_T_M</assignedTo>
             <assignedToType>Queue</assignedToType>
-            <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
-
-CONTAINS(&quot; KH,LA,MM,TH&quot;,TEXT(Web_Country_tobedeleted__c)),
-
-
-
-
-CONTAINS(&quot; Cambodia,Lao People’s Democratic Republic,Myanmar,Thailand&quot;, Contact.MailingCountry )
-
-),
-
-ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
-)</formula>
+            <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,  CONTAINS(&quot; KH,LA,MM,TH&quot;,TEXT(Web_Country_tobedeleted__c)),     CONTAINS(&quot; Cambodia,Lao People’s Democratic Republic,Myanmar,Thailand&quot;, Contact.MailingCountry )  ),  ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;) )</formula>
         </ruleEntry>
         <ruleEntry>
             <assignedTo>Service_YTH_T_M</assignedTo>
             <assignedToType>Queue</assignedToType>
-            <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
-
-CONTAINS(&quot; VN&quot;,TEXT(Web_Country_tobedeleted__c)),
-
-
-
-
-CONTAINS(&quot; Vietnam&quot;, Contact.MailingCountry )
-
-),
-
-ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
-)</formula>
+            <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,  CONTAINS(&quot; VN&quot;,TEXT(Web_Country_tobedeleted__c)),     CONTAINS(&quot; Vietnam&quot;, Contact.MailingCountry )  ),  ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;) )</formula>
         </ruleEntry>
         <ruleEntry>
             <assignedTo>Service_YKO_T_M</assignedTo>
             <assignedToType>Queue</assignedToType>
-            <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
-
-CONTAINS(&quot; KR&quot;,TEXT(Web_Country_tobedeleted__c)),
-
-
-
-
-CONTAINS(&quot; Korea, Republic of&quot;, Contact.MailingCountry )
-
-),
-
-ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
-)</formula>
+            <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,  CONTAINS(&quot; KR&quot;,TEXT(Web_Country_tobedeleted__c)),     CONTAINS(&quot; Korea, Republic of&quot;, Contact.MailingCountry )  ),  ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;) )</formula>
         </ruleEntry>
         <ruleEntry>
             <assignedTo>Service_YMA_T_M</assignedTo>
             <assignedToType>Queue</assignedToType>
-            <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
-
-CONTAINS(&quot; DZ,AO,BH,BJ,BW,BF,BI,CM,CV,CF,TD,KM,CD,CI,DJ,EG,GQ,ER,ET,PK,GA,GM,GH,GN,GW,IQ,JO,KE,KW,LB,LS,LR,LY,MG,MW,ML,MU,MR,MA,MZ,NA,NE,NG,OM,QA,RW,CG,ST,SA,SN,SC,SL,SO,ZA,SD,SS,SZ,SY,TZ,TG,TN,AE,UG,EH,YE,ZM,ZW&quot;,TEXT(Web_Country_tobedeleted__c)),
-
-
-
-
-CONTAINS(&quot; Algeria,Angola,Bahrain,Benin,Botswana,Burkina Faso,Burundi,Cameroon,Cape Verde,Central African Republic,Chad,Comoros,Congo, the Democratic Republic of the,Cote d’Ivoire,Djibouti,Egypt,Equatorial Guinea,Eritrea,Ethiopia,Pakistan,Gabon,Gambia,Ghana,Guinea,Guinea-Bissau,Iraq,Jordan,Kenya,Kuwait,Lebanon,Lesotho,Liberia,Libya,Madagascar,Malawi,Mali,Mauritius,Mauritania,Morocco,Mozambique,Namibia,Niger,Nigeria,Oman,Qatar,Rwanda,Congo,Sao Tome and Principe,Saudi Arabia,Senegal,Seychelles,Sierra Leone,Somalia,South Africa,Sudan,South Sudan,Swaziland,Syrian Arab Republic,Tanzania, United Republic of,Togo,Tunisia,United Arab Emirates,Uganda,Western Sahara,Yemen,Zambia,Zimbabwe&quot;, Contact.MailingCountry )
-
-),
-
-ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
-)</formula>
+            <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,  CONTAINS(&quot; DZ,AO,BH,BJ,BW,BF,BI,CM,CV,CF,TD,KM,CD,CI,DJ,EG,GQ,ER,ET,PK,GA,GM,GH,GN,GW,IQ,JO,KE,KW,LB,LS,LR,LY,MG,MW,ML,MU,MR,MA,MZ,NA,NE,NG,OM,QA,RW,CG,ST,SA,SN,SC,SL,SO,ZA,SD,SS,SZ,SY,TZ,TG,TN,AE,UG,EH,YE,ZM,ZW&quot;,TEXT(Web_Country_tobedeleted__c)),     CONTAINS(&quot; Algeria,Angola,Bahrain,Benin,Botswana,Burkina Faso,Burundi,Cameroon,Cape Verde,Central African Republic,Chad,Comoros,Congo, the Democratic Republic of the,Cote d’Ivoire,Djibouti,Egypt,Equatorial Guinea,Eritrea,Ethiopia,Pakistan,Gabon,Gambia,Ghana,Guinea,Guinea-Bissau,Iraq,Jordan,Kenya,Kuwait,Lebanon,Lesotho,Liberia,Libya,Madagascar,Malawi,Mali,Mauritius,Mauritania,Morocco,Mozambique,Namibia,Niger,Nigeria,Oman,Qatar,Rwanda,Congo,Sao Tome and Principe,Saudi Arabia,Senegal,Seychelles,Sierra Leone,Somalia,South Africa,Sudan,South Sudan,Swaziland,Syrian Arab Republic,Tanzania, United Republic of,Togo,Tunisia,United Arab Emirates,Uganda,Western Sahara,Yemen,Zambia,Zimbabwe&quot;, Contact.MailingCountry )  ),  ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;) )</formula>
         </ruleEntry>
         <ruleEntry>
             <assignedTo>Service_YRU_T_M</assignedTo>
             <assignedToType>Queue</assignedToType>
-            <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
-
-CONTAINS(&quot; AM,AZ,BY,KZ,KG,MD,RU,TJ,TM,UA,UZ&quot;,TEXT(Web_Country_tobedeleted__c)),
-
-
-
-
-CONTAINS(&quot; Armenia,Azerbaijan,Belarus,Kazakhstan,Kyrgyzstan,Moldova, Republic of,Russian Federation,Tajikistan,Turkmenistan,Ukraine,Uzbekistan&quot;, Contact.MailingCountry )
-
-),
-
-ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
-)</formula>
+            <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,  CONTAINS(&quot; AM,AZ,BY,KZ,KG,MD,RU,TJ,TM,UA,UZ&quot;,TEXT(Web_Country_tobedeleted__c)),     CONTAINS(&quot; Armenia,Azerbaijan,Belarus,Kazakhstan,Kyrgyzstan,Moldova, Republic of,Russian Federation,Tajikistan,Turkmenistan,Ukraine,Uzbekistan&quot;, Contact.MailingCountry )  ),  ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;) )</formula>
         </ruleEntry>
         <ruleEntry>
             <assignedTo>Service_YSA_T_M</assignedTo>
             <assignedToType>Queue</assignedToType>
-            <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
-
-CONTAINS(&quot; AR,BO,BR,CL,CO,CU,EC,GY,PY,PE,SR,UY,VE&quot;,TEXT(Web_Country_tobedeleted__c)),
-
-
-
-
-CONTAINS(&quot; Argentina,Bolivia, Plurinational State of,Brazil,Chile,Colombia,Cuba,Ecuador,Guyana,Paraguay,Peru,Suriname,Uruguay,Venezuela, Bolivarian Republic of&quot;, Contact.MailingCountry )
-
-),
-
-ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;)
-)</formula>
+            <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,  CONTAINS(&quot; AR,BO,BR,CL,CO,CU,EC,GY,PY,PE,SR,UY,VE&quot;,TEXT(Web_Country_tobedeleted__c)),     CONTAINS(&quot; Argentina,Bolivia, Plurinational State of,Brazil,Chile,Colombia,Cuba,Ecuador,Guyana,Paraguay,Peru,Suriname,Uruguay,Venezuela, Bolivarian Republic of&quot;, Contact.MailingCountry )  ),  ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;) )</formula>
         </ruleEntry>
     </assignmentRule>
+
     <assignmentRule>
         <fullName>YODA_Case_Assignment_Rules_V1</fullName>
         <active>true</active>
         <ruleEntry>
             <assignedTo>Service_YMI_T_M</assignedTo>
             <assignedToType>Queue</assignedToType>
-            <formula>IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
-
-AND(NOT(ISBLANK(Web_Country__c)),CONTAINS(&quot;Afghanistan,Antarctica,Timor-Leste,Falkland Islands,Georgia,Iran,Kiribati,Marshall Islands,Micronesia,Nauru,Niue,Korea (the Democratic People&apos;s Republic of),Palau,Palestine, State of,Samoa,Solomon Islands,Taiwan,Tonga,Tuvalu,Vanuatu&quot;, Web_Country__c)),
-
-
-AND(NOT(ISBLANK(Contact.MailingCountry)),CONTAINS(&quot;Afghanistan,Antarctica,Timor-Leste,Falkland Islands,Georgia,Iran,Kiribati,Marshall Islands,Micronesia,Nauru,Niue,Korea (the Democratic People&apos;s Republic of),Palau,Palestine, State of,Samoa,Solomon Islands,Taiwan,Tonga,Tuvalu,Vanuatu&quot;, Contact.MailingCountry )))</formula>
+            <formula>IF( ISPICKVAL(Origin, &quot;Web&quot;) ,  AND(NOT(ISBLANK(Web_Country__c)),CONTAINS(&quot;Afghanistan,Antarctica,Timor-Leste,Falkland Islands,Georgia,Iran,Kiribati,Marshall Islands,Micronesia,Nauru,Niue,Korea (the Democratic People&apos;s Republic of),Palau,Palestine, State of,Samoa,Solomon Islands,Taiwan,Tonga,Tuvalu,Vanuatu&quot;, Web_Country__c)),   AND(NOT(ISBLANK(Contact.MailingCountry)),CONTAINS(&quot;Afghanistan,Antarctica,Timor-Leste,Falkland Islands,Georgia,Iran,Kiribati,Marshall Islands,Micronesia,Nauru,Niue,Korea (the Democratic People&apos;s Republic of),Palau,Palestine, State of,Samoa,Solomon Islands,Taiwan,Tonga,Tuvalu,Vanuatu&quot;, Contact.MailingCountry )))</formula>
+            <template>Service_Emails/YODA_Case_added_to_queue_notification</template>
         </ruleEntry>
         <ruleEntry>
             <assignedTo>Service_Japan_T_M</assignedTo>
             <assignedToType>Queue</assignedToType>
-            <formula>IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
-
-AND(NOT(ISBLANK(Web_Country__c)),CONTAINS(&quot;Japan&quot;,Web_Country__c)),
-
-
-
-
-AND(NOT(ISBLANK(Contact.MailingCountry)),CONTAINS(&quot;Japan&quot;, Contact.MailingCountry)))</formula>
+            <formula>IF( ISPICKVAL(Origin, &quot;Web&quot;) ,  AND(NOT(ISBLANK(Web_Country__c)),CONTAINS(&quot;Japan&quot;,Web_Country__c)),     AND(NOT(ISBLANK(Contact.MailingCountry)),CONTAINS(&quot;Japan&quot;, Contact.MailingCountry)))</formula>
+            <template>Service_Emails/YODA_Case_added_to_queue_notification</template>
         </ruleEntry>
         <ruleEntry>
             <assignedTo>Service_YCA_T_M</assignedTo>
             <assignedToType>Queue</assignedToType>
-            <formula>IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
-
-AND(NOT(ISBLANK(Web_Country__c)),CONTAINS(&quot;Aruba,Virgin Islands (U.S.),Bahamas,Barbados,Belize,Costa Rica,Dominica,Dominican Republic,El Salvador,Grenada,Guadeloupe,Guam,Guatemala,Haiti,Honduras,Jamaica,United States Minor Outlying Islands,Nicaragua,Northern Mariana Islands,Panama,Puerto Rico,Saint Lucia,Saint Vincent and the Grenadines,Saint Kitts and Nevis,American Samoa,Trinidad and Tobago,United States of America&quot;, Web_Country__c)),
-
-
-
-
-AND(NOT(ISBLANK(Contact.MailingCountry)),CONTAINS(&quot;Aruba,Virgin Islands (U.S.),Bahamas,Barbados,Belize,Costa Rica,Dominica,Dominican Republic,El Salvador,Grenada,Guadeloupe,Guam,Guatemala,Haiti,Honduras,Jamaica,United States Minor Outlying Islands,Nicaragua,Northern Mariana Islands,Panama,Puerto Rico,Saint Lucia,Saint Vincent and the Grenadines,Saint Kitts and Nevis,American Samoa,Trinidad and Tobago,United States of America&quot;, Contact.MailingCountry)))</formula>
+            <formula>IF( ISPICKVAL(Origin, &quot;Web&quot;) ,  AND(NOT(ISBLANK(Web_Country__c)),CONTAINS(&quot;Aruba,Virgin Islands (U.S.),Bahamas,Barbados,Belize,Costa Rica,Dominica,Dominican Republic,El Salvador,Grenada,Guadeloupe,Guam,Guatemala,Haiti,Honduras,Jamaica,United States Minor Outlying Islands,Nicaragua,Northern Mariana Islands,Panama,Puerto Rico,Saint Lucia,Saint Vincent and the Grenadines,Saint Kitts and Nevis,American Samoa,Trinidad and Tobago,United States of America&quot;, Web_Country__c)),     AND(NOT(ISBLANK(Contact.MailingCountry)),CONTAINS(&quot;Aruba,Virgin Islands (U.S.),Bahamas,Barbados,Belize,Costa Rica,Dominica,Dominican Republic,El Salvador,Grenada,Guadeloupe,Guam,Guatemala,Haiti,Honduras,Jamaica,United States Minor Outlying Islands,Nicaragua,Northern Mariana Islands,Panama,Puerto Rico,Saint Lucia,Saint Vincent and the Grenadines,Saint Kitts and Nevis,American Samoa,Trinidad and Tobago,United States of America&quot;, Contact.MailingCountry)))</formula>
+            <template>Service_Emails/YODA_Case_added_to_queue_notification</template>
         </ruleEntry>
         <ruleEntry>
             <assignedTo>Service_YCA_CA_T_M</assignedTo>
             <assignedToType>Queue</assignedToType>
-            <formula>IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
-
-AND(NOT(ISBLANK(Web_Country__c)),CONTAINS(&quot;Canada&quot;,Web_Country__c)),
-
-AND(NOT(ISBLANK(Contact.MailingCountry)),CONTAINS(&quot;Canada&quot;, Contact.MailingCountry )))</formula>
+            <formula>IF( ISPICKVAL(Origin, &quot;Web&quot;) ,  AND(NOT(ISBLANK(Web_Country__c)),CONTAINS(&quot;Canada&quot;,Web_Country__c)),  AND(NOT(ISBLANK(Contact.MailingCountry)),CONTAINS(&quot;Canada&quot;, Contact.MailingCountry )))</formula>
+            <template>Service_Emails/YODA_Case_added_to_queue_notification</template>
         </ruleEntry>
         <ruleEntry>
             <assignedTo>Service_YCA_MX_T_M</assignedTo>
             <assignedToType>Queue</assignedToType>
-            <formula>IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
-
-AND(NOT(ISBLANK(Web_Country__c)),CONTAINS(&quot;Mexico&quot;, Web_Country__c)),
-
-AND(NOT(ISBLANK(Contact.MailingCountry)),CONTAINS(&quot;Mexico&quot;, Contact.MailingCountry )))</formula>
+            <formula>IF( ISPICKVAL(Origin, &quot;Web&quot;) ,  AND(NOT(ISBLANK(Web_Country__c)),CONTAINS(&quot;Mexico&quot;, Web_Country__c)),  AND(NOT(ISBLANK(Contact.MailingCountry)),CONTAINS(&quot;Mexico&quot;, Contact.MailingCountry )))</formula>
+            <template>Service_Emails/YODA_Case_added_to_queue_notification</template>
         </ruleEntry>
         <ruleEntry>
             <assignedTo>Service_YIL_T_M</assignedTo>
             <assignedToType>Queue</assignedToType>
-            <formula>IF( ISPICKVAL(Origin, &quot;Web&quot;) ,  
-
-AND(NOT(ISBLANK(Web_Country__c)), CONTAINS(&apos;Bangladesh,Bhutan,India,Nepal,Sri Lanka&apos;, Web_Country__c)),
-
-AND(NOT(ISBLANK(Contact.MailingCountry)), CONTAINS(&apos;Bangladesh,Bhutan,India,Nepal,Sri Lanka&apos;, Contact.MailingCountry)))</formula>
+            <formula>IF( ISPICKVAL(Origin, &quot;Web&quot;) , AND(NOT(ISBLANK(Web_Country__c)), CONTAINS(&apos;Bangladesh,Bhutan,India,Nepal,Sri Lanka&apos;, Web_Country__c)), AND(NOT(ISBLANK(Contact.MailingCountry)), CONTAINS(&apos;Bangladesh,Bhutan,India,Nepal,Sri Lanka&apos;, Contact.MailingCountry)))</formula>
+            <template>Service_Emails/YODA_Case_added_to_queue_notification</template>
         </ruleEntry>
         <ruleEntry>
             <assignedTo>Service_YEF_NL_T_M</assignedTo>
             <assignedToType>Queue</assignedToType>
-            <formula>IF( ISPICKVAL(Origin, &quot;Web&quot;) ,  
-
-AND(NOT(ISBLANK(Web_Country__c)), CONTAINS(&quot;Albania,Andorra,Austria,Bosnia and Herzegovina,Bulgaria,Croatia,Czechia,France,French Guiana,French Polynesia,French Southern Territories,Hungary,Ireland,Macedonia,Martinique,Mayotte,Monaco,Montenegro,New Caledonia,Norway,Poland,Portugal,Réunion,Romania,Serbia,Slovakia,Slovenia,Spain,Saint Pierre and Miquelon,Switzerland,Turkey,Wallis and Futuna,Bouvet Island,Denmark,Estonia,Faroe Islands,Finland,Greenland,Iceland,Israel,Latvia,Lithuania,Netherlands,Svalbard and Jan Mayen,Sweden&quot;, Web_Country__c)), 
-
-AND(NOT(ISBLANK(Contact.MailingCountry)),CONTAINS(&quot;Albania,Andorra,Austria,Bosnia and Herzegovina,Bulgaria,Croatia,Czechia,France,French Guiana,French Polynesia,French Southern Territories,Hungary,Ireland,Macedonia,Martinique,Mayotte,Monaco,Montenegro,New Caledonia,Norway,Poland,Portugal,Réunion,Romania,Serbia,Slovakia,Slovenia,Spain,Saint Pierre and Miquelon,Switzerland,Turkey,Wallis and Futuna,Bouvet Island,Denmark,Estonia,Faroe Islands,Finland,Greenland,Iceland,Israel,Latvia,Lithuania,Netherlands,Svalbard and Jan Mayen,Sweden&quot;, Contact.MailingCountry)))</formula>
+            <formula>IF( ISPICKVAL(Origin, &quot;Web&quot;) , AND(NOT(ISBLANK(Web_Country__c)), CONTAINS(&quot;Albania,Andorra,Austria,Bosnia and Herzegovina,Bulgaria,Croatia,Czechia,France,French Guiana,French Polynesia,French Southern Territories,Hungary,Ireland,Macedonia,Martinique,Mayotte,Monaco,Montenegro,New Caledonia,Norway,Poland,Portugal,Réunion,Romania,Serbia,Slovakia,Slovenia,Spain,Saint Pierre and Miquelon,Switzerland,Turkey,Wallis and Futuna,Bouvet Island,Denmark,Estonia,Faroe Islands,Finland,Greenland,Iceland,Israel,Latvia,Lithuania,Netherlands,Svalbard and Jan Mayen,Sweden&quot;, Web_Country__c)), AND(NOT(ISBLANK(Contact.MailingCountry)),CONTAINS(&quot;Albania,Andorra,Austria,Bosnia and Herzegovina,Bulgaria,Croatia,Czechia,France,French Guiana,French Polynesia,French Southern Territories,Hungary,Ireland,Macedonia,Martinique,Mayotte,Monaco,Montenegro,New Caledonia,Norway,Poland,Portugal,Réunion,Romania,Serbia,Slovakia,Slovenia,Spain,Saint Pierre and Miquelon,Switzerland,Turkey,Wallis and Futuna,Bouvet Island,Denmark,Estonia,Faroe Islands,Finland,Greenland,Iceland,Israel,Latvia,Lithuania,Netherlands,Svalbard and Jan Mayen,Sweden&quot;, Contact.MailingCountry)))</formula>
+            <template>Service_Emails/YODA_Case_added_to_queue_notification</template>
         </ruleEntry>
         <ruleEntry>
             <assignedTo>Service_YEF_B_T_M</assignedTo>
             <assignedToType>Queue</assignedToType>
-            <formula>IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
-
-AND(NOT(ISBLANK(Web_Country__c)),CONTAINS(&quot;Belgium,Luxembourg&quot;, Web_Country__c)),
-
-AND(NOT(ISBLANK(Contact.MailingCountry)),CONTAINS(&quot;Belgium,Luxembourg&quot;, Contact.MailingCountry)))</formula>
+            <formula>IF( ISPICKVAL(Origin, &quot;Web&quot;) ,  AND(NOT(ISBLANK(Web_Country__c)),CONTAINS(&quot;Belgium,Luxembourg&quot;, Web_Country__c)),  AND(NOT(ISBLANK(Contact.MailingCountry)),CONTAINS(&quot;Belgium,Luxembourg&quot;, Contact.MailingCountry)))</formula>
+            <template>Service_Emails/YODA_Case_added_to_queue_notification</template>
         </ruleEntry>
         <ruleEntry>
             <assignedTo>Service_YEF_GB_T_M</assignedTo>
             <assignedToType>Queue</assignedToType>
-            <formula>IF(ISPICKVAL(Origin, &quot;Web&quot;),
-
-AND(NOT(ISBLANK(Web_Country__c)),CONTAINS(&quot;Bermuda,British Indian Ocean Territory,Virgin Islands (British),Cayman Islands,Gibraltar,Montserrat,Pitcairn,Saint Helena, Ascension and Tristan da Cunha,South Georgia and the South Sandwich Islands,Turks and Caicos Islands,United Kingdom of Great Britain and Northern Ireland&quot;, Web_Country__c)),
-
-
-AND(NOT(ISBLANK(Contact.MailingCountry)),CONTAINS(&quot;Bermuda,British Indian Ocean Territory,Virgin Islands (British),Cayman Islands,Gibraltar,Montserrat,Pitcairn,Saint Helena, Ascension and Tristan da Cunha,South Georgia and the South Sandwich Islands,Turks and Caicos Islands,United Kingdom of Great Britain and Northern Ireland&quot;, Contact.MailingCountry)))</formula>
+            <formula>IF(ISPICKVAL(Origin, &quot;Web&quot;),  AND(NOT(ISBLANK(Web_Country__c)),CONTAINS(&quot;Bermuda,British Indian Ocean Territory,Virgin Islands (British),Cayman Islands,Gibraltar,Montserrat,Pitcairn,Saint Helena, Ascension and Tristan da Cunha,South Georgia and the South Sandwich Islands,Turks and Caicos Islands,United Kingdom of Great Britain and Northern Ireland&quot;, Web_Country__c)),   AND(NOT(ISBLANK(Contact.MailingCountry)),CONTAINS(&quot;Bermuda,British Indian Ocean Territory,Virgin Islands (British),Cayman Islands,Gibraltar,Montserrat,Pitcairn,Saint Helena, Ascension and Tristan da Cunha,South Georgia and the South Sandwich Islands,Turks and Caicos Islands,United Kingdom of Great Britain and Northern Ireland&quot;, Contact.MailingCountry)))</formula>
+            <template>Service_Emails/YODA_Case_added_to_queue_notification</template>
         </ruleEntry>
         <ruleEntry>
             <assignedTo>Service_YEF_G_T_M</assignedTo>
             <assignedToType>Queue</assignedToType>
-            <formula>IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
-
-AND(NOT(ISBLANK(Web_Country__c)),CONTAINS(&quot;Germany,Liechtenstein&quot;, Web_Country__c)),
-
-
-AND(NOT(ISBLANK(Contact.MailingCountry)),CONTAINS(&quot;Germany,Liechtenstein&quot;, Contact.MailingCountry)))</formula>
+            <formula>IF( ISPICKVAL(Origin, &quot;Web&quot;) ,  AND(NOT(ISBLANK(Web_Country__c)),CONTAINS(&quot;Germany,Liechtenstein&quot;, Web_Country__c)),   AND(NOT(ISBLANK(Contact.MailingCountry)),CONTAINS(&quot;Germany,Liechtenstein&quot;, Contact.MailingCountry)))</formula>
+            <template>Service_Emails/YODA_Case_added_to_queue_notification</template>
         </ruleEntry>
         <ruleEntry>
             <assignedTo>Service_YEF_I_T_M</assignedTo>
             <assignedToType>Queue</assignedToType>
-            <formula>IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
-
-AND(NOT(ISBLANK(Web_Country__c)),CONTAINS(&quot;Cyprus,Greece,Italy,Malta,San Marino,Holy See&quot;, Web_Country__c)),
-
-AND(NOT(ISBLANK(Contact.MailingCountry)),CONTAINS(&quot;Cyprus,Greece,Italy,Malta,San Marino,Holy See&quot;, Contact.MailingCountry )))</formula>
+            <formula>IF( ISPICKVAL(Origin, &quot;Web&quot;) ,  AND(NOT(ISBLANK(Web_Country__c)),CONTAINS(&quot;Cyprus,Greece,Italy,Malta,San Marino,Holy See&quot;, Web_Country__c)),  AND(NOT(ISBLANK(Contact.MailingCountry)),CONTAINS(&quot;Cyprus,Greece,Italy,Malta,San Marino,Holy See&quot;, Contact.MailingCountry )))</formula>
+            <template>Service_Emails/YODA_Case_added_to_queue_notification</template>
         </ruleEntry>
         <ruleEntry>
             <assignedTo>Service_YSH_T_M</assignedTo>
             <assignedToType>Queue</assignedToType>
-            <formula>IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
-
-AND(NOT(ISBLANK(Web_Country__c)),CONTAINS(&quot;China,Hong Kong,Macao,Mongolia&quot;, Web_Country__c)),
-
-
-AND(NOT(ISBLANK(Contact.MailingCountry)),CONTAINS(&quot;China,Hong Kong,Macao,Mongolia&quot;, Contact.MailingCountry)))</formula>
+            <formula>IF( ISPICKVAL(Origin, &quot;Web&quot;) ,  AND(NOT(ISBLANK(Web_Country__c)),CONTAINS(&quot;China,Hong Kong,Macao,Mongolia&quot;, Web_Country__c)),   AND(NOT(ISBLANK(Contact.MailingCountry)),CONTAINS(&quot;China,Hong Kong,Macao,Mongolia&quot;, Contact.MailingCountry)))</formula>
+            <template>Service_Emails/YODA_Case_added_to_queue_notification</template>
         </ruleEntry>
         <ruleEntry>
             <assignedTo>Service_YEA_T_M</assignedTo>
             <assignedToType>Queue</assignedToType>
-            <formula>IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
-
-AND(NOT(ISBLANK(Web_Country__c)),CONTAINS(&quot;Australia,Cocos Islands,Christmas Island,Fiji,Heard Island and McDonald Islands,Indonesia,Norfolk Island,Papua New Guinea,Maldives,Singapore&quot;, Web_Country__c)),
-
-AND(NOT(ISBLANK(Contact.MailingCountry)),CONTAINS(&quot;Australia,Cocos Islands,Christmas Island,Fiji,Heard Island and McDonald Islands,Indonesia,Norfolk Island,Papua New Guinea,Maldives,Singapore&quot;, Contact.MailingCountry)))</formula>
+            <formula>IF( ISPICKVAL(Origin, &quot;Web&quot;) ,  AND(NOT(ISBLANK(Web_Country__c)),CONTAINS(&quot;Australia,Cocos Islands,Christmas Island,Fiji,Heard Island and McDonald Islands,Indonesia,Norfolk Island,Papua New Guinea,Maldives,Singapore&quot;, Web_Country__c)),  AND(NOT(ISBLANK(Contact.MailingCountry)),CONTAINS(&quot;Australia,Cocos Islands,Christmas Island,Fiji,Heard Island and McDonald Islands,Indonesia,Norfolk Island,Papua New Guinea,Maldives,Singapore&quot;, Contact.MailingCountry)))</formula>
+            <template>Service_Emails/YODA_Case_added_to_queue_notification</template>
         </ruleEntry>
         <ruleEntry>
             <assignedTo>Service_YEM_T_M</assignedTo>
             <assignedToType>Queue</assignedToType>
-            <formula>IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
-
-AND(NOT(ISBLANK(Web_Country__c)),CONTAINS(&quot;Brunei Darussalam,Malaysia&quot;, Web_Country__c)),
-
-AND(NOT(ISBLANK(Contact.MailingCountry)),CONTAINS(&quot;Brunei Darussalam,Malaysia&quot;, Contact.MailingCountry )))</formula>
+            <formula>IF( ISPICKVAL(Origin, &quot;Web&quot;) ,  AND(NOT(ISBLANK(Web_Country__c)),CONTAINS(&quot;Brunei Darussalam,Malaysia&quot;, Web_Country__c)),  AND(NOT(ISBLANK(Contact.MailingCountry)),CONTAINS(&quot;Brunei Darussalam,Malaysia&quot;, Contact.MailingCountry )))</formula>
+            <template>Service_Emails/YODA_Case_added_to_queue_notification</template>
         </ruleEntry>
         <ruleEntry>
             <assignedTo>Service_YNZ_T_M</assignedTo>
             <assignedToType>Queue</assignedToType>
-            <formula>IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
-
-AND(NOT(ISBLANK(Web_Country__c)),CONTAINS(&quot;Cook Islands,New Zealand,Tokelau&quot;, Web_Country__c)),
-
-AND(NOT(ISBLANK(Contact.MailingCountry)),CONTAINS(&quot;Cook Islands,New Zealand,Tokelau&quot;, Contact.MailingCountry)))</formula>
+            <formula>IF( ISPICKVAL(Origin, &quot;Web&quot;) ,  AND(NOT(ISBLANK(Web_Country__c)),CONTAINS(&quot;Cook Islands,New Zealand,Tokelau&quot;, Web_Country__c)),  AND(NOT(ISBLANK(Contact.MailingCountry)),CONTAINS(&quot;Cook Islands,New Zealand,Tokelau&quot;, Contact.MailingCountry)))</formula>
+            <template>Service_Emails/YODA_Case_added_to_queue_notification</template>
         </ruleEntry>
         <ruleEntry>
             <assignedTo>Service_YPI_T_M</assignedTo>
             <assignedToType>Queue</assignedToType>
-            <formula>IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
-
-AND(NOT(ISBLANK(Web_Country__c)),CONTAINS(&quot;Philippines&quot;, Web_Country__c)),
-
-
-AND(NOT(ISBLANK(Contact.MailingCountry)),CONTAINS(&quot;Philippines&quot;, Contact.MailingCountry)))</formula>
+            <formula>IF( ISPICKVAL(Origin, &quot;Web&quot;) ,  AND(NOT(ISBLANK(Web_Country__c)),CONTAINS(&quot;Philippines&quot;, Web_Country__c)),   AND(NOT(ISBLANK(Contact.MailingCountry)),CONTAINS(&quot;Philippines&quot;, Contact.MailingCountry)))</formula>
+            <template>Service_Emails/YODA_Case_added_to_queue_notification</template>
         </ruleEntry>
         <ruleEntry>
             <assignedTo>Service_YTH_T_M</assignedTo>
             <assignedToType>Queue</assignedToType>
-            <formula>IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
-
-AND(NOT(ISBLANK(Web_Country__c)),CONTAINS(&quot;Cambodia,Lao People&apos;s Democratic Republic, Myanmar,Thailand&quot;, Web_Country__c)),
-
-AND(NOT(ISBLANK(Contact.MailingCountry)),CONTAINS(&quot; Cambodia,Lao People’s Democratic Republic,Myanmar,Thailand&quot;, Contact.MailingCountry)))</formula>
+            <formula>IF( ISPICKVAL(Origin, &quot;Web&quot;) ,  AND(NOT(ISBLANK(Web_Country__c)),CONTAINS(&quot;Cambodia,Lao People&apos;s Democratic Republic, Myanmar,Thailand&quot;, Web_Country__c)),  AND(NOT(ISBLANK(Contact.MailingCountry)),CONTAINS(&quot; Cambodia,Lao People’s Democratic Republic,Myanmar,Thailand&quot;, Contact.MailingCountry)))</formula>
+            <template>Service_Emails/YODA_Case_added_to_queue_notification</template>
         </ruleEntry>
         <ruleEntry>
             <assignedTo>Service_YVN_T_M</assignedTo>
             <assignedToType>Queue</assignedToType>
-            <formula>IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
-
-AND(NOT(ISBLANK(Web_Country__c)),CONTAINS(&quot;Vietnam&quot;, Web_Country__c)),
-
-
-AND(NOT(ISBLANK(Contact.MailingCountry)),CONTAINS(&quot;Vietnam&quot;, Contact.MailingCountry)))</formula>
+            <formula>IF( ISPICKVAL(Origin, &quot;Web&quot;) ,  AND(NOT(ISBLANK(Web_Country__c)),CONTAINS(&quot;Vietnam&quot;, Web_Country__c)),   AND(NOT(ISBLANK(Contact.MailingCountry)),CONTAINS(&quot;Vietnam&quot;, Contact.MailingCountry)))</formula>
+            <template>Service_Emails/YODA_Case_added_to_queue_notification</template>
         </ruleEntry>
         <ruleEntry>
             <assignedTo>Service_YKO_T_M</assignedTo>
             <assignedToType>Queue</assignedToType>
-            <formula>IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
-
-AND(NOT(ISBLANK(Web_Country__c)),CONTAINS(&quot;Korea (the Republic of)&quot;, Web_Country__c)),
-
-AND(NOT(ISBLANK(Contact.MailingCountry)),CONTAINS(&quot;Korea (the Republic of)&quot;, Contact.MailingCountry)))</formula>
+            <formula>IF( ISPICKVAL(Origin, &quot;Web&quot;) ,  AND(NOT(ISBLANK(Web_Country__c)),CONTAINS(&quot;Korea (the Republic of)&quot;, Web_Country__c)),  AND(NOT(ISBLANK(Contact.MailingCountry)),CONTAINS(&quot;Korea (the Republic of)&quot;, Contact.MailingCountry)))</formula>
+            <template>Service_Emails/YODA_Case_added_to_queue_notification</template>
         </ruleEntry>
         <ruleEntry>
             <assignedTo>Service_YMA_T_M</assignedTo>
             <assignedToType>Queue</assignedToType>
-            <formula>IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
-
-AND(NOT(ISBLANK(Web_Country__c)),CONTAINS(&quot;Armenia,Azerbaijan,Belarus,Kazakhstan,Kyrgyzstan,Moldova,Russian Federation, Tajikistan,Turkmenistan,Ukraine,Uzbekistan&quot;, Web_Country__c)),
-
-
-AND(NOT(ISBLANK(Contact.MailingCountry)),CONTAINS(&quot;Armenia,Azerbaijan,Belarus,Kazakhstan,Kyrgyzstan,Moldova,Russian Federation, Tajikistan,Turkmenistan,Ukraine,Uzbekistan&quot;, Contact.MailingCountry)))</formula>
+            <formula>IF( ISPICKVAL(Origin, &quot;Web&quot;) ,  AND(NOT(ISBLANK(Web_Country__c)),CONTAINS(&quot;Armenia,Azerbaijan,Belarus,Kazakhstan,Kyrgyzstan,Moldova,Russian Federation, Tajikistan,Turkmenistan,Ukraine,Uzbekistan&quot;, Web_Country__c)),   AND(NOT(ISBLANK(Contact.MailingCountry)),CONTAINS(&quot;Armenia,Azerbaijan,Belarus,Kazakhstan,Kyrgyzstan,Moldova,Russian Federation, Tajikistan,Turkmenistan,Ukraine,Uzbekistan&quot;, Contact.MailingCountry)))</formula>
+            <template>Service_Emails/YODA_Case_added_to_queue_notification</template>
         </ruleEntry>
         <ruleEntry>
             <assignedTo>Service_YSA_T_M</assignedTo>
             <assignedToType>Queue</assignedToType>
-            <formula>IF( ISPICKVAL(Origin, &quot;Web&quot;) ,
-
-AND(NOT(ISBLANK(Web_Country__c)),CONTAINS(&quot;Argentina,Bolivia,Brazil,Chile,Colombia,Cuba,Ecuador,Guyana,Paraguay,Peru,Suriname,Uruguay,Venezuela&quot;, Web_Country__c)),
-
-AND(NOT(ISBLANK(Contact.MailingCountry)),CONTAINS(&quot;Argentina,Bolivia,Brazil,Chile,Colombia,Cuba,Ecuador,Guyana,Paraguay,Peru,Suriname,Uruguay,Venezuela&quot;, Contact.MailingCountry )))</formula>
+            <formula>IF( ISPICKVAL(Origin, &quot;Web&quot;) ,  AND(NOT(ISBLANK(Web_Country__c)),CONTAINS(&quot;Argentina,Bolivia,Brazil,Chile,Colombia,Cuba,Ecuador,Guyana,Paraguay,Peru,Suriname,Uruguay,Venezuela&quot;, Web_Country__c)),  AND(NOT(ISBLANK(Contact.MailingCountry)),CONTAINS(&quot;Argentina,Bolivia,Brazil,Chile,Colombia,Cuba,Ecuador,Guyana,Paraguay,Peru,Suriname,Uruguay,Venezuela&quot;, Contact.MailingCountry )))</formula>
+            <template>Service_Emails/YODA_Case_added_to_queue_notification</template>
+            </ruleEntry>
+            <ruleEntry>
+                <assignedTo>YODA_Internal_Support</assignedTo>
+                <assignedToType>Queue</assignedToType>
+                <criteriaItems>
+                    <field>Case.RecordTypeId</field>
+                    <operation>equals</operation>
+                    <value>YODA Internal Support</value>
+                </criteriaItems>
         </ruleEntry>
     </assignmentRule>
 </AssignmentRules>
