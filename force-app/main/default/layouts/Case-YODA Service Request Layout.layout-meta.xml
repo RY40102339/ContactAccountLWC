@@ -68,11 +68,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>ContactId</field>
+                <field>AccountId</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>AccountId</field>
+                <field>ContactId</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
