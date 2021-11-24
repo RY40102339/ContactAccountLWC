@@ -14,9 +14,9 @@ ShippingCountry - EXACT</description>
         </matchingRuleItems>
         <matchingRuleItems>
             <blankValueBehavior>NullNotAllowed</blankValueBehavior>
-            <fieldName>ShippingCountry</fieldName>
+            <fieldName>ShippingPostalCode</fieldName>
             <matchingMethod>Exact</matchingMethod>
         </matchingRuleItems>
-        <ruleStatus>Active</ruleStatus>
+        <ruleStatus>Inactive</ruleStatus>
     </matchingRules>
 </MatchingRules>

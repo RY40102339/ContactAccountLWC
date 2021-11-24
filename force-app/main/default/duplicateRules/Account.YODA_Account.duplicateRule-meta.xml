@@ -5,14 +5,23 @@
     <alertText>Use one of these records?</alertText>
     <description>Duplicate Rule to check on an account with the following fields:
 Account: Name EXACT
-Account: Shipping Country EXACT</description>
-    <duplicateRuleFilter xsi:nil="true"/>
+Account: ShippingPostalCode EXACT</description>
+    <duplicateRuleFilter>
+        <booleanFilter xsi:nil="true"/>
+        <duplicateRuleFilterItems>
+            <field>LastModifiedBy</field>
+            <operation>notEqual</operation>
+            <value>Workato</value>
+            <sortOrder>1</sortOrder>
+            <table>Account</table>
+        </duplicateRuleFilterItems>
+    </duplicateRuleFilter>
     <duplicateRuleMatchRules>
         <matchRuleSObjectType>Account</matchRuleSObjectType>
         <matchingRule>YODA_Account_Matching_Rule</matchingRule>
         <objectMapping xsi:nil="true"/>
     </duplicateRuleMatchRules>
-    <isActive>true</isActive>
+    <isActive>false</isActive>
     <masterLabel>YODA Account Duplicate Rule</masterLabel>
     <operationsOnInsert>Alert</operationsOnInsert>
     <operationsOnInsert>Report</operationsOnInsert>
