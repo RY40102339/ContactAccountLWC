@@ -21,7 +21,7 @@ Account: ShippingPostalCode EXACT</description>
         <matchingRule>YODA_Account_Matching_Rule</matchingRule>
         <objectMapping xsi:nil="true"/>
     </duplicateRuleMatchRules>
-    <isActive>false</isActive>
+    <isActive>true</isActive>
     <masterLabel>YODA Account Duplicate Rule</masterLabel>
     <operationsOnInsert>Alert</operationsOnInsert>
     <operationsOnInsert>Report</operationsOnInsert>
