@@ -586,6 +586,16 @@ AND(NOT(ISBLANK(Web_Country__c)),CONTAINS(&quot;Argentina,Bolivia,Brazil,Chile,C
 
 AND(NOT(ISBLANK(Contact.MailingCountry)),CONTAINS(&quot;Argentina,Bolivia,Brazil,Chile,Colombia,Cuba,Ecuador,Guyana,Paraguay,Peru,Suriname,Uruguay,Venezuela&quot;, Contact.MailingCountry )))</formula>
             <template>Service_Emails/YODA_Case_added_to_queue_notification</template>
+            </ruleEntry>
+            <ruleEntry>
+                <assignedTo>YODA_Internal_Support</assignedTo>
+                <assignedToType>Queue</assignedToType>
+                <criteriaItems>
+                    <field>Case.RecordTypeId</field>
+                    <operation>equals</operation>
+                    <value>YODA Internal Support</value>
+                </criteriaItems>
+                <template>unfiled$public/SUPPORT_New_assignment_notification</template>
         </ruleEntry>
     </assignmentRule>
 </AssignmentRules>
