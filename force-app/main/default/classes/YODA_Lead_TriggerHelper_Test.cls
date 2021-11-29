@@ -19,8 +19,17 @@
 */
 @isTest
 public class YODA_Lead_TriggerHelper_Test {
+    @testSetup
+    static void mainSetup(){
+        Group testGroup = new Group(Name='QUEUE NAME', Type='Queue');
+        insert testGroup;
+        
+        QueuesObject testQueue = new QueueSObject(QueueID = testGroup.id, SobjectType = 'Lead');
+        insert testQueue;
+    }
     @isTest
     static void checkOwnerChange(){
+        Group testGroup = [SELECT Name FROM Group WHERE Name = 'QUEUE NAME'];
         Profile p = [SELECT Id FROM Profile WHERE Name='B2BMA Integration User'];
         Integer RandomId=Integer.valueOf(Math.rint(Math.random()*1000000));
         User u = new User(Alias = 'standt', Email='standarduser@testorg.com',
@@ -54,6 +63,13 @@ public class YODA_Lead_TriggerHelper_Test {
         con = [SELECT OwnerID, ID FROM Contact WHERE ID = :ld.Related_Contact__c];
         
         System.assertEquals(u2.ID, con.OwnerId);
+        
+        ld.OwnerId = testGroup.ID;
+        update ld;
+        
+        con = [SELECT OwnerID, ID FROM Contact WHERE ID = :ld.Related_Contact__c];
+        
+        System.assertNotEquals(testGroup.ID, con.OwnerId);
     }
     @isTest
     static void platformEventTest(){

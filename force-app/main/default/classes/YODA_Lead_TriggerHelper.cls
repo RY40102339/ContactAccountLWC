@@ -33,8 +33,8 @@ public class YODA_Lead_TriggerHelper {
             // If owner has changed and last owner was a queue 
             // if(ld.OwnerID != oldMap.get(ld.Id).OwnerID && String.valueOf(oldMap.get(ld.Id).OwnerID).startsWithIgnoreCase('00G')){      
             
-            // If owner has changed
-            if(ld.OwnerID != oldMap.get(ld.Id).OwnerID){
+            // If owner has changed from any to user
+            if(ld.OwnerID != oldMap.get(ld.Id).OwnerID && !String.valueOf(ld.OwnerId).startsWithIgnoreCase('00G')){
                 if(conList.get(ld.Related_Contact__c)!=null){
                     conList.get(ld.Related_Contact__c).OwnerID = ld.OwnerID;
                     updateList.add(conList.get(ld.Related_Contact__c));
