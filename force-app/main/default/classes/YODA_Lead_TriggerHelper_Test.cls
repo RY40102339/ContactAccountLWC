@@ -15,9 +15,46 @@
 *  Change History:
 *  MM/DD/YYYY      Developer Name      Comments
 *  10/12/2021      Kameron F.          Created Class
+*  11/29/2021	   Kameron F.		   Added test for ownership change
 */
 @isTest
 public class YODA_Lead_TriggerHelper_Test {
+    @isTest
+    static void checkOwnerChange(){
+        Profile p = [SELECT Id FROM Profile WHERE Name='B2BMA Integration User'];
+        Integer RandomId=Integer.valueOf(Math.rint(Math.random()*1000000));
+        User u = new User(Alias = 'standt', Email='standarduser@testorg.com',
+                          EmailEncodingKey='UTF-8', LastName='Testing', LanguageLocaleKey='en_US',
+                          LocaleSidKey='en_US', ProfileId = p.Id,
+                          TimeZoneSidKey='America/Los_Angeles', UserName='standarduser@testorg.com'+RandomId);
+        
+        Contact con = new Contact(Self_registered_company__c='TestCo',FirstName='JapanQueue1',LastName='Test',
+                                  Rating__c='Hot',Category_Of_interest__c='Data Acquisition',MailingCountry='Aruba',
+                                  Email='JapanQueue1@test.com');
+        insert con;
+        System.runAs(u){
+            con.Multiple_Inquiry__c = true;            
+            update con;
+        }
+        
+        Profile p2 = [SELECT Id FROM Profile WHERE Name='YODA Sales'];
+        Integer RandomId2 =Integer.valueOf(Math.rint(Math.random()*1000000));
+        User u2 = new User(Alias = 'standt', Email='standarduser@testorg.com',
+                          EmailEncodingKey='UTF-8', LastName='Testing', LanguageLocaleKey='en_US',
+                          LocaleSidKey='en_US', ProfileId = p2.Id,
+                          TimeZoneSidKey='America/Los_Angeles', UserName='standarduser@testorg.com'+RandomId2);
+        insert u2;
+        
+        Test.startTest();
+        Lead ld = [SELECT Related_contact__c FROM Lead WHERE Related_Contact__c = :con.id];
+        ld.OwnerId = u2.id;
+        update ld;
+        Test.stopTest();
+        
+        con = [SELECT OwnerID, ID FROM Contact WHERE ID = :ld.Related_Contact__c];
+        
+        System.assertEquals(u2.ID, con.OwnerId);
+    }
     @isTest
     static void platformEventTest(){
         Date Start = Date.newInstance(2021, 12, 25);

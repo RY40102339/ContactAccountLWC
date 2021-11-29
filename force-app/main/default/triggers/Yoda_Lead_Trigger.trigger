@@ -15,6 +15,7 @@
 *  Change History:
 *  MM/DD/YYYY      Developer Name      Comments
 *  10/12/2021      Kameron F.          Created Trigger
+*  11/29/2021	   Kameron F.		   Added Lead owner change
 */
 trigger Yoda_Lead_Trigger on Lead (before insert,after update) {
     //Check for bypass setting on User record <Mandatory for all Triggers>
@@ -23,7 +24,7 @@ trigger Yoda_Lead_Trigger on Lead (before insert,after update) {
     }
     if(Trigger.isAfter){
         if(Trigger.isUpdate){
-        //    YODA_Lead_TriggerHelper.CloneRecord(Trigger.new,Trigger.oldMap);
+            YODA_Lead_TriggerHelper.changeOwner(Trigger.new,Trigger.oldMap); 
 			YODA_Utility.refreshComponent(Trigger.new,'Lead');
         }
     }
