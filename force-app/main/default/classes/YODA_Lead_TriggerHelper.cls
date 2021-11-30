@@ -15,6 +15,7 @@
 *  Change History:
 *  MM/DD/YYYY			Developer Name			Comments
 *  11/29/2021           Kameron F.              Created Trigger to update Owner
+*  11/30/2021			Kameron F.				Added account check and contact check
 */
 public class YODA_Lead_TriggerHelper {
     public static void changeOwner(List<Lead> newList, Map<Id,Lead> oldMap){
@@ -24,22 +25,32 @@ public class YODA_Lead_TriggerHelper {
         }
         
         // List of all Lead Related Contacts in this transaction
-        Map<ID, Contact> conList = new Map<ID,Contact>([SELECT OwnerID FROM Contact WHERE ID in :contactIDSet]);
+        Map<ID, Contact> conList = new Map<ID,Contact>([SELECT OwnerID, AccountID FROM Contact WHERE ID in :contactIDSet AND AccountID = NULL]);
         
         // List of all Contacts that specifically need their owner changed
         List<Contact> updateList = new List<Contact>();
         
         for(Lead ld : newList){
-            // If owner has changed and last owner was a queue 
-            // if(ld.OwnerID != oldMap.get(ld.Id).OwnerID && String.valueOf(oldMap.get(ld.Id).OwnerID).startsWithIgnoreCase('00G')){      
+            Boolean ownerChanged = false;
             
-            // If owner has changed from any to user
-            if(ld.OwnerID != oldMap.get(ld.Id).OwnerID && !String.valueOf(ld.OwnerId).startsWithIgnoreCase('00G')){
+            Boolean contactAddedWithDifferentOwner = false;
+            
+            if(conList.get(ld.Related_Contact__c)!=null){
+                // If owner has changed from any to user and no account on contact
+                ownerChanged = (ld.OwnerID != oldMap.get(ld.Id).OwnerID && !String.valueOf(ld.OwnerId).startsWithIgnoreCase('00G'));
+                
+                // If a contact (without an account) was added to a lead with a different owner than lead owner
+                contactAddedWithDifferentOwner = ld.Related_Contact__c != oldMap.get(ld.Id).Related_Contact__c && !String.valueOf(ld.OwnerId).startsWithIgnoreCase('00G')
+                                && ld.Related_Contact__r.OwnerID != ld.OwnerID;
+            }
+            
+            if(ownerChanged || contactAddedWithDifferentOwner){
                 if(conList.get(ld.Related_Contact__c)!=null){
                     conList.get(ld.Related_Contact__c).OwnerID = ld.OwnerID;
                     updateList.add(conList.get(ld.Related_Contact__c));
                 }
             }
+            
         }
         
         if(updateList.size()>0){
