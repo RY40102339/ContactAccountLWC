@@ -25,7 +25,7 @@ public class YODA_Lead_TriggerHelper {
         }
         
         // List of all Lead Related Contacts in this transaction
-        Map<ID, Contact> conList = new Map<ID,Contact>([SELECT OwnerID, AccountID FROM Contact WHERE ID in :contactIDSet]);
+        Map<ID, Contact> conList = new Map<ID,Contact>([SELECT OwnerID, AccountID FROM Contact WHERE ID in :contactIDSet AND AccountID = NULL]);
         
         // List of all Contacts that specifically need their owner changed
         List<Contact> updateList = new List<Contact>();
@@ -37,12 +37,11 @@ public class YODA_Lead_TriggerHelper {
             
             if(conList.get(ld.Related_Contact__c)!=null){
                 // If owner has changed from any to user and no account on contact
-                ownerChanged = (ld.OwnerID != oldMap.get(ld.Id).OwnerID && !String.valueOf(ld.OwnerId).startsWithIgnoreCase('00G')&&
-               	conList.get(ld.Related_Contact__c).AccountID == null);
+                ownerChanged = (ld.OwnerID != oldMap.get(ld.Id).OwnerID && !String.valueOf(ld.OwnerId).startsWithIgnoreCase('00G'));
                 
                 // If a contact (without an account) was added to a lead with a different owner than lead owner
-                contactAddedWithDifferentOwner = ld.Related_Contact__c != oldMap.get(ld.Id).Related_Contact__c && !String.valueOf(ld.OwnerId).startsWithIgnoreCase('00G')&&
-             	 conList.get(ld.Related_Contact__c).AccountID == null && ld.Related_Contact__r.OwnerID != ld.OwnerID;
+                contactAddedWithDifferentOwner = ld.Related_Contact__c != oldMap.get(ld.Id).Related_Contact__c && !String.valueOf(ld.OwnerId).startsWithIgnoreCase('00G')
+                                && ld.Related_Contact__r.OwnerID != ld.OwnerID;
             }
             
             if(ownerChanged || contactAddedWithDifferentOwner){
