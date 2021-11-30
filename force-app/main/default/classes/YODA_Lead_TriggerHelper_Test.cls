@@ -16,6 +16,7 @@
 *  MM/DD/YYYY      Developer Name      Comments
 *  10/12/2021      Kameron F.          Created Class
 *  11/29/2021	   Kameron F.		   Added test for ownership change
+*  11/30/2021	   Kameron F.		   Added test for null accounts and changing contact
 */
 @isTest
 public class YODA_Lead_TriggerHelper_Test {
@@ -68,8 +69,37 @@ public class YODA_Lead_TriggerHelper_Test {
         update ld;
         
         con = [SELECT OwnerID, ID FROM Contact WHERE ID = :ld.Related_Contact__c];
-        
         System.assertNotEquals(testGroup.ID, con.OwnerId);
+        
+        ld.OwnerID = u2.ID;
+        update ld;
+        
+        Account acc = new Account(Name='TestAcc');
+        insert acc;
+        
+        con.AccountID = acc.ID;
+        update con;
+        
+        ld.OwnerID = u.ID;
+        update ld;
+        
+        con = [SELECT OwnerID, ID FROM Contact WHERE ID = :ld.Related_Contact__c];
+        
+        System.assertEquals(u2.ID, con.OwnerId);
+        
+        Contact con2 = new Contact(Self_registered_company__c='TestCo',FirstName='ArubaQueue',LastName='Test',
+                                  Rating__c='Hot',Category_Of_interest__c='Data Acquisition',MailingCountry='Aruba',
+                                  Email='ArubaQueue@test.com', OwnerID = u2.ID);
+        insert con2;
+        
+        ld.Related_Contact__c = con2.ID;
+        
+        update ld;
+        
+        con2 = [SELECT OwnerID, ID FROM Contact WHERE ID = :ld.Related_Contact__c];
+        
+        System.assertEquals(u.ID, con2.OwnerId);
+       
     }
     @isTest
     static void platformEventTest(){
