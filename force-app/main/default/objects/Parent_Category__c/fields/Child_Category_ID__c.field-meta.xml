@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>Child_Category__c</fullName>
+    <fullName>Child_Category_ID__c</fullName>
     <deleteConstraint>SetNull</deleteConstraint>
     <externalId>false</externalId>
-    <label>Child Category</label>
+    <label>Child Category ID</label>
     <referenceTo>Category__c</referenceTo>
     <relationshipLabel>Parent Categories</relationshipLabel>
     <relationshipName>Parent_Categories</relationshipName>
@@ -11,4 +11,3 @@
     <trackTrending>false</trackTrending>
     <type>Lookup</type>
 </CustomField>
-<!-- I-425319 added missing field in QA -->
