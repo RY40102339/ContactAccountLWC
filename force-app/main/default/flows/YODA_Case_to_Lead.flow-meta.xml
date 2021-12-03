@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionCalls>
-        <name>leadRunAssignmentRule</name>
-        <label>leadRunAssignmentRule</label>
+        <description>assignLeads(LeadId)</description>
+        <name>RunAssignmentRules</name>
+        <label>RunAssignmentRules</label>
         <locationX>314</locationX>
         <locationY>878</locationY>
         <actionName>YODA_RunAssignmentRules</actionName>
@@ -13,7 +14,7 @@
         <inputParameters>
             <name>leadIds</name>
             <value>
-                <elementReference>GetLead.Id</elementReference>
+                <elementReference>DestinationId</elementReference>
             </value>
         </inputParameters>
     </actionCalls>
@@ -29,12 +30,12 @@
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>checkfieldvalidation</name>
-            <conditionLogic>or</conditionLogic>
+            <conditionLogic>(1 AND (2 OR 6))  OR 5 OR 3 OR 7 OR (NOT 1 AND (4 OR 8))</conditionLogic>
             <conditions>
-                <leftValueReference>GetCases.Web_Category_of_Interest__c</leftValueReference>
-                <operator>IsNull</operator>
+                <leftValueReference>GetCases.Origin</leftValueReference>
+                <operator>EqualTo</operator>
                 <rightValue>
-                    <booleanValue>true</booleanValue>
+                    <stringValue>Web</stringValue>
                 </rightValue>
             </conditions>
             <conditions>
@@ -60,6 +61,27 @@
             </conditions>
             <conditions>
                 <leftValueReference>GetCases.Contact.LastName</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>GetCases.Web_Category_of_Interest__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>GetCases.AccountId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>GetCases.Contact.MailingCountry</leftValueReference>
                 <operator>IsNull</operator>
                 <rightValue>
                     <booleanValue>true</booleanValue>
@@ -141,7 +163,48 @@
     <description>It converts closed Case into Lead and it copy fields from contact and case object to lead object
 Hema 10/20/21 - Removed Mailing address validation.
 Hema 10/22/21 - Added null check for Case Origin on Case.
-Hema 11/04/21 - Updated error validation on Description field on Case.</description>
+Hema 11/04/21 - Updated error validation on Description field on Case.
+Ryan 11/29/21 - Added Origin Web requirements. Mapped company to Account Name.
+Hema 11/30/21 - Added Mailing Country validation and Category of Interest formula pulling from Product category
+Hema 12/1/21 - Added formulas to populate Name on Lead from Web Name if First Name on Contact is null and Country from Web Country when Mailing Country on Contact is null. RunAssignmentRules</description>
+    <formulas>
+        <name>Set_CategoryOfInterest</name>
+        <dataType>String</dataType>
+        <expression>CASE({!GetCases.Product_Category__c},
+&apos;Oscilloscopes&apos;, &apos;Oscilloscopes&apos;,
+&apos;Power Analyzers and Power Meters&apos;, &apos;Digital Power Analyzers&apos;,
+&apos;Data Acquisition&apos;, &apos;Data Acquisition&apos;,
+&apos;Optical Test Equipment&apos;, &apos;Optical Measuring Instruments&apos;,
+&apos;Signal Generators, Sources and Supplies&apos;, &apos;Generators/Sources/Calibrators/Manometers&apos;,
+&apos;Pressure Measurement Instruments&apos;, &apos;Generators/Sources/Calibrators/Manometers&apos;,
+&apos;Portable and Handheld Instruments&apos;, &apos;Portable Test Instruments&apos;,
+&apos;Others&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <description>Web Country when Mailing Country on Contact is null when Case Origin is Web.</description>
+        <name>Set_Country</name>
+        <dataType>String</dataType>
+        <expression>IF(
+AND(
+ISPICKVAL({!GetCases.Origin}, &apos;Web&apos;),
+{!GetCases.Contact.MailingCountry} = Null
+),
+{!GetCases.Web_Country__c},
+{!GetCases.Contact.MailingCountry}
+)</expression>
+    </formulas>
+    <formulas>
+        <description>Web Name when First Name on Contact is null when Case Origin is Web.</description>
+        <name>Set_Name</name>
+        <dataType>String</dataType>
+        <expression>IF (
+AND (
+ISPICKVAL({!GetCases.Origin}, &apos;Web&apos;), 
+{!GetCases.Contact.FirstName} = Null),
+{!GetCases.SuppliedName}, 
+{!GetCases.Contact.FirstName} )</expression>
+    </formulas>
     <interviewLabel>YODA Case to Lead {!$Flow.CurrentDateTime}</interviewLabel>
     <label>YODA Case to Lead</label>
     <processMetadataValues>
@@ -196,7 +259,7 @@ Hema 11/04/21 - Updated error validation on Description field on Case.</descript
         <inputAssignments>
             <field>Category_of_Interest__c</field>
             <value>
-                <elementReference>GetCases.Web_Category_of_Interest__c</elementReference>
+                <elementReference>Set_CategoryOfInterest</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -208,13 +271,13 @@ Hema 11/04/21 - Updated error validation on Description field on Case.</descript
         <inputAssignments>
             <field>Company</field>
             <value>
-                <elementReference>GetCases.SuppliedCompany</elementReference>
+                <elementReference>GetCases.Account.Name</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
-            <field>CountryCode</field>
+            <field>Country</field>
             <value>
-                <elementReference>GetCases.Contact.MailingCountryCode</elementReference>
+                <elementReference>Set_Country</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -232,7 +295,7 @@ Hema 11/04/21 - Updated error validation on Description field on Case.</descript
         <inputAssignments>
             <field>FirstName</field>
             <value>
-                <elementReference>GetCases.Contact.FirstName</elementReference>
+                <elementReference>Set_Name</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -334,7 +397,7 @@ Hema 11/04/21 - Updated error validation on Description field on Case.</descript
         <locationY>758</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>leadRunAssignmentRule</targetReference>
+            <targetReference>RunAssignmentRules</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -415,7 +478,7 @@ Hema 11/04/21 - Updated error validation on Description field on Case.</descript
         <allowPause>true</allowPause>
         <fields>
             <name>WebCategory</name>
-            <fieldText>&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(62, 62, 60);&quot;&gt;Web category is missing on Case record&lt;/span&gt;&lt;/p&gt;</fieldText>
+            <fieldText>&lt;p&gt;&lt;span style=&quot;color: rgb(62, 62, 60); background-color: rgb(255, 255, 255);&quot;&gt;Web Category is missing on Case record&lt;/span&gt;&lt;/p&gt;</fieldText>
             <fieldType>DisplayText</fieldType>
             <visibilityRule>
                 <conditionLogic>and</conditionLogic>
@@ -424,6 +487,13 @@ Hema 11/04/21 - Updated error validation on Description field on Case.</descript
                     <operator>IsNull</operator>
                     <rightValue>
                         <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>GetCases.Origin</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <stringValue>Web</stringValue>
                     </rightValue>
                 </conditions>
             </visibilityRule>
@@ -439,6 +509,13 @@ Hema 11/04/21 - Updated error validation on Description field on Case.</descript
                     <operator>IsNull</operator>
                     <rightValue>
                         <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>GetCases.Origin</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <stringValue>Web</stringValue>
                     </rightValue>
                 </conditions>
             </visibilityRule>
@@ -471,6 +548,13 @@ Hema 11/04/21 - Updated error validation on Description field on Case.</descript
                         <booleanValue>true</booleanValue>
                     </rightValue>
                 </conditions>
+                <conditions>
+                    <leftValueReference>GetCases.Origin</leftValueReference>
+                    <operator>NotEqualTo</operator>
+                    <rightValue>
+                        <stringValue>Web</stringValue>
+                    </rightValue>
+                </conditions>
             </visibilityRule>
         </fields>
         <fields>
@@ -484,6 +568,43 @@ Hema 11/04/21 - Updated error validation on Description field on Case.</descript
                     <operator>IsNull</operator>
                     <rightValue>
                         <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
+        <fields>
+            <name>AccountId</name>
+            <fieldText>&lt;p&gt;Account is missing on Case record&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>GetCases.Account.Name</leftValueReference>
+                    <operator>IsNull</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
+        </fields>
+        <fields>
+            <name>MailingCountry</name>
+            <fieldText>&lt;p&gt;Mailing Country is missing on Contact record&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>GetCases.Contact.MailingCountry</leftValueReference>
+                    <operator>IsNull</operator>
+                    <rightValue>
+                        <booleanValue>true</booleanValue>
+                    </rightValue>
+                </conditions>
+                <conditions>
+                    <leftValueReference>GetCases.Origin</leftValueReference>
+                    <operator>NotEqualTo</operator>
+                    <rightValue>
+                        <stringValue>Web</stringValue>
                     </rightValue>
                 </conditions>
             </visibilityRule>
