@@ -1612,6 +1612,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Case.Legacy_system_ID__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Case.Migration_Id__c</field>
         <readable>true</readable>
     </fieldPermissions>

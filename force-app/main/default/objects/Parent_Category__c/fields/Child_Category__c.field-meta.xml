@@ -11,3 +11,4 @@
     <trackTrending>false</trackTrending>
     <type>Lookup</type>
 </CustomField>
+<!-- I-425319 added missing field in QA -->
