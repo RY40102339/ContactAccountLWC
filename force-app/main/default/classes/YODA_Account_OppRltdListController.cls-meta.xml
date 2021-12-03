@@ -2,4 +2,5 @@
 <ApexClass xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>52.0</apiVersion>
     <status>Active</status>
-</ApexClass> 
+</ApexClass>
+<!-- I-425331_Visibility -->
