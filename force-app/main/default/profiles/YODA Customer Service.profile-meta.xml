@@ -1612,6 +1612,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Case.Legacy_system_ID__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Case.Migration_Id__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2857,7 +2862,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Parent_Category__c.Child_Category__c</field>
+        <field>Parent_Category__c.Child_Category_ID__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
