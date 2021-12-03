@@ -2,8 +2,7 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>ContactId</fullName>
     <lookupFilter>
-        <active>true</active>
-        <errorMessage>Contact much be a member of the account on the case.</errorMessage>
+        <active>false</active>
         <filterItems>
             <field>Contact.AccountId</field>
             <operation>equals</operation>
