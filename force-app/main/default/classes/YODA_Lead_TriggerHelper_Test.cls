@@ -17,89 +17,126 @@
 *  10/12/2021      Kameron F.          Created Class
 *  11/29/2021	   Kameron F.		   Added test for ownership change
 *  11/30/2021	   Kameron F.		   Added test for null accounts and changing contact
+*  12/6/2021	   Kameron F.		   Added test for profile checks
 */
 @isTest
 public class YODA_Lead_TriggerHelper_Test {
     @testSetup
     static void mainSetup(){
+        // Creating Queue
         Group testGroup = new Group(Name='QUEUE NAME', Type='Queue');
         insert testGroup;
         
         QueuesObject testQueue = new QueueSObject(QueueID = testGroup.id, SobjectType = 'Lead');
         insert testQueue;
+        
+        List<User> userList = new List<User>();
+        
+        Profile p2 = [SELECT Id FROM Profile WHERE Name='YODA Sales'];
+        Integer RandomId2 =Integer.valueOf(Math.rint(Math.random()*1000000));
+        User u = new User(Alias = 'standt2', Email='standarduser@testorg.com',
+                          EmailEncodingKey='UTF-8', LastName='Testing', LanguageLocaleKey='en_US',
+                          LocaleSidKey='en_US', ProfileId = p2.Id,
+                          TimeZoneSidKey='America/Los_Angeles', UserName='standarduser@testorg.com'+RandomId2);
+        userList.add(u);
+        
+        Integer RandomId3 =Integer.valueOf(Math.rint(Math.random()*1000000));
+        User u2 = new User(Alias = 'standt3', Email='standarduser@testorg.com',
+                          EmailEncodingKey='UTF-8', LastName='Testing', LanguageLocaleKey='en_US',
+                          LocaleSidKey='en_US', ProfileId = p2.Id,
+                          TimeZoneSidKey='America/Los_Angeles', UserName='standarduser@testorg.com'+RandomId3);
+        userList.add(u2);
+        
+        insert userList;
+        
+        // Creating valid personas for Sales Person and Sales Manager
+        List<PermissionSetGroup> PSG =  [SELECT ID, MasterLabel FROM PermissionSetGroup WHERE MasterLabel ='YODA Sales Manager' OR MasterLabel ='YODA Sales Person']; 
+        List<PermissionSetAssignment> psa = new List<PermissionSetAssignment>();
+        for(PermissionSetGroup indPSG : PSG){
+        	if(indPSG.MasterLabel=='YODA Sales Manager')
+          		psa.add(new PermissionSetAssignment(AssigneeId = u.Id,PermissionSetGroupId =indPSG.id));
+            else
+                psa.add(new PermissionSetAssignment(AssigneeId = u2.Id,PermissionSetGroupId =indPSG.id));
+        }
+        insert psa;
+        
+        // Adding both users to queue
+        List<GroupMember> gm = new List<GroupMember>();
+       	gm.add(new GroupMember(GroupId = testGroup.ID, UserOrGroupId = u.Id));
+        gm.add(new GroupMember(GroupId = testGroup.ID, UserOrGroupId = u2.Id));
+    	insert gm;
     }
     @isTest
     static void checkOwnerChange(){
         Group testGroup = [SELECT Name FROM Group WHERE Name = 'QUEUE NAME'];
-        Profile p = [SELECT Id FROM Profile WHERE Name='B2BMA Integration User'];
-        Integer RandomId=Integer.valueOf(Math.rint(Math.random()*1000000));
-        User u = new User(Alias = 'standt', Email='standarduser@testorg.com',
-                          EmailEncodingKey='UTF-8', LastName='Testing', LanguageLocaleKey='en_US',
-                          LocaleSidKey='en_US', ProfileId = p.Id,
-                          TimeZoneSidKey='America/Los_Angeles', UserName='standarduser@testorg.com'+RandomId);
+        User u = [SELECT Alias FROM User WHERE Alias = 'standt2'];
+        User u2 = [SELECT Alias FROM User WHERE Alias = 'standt3'];
         
+       
+        
+        List<Contact> conList = new List<Contact>();
         Contact con = new Contact(Self_registered_company__c='TestCo',FirstName='JapanQueue1',LastName='Test',
                                   Rating__c='Hot',Category_Of_interest__c='Data Acquisition',MailingCountry='Aruba',
                                   Email='JapanQueue1@test.com');
-        insert con;
-        System.runAs(u){
-            con.Multiple_Inquiry__c = true;            
-            update con;
-        }
-        
-        Profile p2 = [SELECT Id FROM Profile WHERE Name='YODA Sales'];
-        Integer RandomId2 =Integer.valueOf(Math.rint(Math.random()*1000000));
-        User u2 = new User(Alias = 'standt', Email='standarduser@testorg.com',
-                          EmailEncodingKey='UTF-8', LastName='Testing', LanguageLocaleKey='en_US',
-                          LocaleSidKey='en_US', ProfileId = p2.Id,
-                          TimeZoneSidKey='America/Los_Angeles', UserName='standarduser@testorg.com'+RandomId2);
-        insert u2;
-        
-        Test.startTest();
-        Lead ld = [SELECT Related_contact__c FROM Lead WHERE Related_Contact__c = :con.id];
-        ld.OwnerId = u2.id;
-        update ld;
-        Test.stopTest();
-        
-        con = [SELECT OwnerID, ID FROM Contact WHERE ID = :ld.Related_Contact__c];
-        
-        System.assertEquals(u2.ID, con.OwnerId);
-        
-        ld.OwnerId = testGroup.ID;
-        update ld;
-        
-        con = [SELECT OwnerID, ID FROM Contact WHERE ID = :ld.Related_Contact__c];
-        System.assertNotEquals(testGroup.ID, con.OwnerId);
-        
-        ld.OwnerID = u2.ID;
-        update ld;
-        
-        Account acc = new Account(Name='TestAcc');
-        insert acc;
-        
-        con.AccountID = acc.ID;
-        update con;
-        
-        ld.OwnerID = u.ID;
-        update ld;
-        
-        con = [SELECT OwnerID, ID FROM Contact WHERE ID = :ld.Related_Contact__c];
-        
-        System.assertEquals(u2.ID, con.OwnerId);
         
         Contact con2 = new Contact(Self_registered_company__c='TestCo',FirstName='ArubaQueue',LastName='Test',
-                                  Rating__c='Hot',Category_Of_interest__c='Data Acquisition',MailingCountry='Aruba',
-                                  Email='ArubaQueue@test.com', OwnerID = u2.ID);
-        insert con2;
-        
-        ld.Related_Contact__c = con2.ID;
-        
-        update ld;
-        
+                                      Rating__c='Hot',Category_Of_interest__c='Data Acquisition',MailingCountry='Aruba',
+                                      Email='ArubaQueue@test.com');
+        conList.add(con2);
+        conList.add(con);
+        insert conList;
+
+        // Assigning lead to queue to start test scenarios
+        Lead ld = new Lead(Country='Aruba',LastName='Test',FirstName='1',Category_Of_Interest__c='Others',Company='TestCo',Email='Test@test.com');
+        ld.OwnerId = testGroup.ID;
+        ld.Related_Contact__c = con.id;
+        insert ld;
+		
+        // Testing most Lead Ownership changes
+        System.runAs(u){
+            // Testing initial Queue to User
+            ld.OwnerId = u.id;
+            update ld;
+            
+            con = [SELECT OwnerID, ID FROM Contact WHERE ID = :ld.Related_Contact__c];
+            
+            System.assertEquals(u.ID, con.OwnerId);
+            
+            // Testing to make sure lead owner changes to queue but contact owner does not
+            ld.OwnerId = testGroup.ID;
+            update ld;
+            
+            con = [SELECT OwnerID, ID FROM Contact WHERE ID = :ld.Related_Contact__c];
+            System.assertNotEquals(testGroup.ID, con.OwnerId);
+            
+            // Testing to make sure no owner changes occur when contact has account
+            ld.OwnerID = u.ID;
+            update ld;
+            
+            Account acc = new Account(Name='TestAcc');
+            insert acc;
+            
+            con.AccountID = acc.ID;
+            update con;
+            
+            ld.OwnerID = u2.ID;
+            update ld;
+            
+            con = [SELECT OwnerID, ID FROM Contact WHERE ID = :ld.Related_Contact__c];
+            
+            System.assertEquals(u.ID, con.OwnerId);
+        }
+        // Testing updating the related contact to a new contact to change ownership
+		con2.OwnerId = u2.id;
+        update con2;
+        System.runAs(u2){
+            ld.Related_Contact__c = con2.ID;
+            ld.OwnerId = u.id;
+            update ld;
+        }
         con2 = [SELECT OwnerID, ID FROM Contact WHERE ID = :ld.Related_Contact__c];
         
-        System.assertEquals(u.ID, con2.OwnerId);
-       
+        System.assertEquals(u.ID, con2.OwnerId); 
     }
     @isTest
     static void platformEventTest(){
