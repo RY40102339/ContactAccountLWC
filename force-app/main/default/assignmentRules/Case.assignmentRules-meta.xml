@@ -109,7 +109,6 @@
             <formula>AND(IF( ISPICKVAL(Origin, &quot;Web&quot;) ,  CONTAINS(&quot; AR,BO,BR,CL,CO,CU,EC,GY,PY,PE,SR,UY,VE&quot;,TEXT(Web_Country_tobedeleted__c)),     CONTAINS(&quot; Argentina,Bolivia, Plurinational State of,Brazil,Chile,Colombia,Cuba,Ecuador,Guyana,Paraguay,Peru,Suriname,Uruguay,Venezuela, Bolivarian Republic of&quot;, Contact.MailingCountry )  ),  ISPICKVAL( $User.Business_Unit__c,&quot;YMI SBU&quot;) )</formula>
         </ruleEntry>
     </assignmentRule>
-
     <assignmentRule>
         <fullName>YODA_Case_Assignment_Rules_V1</fullName>
         <active>true</active>
@@ -238,15 +237,16 @@
             <assignedToType>Queue</assignedToType>
             <formula>IF( ISPICKVAL(Origin, &quot;Web&quot;) ,  AND(NOT(ISBLANK(Web_Country__c)),CONTAINS(&quot;Argentina,Bolivia,Brazil,Chile,Colombia,Cuba,Ecuador,Guyana,Paraguay,Peru,Suriname,Uruguay,Venezuela&quot;, Web_Country__c)),  AND(NOT(ISBLANK(Contact.MailingCountry)),CONTAINS(&quot;Argentina,Bolivia,Brazil,Chile,Colombia,Cuba,Ecuador,Guyana,Paraguay,Peru,Suriname,Uruguay,Venezuela&quot;, Contact.MailingCountry )))</formula>
             <template>Service_Emails/YODA_Case_added_to_queue_notification</template>
-            </ruleEntry>
-            <ruleEntry>
-                <assignedTo>YODA_Internal_Support</assignedTo>
-                <assignedToType>Queue</assignedToType>
-                <criteriaItems>
-                    <field>Case.RecordTypeId</field>
-                    <operation>equals</operation>
-                    <value>YODA Internal Support</value>
-                </criteriaItems>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>YODA_Internal_Support</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>YODA Internal Support</value>
+            </criteriaItems>
+            <template>Service_Emails/YODA_Case_added_to_queue_notification</template>
         </ruleEntry>
     </assignmentRule>
 </AssignmentRules>
