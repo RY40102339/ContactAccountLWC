@@ -1,0 +1,10 @@
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+<types>
+<members>Case-YODA General Inquiry</members>
+<members>Case-YODA Service Request Layout</members>
+<members>Case-YODA Technical Support Layout</members>
+<members>Case-YODA Sales Request Layout</members>
+<name>Layout</name>
+</types>
+<version>52.0</version>
+</Package>
